@@ -342,6 +342,7 @@ contexts = ["vs_notrump"]
 level = 5
 names = ["DONT", "D.O.N.T.", "Disturb Opponents' No Trump", "Disturbing Opponents NT"]
 taught_under = ["competitive_bidding/defense_vs_1nt"]
+implements = ["defence_to_1nt"]
 summary = """
 Over their strong 1NT: double shows one long suit (partner relays 2♣); 2♣
 and 2♦ show that suit and a higher one; 2♥ both majors; 2♠ six or more
@@ -368,39 +369,61 @@ site = "Advancing in Bridge"
 url = "https://www.advinbridge.com/this-week-in-bridge/541"
 ```
 
-`settings/competitive.toml` keeps the setting, and says which options play a
-convention:
+Rick, 2026-11-13: DONT, Meckwell and Cappelletti are conventions, and
+"the defence to 1NT" is a function each of them fills. The two `system`
+settings go; `functions.toml` has:
 
 ```toml
-"vs_1nt_strong.system" = { kind = "enum", label = "Defense vs strong 1NT",
-  options = ["cappelletti", "modified_cappelletti", "landy", "multi_landy", "dont", "meckwell", "suction", "natural", "other"],
-  plays = { dont = "competitive_bidding/dont", cappelletti = "competitive_bidding/cappelletti", meckwell = "competitive_bidding/meckwell" } }
+[defence_to_1nt]
+name = "Defence to their 1NT opening"
+parts = ["strong", "weak"]
 ```
 
-`rules/competitive/dont.bid` (under `rules/`, with no `convention` header,
-because it is on two ways):
+A card, three ways:
+
+```json
+"competitive_bidding/dont": {}
+```
+
+plays DONT against every 1NT.
+
+```json
+"competitive_bidding/dont":        { "for": ["defence_to_1nt.strong"] },
+"competitive_bidding/cappelletti": { "for": ["defence_to_1nt.weak"] }
+```
+
+plays one against each strength. Listing DONT and Meckwell with no `for` is
+a conflict, reported by the editor and the engine.
+
+`conventions/competitive_bidding/dont/dont.bid`, beside the definition:
 
 ```
 module dont "DONT over their 1NT"
-  kind   convention
-  needs  vs-1nt
-  skill  competitive_bidding/dont
-  skill  competitive_bidding/defense_vs_1nt
-  param  def       = competitive.vs_1nt_strong.system default other
-  param  dont_play = competitive_bidding/dont default false
+  kind        convention
+  convention  competitive_bidding/dont
+  needs       vs-1nt
+  skill       competitive_bidding/defense_vs_1nt
+  param  def = defence_to_1nt.strong default none
 
-after (1N) | (1N) P (P) when def is dont | (dont_play, def is other)
+after (1N) | (1N) P (P) when def is competitive_bidding/dont
 ```
+
+The schema 2 to 3 migration keeps today's precedence, so the bidding does
+not change: the setting's convention becomes the entry; `dont.play` becomes
+an entry only where the setting was unset or `other`; `natural` and `other`
+leave no entry.
 
 ### What it showed
 
-- **D9. "Does this card play DONT" has two answers.** The card's
-  `conventions` may not list DONT while the setting chooses it. Four
-  defences to 1NT are chosen only through that setting (Cappelletti,
-  Meckwell, Suction, Multi-Landy), DONT has it as a second way on, and four
-  other settings already carry a `plays` attribute (three two-level openings whose
-  "weak" option plays Weak Twos, and the 2/1 rebid style that plays the
-  Schuler Shift).
+- **D9. "Does this card play DONT" had two answers today.** Four
+  defences to 1NT are chosen only through the setting (Cappelletti,
+  Meckwell, Suction, Multi-Landy) and DONT has it as a second way on. With
+  the function there is one answer, the card's entry. Four other settings
+  carry a `plays` attribute (three two-level openings whose "weak" option
+  plays Weak Twos, and the 2/1 rebid style that plays the Schuler Shift);
+  the openings are the same case (Rick: 2♦ is claimed by Weak Twos,
+  Mini-Roman, Mexican 2♦ and Multi) and get the `opening` function in
+  Phase 5.
 - **D10. The same defence against a weak notrump.** The setting for the weak
   1NT offers DONT, but the rules read only the strong one.
 - **D11. Text that spells out a chosen convention.** Seven write-in settings
@@ -413,7 +436,9 @@ after (1N) | (1N) P (P) when def is dont | (dont_play, def is other)
 - **D14. A choice between conventions.** Not DONT's, but found while
   checking it: Blackwood or Roman Keycard, and Leaping or Non-leaping
   Michaels, are choice groups across two conventions. A definition names no
-  card, so the choice has to live in the definitions.
+  card, so the choice has to live in the definitions. Rick: not by naming
+  each other, which grows with every addition (Kickback next), but by each
+  claiming a function.
 
 ## What the examples showed
 
@@ -431,15 +456,11 @@ this, as a proposal for Rick to accept or change.
 | D6 | A migrated entry with treatments and no switch (77 groups on 22 public cards) | Settled (Rick, 2026-11-13): no third value. The migration writes an entry when a treatment is on or filled in, and none otherwise; cards converted from BBA files are converted again, with the bbsa map setting the switch | Contract |
 | D7 | A variant's level is stated twice | The treatment's level is the one tools read; a variant's definition may omit `level` | Contract |
 | D8 | Write-in notes for a convention that sit outside its group | Stay settings in Phase 3; Phase 5 moves them to the entry's `text`, as the plan lists for Bergen | Plan, Phase 5 |
-| D9 | A convention chosen as an option of a setting | A setting keeps `plays = { option = ID }`. A card plays a convention when its entry says so or a setting's chosen option plays it. Rule files keep spelling out both reads | Contract |
+| D9 | A convention chosen as an option of a setting | Settled (Rick, 2026-11-13): each is a convention that `implements` a function (`defence_to_1nt`, `opening`). The 1NT settings become entries in Phase 3; the two-level openings in Phase 5 | Contract |
 | D10 | A defence offered against a weak notrump that the rules never read | Record in the inventory; a behaviour question for Phase 5 or later | Phase 1 inventory |
-| D11 | Write-ins that spell out a chosen convention | Stay settings, with `explains` naming the setting | Contract |
+| D11 | Write-ins that spell out a chosen convention | Stay settings, with `explains` naming the function part | Contract |
 | D12 | A source that is not a publication | `kind = "personal"` covers a ruling; code in another tool is cited as a tool, by name and date, with no path | Contract |
 | D13 | Generated examples that only one bidder can make | Already covered: each example names its bidder | Contract |
-| D14 | A choice between two conventions | `alternatives = [ID, ...]` on each definition; a card that plays two is reported as a conflict | Contract |
+| D14 | A choice between two conventions | Settled (Rick, 2026-11-13): no convention names another. Each `implements` a function (`ace_ask.major`, `ace_ask.minor`), and readers find conflicts from those | Contract |
 
-One of these changes how a decision of 2026-11-13 reads, and needs Rick's
-answer before the contract is accepted:
-
-- **D9** means the bare-ID address in a rule file (issue #4) reads the
-  card's entry only, not a setting that chooses the convention.
+D6, D9 and D14 were settled by Rick on 2026-11-13, as shown.

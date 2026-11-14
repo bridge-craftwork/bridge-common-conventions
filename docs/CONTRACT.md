@@ -69,7 +69,7 @@ conventions/
         examples.pbn                   curated example hands
 rules/<folder>/                        every other rule file
 settings/<section>.toml                card settings
-contexts.toml  levels.toml  alerts.toml
+contexts.toml  functions.toml  levels.toml  alerts.toml
 migrations/<from>-to-<to>.toml         every rename, permanent
 ```
 
@@ -122,7 +122,7 @@ rule_language_version = 2
 | `confirm`, `confirm_names` | Names that are ordinary words or could mean another convention; a match on one is offered to a person, not applied |
 | `summary` | What it is, in a few lines of the pack author's own words, sized for a chat line; suits as ♣♦♥♠ |
 | `taught_under` | Other IDs whose lessons and scenarios also teach this one |
-| `alternatives` | IDs of conventions played instead of this one. A card that plays two is in conflict |
+| `implements` | The [functions](#functions) it fills: `["defence_to_1nt"]`, or one part, `["ace_ask.minor"]`. Two conventions a card plays for the same function, or the same part of it, are in conflict |
 | `source` | Where the ID came from: `taxonomy`, `lessons` or `proposed` |
 | `[treatments.<name>]` | One table per treatment, below |
 | `[variant]` | For an ID that is a version of another convention, below |
@@ -137,8 +137,8 @@ is each card model's business.
 #### Treatments
 
 A treatment's name is lower-case letters, digits and underscores, and unique
-within its convention. `play`, `text` and `from` are reserved and are never
-treatment names.
+within its convention. `play`, `text`, `from` and `for` are reserved and are
+never treatment names.
 
 | Key | Meaning |
 |---|---|
@@ -246,14 +246,14 @@ A setting has the attributes of a treatment, plus:
 
 | Key | Meaning |
 |---|---|
-| `plays` | For an `enum`: `{ option = ID }`. The card plays that convention while the setting holds that option |
+| `plays` | For an `enum`: `{ option = ID }`. The card plays that convention while the setting holds that option. Kept only for the four settings that carry it today (three two-level openings and the 2/1 rebid style) until Phase 5 gives the openings a function |
 | `skill` | The ID the setting is taught under |
 | `aliases` | Older spellings that still load |
 
 Section names are names, not card positions. A card model maps each setting
 to wherever it prints it, or nowhere.
 
-### 6. Contexts, levels and alerts
+### 6. Contexts, functions, levels and alerts
 
 `contexts.toml` lists the contexts in display order. Each has a key, which
 never changes, and a display name, which may.
@@ -279,6 +279,43 @@ A card model prints a convention's write-in text where it puts the
 convention's first context. The other contexts are for grouping and
 filtering.
 
+#### Functions
+
+A function is a job in the system that one convention at a time can do: the
+defence to their 1NT, asking for aces, what a 2♦ opening means. Conventions
+do not name each other. Each says which function it fills, with
+`implements`, and a reader finds a conflict by comparing those.
+
+`functions.toml` lists them. A function may have parts, for a job that can
+be shared out:
+
+```toml
+[defence_to_1nt]
+name = "Defence to their 1NT opening"
+parts = ["strong", "weak"]
+
+[ace_ask]
+name = "Asking for aces or keycards"
+parts = ["major", "minor"]
+
+[opening]
+name = "Meaning of an opening bid"
+parts = ["2c", "2d", "2h", "2s"]
+```
+
+- A definition that implements `defence_to_1nt` fills every part. One that
+  implements `ace_ask.minor` fills that part only.
+- A card entry may narrow what its convention fills with `for` (section 8).
+- **A conflict** is two conventions the card plays filling the same part.
+  Readers report it: the editor when the card is edited, the engine when it
+  loads. A card in conflict still loads and prints.
+- **A function is listed only where conventions compete one by one.** What
+  a system fixes as a whole (a Precision 1♣ against a 2/1 1♣) is part of
+  choosing the system and gets no function or part.
+- A function's name is never also a setting's section name.
+- Adding a convention to a function touches that convention's definition
+  and nothing else.
+
 `levels.toml` names the bands of the 1 to 10 scale. `alerts.toml` says which
 calls need an alert or an announcement, by regulator. Both keep
 `convention-card`'s present format, with a convention or treatment named by
@@ -294,6 +331,7 @@ use the same three shapes, told apart by form.
 | An ID | Whether the card plays that convention | `bidding_conventions/drury` |
 | `<id>:<treatment>` | That convention's treatment | `bidding_conventions/jacoby_transfers:over_2nt` |
 | A dotted path with no slash | A setting | `notrump.one_nt.range_min` |
+| The same shape, naming a function or one part | The ID of the convention the card plays for it | `defence_to_1nt.strong` |
 
 Inside a rule file that carries a `convention` header, a bare name with no
 dot, slash or colon is a treatment of that convention (`two_under`).
@@ -324,6 +362,7 @@ Card schema 3.
 | `play` | `true` or left out: the partnership plays it. `false`: it has agreed not to |
 | `text` | What a person wrote about it, printed in the write-in lines of its main context |
 | `from` | Where an entry added by a tool came from |
+| `for` | The functions or parts this card plays it for, when fewer than the definition's `implements`: `["defence_to_1nt.strong"]` |
 | any other key | A treatment's value, by the treatment's name |
 
 - **A card written by hand can list its conventions and nothing else.**
@@ -335,8 +374,11 @@ Card schema 3.
   an entry (played) when a treatment is on or filled in, and no entry
   otherwise. Cards converted from another format are converted again from
   their source, not migrated.
-- **A card plays a convention** when its entry says so, or when a setting's
-  chosen option `plays` it.
+- **A card plays a convention** when its entry says so. (Until Phase 5, also
+  when one of the four settings with `plays` holds that option.)
+- **Two entries filling the same part of a function are a conflict**
+  (section 6). `for` is how a card plays DONT against a strong notrump and
+  Cappelletti against a weak one.
 - An entry for an ID the reader does not know, and a key in an entry that is
   not a treatment it knows, are kept and written back.
 
@@ -373,8 +415,10 @@ module texas-transfers "Texas Transfers"
   setting. Several must all hold.
 - **`param <name> = <address> [default v]`** reads any address. A bare ID
   reads the card's entry only: a module that is also switched by a setting
-  reads that setting too. The `default` is the bidder's own choice for a
-  silent card and stays in the rule file.
+  reads that setting too. A function address reads the ID of the convention
+  the card plays for it, and the default when none or more than one does.
+  The `default` is the bidder's own choice for a silent card and stays in
+  the rule file.
 - **A module that is more than one convention has no `convention` header**
   and spells out every read.
 - **Checks.** A convention, treatment or enum option the pack does not
@@ -480,8 +524,6 @@ states a proposal for each; Rick accepts or changes it.
 
 | | Question | This draft says |
 |---|---|---|
-| D9 | A convention can be chosen as an option of a setting (the defence to 1NT, weak twos) | Settings keep `plays`; a bare ID in a rule file reads the entry only (sections 5, 8, 9) |
-| D14 | A choice between two conventions (Blackwood or Roman Keycard) has to live in the definitions | `alternatives` on each definition (section 4) |
 | D3 | A convention's own scenario may be tagged with the ID it is taught under | Accepted by the check (section 4, Deals) |
 | D4 | References carried over have no date and no role | `used` left out, `role` defaults to `about` (section 4, References) |
 | D7 | A variant's level is stated twice | The treatment's level is read (section 4, Variants) |

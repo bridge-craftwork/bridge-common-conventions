@@ -118,6 +118,7 @@ conventions in [WORKED-EXAMPLES.md](WORKED-EXAMPLES.md).
 | How a rule file names what it reads | `convention <id>` identifies and switches. Three address shapes: an ID, `<id>:<treatment>`, a dotted setting. Rule language 2 | #4 |
 | Directory layout | Below. Rule files sit beside their definition when they carry the header, otherwise under `rules/` | #5 |
 | The tie-breaker between candidate calls | Module name, in place of file path | #5 |
+| Conventions that cannot be played together | Each `implements` a function (`defence_to_1nt`, `ace_ask`, `opening`), listed in `functions.toml`. No convention names another; the editor and the engine find conflicts from the functions. A card entry narrows with `for` | #3 |
 | Whether Reverse Drury is a style of Drury | Yes, and the same for all nine treatments that name another convention. Each keeps its ID and points at its parent | #6 |
 
 ### What the measurements corrected
@@ -172,7 +173,7 @@ conventions/<category>/<name>/     the directory path is the ID
 rules/<folder>/                    every other rule file: several conventions
                                    in one module, system, judgement
 settings/<section>.toml            card settings: common names
-contexts.toml  levels.toml  alerts.toml
+contexts.toml  functions.toml  levels.toml  alerts.toml
 migrations/                        every rename, permanent
 docs/                              this plan, the contract
 ```
@@ -245,6 +246,10 @@ can be committed.
 - `rusty-bidding-bot`: rule language 2. The `convention` header on the 43
   modules switched by their own convention; the three address shapes on
   every `card` and `param` line; the module name as the tie-breaker.
+- Functions for the choices cards already make: `defence_to_1nt` (the two
+  `vs_1nt_*.system` settings become entries, with today's precedence kept
+  by the migration), `ace_ask` (Blackwood, Roman Keycard) and Michaels over
+  preempts (Leaping, Non-leaping). Conflicts are reported, never acted on.
 
 **Done when** every phase 2 comparison shows no difference at all, in two
 steps: today's rules under the new tie-breaker against today's rules under
@@ -276,6 +281,10 @@ Each produces a small, expected difference against phase 2.
 - "Treatments mean nothing while their convention is off", enforced in
   one place in the library and the crate. Today Bergen, Drury and fourth
   suit forcing are switched on by a treatment alone.
+- The `opening` function: Weak Twos, Multi, Mini-Roman, Flannery and the
+  other two-level openings claim their bids, and the three `meaning`
+  settings with `plays` give way to entries. Kickback and Minorwood claim
+  `ace_ask.minor`.
 - The bbsa map sets a convention's switch where a BBA file has lines only
   for its treatments (fourth suit forcing: on when either line is on).
 - Rule modules that gain the `convention` header move beside their
