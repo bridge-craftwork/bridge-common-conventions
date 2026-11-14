@@ -1,5 +1,6 @@
 id = "competitive_bidding/sos_redouble"
 name = "SOS redouble"
+brief = "Redouble asking partner to pick another suit"
 source = "proposed"
 level = 7
 contexts = ["after_interference"]

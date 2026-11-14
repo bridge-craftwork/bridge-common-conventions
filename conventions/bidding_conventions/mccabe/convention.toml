@@ -1,5 +1,6 @@
 id = "bidding_conventions/mccabe"
 name = "McCabe adjunct"
+brief = "After weak two doubled: 2NT = lead-directing raise"
 source = "proposed"
 level = 8
 contexts = ["preemptive_openings"]

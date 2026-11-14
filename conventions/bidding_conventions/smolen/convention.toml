@@ -1,5 +1,6 @@
 id = "bidding_conventions/smolen"
 name = "Smolen"
+brief = "Show 5-4 majors after Stayman"
 source = "proposed"
 level = 4
 contexts = ["notrump_openings"]

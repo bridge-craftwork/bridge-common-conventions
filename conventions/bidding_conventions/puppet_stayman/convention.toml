@@ -19,6 +19,7 @@ see = [
 
 [treatments.over_1nt]
 kind = "bool"
+brief = "Over 2NT, asks for 5-card major"
 label = "Puppet Stayman over 1NT (3♣)"
 desc = "Bridge Classroom's editor, its PDFs and the BBO and Bridgodex importers write notrump.stayman.puppet for this (BBO's 1NPuppet, the Classic card's 1NT box)"
 level = 7

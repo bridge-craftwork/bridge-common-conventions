@@ -1,5 +1,6 @@
 id = "bidding_conventions/texas"
 name = "Texas transfers"
+brief = "4♦/4♥ at game level"
 source = "proposed"
 level = 4
 contexts = ["notrump_openings"]

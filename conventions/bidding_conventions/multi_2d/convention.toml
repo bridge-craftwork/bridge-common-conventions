@@ -1,5 +1,6 @@
 id = "bidding_conventions/multi_2d"
 name = "Multi 2♦"
+brief = "Weak 2 in a major (or strong variants)"
 source = "proposed"
 level = 8
 contexts = ["preemptive_openings"]

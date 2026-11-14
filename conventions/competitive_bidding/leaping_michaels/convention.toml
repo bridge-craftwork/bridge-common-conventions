@@ -1,5 +1,6 @@
 id = "competitive_bidding/leaping_michaels"
 name = "Leaping Michaels"
+brief = "4♣/4♦ over weak two = good 5+ in that minor + 5+ major"
 source = "proposed"
 level = 7
 contexts = ["vs_openings"]

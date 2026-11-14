@@ -1,5 +1,6 @@
 id = "competitive_bidding/lead_directing_doubles"
 name = "Lead-directing doubles"
+brief = "Double of artificial bid suggests opening lead"
 source = "proposed"
 level = 5
 contexts = ["doubles"]

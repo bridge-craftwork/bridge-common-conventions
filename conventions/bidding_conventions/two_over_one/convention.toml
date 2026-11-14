@@ -1,5 +1,6 @@
 id = "bidding_conventions/two_over_one"
 name = "2/1 Game Force"
+brief = "2♣/2♦/2♥ response = GF"
 label = "2/1 game force"
 source = "taxonomy"
 level = 4

@@ -1,5 +1,6 @@
 id = "bidding_conventions/ogust"
 name = "Ogust"
+brief = "2NT over weak two asks suit + hand quality"
 source = "taxonomy"
 level = 5
 contexts = ["preemptive_openings"]

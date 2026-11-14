@@ -1,5 +1,6 @@
 id = "bidding_conventions/ingberman"
 name = "Ingberman 2NT"
+brief = "After 1♣-1♥-1♠, 2NT = forcing minor-suit inquiry"
 source = "proposed"
 level = 7
 contexts = ["responses_rebids"]

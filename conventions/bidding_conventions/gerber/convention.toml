@@ -1,5 +1,6 @@
 id = "bidding_conventions/gerber"
 name = "Gerber"
+brief = "4♣ ace ask over 1NT/2NT"
 source = "proposed"
 level = 3
 contexts = ["slam"]

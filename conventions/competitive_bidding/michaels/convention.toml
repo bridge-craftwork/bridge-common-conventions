@@ -1,5 +1,6 @@
 id = "competitive_bidding/michaels"
 name = "Michaels cue bid"
+brief = "Cue = two-suited overcall"
 label = "Michaels cuebid"
 source = "proposed"
 level = 4

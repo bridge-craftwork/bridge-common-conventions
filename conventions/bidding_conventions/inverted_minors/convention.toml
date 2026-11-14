@@ -1,5 +1,6 @@
 id = "bidding_conventions/inverted_minors"
 name = "Inverted Minor Raises"
+brief = "Single raise = strong, jump = weak"
 label = "Inverted minors"
 source = "proposed"
 level = 5

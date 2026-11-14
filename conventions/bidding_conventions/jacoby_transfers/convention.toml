@@ -1,5 +1,6 @@
 id = "bidding_conventions/jacoby_transfers"
 name = "Jacoby Transfers"
+brief = "2♦ → 2♥, 2♥ → 2♠"
 label = "Jacoby transfers"
 source = "taxonomy"
 level = 3

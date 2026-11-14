@@ -1,5 +1,6 @@
 id = "bidding_conventions/mini_roman_2d"
 name = "Mini-Roman 2♦"
+brief = "3-suited hand, short in a specified suit"
 source = "proposed"
 level = 7
 contexts = ["preemptive_openings"]

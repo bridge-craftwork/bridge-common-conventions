@@ -18,6 +18,7 @@ see = [
 
 [treatments.over_1nt_interference]
 kind = "bool"
+brief = "2NT relay after interference to 1NT"
 label = "Lebensohl over interference to 1NT"
 default = true
 level = 5
@@ -30,6 +31,7 @@ skill = false
 
 [treatments.after_weak_two_double]
 kind = "bool"
+brief = "2NT relay after partner doubles a weak two"
 label = "Lebensohl after doubling a weak two"
 level = 7
 context = "vs_openings"

@@ -1,5 +1,6 @@
 id = "competitive_bidding/responsive_doubles"
 name = "Responsive Doubles"
+brief = "Double after partner double + opp raise = takeout"
 label = "Responsive doubles"
 source = "proposed"
 level = 5

@@ -375,7 +375,12 @@ Each produces a small, expected difference against phase 2.
   definition.
 - The editor draws a convention's row and its treatments from the
   definition, replacing the hand-written list in `conventionCatalog.js`.
-  Row captions move into the definitions.
+  Row captions move into the definitions. **Partly done 2026-11-14:** 46 of
+  the 69 rows (a convention, or a place one is played) are drawn from the
+  definition, whose `brief` holds the caption; the result is word for word
+  the list as it was. Still written out by hand: the 23 rows that are a
+  treatment shown as its own row, a setting, or one value of a choice, and
+  the list of structured fields under each section (#34 stays open).
 
 Found on the way and tracked as issues: the default for jump shifts after
 an overcall (#67), the jump-shift boxes becoming entries (#68), Reverse

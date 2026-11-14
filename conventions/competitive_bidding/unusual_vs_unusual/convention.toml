@@ -1,5 +1,6 @@
 id = "competitive_bidding/unusual_vs_unusual"
 name = "Unusual vs Unusual"
+brief = "Defenses to opponents' Unusual 2NT"
 source = "proposed"
 level = 8
 contexts = ["after_interference"]

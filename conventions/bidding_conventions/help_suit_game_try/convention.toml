@@ -1,5 +1,6 @@
 id = "bidding_conventions/help_suit_game_try"
 name = "Help Suit Game Try"
+brief = "Sub-game bid asks help in that suit"
 label = "Help suit game tries"
 source = "taxonomy"
 level = 5

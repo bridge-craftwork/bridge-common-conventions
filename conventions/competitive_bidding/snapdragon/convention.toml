@@ -1,5 +1,6 @@
 id = "competitive_bidding/snapdragon"
 name = "Snapdragon doubles"
+brief = "After 3 suits bid, double = 4+ in 4th suit + tolerance for partner"
 source = "proposed"
 level = 8
 contexts = ["doubles"]
