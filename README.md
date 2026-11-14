@@ -16,6 +16,26 @@ shape, without asking.
 **Status: being set up.** Nothing reads this repo yet. See
 [docs/PLAN.md](docs/PLAN.md).
 
+## Reading it
+
+Tools do not read `main`. Each push to `main` that passes its checks is
+published to the [`published`](../../tree/published) branch as two files:
+`pack.json`, the whole pack as one JSON document, and `manifest.json`, which
+says what it was built from. [docs/CONTRACT.md](docs/CONTRACT.md) is what a
+reader can rely on.
+
+## Changing it
+
+Open a pull request. The [Publish workflow](.github/workflows/publish.yml)
+checks the definitions, has the engine check every rule file and run every
+`.test` case, and builds the snapshot; a problem is reported with its file
+and line. To run the same locally:
+
+    python3 scripts/check.py
+    rbb bid check . --rules .
+    git ls-files '*.test' | xargs rbb bid test --rules . --cards PATH/TO/rusty-bidding-bot/cards/bbsa
+    python3 scripts/build_snapshot.py --out /tmp/snapshot
+
 ## Licence
 
 MIT OR Apache-2.0, at your option (`LICENSE-MIT`, `LICENSE-APACHE`).

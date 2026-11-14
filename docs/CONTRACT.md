@@ -459,7 +459,16 @@ committed back to `main`.
   failing `.test` case, or a definition that breaks this contract blocks the
   whole publish. The previous snapshot stays.
 - **The rules number** identifies the rules a result was produced with. It
-  only increases. How it is derived from history is settled in Phase 4.
+  only increases. It is the count of commits on `main`'s first-parent
+  history that changed a source file of the pack, leaving out notes
+  (`.notes.md`) and tests (`.test`), which cannot change a bid. A commit to
+  the docs, the scripts, a notes file or a test does not move it, and two
+  snapshots with the same number bid the same. Descriptive text inside a
+  definition (a summary, a reference) does move it: the file also holds
+  defaults and treatments, and a count cannot tell them apart.
+- **The manifest also names the engine** the rules were checked and tested
+  with (`checked_with`). Nothing in either file depends on when the build
+  ran: the same commit gives the same bytes.
 - **A reader can tell a stale snapshot**: the manifest's source commit is
   compared with the head of `main`.
 
@@ -550,7 +559,7 @@ here. D6, D9 and D14 were ruled on separately and are in the sections above.
 Not settled here:
 
 - the format inside `examples.pbn` (Phase 8);
-- how the rules number is derived (Phase 4);
+- ~~how the rules number is derived (Phase 4)~~: section 10;
 - where a v2 card's `other_agreements` entry keeps its `section` until every
   card model prints by context (Phase 3 design);
 - how a second pack is laid over this one (after the cut-over).
@@ -568,6 +577,7 @@ None changes a decision.
 | 6 | `[<function>.option]` and `[<function>.was.<part>]` in `functions.toml` | The two defence-to-1NT settings had labels, option words and other tools' spellings that the card formats still need |
 | 11 | The tables of `2-to-3.toml` | The 1-to-2 format has no way to say "this switch becomes an entry" |
 | 11 | `new_ids`, `order` and `[was]` in `2-to-3.toml` | A reader that still shows schema 2 paths (the card tools, until cards are stored in schema 3) rebuilds schema 2's field list from the pack. These are the three things about that list the pack held nowhere else: which IDs schema 2 lacked, the order of its fields, and five choice groups and one `requires` that schema 3 expresses another way |
+| 10 | The rules number is a count of first-parent commits on `main` that changed a source file other than a notes or test file (Rick, 2026-11-14); the manifest gains `rules_number` and `checked_with`, and each file's entry is `{ sha256, changed }` | Settled in Phase 4, as the section promised. A count is readable beside an engine version and cannot go backwards while `main` is not rewritten |
 | 10 | `pack.json` has the keys `schema`, `pack`, `categories`, `conventions`, `settings`, `contexts`, `functions`, `levels`, `alerts`, `migrations` and `files` | The section said "one JSON document" without naming its parts. `scripts/build_snapshot.py` builds it; the manifest's rules number and per-file dates wait for Phase 4 |
 | 8, 11 | A setting that named a convention keeps the card's own wording: as `text` on the entry it becomes ("Hamilton" on Cappelletti's), or, where it names no convention (`natural`, a name no option covers) or a second part is worded differently, as the setting at its old path | The card tools print that wording. Without it a card that says "Strong - Suction" would print the bare option word after the upgrade |
 | 8, 11 | An unset switch whose treatments are all off or empty leaves no entry, so those values are not carried | A treatment cannot exist in schema 3 without its entry, and an entry would say the card plays, or does not play, a convention it was silent on. The rules treat silent and off differently |

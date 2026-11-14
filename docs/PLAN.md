@@ -302,6 +302,17 @@ content against that, with no difference.
 **Done when** a push to `main` produces a consistent snapshot, and a failing
 rule file blocks it with a file and line.
 
+Status (2026-11-14): the workflow is `.github/workflows/publish.yml`. On a
+pull request it checks the definitions, has the engine check every rule file
+and run every `.test` case, and builds the snapshot; on a push to `main` it
+then pushes `pack.json` and `manifest.json` to `published`. A daily run
+checks that the snapshot is not behind (`scripts/staleness.py`). Until an
+engine release reads rule language 2, the engine is built from a pinned
+commit (`.github/engine.env`) and cached. The rule tests name the engine's
+stock cards (`card 21GF-DEFAULT`), which come from the engine's repository.
+Left for the cut-over: showing and logging the rules number in Bridge
+Classroom and Rusty (#28), and the template repository (#30).
+
 ### Phase 5: core corrections
 
 Each produces a small, expected difference against phase 2.
