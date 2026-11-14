@@ -4,8 +4,10 @@ How this repo gets from empty to being the one place bridge-craftwork's tools
 read conventions from. Written 2026-11-13 from a design review of
 `convention-card` and `rusty-bidding-bot` (Rick Wilson with Claude).
 
-Status: **Phase 0 not started.** Update the status line and the phase
-checklists as work lands.
+Status: **Phase 0 not started.** Work is tracked as
+[milestones](https://github.com/bridge-craftwork/bridge-common-conventions/milestones)
+(one per phase) and issues; the lists below are the outline. Update the status
+line as phases complete.
 
 ## Why this repo exists
 
@@ -88,9 +90,18 @@ Rick Wilson, 2026-11-13, unless noted.
     (basis or about), a kind (published or personal), and the date it was
     used. Entries are never deleted; a dead link gets a `gone` date. Sources
     are cited, never copied.
-11. **One cut-over.** Every consumer stays on its current tags until the new
+11. **A definition may carry curated example hands**: chosen deals, usually
+    the troublesome ones for the convention, each with an auction a named
+    expert gives for it. Brill's definitions are the first source. They are a
+    reference for people and a targeted test set for bidders, and they are
+    kept apart from generated examples: a curated auction is someone's
+    stated answer, a generated one is only what a bidder did. A bidder that
+    differs from a curated auction is reported, not failed, since judgement
+    differs. They are added only with their author's agreement, and record
+    who gave the auction and when.
+12. **One cut-over.** Every consumer stays on its current tags until the new
     arrangement is complete, then moves once. No period with two styles.
-12. **Licence: MIT OR Apache-2.0**, matching both source repos.
+13. **Licence: MIT OR Apache-2.0**, matching both source repos.
 
 ## Decisions still open
 
@@ -136,6 +147,7 @@ conventions/<category>/<name>/     the directory path is the ID
                                    summary, level, names, deals, references
     <name>.bid  .test  .notes.md   rules, where we have them
     <name>.dlr                     dealer script, where inline
+    examples.pbn                   curated hands with expert auctions
 systems/<system>/                  a system's base rules and judgement
 settings/                          card settings: common names
 contexts.toml  levels.toml  alerts.toml
@@ -145,7 +157,8 @@ docs/                              this plan, the contract
 
 ## Phases
 
-Each phase lists what it delivers and how we know it is done. Phases 3, 5 and
+Each phase lists what it delivers and how we know it is done; each is a
+milestone, and each item an issue. Phases 3, 5 and
 6 are the cut-over's three steps: they are developed on branches and released
 together in phase 7.
 
@@ -153,12 +166,12 @@ together in phase 7.
 
 Settle the open decisions and write them down before any content moves.
 
-- [ ] `docs/CONTRACT.md`: the definition format, the pack and manifest
-      format, the card's shape, what the rule language reads, the additive-only
-      promise, format version numbers.
-- [ ] An ADR in `convention-card` (ADR-0003) recording the split and amending
-      ADR-0001's Amendment 1 and decision 16.
-- [ ] The context list, final.
+- `docs/CONTRACT.md`: the definition format, the pack and manifest
+  format, the card's shape, what the rule language reads, the additive-only
+  promise, format version numbers.
+- An ADR in `convention-card` (ADR-0003) recording the split and amending
+  ADR-0001's Amendment 1 and decision 16.
+- The context list, final.
 
 **Done when** Rick accepts the contract.
 
@@ -166,13 +179,13 @@ Settle the open decisions and write them down before any content moves.
 
 One reviewed table: every current card field, and what it becomes.
 
-- [ ] A script that generates the table from `convention-card`'s
-      `spec/fields.toml`: the 83 `play` switches become conventions, their 95
-      treatments become treatments, everything else stays a setting for now.
-- [ ] Each convention's context filled in. The card's `competitive` section
-      (21 switches) and the 27 always-on modules need placing by hand.
-- [ ] The 72 yes/no fields that name a convention but have no group are
-      listed and left as settings. They are placed in phase 6.
+- A script that generates the table from `convention-card`'s
+  `spec/fields.toml`: the 83 `play` switches become conventions, their 95
+  treatments become treatments, everything else stays a setting for now.
+- Each convention's context filled in. The card's `competitive` section
+  (21 switches) and the 27 always-on modules need placing by hand.
+- The 72 yes/no fields that name a convention but have no group are
+  listed and left as settings. They are placed in phase 6.
 
 **Done when** Rick has reviewed the table. It drives the content move and the
 card migration, so nothing downstream is written by hand twice.
@@ -181,13 +194,13 @@ card migration, so nothing downstream is written by hand twice.
 
 Record current behaviour, from the current tags, before anything changes.
 
-- [ ] A card corpus: the 11 cards saved in Bridge Classroom, the 18
-      Practice-Bidding-Scenarios cards, Rick's Bridgodex and BBO cards.
-- [ ] For each card, every export from `convention-card` v0.44.0: both ACBL
-      PDFs' field values, `.bbsa`, BBO, Bridgodex, card JSON.
-- [ ] For each card over a fixed deal set, Rusty's auctions, explanations and
-      alerts, and the list of settings it reads and ignores.
-- [ ] For each card, the rows and values the editor shows.
+- A card corpus: the 11 cards saved in Bridge Classroom, the 18
+  Practice-Bidding-Scenarios cards, Rick's Bridgodex and BBO cards.
+- For each card, every export from `convention-card` v0.44.0: both ACBL
+  PDFs' field values, `.bbsa`, BBO, Bridgodex, card JSON.
+- For each card over a fixed deal set, Rusty's auctions, explanations and
+  alerts, and the list of settings it reads and ignores.
+- For each card, the rows and values the editor shows.
 
 **Done when** the captures are stored and a script can regenerate and compare
 them. Cards saved in Bridge Classroom are its users' data: they and anything
@@ -196,29 +209,29 @@ can be committed.
 
 ### Phase 3: move the core, with no behaviour change
 
-- [ ] Convention files moved from `convention-card` `spec/conventions/` and
-      rule files from `rusty-bidding-bot` `conventions/`, with their history
-      (`git filter-repo`).
-- [ ] Restructured into the layout above from the inventory.
-- [ ] Settings, level bands, alert rules and the existing 1-to-2 migration
-      moved.
-- [ ] `convention-card`: reads content through one loader that takes a URL or
-      a file; reads and writes the new card shape; migrates schema 2 cards.
-- [ ] `rusty-bidding-bot`: the `convention` header; treatments read by name;
-      the 52 switched modules converted.
+- Convention files moved from `convention-card` `spec/conventions/` and
+  rule files from `rusty-bidding-bot` `conventions/`, with their history
+  (`git filter-repo`).
+- Restructured into the layout above from the inventory.
+- Settings, level bands, alert rules and the existing 1-to-2 migration
+  moved.
+- `convention-card`: reads content through one loader that takes a URL or
+  a file; reads and writes the new card shape; migrates schema 2 cards.
+- `rusty-bidding-bot`: the `convention` header; treatments read by name;
+  the 52 switched modules converted.
 
 **Done when** every phase 2 comparison shows no difference at all.
 
 ### Phase 4: the publish pipeline
 
-- [ ] A CI workflow that validates the rules and scripts (Rusty's WASM build
-      under Node, so no Rust toolchain is needed), runs the `.test` files,
-      bundles, writes the manifest and pushes to the `published` branch.
-- [ ] The rules number, derived from history, shown beside the engine version
-      in Bridge Classroom and written to Rusty's logs.
-- [ ] A staleness check: published source commit against the head of `main`.
-- [ ] The workflow and layout as a template repo for other people's
-      conventions.
+- A CI workflow that validates the rules and scripts (Rusty's WASM build
+  under Node, so no Rust toolchain is needed), runs the `.test` files,
+  bundles, writes the manifest and pushes to the `published` branch.
+- The rules number, derived from history, shown beside the engine version
+  in Bridge Classroom and written to Rusty's logs.
+- A staleness check: published source commit against the head of `main`.
+- The workflow and layout as a template repo for other people's
+  conventions.
 
 **Done when** a push to `main` produces a consistent snapshot, and a failing
 rule file blocks it with a file and line.
@@ -227,15 +240,15 @@ rule file blocks it with a file and line.
 
 Each produces a small, expected difference against phase 2.
 
-- [ ] The nine treatments that name a different convention from their group:
-      Reverse Bergen, Reverse Drury, two-way Drury, Modified Jacoby 2NT,
-      Puppet Stayman (two), super-accepts (two), the Parrish relay.
-- [ ] Bergen's notes moved under Bergen; Texas given its own ID.
-- [ ] "Treatments mean nothing while their convention is off", enforced in
-      one place in the library and the crate.
-- [ ] The editor draws a convention's row and its treatments from the
-      definition, replacing the hand-written list in `conventionCatalog.js`.
-      Row captions move into the definitions.
+- The nine treatments that name a different convention from their group:
+  Reverse Bergen, Reverse Drury, two-way Drury, Modified Jacoby 2NT,
+  Puppet Stayman (two), super-accepts (two), the Parrish relay.
+- Bergen's notes moved under Bergen; Texas given its own ID.
+- "Treatments mean nothing while their convention is off", enforced in
+  one place in the library and the crate.
+- The editor draws a convention's row and its treatments from the
+  definition, replacing the hand-written list in `conventionCatalog.js`.
+  Row captions move into the definitions.
 
 **Done when** every difference from phase 2 is on a reviewed list.
 
@@ -249,17 +262,17 @@ reviewed, as in phase 5.
 
 ### Phase 7: cut over
 
-- [ ] New tags in `convention-card` and `rusty-bidding-bot`.
-- [ ] Pin bumps in Bridge Classroom and Better BBO Convention Card.
-- [ ] Bridge Classroom fetches the published snapshot and hands it to the
-      editor and to Rusty.
-- [ ] Practice-Bidding-Scenarios and lesson-studio validate IDs against the
-      published snapshot (today PBS checks against nothing, and lesson-studio
-      against a stopgap copy).
-- [ ] `spec/conventions/` and the field list removed from `convention-card`;
-      `conventions/` removed from `rusty-bidding-bot`.
-- [ ] Docs corrected: `convention-card`'s CLAUDE.md pins, Rusty's DESIGN.md
-      links to `conventions/card/`.
+- New tags in `convention-card` and `rusty-bidding-bot`.
+- Pin bumps in Bridge Classroom and Better BBO Convention Card.
+- Bridge Classroom fetches the published snapshot and hands it to the
+  editor and to Rusty.
+- Practice-Bidding-Scenarios and lesson-studio validate IDs against the
+  published snapshot (today PBS checks against nothing, and lesson-studio
+  against a stopgap copy).
+- `spec/conventions/` and the field list removed from `convention-card`;
+  `conventions/` removed from `rusty-bidding-bot`.
+- Docs corrected: `convention-card`'s CLAUDE.md pins, Rusty's DESIGN.md
+  links to `conventions/card/`.
 
 **Done when** no other repo holds a copy of the names or the rules.
 
@@ -267,18 +280,23 @@ reviewed, as in phase 5.
 
 Additive, so it follows the cut-over.
 
-- [ ] dealer3's parser and run crates built into `rbb`; scripts validated by
-      the same check as rules.
-- [ ] `deals` entries on definitions, starting from the PBS scripts (over 300,
-      214 of 343 scenarios already tagged with a convention). The definition
-      is the source for "this is the convention's own scenario"; CI checks
-      PBS's tags agree.
-- [ ] Example deals generated at publish, each stamped with script, seed,
-      rules, engine, card and bidder; the convention's own calls marked; only
-      deals where the convention fired are kept, and the rate is reported.
-- [ ] `references` migrated from the definitions' `see` lists and the Sources
-      sections of the `.notes.md` files. A link check that reports and never
-      blocks.
+- dealer3's parser and run crates built into `rbb`; scripts validated by
+  the same check as rules.
+- `deals` entries on definitions, starting from the PBS scripts (over 300,
+  214 of 343 scenarios already tagged with a convention). The definition
+  is the source for "this is the convention's own scenario"; CI checks
+  PBS's tags agree.
+- Example deals generated at publish, each stamped with script, seed,
+  rules, engine, card and bidder; the convention's own calls marked; only
+  deals where the convention fired are kept, and the rate is reported.
+- Curated example hands (decision 11): the format, with each hand's
+  source, author and date; a report of where each bidder's auction
+  differs from the curated one. Brill's hands first, with Thorvald
+  Aagaard's agreement: he plans to drop them from his own scripts, so
+  this would become their home.
+- `references` migrated from the definitions' `see` lists and the Sources
+  sections of the `.notes.md` files. A link check that reports and never
+  blocks.
 
 ## Needed for other people's repos, not for the cut-over
 
