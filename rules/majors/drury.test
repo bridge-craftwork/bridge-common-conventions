@@ -29,11 +29,11 @@ N KJ5.QT74.A8.8653      | P P 1H P 2C P 2D P   | 2H     | partner is sub-minimum
 N KJ5.QT74.A8.8653      | P P 1H P 2C P 2H P   | 4H     | 11 support points and four trumps facing a full opening
 
 # ── Two-way Drury: 2D shows four trumps ───────────────────────────────
-card    21GF-DEFAULT major_openings.drury.two_d=true
+card    21GF-DEFAULT bidding_conventions/drury:two_d=true
 N KJ5.QT74.A8.8653      | P P 1H P             | 2D     | four hearts: 2D
 N KQ5.A74.J86.T952      | P P 1H P             | 2C     | three hearts: 2C
 S A52.KQ975.K42.83      | P P 1H P 2D P        | 4H     | 13 support points opposite four trumps: game
 
 # ── In competition ────────────────────────────────────────────────────
-card    21GF-DEFAULT major_openings.drury.in_comp=true
+card    21GF-DEFAULT bidding_conventions/drury:in_comp=true
 N KJ5.QT74.A8.8653      | P P 1H X             | 2C     | Drury over the double

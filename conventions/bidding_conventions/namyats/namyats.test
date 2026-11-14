@@ -1,5 +1,5 @@
 # Namyats (the default card with Namyats switched on).
-card    21GF-DEFAULT preempts.namyats.play=true
+card    21GF-DEFAULT bidding_conventions/namyats=true
 dealer  S
 vul     None
 
@@ -10,7 +10,7 @@ S 42.AKQT943.K3.32      |                     | 1H     | a side king: one level 
 S 4.KQJT9432.Q32.2      |                     | 4H     | 8 HCP, eight hearts: the plain preempt
 card    21GF-DEFAULT
 S 42.AKQT943.QJ3.2      |                     | 1H     | Namyats off
-card    21GF-DEFAULT preempts.namyats.play=true
+card    21GF-DEFAULT bidding_conventions/namyats=true
 # Responder.
 N A832.J5.QJ54.876      | 4C P                | 4H     | no slam interest: sign off
 N A83.65.AKJ54.K76      | 4C P                | 4D/4N  | 15 HCP, six controls: the relay, or keycards at once

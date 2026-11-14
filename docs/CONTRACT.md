@@ -428,6 +428,10 @@ module texas-transfers "Texas Transfers"
   reads the card's entry only: a module that is also switched by a setting
   reads that setting too. A function address reads the ID of the convention
   the card plays for it, and the default when none or more than one does.
+  A condition compares it with an ID written without spaces
+  (`def is competitive_bidding/dont`), or with `none`
+  (`def is none`: nothing fills it). The ID must be a convention that
+  implements the function.
   The `default` is the bidder's own choice for a silent card and stays in
   the rule file.
 - **A module that is more than one convention has no `convention` header**

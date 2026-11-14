@@ -1,5 +1,5 @@
 # Meckwell over their 1NT (meckwell.bid). East opens 1NT.
-card    21GF-DEFAULT competitive.vs_1nt_strong.system=meckwell
+card    21GF-DEFAULT defence_to_1nt.strong=competitive_bidding/meckwell
 dealer  E
 
 # seat hand                 | auction              | expect | why

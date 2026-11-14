@@ -1,5 +1,5 @@
 # Benjamin twos (the default card with Benjamin on).
-card    21GF-DEFAULT two_level.benjamin.play=true
+card    21GF-DEFAULT bidding_conventions/benjamin_2d=true
 dealer  S
 vul     None
 
@@ -12,7 +12,7 @@ S AK4.KQ3.AJ54.K32      |                     | 2N     | 20 balanced: 2NT as bef
 S 32.54.KQJ976.J43      |                     | P      | no weak 2D
 card    21GF-DEFAULT
 S AKQJ76.AK3.AQ.32      |                     | 2C     | Benjamin off: the strong 2C
-card    21GF-DEFAULT two_level.benjamin.play=true
+card    21GF-DEFAULT bidding_conventions/benjamin_2d=true
 # Responder to 2D.
 N 8642.J72.9643.82      | 2D P                | 2N     | nothing: the negative
 N 86.KQ972.9643.82      | 2D P                | 2H     | five hearts, 5 HCP

@@ -50,7 +50,7 @@ N K43.Q92.A763.KQ2      | 2H X P 2N P 3C P | 3N  | slow 3NT: hearts stopped
 N AQ43.K92.A763.K4      | 2H X P 2N P 3C P | 3H  | slow cue: four spades and a heart stopper
 S A762.3.KQJ4.AK32      | 2H X P 3H P      | 3S  | the doubler shows four spades
 S 843.92.KQ763.A42      | 2S P P X P       | 3D  | the balancing double too
-card    21GF-DEFAULT competitive.lebensohl_weak_twos.play=false
+card    21GF-DEFAULT competitive_bidding/lebensohl:after_weak_two_double=false
 N K43.Q92.A763.KQ2      | 2H X P           | 3N  | without Lebensohl: natural 3NT with the stopper
 
 # Their four-level minor preempt (Brill daily 2026-10-14 board 5). The

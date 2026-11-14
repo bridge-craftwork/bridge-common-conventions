@@ -21,7 +21,7 @@ N 62.32.K64.AQT764      | 1H P 1NT P 2C P 2S P 3D P      | 5C     | no spade sto
 N 62.32.A64.AQT764      | 1H P 1NT P 2C P 2S P 3C P      | P      | opener is minimum
 
 # Without the convention 2♠ has no meaning here, and 3♣ is the only raise.
-card    21GF-DEFAULT major_openings.impossible_2s.play=false
+card    21GF-DEFAULT bidding_conventions/impossible_2s=false
 N 853.J4.K962.AQ75      | 1H P 1NT P 2C P                | 3C     | 10 points, four clubs
 N 62.32.A64.AQT764      | 1H P 1NT P 2C P                | 3C     | 12 points: the good raise is 3C without it
 N K86.9.AJ42.K9542      | 1H P 1NT P 2C P                | 3C     | 11 HCP (2/1 1NT): the natural invitational raise

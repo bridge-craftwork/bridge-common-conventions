@@ -20,14 +20,15 @@
 
 module suction "Suction over their 1NT"
   kind   convention
+  convention  competitive_bidding/suction
   needs  vs-1nt
   skill  competitive_bidding/suction
   skill  competitive_bidding/defense_vs_1nt
-  param  def = competitive.vs_1nt_strong.system default other
+  param  def = defence_to_1nt.strong
 
 define suction_one(x) = x>=6, second_longest<=4 | (x=5, quality(x)>=good, second_longest<=3)
 
-after (1N) | (1N) P (P) when def is suction
+after (1N) | (1N) P (P) when def is competitive_bidding/suction
   X   "Suction: clubs and hearts"                       alert
       shows C>=4, H>=4, C+H>=9, hcp+length_points>=10, hcp<=17
       sets  ask=suc_pick(C, H)

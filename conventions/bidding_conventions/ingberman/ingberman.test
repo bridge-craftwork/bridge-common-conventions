@@ -1,5 +1,5 @@
 # Ingberman 2NT: Basic-Bridge with Ingberman on.
-card    Basic-Bridge other_conventions.ingberman_2nt.play=true
+card    Basic-Bridge bidding_conventions/ingberman=true
 dealer  S
 
 # seat hand             | auction                   | expect | why

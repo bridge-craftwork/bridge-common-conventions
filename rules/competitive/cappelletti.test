@@ -30,7 +30,7 @@ S KQJ852.A4.K52.J4          | 1NT 2C P 2D P        | 2S     | the suit is spades
 S 4.J832.A2.AKQT42          | 1NT 2C P 2D P        | 3C     | the suit is clubs
 
 # ── Modified Cappelletti ─────────────────────────────────────────────
-card    21GF-DEFAULT competitive.vs_1nt_strong.system=modified_cappelletti
+card    21GF-DEFAULT defence_to_1nt.strong=competitive_bidding/modified_cappelletti
 dealer  E
 
 S Q5.AQT76.QJT3.QT          | 1NT                  | 2C     | a major and a minor go through 2♣

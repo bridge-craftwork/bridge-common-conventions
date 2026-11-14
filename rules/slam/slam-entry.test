@@ -17,7 +17,7 @@ dealer  N
 S KJT5.KT8.AKQ92.Q      | 1C P 1D P 1N P 2S P 4S P             | 4NT    | partner's 4S shows the fit (my 2S had four): ask with 19 facing 12-14
 
 # Slam without an ask: support points on partner's floor plus controls.
-card    Basic-Bridge slam.blackwood.play=false
+card    Basic-Bridge bidding_conventions/blackwood=false
 dealer  N
 S A8.AQ75.K93.QJ82      | 1D P 1H P 4H P                       | 6H     | 14 facing a jump to game, three controls in aces: slam
 S 98.QJ75.K93.QJ82      | 1D P 1H P 4H P                       | P      | 9: game is enough
@@ -53,6 +53,6 @@ S A8.AQ75.K93.QJ82      | 1D P 1H P 4H P                       | P      | Blackw
 card    21GF-DEFAULT
 dealer  N
 S AQ5.KQ4.QJ82.Q93      | 1NT P                                | 4NT    | quantitative: invites 6NT
-card    21GF-DEFAULT slam.quantitative_4nt.play=false
+card    21GF-DEFAULT bidding_conventions/quantitative_4nt=false
 S AQ5.KQ4.QJ82.Q93      | 1NT P                                | 3NT    | no quantitative 4NT on the card
 S AQ5.Q74.QJ82.J93      | 2NT P                                | 3NT    | the same over 2NT

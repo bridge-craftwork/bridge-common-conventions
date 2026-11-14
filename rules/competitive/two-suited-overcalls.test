@@ -71,7 +71,7 @@ S 6.AQJ94.KQ.AKQ63          | 2S 3S P 4C P | P | clubs: partner's guess is right
 S 6.AQJ94.AKQ63.KQ          | 2S 3S P 4C P | 4D | diamonds: correct
 
 # ── Leaping Michaels (switched on) ───────────────────────────────────
-card    21GF-DEFAULT competitive.leaping_michaels.play=true
+card    21GF-DEFAULT competitive_bidding/leaping_michaels=true
 S AKJT5.3.KQJ82.43          | 2H         | 4D  | Rosen's hand A: diamonds and spades
 S AKQ93.4.5.AQJ932          | 2H         | 4C  | clubs and spades
 S AQJ85.KQJ87.A5.3          | 2D         | 4D  | both majors over 2D
@@ -80,7 +80,7 @@ N Q72.J9542.K4.T73          | 2S 4C P    | 4H  | the known major with five
 N Q72.J92.K4.T7432          | 2H 4D P    | 4S  | three spades: game
 
 # ── Non-Leaping Michaels (switched on) ───────────────────────────────
-card    21GF-DEFAULT competitive.non_leaping_michaels.play=true
+card    21GF-DEFAULT competitive_bidding/non_leaping_michaels=true
 S AQJ85.3.KQJ82.43          | 3H         | 4D  | diamonds and spades
 S KQT94.3.AJT96.K4          | 3C         | 4D  | diamonds and a major
 N K72.J954.K4.T743          | 3C 4D P    | 4H  | pass or correct: partner's major
@@ -153,7 +153,7 @@ N AK4.K42.KQ83.J42          | 1H 2H P 3H P 3S P | 4S | 16 HCP opposite the minim
 # competitive.michaels.minor_advance=pass_or_correct: 3♣ asks partner
 # to pass with clubs or correct to 3♦; 2NT is the ask with 10+; 3♦ is
 # advancer's own diamonds.
-card    21GF-DEFAULT competitive.michaels.minor_advance=pass_or_correct
+card    21GF-DEFAULT competitive_bidding/michaels:minor_advance=pass_or_correct
 dealer  E
 vul     None
 N 864.73.QT92.J942          | 1S 2S P         | 3C  | 3 HCP, both minors: pass or correct
@@ -173,7 +173,7 @@ N 864.73.QT92.J942          | 1S 2S P 3C P 3D P | P | the partscore: pass the co
 S AQJ85.7.KQT84.93          | 1H 2H P 2N P    | 3D  | the 2NT ask: names the minor
 
 # The default (ask_2nt) on the same hands: 2NT at any strength.
-card    21GF-DEFAULT competitive.michaels.minor_advance=ask_2nt
+card    21GF-DEFAULT competitive_bidding/michaels:minor_advance=ask_2nt
 N 864.73.QT92.J942          | 1S 2S P         | 2N  | ask_2nt: 2NT at any strength
 N 86.73.A4.KQJ9742          | 1H 2H P         | 3C  | ask_2nt: 3♣ natural, seven clubs
 

@@ -1,6 +1,6 @@
 # Modified Jacoby 2NT (switched on below; no stock card plays it).
 # Larry Cohen's schedule; modified-jacoby-2nt.notes.md.
-card    21GF-DEFAULT major_openings.jacoby_2nt.modified=true
+card    21GF-DEFAULT bidding_conventions/jacoby_2nt:modified=true
 dealer  S
 
 # seat hand             | auction                   | expect | why

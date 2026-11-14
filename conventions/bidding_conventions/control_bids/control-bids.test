@@ -52,7 +52,7 @@ S Q9863.T92.A.AKQJ      | 1S P 2NT P 3D P 3S P 4C P 4H P   | 4NT    | as above
 # The default is `first_or_second_round`: ace, king, singleton or void,
 # which is what BBA plays. Under `first_round` only the ace and the void
 # count, so the same hand bids its ace instead of its king.
-card    21GF-DEFAULT slam.cue_bids.style=first_round
+card    21GF-DEFAULT bidding_conventions/control_bids:style=first_round
 S AKQT65.A.K82.JT5      | 1S P 2NT P 3H P 3S P             | 4H     | the ♦K is not a control here; the singleton ♥A is
 S AKJ85.K.J752.QJ3      | 1S P 2NT P 3H P 3S P             | !4H    | the singleton ♥K is not a first-round control
 
@@ -60,5 +60,5 @@ S AKJ85.K.J752.QJ3      | 1S P 2NT P 3H P 3S P             | !4H    | the single
 #
 # `slam.cue_bids.play` is BBA's `Cue bid` key: off on Basic-Bridge, which
 # is why BBA blasts 4NT there and cue-bids on the 21GF cards.
-card    21GF-DEFAULT slam.cue_bids.play=false
+card    21GF-DEFAULT bidding_conventions/control_bids=false
 S AKQT65.A.K82.JT5      | 1S P 2NT P 3H P 3S P             | !4D    | no control bids on this card

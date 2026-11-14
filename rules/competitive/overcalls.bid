@@ -33,8 +33,7 @@ module overcalls "Suit and notrump overcalls"
   param  nt_min  = nt_overcalls.direct.range_min default 15
   param  nt_max  = nt_overcalls.direct.range_max default 18
   param  system  = general.system   # `brill`: the Brill card's treatments (1NT overcall)
-  param  nt_def  = competitive.vs_1nt_strong.system default other
-  param  dont_play = competitive_bidding/dont default false
+  param  nt_def  = defence_to_1nt.strong
   param  raptor  = competitive_bidding/raptor default false
   param  sandwich = competitive_bidding/sandwich_nt default false
 
@@ -136,11 +135,11 @@ after (1x) 1N (2x)
 # preempt in a narrower range (vs-1nt.bid). Landy keeps the natural 2♦/2♥/2♠ and uses 2♣ for the majors
 # (multi-landy.bid).
 # `natural` is the card's explicit word for it (convention-card 0.43; it used to load as `other`).
-after (1N) when (nt_def is other, !dont_play) | nt_def is natural | nt_def is landy
+after (1N) when nt_def is none | nt_def is competitive_bidding/landy
   2S  "Natural: five spades, 12+ total points"    shows S>=5, S>=H, S>=D, S>=C, hcp+length_points>=12, hcp<=17
   2H  "Natural: five hearts, 12+ total points"    shows H>=5, H>S, H>=D, H>=C, hcp+length_points>=12, hcp<=17
   2D  "Natural: five diamonds, 12+ total points"  shows D>=5, D>S, D>H, D>=C, hcp+length_points>=12, hcp<=17
-after (1N) when (nt_def is other, !dont_play) | nt_def is natural
+after (1N) when nt_def is none
   2C  "Natural: five clubs, 12+ total points"     shows C>=5, C>S, C>H, C>D, hcp+length_points>=12, hcp<=17
   3S  "Preemptive: seven spades, 4-10"            shows S>=7, hcp=4..10
       priority 1

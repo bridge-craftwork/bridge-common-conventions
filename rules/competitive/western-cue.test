@@ -1,4 +1,4 @@
-card    21GF-DEFAULT slam.western_cuebid.play=true
+card    21GF-DEFAULT bidding_conventions/western_cuebid=true
 dealer  S
 
 # seat hand             | auction                              | expect | why

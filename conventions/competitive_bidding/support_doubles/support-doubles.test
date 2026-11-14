@@ -39,7 +39,7 @@ S 983.AQ4.K3.AKJ52          | 1C P 1H 1S X P 2S P | 4H  | no spade stopper: the 
 S AK3.Q84.J3.KJ652          | 1C P 1H 1S X P 2H P | P   | a minimum opposite the sign-off
 
 # A card that plays them through 3♣.
-card    21GF-DEFAULT doubles.support.through=3♣
+card    21GF-DEFAULT competitive_bidding/support_doubles:through=3♣
 S A5.KJ3.AQ852.J52          | 1D P 1H 3C       | X      | 3C is within the card's through
 S A5.KJ3.AQ852.J52          | 1D P 1H 3D       | !X     | 3D is above it
 

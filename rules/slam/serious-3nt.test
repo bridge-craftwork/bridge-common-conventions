@@ -1,4 +1,4 @@
-card    21GF-DEFAULT slam.non_serious_3nt.play=true
+card    21GF-DEFAULT bidding_conventions/serious_3nt=true
 dealer  N
 
 # seat hand             | auction                              | expect | why
@@ -17,7 +17,7 @@ S K52.A74.A2.AKQ87      | 1S P 2C P 2S P 3S P 3NT P            | 4NT    | slam v
 S K52.Q74.A2.KJ874      | 1S P 2C P 2S P 3S P 3NT P            | 4S     | nothing extra: game
 # In the Lawrence style 2S is the default rebid, five or more (Rick,
 # 2026-10-16), so the same questions come with five.
-card    21GF-DEFAULT slam.non_serious_3nt.play=true major_openings.two_over_one.rebid_style=lawrence
+card    21GF-DEFAULT bidding_conventions/serious_3nt=true bidding_conventions/two_over_one:rebid_style=lawrence
 N AJ874.K5.K83.K92      | 1S P 2C P 2S P 3S P                  | 3NT    | 13 HCP, two short of serious: non-serious 3NT
 N AKJ74.K5.Q83.Q92      | 1S P 2C P 2S P 3S P                  | 3NT    | 14, no ace outside: non-serious
 N AJ874.K5.Q83.Q92      | 1S P 2C P 2S P 3S P                  | 4S     | a minimum: no interest
@@ -25,7 +25,7 @@ N AKJ74.K5.Q83.K92      | 1S P 2C P 2S P 3S P                  | 4C     | slam v
 S K52.Q74.A2.AK874      | 1S P 2C P 2S P 3S P 3NT P            | 4C     | extras: start the control bids
 S K52.A74.A2.KQ874      | 1S P 2C P 2S P 3S P 3NT P            | 4NT    | slam values, every suit controlled: keycard
 S K52.Q74.A2.KJ874      | 1S P 2C P 2S P 3S P 3NT P            | 4S     | nothing extra: game
-card    21GF-DEFAULT slam.non_serious_3nt.play=true
+card    21GF-DEFAULT bidding_conventions/serious_3nt=true
 # The control dialogue goes on as control-bids.bid has it.
 N AKJ74.K5.A83.Q92      | 1S P 2C P 2S P 3S P 3NT P 4C P       | 4D     | the cheapest control
 N AKJ74.Q5.Q83.Q92      | 1S P 2C P 2S P 3S P 3NT P 4C P       | 4S     | no further control: game
@@ -38,5 +38,5 @@ card    21GF-DEFAULT
 N AJ874.K5.K83.K92      | 1S P 2C P 2S P 3S P                  | !3NT   | no non-serious 3NT
 
 # A control past 4NT (rkcb-1430.bid): every suit covered, bid the slam.
-card    21GF-DEFAULT slam.non_serious_3nt.play=true
+card    21GF-DEFAULT bidding_conventions/serious_3nt=true
 S AJT.AKQ4.AKJ4.97      | 1S P 2D P 2S P 3S P 3NT P 4D P 5C P  | 6S     | ♣ covered by partner's 5♣: slam, not more cueing at five (Serious 17)

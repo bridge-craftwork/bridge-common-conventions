@@ -16,7 +16,7 @@ S KQ72.T74.QJ9.A86          | 1S X 2N P 3S P | P  | limit raise only
 S KQ72.K74.AJ9.A86          | 1S X 2N P 3S P | 4S | 17 HCP: game
 
 # ── BROMAD (with Jordan, as BBA's cards play it) ─────────────────────
-card    21GF-DEFAULT competitive.bromad.play=true
+card    21GF-DEFAULT competitive_bidding/bromad=true
 S Q72.T74.K93.Q865          | 1S X     | 2C     | 7 HCP, three spades: constructive
 S Q72.A74.K93.Q865          | 1S X     | 2D     | 11 HCP, three spades: limit raise or better
 S Q872.T74.K93.Q86          | 1S X     | 3C     | 7 HCP, four spades: constructive
@@ -27,7 +27,7 @@ N AJ853.K2.Q74.J32          | 1S X 2C P | 2S    | 11 HCP: no game opposite 7-9
 N AJ853.AK2.KQ4.J3          | 1S X 2C P | 4S    | 19 HCP: game
 
 # ── BROMAD without Jordan ────────────────────────────────────────────
-card    21GF-DEFAULT competitive.bromad.play=true competitive.jordan_2nt.play=false
+card    21GF-DEFAULT competitive_bidding/bromad=true competitive_bidding/jordan_2nt=false
 S KQ72.T74.QJ9.A86          | 1S X     | 3D     | four spades, 11 HCP: limit raise
 S 7.84.QT853.J9642          | 1S X     | 2N     | weak with both minors
 

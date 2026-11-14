@@ -16,7 +16,7 @@ N 954.K82.Q8743.J5          | 1NT X P              | 2C     | pass or correct to
 S AQ62.Q2.3.AJ9652          | 1NT X P 2C P         | P      | the minor is clubs
 
 # Landy: 2♣ for the majors, the rest natural
-card    21GF-DEFAULT competitive.vs_1nt_strong.system=landy
+card    21GF-DEFAULT defence_to_1nt.strong=competitive_bidding/landy
 dealer  E
 S AQ652.QJ82.3.AJ2          | 1NT                  | 2C     | both majors
 S KQJ852.A4.K52.J4          | 1NT                  | 2S     | natural: six spades, 14

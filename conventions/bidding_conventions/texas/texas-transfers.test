@@ -24,12 +24,12 @@ S 82.KQJ974.KQ2.53      | 1N 2D                 | 4D | a jump over their 2♦
 S 82.KQJ974.KQ2.53      | 1N X                  | 4D | over their double
 S KQJ974.82.AQ2.53      | 1N 3C                 | 4H | a jump over their 3♣: Texas to spades
 S 82.KQJ974.Q92.53      | 2N P 4D P 4H P        | P  | game only: pass the completion
-card    21GF-DEFAULT two_level.kokish.play=true
+card    21GF-DEFAULT bidding_conventions/kokish=true
 S 82.KJ9743.92.853      | 2C P 2D P 2H P 2S P 2N P | 4D | Kokish 2NT: Texas
 
 # 2-under Texas (notrump.texas.two_under, Rick 2026-10-29): 4C for hearts,
 # 4D for spades; opener's suit in between super-accepts. And Texas after 2C-2D-3NT.
-card    21GF-DEFAULT notrump.texas.two_under=true
+card    21GF-DEFAULT bidding_conventions/texas:two_under=true
 dealer  N
 S 8.KQ9732.K94.Q83      | 1N P            | 4C | 2-under: hearts
 S KQ9732.8.K94.Q83      | 1N P            | 4D | 2-under: spades
@@ -46,7 +46,7 @@ S 8.KQ9732.K94.Q83      | 2C P 2D P 3N P  | 4D | 2C-2D-3NT: Texas
 # 2C/3NT"; no card field of its own). With Kokish 3NT is 26-27, and a
 # six-card major with 4-5 HCP (31-32 combined, between game only and
 # slam values) Texases to game instead of passing.
-card    21GF-GIB major_openings.jacoby_2nt.modified=true two_level.kokish.play=true
+card    21GF-GIB bidding_conventions/jacoby_2nt:modified=true bidding_conventions/kokish=true
 dealer  S
 N 84.KJ8632.72.954      | 2C P 2D P 3N P              | 4D  | six hearts, 4 HCP opposite 26-27: Texas to game
 N 84.KJ8632.72.954      | 2C P 2D P 3N P 4D P 4H P    | P   | then pass
@@ -55,7 +55,7 @@ N KJ8632.84.Q2.954      | 2C P 2D P 3N P              | 4H  | six spades: Texas
 # `notrump.jacoby_transfers.over_2c_3nt` (Rick, 2026-11-07, default on):
 # off, 4♦ and 4♥ over 2♣–2♦–3NT are natural, and a six-card major bids
 # game itself (over-3nt.bid). Texas over 1NT is unchanged.
-card    21GF-DEFAULT notrump.jacoby_transfers.over_2c_3nt=false
+card    21GF-DEFAULT bidding_conventions/jacoby_transfers:over_2c_3nt=false
 dealer  N
 S 5.KQJ986.432.432      | 2C P 2D P 3N P              | 4H  | transfers off there: natural game
 S KQJ986.5.432.432      | 2C P 2D P 3N P              | 4S  | six spades: natural game

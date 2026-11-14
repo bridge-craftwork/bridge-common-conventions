@@ -1,5 +1,5 @@
 # SOS redouble (switched on below; no stock card plays it).
-card    21GF-DEFAULT other_conventions.sos_redouble.play=true
+card    21GF-DEFAULT competitive_bidding/sos_redouble=true
 dealer  N
 vul     None
 

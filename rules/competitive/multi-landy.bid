@@ -19,14 +19,14 @@ module multi-landy "Landy and Multi-Landy over their 1NT"
   skill  competitive_bidding/multi_landy
   skill  competitive_bidding/landy
   skill  competitive_bidding/defense_vs_1nt
-  param  def = competitive.vs_1nt_strong.system default other
+  param  def = defence_to_1nt.strong
 
-after (1N) | (1N) P (P) when def is multi_landy | def is landy
+after (1N) | (1N) P (P) when def is competitive_bidding/multi_landy | def is competitive_bidding/landy
   2C  "Landy: both majors, 5-4 or longer"          alert
       shows H>=4, S>=4, H+S>=9, hcp+length_points>=10, hcp<=17
       sets  ask=nt_majors
 
-after (1N) | (1N) P (P) when def is multi_landy
+after (1N) | (1N) P (P) when def is competitive_bidding/multi_landy
   X   "Multi-Landy: a four-card major and a longer minor"   alert
       shows H=4 | S=4, C>=5 | D>=5, hcp+length_points>=12, hcp<=17
       sets  ask=ml_x

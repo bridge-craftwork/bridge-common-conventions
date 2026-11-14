@@ -1,5 +1,5 @@
 # Lead-directing doubles (switched on below; no stock card plays them).
-card    21GF-DEFAULT competitive.lead_directing_double.play=true
+card    21GF-DEFAULT competitive_bidding/lead_directing_doubles=true
 dealer  W
 vul     None
 

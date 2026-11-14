@@ -1,6 +1,6 @@
 # Sandwich 1NT (switched on below; 21GF-DEFAULT plays the passed hand's
 # Unusual 1NT already).
-card    21GF-DEFAULT competitive.sandwich_nt.play=true
+card    21GF-DEFAULT competitive_bidding/sandwich_nt=true
 dealer  W
 vul     None
 
