@@ -1,7 +1,7 @@
 {
  "schema": "pack-manifest/v1",
- "source_commit": "73111977d97ac28ccccc072f0a8114a793d45906",
- "rules_number": 8,
+ "source_commit": "cae8b475bc2506926607c5f2fb4a52daf5d44139",
+ "rules_number": 9,
  "name": "bridge-common-conventions",
  "pack_format_version": 1,
  "card_schema_version": 3,
@@ -117,8 +117,8 @@
    "changed": "2026-11-14T12:36:57-08:00"
   },
   "conventions/bidding_conventions/drury/convention.toml": {
-   "sha256": "1ce8af83e652b4e1f339acc687a0b476c8d3a6034d0af8643982a966d0d3b6b2",
-   "changed": "2026-11-13T23:15:09-08:00"
+   "sha256": "091e464ee42c3c521c751a8f14bc1d100c0d48c0c4b52a6c31227af474cb2186",
+   "changed": "2026-11-14T12:48:14-08:00"
   },
   "conventions/bidding_conventions/exclusion_blackwood/convention.toml": {
    "sha256": "6c22bc17a7d654cd035b4fe092d07fc272176709ed9364c0b1fad54fb38b85b9",
@@ -373,12 +373,12 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "conventions/bidding_conventions/mini_roman_2d/convention.toml": {
-   "sha256": "4b692bb4b46391e7f5c90313c2051c8d13fcbcc2b76df1827397be5565241960",
-   "changed": "2026-11-14T10:40:01-08:00"
+   "sha256": "3d227d88718cdc12098653497d2dce8407fd5093359db0e62bc97babf5931f6d",
+   "changed": "2026-11-14T12:48:14-08:00"
   },
   "conventions/bidding_conventions/mini_roman_2d/mini-roman.bid": {
-   "sha256": "ec676f7257ac2689fb27f92382322fe67f330177d8071be55a81ee83d6d1457a",
-   "changed": "2026-11-13T23:37:41-08:00"
+   "sha256": "725b3b6a8aae913276cfb10e45675d7a3edec620091c58e70c03811596c755ad",
+   "changed": "2026-11-14T12:48:14-08:00"
   },
   "conventions/bidding_conventions/mini_roman_2d/mini-roman.notes.md": {
    "sha256": "40ef7bd18954f11a2eadd77b13f4db3b395a63fe49d72f9ac013a1b28f9d72c9",
@@ -645,8 +645,8 @@
    "changed": "2026-11-14T12:36:57-08:00"
   },
   "conventions/bidding_conventions/splinters/convention.toml": {
-   "sha256": "006e71d2ffe4b124a525d132740907275b03366365ecb0dfe594480a1376c5f3",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "ed9148165cd9ae492ce3016113de9b345dcba47d46c6f17bf003dc027c071d94",
+   "changed": "2026-11-14T12:48:14-08:00"
   },
   "conventions/bidding_conventions/splinters/splinters.bid": {
    "sha256": "ad7d4dc9d6b727c07522663d058d919b0b4fc3eb845d8f2a6f3aa61f3f9b5ab5",
@@ -985,8 +985,8 @@
    "changed": "2026-09-30T13:35:03-07:00"
   },
   "conventions/competitive_bidding/mixed_raise/convention.toml": {
-   "sha256": "79a700f9c0aa4624857f0a15324c6d2b76f3c379ddb64ea85f4eef47ee7fcf34",
-   "changed": "2026-10-20T22:30:21-07:00"
+   "sha256": "3414f8d3e79e1a7111db258e793fbb2098892038e04b2ea147d78f3053544991",
+   "changed": "2026-11-14T12:48:14-08:00"
   },
   "conventions/competitive_bidding/modified_cappelletti/convention.toml": {
    "sha256": "a35861b66f0d6deb3ae6d2ff87673b81ddc8495f41c0a1d1dee3895361f1f46a",
@@ -1009,8 +1009,8 @@
    "changed": "2026-10-26T16:41:09-07:00"
   },
   "conventions/competitive_bidding/raptor/convention.toml": {
-   "sha256": "ca108507c41da6f6b5effd69663f1b81e5077e11b67f0afd3adc6610a07fef94",
-   "changed": "2026-11-13T23:15:09-08:00"
+   "sha256": "0562ed7b09b9806ff01d23aca2e6b6593362d45de6ae25fe766c7d644bc9cf90",
+   "changed": "2026-11-14T12:48:14-08:00"
   },
   "conventions/competitive_bidding/raptor/raptor.bid": {
    "sha256": "bc6684ace22b1450f1b5f9e7a23b5a8e732f46bcfaa077f513196d8b0519c25d",
@@ -1053,8 +1053,8 @@
    "changed": "2026-11-14T12:36:57-08:00"
   },
   "conventions/competitive_bidding/sandwich_nt/convention.toml": {
-   "sha256": "4640f2595c6c32b9231b6e8378f4c669814a924a4098e61d135b60a2c811349b",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "99d8829d0ec77a412ee5895f2699d578d2d9ad44ad6537faecef5d6844f78d2a",
+   "changed": "2026-11-14T12:48:14-08:00"
   },
   "conventions/competitive_bidding/sandwich_nt/sandwich-nt.bid": {
    "sha256": "65ea5c1d80f032b983e537aaacea920c15d4646863e62533f824523cc4e84760",
@@ -1809,8 +1809,8 @@
    "changed": "2026-11-07T16:41:24-08:00"
   },
   "rules/majors/jump-raises.bid": {
-   "sha256": "e1ea5ccb4bfa81012efa54e52b86ffbad38575bdaf3a186ffb712eb0f58ede80",
-   "changed": "2026-11-13T23:37:41-08:00"
+   "sha256": "80bd6a0dd229d48600d033dcb730acedd2f1186ddf4cc9e39c28a75c104ae8ff",
+   "changed": "2026-11-14T12:48:14-08:00"
   },
   "rules/majors/jump-raises.notes.md": {
    "sha256": "d8f08bd8e0bc93ab78ee3488afd78c1adf4fe15cc295ab448602e88573059ad0",
@@ -2141,5 +2141,5 @@
    "changed": "2026-11-13T23:15:09-08:00"
   }
  },
- "pack_sha256": "7fe2021b24050ee0de13c3b0f9b7a4a16bed4612283ea2c93ea19fe0c74d9e50"
+ "pack_sha256": "b69658ea7244efb94404b76424b0034f3a92a11fdb247b7ae684b837d38d1d3e"
 }
