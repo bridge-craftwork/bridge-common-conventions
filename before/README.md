@@ -47,4 +47,8 @@ rule files.
   same catalogue and functions the editor's components call, which covers the
   rows and values but not layout.
 - The PDFs' appearance. Only the values of their form fields are recorded.
-- Rick's own Bridgodex and BBO cards: they are not in a public repo.
+- Rick's own Bridgodex, BBO and editor cards are not in this repo: they name
+  other people. They are captured to a folder outside it with `--cards`, and
+  only counts from that comparison are reported. A file holding several cards
+  (a BBO export) gives one capture per card, and a card the bidder cannot
+  read as it came is bid as `convention-card` imported it.
