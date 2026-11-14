@@ -114,8 +114,12 @@ jobs:
           fi
           cp _snapshot/pack.json _snapshot/manifest.json _published/
           cp .github/published-README.md _published/README.md
+          # The overview page reads the two files beside it. `.nojekyll`
+          # has GitHub Pages serve the branch as it is.
+          cp site/index.html _published/index.html
+          touch _published/.nojekyll
           cd _published
-          git add pack.json manifest.json README.md
+          git add pack.json manifest.json README.md index.html .nojekyll
           if git diff --cached --quiet; then
             echo "The snapshot is unchanged: nothing to publish."
             exit 0
