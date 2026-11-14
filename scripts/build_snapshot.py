@@ -6,17 +6,24 @@ Writes two files to --out:
 - pack.json: everything in the pack as one JSON document, for readers that
   cannot list a directory or parse TOML (a web page). Rule, test and notes
   files are carried as their source text, keyed by path.
-- manifest.json: each source file's hash, the commit it was built from and
-  the pack's format numbers.
+- manifest.json: each source file's hash and the date it last changed, the
+  commit it was built from, the pack's format numbers, the rules number and
+  the engine the rules were checked with.
 
-    python3 scripts/build_snapshot.py --out DIR
+    python3 scripts/build_snapshot.py --out DIR [--engine "rbb 0.16.0"]
 
 The pack is checked first (scripts/check.py); a pack that fails is not
 built. Standard library only (Python 3.11+, for tomllib).
 
-The publish pipeline (Phase 4) runs this and pushes the result to the
-`published` branch. The rules number and each file's last-changed date are
-settled there and are not in the manifest yet.
+The publish workflow (.github/workflows/publish.yml) runs this after the
+engine has checked the rules and run their tests, and pushes the result to
+the `published` branch.
+
+The rules number is the count of commits on the first-parent history of the
+commit built from that changed a source file of the pack (SOURCES). It only
+increases while that history is not rewritten, and two snapshots with the
+same number hold the same sources. Nothing in either file depends on when
+the build ran, so the same commit always gives the same bytes.
 """
 import argparse
 import hashlib
@@ -28,6 +35,27 @@ import tomllib
 
 HERE = pathlib.Path(__file__).resolve().parent.parent
 TEXT = (".bid", ".test", ".notes.md")
+# What a pack is made of. A commit that touches none of these does not
+# change the snapshot.
+SOURCES = ["bridge-pack.toml", "conventions", "rules", "settings", "contexts.toml",
+           "functions.toml", "levels.toml", "alerts.toml", "migrations"]
+
+
+def git(root, *args):
+    return subprocess.check_output(["git", "-C", str(root), *args], text=True)
+
+
+def history(root):
+    """The commit built from, the rules number, and each file's last change."""
+    commit = git(root, "rev-parse", "HEAD").strip()
+    number = int(git(root, "rev-list", "--count", "--first-parent", "HEAD", "--", *SOURCES).strip())
+    changed = {}
+    log = git(root, "log", "--format=%x00%cI", "--name-only", "--", *SOURCES)
+    for block in log.split("\x00")[1:]:
+        date, *names = [line for line in block.split("\n") if line]
+        for name in names:
+            changed.setdefault(name, date)
+    return commit, number, changed
 
 
 def toml(path):
@@ -73,6 +101,7 @@ def main():
     ap.add_argument("--out", type=pathlib.Path, required=True)
     ap.add_argument("--root", type=pathlib.Path, default=HERE)
     ap.add_argument("--no-check", action="store_true", help="build without checking the pack first")
+    ap.add_argument("--engine", help="the engine the rules were checked and tested with (`rbb -V`)")
     args = ap.parse_args()
 
     if not args.no_check:
@@ -83,26 +112,27 @@ def main():
 
     pack, sources = build(args.root)
     try:
-        commit = subprocess.check_output(["git", "-C", str(args.root), "rev-parse", "HEAD"],
-                                         text=True).strip()
-        dirty = bool(subprocess.check_output(["git", "-C", str(args.root), "status", "--porcelain",
-                                              "--", *[str(s) for s in sources]], text=True).strip())
+        commit, number, changed = history(args.root)
+        dirty = bool(git(args.root, "status", "--porcelain", "--", *SOURCES).strip())
     except (subprocess.CalledProcessError, FileNotFoundError):
-        commit, dirty = None, False
+        commit, number, changed, dirty = None, None, {}, False
+    names = [s.relative_to(args.root).as_posix() for s in sorted(sources)]
     manifest = {
         "schema": "pack-manifest/v1",
         "source_commit": commit,
         **({"uncommitted_changes": True} if dirty else {}),
+        "rules_number": number,
         **{k: v for k, v in pack["pack"].items() if k.endswith("_version") or k == "name"},
-        "files": {s.relative_to(args.root).as_posix(): hashlib.sha256(s.read_bytes()).hexdigest()
-                  for s in sorted(sources)},
+        **({"checked_with": args.engine} if args.engine else {}),
+        "files": {n: {"sha256": hashlib.sha256((args.root / n).read_bytes()).hexdigest(),
+                      "changed": changed.get(n)} for n in names},
     }
     args.out.mkdir(parents=True, exist_ok=True)
     text = json.dumps(pack, ensure_ascii=False, indent=1) + "\n"
     (args.out / "pack.json").write_text(text)
     manifest["pack_sha256"] = hashlib.sha256(text.encode()).hexdigest()
     (args.out / "manifest.json").write_text(json.dumps(manifest, indent=1) + "\n")
-    print(f"{len(pack['conventions'])} definitions, {sum(len(s) for s in pack['settings'].values())} settings, "
+    print(f"rules number {number} from {commit}: {len(pack['conventions'])} definitions, {sum(len(s) for s in pack['settings'].values())} settings, "
           f"{len(pack['files'])} rule, test and notes files: {len(text) // 1024} KB")
 
 

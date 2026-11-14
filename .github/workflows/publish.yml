@@ -1,0 +1,139 @@
+# Check the pack, and publish its snapshot (docs/CONTRACT.md, section 10).
+#
+# On a pull request: check the definitions, check the rule files, run every
+# .test case, and build the snapshot. On a push to main: the same, then push
+# pack.json and manifest.json to the `published` branch. Any failure stops
+# before the push, so the published snapshot is always one that passed, and
+# the previous one stays. Nothing is committed to main.
+#
+# Daily: is the published snapshot behind main (scripts/staleness.py)?
+name: Publish
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  pack:
+    name: Check, test and build
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      # The whole history: the rules number and each file's last-changed
+      # date are read from it.
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Definitions, settings and migrations
+        run: python3 scripts/check.py
+
+      - name: Which engine
+        run: grep -E '^[A-Z_]+=' .github/engine.env >> "$GITHUB_ENV"
+
+      - name: Engine (cached)
+        id: engine
+        uses: actions/cache@v4
+        with:
+          path: _engine
+          key: rbb-${{ runner.os }}-${{ env.RBB_RELEASE || env.RBB_REF }}
+
+      # The engine's stock cards come with it: the rule tests name them
+      # (`card 21GF-DEFAULT`).
+      - name: Engine from a release
+        if: steps.engine.outputs.cache-hit != 'true' && env.RBB_RELEASE != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p _engine/bin _engine/src
+          gh release download "$RBB_RELEASE" --repo "$RBB_REPO" --pattern rbb-linux-x86_64.tar.gz --output - | tar -xz -C _engine/bin
+          gh api "repos/$RBB_REPO/tarball/$RBB_RELEASE" | tar -xz -C _engine/src --strip-components=1
+          mv _engine/src/cards _engine/cards && rm -rf _engine/src
+
+      - name: Engine from source
+        if: steps.engine.outputs.cache-hit != 'true' && env.RBB_RELEASE == ''
+        run: |
+          git init -q _engine/src
+          git -C _engine/src fetch -q --depth 1 "https://github.com/$RBB_REPO" "$RBB_REF"
+          git -C _engine/src checkout -q FETCH_HEAD
+          cargo build --locked --release -p rbb-cli --manifest-path _engine/src/Cargo.toml
+          mkdir -p _engine/bin
+          cp _engine/src/target/release/rbb _engine/bin/rbb
+          mv _engine/src/cards _engine/cards && rm -rf _engine/src
+
+      # A problem is reported with its file and line, here and beside the
+      # line in a pull request.
+      - name: Rule files
+        run: |
+          set -o pipefail
+          _engine/bin/rbb --version
+          _engine/bin/rbb bid check . --rules . 2>&1 | tee check.log || status=$?
+          sed -nE 's/^(\.\/)?([^ :]+\.(bid|test)):([0-9]+): (error: )?(.*)$/::error file=\2,line=\4::\6/p' check.log | grep -v ' warning: ' || true
+          exit ${status:-0}
+
+      - name: Every .test case
+        run: |
+          set -o pipefail
+          git ls-files '*.test' | xargs _engine/bin/rbb bid test --rules . --cards _engine/cards/bbsa 2>&1 | tee test.log || status=$?
+          sed -nE 's/^FAIL (\.\/)?([^ :]+\.test):([0-9]+): (.*)$/::error file=\2,line=\3::\4/p' test.log
+          tail -1 test.log
+          exit ${status:-0}
+
+      - name: Build the snapshot
+        run: python3 scripts/build_snapshot.py --no-check --out _snapshot --engine "$(_engine/bin/rbb --version)"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: snapshot
+          path: _snapshot
+
+      - name: Publish
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git fetch -q origin published; then
+            git worktree add -q _published origin/published
+          else
+            git worktree add -q --detach _published
+            git -C _published checkout -q --orphan published
+            git -C _published rm -rfq .
+          fi
+          cp _snapshot/pack.json _snapshot/manifest.json _published/
+          cp .github/published-README.md _published/README.md
+          cd _published
+          git add pack.json manifest.json README.md
+          if git diff --cached --quiet; then
+            echo "The snapshot is unchanged: nothing to publish."
+            exit 0
+          fi
+          number=$(python3 -c "import json; print(json.load(open('manifest.json'))['rules_number'])")
+          git commit -q -m "Rules number $number, from $GITHUB_SHA"
+          git push -q origin HEAD:published
+          echo "Published rules number $number from $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
+
+  staleness:
+    name: Is the published snapshot current?
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 scripts/staleness.py
