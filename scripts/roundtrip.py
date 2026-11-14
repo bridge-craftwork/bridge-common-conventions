@@ -47,6 +47,7 @@ CORRECTED = {
 # differences are what hold them.
 CORRECTED_RULES = {
     "weak-jump-shifts.bid": "#74: the not-in-competition box counts; follow-ups only after a real jump",
+    "after-interference.bid": "#67: a jump shift after an overcall is weak unless the card says strong",
     "soloway.bid": "#74", "responses.bid": "#74", "rebids.bid": "#74", "responder-rebids.bid": "#74",
 }
 
