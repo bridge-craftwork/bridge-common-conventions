@@ -300,6 +300,11 @@ Each produces a small, expected difference against phase 2.
 With the new arrangement visible, each lone yes/no field becomes a
 convention, a treatment of an existing one, or stays a setting.
 
+- The two "2NT raise over a takeout double" box groups, which stay settings
+  until here: a function for 2NT over their takeout double (major, minor)
+  that Jordan implements; the limit boxes become a Jordan entry; the point
+  ranges stay settings (Rick, 2026-11-13).
+
 **Done when** the inventory has no unplaced rows and the differences are
 reviewed, as in phase 5.
 
