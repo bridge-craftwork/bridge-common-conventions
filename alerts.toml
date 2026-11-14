@@ -926,6 +926,31 @@ by = "responder"
 rule = "alert"
 note = "Asking bid; the ACBL 2NT exemption covers only weak preempts."
 
+# Reverse Flannery: responder's jump to 2♥ or 2♠ over one of a minor
+[[alert]]
+fields = ["bidding_conventions/reverse_flannery:two_h"]
+call = "2♥"
+after = "1♣ or 1♦"
+by = "responder"
+rule = "alert"
+note = "Five spades and four or five hearts in a weak hand: the jump shows a suit it does not name, so every regulator alerts it."
+
+[[alert]]
+fields = ["bidding_conventions/reverse_flannery:two_s"]
+call = "2♠"
+after = "1♣ or 1♦"
+by = "responder"
+rule = "alert"
+note = "Five spades and four hearts with invitational values: the hearts are an agreement the opponents would not expect."
+
+[[alert]]
+fields = ["bidding_conventions/reverse_flannery:two_h"]
+call = "2NT"
+after = "1♣ or 1♦, then 2♥"
+by = "opener"
+rule = "alert"
+note = "Asks responder for shape and strength."
+
 # Kokish relay
 [[alert]]
 fields = ["bidding_conventions/kokish"]

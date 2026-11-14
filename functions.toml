@@ -97,3 +97,17 @@ plays = { weak = "bidding_conventions/weak_2s" }
 [low_keycard_ask]
 name = "The keycard ask below 4NT"
 parts = ["clubs", "diamonds", "hearts"]
+
+# Responder's jump to two of a major over partner's 1♣ or 1♦. Reverse
+# Flannery claims both (its `two_h` and `two_s` treatments say which a card
+# plays), and so do weak and strong jump shifts. A card's jump-shift style
+# is still the `general.jump_shifts.*` settings, so today only Reverse
+# Flannery arrives as an entry; the others compete once those boxes become
+# entries.
+#
+# With nothing filling it, the jump is strong with no interference and weak
+# in competition (Rick, 2026-11-14). A weak jump with no interference is
+# alerted, as Reverse Flannery is (alerts.toml).
+[jump_to_major_over_minor]
+name = "Responder's jump to two of a major over one of a minor"
+parts = ["2h", "2s"]

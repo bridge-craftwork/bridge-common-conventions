@@ -32,6 +32,15 @@ EXPECTED = {}
 BY_FUNCTION = {"dont.bid", "meckwell.bid", "suction.bid", "cappelletti.bid", "preempts.bid",
                "multi-landy.bid", "vs-1nt.bid", "overcalls.bid"}
 
+# Corrections: text that differs from the tag on purpose (Phase 5).
+CORRECTED = {
+    ("two_level.reverse_flannery.play", "desc"):
+        "Reverse Flannery is responder's jump over one of a minor, not an opening (Rick, 2026-11-14)",
+    ("bidding_conventions/reverse_flannery", "summary"): "the same",
+    ("bidding_conventions/reverse_flannery", "desc"): "the same",
+    ("bidding_conventions/reverse_flannery", "contexts"): "the same",
+}
+
 # Files that did not stay in the pack, and where they went.
 ELSEWHERE = {
     "stock-cards.test": "rusty-bidding-bot's cards/: it tests the engine's stock cards, which the pack does not hold",
@@ -138,7 +147,7 @@ def main():
     if list(want) != [p for p in mig.get("order", []) if p in want]:
         got["(order)"] = {}
 
-    problems, expected = [], []
+    problems, expected, corrected = [], [], []
     for path in sorted(set(want) | set(got)):
         if path not in got:
             problems.append(f"{path}: not in the pack")
@@ -154,7 +163,9 @@ def main():
             w["aliases"] = sorted(w["aliases"])
         for k in sorted(set(w) | set(g)):
             if w.get(k) != g.get(k):
-                if (path, k) in EXPECTED:
+                if (path, k) in CORRECTED:
+                    corrected.append(f"{path} {k}: {CORRECTED[(path, k)]}")
+                elif (path, k) in EXPECTED:
                     expected.append(f"{path} {k}: {EXPECTED[(path, k)]}")
                 else:
                     problems.append(f"{path} {k}: {w.get(k)!r} at the tag, {g.get(k)!r} from the pack")
@@ -175,7 +186,10 @@ def main():
             continue
         for k, v in old.items():
             if new.get(k) != v:
-                problems.append(f"{old['id']} {k}: changed")
+                if (old["id"], k) in CORRECTED:
+                    corrected.append(f"{old['id']} {k}: {CORRECTED[(old['id'], k)]}")
+                else:
+                    problems.append(f"{old['id']} {k}: changed")
 
     # rule files: the same bytes, wherever they sit now
     here = {f.name: f for f in HERE.rglob("*") if f.suffix in (".bid", ".test") or f.name.endswith(".notes.md")}
@@ -212,6 +226,9 @@ def main():
     print(f"\nHeld in another form ({len(expected)}):")
     for e in expected:
         print("  " + e)
+    print(f"\nCorrected on purpose ({len(corrected)}):")
+    for c in corrected:
+        print("  " + c)
     print(f"\nProblems ({len(problems)}):")
     for p in problems[:60]:
         print("  " + p)

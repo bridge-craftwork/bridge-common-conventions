@@ -42,6 +42,7 @@ to = "3.0"
 new_ids = [
   "bidding_conventions/strong_twos",
   "bidding_conventions/intermediate_twos",
+  "bidding_conventions/strong_jump_shifts",
   "bidding_conventions/texas",
   "bidding_conventions/mini_splinters",
   "bidding_conventions/three_nt_raise",
