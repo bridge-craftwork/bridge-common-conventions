@@ -12,6 +12,7 @@ responder show a suit, a stopper or values at a lower level.
 see = [
   { title = "Transfer Lebensohl", by = "Larry Cohen", url = "https://www.larryco.com/bridge-articles/transfer-lebensohl" },
   { title = "NT Bidding: Modern, Transfer, and Modern Transfer Lebensohl", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/548" },
+  { title = "Rubinsohl", site = "Wikipedia", url = "https://en.wikipedia.org/wiki/Rubinsohl" },
 ]
 
 [treatments.over_1nt_interference]

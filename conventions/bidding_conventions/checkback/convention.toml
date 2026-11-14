@@ -8,3 +8,6 @@ summary = """
 Played instead of NMF: after opener's notrump rebid, a fixed suit (usually
 2♣) asks about support and majors, whichever minor was bid.
 """
+see = [
+  { title = "Checkback Stayman", site = "Bridge Bum", url = "https://www.bridgebum.com/checkback_stayman.php" },
+]

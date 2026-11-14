@@ -9,3 +9,6 @@ summary = """
 In Precision, an opening 2♦ shows a limited opening short in diamonds,
 usually 4-4-1-4 or 4-4-0-5 with 11-15 points.
 """
+see = [
+  { title = "Precision 2D", site = "Bridge Bum", url = "https://www.bridgebum.com/precision_2d.php" },
+]

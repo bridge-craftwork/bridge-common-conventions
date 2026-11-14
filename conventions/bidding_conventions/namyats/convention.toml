@@ -10,4 +10,5 @@ respectively, so a direct 4♥ or 4♠ opening is weaker.
 """
 see = [
   { title = "25 More Bridge Conventions You Should Know", kind = "book", chapter = 8 },
+  { title = "Namyats", site = "Bridge Bum", url = "https://www.bridgebum.com/namyats.php" },
 ]

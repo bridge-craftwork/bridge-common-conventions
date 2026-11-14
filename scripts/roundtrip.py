@@ -186,6 +186,9 @@ def main():
             problems.append(f"{old['id']}: definition missing")
             continue
         for k, v in old.items():
+            # Sources may be added (scripts/find_references.py); none is dropped.
+            if k == "see" and all(e in new.get("see", []) for e in v):
+                continue
             if new.get(k) != v:
                 if (old["id"], k) in CORRECTED:
                     corrected.append(f"{old['id']} {k}: {CORRECTED[(old['id'], k)]}")

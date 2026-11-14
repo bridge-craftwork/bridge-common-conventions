@@ -8,3 +8,6 @@ summary = """
 Played instead of Michaels and the Unusual 2NT: 2NT, a cue bid and a jump
 cue bid each show a specific pair of suits.
 """
+see = [
+  { title = "Ghestem", site = "Wikipedia", url = "https://en.wikipedia.org/wiki/Ghestem" },
+]

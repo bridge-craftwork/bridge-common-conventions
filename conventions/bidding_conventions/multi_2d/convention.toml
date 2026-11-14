@@ -15,6 +15,7 @@ see = [
   { title = "Multi 2♦", site = "Bridge Bum", url = "https://www.bridgebum.com/multi_2d.php" },
   { title = "Multi 2 diamonds", site = "Wikipedia", url = "https://en.wikipedia.org/wiki/Multi_2_diamonds" },
   { title = "25 More Bridge Conventions You Should Know", kind = "book", chapter = 25 },
+  { title = "Defense to Multi 2D (B)", site = "Bridge Bum", url = "https://www.bridgebum.com/defense_to_multi_2d_b.php" },
 ]
 
 [treatments.strong_option]

@@ -9,3 +9,6 @@ Bergen raises used over the opponents' takeout double of partner's major
 (Bergen Raises Over Major Doubles), with the structure adjusted for the
 double.
 """
+see = [
+  { title = "BROMAD", site = "Bridge Bum", url = "https://www.bridgebum.com/bromad.php" },
+]

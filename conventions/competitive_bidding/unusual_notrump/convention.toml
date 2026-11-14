@@ -3,6 +3,10 @@ name = "Unusual notrump"
 source = "proposed"
 level = 4
 contexts = ["overcalls"]
+see = [
+  { title = "Unusual 2NT", site = "Bridge Bum", url = "https://www.bridgebum.com/unusual_2nt.php" },
+  { title = "Unusual notrump", site = "Wikipedia", url = "https://en.wikipedia.org/wiki/Unusual_notrump" },
+]
 
 [treatments.at_1nt]
 kind = "bool"
