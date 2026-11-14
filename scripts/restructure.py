@@ -54,7 +54,7 @@ CONTEXTS = [
 # Attributes a treatment keeps as the field had them, in this order.
 TREATMENT_KEYS = ["kind", "label", "desc", "options", "min", "max", "default", "level",
                   "context", "value_aliases", "requires", "choice", "bid", "note",
-                  "explains", "implies", "many", "heading", "about", "taught_under"]
+                  "explains", "implies", "many", "heading", "about", "plays", "skill", "taught_under"]
 
 
 def toml(v):
@@ -179,10 +179,21 @@ def main():
                     f["context"] = attrs["context"]
             for a in f.pop("aliases", []):
                 alias_moves[a] = f"{cid}:{t}"
-            own = set(as_list(sw.get("skill"))) | {cid}
-            also = [s for s in as_list(f.pop("skill", None)) if s not in own]
-            if also:
-                f["taught_under"] = also
+            # The field's `skill`, against the convention's own: left out when
+            # the same; `taught_under` for IDs added to it; kept as it was when
+            # it names another convention (a variant, issue #6); false when the
+            # field named none (a note or a range, which in schema 2 did not
+            # count as naming the convention).
+            base = as_list(sw.get("skill")) if single else [cid]
+            orig = as_list(f.pop("skill", None))
+            if orig == base:
+                pass
+            elif not orig:
+                f["skill"] = False
+            elif base and orig[:len(base)] == base:
+                f["taught_under"] = orig[len(base):]
+            else:
+                f["skill"] = orig if len(orig) > 1 else orig[0]
             if "requires" in f:
                 if f["requires"] in switches:
                     del f["requires"]            # a treatment always needs its convention
