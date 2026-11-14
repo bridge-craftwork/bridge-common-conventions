@@ -9,3 +9,6 @@ summary = """
 Played instead of Cappelletti: over their 1NT, 2♣ shows a one-suited minor
 or a major and a minor, and 2♥ and 2♠ are natural one-suiters.
 """
+see = [
+  { title = "Modified Cappelletti", site = "ACBL Unit 390", url = "https://www.acblunit390.org/Simon/modcapp.htm" },
+]

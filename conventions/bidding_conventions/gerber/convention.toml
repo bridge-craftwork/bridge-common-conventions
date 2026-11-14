@@ -13,6 +13,7 @@ see = [
   { title = "Gerber", site = "Bridge Bum", url = "https://www.bridgebum.com/gerber.php" },
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 1 },
   { title = "Slam Bidding: Gerber and 1430 Gerber", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/402" },
+  { title = "Gerber convention", site = "Wikipedia", url = "https://en.wikipedia.org/wiki/Gerber_convention" },
 ]
 
 [treatments.over]

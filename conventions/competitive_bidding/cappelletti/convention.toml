@@ -11,4 +11,6 @@ majors, 2♥ and 2♠ that major and a minor, 2NT both minors.
 """
 see = [
   { title = "25 More Bridge Conventions You Should Know", kind = "book", chapter = 1 },
+  { title = "Cappelletti (Hamilton)", site = "Bridge Bum", url = "https://www.bridgebum.com/cappelletti.php" },
+  { title = "Cappelletti convention", site = "Wikipedia", url = "https://en.wikipedia.org/wiki/Cappelletti_convention" },
 ]

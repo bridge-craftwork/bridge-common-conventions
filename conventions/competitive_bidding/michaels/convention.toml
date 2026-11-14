@@ -5,6 +5,10 @@ source = "proposed"
 level = 4
 contexts = ["overcalls"]
 taught_under = ["competitive_bidding/michaels_unusual"]
+see = [
+  { title = "Michaels Cue Bid", by = "Larry Cohen", site = "Larry Cohen", url = "https://www.larryco.com/bridge-articles/michaels-cue-bid" },
+  { title = "Michaels cuebid", site = "Wikipedia", url = "https://en.wikipedia.org/wiki/Michaels_cuebid" },
+]
 
 [treatments.strength]
 kind = "enum"
