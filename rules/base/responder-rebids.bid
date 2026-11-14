@@ -22,7 +22,7 @@ module responder-rebids "Responder's second call"
   param  nmf = bidding_conventions/new_minor_forcing default false
   param  fsf = bidding_conventions/fourth_suit_forcing default false
   param  style = general.style
-  param  weak_js = general.jump_shifts.weak_2 default false   # a weak jump shift is not a 2/1
+  param  weak_js = bidding_conventions/weak_jump_shifts:two_level default false   # a weak jump shift is not a 2/1
   param  inverted = bidding_conventions/inverted_minors default false
   # Artificial calls after opener's 1NT rebid (checkback.bid, roudi.bid,
   # two-way-nmf.bid) switch off the natural calls they take.

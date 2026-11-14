@@ -19,10 +19,10 @@ module responses "Responses to one-level suit openings"
   param  limit_raise = major_openings.jump_raise.inv default true
   param  bergen      = bidding_conventions/bergen_raises default false
   param  rbergen     = bidding_conventions/bergen_raises:reverse default false
-  param  strong_js   = general.jump_shifts.strong_2 default true
-  param  inv_js      = general.jump_shifts.invitational default false
-  param  weak_js     = general.jump_shifts.weak_2 default false
-  param  weak_js3    = general.jump_shifts.weak_3 default false
+  param  strong_js   = bidding_conventions/strong_jump_shifts:two_level default true
+  param  inv_js      = bidding_conventions/strong_jump_shifts:invitational default false
+  param  weak_js     = bidding_conventions/weak_jump_shifts:two_level default false
+  param  weak_js3    = bidding_conventions/weak_jump_shifts:three_level default false
   param  soloway     = bidding_conventions/soloway default false
   param  over_1c     = minor_openings.one_club_responses default up_the_line
   param  nt2         = minor_openings.two_nt_response default invitational

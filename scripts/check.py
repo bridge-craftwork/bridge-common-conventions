@@ -98,6 +98,12 @@ class Pack:
                 if t in RESERVED:
                     self.bad(tw, "reserved name")
                 self.attrs(tw, a, inside=cid)
+                # A treatment may say what its convention fills while it is on.
+                if "implements" in a and a.get("kind") != "bool":
+                    self.bad(tw, "only a yes/no treatment can say what it implements")
+                for f in a.get("implements", []):
+                    if not self.function_ok(f):
+                        self.bad(tw, f"unknown function {f!r}")
         for name, a in self.settings.items():
             self.attrs(f"settings {name}", a)
             for i in a.get("plays", {}).values():
@@ -106,7 +112,10 @@ class Pack:
 
         claimed = {}
         for cid, d in self.defs.items():
-            for f in d.get("implements", []):
+            every = list(d.get("implements", []))
+            for t in d.get("treatments", {}).values():
+                every += t.get("implements", [])
+            for f in every:
                 claimed.setdefault(f.split(".")[0], set()).add(cid)
         for fname, fn in self.functions.items():
             if not fn.get("name"):

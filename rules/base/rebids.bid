@@ -22,8 +22,8 @@ module rebids "Opener's rebid"
   param  support_through = competitive_bidding/support_doubles:through
   param  walsh = bidding_conventions/walsh default true
   param  inverted = bidding_conventions/inverted_minors default false
-  param  weak_js = general.jump_shifts.weak_2 default false
-  param  weak_js3 = general.jump_shifts.weak_3 default false
+  param  weak_js = bidding_conventions/weak_jump_shifts:two_level default false
+  param  weak_js3 = bidding_conventions/weak_jump_shifts:three_level default false
   param  gf21 = bidding_conventions/two_over_one default false
   param  style21 = bidding_conventions/two_over_one:rebid_style default bergen
   param  semi = major_openings.one_nt_response.semi_forcing default false

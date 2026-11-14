@@ -11,8 +11,8 @@ module weak-jump-shifts "Weak jump shifts"
   kind   convention
   needs  responses
   skill  bidding_conventions/weak_jump_shifts
-  param  weak2 = general.jump_shifts.weak_2 default false
-  param  weak3 = general.jump_shifts.weak_3 default false
+  param  weak2 = bidding_conventions/weak_jump_shifts:two_level default false
+  param  weak3 = bidding_conventions/weak_jump_shifts:three_level default false
 
 # A response of 2x to 1y is a jump when x ranks above y (else a two over
 # one). responder-rebids.bid reads it to keep its 2/1 continuations away
