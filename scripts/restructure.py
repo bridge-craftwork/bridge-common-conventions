@@ -377,9 +377,11 @@ def main():
         "#               convention gets an entry. Where the function has parts",
         "#               (`strong`, `weak`), an entry chosen for only some of them",
         "#               lists them in `for`. Options with no convention (`natural`,",
-        "#               `other`) leave no entry. `unless_chosen` names a switch",
-        "#               that turned its convention on only while the setting was",
-        "#               unset or `other`: schema 2's precedence, kept.",
+        "#               `other`) leave no entry. `unless_chosen` is { switch = part }:",
+        "#               a switch that turned its convention on for that part only",
+        "#               while the part's setting was unset or `other`. Schema 2's",
+        "#               precedence, kept: with another defence or `natural` chosen,",
+        "#               the switch did nothing and leaves no entry.",
         "# [alias]       \"older path\" = \"address\": spellings schema 2 still read.",
         "# Everything else moves to `settings` at the same path.",
         "",
@@ -388,7 +390,7 @@ def main():
         "",
         "[convention]",
     ]
-    unless = {"competitive.dont.play"}
+    unless = {"competitive.dont.play": "strong"}
     for p, r in inv_fields.items():
         if r["becomes"] == "convention":
             out.append(f"{toml(p)} = {toml(r['convention'])}")
@@ -406,7 +408,7 @@ def main():
                 f"settings = {toml(fn['settings'])}",
                 f"options = {toml(fn['options'])}",
                 'no_entry = ["natural", "other"]',
-                f"unless_chosen = {toml(sorted(unless))}"]
+                f"unless_chosen = {toml(unless)}"]
     out += ["", "[alias]"]
     for a, target in sorted(alias_moves.items()):
         out.append(f"{toml(a)} = {toml(target)}")
