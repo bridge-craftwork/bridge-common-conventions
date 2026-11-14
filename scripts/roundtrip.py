@@ -20,18 +20,9 @@ import tomllib
 
 HERE = pathlib.Path(__file__).resolve().parent.parent
 
-# Attributes of schema 2 fields that the pack holds in another form.
-EXPECTED = {
-    ("major_openings.bergen_raises.play", "choice"):
-        "Bergen or Reverse Bergen was a choice between the switch and a treatment; "
-        "in schema 3 the entry is played either way and `reverse` says which",
-    ("slam.blackwood.play", "choice"): "the `ace_ask` function",
-    ("slam.rkcb.play", "choice"): "the `ace_ask` function",
-    ("competitive.leaping_michaels.play", "choice"): "the `michaels_vs_preempts` function",
-    ("competitive.non_leaping_michaels.play", "choice"): "the `michaels_vs_preempts` function",
-    ("two_level.parrish_bust.relay", "requires"):
-        "it required its own convention's switch, which a treatment always does",
-}
+# Attributes of schema 2 fields that the pack holds in another form. None:
+# migrations/2-to-3.toml records the few there were under `was`.
+EXPECTED = {}
 
 
 def git(repo, *args):
@@ -96,7 +87,7 @@ def main():
     places = {p: (pl["convention"], t) for pl in mig["place"] for p, t in pl["switches"].items()}
     for path, cid in mig["convention"].items():
         d = defs[cid]
-        new = cid in dec["new_ids"]
+        new = cid in mig.get("new_ids", [])
         v = {"kind": "bool", "label": d.get("label", d["name"]), "level": d["level"]}
         if "desc" in d:
             v["desc"] = d["desc"]
@@ -134,6 +125,11 @@ def main():
         aliases.setdefault(back.get(target, target), []).append(old)
     for path, olds in aliases.items():
         got[path]["aliases"] = sorted(olds)
+
+    for path, attrs in mig.get("was", {}).items():
+        got[path].update(attrs)
+    if list(want) != [p for p in mig.get("order", []) if p in want]:
+        got["(order)"] = {}
 
     problems, expected = [], []
     for path in sorted(set(want) | set(got)):
