@@ -2,6 +2,7 @@ id = "bidding_conventions/puppet_stayman"
 name = "Puppet Stayman"
 source = "proposed"
 level = 7
+contexts = ["notrump_openings"]
 names = ["Puppet Stayman", "Puppet", "5-card Stayman", "five-card Stayman"]
 summary = """
 A form of Stayman, usually over 2NT, that finds five-card majors as well as
@@ -14,3 +15,16 @@ see = [
   { title = "25 More Bridge Conventions You Should Know", kind = "book", chapter = 16 },
   { title = "NT Auctions: Puppet Stayman and 5-Card Stayman", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/523" },
 ]
+
+[treatments.over_1nt]
+kind = "bool"
+label = "Puppet Stayman over 1NT (3♣)"
+desc = "Bridge Classroom's editor, its PDFs and the BBO and Bridgodex importers write notrump.stayman.puppet for this (BBO's 1NPuppet, the Classic card's 1NT box)"
+level = 7
+
+[treatments.over_2nt]
+kind = "bool"
+label = "2NT: Puppet Stayman (3♣)"
+desc = "Over 2NT (and 2♣–2♦–2NT), 3♣ asks for a four- or five-card major"
+level = 7
+implements = ["major_ask_over_notrump.2nt"]

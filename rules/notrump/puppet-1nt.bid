@@ -11,7 +11,7 @@
 
 module puppet-1nt "Puppet Stayman over 1NT"
   kind   convention
-  card   bidding_conventions/stayman:puppet_1nt
+  card   bidding_conventions/puppet_stayman:over_1nt
   needs  two-nt-responses
   skill  bidding_conventions/puppet_stayman
 

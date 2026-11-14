@@ -172,7 +172,7 @@ note = "Natural choice of game. The WBF does not mention it; natural calls are n
 
 # Puppet Stayman
 [[alert]]
-fields = ["bidding_conventions/stayman:puppet_1nt"]
+fields = ["bidding_conventions/puppet_stayman:over_1nt"]
 call = "2♣"
 after = "1NT"
 by = "responder"
@@ -181,7 +181,7 @@ acbl = "none"
 note = "Puppet Stayman over 1NT. The ACBL exempts any major-suit ask over notrump; the EBU alerts Puppet rather than announcing it, and the WBF alerts it as artificial."
 
 [[alert]]
-fields = ["bidding_conventions/stayman:puppet_1nt"]
+fields = ["bidding_conventions/puppet_stayman:over_1nt"]
 call = "3♣"
 after = "2NT"
 by = "responder"
@@ -190,7 +190,7 @@ acbl = "none"
 note = "Asks for a four- or five-card major. Exempt in the ACBL as a major-suit ask; alerted in the EBU and WBF."
 
 [[alert]]
-fields = ["bidding_conventions/stayman:puppet_1nt"]
+fields = ["bidding_conventions/puppet_stayman:over_1nt"]
 call = "3♦"
 after = "2NT–3♣"
 by = "opener"
@@ -198,7 +198,7 @@ rule = "alert"
 note = "Shows at least one four-card major and no five-card major."
 
 [[alert]]
-fields = ["bidding_conventions/stayman:puppet_1nt"]
+fields = ["bidding_conventions/puppet_stayman:over_1nt"]
 call = "3♥/3♠"
 after = "2NT–3♣"
 by = "opener"
@@ -207,7 +207,7 @@ acbl = "alert"
 note = "Shows a five-card major. The ACBL lists it as a natural reply that is still alerted; the EBU treats it as natural, and the WBF does not mention it."
 
 [[alert]]
-fields = ["bidding_conventions/stayman:puppet_1nt"]
+fields = ["bidding_conventions/puppet_stayman:over_1nt"]
 call = "3NT"
 after = "2NT–3♣"
 by = "opener"
@@ -215,7 +215,7 @@ rule = "none"
 note = "Natural: no four- or five-card major."
 
 [[alert]]
-fields = ["bidding_conventions/stayman:puppet_1nt"]
+fields = ["bidding_conventions/puppet_stayman:over_1nt"]
 call = "3♥/3♠"
 after = "2NT–3♣–3♦"
 by = "responder"
@@ -224,7 +224,7 @@ acbl = "announce"
 note = "Responder bids the major he does not hold. The ACBL treats it as a one-suit showing call to announce (uncertain: some directors want an alert); the EBU and WBF alert it."
 
 [[alert]]
-fields = ["bidding_conventions/stayman:puppet_1nt"]
+fields = ["bidding_conventions/puppet_stayman:over_1nt"]
 call = "4♦"
 after = "2NT–3♣–3♦"
 by = "responder"
@@ -368,7 +368,7 @@ note = "Minimum sign-off. The WBF does not list it separately; it reads as natur
 
 # Modified Jacoby 2NT
 [[alert]]
-fields = ["bidding_conventions/jacoby_2nt:modified"]
+fields = ["bidding_conventions/modified_jacoby_2nt"]
 call = "2NT"
 after = "1♥/1♠"
 by = "responder"
@@ -376,7 +376,7 @@ rule = "alert"
 note = "Artificial game-forcing raise."
 
 [[alert]]
-fields = ["bidding_conventions/jacoby_2nt:modified"]
+fields = ["bidding_conventions/modified_jacoby_2nt"]
 call = "3♣/3♦/3♥/3♠"
 after = "1M–2NT"
 by = "opener"
@@ -384,7 +384,7 @@ rule = "alert"
 note = "Step replies showing strength or controls."
 
 [[alert]]
-fields = ["bidding_conventions/jacoby_2nt:modified"]
+fields = ["bidding_conventions/modified_jacoby_2nt"]
 call = "3NT"
 after = "1M–2NT"
 by = "opener"
@@ -393,7 +393,7 @@ acbl = "delayed"
 note = "Step reply at 3NT. The ACBL delays the alert to the end of the auction."
 
 [[alert]]
-fields = ["bidding_conventions/jacoby_2nt:modified"]
+fields = ["bidding_conventions/modified_jacoby_2nt"]
 call = "4-level steps"
 after = "1M–2NT"
 by = "opener"
@@ -403,7 +403,7 @@ wbf = "alert"
 note = "Step reply above 3NT. The ACBL gives a delayed alert, the EBU none after the first round; the WBF has no level cut-off."
 
 [[alert]]
-fields = ["bidding_conventions/jacoby_2nt:modified"]
+fields = ["bidding_conventions/modified_jacoby_2nt"]
 call = "Relay asks below 3NT"
 after = "1M–2NT–3x"
 by = "responder"

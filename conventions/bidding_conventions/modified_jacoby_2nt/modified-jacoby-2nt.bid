@@ -1,6 +1,7 @@
 # Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
 #
-# Modified Jacoby 2NT (Larry Cohen, "Modified Jacoby 2NT", larryco.com):
+# Modified Jacoby 2NT (Larry Cohen, "Modified Jacoby 2NT",
+# https://www.larryco.com/bridge-articles/modified-jacoby-2nt):
 # responder's 2NT is the same game-forcing raise (jacoby-2nt.bid), but
 # opener's rebids sort the hand by strength first and shape second, and
 # responder relays for more:
@@ -20,7 +21,7 @@
 
 module modified-jacoby-2nt "Modified Jacoby 2NT"
   kind   convention
-  card   bidding_conventions/jacoby_2nt:modified
+  convention  bidding_conventions/modified_jacoby_2nt
   needs  jacoby-2nt
   skill  bidding_conventions/modified_jacoby_2nt
   param  rkcb  = bidding_conventions/roman_keycard default false

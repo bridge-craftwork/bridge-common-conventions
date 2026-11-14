@@ -88,6 +88,14 @@ class Pack:
             for f in d.get("implements", []):
                 if not self.function_ok(f):
                     self.bad(where, f"unknown function {f!r}")
+            # A definition that is a style of another names the treatments
+            # that are it, and has no card entry of its own.
+            for t in d.get("style_of", []):
+                pid, _, name = t.partition(":")
+                if name not in self.defs.get(pid, {}).get("treatments", {}):
+                    self.bad(where, f"style_of names {t!r}, which is not a treatment")
+                if d.get("contexts") or d.get("implements"):
+                    self.bad(where, "a style of another convention has no context or function of its own")
             for i in d.get("taught_under", []):
                 if i not in self.defs:
                     self.bad(where, f"taught_under names {i!r}, which is not defined")

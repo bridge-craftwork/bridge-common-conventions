@@ -24,7 +24,7 @@ module notrump-base "1NT opening and natural responses"
   param  style   = general.style
   param  five_major = notrump.one_nt.five_card_major default sometimes
   param  jacoby  = bidding_conventions/jacoby_transfers default true
-  param  puppet_1nt = bidding_conventions/stayman:puppet_1nt default false
+  param  puppet_1nt = bidding_conventions/puppet_stayman:over_1nt default false
   param  allow_5422 = notrump.one_nt.allow_5422 default false
   param  allow_4441 = notrump.one_nt.allow_4441 default false
 
