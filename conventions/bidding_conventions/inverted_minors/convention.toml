@@ -1,7 +1,9 @@
 id = "bidding_conventions/inverted_minors"
 name = "Inverted Minor Raises"
+label = "Inverted minors"
 source = "proposed"
 level = 5
+contexts = ["minor_openings"]
 names = ["Inverted minors", "Inverted minor raises", "Inverted raises"]
 summary = """
 Over partner's 1♣ or 1♦, the single raise is strong (invitational or better,

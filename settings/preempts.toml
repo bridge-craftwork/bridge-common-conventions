@@ -1,0 +1,9 @@
+# Card settings: preempts. A setting's name is `preempts.<key>`.
+# The attributes are described in settings/README.md.
+
+"three_level_style"        = { kind = "text", label = "3-level style" }
+"three_level_response"     = { kind = "text", label = "3-level responses" }
+"four_level_style"         = { kind = "text", label = "4-level style" }
+"four_level_response"      = { kind = "text", label = "4-level responses" }
+"transfer_4_minor"         = { kind = "bool", label = "4♣/4♦ transfer to major", skill = "bidding_conventions/namyats", level = 6 }
+"notes"                    = { kind = "text", label = "Preempt notes", note = true }

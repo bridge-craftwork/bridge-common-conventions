@@ -1,0 +1,42 @@
+id = "bidding_conventions/three_nt_raise"
+name = "3NT raise of a major"
+label = "3NT artificial raise (4-3-3-3)"
+source = "proposed"
+level = 6
+contexts = ["major_openings"]
+
+[treatments.range_min]
+kind = "int"
+label = "3NT artificial raise: minimum"
+min = 0
+max = 25
+
+[treatments.range_min_plus]
+kind = "bool"
+label = "3NT artificial raise: minimum has a plus"
+desc = "A good hand at that end: the range written with a plus (\"14+-17\" is a good 14 to 17)"
+choice = "major_openings.three_nt_raise.range_min_qualifier"
+
+[treatments.range_min_minus]
+kind = "bool"
+label = "3NT artificial raise: minimum has a minus"
+desc = "A poor hand at that end: the range written with a minus (\"15-17-\" is 15 to a poor 17)"
+choice = "major_openings.three_nt_raise.range_min_qualifier"
+
+[treatments.range_max]
+kind = "int"
+label = "3NT artificial raise: maximum"
+min = 0
+max = 25
+
+[treatments.range_max_plus]
+kind = "bool"
+label = "3NT artificial raise: maximum has a plus"
+desc = "A good hand at that end: the range written with a plus (\"14+-17\" is a good 14 to 17)"
+choice = "major_openings.three_nt_raise.range_max_qualifier"
+
+[treatments.range_max_minus]
+kind = "bool"
+label = "3NT artificial raise: maximum has a minus"
+desc = "A poor hand at that end: the range written with a minus (\"15-17-\" is 15 to a poor 17)"
+choice = "major_openings.three_nt_raise.range_max_qualifier"

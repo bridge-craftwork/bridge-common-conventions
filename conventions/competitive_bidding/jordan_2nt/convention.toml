@@ -1,7 +1,10 @@
 id = "competitive_bidding/jordan_2nt"
 name = "Jordan 2NT"
+label = "Jordan (Truscott) 2NT"
+desc = "1M–(X)–2NT shows 4+ card support and 10+ points"
 source = "proposed"
 level = 5
+contexts = ["after_interference"]
 names = ["Jordan", "Jordan 2NT", "Truscott", "Jordan Truscott 2NT", "Dormer"]
 summary = """
 After partner's opening is doubled for takeout, responder's 2NT shows a

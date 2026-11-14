@@ -2,6 +2,7 @@ id = "bidding_conventions/checkback"
 name = "Checkback"
 source = "proposed"
 level = 6
+contexts = ["responses_rebids"]
 names = ["Checkback", "Checkback Stayman"]
 summary = """
 Played instead of NMF: after opener's notrump rebid, a fixed suit (usually

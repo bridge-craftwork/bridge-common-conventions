@@ -1,7 +1,9 @@
 id = "competitive_bidding/sandwich_nt"
 name = "Sandwich 1NT"
+label = "Sandwich NT"
 source = "proposed"
 level = 7
+contexts = ["overcalls"]
 names = ["Sandwich NT", "Sandwich 1NT"]
 summary = """
 In the sandwich seat, after the opponents have bid two suits, a 1NT overcall

@@ -2,6 +2,7 @@ id = "bidding_conventions/bergen_raises"
 name = "Bergen raises"
 source = "proposed"
 level = 5
+contexts = ["major_openings"]
 names = ["Bergen", "Bergen raises", "Bergen raise"]
 summary = """
 Over partner's 1♥ or 1♠, responder's jumps to 3♣ and 3♦ show four-card
@@ -14,3 +15,10 @@ see = [
   { title = "25 More Bridge Conventions You Should Know", kind = "book", chapter = 3 },
   { title = "Bergen Raises", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/572" },
 ]
+
+[treatments.reverse]
+kind = "bool"
+label = "Reverse Bergen raises"
+level = 6
+choice = "major_openings.bergen"
+skill = "bidding_conventions/reverse_bergen_raises"

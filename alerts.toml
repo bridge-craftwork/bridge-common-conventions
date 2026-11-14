@@ -43,7 +43,7 @@ source = { title = "WBF Alerting Policy", version = "Adopted July 1997, revised 
 
 # Stayman
 [[alert]]
-fields = ["notrump.stayman.forcing"]
+fields = ["bidding_conventions/stayman:forcing"]
 call = "2♣"
 after = "1NT"
 by = "responder"
@@ -53,7 +53,7 @@ wbf = "alert"
 note = "Asks for a four-card major. Exempt from alerting in the ACBL; the EBU announces it as \"Stayman\" and the WBF alerts it as artificial."
 
 [[alert]]
-fields = ["notrump.stayman.forcing"]
+fields = ["bidding_conventions/stayman:forcing"]
 call = "3♣"
 after = "2NT"
 by = "responder"
@@ -63,7 +63,7 @@ wbf = "alert"
 note = "Stayman over 2NT, treated like 2♣ over 1NT: exempt in the ACBL, announced in the EBU. The WBF does not list it; it alerts every artificial call."
 
 [[alert]]
-fields = ["notrump.stayman.forcing"]
+fields = ["bidding_conventions/stayman:forcing"]
 call = "2♦"
 after = "1NT–2♣"
 by = "opener"
@@ -72,7 +72,7 @@ wbf = "alert"
 note = "Denies a four-card major. Exempt in the ACBL and EBU; the WBF alerts it as artificial."
 
 [[alert]]
-fields = ["notrump.stayman.forcing"]
+fields = ["bidding_conventions/stayman:forcing"]
 call = "2♥/2♠"
 after = "1NT–2♣"
 by = "opener"
@@ -80,7 +80,7 @@ rule = "none"
 note = "Natural major reply. The EBU alerts a 2♠ that does not deny four hearts."
 
 [[alert]]
-fields = ["notrump.stayman.forcing"]
+fields = ["bidding_conventions/stayman:forcing"]
 call = "2NT/3NT"
 after = "1NT–2♣–reply"
 by = "responder"
@@ -90,7 +90,7 @@ note = "Natural notrump rebid. The EBU alerts it when the 2♣ did not promise a
 
 # Jacoby transfers
 [[alert]]
-fields = ["notrump.jacoby_transfers.play"]
+fields = ["bidding_conventions/jacoby_transfers"]
 call = "2♦/2♥"
 after = "1NT"
 by = "responder"
@@ -99,7 +99,7 @@ wbf = "alert"
 note = "Transfer to the next suit up: partner names the suit (\"Hearts\", \"Spades\") in the ACBL and EBU. The WBF has no announcements and alerts it."
 
 [[alert]]
-fields = ["notrump.jacoby_transfers.play"]
+fields = ["bidding_conventions/jacoby_transfers"]
 call = "3♦/3♥"
 after = "2NT"
 by = "responder"
@@ -108,7 +108,7 @@ wbf = "alert"
 note = "Transfer over a 2NT opening, announced like the 1NT ones. The WBF alerts it as artificial."
 
 [[alert]]
-fields = ["notrump.jacoby_transfers.play"]
+fields = ["bidding_conventions/jacoby_transfers"]
 call = "2♥/2♠"
 after = "1NT–2♦/2♥"
 by = "opener"
@@ -117,7 +117,7 @@ wbf = "alert"
 note = "Plain completion of the transfer. The WBF alerts it as a call resting on a partnership understanding."
 
 [[alert]]
-fields = ["notrump.jacoby_transfers.play"]
+fields = ["bidding_conventions/jacoby_transfers"]
 call = "3♥/3♠"
 after = "1NT–2♦/2♥"
 by = "opener"
@@ -126,7 +126,7 @@ acbl = "none"
 note = "Super-accept: a jump completion promising four-card support. The EBU and WBF alert the specific holding; the ACBL does not mention it and it reads as a natural raise."
 
 [[alert]]
-fields = ["notrump.jacoby_transfers.play"]
+fields = ["bidding_conventions/jacoby_transfers"]
 call = "3♥"
 when = "responder's rebid has an agreed artificial meaning"
 after = "1NT–2♥–2♠"
@@ -136,7 +136,7 @@ note = "Alerted only when responder's rebid carries an agreed artificial meaning
 
 # Texas transfers
 [[alert]]
-fields = ["notrump.texas.play"]
+fields = ["bidding_conventions/texas"]
 call = "4♦/4♥"
 after = "1NT"
 by = "responder"
@@ -145,7 +145,7 @@ wbf = "alert"
 note = "Four-level transfer to a major, announced by naming the suit even above 3NT. The WBF alerts it as artificial."
 
 [[alert]]
-fields = ["notrump.texas.play"]
+fields = ["bidding_conventions/texas"]
 call = "4♥/4♠"
 after = "1NT–4♦/4♥"
 by = "opener"
@@ -155,7 +155,7 @@ note = "Completion of the transfer. The WBF alerts it as a call based on an unde
 
 # Smolen
 [[alert]]
-fields = ["notrump.smolen.play"]
+fields = ["bidding_conventions/smolen"]
 call = "3♥/3♠"
 after = "1NT–2♣–2♦"
 by = "responder"
@@ -163,7 +163,7 @@ rule = "alert"
 note = "Shows four cards in the major bid and five in the other."
 
 [[alert]]
-fields = ["notrump.smolen.play"]
+fields = ["bidding_conventions/smolen"]
 call = "3NT/4♥/4♠"
 after = "1NT–2♣–2♦–3♥/3♠"
 by = "opener"
@@ -172,7 +172,7 @@ note = "Natural choice of game. The WBF does not mention it; natural calls are n
 
 # Puppet Stayman
 [[alert]]
-fields = ["notrump.stayman.puppet_1nt"]
+fields = ["bidding_conventions/stayman:puppet_1nt"]
 call = "2♣"
 after = "1NT"
 by = "responder"
@@ -181,7 +181,7 @@ acbl = "none"
 note = "Puppet Stayman over 1NT. The ACBL exempts any major-suit ask over notrump; the EBU alerts Puppet rather than announcing it, and the WBF alerts it as artificial."
 
 [[alert]]
-fields = ["notrump.stayman.puppet_1nt"]
+fields = ["bidding_conventions/stayman:puppet_1nt"]
 call = "3♣"
 after = "2NT"
 by = "responder"
@@ -190,7 +190,7 @@ acbl = "none"
 note = "Asks for a four- or five-card major. Exempt in the ACBL as a major-suit ask; alerted in the EBU and WBF."
 
 [[alert]]
-fields = ["notrump.stayman.puppet_1nt"]
+fields = ["bidding_conventions/stayman:puppet_1nt"]
 call = "3♦"
 after = "2NT–3♣"
 by = "opener"
@@ -198,7 +198,7 @@ rule = "alert"
 note = "Shows at least one four-card major and no five-card major."
 
 [[alert]]
-fields = ["notrump.stayman.puppet_1nt"]
+fields = ["bidding_conventions/stayman:puppet_1nt"]
 call = "3♥/3♠"
 after = "2NT–3♣"
 by = "opener"
@@ -207,7 +207,7 @@ acbl = "alert"
 note = "Shows a five-card major. The ACBL lists it as a natural reply that is still alerted; the EBU treats it as natural, and the WBF does not mention it."
 
 [[alert]]
-fields = ["notrump.stayman.puppet_1nt"]
+fields = ["bidding_conventions/stayman:puppet_1nt"]
 call = "3NT"
 after = "2NT–3♣"
 by = "opener"
@@ -215,7 +215,7 @@ rule = "none"
 note = "Natural: no four- or five-card major."
 
 [[alert]]
-fields = ["notrump.stayman.puppet_1nt"]
+fields = ["bidding_conventions/stayman:puppet_1nt"]
 call = "3♥/3♠"
 after = "2NT–3♣–3♦"
 by = "responder"
@@ -224,7 +224,7 @@ acbl = "announce"
 note = "Responder bids the major he does not hold. The ACBL treats it as a one-suit showing call to announce (uncertain: some directors want an alert); the EBU and WBF alert it."
 
 [[alert]]
-fields = ["notrump.stayman.puppet_1nt"]
+fields = ["bidding_conventions/stayman:puppet_1nt"]
 call = "4♦"
 after = "2NT–3♣–3♦"
 by = "responder"
@@ -234,7 +234,7 @@ note = "Shows both majors. The EBU does not alert it because it is above 3NT aft
 
 # Lebensohl (over interference)
 [[alert]]
-fields = ["notrump.lebensohl.play"]
+fields = ["competitive_bidding/lebensohl:over_1nt_interference"]
 call = "2NT"
 after = "1NT–(2x)"
 by = "responder"
@@ -242,7 +242,7 @@ rule = "alert"
 note = "Relay forcing opener to bid 3♣."
 
 [[alert]]
-fields = ["notrump.lebensohl.play"]
+fields = ["competitive_bidding/lebensohl:over_1nt_interference"]
 call = "3♣"
 after = "1NT–(2x)–2NT"
 by = "opener"
@@ -250,7 +250,7 @@ rule = "alert"
 note = "Forced completion of the relay."
 
 [[alert]]
-fields = ["notrump.lebensohl.play"]
+fields = ["competitive_bidding/lebensohl:over_1nt_interference"]
 call = "3 of their suit"
 after = "1NT–(2x)"
 by = "responder"
@@ -259,7 +259,7 @@ acbl = "none"
 note = "Stayman-like cuebid, with the route showing or denying a stopper. The ACBL exempts bids in the overcaller's suit after a notrump opening; the EBU and WBF alert it."
 
 [[alert]]
-fields = ["notrump.lebensohl.play"]
+fields = ["competitive_bidding/lebensohl:over_1nt_interference"]
 call = "3NT"
 after = "1NT–(2x)"
 by = "responder"
@@ -269,7 +269,7 @@ note = "To play, but its route shows or denies a stopper. The ACBL treats it as 
 
 # Garbage Stayman
 [[alert]]
-fields = ["notrump.stayman.garbage"]
+fields = ["bidding_conventions/stayman:garbage"]
 call = "2♣"
 after = "1NT"
 by = "responder"
@@ -279,7 +279,7 @@ wbf = "alert"
 note = "Stayman that may be weak. Still exempt in the ACBL and still announced \"Stayman\" in the EBU; the WBF alerts it as artificial."
 
 [[alert]]
-fields = ["notrump.stayman.garbage"]
+fields = ["bidding_conventions/stayman:garbage"]
 call = "Pass"
 after = "1NT–2♣–2♦/2♥/2♠"
 by = "responder"
@@ -287,7 +287,7 @@ rule = "none"
 note = "Passing opener's reply is natural."
 
 [[alert]]
-fields = ["notrump.stayman.garbage"]
+fields = ["bidding_conventions/stayman:garbage"]
 call = "2♥"
 when = "playing crawling Stayman (2♥ shows both majors, weak)"
 after = "1NT–2♣–2♦"
@@ -297,7 +297,7 @@ note = "Crawling variant: weak with both majors. The ACBL alerts it; the EBU and
 
 # Two-over-one game force
 [[alert]]
-fields = ["major_openings.two_over_one.play"]
+fields = ["bidding_conventions/two_over_one"]
 call = "2♣/2♦/2♥"
 after = "1♥/1♠"
 by = "responder"
@@ -306,7 +306,7 @@ ebu = "announce"
 note = "Natural game-forcing new suit (2♥ only over 1♠). The EBU announces it as \"natural, game-forcing\"; the ACBL and WBF do not alert it."
 
 [[alert]]
-fields = ["major_openings.two_over_one.play"]
+fields = ["bidding_conventions/two_over_one"]
 call = "2♣ (may be short)"
 when = "the 2♣ response may hold fewer than three clubs"
 after = "1♥/1♠"
@@ -316,7 +316,7 @@ note = "Alerted when the 2♣ response may hold fewer than three clubs, since it
 
 # Jacoby 2NT
 [[alert]]
-fields = ["major_openings.jacoby_2nt.play"]
+fields = ["bidding_conventions/jacoby_2nt"]
 call = "2NT"
 after = "1♥/1♠"
 by = "responder"
@@ -324,7 +324,7 @@ rule = "alert"
 note = "Artificial game-forcing raise."
 
 [[alert]]
-fields = ["major_openings.jacoby_2nt.play"]
+fields = ["bidding_conventions/jacoby_2nt"]
 call = "3♣/3♦/3 of other major"
 after = "1M–2NT"
 by = "opener"
@@ -332,7 +332,7 @@ rule = "alert"
 note = "Shows shortness in the suit bid."
 
 [[alert]]
-fields = ["major_openings.jacoby_2nt.play"]
+fields = ["bidding_conventions/jacoby_2nt"]
 call = "3 of the major"
 after = "1M–2NT"
 by = "opener"
@@ -341,7 +341,7 @@ acbl = "none"
 note = "Shows extras without shortness. The ACBL reads it as natural; the EBU and WBF alert it as a coded strength message."
 
 [[alert]]
-fields = ["major_openings.jacoby_2nt.play"]
+fields = ["bidding_conventions/jacoby_2nt"]
 call = "3NT"
 after = "1M–2NT"
 by = "opener"
@@ -350,7 +350,7 @@ acbl = "delayed"
 note = "Coded hand description, not an offer to play. The ACBL gives a delayed alert because it is at 3NT on opener's rebid."
 
 [[alert]]
-fields = ["major_openings.jacoby_2nt.play"]
+fields = ["bidding_conventions/jacoby_2nt"]
 call = "4♣/4♦"
 after = "1M–2NT"
 by = "opener"
@@ -359,7 +359,7 @@ wbf = "alert"
 note = "Shows a good second suit. Natural in the ACBL and above 3NT after the first round in the EBU; the WBF alerts the reply."
 
 [[alert]]
-fields = ["major_openings.jacoby_2nt.play"]
+fields = ["bidding_conventions/jacoby_2nt"]
 call = "4 of the major"
 after = "1M–2NT"
 by = "opener"
@@ -368,7 +368,7 @@ note = "Minimum sign-off. The WBF does not list it separately; it reads as natur
 
 # Modified Jacoby 2NT
 [[alert]]
-fields = ["major_openings.jacoby_2nt.modified"]
+fields = ["bidding_conventions/jacoby_2nt:modified"]
 call = "2NT"
 after = "1♥/1♠"
 by = "responder"
@@ -376,7 +376,7 @@ rule = "alert"
 note = "Artificial game-forcing raise."
 
 [[alert]]
-fields = ["major_openings.jacoby_2nt.modified"]
+fields = ["bidding_conventions/jacoby_2nt:modified"]
 call = "3♣/3♦/3♥/3♠"
 after = "1M–2NT"
 by = "opener"
@@ -384,7 +384,7 @@ rule = "alert"
 note = "Step replies showing strength or controls."
 
 [[alert]]
-fields = ["major_openings.jacoby_2nt.modified"]
+fields = ["bidding_conventions/jacoby_2nt:modified"]
 call = "3NT"
 after = "1M–2NT"
 by = "opener"
@@ -393,7 +393,7 @@ acbl = "delayed"
 note = "Step reply at 3NT. The ACBL delays the alert to the end of the auction."
 
 [[alert]]
-fields = ["major_openings.jacoby_2nt.modified"]
+fields = ["bidding_conventions/jacoby_2nt:modified"]
 call = "4-level steps"
 after = "1M–2NT"
 by = "opener"
@@ -403,7 +403,7 @@ wbf = "alert"
 note = "Step reply above 3NT. The ACBL gives a delayed alert, the EBU none after the first round; the WBF has no level cut-off."
 
 [[alert]]
-fields = ["major_openings.jacoby_2nt.modified"]
+fields = ["bidding_conventions/jacoby_2nt:modified"]
 call = "Relay asks below 3NT"
 after = "1M–2NT–3x"
 by = "responder"
@@ -412,7 +412,7 @@ note = "Responder's artificial follow-up asks (ACBL uncertain: depends on the sc
 
 # Bergen raises
 [[alert]]
-fields = ["major_openings.bergen_raises.play"]
+fields = ["bidding_conventions/bergen_raises"]
 call = "3♣/3♦"
 after = "1♥/1♠"
 by = "responder"
@@ -420,7 +420,7 @@ rule = "alert"
 note = "Artificial raises showing four-card support."
 
 [[alert]]
-fields = ["major_openings.bergen_raises.play"]
+fields = ["bidding_conventions/bergen_raises"]
 call = "3♥/3♠"
 after = "1♥/1♠"
 by = "responder"
@@ -429,7 +429,7 @@ wbf = "none"
 note = "Preemptive jump raise, alerted in the ACBL and EBU when the next hand passed. The WBF does not list it and reads a jump raise as natural (uncertain)."
 
 [[alert]]
-fields = ["major_openings.bergen_raises.play"]
+fields = ["bidding_conventions/bergen_raises"]
 call = "3♦/3 of other suit"
 after = "1M–3♣"
 by = "opener"
@@ -456,7 +456,7 @@ note = "A mixed raise shown by an artificial bid (such as 3♣). The ACBL does n
 
 # Splinters
 [[alert]]
-fields = ["major_openings.splinters.play"]
+fields = ["bidding_conventions/splinters"]
 call = "3♠/4♣/4♦/4♥"
 after = "1♥/1♠"
 by = "responder"
@@ -464,7 +464,7 @@ rule = "alert"
 note = "Double jump showing shortness. Alerted at once even at the four level, as responder's first call."
 
 [[alert]]
-fields = ["major_openings.splinters.play"]
+fields = ["bidding_conventions/splinters"]
 call = "3-level splinter"
 after = "1x–1y"
 by = "opener"
@@ -472,7 +472,7 @@ rule = "alert"
 note = "Opener's jump showing shortness below 3NT."
 
 [[alert]]
-fields = ["major_openings.splinters.play"]
+fields = ["bidding_conventions/splinters"]
 call = "4-level splinter"
 after = "1x–1y"
 by = "opener"
@@ -483,7 +483,7 @@ note = "Opener's splinter above 3NT. The ACBL delays the alert; the EBU does not
 
 # Drury
 [[alert]]
-fields = ["major_openings.drury.play"]
+fields = ["bidding_conventions/drury"]
 call = "2♣"
 after = "P–1♥/1♠"
 by = "responder"
@@ -491,7 +491,7 @@ rule = "alert"
 note = "Artificial raise by a passed hand."
 
 [[alert]]
-fields = ["major_openings.drury.play"]
+fields = ["bidding_conventions/drury"]
 call = "2♦"
 after = "P–1M–2♣"
 by = "opener"
@@ -499,7 +499,7 @@ rule = "alert"
 note = "Artificial reply about opener's strength."
 
 [[alert]]
-fields = ["major_openings.drury.play"]
+fields = ["bidding_conventions/drury"]
 call = "2 of the major"
 after = "P–1M–2♣"
 by = "opener"
@@ -509,7 +509,7 @@ note = "Return to the major. Natural in the ACBL and EBU; the WBF alerts opener'
 
 # Reverse Drury
 [[alert]]
-fields = ["major_openings.drury.reverse"]
+fields = ["bidding_conventions/drury:reverse"]
 call = "2♣"
 after = "P–1♥/1♠"
 by = "responder"
@@ -517,7 +517,7 @@ rule = "alert"
 note = "Artificial raise by a passed hand."
 
 [[alert]]
-fields = ["major_openings.drury.reverse"]
+fields = ["bidding_conventions/drury:reverse"]
 call = "2♦"
 after = "P–1M–2♣"
 by = "opener"
@@ -525,7 +525,7 @@ rule = "alert"
 note = "Artificial: a full opening with game interest."
 
 [[alert]]
-fields = ["major_openings.drury.reverse"]
+fields = ["bidding_conventions/drury:reverse"]
 call = "2 of the major"
 after = "P–1M–2♣"
 by = "opener"
@@ -611,7 +611,7 @@ note = "Rebid in a minor that may be a doubleton is not natural (EBU uncertain).
 
 # Inverted minors
 [[alert]]
-fields = ["minor_openings.inverted_minors.play"]
+fields = ["bidding_conventions/inverted_minors"]
 call = "2♣/2♦"
 after = "1♣/1♦"
 by = "responder"
@@ -619,7 +619,7 @@ rule = "alert"
 note = "Strong, forcing single raise."
 
 [[alert]]
-fields = ["minor_openings.inverted_minors.play"]
+fields = ["bidding_conventions/inverted_minors"]
 call = "3♣/3♦"
 after = "1♣/1♦"
 by = "responder"
@@ -627,7 +627,7 @@ rule = "alert"
 note = "Weak jump raise, alerted when the next hand passed (WBF uncertain)."
 
 [[alert]]
-fields = ["minor_openings.inverted_minors.play"]
+fields = ["bidding_conventions/inverted_minors"]
 call = "New suit (stopper)"
 after = "1m–2m"
 by = "opener"
@@ -636,7 +636,7 @@ note = "Opener's bid showing a stopper rather than length. Listed by the EBU; th
 
 # Walsh responses
 [[alert]]
-fields = ["minor_openings.walsh.play"]
+fields = ["bidding_conventions/walsh"]
 call = "1♥/1♠"
 after = "1♣"
 by = "responder"
@@ -644,7 +644,7 @@ rule = "none"
 note = "Natural four-card major response."
 
 [[alert]]
-fields = ["minor_openings.walsh.play"]
+fields = ["bidding_conventions/walsh"]
 call = "1♦"
 after = "1♣"
 by = "responder"
@@ -653,7 +653,7 @@ wbf = "alert"
 note = "Natural, but denies a four-card major unless strong. The ACBL and EBU (uncertain) leave the inference to questions; the WBF alerts it as a special understanding (uncertain)."
 
 [[alert]]
-fields = ["minor_openings.walsh.play"]
+fields = ["bidding_conventions/walsh"]
 call = "1NT"
 after = "1♣–1♦"
 by = "opener"
@@ -809,7 +809,7 @@ note = "Alerted in the ACBL when a raise is not preemptive. The EBU and WBF do n
 
 # Ogust
 [[alert]]
-fields = ["two_level.ogust.play"]
+fields = ["bidding_conventions/ogust"]
 call = "2NT"
 after = "2♦/2♥/2♠"
 by = "responder"
@@ -818,7 +818,7 @@ acbl = "none"
 note = "Asking bid. The ACBL exempts any forcing 2NT over a two-level preempt; the EBU and WBF alert it."
 
 [[alert]]
-fields = ["two_level.ogust.play"]
+fields = ["bidding_conventions/ogust"]
 call = "3♣/3♦/3♥/3♠"
 after = "2x–2NT"
 by = "opener"
@@ -826,7 +826,7 @@ rule = "alert"
 note = "Coded replies about strength and suit quality."
 
 [[alert]]
-fields = ["two_level.ogust.play"]
+fields = ["bidding_conventions/ogust"]
 call = "3NT"
 after = "2x–2NT"
 by = "opener"
@@ -836,7 +836,7 @@ note = "Coded reply (such as a solid suit). The ACBL delays the alert as a 3NT c
 
 # Multi 2♦
 [[alert]]
-fields = ["two_level.multi.play"]
+fields = ["bidding_conventions/multi_2d"]
 call = "2♦"
 after = "opening"
 by = "opener"
@@ -844,7 +844,7 @@ rule = "alert"
 note = "Weak two in an unknown major or other options; also pre-alerted in the ACBL."
 
 [[alert]]
-fields = ["two_level.multi.play"]
+fields = ["bidding_conventions/multi_2d"]
 call = "2♥/2♠"
 after = "2♦"
 by = "responder"
@@ -852,7 +852,7 @@ rule = "alert"
 note = "Pass-or-correct response (ACBL uncertain)."
 
 [[alert]]
-fields = ["two_level.multi.play"]
+fields = ["bidding_conventions/multi_2d"]
 call = "2NT"
 after = "2♦"
 by = "responder"
@@ -861,7 +861,7 @@ acbl = "none"
 note = "Enquiry. The ACBL exempts a forcing 2NT over a two-level preempt (uncertain, as Multi may hold strong hands); the EBU and WBF alert it."
 
 [[alert]]
-fields = ["two_level.multi.play"]
+fields = ["bidding_conventions/multi_2d"]
 call = "3-level replies"
 after = "2♦–2NT"
 by = "opener"
@@ -870,7 +870,7 @@ note = "Coded replies to the enquiry."
 
 # Mini-Roman 2♦
 [[alert]]
-fields = ["two_level.mini_roman.play"]
+fields = ["bidding_conventions/mini_roman_2d"]
 call = "2♦"
 after = "opening"
 by = "opener"
@@ -878,7 +878,7 @@ rule = "alert"
 note = "Three-suited opening."
 
 [[alert]]
-fields = ["two_level.mini_roman.play"]
+fields = ["bidding_conventions/mini_roman_2d"]
 call = "2NT"
 after = "2♦"
 by = "responder"
@@ -886,7 +886,7 @@ rule = "alert"
 note = "Asks for the short suit; not a preempt, so the ACBL 2NT exemption does not apply."
 
 [[alert]]
-fields = ["two_level.mini_roman.play"]
+fields = ["bidding_conventions/mini_roman_2d"]
 call = "3-level replies"
 after = "2♦–2NT"
 by = "opener"
@@ -894,7 +894,7 @@ rule = "alert"
 note = "Show the short suit."
 
 [[alert]]
-fields = ["two_level.mini_roman.play"]
+fields = ["bidding_conventions/mini_roman_2d"]
 call = "2♥/2♠/3♣"
 after = "2♦"
 by = "responder"
@@ -903,7 +903,7 @@ note = "Pass-or-correct response. Listed by the EBU; the ACBL and WBF alert a ca
 
 # Reverse Flannery 2♦
 [[alert]]
-fields = ["two_level.reverse_flannery.two_d"]
+fields = ["bidding_conventions/reverse_flannery:two_d"]
 call = "2♦"
 after = "opening"
 by = "opener"
@@ -911,7 +911,7 @@ rule = "alert"
 note = "Two-suiter in the majors."
 
 [[alert]]
-fields = ["two_level.reverse_flannery.two_d"]
+fields = ["bidding_conventions/reverse_flannery:two_d"]
 call = "2♥/2♠/3♥/3♠"
 after = "2♦"
 by = "responder"
@@ -919,7 +919,7 @@ rule = "none"
 note = "Natural choice of major."
 
 [[alert]]
-fields = ["two_level.reverse_flannery.two_d"]
+fields = ["bidding_conventions/reverse_flannery:two_d"]
 call = "2NT"
 after = "2♦"
 by = "responder"
@@ -928,7 +928,7 @@ note = "Asking bid; the ACBL 2NT exemption covers only weak preempts."
 
 # Kokish relay
 [[alert]]
-fields = ["two_level.kokish.play"]
+fields = ["bidding_conventions/kokish"]
 call = "2♥"
 after = "2♣–2♦"
 by = "opener"
@@ -936,7 +936,7 @@ rule = "alert"
 note = "Relay: hearts or a big balanced hand."
 
 [[alert]]
-fields = ["two_level.kokish.play"]
+fields = ["bidding_conventions/kokish"]
 call = "2♠"
 after = "2♣–2♦–2♥"
 by = "responder"
@@ -944,7 +944,7 @@ rule = "alert"
 note = "Forced relay."
 
 [[alert]]
-fields = ["two_level.kokish.play"]
+fields = ["bidding_conventions/kokish"]
 call = "2NT"
 after = "2♣–2♦–2♥–2♠"
 by = "opener"
@@ -953,7 +953,7 @@ ebu = "alert"
 note = "Balanced, stronger than a direct 2NT. The EBU alerts the unexpected strength; the ACBL treats it as natural, and the WBF does not mention it."
 
 [[alert]]
-fields = ["two_level.kokish.play"]
+fields = ["bidding_conventions/kokish"]
 call = "3♥ (natural)"
 after = "2♣–2♦–2♥–2♠"
 by = "opener"
@@ -962,7 +962,7 @@ note = "Natural heart rebid after the relay (EBU uncertain)."
 
 # Parrish 2♥ bust
 [[alert]]
-fields = ["two_level.parrish_bust.play"]
+fields = ["bidding_conventions/two_heart_bust"]
 call = "2♥"
 after = "2♣"
 by = "responder"
@@ -971,7 +971,7 @@ note = "Very weak reply, says nothing about hearts."
 
 # McCabe adjunct
 [[alert]]
-fields = ["two_level.mccabe.play"]
+fields = ["bidding_conventions/mccabe"]
 call = "2NT"
 after = "2x–(X)"
 by = "responder"
@@ -980,7 +980,7 @@ acbl = "none"
 note = "Relay to 3♣. The ACBL exempts a forcing 2NT after a two-level preempt (uncertain); the EBU and WBF alert it."
 
 [[alert]]
-fields = ["two_level.mccabe.play"]
+fields = ["bidding_conventions/mccabe"]
 call = "3♣"
 after = "2x–(X)–2NT"
 by = "opener"
@@ -988,7 +988,7 @@ rule = "alert"
 note = "Forced reply to the relay."
 
 [[alert]]
-fields = ["two_level.mccabe.play"]
+fields = ["bidding_conventions/mccabe"]
 call = "New suit"
 after = "2x–(X)"
 by = "responder"
@@ -997,7 +997,7 @@ note = "Lead-directing, with support for partner, not a suit to play."
 
 # Standard Blackwood
 [[alert]]
-fields = ["slam.blackwood.play"]
+fields = ["bidding_conventions/blackwood"]
 call = "4NT"
 after = "suit agreed"
 by = "either"
@@ -1006,7 +1006,7 @@ wbf = "alert"
 note = "Ace or keycard ask. Exempt in the ACBL and above 3NT in the EBU; the WBF has no level cut-off."
 
 [[alert]]
-fields = ["slam.blackwood.play"]
+fields = ["bidding_conventions/blackwood"]
 call = "5♣/5♦/5♥/5♠"
 after = "4NT"
 by = "either"
@@ -1016,7 +1016,7 @@ wbf = "alert"
 note = "Replies to the ask. The ACBL gives a delayed alert; the EBU does not alert above 3NT; the WBF alerts them."
 
 [[alert]]
-fields = ["slam.blackwood.play"]
+fields = ["bidding_conventions/blackwood"]
 call = "5NT and replies"
 after = "4NT–5x"
 by = "either"
@@ -1027,7 +1027,7 @@ note = "King ask and its replies. Delayed in the ACBL, not alerted in the EBU, a
 
 # RKCB (1430 or 0314: the same calls)
 [[alert]]
-fields = ["slam.rkcb.play"]
+fields = ["bidding_conventions/roman_keycard"]
 call = "4NT"
 after = "suit agreed"
 by = "either"
@@ -1036,7 +1036,7 @@ wbf = "alert"
 note = "Ace or keycard ask. Exempt in the ACBL and above 3NT in the EBU; the WBF has no level cut-off."
 
 [[alert]]
-fields = ["slam.rkcb.play"]
+fields = ["bidding_conventions/roman_keycard"]
 call = "5♣/5♦/5♥/5♠"
 after = "4NT"
 by = "either"
@@ -1046,7 +1046,7 @@ wbf = "alert"
 note = "Replies to the ask. The ACBL gives a delayed alert; the EBU does not alert above 3NT; the WBF alerts them."
 
 [[alert]]
-fields = ["slam.rkcb.play"]
+fields = ["bidding_conventions/roman_keycard"]
 call = "5NT and replies"
 after = "4NT–5x"
 by = "either"
@@ -1057,7 +1057,7 @@ note = "King ask and its replies. Delayed in the ACBL, not alerted in the EBU, a
 
 # Queen ask
 [[alert]]
-fields = ["slam.rkcb.queen_ask"]
+fields = ["bidding_conventions/roman_keycard:queen_ask"]
 call = "Next step / 5NT"
 after = "4NT–5♣/5♦"
 by = "either"
@@ -1067,7 +1067,7 @@ wbf = "alert"
 note = "Asks for the trump queen. Delayed in the ACBL, not alerted above 3NT in the EBU, alerted in the WBF."
 
 [[alert]]
-fields = ["slam.rkcb.queen_ask"]
+fields = ["bidding_conventions/roman_keycard:queen_ask"]
 call = "Replies"
 after = "4NT–5x–ask"
 by = "either"
@@ -1078,7 +1078,7 @@ note = "Show or deny the queen (and kings). Delayed in the ACBL, not alerted in 
 
 # Gerber
 [[alert]]
-fields = ["slam.gerber.play"]
+fields = ["bidding_conventions/gerber"]
 call = "4♣"
 after = "1NT/2NT"
 by = "responder"
@@ -1087,7 +1087,7 @@ acbl = "none"
 note = "Ace ask directly over notrump. Exempt in the ACBL; the EBU alerts it as an artificial first-round suit bid above 3NT, and the WBF alerts it."
 
 [[alert]]
-fields = ["slam.gerber.play"]
+fields = ["bidding_conventions/gerber"]
 call = "4♦/4♥/4♠/4NT"
 after = "1NT/2NT–4♣"
 by = "opener"
@@ -1097,7 +1097,7 @@ wbf = "alert"
 note = "Ace replies. Delayed in the ACBL (opener's rebid), not alerted above 3NT in the EBU, alerted in the WBF."
 
 [[alert]]
-fields = ["slam.gerber.play"]
+fields = ["bidding_conventions/gerber"]
 call = "5♣ and replies"
 after = "1NT–4♣–reply"
 by = "either"
@@ -1107,7 +1107,7 @@ wbf = "alert"
 note = "King ask and replies. Delayed in the ACBL, not alerted in the EBU, alerted in the WBF."
 
 [[alert]]
-fields = ["slam.gerber.play"]
+fields = ["bidding_conventions/gerber"]
 call = "4♣"
 after = "later round"
 by = "either"
@@ -1118,7 +1118,7 @@ note = "Gerber outside a direct notrump auction. Not exempt in the ACBL, so dela
 
 # Kickback
 [[alert]]
-fields = ["slam.kickback.play"]
+fields = ["bidding_conventions/kickback"]
 call = "4 of the suit above trumps"
 after = "suit agreed"
 by = "either"
@@ -1128,7 +1128,7 @@ wbf = "alert"
 note = "Keycard ask. Delayed in the ACBL; the EBU does not alert it after the first round; the WBF alerts it."
 
 [[alert]]
-fields = ["slam.kickback.play"]
+fields = ["bidding_conventions/kickback"]
 call = "Replies"
 after = "Kickback ask"
 by = "either"
@@ -1139,7 +1139,7 @@ note = "Keycard step replies. Delayed in the ACBL, not alerted in the EBU, alert
 
 # Minorwood
 [[alert]]
-fields = ["slam.minorwood.play"]
+fields = ["bidding_conventions/minorwood"]
 call = "4♣/4♦"
 after = "minor agreed"
 by = "either"
@@ -1149,7 +1149,7 @@ wbf = "alert"
 note = "Keycard ask in the agreed minor. Delayed in the ACBL, not alerted above 3NT in the EBU, alerted in the WBF."
 
 [[alert]]
-fields = ["slam.minorwood.play"]
+fields = ["bidding_conventions/minorwood"]
 call = "Replies"
 after = "Minorwood ask"
 by = "either"
@@ -1160,7 +1160,7 @@ note = "Keycard step replies. Delayed in the ACBL, not alerted in the EBU, alert
 
 # Exclusion Blackwood
 [[alert]]
-fields = ["slam.exclusion_blackwood.play"]
+fields = ["bidding_conventions/exclusion_blackwood"]
 call = "Jump in a void suit"
 after = "suit agreed"
 by = "either"
@@ -1170,7 +1170,7 @@ wbf = "alert"
 note = "Keycard ask excluding the void. Delayed in the ACBL; the EBU alerts it only as a first-round jump; the WBF alerts it."
 
 [[alert]]
-fields = ["slam.exclusion_blackwood.play"]
+fields = ["bidding_conventions/exclusion_blackwood"]
 call = "Replies"
 after = "Exclusion ask"
 by = "either"
@@ -1181,7 +1181,7 @@ note = "Keycard replies ignoring that suit. Delayed in the ACBL, not alerted in 
 
 # Pick-a-slam 5NT
 [[alert]]
-fields = ["slam.pick_a_slam_5nt.play"]
+fields = ["bidding_conventions/pick_a_slam_5nt"]
 call = "5NT"
 after = "fit or slam drive"
 by = "either"
@@ -1191,7 +1191,7 @@ wbf = "alert"
 note = "Asks partner to choose a slam, not a notrump offer. Delayed in the ACBL; not alerted in the EBU; alerted in the WBF."
 
 [[alert]]
-fields = ["slam.pick_a_slam_5nt.play"]
+fields = ["bidding_conventions/pick_a_slam_5nt"]
 call = "6-level choice"
 after = "5NT"
 by = "either"
@@ -1200,7 +1200,7 @@ note = "Natural choice of strain."
 
 # Western cuebid
 [[alert]]
-fields = ["slam.western_cuebid.play"]
+fields = ["bidding_conventions/western_cuebid"]
 call = "Cuebid of their suit"
 after = "competitive auction"
 by = "either"
@@ -1209,7 +1209,7 @@ acbl = "none"
 note = "Asks for a stopper for 3NT. The ACBL exempts cuebids after an opening and overcall; the EBU (below 3NT or on the first round) and WBF alert it."
 
 [[alert]]
-fields = ["slam.western_cuebid.play"]
+fields = ["bidding_conventions/western_cuebid"]
 call = "Own side's suit (stopper ask)"
 after = "uncontested"
 by = "either"
@@ -1218,7 +1218,7 @@ note = "Asks for a stopper in a suit the partnership has bid (ACBL uncertain; de
 
 # Spiral cuebids
 [[alert]]
-fields = ["slam.spiral_cuebids.play"]
+fields = ["bidding_conventions/spiral"]
 call = "Control bids below 3NT"
 after = "suit agreed"
 by = "either"
@@ -1227,7 +1227,7 @@ acbl = "delayed"
 note = "The ACBL always delays control bids, even below 3NT; the EBU and WBF alert them at once."
 
 [[alert]]
-fields = ["slam.spiral_cuebids.play"]
+fields = ["bidding_conventions/spiral"]
 call = "Spiral asks and replies below 3NT"
 after = "suit agreed"
 by = "either"
@@ -1235,7 +1235,7 @@ rule = "alert"
 note = "Trump-quality asks and step replies (ACBL uncertain)."
 
 [[alert]]
-fields = ["slam.spiral_cuebids.play"]
+fields = ["bidding_conventions/spiral"]
 call = "Asks, replies and control bids above 3NT"
 after = "suit agreed"
 by = "either"
@@ -1246,7 +1246,7 @@ note = "Delayed in the ACBL; the EBU does not alert above 3NT after the first ro
 
 # Non-serious 3NT
 [[alert]]
-fields = ["slam.non_serious_3nt.play"]
+fields = ["bidding_conventions/serious_3nt"]
 call = "3NT"
 after = "game-forcing major fit"
 by = "either"
@@ -1255,7 +1255,7 @@ acbl = "delayed"
 note = "Shows or denies slam interest rather than offering to play. The ACBL delays the alert; the EBU (3NT is not above 3NT) and WBF alert it at once."
 
 [[alert]]
-fields = ["slam.non_serious_3nt.play"]
+fields = ["bidding_conventions/serious_3nt"]
 call = "Control bids after it"
 after = "3NT"
 by = "either"
@@ -1284,7 +1284,7 @@ note = "Takeout or conventional double of a 1NT opening. Listed by the EBU; the 
 
 # Negative doubles
 [[alert]]
-fields = ["doubles.negative.play"]
+fields = ["competitive_bidding/negative_doubles"]
 call = "X"
 after = "1♣/1♦–(1♥/1♠)"
 by = "responder"
@@ -1294,7 +1294,7 @@ wbf = "alert"
 note = "Negative double. Exempt in the ACBL (announce the major if it usually holds five); the EBU announces it when it shows just four of the other major; the WBF alerts it (uncertain)."
 
 [[alert]]
-fields = ["doubles.negative.play"]
+fields = ["competitive_bidding/negative_doubles"]
 call = "X"
 after = "1x–(overcall)"
 by = "responder"
@@ -1303,7 +1303,7 @@ wbf = "alert"
 note = "Negative double after other one-level openings. The WBF alerts a double that is not for penalty (uncertain)."
 
 [[alert]]
-fields = ["doubles.negative.play"]
+fields = ["competitive_bidding/negative_doubles"]
 call = "X"
 after = "2x or higher–(overcall)"
 by = "responder"
@@ -1312,7 +1312,7 @@ ebu = "none"
 note = "Negative double after a preempt. The ACBL exempts only a penalty double here; the EBU does not alert a takeout-style double; the WBF alerts it."
 
 [[alert]]
-fields = ["doubles.negative.play"]
+fields = ["competitive_bidding/negative_doubles"]
 call = "X"
 after = "1NT/2NT–(overcall)"
 by = "responder"
@@ -1322,7 +1322,7 @@ note = "Negative, penalty or card-showing double after a notrump opening. Exempt
 
 # Responsive doubles
 [[alert]]
-fields = ["doubles.responsive.play"]
+fields = ["competitive_bidding/responsive_doubles"]
 call = "X"
 after = "(1x)–X/overcall–(2x)"
 by = "advancer"
@@ -1332,7 +1332,7 @@ note = "Takeout double by advancer after they raise. Not alerted in the ACBL or 
 
 # Support doubles
 [[alert]]
-fields = ["doubles.support.play"]
+fields = ["competitive_bidding/support_doubles"]
 call = "X"
 after = "1x–1y–(overcall)"
 by = "opener"
@@ -1341,7 +1341,7 @@ acbl = "none"
 note = "Shows exactly three-card support. The ACBL exempts all doubles from opener's rebid on; the EBU and WBF alert it."
 
 [[alert]]
-fields = ["doubles.support.play"]
+fields = ["competitive_bidding/support_doubles"]
 call = "XX"
 after = "1x–1y–(X)"
 by = "opener"
@@ -1351,7 +1351,7 @@ note = "Support redouble. Exempt in the ACBL; the EBU and WBF alert it."
 
 # Michaels cue bid
 [[alert]]
-fields = ["competitive.michaels.play"]
+fields = ["competitive_bidding/michaels"]
 call = "2♣/2♦"
 after = "(1♣/1♦)"
 by = "overcaller"
@@ -1360,7 +1360,7 @@ acbl = "none"
 note = "Cuebid showing both majors. Exempt in the ACBL; the EBU (overcalls are never announced) and WBF alert it."
 
 [[alert]]
-fields = ["competitive.michaels.play"]
+fields = ["competitive_bidding/michaels"]
 call = "2♥/2♠"
 after = "(1♥/1♠)"
 by = "overcaller"
@@ -1369,7 +1369,7 @@ acbl = "none"
 note = "Cuebid showing the other major and a minor. Exempt in the ACBL; alerted in the EBU and WBF."
 
 [[alert]]
-fields = ["competitive.michaels.play"]
+fields = ["competitive_bidding/michaels"]
 call = "Cuebid (other suit pair)"
 when = "the cuebid shows a pair of suits other than the usual one"
 after = "(1x)"
@@ -1378,7 +1378,7 @@ rule = "alert"
 note = "A cuebid showing a non-standard pair of suits."
 
 [[alert]]
-fields = ["competitive.michaels.play"]
+fields = ["competitive_bidding/michaels"]
 call = "2NT"
 after = "(1M)–2M–(P)"
 by = "advancer"
@@ -1387,7 +1387,7 @@ note = "Asks for overcaller's minor."
 
 # Unusual 2NT
 [[alert]]
-fields = ["competitive.unusual_2nt.play"]
+fields = ["competitive_bidding/unusual_notrump:at_2nt"]
 call = "2NT"
 after = "(1x)"
 by = "overcaller"
@@ -1396,7 +1396,7 @@ acbl = "none"
 note = "Two lowest unbid suits. Exempt in the ACBL; the EBU and WBF alert it as two-suited."
 
 [[alert]]
-fields = ["competitive.unusual_2nt.play"]
+fields = ["competitive_bidding/unusual_notrump:at_2nt"]
 call = "2NT (other suits)"
 when = "2NT shows suits other than the two lowest unbid"
 after = "(1x)"
@@ -1405,7 +1405,7 @@ rule = "alert"
 note = "A 2NT overcall showing two suits other than the lowest two."
 
 [[alert]]
-fields = ["competitive.unusual_2nt.play"]
+fields = ["competitive_bidding/unusual_notrump:at_2nt"]
 call = "2NT"
 after = "(1x)–P–(1y)"
 by = "overcaller"
@@ -1415,7 +1415,7 @@ note = "Two-suited 2NT after an opening and a response; exempt in the ACBL since
 
 # DONT
 [[alert]]
-fields = ["competitive.dont.play"]
+fields = ["competitive_bidding/dont"]
 call = "X"
 after = "(1NT)"
 by = "overcaller"
@@ -1423,7 +1423,7 @@ rule = "alert"
 note = "Shows a one-suiter."
 
 [[alert]]
-fields = ["competitive.dont.play"]
+fields = ["competitive_bidding/dont"]
 call = "2♣/2♦/2♥"
 after = "(1NT)"
 by = "overcaller"
@@ -1431,7 +1431,7 @@ rule = "alert"
 note = "The suit bid plus a higher one."
 
 [[alert]]
-fields = ["competitive.dont.play"]
+fields = ["competitive_bidding/dont"]
 call = "2♠"
 after = "(1NT)"
 by = "overcaller"
@@ -1439,7 +1439,7 @@ rule = "none"
 note = "Natural spade one-suiter."
 
 [[alert]]
-fields = ["competitive.dont.play"]
+fields = ["competitive_bidding/dont"]
 call = "2♣ relay / next step"
 after = "(1NT)–X or 2x"
 by = "advancer"
@@ -1448,7 +1448,7 @@ note = "Relay or pass-or-correct bid."
 
 # Cue-bid raise
 [[alert]]
-fields = ["competitive.cue_bid_raise.play"]
+fields = ["competitive_bidding/support_cuebids"]
 call = "Cuebid"
 after = "1x–(overcall)"
 by = "responder"
@@ -1457,7 +1457,7 @@ acbl = "none"
 note = "Limit raise or better. Exempt in the ACBL after an opening and overcall; the EBU and WBF alert it."
 
 [[alert]]
-fields = ["competitive.cue_bid_raise.play"]
+fields = ["competitive_bidding/support_cuebids"]
 call = "Cuebid"
 after = "(1x)–overcall–(P)"
 by = "advancer"
@@ -1467,7 +1467,7 @@ note = "Raise of the overcall, limit or better. Exempt in the ACBL; alerted in t
 
 # Lead-directing doubles
 [[alert]]
-fields = ["competitive.lead_directing_double.play"]
+fields = ["competitive_bidding/lead_directing_doubles"]
 call = "X (asks for that suit)"
 after = "artificial bid"
 by = "either"
@@ -1476,7 +1476,7 @@ wbf = "alert"
 note = "Double of an artificial bid asking for that suit. Not alerted in the ACBL or EBU; the WBF alerts it."
 
 [[alert]]
-fields = ["competitive.lead_directing_double.play"]
+fields = ["competitive_bidding/lead_directing_doubles"]
 call = "X (asks for another lead)"
 after = "artificial bid"
 by = "either"
@@ -1484,7 +1484,7 @@ rule = "alert"
 note = "Double of an artificial bid asking for a different lead or against that suit."
 
 [[alert]]
-fields = ["competitive.lead_directing_double.play"]
+fields = ["competitive_bidding/lead_directing_doubles"]
 call = "X"
 after = "3NT or slam"
 by = "either"
@@ -1494,7 +1494,7 @@ note = "Lead-directing double such as Lightner. The ACBL does not alert doubles 
 
 # Lebensohl (over weak twos)
 [[alert]]
-fields = ["competitive.lebensohl_weak_twos.play"]
+fields = ["competitive_bidding/lebensohl:after_weak_two_double"]
 call = "2NT"
 after = "(2x)–X–(P)"
 by = "advancer"
@@ -1502,7 +1502,7 @@ rule = "alert"
 note = "Relay to 3♣ (ACBL uncertain: its forcing-2NT exemption may reach advancer)."
 
 [[alert]]
-fields = ["competitive.lebensohl_weak_twos.play"]
+fields = ["competitive_bidding/lebensohl:after_weak_two_double"]
 call = "3♣"
 after = "(2x)–X–(P)–2NT"
 by = "overcaller"
@@ -1510,7 +1510,7 @@ rule = "alert"
 note = "Forced completion of the relay."
 
 [[alert]]
-fields = ["competitive.lebensohl_weak_twos.play"]
+fields = ["competitive_bidding/lebensohl:after_weak_two_double"]
 call = "Cuebid"
 after = "(2x)–X–(P)"
 by = "advancer"
@@ -1519,7 +1519,7 @@ note = "Artificial cuebid by advancer (ACBL uncertain); not listed by the EBU or
 
 # Sandwich NT
 [[alert]]
-fields = ["competitive.sandwich_nt.play"]
+fields = ["competitive_bidding/sandwich_nt"]
 call = "1NT"
 after = "(1x)–P–(1y)"
 by = "overcaller"
@@ -1528,7 +1528,7 @@ note = "Shows the two unbid suits, not a notrump hand."
 
 # Snapdragon doubles
 [[alert]]
-fields = ["competitive.snapdragon.play"]
+fields = ["competitive_bidding/snapdragon"]
 call = "X"
 after = "(1x)–1y–(1z)"
 by = "advancer"
@@ -1548,7 +1548,7 @@ note = "Game try, not penalty. The ACBL exempts all doubles from opener's rebid 
 
 # Unusual vs Unusual
 [[alert]]
-fields = ["competitive.unusual_vs_unusual.play"]
+fields = ["competitive_bidding/unusual_vs_unusual"]
 call = "3♣/3♦"
 after = "1M–(2NT)"
 by = "responder"
@@ -1557,7 +1557,7 @@ acbl = "none"
 note = "Cuebids of the shown suits. Exempt in the ACBL as raises or good hands; the EBU and WBF alert them."
 
 [[alert]]
-fields = ["competitive.unusual_vs_unusual.play"]
+fields = ["competitive_bidding/unusual_vs_unusual"]
 call = "X"
 after = "1x–(2NT)"
 by = "responder"
@@ -1566,7 +1566,7 @@ wbf = "alert"
 note = "Shows values or penalty interest. Exempt in the ACBL and not listed by the EBU (uncertain); the WBF alerts it."
 
 [[alert]]
-fields = ["competitive.unusual_vs_unusual.play"]
+fields = ["competitive_bidding/unusual_vs_unusual"]
 call = "3 of other major"
 after = "1M–(2NT)"
 by = "responder"
@@ -1576,7 +1576,7 @@ note = "Natural and non-forcing. The ACBL and WBF alert a non-forcing new suit b
 
 # Leaping Michaels
 [[alert]]
-fields = ["competitive.leaping_michaels.play"]
+fields = ["competitive_bidding/leaping_michaels"]
 call = "4♣/4♦"
 after = "(2♥/2♠)"
 by = "overcaller"
@@ -1584,7 +1584,7 @@ rule = "alert"
 note = "The minor plus the other major; a direct overcall, so not delayed."
 
 [[alert]]
-fields = ["competitive.leaping_michaels.play"]
+fields = ["competitive_bidding/leaping_michaels"]
 call = "4 of their suit"
 after = "(2♥/2♠)"
 by = "overcaller"
@@ -1593,7 +1593,7 @@ acbl = "none"
 note = "Cuebid of the weak two. Exempt in the ACBL; the EBU (first-round artificial bid) and WBF alert it."
 
 [[alert]]
-fields = ["competitive.leaping_michaels.play"]
+fields = ["competitive_bidding/leaping_michaels"]
 call = "4♥/4♠"
 after = "(2♦)"
 by = "overcaller"
@@ -1602,7 +1602,7 @@ note = "Two-suited jump over a weak 2♦. The ACBL does not mention it; it alert
 
 # Fourth suit forcing (1 round)
 [[alert]]
-fields = ["other_conventions.fourth_suit_forcing.one_round"]
+fields = ["bidding_conventions/fourth_suit_forcing:one_round"]
 call = "Fourth suit"
 after = "1x–1y–1z"
 by = "responder"
@@ -1610,7 +1610,7 @@ rule = "alert"
 note = "Artificial and forcing (one round); does not promise the suit."
 
 [[alert]]
-fields = ["other_conventions.fourth_suit_forcing.one_round"]
+fields = ["bidding_conventions/fourth_suit_forcing:one_round"]
 call = "Opener's rebids"
 after = "1x–1y–1z–4th suit"
 by = "opener"
@@ -1619,7 +1619,7 @@ note = "Natural rebids: raise, notrump with a stopper, preference."
 
 # Fourth suit forcing (game force)
 [[alert]]
-fields = ["other_conventions.fourth_suit_forcing.game_force"]
+fields = ["bidding_conventions/fourth_suit_forcing:game_force"]
 call = "Fourth suit"
 after = "1x–1y–1z"
 by = "responder"
@@ -1627,7 +1627,7 @@ rule = "alert"
 note = "Artificial and forcing (game force); does not promise the suit."
 
 [[alert]]
-fields = ["other_conventions.fourth_suit_forcing.game_force"]
+fields = ["bidding_conventions/fourth_suit_forcing:game_force"]
 call = "Opener's rebids"
 after = "1x–1y–1z–4th suit"
 by = "opener"
@@ -1636,7 +1636,7 @@ note = "Natural rebids: raise, notrump with a stopper, preference."
 
 # Help suit game tries
 [[alert]]
-fields = ["other_conventions.help_suit_game_tries.play"]
+fields = ["bidding_conventions/help_suit_game_try"]
 call = "New suit"
 after = "1M–2M"
 by = "opener"
@@ -1644,7 +1644,7 @@ rule = "none"
 note = "Natural try promising three or more cards in the suit (WBF uncertain)."
 
 [[alert]]
-fields = ["other_conventions.help_suit_game_tries.play"]
+fields = ["bidding_conventions/help_suit_game_try"]
 call = "New suit (may be short)"
 when = "the try may be a doubleton or shorter"
 after = "1M–2M"
@@ -1663,7 +1663,7 @@ note = "Natural; the extra strength is standard."
 
 # New minor forcing
 [[alert]]
-fields = ["other_conventions.new_minor_forcing.play"]
+fields = ["bidding_conventions/new_minor_forcing"]
 call = "2♣/2♦ (other minor)"
 after = "1m–1M–1NT"
 by = "responder"
@@ -1671,7 +1671,7 @@ rule = "alert"
 note = "Artificial forcing enquiry."
 
 [[alert]]
-fields = ["other_conventions.new_minor_forcing.play"]
+fields = ["bidding_conventions/new_minor_forcing"]
 call = "Opener's replies"
 after = "1m–1M–1NT–2m"
 by = "opener"
@@ -1730,7 +1730,7 @@ note = "Forced completion of the relay."
 
 # SOS redouble
 [[alert]]
-fields = ["other_conventions.sos_redouble.play"]
+fields = ["competitive_bidding/sos_redouble"]
 call = "XX"
 after = "balancing double"
 by = "either"
@@ -1739,7 +1739,7 @@ acbl = "none"
 note = "Asks partner to pick another suit. Exempt in the ACBL in the balancing seat or after a balancing double; the EBU and WBF alert it."
 
 [[alert]]
-fields = ["other_conventions.sos_redouble.play"]
+fields = ["competitive_bidding/sos_redouble"]
 call = "XX"
 after = "direct penalty double"
 by = "either"
@@ -1748,7 +1748,7 @@ note = "Asks partner to pick another suit."
 
 # Ingberman 2NT
 [[alert]]
-fields = ["other_conventions.ingberman_2nt.play"]
+fields = ["bidding_conventions/ingberman"]
 call = "2NT"
 after = "opener's reverse"
 by = "responder"
@@ -1756,7 +1756,7 @@ rule = "alert"
 note = "Artificial relay or enquiry, not a natural notrump."
 
 [[alert]]
-fields = ["other_conventions.ingberman_2nt.play"]
+fields = ["bidding_conventions/ingberman"]
 call = "3♣ (forced)"
 after = "reverse–2NT"
 by = "opener"
@@ -1836,7 +1836,7 @@ note = "A natural two-level opening that may hold 12+ HCP (not 4th seat). The AC
 
 # Gambling 3NT
 [[alert]]
-fields = ["notrump.gambling_3nt.play"]
+fields = ["bidding_conventions/gambling_3nt"]
 call = "3NT"
 after = "opening"
 by = "opener"
@@ -1845,7 +1845,7 @@ note = "Based on a long running suit, not a natural notrump. The WBF does not li
 
 # Namyats / 4♣–4♦ transfer preempts
 [[alert]]
-fields = ["preempts.namyats.play", "preempts.transfer_4_minor"]
+fields = ["bidding_conventions/namyats", "preempts.transfer_4_minor"]
 call = "4♣/4♦"
 after = "opening"
 by = "opener"
@@ -1948,7 +1948,7 @@ note = "Natural and forcing. The EBU announces \"natural, game-forcing\"; the AC
 
 # Control bids
 [[alert]]
-fields = ["slam.cue_bids.play"]
+fields = ["bidding_conventions/control_bids"]
 call = "Control bid"
 after = "suit agreed"
 by = "either"

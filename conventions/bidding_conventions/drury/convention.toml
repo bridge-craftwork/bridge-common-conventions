@@ -2,6 +2,7 @@ id = "bidding_conventions/drury"
 name = "Drury"
 source = "proposed"
 level = 5
+contexts = ["major_openings"]
 names = ["Drury", "Original Drury"]
 confirm_names = ["Drury"]
 summary = """
@@ -10,3 +11,25 @@ whether opener has a full opening, with a fit for the major. In the original
 form opener's 2♦ shows a light opening; Reverse Drury swaps opener's
 replies.
 """
+
+[treatments.reverse]
+kind = "bool"
+label = "Reverse Drury"
+level = 5
+skill = "bidding_conventions/reverse_drury"
+
+[treatments.two_d]
+kind = "bool"
+label = "Two-way Drury (2♦)"
+level = 6
+skill = "bidding_conventions/two_way_drury"
+
+[treatments.in_comp]
+kind = "bool"
+label = "Drury in competition"
+level = 6
+
+[treatments.fit]
+kind = "bool"
+label = "Drury: fit"
+skill = false

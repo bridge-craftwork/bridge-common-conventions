@@ -2,6 +2,8 @@ id = "competitive_bidding/leaping_michaels"
 name = "Leaping Michaels"
 source = "proposed"
 level = 7
+contexts = ["vs_openings"]
+implements = ["michaels_vs_preempts"]
 names = ["Leaping Michaels", "Leaping Mich", "Leap Mich"]
 summary = """
 Over their weak two, a jump to four of a minor shows that minor and the

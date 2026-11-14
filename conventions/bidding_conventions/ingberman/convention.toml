@@ -2,6 +2,7 @@ id = "bidding_conventions/ingberman"
 name = "Ingberman 2NT"
 source = "proposed"
 level = 7
+contexts = ["responses_rebids"]
 names = ["Ingberman", "Ingberman 2NT", "Lebensohl after a reverse"]
 summary = """
 After opener reverses, responder's 2NT relays to 3♣ to show a weak hand, so

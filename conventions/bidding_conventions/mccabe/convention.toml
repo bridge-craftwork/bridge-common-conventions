@@ -2,6 +2,7 @@ id = "bidding_conventions/mccabe"
 name = "McCabe adjunct"
 source = "proposed"
 level = 8
+contexts = ["preemptive_openings"]
 names = ["McCabe", "McCabe adjunct"]
 summary = """
 After partner's weak two is doubled, responder's new suits and 2NT say what

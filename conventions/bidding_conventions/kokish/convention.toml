@@ -2,6 +2,7 @@ id = "bidding_conventions/kokish"
 name = "Kokish relay"
 source = "proposed"
 level = 8
+contexts = ["preemptive_openings"]
 names = ["Kokish", "Kokish relay"]
 summary = """
 After 2♣–2♦, opener's 2♥ is a relay: either hearts or a strong balanced

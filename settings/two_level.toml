@@ -1,0 +1,47 @@
+# Card settings: two_level. A setting's name is `two_level.<key>`.
+# The attributes are described in settings/README.md.
+
+"two_clubs.meaning"        = { kind = "enum", label = "2♣ meaning", options = ["very_strong", "strong", "natural", "conventional"], default = "strong", skill = "bidding_conventions/strong_2c", level = 3 }
+"two_clubs.min_hcp"        = { kind = "int", label = "2♣ minimum HCP", min = 0, max = 30 }
+"two_clubs.min_hcp_str"    = { kind = "text", label = "2♣ minimum (text)" }
+"two_clubs.2d_response"    = { kind = "enum", label = "2♣–2♦ response", options = ["negative", "waiting", "steps"] }
+"two_clubs.2h_response"    = { kind = "enum", label = "2♣–2♥ response", options = ["negative", "steps"] }
+"two_diamonds.meaning"     = { kind = "enum", label = "2♦ meaning", options = ["weak", "intermediate", "strong", "conventional"], skill = "bidding_conventions/weak_2s", level = 3 , plays = { weak = "bidding_conventions/weak_2s" } }
+"two_diamonds.min_hcp"     = { kind = "int", label = "2♦ range: minimum", min = 0, max = 30 }
+"two_diamonds.max_hcp"     = { kind = "int", label = "2♦ range: maximum", min = 0, max = 30 }
+"two_diamonds.min_length"  = { kind = "int", label = "2♦ minimum length", min = 4, max = 8 }
+"two_diamonds.two_suited"  = { kind = "bool", label = "2♦ two-suited" }
+"two_diamonds.new_suit_nf" = { kind = "bool", label = "2♦: new suit non-forcing" }
+"two_diamonds.rebids_2nt"  = { kind = "text", label = "2♦: 2NT response", aliases = ["two_level.two_diamonds.rebid_2nt"] }
+"two_hearts.meaning"       = { kind = "enum", label = "2♥ meaning", options = ["weak", "intermediate", "strong", "conventional"], skill = "bidding_conventions/weak_2s", level = 3 , plays = { weak = "bidding_conventions/weak_2s" } }
+"two_hearts.min_hcp"       = { kind = "int", label = "2♥ range: minimum", min = 0, max = 30 }
+"two_hearts.max_hcp"       = { kind = "int", label = "2♥ range: maximum", min = 0, max = 30 }
+"two_hearts.min_length"    = { kind = "int", label = "2♥ minimum length", min = 4, max = 8 }
+"two_hearts.two_suited"    = { kind = "bool", label = "2♥ two-suited" }
+"two_hearts.new_suit_nf"   = { kind = "bool", label = "2♥: new suit non-forcing" }
+"two_hearts.rebids_2nt"    = { kind = "text", label = "2♥: 2NT response", aliases = ["two_level.two_hearts.rebid_2nt"] }
+"two_spades.meaning"       = { kind = "enum", label = "2♠ meaning", options = ["weak", "intermediate", "strong", "conventional"], skill = "bidding_conventions/weak_2s", level = 3 , plays = { weak = "bidding_conventions/weak_2s" } }
+"two_spades.min_hcp"       = { kind = "int", label = "2♠ range: minimum", min = 0, max = 30 }
+"two_spades.max_hcp"       = { kind = "int", label = "2♠ range: maximum", min = 0, max = 30 }
+"two_spades.min_length"    = { kind = "int", label = "2♠ minimum length", min = 4, max = 8 }
+"two_spades.two_suited"    = { kind = "bool", label = "2♠ two-suited" }
+"two_spades.new_suit_nf"   = { kind = "bool", label = "2♠: new suit non-forcing" }
+"two_spades.rebids_2nt"    = { kind = "text", label = "2♠: 2NT response", aliases = ["two_level.two_spades.rebid_2nt"] }
+"weak_two_2nt_response"    = { kind = "enum", label = "Weak two: 2NT response", options = ["feature", "ogust"], default = "feature", desc = "feature: opener bids a side ace or king with a maximum. ogust: 3♣/3♦/3♥/3♠ show minimum/maximum and suit quality", skill = "bidding_conventions/ogust", level = 5 }
+# --- begin: Bridge-Classroom card fields (bc-export) ---
+"two_clubs.max_hcp"        = { kind = "text", label = "2♣ maximum (text)", desc = "Bridge-Classroom keeps it as written (BBO's 2CMax)" }
+"two_clubs.description"    = { kind = "text", label = "2♣: describe", note = true }
+"two_clubs.continuation_describe" = { kind = "text", label = "2♣: describe (second line)", note = true }
+"two_clubs.notes"          = { kind = "text", label = "2♣: responses / rebids", note = true }
+"two_clubs.continuation_response" = { kind = "text", label = "2♣: responses / rebids (second line)", note = true }
+"two_clubs.steps_desc"     = { kind = "text", label = "2♣: steps", desc = "The steps shown in response (levels of HCP or control points)" }
+"two_diamonds.description" = { kind = "text", label = "2♦: describe", note = true }
+"two_diamonds.notes"       = { kind = "text", label = "2♦: responses / rebids", note = true }
+"two_diamonds.two_nt_force" = { kind = "bool", label = "2♦: 2NT response forcing" }
+"two_hearts.description"   = { kind = "text", label = "2♥: describe", note = true }
+"two_hearts.notes"         = { kind = "text", label = "2♥: responses / rebids", note = true }
+"two_hearts.two_nt_force"  = { kind = "bool", label = "2♥: 2NT response forcing" }
+"two_spades.description"   = { kind = "text", label = "2♠: describe", note = true }
+"two_spades.notes"         = { kind = "text", label = "2♠: responses / rebids", note = true }
+"two_spades.two_nt_force"  = { kind = "bool", label = "2♠: 2NT response forcing" }
+# --- end: Bridge-Classroom card fields (bc-export) ---

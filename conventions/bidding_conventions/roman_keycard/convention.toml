@@ -1,7 +1,10 @@
 id = "bidding_conventions/roman_keycard"
 name = "Roman Keycard"
+label = "Roman Keycard Blackwood"
 source = "taxonomy"
 level = 4
+contexts = ["slam"]
+implements = ["ace_ask"]
 names = ["RKCB", "Roman Keycard", "Roman Key Card Blackwood", "Keycard", "1430", "0314"]
 confirm_names = ["0314", "1430"]
 summary = """
@@ -15,3 +18,20 @@ see = [
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 9 },
   { title = "Slam Bidding: 1430 Keycard Blackwood", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/403" },
 ]
+
+[treatments.style]
+kind = "enum"
+label = "RKCB responses"
+desc = "1430: the first step shows one or four keycards, the second none or three. 0314: the first step none or three, the second one or four"
+options = ["1430", "0314"]
+level = 4
+
+[treatments.minor_0314]
+kind = "bool"
+label = "RKCB 0314 with a minor as trumps (1430 in the majors)"
+level = 6
+
+[treatments.queen_ask]
+kind = "bool"
+label = "Queen ask"
+level = 6

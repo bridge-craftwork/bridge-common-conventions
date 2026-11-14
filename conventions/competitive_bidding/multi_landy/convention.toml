@@ -2,6 +2,8 @@ id = "competitive_bidding/multi_landy"
 name = "Landy and Multi-Landy over 1NT"
 source = "proposed"
 level = 7
+contexts = ["vs_notrump"]
+implements = ["defence_to_1nt"]
 names = ["Multi-Landy", "Multi Landy", "Woolsey"]
 summary = """
 Over their 1NT: double shows a four-card major and a longer minor, 2♣ both

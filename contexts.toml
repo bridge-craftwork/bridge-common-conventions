@@ -1,0 +1,44 @@
+# Where a convention applies (docs/CONTRACT.md, section 6), in display order.
+# A key never changes; a name may.
+
+[notrump_openings]
+name = "Notrump openings"
+
+[major_openings]
+name = "Major openings"
+
+[minor_openings]
+name = "Minor openings"
+
+[preemptive_openings]
+name = "Two-level and preemptive openings"
+
+[responses_rebids]
+name = "Responses and rebids"
+
+[slam]
+name = "Slam bidding"
+
+[overcalls]
+name = "Our overcalls"
+
+[doubles]
+name = "Our doubles"
+
+[after_interference]
+name = "After they interfere"
+
+[vs_notrump]
+name = "Defence to their notrump"
+
+[vs_openings]
+name = "Defence to their other openings"
+
+[leads]
+name = "Leads"
+
+[signals]
+name = "Signals"
+
+[general]
+name = "General approach"

@@ -1,7 +1,9 @@
 id = "bidding_conventions/two_over_one"
 name = "2/1 Game Force"
+label = "2/1 game force"
 source = "taxonomy"
 level = 4
+contexts = ["major_openings", "general"]
 names = ["2/1", "2/1 game force", "two over one", "2 over 1", "2/1 GF"]
 summary = """
 After a one-level opening, responder's new suit at the two level, without
@@ -12,3 +14,17 @@ see = [
   { title = "2 over 1 Game Forcing: Modern Bridge Standard", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/641" },
   { title = "Vic's Views: Building a new partnership – part 1", by = "Vic Quiros", site = "ACBL Bridge Bulletin, September 2026, p. 70" },
 ]
+
+[treatments.rebid_style]
+kind = "enum"
+label = "2/1 opener's rebid style"
+desc = "Opener's rebid after a 2/1 game force (1♥–2♦). bergen (Bergen style): 2NT is the default bid and says nothing; rebidding the major shows six; a new suit (2♠, 3♣) shows no extras. lawrence (Lawrence style): rebidding the major is the default, 5+; a new suit shows extras; 2NT shows stoppers. schuler (Schuler Shift): rebidding the major is the default, exactly five; a new suit shows extras; 2NT shows six or more in the major (Vic Quiros, ACBL Bridge Bulletin, September 2026)"
+options = ["bergen", "lawrence", "schuler"]
+default = "bergen"
+level = 5
+plays = { schuler = "bidding_conventions/schuler_shift" }
+
+[treatments.game_forcing_except]
+kind = "bool"
+label = "2/1 game forcing except when suit rebid"
+level = 5

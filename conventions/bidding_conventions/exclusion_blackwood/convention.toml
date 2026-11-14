@@ -2,6 +2,7 @@ id = "bidding_conventions/exclusion_blackwood"
 name = "Exclusion Blackwood"
 source = "proposed"
 level = 7
+contexts = ["slam"]
 names = ["Exclusion Blackwood", "Exclusion", "Exclusion RKC", "Voidwood"]
 summary = """
 A jump to the five level in a new suit after agreeing trumps shows a void

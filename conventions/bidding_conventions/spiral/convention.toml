@@ -1,7 +1,9 @@
 id = "bidding_conventions/spiral"
 name = "Spiral"
+label = "Spiral cuebids"
 source = "proposed"
 level = 8
+contexts = ["slam"]
 names = ["Spiral", "Spiral cue bids", "Spiral 2NT"]
 summary = """
 A relay that asks about trump length and quality in steps once a fit is

@@ -1,7 +1,9 @@
 id = "competitive_bidding/support_cuebids"
 name = "Support Cuebids"
+label = "Cue-bid raise"
 source = "taxonomy"
 level = 4
+contexts = ["overcalls", "after_interference"]
 names = ["Cue-bid raise", "Cuebid raise", "Support cue bid", "Limit raise or better"]
 summary = """
 A cue bid of the opponents' suit in response to partner's opening or

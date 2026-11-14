@@ -1,0 +1,37 @@
+# Card settings: competitive. A setting's name is `competitive.<key>`.
+# The attributes are described in settings/README.md.
+
+"vs_1nt_strong.dbl"        = { kind = "text", label = "Vs strong 1NT: double", explains = "defence_to_1nt.strong" }
+"vs_1nt_strong.2c"         = { kind = "text", label = "Vs strong 1NT: 2♣", explains = "defence_to_1nt.strong" }
+"vs_1nt_strong.2d"         = { kind = "text", label = "Vs strong 1NT: 2♦", explains = "defence_to_1nt.strong" }
+"vs_1nt_strong.2h"         = { kind = "text", label = "Vs strong 1NT: 2♥", explains = "defence_to_1nt.strong" }
+"vs_1nt_strong.2s"         = { kind = "text", label = "Vs strong 1NT: 2♠", explains = "defence_to_1nt.strong" }
+"vs_1nt_strong.2nt"        = { kind = "text", label = "Vs strong 1NT: 2NT", explains = "defence_to_1nt.strong" }
+"vs_1nt_strong.other"      = { kind = "text", label = "Vs strong 1NT: other" }
+"vs_1nt_weak.dbl"          = { kind = "text", label = "Vs weak 1NT: double", explains = "defence_to_1nt.weak" }
+"vs_1nt_weak.2c"           = { kind = "text", label = "Vs weak 1NT: 2♣", explains = "defence_to_1nt.weak" }
+"vs_1nt_weak.2d"           = { kind = "text", label = "Vs weak 1NT: 2♦", explains = "defence_to_1nt.weak" }
+"vs_1nt_weak.2h"           = { kind = "text", label = "Vs weak 1NT: 2♥", explains = "defence_to_1nt.weak" }
+"vs_1nt_weak.2s"           = { kind = "text", label = "Vs weak 1NT: 2♠", explains = "defence_to_1nt.weak" }
+"vs_1nt_weak.2nt"          = { kind = "text", label = "Vs weak 1NT: 2NT", explains = "defence_to_1nt.weak" }
+"vs_1nt_weak.other"        = { kind = "text", label = "Vs weak 1NT: other" }
+"vs_1nt_strong_includes"   = { kind = "int", label = "Their 1NT is strong if its range includes", min = 8, max = 20, desc = "Which defense to play: a 1NT whose range includes this point count gets vs_1nt_strong, any other vs_1nt_weak. BBO cards write 16 as Strong 16+ and Weak No 16", level = 5 }
+"new_suit_after_overcall_forcing" = { kind = "bool", label = "1X–(Y)–2Z new suit forcing", level = 4 }
+"jump_shift_after_overcall" = { kind = "enum", label = "1X–(1Y)–2Z jump shift", options = ["weak", "strong"] }
+"direct_jump_cuebid_major" = { kind = "enum", label = "Direct jump cuebid over a major", options = ["gambling", "minor", "strong"] }
+"direct_jump_cuebid_minor" = { kind = "enum", label = "Direct jump cuebid over a minor", options = ["gambling", "majors", "preempt"] }
+# --- begin: Bridge-Classroom card fields (bc-export) ---
+"notes"                    = { kind = "text", label = "Defense vs 1NT notes (card write-in)", note = true }
+# --- end: Bridge-Classroom card fields (bc-export) ---
+
+# ── Direct cue bids of their opening (Michaels) ──────────────────────
+# Bridge-Classroom's DirectCuebidsMatrix (the ACBL card's "Direct
+# cuebid" box): one row per meaning of our cue bid of their one-level
+# opening, one column per kind of opening. Columns: art = artificial
+# 1♣/1♦ (a strong club), quasi = a 1♣/1♦ that may be short,
+# nat_minors = natural 1♣/1♦, nat_majors = 1♥/1♠. Rows: michaels = the
+# two-suiter (over a minor both majors, over a major the other major and
+# a minor), natural = the suit bid, other = something else (described in
+# `description`). The rules (competitive/two-suited-overcalls.bid) read
+# the Michaels cells of the natural columns and quasi; the other cells
+# are recorded for the card.

@@ -2,6 +2,7 @@ id = "bidding_conventions/namyats"
 name = "Namyats"
 source = "proposed"
 level = 6
+contexts = ["preemptive_openings"]
 names = ["Namyats", "4♣/4♦ transfer to 4♥/4♠", "South African Texas"]
 summary = """
 Openings of 4♣ and 4♦ show a strong four-level preempt in hearts and spades

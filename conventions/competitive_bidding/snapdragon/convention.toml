@@ -2,6 +2,7 @@ id = "competitive_bidding/snapdragon"
 name = "Snapdragon doubles"
 source = "proposed"
 level = 8
+contexts = ["doubles"]
 names = ["Snapdragon", "Snapdragon double"]
 summary = """
 When three suits have been bid, one by each of three players, fourth hand's

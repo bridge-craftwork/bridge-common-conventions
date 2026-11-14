@@ -1,0 +1,5 @@
+id = "bidding_conventions/quantitative_4nt"
+name = "Quantitative 4NT"
+source = "proposed"
+level = 3
+contexts = ["slam"]

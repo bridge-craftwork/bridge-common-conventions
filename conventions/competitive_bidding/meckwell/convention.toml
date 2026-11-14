@@ -2,6 +2,8 @@ id = "competitive_bidding/meckwell"
 name = "Meckwell over 1NT"
 source = "proposed"
 level = 5
+contexts = ["vs_notrump"]
+implements = ["defence_to_1nt"]
 names = ["Meckwell", "Meckwell defense"]
 summary = """
 Over their 1NT: double shows a one-suited minor or both majors; 2♣ and 2♦

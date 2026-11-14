@@ -1,7 +1,10 @@
 id = "bidding_conventions/fourth_suit_forcing"
 name = "Fourth Suit Forcing"
+label = "Fourth suit forcing"
+desc = "We play fourth suit forcing (Bridge-Classroom's card); one_round / game_force say how far it forces. Turns off responder's natural two-level fourth suit (1♦–1♥–1♠–2♣)"
 source = "taxonomy"
 level = 5
+contexts = ["responses_rebids"]
 names = ["Fourth suit forcing", "4th suit forcing", "FSF", "Fourth suit game force"]
 summary = """
 When three suits have been bid, responder's bid of the fourth suit is
@@ -13,3 +16,21 @@ see = [
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 21 },
   { title = "2/1: Bidding the 4th Suit", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/424" },
 ]
+
+[treatments.one_round]
+kind = "bool"
+label = "Fourth suit forcing (1 round)"
+level = 5
+choice = "other_conventions.fourth_suit_forcing"
+
+[treatments.game_force]
+kind = "bool"
+label = "Fourth suit forcing (game force)"
+level = 5
+choice = "other_conventions.fourth_suit_forcing"
+
+[treatments.notes]
+kind = "text"
+label = "Fourth suit forcing notes"
+note = true
+skill = false

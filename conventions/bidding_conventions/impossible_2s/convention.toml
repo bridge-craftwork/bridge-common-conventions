@@ -1,7 +1,9 @@
 id = "bidding_conventions/impossible_2s"
 name = "Impossible 2♠"
+desc = "1♥–1NT–2m–2♠: artificial, a good raise of opener's minor (4+, the top of the 1NT response), forcing to three of the minor"
 source = "proposed"
 level = 7
+contexts = ["major_openings"]
 names = ["Impossible 2♠", "Impossible Spade", "Impossible 2S"]
 summary = """
 After 1♥–1NT–2♣ or 2♦, responder's 2♠ cannot be natural, so it shows a good

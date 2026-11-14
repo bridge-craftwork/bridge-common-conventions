@@ -1,7 +1,10 @@
 id = "competitive_bidding/dont"
 name = "DONT"
+desc = "Bridge-Classroom's DONT switch: plays DONT when vs_1nt_strong.system is unset or other"
 source = "taxonomy"
 level = 5
+contexts = ["vs_notrump"]
+implements = ["defence_to_1nt"]
 names = ["DONT", "D.O.N.T.", "Disturb Opponents' No Trump", "Disturbing Opponents NT"]
 summary = """
 Over their strong 1NT: double shows one long suit (partner relays 2♣); 2♣

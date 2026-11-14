@@ -1,7 +1,9 @@
 id = "competitive_bidding/responsive_doubles"
 name = "Responsive Doubles"
+label = "Responsive doubles"
 source = "proposed"
 level = 5
+contexts = ["doubles"]
 names = ["Responsive double", "Responsive doubles"]
 summary = """
 After partner doubles for takeout and the next player raises, advancer's
@@ -12,3 +14,10 @@ see = [
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 23 },
   { title = "Responsive Doubles", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/354" },
 ]
+
+[treatments.through]
+kind = "text"
+label = "Responsive doubles through"
+desc = "The highest raise of their suit, after partner's takeout double or overcall, that a double of is responsive (3♠: a double of 4♣ or higher is not)"
+bid = true
+skill = false

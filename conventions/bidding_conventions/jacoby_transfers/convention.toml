@@ -1,7 +1,9 @@
 id = "bidding_conventions/jacoby_transfers"
 name = "Jacoby Transfers"
+label = "Jacoby transfers"
 source = "taxonomy"
 level = 3
+contexts = ["notrump_openings"]
 names = ["Jacoby transfers", "Jacoby", "transfers", "Texas", "Texas transfers", "4-level transfers"]
 confirm_names = ["Jacoby", "transfers"]
 summary = """
@@ -14,3 +16,37 @@ see = [
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 2 },
   { title = "NT Auctions: Opponents' Doubles of Our Stayman and Transfers", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/520" },
 ]
+
+[treatments.super_accept]
+kind = "bool"
+label = "Super-acceptance of transfers"
+level = 5
+skill = "bidding_conventions/super_accept"
+
+[treatments.super_accept_doubleton]
+kind = "bool"
+label = "Super-accept by bidding a doubleton"
+desc = "With 4+ trumps and a maximum, bid the doubleton suit (or 2NT when it cannot be shown below it). BBA: Extended acceptance after NT"
+level = 7
+skill = "bidding_conventions/super_accept"
+
+[treatments.vs_double]
+kind = "bool"
+label = "Transfers on if RHO doubles"
+level = 6
+
+[treatments.vs_2c]
+kind = "bool"
+label = "Transfers on if RHO bids clubs"
+level = 6
+
+[treatments.over_2nt]
+kind = "bool"
+label = "Jacoby transfers over 2NT (3♦/3♥)"
+level = 4
+
+[treatments.over_2c_3nt]
+kind = "bool"
+label = "Transfers over 2♣–2♦–3NT"
+desc = "After 2♣–2♦–3NT, responder transfers at the four level: 4♦ shows five or more hearts and 4♥ five or more spades, opener completing in the major. Off, 4♦ and 4♥ are natural"
+level = 6

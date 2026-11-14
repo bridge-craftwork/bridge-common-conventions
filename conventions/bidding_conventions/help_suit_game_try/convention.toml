@@ -1,7 +1,9 @@
 id = "bidding_conventions/help_suit_game_try"
 name = "Help Suit Game Try"
+label = "Help suit game tries"
 source = "taxonomy"
 level = 5
+contexts = ["responses_rebids"]
 names = ["Help suit game try", "Help-suit game try", "Help suit"]
 summary = """
 After a major-suit raise, opener's new suit is a game try asking for help

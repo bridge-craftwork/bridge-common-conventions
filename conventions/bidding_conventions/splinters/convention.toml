@@ -2,6 +2,8 @@ id = "bidding_conventions/splinters"
 name = "Splinters"
 source = "proposed"
 level = 5
+contexts = ["major_openings"]
+taught_under = ["bidding_conventions/jacoby_2nt_splinters"]
 names = ["Splinters", "Splinter", "Splinter bids", "Splinter raise", "Mini-splinters"]
 confirm = true
 summary = """
@@ -14,3 +16,13 @@ see = [
   { title = "Slam Bidding: Splinter Bids by Responder", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/408" },
   { title = "Slam Bidding: Splinters by Opener", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/409" },
 ]
+
+[treatments.by_responder]
+kind = "bool"
+label = "Splinters by responder"
+level = 5
+
+[treatments.by_opener]
+kind = "bool"
+label = "Splinters by opener"
+level = 6

@@ -2,6 +2,7 @@ id = "bidding_conventions/smolen"
 name = "Smolen"
 source = "proposed"
 level = 4
+contexts = ["notrump_openings"]
 names = ["Smolen"]
 summary = """
 After 1NT–2♣–2♦, responder with five cards in one major, four in the other

@@ -2,6 +2,7 @@ id = "competitive_bidding/scrambling_2nt"
 name = "Scrambling 2NT"
 source = "proposed"
 level = 7
+contexts = ["doubles"]
 names = ["Scrambling 2NT", "Scrambling"]
 summary = """
 In a competitive auction where a takeout double would be natural, advancer's

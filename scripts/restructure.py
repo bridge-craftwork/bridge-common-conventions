@@ -290,11 +290,11 @@ def main():
             out.append(f"options = {toml(f['options'])}")
             if "value_aliases" in f:
                 out.append(f"value_aliases = {toml(f['value_aliases'])}")
-            also = [s for s in as_list(f.get("skill")) if s not in fn["options"].values()]
-            if also:
-                out.append(f"taught_under = {toml(also)}")
+            for k in ("desc", "level", "skill"):
+                if k in f:
+                    out.append(f"{k} = {toml(f[k])}")
             for a in f.get("aliases", []):
-                alias_moves[a] = path
+                alias_moves[a] = f"{fname}.{part}"
         if "options" in fn:
             out.append("")
             out.append(f"[{fname}.option]")

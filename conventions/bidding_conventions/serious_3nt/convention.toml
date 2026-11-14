@@ -1,7 +1,9 @@
 id = "bidding_conventions/serious_3nt"
 name = "Serious 3NT"
+label = "Non-serious 3NT"
 source = "proposed"
 level = 9
+contexts = ["slam"]
 names = ["Serious 3NT", "Non-serious 3NT", "Frivolous 3NT"]
 summary = """
 In a game-forcing auction with a major agreed at the three level, 3NT is

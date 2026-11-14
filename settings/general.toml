@@ -1,0 +1,25 @@
+# Card settings: general. A setting's name is `general.<key>`.
+# The attributes are described in settings/README.md.
+
+"system"                   = { kind = "text", label = "System" }
+"system_category"          = { kind = "enum", label = "System category", options = ["two_over_one", "sayc", "polish_club", "precision", "acol"], default = "two_over_one" }
+"style"                    = { kind = "enum", label = "Bidding style", options = ["standard", "bba"], desc = "Unset: our default (modern where we have one, else standard). standard: the textbook treatment where the default is modern. bba: what BBA does, as far as probes and the corpus show; for A/B tests" }
+"min_hcp_open"             = { kind = "int", label = "Min HCP to open", min = 0, max = 20, default = 12 }
+"min_hcp_respond"          = { kind = "int", label = "Min HCP to respond", min = 0, max = 20, default = 6 }
+"third_fourth_light"       = { kind = "bool", label = "Light openings in 3rd/4th seat" }
+"nt_open_style"            = { kind = "enum", label = "1NT opening style", options = ["strong", "weak", "variable"], default = "strong" }
+"forcing_opening_1c"       = { kind = "bool", label = "Forcing 1♣ opening" }
+"forcing_opening_2c"       = { kind = "bool", label = "Forcing 2♣ opening" }
+"forcing_opening_other"    = { kind = "text", label = "Forcing opening (other)" }
+"bids_requiring_prep"      = { kind = "text", label = "Bids that may require preparation" }
+"jump_shifts.strong_2"     = { kind = "bool", label = "Strong jump shifts (2-level)", level = 3, choice = "general.jump_shifts_2" }
+"jump_shifts.strong_3"     = { kind = "bool", label = "Strong jump shifts (3-level)", level = 3, choice = "general.jump_shifts_3" }
+"jump_shifts.weak_2"       = { kind = "bool", label = "Weak jump shifts (2-level)", skill = "bidding_conventions/weak_jump_shifts", level = 5, choice = "general.jump_shifts_2" }
+"jump_shifts.weak_3"       = { kind = "bool", label = "Weak jump shifts (3-level)", skill = "bidding_conventions/weak_jump_shifts", level = 5, choice = "general.jump_shifts_3" }
+"jump_shifts.invitational" = { kind = "bool", label = "Invitational jump shifts", level = 5, choice = "general.jump_shifts_2" }
+"forcing_opening"          = { kind = "text", label = "Forcing opening (as written)", desc = "The card's forcing-opening line as an importer wrote it (\"2C\"); forcing_opening_1c/2c/other are the structured form" }
+"very_light.openings"      = { kind = "bool", label = "Very light: openings" }
+"very_light.third_hand"    = { kind = "bool", label = "Very light: 3rd hand" }
+"very_light.overcalls"     = { kind = "bool", label = "Very light: overcalls" }
+"very_light.preempts"      = { kind = "bool", label = "Very light: preempts" }
+"forcing_opening_natural_2" = { kind = "bool", label = "Natural 2 bids" }

@@ -2,6 +2,7 @@ id = "bidding_conventions/gerber"
 name = "Gerber"
 source = "proposed"
 level = 3
+contexts = ["slam"]
 names = ["Gerber", "4♣ Gerber", "1430 Gerber"]
 summary = """
 A jump to 4♣ over partner's notrump asks for aces, with steps answering as
@@ -13,3 +14,33 @@ see = [
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 1 },
   { title = "Slam Bidding: Gerber and 1430 Gerber", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/402" },
 ]
+
+[treatments.over]
+kind = "text"
+label = "Gerber applies over"
+skill = false
+
+[treatments.only_over_nt_openings]
+kind = "bool"
+label = "Gerber only over NT openings"
+skill = false
+
+[treatments.directly_over_nt]
+kind = "bool"
+label = "Gerber directly over NT"
+skill = false
+
+[treatments.over_nt_seq]
+kind = "bool"
+label = "Gerber over NT sequence"
+skill = false
+
+[treatments.non_nt_seq]
+kind = "bool"
+label = "Gerber in non-NT sequence"
+skill = false
+
+[treatments.notes]
+kind = "text"
+label = "Gerber (4♣) notes"
+skill = false

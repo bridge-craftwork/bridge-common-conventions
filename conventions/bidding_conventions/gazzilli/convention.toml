@@ -2,6 +2,7 @@ id = "bidding_conventions/gazzilli"
 name = "Gazzilli"
 source = "proposed"
 level = 9
+contexts = ["major_openings"]
 names = ["Gazzilli"]
 summary = """
 After 1♥ or 1♠ and a 1NT response, opener's 2♣ is artificial: either natural

@@ -1,7 +1,9 @@
 id = "bidding_conventions/western_cuebid"
 name = "Western cue bid"
+label = "Western cuebid"
 source = "proposed"
 level = 4
+contexts = ["after_interference"]
 names = ["Western cue bid", "Western cuebid", "Asking for a stopper"]
 summary = """
 A cue bid of the opponents' suit when looking for 3NT asks partner to bid

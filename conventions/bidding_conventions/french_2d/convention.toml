@@ -2,6 +2,7 @@ id = "bidding_conventions/french_2d"
 name = "French 2♦"
 source = "proposed"
 level = 8
+contexts = ["preemptive_openings"]
 names = ["French 2♦"]
 summary = """
 An opening 2♦ with an artificial meaning in the French style; details vary

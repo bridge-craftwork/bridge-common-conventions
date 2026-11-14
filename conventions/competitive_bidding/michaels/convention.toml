@@ -1,0 +1,23 @@
+id = "competitive_bidding/michaels"
+name = "Michaels cue bid"
+label = "Michaels cuebid"
+source = "proposed"
+level = 4
+contexts = ["overcalls"]
+taught_under = ["competitive_bidding/michaels_unusual"]
+
+[treatments.strength]
+kind = "enum"
+label = "Michaels strength"
+desc = "wide_range: any strength from about 7 HCP with five-five (BBA: 8+ total points, 12+ vulnerable). weak_or_strong (mini-maxi): weak, or 16+ and bids again; an intermediate hand overcalls instead. Bridge-Classroom's seed card writes weak_or_strong"
+options = ["wide_range", "weak_or_strong"]
+default = "wide_range"
+skill = false
+
+[treatments.minor_advance]
+kind = "enum"
+label = "Advancing Michaels over a major: which minor"
+desc = "After a Michaels cue bid of a major (the other major and a minor). ask_2nt: advancer bids 2NT to ask for the minor, at any strength; 3♣ and 3♦ are natural, a long suit of advancer's own (Bridge Bum). pass_or_correct: 3♣ is pass or correct to partner's minor, and 2NT a stronger ask (Larry Cohen)"
+options = ["ask_2nt", "pass_or_correct"]
+default = "ask_2nt"
+level = 5

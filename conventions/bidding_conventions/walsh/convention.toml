@@ -1,7 +1,10 @@
 id = "bidding_conventions/walsh"
 name = "Walsh"
+label = "Walsh responses (BBA's switch)"
+desc = "BBA's 'Walsh style'. With it on BBA still bids 1♦ over 1♣ with four diamonds and a four-card major, so our rules read one_club_responses instead"
 source = "proposed"
 level = 4
+contexts = ["minor_openings"]
 names = ["Walsh", "Walsh style", "Walsh responses"]
 summary = """
 Over partner's 1♣, responder with a weak or moderate hand bids a four-card

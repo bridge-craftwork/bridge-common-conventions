@@ -2,6 +2,7 @@ id = "bidding_conventions/roudi"
 name = "Roudi"
 source = "proposed"
 level = 8
+contexts = ["responses_rebids"]
 names = ["Roudi"]
 summary = """
 A checkback used in Acol and similar systems after opener's 1NT rebid, with
