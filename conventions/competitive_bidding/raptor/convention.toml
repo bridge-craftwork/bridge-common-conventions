@@ -8,3 +8,7 @@ summary = """
 An overcall of 1NT that shows a four-card major and a longer minor, rather
 than a strong balanced hand.
 """
+see = [
+  { title = "Raptor 1NT", site = "Bridge Bum", url = "https://www.bridgebum.com/raptor_1nt.php" },
+  { title = "Raptor convention", site = "Wikipedia", url = "https://en.wikipedia.org/wiki/Raptor_(bridge)" },
+]

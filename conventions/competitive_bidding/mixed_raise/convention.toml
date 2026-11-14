@@ -8,3 +8,6 @@ After partner's overcall, advancer's jump cuebid of the opponents' suit
 shows a mixed raise: four-card support with values between a preemptive jump
 raise and a limit raise. The plain cuebid is then a limit raise or better.
 """
+see = [
+  { title = "Simple Overcalls", by = "Larry Cohen", site = "Larry Cohen", url = "https://www.larryco.com/bridge-articles/simple-overcalls" },
+]
