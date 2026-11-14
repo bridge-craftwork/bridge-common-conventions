@@ -725,7 +725,7 @@ note = "Natural balanced rebid."
 
 # Weak 2♦
 [[alert]]
-fields = ["two_level.two_diamonds.meaning"]
+fields = ["opening.2d"]
 call = "2♦"
 after = "opening"
 by = "opener"
@@ -734,7 +734,7 @@ ebu = "announce"
 note = "Natural weak two. The EBU announces the strength (\"Weak\"); the ACBL and WBF do not alert it."
 
 [[alert]]
-fields = ["two_level.two_diamonds.meaning"]
+fields = ["opening.2d"]
 call = "New suit (non-forcing)"
 when = "a new-suit response is not forcing"
 after = "2♦"
@@ -743,7 +743,7 @@ rule = "alert"
 note = "Alerted when a new-suit response is not forcing. The EBU and WBF do not cover it directly; an unexpected meaning is alertable under both."
 
 [[alert]]
-fields = ["two_level.two_diamonds.meaning"]
+fields = ["opening.2d"]
 call = "Raise (invitational or forcing)"
 when = "a raise is invitational or forcing, not preemptive"
 after = "2♦"
@@ -753,7 +753,7 @@ note = "Alerted in the ACBL when a raise is not preemptive. The EBU and WBF do n
 
 # Weak 2♥
 [[alert]]
-fields = ["two_level.two_hearts.meaning"]
+fields = ["opening.2h"]
 call = "2♥"
 after = "opening"
 by = "opener"
@@ -762,7 +762,7 @@ ebu = "announce"
 note = "Natural weak two. The EBU announces the strength (\"Weak\"); the ACBL and WBF do not alert it."
 
 [[alert]]
-fields = ["two_level.two_hearts.meaning"]
+fields = ["opening.2h"]
 call = "New suit (non-forcing)"
 when = "a new-suit response is not forcing"
 after = "2♥"
@@ -771,7 +771,7 @@ rule = "alert"
 note = "Alerted when a new-suit response is not forcing. The EBU and WBF do not cover it directly; an unexpected meaning is alertable under both."
 
 [[alert]]
-fields = ["two_level.two_hearts.meaning"]
+fields = ["opening.2h"]
 call = "Raise (invitational or forcing)"
 when = "a raise is invitational or forcing, not preemptive"
 after = "2♥"
@@ -781,7 +781,7 @@ note = "Alerted in the ACBL when a raise is not preemptive. The EBU and WBF do n
 
 # Weak 2♠
 [[alert]]
-fields = ["two_level.two_spades.meaning"]
+fields = ["opening.2s"]
 call = "2♠"
 after = "opening"
 by = "opener"
@@ -790,7 +790,7 @@ ebu = "announce"
 note = "Natural weak two. The EBU announces the strength (\"Weak\"); the ACBL and WBF do not alert it."
 
 [[alert]]
-fields = ["two_level.two_spades.meaning"]
+fields = ["opening.2s"]
 call = "New suit (non-forcing)"
 when = "a new-suit response is not forcing"
 after = "2♠"
@@ -799,7 +799,7 @@ rule = "alert"
 note = "Alerted when a new-suit response is not forcing. The EBU and WBF do not cover it directly; an unexpected meaning is alertable under both."
 
 [[alert]]
-fields = ["two_level.two_spades.meaning"]
+fields = ["opening.2s"]
 call = "Raise (invitational or forcing)"
 when = "a raise is invitational or forcing, not preemptive"
 after = "2♠"
@@ -925,6 +925,31 @@ after = "2♦"
 by = "responder"
 rule = "alert"
 note = "Asking bid; the ACBL 2NT exemption covers only weak preempts."
+
+# Reverse Flannery: responder's jump to 2♥ or 2♠ over one of a minor
+[[alert]]
+fields = ["bidding_conventions/reverse_flannery:two_h"]
+call = "2♥"
+after = "1♣ or 1♦"
+by = "responder"
+rule = "alert"
+note = "Five spades and four or five hearts in a weak hand: the jump shows a suit it does not name, so every regulator alerts it."
+
+[[alert]]
+fields = ["bidding_conventions/reverse_flannery:two_s"]
+call = "2♠"
+after = "1♣ or 1♦"
+by = "responder"
+rule = "alert"
+note = "Five spades and four hearts with invitational values: the hearts are an agreement the opponents would not expect."
+
+[[alert]]
+fields = ["bidding_conventions/reverse_flannery:two_h"]
+call = "2NT"
+after = "1♣ or 1♦, then 2♥"
+by = "opener"
+rule = "alert"
+note = "Asks responder for shape and strength."
 
 # Kokish relay
 [[alert]]

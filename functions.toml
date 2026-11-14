@@ -5,6 +5,9 @@
 [defence_to_1nt]
 name = "Defence to their 1NT opening"
 parts = ["strong", "weak"]
+# A stored setting of `other` names no convention: whichever the card plays
+# for the part fills it.
+defers = ["other"]
 
 # What `competitive.vs_1nt_strong.system` held in card schema 2: its label, and the
 # words other tools write for each choice. `natural` and `other` name no
@@ -45,3 +48,66 @@ parts = ["major", "minor"]
 
 [michaels_vs_preempts]
 name = "Two-suited overcall of their preempt"
+
+[opening]
+name = "Meaning of a two-level opening bid"
+parts = ["2c", "2d", "2h", "2s"]
+# A stored `meaning` of `conventional` names no convention: whichever the
+# card plays for the bid fills the part.
+defers = ["conventional"]
+
+# What the three `two_level.two_<suit>.meaning` settings held in card schema
+# 2. `weak`, `intermediate` and `strong` each named a kind of two-bid, now a
+# convention; `conventional` named none. The 2♣ opening's own setting
+# (`two_level.two_clubs.meaning`) stays a setting: Strong 2♣ and Benjamin
+# say they fill the part, and nothing on a card changes.
+[opening.option]
+weak = "bidding_conventions/weak_2s"
+intermediate = "bidding_conventions/intermediate_twos"
+strong = "bidding_conventions/strong_twos"
+
+[opening.was.2d]
+setting = "two_level.two_diamonds.meaning"
+label = "2♦ meaning"
+options = ["weak", "intermediate", "strong", "conventional"]
+skill = "bidding_conventions/weak_2s"
+level = 3
+plays = { weak = "bidding_conventions/weak_2s" }
+
+[opening.was.2h]
+setting = "two_level.two_hearts.meaning"
+label = "2♥ meaning"
+options = ["weak", "intermediate", "strong", "conventional"]
+skill = "bidding_conventions/weak_2s"
+level = 3
+plays = { weak = "bidding_conventions/weak_2s" }
+
+[opening.was.2s]
+setting = "two_level.two_spades.meaning"
+label = "2♠ meaning"
+options = ["weak", "intermediate", "strong", "conventional"]
+skill = "bidding_conventions/weak_2s"
+level = 3
+plays = { weak = "bidding_conventions/weak_2s" }
+
+# The keycard ask made below 4NT, by the agreed suit: four of the minor
+# (Minorwood), or the step above four of the trump suit (Kickback; played
+# in the minors only it is Redwood, an entry with `for`). 4NT stays the ask
+# of the convention that fills `ace_ask`, when the cheaper bid has gone by.
+[low_keycard_ask]
+name = "The keycard ask below 4NT"
+parts = ["clubs", "diamonds", "hearts"]
+
+# Responder's jump to two of a major over partner's 1♣ or 1♦. Reverse
+# Flannery claims both (its `two_h` and `two_s` treatments say which a card
+# plays), and so do weak and strong jump shifts. A card's jump-shift style
+# is still the `general.jump_shifts.*` settings, so today only Reverse
+# Flannery arrives as an entry; the others compete once those boxes become
+# entries.
+#
+# With nothing filling it, the jump is strong with no interference and weak
+# in competition (Rick, 2026-11-14). A weak jump with no interference is
+# alerted, as Reverse Flannery is (alerts.toml).
+[jump_to_major_over_minor]
+name = "Responder's jump to two of a major over one of a minor"
+parts = ["2h", "2s"]

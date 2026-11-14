@@ -1,13 +1,15 @@
 id = "bidding_conventions/reverse_flannery"
 name = "Reverse Flannery"
-desc = "A two-level opening showing five or more spades and four or more hearts with less than an opening; which openings: two_d, two_h, two_s"
+desc = "Responder's jump to 2♥ or 2♠ over partner's 1♣ or 1♦, showing five spades and four or more hearts, below a game try; which jumps: two_h, two_s"
 source = "proposed"
 level = 8
-contexts = ["preemptive_openings"]
+contexts = ["responses_rebids"]
+implements = ["jump_to_major_over_minor"]
 names = ["Reverse Flannery"]
 summary = """
-An opening of 2♥ (or 2♦) showing five or more spades and four or more hearts
-with less than an opening, a two-suited preempt in the majors.
+Over partner's 1♣ or 1♦, responder's jump to 2♥ shows five spades and four
+or five hearts in a weak hand, and the jump to 2♠ the same shape with
+invitational values. Opener can place the contract in a major at once.
 """
 see = [
   { title = "Reverse Flannery", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/590" },

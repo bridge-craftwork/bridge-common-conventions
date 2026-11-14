@@ -1,0 +1,11 @@
+id = "bidding_conventions/strong_twos"
+name = "Strong two-bids"
+source = "proposed"
+level = 4
+contexts = ["preemptive_openings"]
+implements = ["opening.2d", "opening.2h", "opening.2s"]
+names = ["Strong twos", "Strong two", "Strong two-bids", "Acol twos", "Acol two-bids"]
+summary = """
+An opening 2♦, 2♥ or 2♠ shows a strong hand with a long, good suit: about
+eight playing tricks, forcing for one round. The weak two gives way to it.
+"""

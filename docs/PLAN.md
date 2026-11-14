@@ -324,10 +324,22 @@ Each produces a small, expected difference against phase 2.
 - "Treatments mean nothing while their convention is off", enforced in
   one place in the library and the crate. Today Bergen, Drury and fourth
   suit forcing are switched on by a treatment alone.
-- The `opening` function: Weak Twos, Multi, Mini-Roman, Flannery and the
+- ~~The `opening` function: Weak Twos, Multi, Mini-Roman, Flannery and the
   other two-level openings claim their bids, and the three `meaning`
-  settings with `plays` give way to entries. Kickback and Minorwood claim
-  `ace_ask.minor`.
+  settings with `plays` give way to entries.~~ Done 2026-11-14, with two new
+  IDs (Strong two-bids, Intermediate two-bids). Left out: Multi taking 2♥
+  and 2♠ from the weak twos, which the rules still decide themselves.
+- Reverse Flannery is responder's jump to 2♥ or 2♠ over one of a minor, not
+  an opening (Rick, 2026-11-14): its definition is corrected and it fills
+  `jump_to_major_over_minor`, as do Weak jump shifts and the new Strong jump
+  shifts. Still to do: the jump-shift style boxes
+  (`general.jump_shifts.weak_2`, `strong_2`, `invitational` and the
+  three-level ones) become entries of those conventions, so the three really
+  compete; Reverse Flannery's card fields sit in the two-level openings
+  section; and it has a `two_d` treatment with no rule.
+- ~~Kickback and Minorwood claim `ace_ask.minor`.~~ Changed (Rick,
+  2026-11-14): they fill a function of their own, `low_keycard_ask`, beside
+  keycard's 4NT.
 - The bbsa map sets a convention's switch where a BBA file has lines only
   for its treatments (fourth suit forcing: on when either line is on).
 - Rule modules that gain the `convention` header move beside their
@@ -335,6 +347,12 @@ Each produces a small, expected difference against phase 2.
 - The editor draws a convention's row and its treatments from the
   definition, replacing the hand-written list in `conventionCatalog.js`.
   Row captions move into the definitions.
+
+Found on the way and tracked as issues: the default for jump shifts after
+an overcall (#67), the jump-shift boxes becoming entries (#68), Reverse
+Flannery's leftovers (#69), Multi and the majors (#70), tools reading fields
+by an older spelling (#71), the Bridgodex 4NT line (#72), and Stayman unset
+over 2NT against 1NT (#73).
 
 **Done when** every difference from phase 2 is on a reviewed list.
 

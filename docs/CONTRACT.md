@@ -306,8 +306,12 @@ name = "Asking for aces or keycards"
 parts = ["major", "minor"]
 
 [opening]
-name = "Meaning of an opening bid"
+name = "Meaning of a two-level opening bid"
 parts = ["2c", "2d", "2h", "2s"]
+
+[low_keycard_ask]
+name = "The keycard ask below 4NT"
+parts = ["clubs", "diamonds", "hearts"]
 ```
 
 - A definition that implements `defence_to_1nt` fills every part. One that
@@ -316,6 +320,10 @@ parts = ["2c", "2d", "2h", "2s"]
 - **A conflict** is two conventions the card plays filling the same part.
   Readers report it: the editor when the card is edited, the engine when it
   loads. A card in conflict still loads and prints.
+- **A function is about one bid or one job, not a whole method.** Keycard's
+  4NT (`ace_ask`) and the cheaper ask that Minorwood or Kickback makes
+  (`low_keycard_ask`) are separate functions, so a card plays Minorwood
+  beside keycard with no conflict, and Minorwood beside Kickback with one.
 - **A function is listed only where conventions compete one by one.** What
   a system fixes as a whole (a Precision 1♣ against a 2/1 1♣) is part of
   choosing the system and gets no function or part.
@@ -577,6 +585,11 @@ None changes a decision.
 | 6 | `[<function>.option]` and `[<function>.was.<part>]` in `functions.toml` | The two defence-to-1NT settings had labels, option words and other tools' spellings that the card formats still need |
 | 11 | The tables of `2-to-3.toml` | The 1-to-2 format has no way to say "this switch becomes an entry" |
 | 11 | `new_ids`, `order` and `[was]` in `2-to-3.toml` | A reader that still shows schema 2 paths (the card tools, until cards are stored in schema 3) rebuilds schema 2's field list from the pack. These are the three things about that list the pack held nowhere else: which IDs schema 2 lacked, the order of its fields, and five choice groups and one `requires` that schema 3 expresses another way |
+| 6 | `opening` covers the two-level openings: Weak Twos, the new Strong two-bids and Intermediate two-bids, Flannery, Multi, Mini-Roman and the rest claim their bids. The three `two_level.two_<suit>.meaning` settings become entries (`weak`, `intermediate`, `strong`); `conventional` names none and stays the setting. The 2♣ setting is unchanged: Strong 2♣ and Benjamin only say they fill the part (Rick, 2026-11-14) | The plan's Phase 5 item. A meaning and a ticked convention for the same bid both stand as a conflict the card shows, and a rule reads a conflict as its own default, so bidding does not change |
+| 6 | `low_keycard_ask` (clubs, diamonds, hearts): Minorwood fills the minors, Kickback all three (Redwood is Kickback with `for` the minors). They do not join `ace_ask`, which stays the 4NT ask (Rick, 2026-11-14) | As Rick plays it: 1430 at 4NT in the majors, Minorwood in the minors when available, and 4NT with 0314 answers when it is not. The conventions claim bids in a keycard context; they do not replace keycard |
+| 6 | `jump_to_major_over_minor` (2h, 2s): Reverse Flannery, Weak jump shifts and the new Strong jump shifts fill it. Reverse Flannery's definition said it was an opening; it is responder's jump over 1♣ or 1♦, as its rules have it (Rick, 2026-11-14) | The definition and the rules disagreed. A card's jump-shift style is still settings (`general.jump_shifts.*`), so only Reverse Flannery arrives as an entry until those boxes become entries |
+| 6 | `defers` on a function: the words of its schema 2 setting that named no convention and left the choice to the card's entries (`other`, `conventional`). A setting that is filled in and names no convention reads as `none` where nothing fills the part | Without it a card that says its 2♦ is conventional, with no convention ticked, would fall to the bidder's default of a weak two |
+| 8 | `for` is written only when it narrows what the convention can fill (Weak Twos for all of 2♦, 2♥ and 2♠ has none) | Weak Twos cannot fill 2♣, so listing its three bids said nothing |
 | 10 | The rules number is a count of first-parent commits on `main` that changed a source file other than a notes or test file (Rick, 2026-11-14); the manifest gains `rules_number` and `checked_with`, and each file's entry is `{ sha256, changed }` | Settled in Phase 4, as the section promised. A count is readable beside an engine version and cannot go backwards while `main` is not rewritten |
 | 10 | `pack.json` has the keys `schema`, `pack`, `categories`, `conventions`, `settings`, `contexts`, `functions`, `levels`, `alerts`, `migrations` and `files` | The section said "one JSON document" without naming its parts. `scripts/build_snapshot.py` builds it; the manifest's rules number and per-file dates wait for Phase 4 |
 | 8, 11 | A setting that named a convention keeps the card's own wording: as `text` on the entry it becomes ("Hamilton" on Cappelletti's), or, where it names no convention (`natural`, a name no option covers) or a second part is worded differently, as the setting at its old path | The card tools print that wording. Without it a card that says "Strong - Suction" would print the bare option word after the upgrade |

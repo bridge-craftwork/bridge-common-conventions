@@ -1,0 +1,11 @@
+id = "bidding_conventions/intermediate_twos"
+name = "Intermediate two-bids"
+source = "proposed"
+level = 5
+contexts = ["preemptive_openings"]
+implements = ["opening.2d", "opening.2h", "opening.2s"]
+names = ["Intermediate twos", "Intermediate two", "Intermediate two-bids"]
+summary = """
+An opening 2♦, 2♥ or 2♠ shows a six-card suit and a sound minimum opening,
+about 10 to 13 points: stronger than a weak two, and not forcing.
+"""

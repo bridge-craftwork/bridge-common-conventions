@@ -2,6 +2,8 @@ id = "bidding_conventions/weak_jump_shifts"
 name = "Weak jump shifts"
 source = "proposed"
 level = 5
+contexts = ["responses_rebids"]
+implements = ["jump_to_major_over_minor"]
 names = ["Weak jump shifts", "Weak jump shift", "WJS"]
 summary = """
 Responder's jump in a new suit over partner's one-level opening shows a long

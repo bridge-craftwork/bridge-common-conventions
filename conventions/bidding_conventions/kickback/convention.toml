@@ -3,6 +3,7 @@ name = "Kickback"
 source = "proposed"
 level = 9
 contexts = ["slam"]
+implements = ["low_keycard_ask"]
 names = ["Kickback", "Kickback keycard", "Redwood"]
 summary = """
 A keycard ask in the suit above trumps instead of 4NT: 4♦ with clubs as
