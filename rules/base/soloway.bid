@@ -14,10 +14,9 @@ module soloway "Soloway jump shifts"
   needs  responses
   skill  bidding_conventions/soloway
   param  soloway = bidding_conventions/soloway default false
-  param  weak2   = bidding_conventions/weak_jump_shifts:two_level default false
 
 # ── Opener's rebid ────────────────────────────────────────────────────
-after 1x (P) 2y (P) when soloway, !weak2, y is not x, two_level_jump(y, x)
+after 1x (P) 2y (P) when soloway, !wjs_on, y is not x, two_level_jump(y, x)
   3y  "Support for {y}: three with an honour, or four"   shows y>=4 | (y=3, quality(y)>=fair)
       sets  trump=y
       priority 1                                # support first
@@ -30,7 +29,7 @@ after 1x (P) 2y (P) when soloway, !weak2, y is not x, two_level_jump(y, x)
       priority -1
 
 # ── Responder's second call (no fit agreed yet) ───────────────────────
-after 1x (P) 2y (P) 2N (P) | 1x (P) 2y (P) 3x (P) when soloway, !weak2, y is not x, two_level_jump(y, x)
+after 1x (P) 2y (P) 2N (P) | 1x (P) 2y (P) 3x (P) when soloway, !wjs_on, y is not x, two_level_jump(y, x)
   cheapest(x)  "Type 4: support for {x}"        shows x>=4
       sets  trump=x
       priority 1
@@ -39,7 +38,7 @@ after 1x (P) 2y (P) 2N (P) | 1x (P) 2y (P) 3x (P) when soloway, !weak2, y is not
       priority -1
   cheapest(y)  "Rebids {y}"                     shows y>=6
       priority -2
-after 1x (P) 2y (P) 2z (P) | 1x (P) 2y (P) 3z (P) when soloway, !weak2, y is not x, z is not x, z is not y, two_level_jump(y, x)
+after 1x (P) 2y (P) 2z (P) | 1x (P) 2y (P) 3z (P) when soloway, !wjs_on, y is not x, z is not x, z is not y, two_level_jump(y, x)
   cheapest(x)  "Type 4: support for {x}"        shows x>=4
       sets  trump=x
       priority 1

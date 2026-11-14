@@ -21,7 +21,6 @@ module responses "Responses to one-level suit openings"
   param  rbergen     = bidding_conventions/bergen_raises:reverse default false
   param  strong_js   = bidding_conventions/strong_jump_shifts:two_level default true
   param  inv_js      = bidding_conventions/strong_jump_shifts:invitational default false
-  param  weak_js     = bidding_conventions/weak_jump_shifts:two_level default false
   param  weak_js3    = bidding_conventions/weak_jump_shifts:three_level default false
   param  soloway     = bidding_conventions/soloway default false
   param  over_1c     = minor_openings.one_club_responses default up_the_line
@@ -63,7 +62,7 @@ after 1C (P) when over_1c is walsh, !twalsh
 after 1C (P)
   1N  "6-10 HCP, balanced, no 4-card major or diamonds"   shows hcp=6..10, H<=3, S<=3, D<=3
       when  !inverted | C<=4           # with inverted minors five clubs raise, weak or strong
-  2D  "Strong jump shift: 15+, 5+ diamonds"  shows D>=5, hcp>=15  when strong_js, !weak_js, !soloway, !passed_hand
+  2D  "Strong jump shift: 15+, 5+ diamonds"  shows D>=5, hcp>=15  when strong_js, !wjs_on, !soloway, !passed_hand
       sets forcing=game
 
 after 1D (P)
@@ -107,9 +106,9 @@ after 1m (P)
   3N  "16-17, balanced, no 4-card major"        shows balanced, points=16..17, H<=3, S<=3
       when  nt2 is game_forcing
       priority -1
-  2H  "Strong jump shift: 15+, 5+ hearts"       shows H>=5, hcp>=15  when strong_js, !weak_js, !soloway, !passed_hand
+  2H  "Strong jump shift: 15+, 5+ hearts"       shows H>=5, hcp>=15  when strong_js, !wjs_on, !soloway, !passed_hand
       sets forcing=game
-  2S  "Strong jump shift: 15+, 5+ spades"       shows S>=5, hcp>=15  when strong_js, !weak_js, !soloway, !passed_hand
+  2S  "Strong jump shift: 15+, 5+ spades"       shows S>=5, hcp>=15  when strong_js, !wjs_on, !soloway, !passed_hand
       sets forcing=game
 
 # 2/1 cards: 2C over 1D is game forcing (13+), so 11-12 with clubs and
@@ -161,7 +160,7 @@ after 1H (P)
       when  gf21, !f1n, !semi             # brill: a three-card limit raise starts here (3H below)
   1N  "Semi-forcing 1NT: 6-12 HCP, no heart fit or a weak three-card raise, no 4 spades"   shows hcp=6..12, H<=2 | (H=3, tp(H)<=7, !passed_hand, style is not bba, system is not brill), S<=3, hcp<=11 | points<=12
       when  gf21, !f1n, semi
-  2S  "Strong jump shift: 15+, 5+ spades"  shows S>=5, hcp>=15  when strong_js, !weak_js, !soloway, !passed_hand
+  2S  "Strong jump shift: 15+, 5+ spades"  shows S>=5, hcp>=15  when strong_js, !wjs_on, !soloway, !passed_hand
       sets forcing=game
   2C  "11+ points, 4+ clubs"           shows C>=4, points>=11 | C>=6 | (H>=3, tp(H)>=11), suit_points>=10, C>=D, S<=3 | (C>S, hcp>=13 | C>=6)
       when  !gf21
@@ -331,14 +330,14 @@ after 1M (P)
 # 6 HCP; we keep the 2-6 between the two. A card that sets both strong
 # and weak (21GF-WJS-MSS) plays weak, as BBA does; weak ones at three
 # replace invitational ones. Opener's continuations: weak-jump-shifts.bid.
-after 1C (P) when weak_js
+after 1C (P) when wjs_on
   2D  "Weak jump shift: 6+ diamonds, 2-5 HCP"   alert   shows D>=6, hcp=2..5
   2H  "Weak jump shift: 6+ hearts, 2-5 HCP"     alert   shows H>=6, hcp=2..5
   2S  "Weak jump shift: 6+ spades, 2-5 HCP"     alert   shows S>=6, hcp=2..5
-after 1D (P) when weak_js
+after 1D (P) when wjs_on
   2H  "Weak jump shift: 6+ hearts, 2-5 HCP"     alert   shows H>=6, hcp=2..5
   2S  "Weak jump shift: 6+ spades, 2-5 HCP"     alert   shows S>=6, hcp=2..5
-after 1H (P) when weak_js
+after 1H (P) when wjs_on
   2S  "Weak jump shift: 6+ spades, 2-5 HCP"     alert   shows S>=6, hcp=2..5, H<=2      # three hearts: pass or raise (BBA)
 after 1D (P) when weak_js3
   3C  "Weak jump shift: 7+ clubs, 2-6 HCP"      alert   shows C>=7, hcp=2..6
@@ -366,7 +365,7 @@ after 1S (P) when weak_js3
 # (over 1C, 2D: `hcp >= 17 or diamondpoints >= 20`).
 define soloway_js(y, x) = controls>=4, y>=5, hcp>=16 | system is not brill
     (y>=6, top5(y)>=4, points>=17, second_longest<=3, x<=3) | (y>=6, quality(y)>=excellent, has(J,y), points>=17, x<=3) | (top5(y)>=3, hcp>=18, x<=3, balanced | (y=6, second_longest=3, shortest=2)) | (top5(y)>=3, x>=4, tp(x)>=17)
-after 1C (P) when soloway, !weak_js, !passed_hand
+after 1C (P) when soloway, !wjs_on, !passed_hand
   2D  "Soloway jump shift: strong suit, 18+ balanced, or a fit"   alert
       shows soloway_js(D, C)
       sets  forcing=game
@@ -376,14 +375,14 @@ after 1C (P) when soloway, !weak_js, !passed_hand
   2S  "Soloway jump shift: strong suit, 18+ balanced, or a fit"   alert
       shows soloway_js(S, C)
       sets  forcing=game
-after 1D (P) when soloway, !weak_js, !passed_hand
+after 1D (P) when soloway, !wjs_on, !passed_hand
   2H  "Soloway jump shift: strong suit, 18+ balanced, or a fit"   alert
       shows soloway_js(H, D)
       sets  forcing=game
   2S  "Soloway jump shift: strong suit, 18+ balanced, or a fit"   alert
       shows soloway_js(S, D)
       sets  forcing=game
-after 1H (P) when soloway, !weak_js, !passed_hand
+after 1H (P) when soloway, !wjs_on, !passed_hand
   2S  "Soloway jump shift: strong suit, 18+ balanced, or a fit"   alert
       shows soloway_js(S, H)
       sets  forcing=game

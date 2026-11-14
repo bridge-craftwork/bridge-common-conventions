@@ -31,6 +31,7 @@ choice = "general.jump_shifts_3"
 kind = "bool"
 label = "Weak jump shifts (not in competition)"
 level = 5
+implements = ["jump_to_major_over_minor"]
 
 [treatments.in_comp]
 kind = "bool"

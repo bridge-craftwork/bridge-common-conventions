@@ -340,9 +340,15 @@ Each produces a small, expected difference against phase 2.
   its two-level treatment is on. Still to do: Reverse Flannery's card fields
   sit in the two-level openings section, and it has a `two_d` treatment with
   no rule (#69).
-- Found with #68: eight hand-made cards tick "weak jump shifts, not in
+- ~~Found with #68: eight hand-made cards tick "weak jump shifts, not in
   competition" (the Bridgodex and BBO box) and bid none, because the rules
-  read only the two-level box, which those formats do not set (#74).
+  read only the two-level box, which those formats do not set (#74).~~ The
+  rules read either box. Measured: 1,152 of 139,125 auctions change on those
+  eight cards (the strong jump shift gives way to a one-level response; a
+  weak hand with a six-card suit now jumps). Found with it and fixed: the
+  weak jump shift's follow-up rules also fired after a two-level response
+  that was not a jump (1♦–2♣–2NT); 95 auctions change on the five public
+  cards that play weak jump shifts.
 - ~~Kickback and Minorwood claim `ace_ask.minor`.~~ Changed (Rick,
   2026-11-14): they fill a function of their own, `low_keycard_ask`, beside
   keycard's 4NT.
