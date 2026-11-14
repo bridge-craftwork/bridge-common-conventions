@@ -3,6 +3,7 @@ name = "Benjamin 2♦"
 source = "proposed"
 level = 8
 contexts = ["preemptive_openings"]
+implements = ["opening.2c", "opening.2d"]
 names = ["Benjamin", "Benjamin twos", "Benjamin 2♦"]
 summary = """
 Openings in which 2♣ shows a strong two in any suit, 2♦ is the game-forcing

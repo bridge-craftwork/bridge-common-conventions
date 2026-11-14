@@ -40,6 +40,8 @@ to = "3.0"
 # IDs that schema 2 had no convention for: each was a switch that belonged
 # to the conventions its definition lists in `taught_under`.
 new_ids = [
+  "bidding_conventions/strong_twos",
+  "bidding_conventions/intermediate_twos",
   "bidding_conventions/texas",
   "bidding_conventions/mini_splinters",
   "bidding_conventions/three_nt_raise",
@@ -887,6 +889,12 @@ settings = { strong = "competitive.vs_1nt_strong.system", weak = "competitive.vs
 options = { cappelletti = "competitive_bidding/cappelletti", modified_cappelletti = "competitive_bidding/modified_cappelletti", landy = "competitive_bidding/landy", multi_landy = "competitive_bidding/multi_landy", dont = "competitive_bidding/dont", meckwell = "competitive_bidding/meckwell", suction = "competitive_bidding/suction" }
 no_entry = ["natural", "other"]
 unless_chosen = { "competitive.dont.play" = "strong" }
+
+[[function]]
+function = "opening"
+settings = { 2d = "two_level.two_diamonds.meaning", 2h = "two_level.two_hearts.meaning", 2s = "two_level.two_spades.meaning" }
+options = { weak = "bidding_conventions/weak_2s", intermediate = "bidding_conventions/intermediate_twos", strong = "bidding_conventions/strong_twos" }
+no_entry = ["conventional"]
 
 [alias]
 "competitive.defense_vs_strong_nt.convention" = "defence_to_1nt.strong"

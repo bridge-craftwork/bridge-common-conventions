@@ -3,6 +3,7 @@ name = "Wilkosz 2♦"
 source = "proposed"
 level = 9
 contexts = ["preemptive_openings"]
+implements = ["opening.2d"]
 names = ["Wilkosz"]
 summary = """
 An opening 2♦ showing a weak two-suited hand with at least five cards in

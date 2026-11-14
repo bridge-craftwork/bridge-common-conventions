@@ -3,6 +3,7 @@ name = "Precision 2♦"
 source = "proposed"
 level = 7
 contexts = ["preemptive_openings"]
+implements = ["opening.2d"]
 names = ["Precision 2♦"]
 summary = """
 In Precision, an opening 2♦ shows a limited opening short in diamonds,

@@ -2,6 +2,7 @@ id = "bidding_conventions/strong_2c"
 name = "Strong 2♣"
 source = "taxonomy"
 level = 3
+implements = ["opening.2c"]
 names = ["Strong 2♣", "2♣ strong", "Strong artificial 2♣", "2♣ forcing"]
 summary = """
 An opening 2♣, artificial and forcing, for the strongest hands: game-forcing

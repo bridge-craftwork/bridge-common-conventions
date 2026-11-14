@@ -25,11 +25,11 @@ HERE = pathlib.Path(__file__).resolve().parent.parent
 EXPECTED = {}
 
 
-# Rule files rewritten to read `defence_to_1nt.strong` by the ID of the
+# Rule files rewritten to read a function (`defence_to_1nt.strong`, `opening.2d`) by the ID of the
 # convention that fills it, where they compared schema 2's option words.
 # Their text is not compared; the rule tests and the bidding comparison
 # (before/README.md) are what hold them.
-BY_FUNCTION = {"dont.bid", "meckwell.bid", "suction.bid", "cappelletti.bid",
+BY_FUNCTION = {"dont.bid", "meckwell.bid", "suction.bid", "cappelletti.bid", "preempts.bid",
                "multi-landy.bid", "vs-1nt.bid", "overcalls.bid"}
 
 # Files that did not stay in the pack, and where they went.
@@ -88,13 +88,7 @@ def main():
     # the settings that became entries through a function
     for fname, fn in functions.items():
         for part, was in fn.get("was", {}).items():
-            v = {"kind": "enum", "label": was["label"], "options": was["options"]}
-            if "value_aliases" in was:
-                v["value_aliases"] = was["value_aliases"]
-            for k in ("desc", "level", "skill"):
-                if k in was:
-                    v[k] = was[k]
-            got[was["setting"]] = v
+            got[was["setting"]] = {"kind": "enum", **{k: x for k, x in was.items() if k != "setting"}}
             back[f"{fname}.{part}"] = was["setting"]
     # switches and treatments
     places = {p: (pl["convention"], t) for pl in mig["place"] for p, t in pl["switches"].items()}

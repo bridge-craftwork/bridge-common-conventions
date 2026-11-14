@@ -324,10 +324,16 @@ Each produces a small, expected difference against phase 2.
 - "Treatments mean nothing while their convention is off", enforced in
   one place in the library and the crate. Today Bergen, Drury and fourth
   suit forcing are switched on by a treatment alone.
-- The `opening` function: Weak Twos, Multi, Mini-Roman, Flannery and the
+- ~~The `opening` function: Weak Twos, Multi, Mini-Roman, Flannery and the
   other two-level openings claim their bids, and the three `meaning`
-  settings with `plays` give way to entries. Kickback and Minorwood claim
-  `ace_ask.minor`.
+  settings with `plays` give way to entries.~~ Done 2026-11-14, with two new
+  IDs (Strong two-bids, Intermediate two-bids). Left out: Reverse Flannery,
+  whose rules are responder's jump shifts although its definition and card
+  fields describe an opening; and Multi taking 2♥ and 2♠ from the weak twos,
+  which the rules still decide themselves.
+- ~~Kickback and Minorwood claim `ace_ask.minor`.~~ Changed (Rick,
+  2026-11-14): they fill a function of their own, `low_keycard_ask`, beside
+  keycard's 4NT.
 - The bbsa map sets a convention's switch where a BBA file has lines only
   for its treatments (fourth suit forcing: on when either line is on).
 - Rule modules that gain the `convention` header move beside their

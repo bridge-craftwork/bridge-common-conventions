@@ -3,6 +3,7 @@ name = "Multi 2♦"
 source = "proposed"
 level = 8
 contexts = ["preemptive_openings"]
+implements = ["opening.2d"]
 names = ["Multi", "Multi 2♦", "Multi-colored 2♦", "Multi 2D"]
 confirm_names = ["Multi"]
 summary = """

@@ -3,6 +3,7 @@ name = "Polish two-suiters"
 source = "proposed"
 level = 9
 contexts = ["preemptive_openings"]
+implements = ["opening.2h", "opening.2s"]
 names = ["Polish two-suiters", "Polish 2♥/2♠"]
 summary = """
 Weak openings at the two level that show two-suited hands, with the second
