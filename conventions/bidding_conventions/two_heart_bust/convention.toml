@@ -11,7 +11,7 @@ weak hand, so opener knows when to stop short of game. The Parrish form uses
 2♥ as the bust in some auctions.
 """
 see = [
-  { title = "Todd Busts over 2C Opening Bids", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/593" },
+  { title = "Todd Busts over 2C Opening Bids", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/593" },
 ]
 
 [treatments.relay]

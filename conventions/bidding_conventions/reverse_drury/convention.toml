@@ -12,5 +12,5 @@ light opening; other bids show a full one.
 """
 see = [
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 12 },
-  { title = "Fits and More: 2-Way Reverse Drury", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/525" },
+  { title = "Fits and More: 2-Way Reverse Drury", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/525" },
 ]

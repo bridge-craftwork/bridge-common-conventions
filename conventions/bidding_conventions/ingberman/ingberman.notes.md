@@ -42,7 +42,7 @@ scenario after all: Reverse_By_Opener and Reverse_After_Two_Over_One:
 
 ## Sources
 
-- **Robert S. Todd, "Lebensohl over Reverses", Advancing in Bridge #417**
+- **Robert S. Todd, "Lebensohl over Reverses", Adventures in Bridge #417**
   (https://www.advinbridge.com/this-week-in-bridge/417): 2NT relay with a
   bad hand, sign-offs after 3♣, everything above 2NT game forcing, the
   two-level rebid of responder's suit forcing one round.

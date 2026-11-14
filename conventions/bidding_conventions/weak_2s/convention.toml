@@ -14,5 +14,5 @@ continues the preempt.
 see = [
   { title = "Weak Two", site = "Bridge Bum", url = "https://www.bridgebum.com/weak_two.php" },
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 5 },
-  { title = "Modern 2-Level Preemptive Openings", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/411" },
+  { title = "Modern 2-Level Preemptive Openings", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/411" },
 ]

@@ -11,5 +11,5 @@ suits, or a hand too strong to overcall.
 see = [
   { title = "Takeout Double", site = "Bridge Bum", url = "https://www.bridgebum.com/takeout_double.php" },
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 4 },
-  { title = "Takeout Doubles", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/352" },
+  { title = "Takeout Doubles", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/352" },
 ]

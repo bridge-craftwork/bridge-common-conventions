@@ -12,5 +12,5 @@ then describes the hand.
 see = [
   { title = "Strong 2♣", site = "Bridge Bum", url = "https://www.bridgebum.com/strong_2c.php" },
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 6 },
-  { title = "2C Opening Bids", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/415" },
+  { title = "2C Opening Bids", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/415" },
 ]

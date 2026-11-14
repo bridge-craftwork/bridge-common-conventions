@@ -12,5 +12,5 @@ unusual suit.
 see = [
   { title = "Lead Directing Double", site = "Bridge Bum", url = "https://www.bridgebum.com/lead_directing_double.php" },
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 24 },
-  { title = "Lead-Directing Doubles", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/467" },
+  { title = "Lead-Directing Doubles", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/467" },
 ]

@@ -11,6 +11,6 @@ partner, the other a strong hand in the fourth suit.
 """
 see = [
   { title = "25 More Bridge Conventions You Should Know", kind = "book", chapter = 21 },
-  { title = "Unusual vs. Unusual and Unusual vs. Michaels", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/470" },
+  { title = "Unusual vs. Unusual and Unusual vs. Michaels", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/470" },
   { title = "Unusual vs. Unusual", site = "Bridge Bum", url = "https://www.bridgebum.com/unusual_vs_unusual.php" },
 ]

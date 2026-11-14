@@ -12,7 +12,7 @@ show that minor and a major; 2♥ and 2♠ are natural; 2NT shows both minors.
 see = [
   { title = "Meckwell Defense to 1NT", site = "Bridge Bum", url = "https://www.bridgebum.com/meckwell_defense_to_1nt.php" },
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 19 },
-  { title = "NT Bidding: DONT and Meckwell", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/541" },
+  { title = "NT Bidding: DONT and Meckwell", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/541" },
   { title = "Meckwell convention", site = "Wikipedia", url = "https://en.wikipedia.org/wiki/Meckwell_convention" },
   { title = "Meckwell defense to 1NT", site = "ACBL Unit 390", url = "https://www.acblunit390.org/Simon/meckwellnt.htm" },
 ]

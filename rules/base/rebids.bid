@@ -323,7 +323,7 @@ after 1m (P) 1N (P)
   3N  "18-21 with six or more {m}: to play"
       shows m>=6, hcp=18..21
 # A semi-forcing 1NT (2/1 cards with `one_nt_response.semi_forcing`,
-# 6-12; Todd, Advancing in Bridge #375): opener passes only a balanced
+# 6-12; Todd, Adventures in Bridge #375): opener passes only a balanced
 # minimum and otherwise rebids as over the forcing 1NT below.
 define semi_1nt(x) = semi, gf21, x is H | x is S
 after 1M (P) 1N (P) when semi_1nt(M)

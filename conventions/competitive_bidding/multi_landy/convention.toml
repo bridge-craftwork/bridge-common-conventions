@@ -11,5 +11,5 @@ majors, 2♦ one long major, and 2♥ and 2♠ that major with a minor.
 """
 see = [
   { title = "Multi-Landy", site = "Bridge Bum", url = "https://www.bridgebum.com/multi_landy.php" },
-  { title = "NT Bidding: Woolsey", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/542" },
+  { title = "NT Bidding: Woolsey", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/542" },
 ]

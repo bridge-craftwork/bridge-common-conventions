@@ -12,5 +12,5 @@ other major (or both majors over a minor), five-five with game values.
 see = [
   { title = "Leaping Michaels", site = "Bridge Bum", url = "https://www.bridgebum.com/leaping_michaels.php" },
   { title = "25 More Bridge Conventions You Should Know", kind = "book", chapter = 18 },
-  { title = "Competitive Bidding: Leaping Michaels", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/484" },
+  { title = "Competitive Bidding: Leaping Michaels", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/484" },
 ]

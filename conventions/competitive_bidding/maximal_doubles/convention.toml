@@ -10,5 +10,5 @@ try.
 """
 see = [
   { title = "Maximal Double", site = "Bridge Bum", url = "https://www.bridgebum.com/maximal_double.php" },
-  { title = "Non-Takeout Doubles: Card-Showing, Maximal, Penalty, Lead-Directing", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/357" },
+  { title = "Non-Takeout Doubles: Card-Showing, Maximal, Penalty, Lead-Directing", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/357" },
 ]

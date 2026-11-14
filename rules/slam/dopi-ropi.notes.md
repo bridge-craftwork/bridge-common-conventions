@@ -95,7 +95,7 @@ not done here. With 17 boards the score would not mean much anyway.
   (https://www.acblunit390.org/Simon/dopi-ropi.htm): double/redouble the
   first step, pass the second, then the steps; convention-card
   `spec/conventions/bidding_conventions/dopi_ropi.toml` (Kantar, *25 More
-  Bridge Conventions You Should Know*, ch. 15; Todd, Advancing in Bridge
+  Bridge Conventions You Should Know*, ch. 15; Todd, Adventures in Bridge
   #536). Where we differ from Unit 390: its 1430 table lists a "3rd
   cheapest = three keycards", which repeats the pass; we use four steps.
 - **DEPO:** convention-card

@@ -9,5 +9,5 @@ and suit bids are natural.
 """
 see = [
   { title = "Mathe", site = "Bridge Bum", url = "https://www.bridgebum.com/mathe_1c.php" },
-  { title = "Competitive Bidding: Bidding Over Strong 2C (and 1C) Openings - Mathe", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/191" },
+  { title = "Competitive Bidding: Bidding Over Strong 2C (and 1C) Openings - Mathe", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/191" },
 ]

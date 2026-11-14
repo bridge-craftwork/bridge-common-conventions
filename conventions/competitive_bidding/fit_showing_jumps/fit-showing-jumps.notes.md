@@ -99,7 +99,7 @@ a little worse than our Jordan auction on the same hands.
 
 ## Sources
 
-- Robert S. Todd, "Fit-Showing Jumps", Advancing in Bridge 574
+- Robert S. Todd, "Fit-Showing Jumps", Adventures in Bridge 574
   (https://www.advinbridge.com/this-week-in-bridge/574): passed hand and
   advancer, 4+ support, a side suit with honours, a limit raise.
 - Robinson, *25 More Bridge Conventions You Should Know*, ch. 14 (cited

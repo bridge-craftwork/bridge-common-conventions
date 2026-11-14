@@ -55,7 +55,7 @@ leans gain.
   it at the three level (as the scenarios' filters do), where the lack
   of room is the same.
 - Robert S. Todd, "Non-Takeout Doubles: Card-Showing, Maximal, Penalty,
-  Lead-Directing", Advancing in Bridge 357 (cited by convention-card;
+  Lead-Directing", Adventures in Bridge 357 (cited by convention-card;
   not read here).
 - Practice-Bidding-Scenarios `btn/Maximal_Double.btn`,
   `btn/Maximal_After_Overcall.btn`.

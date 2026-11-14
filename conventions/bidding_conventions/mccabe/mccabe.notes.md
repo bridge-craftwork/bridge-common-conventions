@@ -40,7 +40,7 @@ double-dummy +155; halves +76/+85 (z +2.4): gains.
 
 ## Sources
 
-- Robert S. Todd, "McCabe Responses to Preempts", Advancing in Bridge,
+- Robert S. Todd, "McCabe Responses to Preempts", Adventures in Bridge,
   https://www.advinbridge.com/this-week-in-bridge/468: the new-suit
   raises, the redouble, 2NT as without the double.
 - PBS `btn/McCabe_After_Weak_2.btn` (responder's hand types).

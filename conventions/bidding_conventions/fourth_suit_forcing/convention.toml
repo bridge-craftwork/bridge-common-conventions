@@ -14,7 +14,7 @@ opener to describe the hand further.
 see = [
   { title = "Fourth Suit Forcing", site = "Bridge Bum", url = "https://www.bridgebum.com/fourth_suit_forcing.php" },
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 21 },
-  { title = "2/1: Bidding the 4th Suit", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/424" },
+  { title = "2/1: Bidding the 4th Suit", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/424" },
 ]
 
 [treatments.one_round]

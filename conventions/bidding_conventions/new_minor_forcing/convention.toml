@@ -12,7 +12,7 @@ a four-card other major.
 """
 see = [
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 22 },
-  { title = "New Minor Forcing Fundamentals", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/227" },
+  { title = "New Minor Forcing Fundamentals", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/227" },
 ]
 
 [treatments.after_2nt_rebid]

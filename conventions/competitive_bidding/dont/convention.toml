@@ -15,6 +15,6 @@ see = [
   { title = "DONT", site = "Bridge Bum", url = "https://www.bridgebum.com/dont.php" },
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 18 },
   { title = "25 More Bridge Conventions You Should Know", kind = "book", chapter = 7 },
-  { title = "NT Bidding: DONT and Meckwell", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/541" },
+  { title = "NT Bidding: DONT and Meckwell", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/541" },
   { title = "DONT", site = "Wikipedia", url = "https://en.wikipedia.org/wiki/DONT" },
 ]

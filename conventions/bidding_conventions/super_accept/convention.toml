@@ -10,5 +10,5 @@ maximum bids above the two-level completion to say so, and responder can bid
 a thin game.
 """
 see = [
-  { title = "NT Auctions: Superaccepting Jacoby Transfers", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/518" },
+  { title = "NT Auctions: Superaccepting Jacoby Transfers", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/518" },
 ]

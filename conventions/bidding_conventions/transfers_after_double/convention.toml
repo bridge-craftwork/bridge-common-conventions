@@ -9,6 +9,6 @@ are transfers to the next suit, so opener can accept or show a fit and
 responder can describe more hands.
 """
 see = [
-  { title = "1-Major (X) Transfers", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/598" },
-  { title = "1-minor (X) Transfers", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/599" },
+  { title = "1-Major (X) Transfers", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/598" },
+  { title = "1-minor (X) Transfers", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/599" },
 ]

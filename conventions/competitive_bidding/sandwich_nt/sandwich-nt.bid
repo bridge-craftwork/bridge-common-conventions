@@ -1,7 +1,7 @@
 # Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
 #
 # Sandwich 1NT (`competitive.sandwich_nt.play`; convention-card
-# competitive_bidding/sandwich_nt, Robert S. Todd, Advancing in Bridge
+# competitive_bidding/sandwich_nt, Robert S. Todd, Adventures in Bridge
 # 194; Wikipedia, "Unusual notrump"): when they have bid two suits,
 # (1x) P (1y) 1NT shows the two unbid suits instead of a strong
 # balanced hand, which is unlikely between an opener and a responder.

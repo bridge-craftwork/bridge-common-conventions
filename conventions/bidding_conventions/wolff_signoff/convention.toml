@@ -12,6 +12,6 @@ After opener's 2NT rebid (1m–1M–2NT), responder's 3♣ forces opener to bid
 level bids force.
 """
 see = [
-  { title = "2-Way New Minor Forcing and Wolff Signoff", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/586" },
-  { title = "Transfer Wolff Over 2NT Rebids", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/595" },
+  { title = "2-Way New Minor Forcing and Wolff Signoff", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/586" },
+  { title = "Transfer Wolff Over 2NT Rebids", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/595" },
 ]

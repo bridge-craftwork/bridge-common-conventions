@@ -11,6 +11,6 @@ a jump to 2NT shows the two lowest unbid suits.
 see = [
   { title = "Michaels Cuebid", site = "Bridge Bum", url = "https://www.bridgebum.com/michaels_cuebid.php" },
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 17 },
-  { title = "Competitive Bidding: Michaels Cuebid", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/480" },
-  { title = "Competitive Bidding: Unusual 2NT", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/481" },
+  { title = "Competitive Bidding: Michaels Cuebid", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/480" },
+  { title = "Competitive Bidding: Unusual 2NT", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/481" },
 ]

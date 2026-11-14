@@ -12,6 +12,7 @@ tag, and every rule file's text with rusty-bidding-bot's.
 Exit status 0 when the only differences are the ones listed in EXPECTED,
 each of which says where that information now lives.
 """
+import json
 import pathlib
 import re
 import subprocess
@@ -49,6 +50,12 @@ ELSEWHERE = {
 
 def git(repo, *args):
     return subprocess.check_output(["git", "-C", str(repo), *args]).decode()
+
+
+def renamed(text):
+    """Robert S. Todd's site is named as it is today: at the tag our files
+    called it by its old name (Rick, 2026-11-14)."""
+    return text.replace("Advancing" + " in Bridge", "Adventures in Bridge")
 
 
 def as_list(v):
@@ -187,7 +194,7 @@ def main():
             continue
         for k, v in old.items():
             # Sources may be added (scripts/find_references.py); none is dropped.
-            if k == "see" and all(e in new.get("see", []) for e in v):
+            if k == "see" and all(json.loads(renamed(json.dumps(e, ensure_ascii=False))) in new.get("see", []) for e in v):
                 continue
             if new.get(k) != v:
                 if (old["id"], k) in CORRECTED:
@@ -207,10 +214,10 @@ def main():
             continue
         if base not in here:
             problems.append(f"{name}: not in the pack")
-        elif here[base].read_text() != git(rbb, "show", f"{rbb_tag}:{name}"):
+        elif here[base].read_text() != renamed(git(rbb, "show", f"{rbb_tag}:{name}")):
             # A .bid file's header is converted to rule language 2
             # (scripts/convert_rules.py); everything below it is unchanged.
-            old = git(rbb, "show", f"{rbb_tag}:{name}").split("\n")
+            old = renamed(git(rbb, "show", f"{rbb_tag}:{name}")).split("\n")
             new = here[base].read_text().split("\n")
             # A .test file's `card` lines name settings by address
             # (scripts/convert_tests.py). The rules that read the defence to

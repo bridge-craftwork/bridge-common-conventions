@@ -68,7 +68,7 @@ answers.
 ## Sources
 
 - **The convention:** Robert S. Todd, "Slam Bidding: Minorwood",
-  Advancing in Bridge #405
+  Adventures in Bridge #405
   (https://www.advinbridge.com/this-week-in-bridge/405): when 4m is
   Minorwood (game forcing with a minor fit and no major fit; jumps that
   are clearly not weak), the 1430 step answers over 4♣ and 4♦, the queen

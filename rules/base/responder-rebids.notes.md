@@ -526,7 +526,7 @@ blocks are unchanged. A 2/1 that forces only one round (`!we.gf`) keeps
 Board 29 now goes 1♦-2♣-2♥-2NT-3NT: the same contract, read right.
 
 **Source:** Rick's ruling. Robert Todd, "Using NT Rebids in 2/1
-Auctions", Advancing in Bridge #425 (2022), gives no ranges for
+Auctions", Adventures in Bridge #425 (2022), gives no ranges for
 responder but points the same way: responder's jump to 3NT "shows
 extra values", and his 2NT does not promise them. The same article
 gives opener's 2NT as 12-14 or 18-19 and his 3NT as 15-17, the scheme
@@ -1161,7 +1161,7 @@ responder counts slam on the minimum, as opener does over responder's
   HCP 7-9"); the 3M/4M continuations: standard practice, not yet cited.
 - **Rick, 2026-11-06** (bridge-classroom-bug-artifacts #91): after a
   game-forcing 2/1, responder's 2NT is 12-14 or 18-19 and the jump to
-  3NT is 15-17. Robert Todd, Advancing in Bridge #425, "Using NT
+  3NT is 15-17. Robert Todd, Adventures in Bridge #425, "Using NT
   Rebids in 2/1 Auctions" (2022): responder's jump to 3NT shows
   extras, with no ranges given. No book cited for the ranges yet.
   **Rick, 2026-11-07:** opener more aggressive about slam opposite the

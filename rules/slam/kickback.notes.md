@@ -84,7 +84,7 @@ answers.
 ## Sources
 
 - **The convention:** Robert S. Todd, "Kickback Keycard Ask",
-  Advancing in Bridge #582
+  Adventures in Bridge #582
   (https://www.advinbridge.com/this-week-in-bridge/582): 4♦ asks in
   clubs, 4♥ in diamonds, 4♠ in hearts; 1430 step answers. Convention-card
   `spec/conventions/bidding_conventions/kickback.toml`.

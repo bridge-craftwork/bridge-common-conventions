@@ -48,7 +48,7 @@ contract +21, other side doubling +48, double-dummy +11, halves -29/+50
 ## Sources
 
 - **The convention:** Robert S. Todd, "Fits and More: 2NT Trump Suit
-  Game Try - Spiral", Advancing in Bridge #529
+  Game Try - Spiral", Adventures in Bridge #529
   (https://www.advinbridge.com/this-week-in-bridge/529): 1X-1Y-2Y-2NT,
   answers 3♣/3♦/3♥/3♠ by length and strength, 3NT with 4-3-3-3, four
   trumps and a maximum. Convention-card

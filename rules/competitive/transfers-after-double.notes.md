@@ -55,5 +55,5 @@ contract cost; opener's answer to it is vs-takeout-double.bid's.
 
 - PBS `btn/Transfers_after_1M_X.btn` (citing the ACBL Bulletin, June
   2025, p. 66): the whole scheme.
-- Robert S. Todd, "1-Major (X) Transfers", Advancing in Bridge 598
+- Robert S. Todd, "1-Major (X) Transfers", Adventures in Bridge 598
   (cited by convention-card; not read).

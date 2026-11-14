@@ -13,5 +13,5 @@ hand knowing no 4-4 major fit is lost.
 """
 see = [
   { title = "Walsh Style", by = "Larry Cohen", url = "https://www.larryco.com/bridge-articles/walsh-style" },
-  { title = "Thinking and Responding: Walsh and Extended Walsh", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/511" },
+  { title = "Thinking and Responding: Walsh and Extended Walsh", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/511" },
 ]

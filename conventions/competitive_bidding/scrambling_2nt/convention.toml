@@ -11,5 +11,5 @@ showing values.
 """
 see = [
   { title = "Scrambling vs Good/Bad 2NT", url = "https://tinyurl.com/Scrambling-vs-Good-Bad-2N" },
-  { title = "Competitive Auctions: Scrambling 2NT", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/555" },
+  { title = "Competitive Auctions: Scrambling 2NT", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/555" },
 ]

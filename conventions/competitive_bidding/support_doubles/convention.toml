@@ -13,7 +13,7 @@ responder (a redouble after their double), and a raise shows four.
 see = [
   { title = "Support Double", site = "Bridge Bum", url = "https://www.bridgebum.com/support_double.php" },
   { title = "25 More Bridge Conventions You Should Know", kind = "book", chapter = 13 },
-  { title = "Support Doubles", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/355" },
+  { title = "Support Doubles", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/355" },
   { title = "Support double", site = "Wikipedia", url = "https://en.wikipedia.org/wiki/Support_double" },
 ]
 

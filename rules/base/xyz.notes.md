@@ -51,7 +51,7 @@ Minor Forcing (on in both runs), XYZ: 248 boards changed; actor contract
 
 ## Sources
 
-- **Robert S. Todd, "XYZ", Advancing in Bridge #587**
+- **Robert S. Todd, "XYZ", Adventures in Bridge #587**
   (https://www.advinbridge.com/this-week-in-bridge/587): the four
   auctions, 2♣ relay (invitational), 2♦ game forcing, continuations after
   the relay. convention-card `spec/conventions/bidding_conventions/xyz.toml`

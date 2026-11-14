@@ -16,7 +16,7 @@ context now also reads this switch.
 
 ## Deviations and open questions
 
-- Todd (Advancing in Bridge 194) introduces it as a passed hand's bid
+- Todd (Adventures in Bridge 194) introduces it as a passed hand's bid
   ("or even direct seat by agreement"); the field has no seat option.
   We play it by any hand in the sandwich seat. Question for Rick: limit
   it to passed hands (then it is the Unusual 1NT)?

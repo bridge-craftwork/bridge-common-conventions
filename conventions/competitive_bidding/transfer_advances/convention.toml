@@ -10,5 +10,5 @@ hands.
 """
 see = [
   { title = "Transfer Advances of Overcalls", site = "Bridge Winners", url = "https://bridgewinners.com/article/view/transfer-advances-of-overcalls/" },
-  { title = "Transfer Advances Over Negative Double", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/597" },
+  { title = "Transfer Advances Over Negative Double", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/597" },
 ]

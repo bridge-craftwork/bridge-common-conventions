@@ -13,7 +13,7 @@ without a long suit or a fit.
 see = [
   { title = "Negative Doubles", by = "Larry Cohen", url = "https://www.larryco.com/bridge-articles/negative-doubles" },
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 8 },
-  { title = "Negative Doubles", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/353" },
+  { title = "Negative Doubles", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/353" },
 ]
 
 [treatments.through]
