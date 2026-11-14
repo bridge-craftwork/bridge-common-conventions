@@ -1,0 +1,38 @@
+{
+ "conventions": {
+  "1430": "y",
+  "1N2DTrans": "y",
+  "1N2HTrans": "y",
+  "1NSmolen": "y",
+  "1NTexas": "y",
+  "2HWeak": "y",
+  "2SWeak": "y",
+  "F1C": "y",
+  "FSF1": "y",
+  "NMF2": "y",
+  "cueMajorM": "y",
+  "cueMinorM": "y",
+  "dblMaximal": "y",
+  "dblResponsive": "y",
+  "dblSupport": "y",
+  "dopi": "y",
+  "drury": "y",
+  "gerber": "y",
+  "major12-5": "y",
+  "major2NTRaise": "y",
+  "major2RaiseW": "y",
+  "majorSplinter": "y",
+  "minorCC": "y",
+  "rdblSupport": "y",
+  "ropi": "y",
+  "vsTOMajorsLP": "y"
+ },
+ "fields": {
+  "1NTMax1": "16",
+  "1NTMin1": "14",
+  "vs1NTHead1": "cappelletti"
+ },
+ "leads": {},
+ "style": "ACBL",
+ "title": "Precision-14-16"
+}

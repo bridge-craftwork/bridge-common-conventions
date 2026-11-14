@@ -1,0 +1,15 @@
+107 modules read 191 card fields
+
+card                     system           read  ignored  unmapped  coverage
+21GF-SPECIALS            two_over_one       59        1         7       98%
+
+21GF-SPECIALS: settings switched on that no rule reads
+  two_level.reverse_flannery.play
+21GF-SPECIALS: settings with no card field
+  1NT opening NT style
+  5431 after 1NT
+  Lebensohl after 1m
+  Mark on queen
+  Mark on king
+  Shape Bergen structure
+  Two suit takeout double

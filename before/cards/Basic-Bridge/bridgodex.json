@@ -1,0 +1,26 @@
+{
+ "notes": "",
+ "settings": {
+  "1_no_trump": {
+   "2d_tfr": "on",
+   "2h_tfr": "on",
+   "5_card_major": "on",
+   "a_range_max": "17",
+   "a_range_min": "15"
+  },
+  "majors": {
+   "jump_raise_inv": "on"
+  },
+  "overview": {
+   "forcing_2c": "on"
+  },
+  "slams": {
+   "4nt_blackwood": "on"
+  },
+  "two_level": {
+   "2d_weak": "on",
+   "2h_weak": "on",
+   "2s_weak": "on"
+  }
+ }
+}

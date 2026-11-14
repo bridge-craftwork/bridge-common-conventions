@@ -1,0 +1,30 @@
+{
+ "entries": 69,
+ "level": {
+  "band": "basic",
+  "level": 3,
+  "why": "Level 3: the highest level at least 3 of its conventions reach (Walsh responses (4), Jacoby transfers (3), Weak 2♦ (3), Weak 2♥ (3), Weak 2♠ (3))"
+ },
+ "system": "SAYC",
+ "ticked": [
+  "minor_openings/walsh",
+  "notrump/jacoby_transfers",
+  "slam/standard_blackwood",
+  "two_level/weak_2d",
+  "two_level/weak_2h",
+  "two_level/weak_2s"
+ ],
+ "values": {
+  "general.forcing_opening_2c": true,
+  "major_openings.jump_raise.inv": true,
+  "major_openings.min_length_1st_2nd": "5",
+  "notrump.one_nt.five_card_major": "sometimes",
+  "notrump.one_nt.range_max": 17,
+  "notrump.one_nt.range_min": 15,
+  "slam.king_ask.style": "five_nt",
+  "slam.ropi": true,
+  "two_level.two_diamonds.meaning": "weak",
+  "two_level.two_hearts.meaning": "weak",
+  "two_level.two_spades.meaning": "weak"
+ }
+}

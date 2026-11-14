@@ -1,0 +1,51 @@
+{
+ "entries": 69,
+ "level": {
+  "band": "intermediate",
+  "level": 5,
+  "why": "Level 5: the highest level at least 3 of its conventions reach (Lebensohl (over weak twos) (7), Lebensohl (over interference) (5), Splinters (5), Reverse Drury (5), Inverted minors (5), Ogust (5), …)"
+ },
+ "system": "2/1",
+ "ticked": [
+  "competitive/lebensohl_weak_twos",
+  "competitive/unusual_2nt",
+  "doubles/responsive_doubles",
+  "doubles/support_doubles",
+  "major_openings/forcing_1nt",
+  "major_openings/jacoby_2nt",
+  "major_openings/reverse_drury",
+  "major_openings/splinters",
+  "major_openings/two_over_one",
+  "minor_openings/inverted_minors",
+  "notrump/jacoby_transfers",
+  "notrump/lebensohl_interference",
+  "notrump/smolen",
+  "notrump/texas_transfers",
+  "other_conventions/fourth_suit_forcing_gf",
+  "other_conventions/nmf",
+  "slam/control_bids",
+  "slam/rkcb_1430",
+  "two_level/ogust",
+  "two_level/weak_2d",
+  "two_level/weak_2h",
+  "two_level/weak_2s"
+ ],
+ "values": {
+  "doubles.support.rdbl": true,
+  "general.forcing_opening_2c": true,
+  "major_openings.jump_raise.inv": true,
+  "major_openings.min_length_1st_2nd": "5",
+  "major_openings.one_nt_response.forcing": true,
+  "notrump.gambling_3nt.play": true,
+  "notrump.one_nt.five_card_major": "sometimes",
+  "notrump.one_nt.range_max": 17,
+  "notrump.one_nt.range_min": 15,
+  "slam.cue_bids.play": true,
+  "slam.dopi": true,
+  "slam.king_ask.style": "five_nt",
+  "slam.ropi": true,
+  "two_level.two_diamonds.meaning": "weak",
+  "two_level.two_hearts.meaning": "weak",
+  "two_level.two_spades.meaning": "weak"
+ }
+}

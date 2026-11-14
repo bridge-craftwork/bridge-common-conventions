@@ -1,0 +1,17 @@
+107 modules read 191 card fields
+
+card                     system           read  ignored  unmapped  coverage
+Precision-14-16          precision          61        2         8       97%
+
+Precision-14-16: settings switched on that no rule reads
+  minor_openings.one_club.art_forcing
+  two_level.reverse_flannery.play
+Precision-14-16: settings with no card field
+  1NT opening NT style
+  Crosswood 0314
+  Mark on queen
+  Mark on king
+  Rubensohl after 1m
+  Strength Lawrence structure
+  Support 1NT
+  Two suit takeout double

@@ -1,0 +1,29 @@
+107 modules read 191 card fields
+
+card                     system           read  ignored  unmapped  coverage
+Natural                  sayc               28       23         0       55%
+
+Natural: settings switched on that no rule reads
+  doubles.negative.through
+  general.jump_shifts.strong_3
+  major_openings.two_nt_response_inv
+  major_openings.two_nt_response_range_max
+  major_openings.two_nt_response_range_min
+  minor_openings.one_club.jump_raise.inv
+  minor_openings.one_club.single_raise.nf
+  minor_openings.one_diamond.jump_raise.inv
+  minor_openings.one_diamond.single_raise.nf
+  notrump.two_nt_natural
+  other_conventions.reverse_bids.forcing
+  two_level.two_clubs.min_hcp
+  two_level.two_diamonds.max_hcp
+  two_level.two_diamonds.min_hcp
+  two_level.two_diamonds.min_length
+  two_level.two_hearts.max_hcp
+  two_level.two_hearts.min_hcp
+  two_level.two_hearts.min_length
+  two_level.two_spades.max_hcp
+  two_level.two_spades.min_hcp
+  two_level.two_spades.min_length
+  vs_preempts.takeout_double
+  vs_preempts.takeout_double_thru

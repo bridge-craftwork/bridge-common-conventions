@@ -1,0 +1,6 @@
+107 modules read 191 card fields
+
+card                     system           read  ignored  unmapped  coverage
+Brill                    two_over_one       69        0         0      100%
+
+Brill: settings switched on that no rule reads

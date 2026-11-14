@@ -1,0 +1,41 @@
+{
+ "conventions": {
+  "1430": "y",
+  "1N2DTrans": "y",
+  "1N2HTrans": "y",
+  "1N5M": "y",
+  "1NLeb": "y",
+  "1NSmolen": "y",
+  "1NTexas": "y",
+  "2DWeak": "y",
+  "2HWeak": "y",
+  "2SWeak": "y",
+  "2over1GF": "y",
+  "F2C": "y",
+  "FSFG": "y",
+  "NMF": "y",
+  "cueMajorM": "y",
+  "cueMinorM": "y",
+  "dblResponsive": "y",
+  "dblSupport": "y",
+  "dopi": "y",
+  "gerber": "y",
+  "major12-5": "y",
+  "major1NTF": "y",
+  "major2NTRaise": "y",
+  "major2RaiseI": "y",
+  "majorSplinter": "y",
+  "rdblSupport": "y",
+  "ropi": "y",
+  "vsPreLeb": "y",
+  "vsTOMajorsLP": "y"
+ },
+ "fields": {
+  "1NTMax1": "17",
+  "1NTMin1": "15",
+  "vs1NTHead1": "cappelletti"
+ },
+ "leads": {},
+ "style": "ACBL",
+ "title": "21GF-DEFAULT"
+}

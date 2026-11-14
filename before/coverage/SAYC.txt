@@ -1,0 +1,41 @@
+107 modules read 191 card fields
+
+card                     system           read  ignored  unmapped  coverage
+SAYC                     sayc               44       35         0       56%
+
+SAYC: settings switched on that no rule reads
+  doubles.negative.through
+  general.jump_shifts.strong_3
+  major_openings.two_nt_response_forcing
+  minor_openings.one_club.jump_raise.inv
+  minor_openings.one_club.one_nt_range_max
+  minor_openings.one_club.one_nt_range_min
+  minor_openings.one_club.single_raise.nf
+  minor_openings.one_club.three_nt_range_max
+  minor_openings.one_club.three_nt_range_min
+  minor_openings.one_club.two_nt_range_max
+  minor_openings.one_club.two_nt_range_min
+  minor_openings.one_diamond.jump_raise.inv
+  minor_openings.one_diamond.single_raise.nf
+  notrump.jacoby_transfers.over_2nt
+  notrump.texas.over_2nt
+  other_conventions.reverse_bids.forcing
+  slam.gerber.directly_over_nt
+  two_level.two_clubs.min_hcp
+  two_level.two_diamonds.max_hcp
+  two_level.two_diamonds.min_hcp
+  two_level.two_diamonds.min_length
+  two_level.two_hearts.max_hcp
+  two_level.two_hearts.min_hcp
+  two_level.two_hearts.min_length
+  two_level.two_spades.max_hcp
+  two_level.two_spades.min_hcp
+  two_level.two_spades.min_length
+  vs_preempts.takeout_double
+  vs_preempts.takeout_double_thru
+  vs_to_double.jump_shift
+  vs_to_double.new_suit_forcing_1lvl
+  vs_to_double.redouble.ten_plus
+  vs_to_double.two_nt_raise_majors.play
+  vs_to_double.two_nt_raise_minors.limit_plus
+  vs_to_double.two_nt_raise_minors.play

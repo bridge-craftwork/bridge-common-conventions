@@ -1,0 +1,14 @@
+107 modules read 191 card fields
+
+card                     system           read  ignored  unmapped  coverage
+21GF-WJS-MSS             two_over_one       61        0         7      100%
+
+21GF-WJS-MSS: settings switched on that no rule reads
+21GF-WJS-MSS: settings with no card field
+  1NT opening NT style
+  Lebensohl after 1m
+  Mark on queen
+  Mark on king
+  Shape Bergen structure
+  Support 1NT
+  Two suit takeout double

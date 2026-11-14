@@ -1,0 +1,13 @@
+107 modules read 191 card fields
+
+card                     system           read  ignored  unmapped  coverage
+21GF-GIB                 two_over_one       60        0         6      100%
+
+21GF-GIB: settings switched on that no rule reads
+21GF-GIB: settings with no card field
+  1NT opening NT style
+  Lebensohl after 1m
+  Mark on queen
+  Mark on king
+  Strength Lawrence structure
+  Two suit takeout double

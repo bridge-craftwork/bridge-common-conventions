@@ -1,0 +1,27 @@
+# What Phase 2 captures, and from which versions. scripts/capture.py reads
+# this. Everything is read through git at the refs below, from sibling
+# checkouts, so a working tree's state does not matter.
+
+[tools]
+convention_card = "v0.44.0"
+rusty_bidding_bot = "v0.15.3"
+
+# The public cards. Cards saved in Bridge Classroom are its users' data and
+# are captured separately, outside this repo (see before/README.md).
+[[cards]]
+repo = "Practice-Bidding-Scenarios"
+ref = "385ea89fd9ed062a2f7fc3a1d2ff4ab1f49b7af3"   # 2026-11-11
+glob = "bbsa/*.bbsa"
+
+[[cards]]
+repo = "rusty-bidding-bot"
+ref = "v0.15.3"
+glob = "cards/json/*.json"
+
+# The deals: the first boards of every scenario, so each convention's own
+# auctions are among them.
+[deals]
+repo = "Practice-Bidding-Scenarios"
+ref = "385ea89fd9ed062a2f7fc3a1d2ff4ab1f49b7af3"
+glob = "pbn/*.pbn"
+boards_per_file = 20

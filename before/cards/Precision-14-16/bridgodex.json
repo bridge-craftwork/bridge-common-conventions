@@ -1,0 +1,54 @@
+{
+ "notes": "",
+ "settings": {
+  "1_no_trump": {
+   "2d_tfr": "on",
+   "2h_tfr": "on",
+   "a_range_max": "16",
+   "a_range_min": "14",
+   "smolen": "on",
+   "tfr_4d": "on",
+   "tfr_4h": "on"
+  },
+  "3_no_trump": {
+   "one_suit": "on"
+  },
+  "direct_cuebids": {
+   "nat_majors_michaels": "on",
+   "nat_minors_michaels": "on"
+  },
+  "doubles": {
+   "maximal": "on",
+   "responsive": "on",
+   "support": "on",
+   "support_rdbl": "on"
+  },
+  "majors": {
+   "art_raises_2nt": "on",
+   "art_raises_splinter": "on",
+   "drury_2c": "on",
+   "jump_raise_weak": "on"
+  },
+  "minors": {
+   "1c_min_len_art_f": "on"
+  },
+  "other": {
+   "2_way_nmf": "on",
+   "fsf_1rnd": "on"
+  },
+  "overview": {
+   "forcing_1c": "on"
+  },
+  "slams": {
+   "4nt_rkc_1430": "on",
+   "gerber_directly_over_nt": "on"
+  },
+  "two_level": {
+   "2h_weak": "on",
+   "2s_weak": "on"
+  },
+  "vs_1nt_opening": {
+   "vs_a": "cappelletti"
+  }
+ }
+}
