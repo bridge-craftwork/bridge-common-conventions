@@ -37,5 +37,6 @@ level = 7
 
 [treatments.over_2nt]
 kind = "bool"
+independent = true
 label = "Texas transfers over 2NT (4♦/4♥)"
 level = 4

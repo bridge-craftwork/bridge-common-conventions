@@ -17,6 +17,7 @@ see = [
 
 [treatments.after_2nt_rebid]
 kind = "bool"
+independent = true
 label = "NMF after a 2NT rebid"
 level = 6
 

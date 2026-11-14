@@ -2,7 +2,7 @@
 
 module jacoby-transfers "Jacoby Transfers"
   kind   convention
-  convention  bidding_conventions/jacoby_transfers
+  convention  bidding_conventions/jacoby_transfers default true
   needs  notrump-base
   skill  bidding_conventions/jacoby_transfers
   skill  partnership_bidding/stayman_transfers

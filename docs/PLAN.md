@@ -324,9 +324,23 @@ Each produces a small, expected difference against phase 2.
   conventions of their own, each filling a function its parent also fills;
   the other seven are styles of their parent (`style_of`).
 - Bergen's notes moved under Bergen; Texas given its own ID.
-- "Treatments mean nothing while their convention is off", enforced in
+- ~~"Treatments mean nothing while their convention is off", enforced in
   one place in the library and the crate. Today Bergen, Drury and fourth
-  suit forcing are switched on by a treatment alone.
+  suit forcing are switched on by a treatment alone.~~ Done 2026-11-14 in
+  the crate's `effective`: where the card says it does not play a
+  convention, its treatments read as unset. Found on the way: in BBA the
+  Drury and Reverse Drury lines (and Bergen's) are alternatives, and 13
+  stock cards play the reverse form with the plain line off, so the `.bbsa`
+  map now reads either line as playing the convention. Five treatments that
+  are separate lines in BBA are marked `independent`. Not done: the
+  JavaScript library still shows what the card holds, gated or not.
+- ~~With Stayman unset, played over 2NT but not 1NT (#73).~~ A silent card
+  plays Stayman and Jacoby transfers in both (`convention <id> default
+  true`). 614 of 139,125 auctions change on the nine hand-made cards that
+  are silent on them.
+- Closed without a change: Multi taking 2♥ and 2♠ from the weak twos (#70).
+  A card that says its 2♥ is weak and ticks Multi says two things, and the
+  card should keep both; the rules decide, as they do now.
 - ~~The `opening` function: Weak Twos, Multi, Mini-Roman, Flannery and the
   other two-level openings claim their bids, and the three `meaning`
   settings with `plays` give way to entries.~~ Done 2026-11-14, with two new

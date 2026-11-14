@@ -2,7 +2,7 @@
 
 module stayman "Stayman"
   kind   convention
-  convention  bidding_conventions/stayman
+  convention  bidding_conventions/stayman default true
   needs  notrump-base
   skill  bidding_conventions/stayman
   skill  partnership_bidding/stayman_transfers

@@ -48,7 +48,9 @@ CORRECTED = {
 CORRECTED_RULES = {
     "weak-jump-shifts.bid": "#74: the not-in-competition box counts; follow-ups only after a real jump",
     "after-interference.bid": "#67: a jump shift after an overcall is weak unless the card says strong",
-    "soloway.bid": "#74", "responses.bid": "#74", "rebids.bid": "#74", "responder-rebids.bid": "#74",
+    "weak-jump-shifts.test": "#74: cases added", "soloway.bid": "#74",
+    "bergen.test": "#33: the Reverse Bergen card switches Bergen on",
+    "stayman.bid": "#73: on for a silent card", "jacoby-transfers.bid": "#73: on for a silent card", "responses.bid": "#74", "rebids.bid": "#74", "responder-rebids.bid": "#74",
 }
 
 # Files that did not stay in the pack, and where they went.
@@ -139,6 +141,8 @@ def main():
                     del v["default"]
                 v.pop("context", None)
             v.pop("implements", None)
+            v.pop("independent", None)
+            v.pop("brief", None)
             skill = v.pop("skill", None)
             also = v.pop("taught_under", None)
             if skill is None:

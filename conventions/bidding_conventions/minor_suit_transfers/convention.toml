@@ -33,6 +33,7 @@ level = 5
 
 [treatments.two_s_clubs]
 kind = "bool"
+independent = true
 label = "1NT–2♠ transfer to clubs"
 level = 5
 
@@ -59,6 +60,7 @@ level = 5
 
 [treatments.over_2nt]
 kind = "bool"
+independent = true
 label = "Minor-suit transfers over 2NT"
 level = 6
 
