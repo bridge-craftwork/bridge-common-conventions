@@ -276,6 +276,8 @@ Each produces a small, expected difference against phase 2.
 - "Treatments mean nothing while their convention is off", enforced in
   one place in the library and the crate. Today Bergen, Drury and fourth
   suit forcing are switched on by a treatment alone.
+- The bbsa map sets a convention's switch where a BBA file has lines only
+  for its treatments (fourth suit forcing: on when either line is on).
 - Rule modules that gain the `convention` header move beside their
   definition.
 - The editor draws a convention's row and its treatments from the
@@ -296,6 +298,10 @@ reviewed, as in phase 5.
 
 - New tags in `convention-card` and `rusty-bidding-bot`.
 - Pin bumps in Bridge Classroom and Better BBO Convention Card.
+- Cards converted from BBA files are converted again from their source,
+  not migrated. Hand-made cards are few and take the schema 2 to 3
+  migration: a convention with its switch unset becomes an entry when a
+  treatment is on or filled in, and no entry otherwise.
 - Bridge Classroom fetches the published snapshot and hands it to the
   editor and to Rusty.
 - Practice-Bidding-Scenarios and lesson-studio validate IDs against the

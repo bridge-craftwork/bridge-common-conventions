@@ -294,8 +294,10 @@ module bergen "Bergen raises: four-card raises at the three level"
   convention's treatments with its switch never set. On 22 public cards (18
   from Practice-Bidding-Scenarios, 4 of Rusty's), 77 groups are like this; in
   24 of them a treatment is on or filled in (fourth suit forcing on 18 cards,
-  Blackwood on 4, 2/1 and Lebensohl on one each). Reading those as "played"
-  changes behaviour.
+  Blackwood on 4, 2/1 and Lebensohl on one each). The 18 are BBA files
+  put through the bbsa map, which has no line for the switch. Rick,
+  2026-11-13: few cards exist, and those are converted again from their
+  BBA files at the cut-over, so no third value is needed.
 - **D7. The level is stated twice.** Reverse Bergen's level 6 is on the
   variant's definition and on the parent's treatment.
 - **D8. Bergen's notes are a setting.** `major_openings.bergen_raises_notes`
@@ -426,7 +428,7 @@ this, as a proposal for Rick to accept or change.
 | D3 | A convention's own scenario is tagged with the ID it is taught under | The check accepts a scenario tagged with the convention or with any ID in its `taught_under`; retagging is the scenario author's choice | Contract |
 | D4 | Migrated references have no date and no role | `used` is left out when unknown, never invented; `role` defaults to `about` and is raised to `basis` by hand | Contract |
 | D5 | A treatment that switches its convention on (Bergen, Drury, fourth suit forcing) | Phase 3 keeps the rules as they are, with every read spelled out; Phase 5 enforces "nothing while off" with a migration | Plan, Phase 5 |
-| D6 | A migrated entry with treatments and no switch (77 groups on 22 public cards) | `"play": null` means "the card has not said": a reader uses its own default, as it does today. Only the migration writes it; a card written by hand never needs it | Contract |
+| D6 | A migrated entry with treatments and no switch (77 groups on 22 public cards) | Settled (Rick, 2026-11-13): no third value. The migration writes an entry when a treatment is on or filled in, and none otherwise; cards converted from BBA files are converted again, with the bbsa map setting the switch | Contract |
 | D7 | A variant's level is stated twice | The treatment's level is the one tools read; a variant's definition may omit `level` | Contract |
 | D8 | Write-in notes for a convention that sit outside its group | Stay settings in Phase 3; Phase 5 moves them to the entry's `text`, as the plan lists for Bergen | Plan, Phase 5 |
 | D9 | A convention chosen as an option of a setting | A setting keeps `plays = { option = ID }`. A card plays a convention when its entry says so or a setting's chosen option plays it. Rule files keep spelling out both reads | Contract |
@@ -436,9 +438,8 @@ this, as a proposal for Rick to accept or change.
 | D13 | Generated examples that only one bidder can make | Already covered: each example names its bidder | Contract |
 | D14 | A choice between two conventions | `alternatives = [ID, ...]` on each definition; a card that plays two is reported as a conflict | Contract |
 
-Two of these change how a decision of 2026-11-13 reads, and need Rick's
+One of these changes how a decision of 2026-11-13 reads, and needs Rick's
 answer before the contract is accepted:
 
-- **D6** refines "`play` defaults to true" (issue #3) with a third value.
 - **D9** means the bare-ID address in a rule file (issue #4) reads the
   card's entry only, not a setting that chooses the convention.

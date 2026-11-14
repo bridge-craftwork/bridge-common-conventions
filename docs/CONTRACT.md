@@ -321,7 +321,7 @@ Card schema 3.
 
 | Key | Meaning |
 |---|---|
-| `play` | `true` or left out: the partnership plays it. `false`: it has agreed not to. `null`: the card has not said, and a reader uses its own default |
+| `play` | `true` or left out: the partnership plays it. `false`: it has agreed not to |
 | `text` | What a person wrote about it, printed in the write-in lines of its main context |
 | `from` | Where an entry added by a tool came from |
 | any other key | A treatment's value, by the treatment's name |
@@ -330,8 +330,11 @@ Card schema 3.
   `{}` plays the convention with every treatment at its default.
 - **No entry means not discussed.** A reader uses its own default, which for
   most conventions is "not played".
-- **`null` is written only by a migration**, for a card that recorded a
-  convention's treatments without ever setting its switch.
+- **A migrated card gets no special value.** Where a schema 2 card recorded
+  a convention's treatments without setting its switch, the migration writes
+  an entry (played) when a treatment is on or filled in, and no entry
+  otherwise. Cards converted from another format are converted again from
+  their source, not migrated.
 - **A card plays a convention** when its entry says so, or when a setting's
   chosen option `plays` it.
 - An entry for an ID the reader does not know, and a key in an entry that is
@@ -477,7 +480,6 @@ states a proposal for each; Rick accepts or changes it.
 
 | | Question | This draft says |
 |---|---|---|
-| D6 | A migrated card can hold a convention's treatments with its switch never set (77 groups on 22 public cards). "`play` defaults to true" would turn them on | `"play": null` means "not said", written only by a migration (section 8) |
 | D9 | A convention can be chosen as an option of a setting (the defence to 1NT, weak twos) | Settings keep `plays`; a bare ID in a rule file reads the entry only (sections 5, 8, 9) |
 | D14 | A choice between two conventions (Blackwood or Roman Keycard) has to live in the definitions | `alternatives` on each definition (section 4) |
 | D3 | A convention's own scenario may be tagged with the ID it is taught under | Accepted by the check (section 4, Deals) |
