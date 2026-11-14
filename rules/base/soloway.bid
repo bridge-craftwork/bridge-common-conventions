@@ -14,7 +14,7 @@ module soloway "Soloway jump shifts"
   needs  responses
   skill  bidding_conventions/soloway
   param  soloway = bidding_conventions/soloway default false
-  param  weak2   = general.jump_shifts.weak_2 default false
+  param  weak2   = bidding_conventions/weak_jump_shifts:two_level default false
 
 # ── Opener's rebid ────────────────────────────────────────────────────
 after 1x (P) 2y (P) when soloway, !weak2, y is not x, two_level_jump(y, x)

@@ -9,9 +9,6 @@
 "notes"                    = { kind = "text", label = "Other conventions notes", note = true }
 "vs_strong_open"           = { kind = "text", label = "Defense vs strong openings" }
 # --- begin: Bridge-Classroom card fields (bc-export) ---
-"weak_jump_shifts_not_in_comp" = { kind = "bool", label = "Weak jump shifts (not in competition)", skill = "bidding_conventions/weak_jump_shifts", level = 5 }
-"weak_jump_shifts_in_comp" = { kind = "bool", label = "Weak jump shifts in competition", skill = "bidding_conventions/weak_jump_shifts", level = 5 }
-"weak_jump_shifts_notes"   = { kind = "text", label = "Weak jump shift notes", note = true }
 "nmf_notes"                = { kind = "text", label = "New minor forcing notes", note = true }
 "notes_line_1"             = { kind = "text", label = "Other conventions (write-in line 1)", note = true }
 "notes_line_2"             = { kind = "text", label = "Other conventions (write-in line 2)", note = true }

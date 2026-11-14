@@ -4,7 +4,6 @@ desc = "Responder's jump to 2♥ or 2♠ over partner's 1♣ or 1♦, showing fi
 source = "proposed"
 level = 8
 contexts = ["responses_rebids"]
-implements = ["jump_to_major_over_minor"]
 names = ["Reverse Flannery"]
 summary = """
 Over partner's 1♣ or 1♦, responder's jump to 2♥ shows five spades and four
@@ -23,10 +22,12 @@ level = 8
 
 [treatments.two_h]
 kind = "bool"
+implements = ["jump_to_major_over_minor.2h"]
 label = "Reverse Flannery 2♥"
 level = 8
 
 [treatments.two_s]
 kind = "bool"
+implements = ["jump_to_major_over_minor.2s"]
 label = "Reverse Flannery 2♠"
 level = 8

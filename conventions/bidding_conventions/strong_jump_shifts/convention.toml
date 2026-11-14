@@ -3,9 +3,30 @@ name = "Strong jump shifts"
 source = "proposed"
 level = 3
 contexts = ["responses_rebids"]
-implements = ["jump_to_major_over_minor"]
 names = ["Strong jump shifts", "Strong jump shift", "SJS"]
 summary = """
 Responder's jump in a new suit over partner's opening shows a strong hand
 with a good suit or a fit, forcing to game and looking at slam.
 """
+
+[treatments.two_level]
+kind = "bool"
+label = "Strong jump shifts (2-level)"
+level = 3
+choice = "general.jump_shifts_2"
+skill = false
+implements = ["jump_to_major_over_minor"]
+
+[treatments.three_level]
+kind = "bool"
+label = "Strong jump shifts (3-level)"
+level = 3
+choice = "general.jump_shifts_3"
+skill = false
+
+[treatments.invitational]
+kind = "bool"
+label = "Invitational jump shifts"
+level = 5
+choice = "general.jump_shifts_2"
+skill = false

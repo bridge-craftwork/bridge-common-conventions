@@ -1944,7 +1944,7 @@ note = "Preemptive jump raise, alerted in the ACBL and EBU when the next hand pa
 
 # Weak jump shifts
 [[alert]]
-fields = ["general.jump_shifts.weak_2", "general.jump_shifts.weak_3", "other_conventions.weak_jump_shifts_not_in_comp"]
+fields = ["bidding_conventions/weak_jump_shifts:two_level", "bidding_conventions/weak_jump_shifts:three_level", "bidding_conventions/weak_jump_shifts:not_in_comp"]
 call = "Jump shift (weak)"
 after = "1x"
 by = "responder"
@@ -1953,7 +1953,7 @@ ebu = "announce"
 note = "A weak jump shift by responder with no interference. Strong is the default, so the ACBL and the WBF alert the weak version; the EBU announces it as natural and non-forcing. Not to be read as a preempt like a weak two or a weak jump overcall."
 
 [[alert]]
-fields = ["other_conventions.weak_jump_shifts_in_comp"]
+fields = ["bidding_conventions/weak_jump_shifts:in_comp"]
 call = "Jump shift (weak)"
 after = "1x–(X or overcall)"
 by = "responder"
@@ -1963,7 +1963,7 @@ note = "After a double or an overcall the weak jump shift is standard: no alert 
 
 # Strong jump shifts
 [[alert]]
-fields = ["general.jump_shifts.strong_2", "general.jump_shifts.strong_3"]
+fields = ["bidding_conventions/strong_jump_shifts:two_level", "bidding_conventions/strong_jump_shifts:three_level"]
 call = "Jump shift (strong)"
 after = "1x"
 by = "responder"

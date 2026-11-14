@@ -332,11 +332,14 @@ Each produces a small, expected difference against phase 2.
 - Reverse Flannery is responder's jump to 2♥ or 2♠ over one of a minor, not
   an opening (Rick, 2026-11-14): its definition is corrected and it fills
   `jump_to_major_over_minor`, as do Weak jump shifts and the new Strong jump
-  shifts. Still to do: the jump-shift style boxes
-  (`general.jump_shifts.weak_2`, `strong_2`, `invitational` and the
-  three-level ones) become entries of those conventions, so the three really
-  compete; Reverse Flannery's card fields sit in the two-level openings
-  section; and it has a `two_d` treatment with no rule.
+  shifts. The eight jump-shift boxes are treatments of those two conventions
+  (#68, done 2026-11-14), each convention filling the function only while
+  its two-level treatment is on. Still to do: Reverse Flannery's card fields
+  sit in the two-level openings section, and it has a `two_d` treatment with
+  no rule (#69).
+- Found with #68: eight hand-made cards tick "weak jump shifts, not in
+  competition" (the Bridgodex and BBO box) and bid none, because the rules
+  read only the two-level box, which those formats do not set (#74).
 - ~~Kickback and Minorwood claim `ace_ask.minor`.~~ Changed (Rick,
   2026-11-14): they fill a function of their own, `low_keycard_ask`, beside
   keycard's 4NT.

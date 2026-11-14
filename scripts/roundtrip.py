@@ -122,6 +122,7 @@ def main():
                 if v.get("default") is True:
                     del v["default"]
                 v.pop("context", None)
+            v.pop("implements", None)
             skill = v.pop("skill", None)
             also = v.pop("taught_under", None)
             if skill is None:

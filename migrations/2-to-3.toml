@@ -871,6 +871,10 @@ order = [
 "two_level.reverse_flannery.two_d" = "bidding_conventions/reverse_flannery:two_d"
 "two_level.reverse_flannery.two_h" = "bidding_conventions/reverse_flannery:two_h"
 "two_level.reverse_flannery.two_s" = "bidding_conventions/reverse_flannery:two_s"
+"general.jump_shifts.invitational" = "bidding_conventions/strong_jump_shifts:invitational"
+"other_conventions.weak_jump_shifts_not_in_comp" = "bidding_conventions/weak_jump_shifts:not_in_comp"
+"other_conventions.weak_jump_shifts_in_comp" = "bidding_conventions/weak_jump_shifts:in_comp"
+"other_conventions.weak_jump_shifts_notes" = "bidding_conventions/weak_jump_shifts:notes"
 
 [[place]]
 convention = "competitive_bidding/lebensohl"
@@ -883,6 +887,14 @@ switches = { "notrump.rubensohl.play" = "over_1nt_interference", "competitive.ru
 [[place]]
 convention = "competitive_bidding/unusual_notrump"
 switches = { "competitive.unusual_2nt.play" = "at_2nt", "competitive.unusual_1nt.play" = "at_1nt", "competitive.unusual_3nt.play" = "at_3nt", "competitive.unusual_4nt.play" = "at_4nt" }
+
+[[place]]
+convention = "bidding_conventions/strong_jump_shifts"
+switches = { "general.jump_shifts.strong_2" = "two_level", "general.jump_shifts.strong_3" = "three_level" }
+
+[[place]]
+convention = "bidding_conventions/weak_jump_shifts"
+switches = { "general.jump_shifts.weak_2" = "two_level", "general.jump_shifts.weak_3" = "three_level" }
 
 [[function]]
 function = "defence_to_1nt"
