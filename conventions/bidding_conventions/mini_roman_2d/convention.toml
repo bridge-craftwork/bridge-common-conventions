@@ -12,6 +12,7 @@ short suit.
 """
 see = [
   { title = "Mini-Roman 2♦", site = "ACBL Unit 390", url = "https://www.acblunit390.org/Simon/mini-roman.htm" },
+  { title = "Mini Roman", site = "Bridge Hands", url = "https://www.bridgehands.com/M/Mini_Roman.htm", note = "The slam continuations in our rules are Rick Wilson's additions" },
 ]
 
 [treatments.maxi]

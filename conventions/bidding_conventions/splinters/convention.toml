@@ -15,6 +15,8 @@ see = [
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 11 },
   { title = "Slam Bidding: Splinter Bids by Responder", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/408" },
   { title = "Slam Bidding: Splinters by Opener", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/409" },
+  { title = "Splinter Bids", site = "Bridge Bum", url = "https://www.bridgebum.com/splinters.php" },
+  { title = "Splinter bid", site = "Wikipedia", url = "https://en.wikipedia.org/wiki/Splinter_bid" },
 ]
 
 [treatments.by_responder]

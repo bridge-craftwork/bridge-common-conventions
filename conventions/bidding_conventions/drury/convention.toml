@@ -11,6 +11,10 @@ whether opener has a full opening, with a fit for the major. In the original
 form opener's 2♦ shows a light opening; Reverse Drury swaps opener's
 replies.
 """
+see = [
+  { title = "Drury", site = "Bridge Bum", url = "https://www.bridgebum.com/drury.php" },
+  { title = "Drury convention", site = "Wikipedia", url = "https://en.wikipedia.org/wiki/Drury_convention" },
+]
 
 [treatments.reverse]
 kind = "bool"

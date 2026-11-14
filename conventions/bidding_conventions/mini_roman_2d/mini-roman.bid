@@ -1,6 +1,8 @@
 # Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
 #
-# Mini-Roman 2♦ (ACBL Unit 390, "Mini-Roman"; Wikipedia, "Roman 2♦"):
+# Mini-Roman 2♦ (Bridge Hands, "Mini Roman",
+# https://www.bridgehands.com/M/Mini_Roman.htm; ACBL Unit 390,
+# "Mini-Roman"; the slam continuations are Rick Wilson's additions):
 # an opening 2♦ shows 11-15 HCP and a three-suited hand, 4-4-4-1 or
 # 5-4-4-0. The five-card suit of a 5-4-4-0 is a minor (with five in a
 # major the hand opens 1M). The weak 2♦ is off (preempts.bid).

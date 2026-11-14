@@ -10,7 +10,9 @@
 # too (BBA's cards set "Mixed raise" beside "1M-3M inviting", and BBA then
 # plays 1M-3M inviting: probes/mixed-resp-1H-GIB.toml). Bergen raises
 # (bergen.bid) take the jump to 3M when they are on. Uncontested only.
-# (Bridge Bum, "Weak Jump Raise" and "Mixed Raise"; the PBS scenario
+# (Bridge Bum, "Weak Jump Raise" and "Mixed Raise"; for the mixed raise,
+# Larry Cohen, "Simple Overcalls",
+# https://www.larryco.com/bridge-articles/simple-overcalls; the PBS scenario
 # Gavin_Mixed_Raise: "Mixed 4-card Raise (8-10 TP) 3M".) See
 # jump-raises.notes.md.
 
