@@ -25,7 +25,7 @@ N T84.976.Q9543.K8      | 1S P 2S P 3H P               | 3S     | three small he
 S KQJ96.Q62.AT95.K      | 1S P 2S P 3H P 3S P          | P      | responder declined
 
 # ── Help-suit tries without two-way ───────────────────────────────────
-card    21GF-DEFAULT other_conventions.help_suit_game_tries.play=true
+card    21GF-DEFAULT bidding_conventions/help_suit_game_try=true
 S AQJ74.KQ5.K83.Q2      | 1S P 2S P                    | 3D     | 17 HCP; diamonds K83 need help, hearts KQ5 do not
 S AQJ74.AK5.983.K2      | 1S P 2S P                    | 3D     | three small diamonds: the try
 N T84.976.AQ43.K82      | 1S P 2S P 3D P               | 4S     | diamond A-Q: help

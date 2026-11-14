@@ -1,5 +1,5 @@
 # Polish two-suiters (the default card with them on).
-card    21GF-DEFAULT two_level.polish_two_suiters.play=true
+card    21GF-DEFAULT bidding_conventions/polish_two_suiters=true
 dealer  S
 vul     None
 
@@ -11,7 +11,7 @@ S 32.KQJ976.K54.43      |                     | P      | six hearts: no weak two
 S 3.KQJ97.A3.Q8543      |                     | 1H     | 12 HCP: one level
 card    21GF-DEFAULT
 S 3.KQJ97.43.Q8543      |                     | P      | Polish off: pass
-card    21GF-DEFAULT two_level.polish_two_suiters.play=true
+card    21GF-DEFAULT bidding_conventions/polish_two_suiters=true
 # Responder.
 N Q32.T82.K764.J65      | 2H P                | P      | three hearts: play 2H
 N KT64.3.Q8762.J65      | 2H P                | 2S     | short hearts: pass or correct

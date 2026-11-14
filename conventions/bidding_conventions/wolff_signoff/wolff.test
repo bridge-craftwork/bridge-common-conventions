@@ -1,5 +1,5 @@
 # Wolff sign-off: the relay, the forced 3D and the sign-offs.
-card    21GF-DEFAULT other_conventions.wolff_signoff.play=true
+card    21GF-DEFAULT bidding_conventions/wolff_signoff=true
 dealer  N
 # seat hand             | auction                              | expect | why
 S 8.QJ9853.742.863      | 1C P 1H P 2N P                       | 3C     | a weak six-card heart suit: relay to sign off

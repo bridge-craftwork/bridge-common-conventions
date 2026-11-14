@@ -2,7 +2,7 @@
 #
 # Over their 1NT opening: what every defence shares (vs-1nt.notes.md).
 #
-# The card's `competitive.vs_1nt_strong.system` picks the
+# The convention the card plays for `defence_to_1nt.strong` is the
 # defence, and each has its own module for the calls that differ:
 # natural (overcalls.bid), Cappelletti and Modified Cappelletti
 # (cappelletti.bid), DONT (dont.bid), Meckwell (meckwell.bid), Landy and
@@ -29,8 +29,7 @@ module vs-1nt "Over their 1NT: what every defence shares"
   kind   system
   needs  base
   skill  competitive_bidding/defense_vs_1nt
-  param  def       = competitive.vs_1nt_strong.system default other
-  param  dont_play = competitive_bidding/dont default false
+  param  def = defence_to_1nt.strong
 
 # ── Preempts and the pass ────────────────────────────────────────────
 # With a conventional defence a seven-card suit jumps to the three level
@@ -39,7 +38,7 @@ module vs-1nt "Over their 1NT: what every defence shares"
 # (probes/vs-1N-capp.toml). We preempt up to 11 counting a point a card
 # beyond four, one below the one-suiter's 12: 4-8 HCP with seven cards.
 # The natural defence keeps its own 4-10 (overcalls.bid).
-after (1N) when !(def is other | def is natural) | (dont_play, !(def is natural))
+after (1N) when !(def is none)
   3S  "Preemptive: seven spades"                  shows S>=7, hcp>=4, hcp+length_points<=11
       priority 1
   3H  "Preemptive: seven hearts"                  shows H>=7, hcp>=4, hcp+length_points<=11

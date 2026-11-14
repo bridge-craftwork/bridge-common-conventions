@@ -22,7 +22,7 @@ S KQ32.AKQ4.K5.J53      | 1C P 3C P        | 3NT    | 18 balanced opposite 5-9: 
 
 # The plain-raise rebids (rebids.bid) stay out of the inverted raise
 # (2026-10-29): 2NT here is 12-14, never the plain raise's 18-19.
-card    21GF-DEFAULT minor_openings.inverted_minors.play=true
+card    21GF-DEFAULT bidding_conventions/inverted_minors=true
 dealer  N
 N K82.KQ5.Q92.J953      | 1C P 2C P | 2NT | 12-14 balanced
 N AK2.KQ5.Q92.KJ53      | 1C P 2C P | 3NT | 18-19 balanced

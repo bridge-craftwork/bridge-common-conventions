@@ -1,5 +1,5 @@
 # Suction over their 1NT: 21GF-DEFAULT with the Suction defence.
-card    21GF-DEFAULT competitive.vs_1nt_strong.system=suction
+card    21GF-DEFAULT defence_to_1nt.strong=competitive_bidding/suction
 dealer  E
 
 # seat hand             | auction             | expect | why

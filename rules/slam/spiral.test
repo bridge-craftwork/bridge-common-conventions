@@ -1,4 +1,4 @@
-card    21GF-DEFAULT slam.spiral_cuebids.play=true
+card    21GF-DEFAULT bidding_conventions/spiral=true
 dealer  N
 
 # seat hand             | auction                              | expect | why

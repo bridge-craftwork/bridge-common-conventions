@@ -1,5 +1,5 @@
 # Raptor 1NT (switched on below; no stock card plays it).
-card    21GF-DEFAULT competitive.raptor_1nt.play=true
+card    21GF-DEFAULT competitive_bidding/raptor=true
 dealer  W
 vul     None
 

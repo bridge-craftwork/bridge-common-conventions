@@ -33,7 +33,7 @@ N KJ5.A82.Q543.K64          | 1NT 2H 2NT P 3C P  | 3NT    | game with a stopper
 N KQ54.A82.Q54.K64          | 1NT 2H 2NT P 3C P  | 3H     | Stayman with a stopper
 
 # A natural 2♦ (their card plays natural overcalls).
-card    21GF-DEFAULT competitive.vs_1nt_strong.system=other
+card    21GF-DEFAULT defence_to_1nt.strong=none
 dealer  S
 
 N 83.KQ54.95.AK542          | 1NT 2D             | 3D     | four hearts, no diamond stopper: Stayman

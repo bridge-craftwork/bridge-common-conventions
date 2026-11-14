@@ -1,6 +1,6 @@
 # Snapdragon doubles (switched on below; the scenario's card,
 # 21GF-SPECIALS, has them off).
-card    21GF-DEFAULT competitive.snapdragon.play=true
+card    21GF-DEFAULT competitive_bidding/snapdragon=true
 dealer  N
 vul     None
 

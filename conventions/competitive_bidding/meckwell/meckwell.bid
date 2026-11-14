@@ -20,12 +20,13 @@
 
 module meckwell "Meckwell over their 1NT"
   kind   convention
+  convention  competitive_bidding/meckwell
   needs  vs-1nt
   skill  competitive_bidding/meckwell
   skill  competitive_bidding/defense_vs_1nt
-  param  def = competitive.vs_1nt_strong.system default other
+  param  def = defence_to_1nt.strong
 
-after (1N) | (1N) P (P) when def is meckwell
+after (1N) | (1N) P (P) when def is competitive_bidding/meckwell
   X   "Meckwell: a long minor, or both majors"   alert
       shows ((C>=6 | D>=6), second_longest<=3, hcp+length_points>=12) | (H>=4, S>=4, H+S>=9, hcp+length_points>=10)
       shows hcp<=17

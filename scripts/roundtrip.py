@@ -25,6 +25,19 @@ HERE = pathlib.Path(__file__).resolve().parent.parent
 EXPECTED = {}
 
 
+# Rule files rewritten to read `defence_to_1nt.strong` by the ID of the
+# convention that fills it, where they compared schema 2's option words.
+# Their text is not compared; the rule tests and the bidding comparison
+# (before/README.md) are what hold them.
+BY_FUNCTION = {"dont.bid", "meckwell.bid", "suction.bid", "cappelletti.bid",
+               "multi-landy.bid", "vs-1nt.bid", "overcalls.bid"}
+
+# Files that did not stay in the pack, and where they went.
+ELSEWHERE = {
+    "stock-cards.test": "rusty-bidding-bot's cards/: it tests the engine's stock cards, which the pack does not hold",
+}
+
+
 def git(repo, *args):
     return subprocess.check_output(["git", "-C", str(repo), *args]).decode()
 
@@ -172,12 +185,14 @@ def main():
 
     # rule files: the same bytes, wherever they sit now
     here = {f.name: f for f in HERE.rglob("*") if f.suffix in (".bid", ".test") or f.name.endswith(".notes.md")}
-    rules = converted = 0
+    rules = converted = by_function = 0
     for name in git(rbb, "ls-tree", "-r", "--name-only", rbb_tag, "conventions").split("\n"):
         base = name.rsplit("/", 1)[-1]
         if not (base.endswith((".bid", ".test", ".notes.md"))):
             continue
         rules += 1
+        if base in ELSEWHERE:
+            continue
         if base not in here:
             problems.append(f"{name}: not in the pack")
         elif here[base].read_text() != git(rbb, "show", f"{rbb_tag}:{name}"):
@@ -185,15 +200,21 @@ def main():
             # (scripts/convert_rules.py); everything below it is unchanged.
             old = git(rbb, "show", f"{rbb_tag}:{name}").split("\n")
             new = here[base].read_text().split("\n")
-            body = lambda ls: [l for l in ls if not re.match(r"\s+(card|param|convention)\s", l)]
-            if not base.endswith(".bid") or body(old) != body(new):
+            # A .test file's `card` lines name settings by address
+            # (scripts/convert_tests.py). The rules that read the defence to
+            # 1NT compare the function with an ID, in their conditions too.
+            body = lambda ls: [l for l in ls if not re.match(r"\s*(card|param|convention)\s", l)]
+            if base in BY_FUNCTION:
+                by_function += 1
+            elif not base.endswith((".bid", ".test")) or body(old) != body(new):
                 problems.append(f"{name}: text differs from {here[base].relative_to(HERE)}")
             else:
                 converted += 1
 
     print(f"{len(want)} card fields, {seen} definitions and {rules} rule files compared "
           f"with convention-card {cc_tag} and rusty-bidding-bot {rbb_tag}.")
-    print(f"{converted} rule files differ from the tag only in their header's card, param and convention lines.")
+    print(f"{converted} rule and test files differ from the tag only in their card, param and convention lines; "
+          f"{by_function} read the defence to 1NT as a function; {len(ELSEWHERE)} moved out.")
     print(f"\nHeld in another form ({len(expected)}):")
     for e in expected:
         print("  " + e)

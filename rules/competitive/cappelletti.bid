@@ -26,11 +26,11 @@ module cappelletti "Cappelletti and Modified Cappelletti over their 1NT"
   skill  competitive_bidding/cappelletti
   skill  competitive_bidding/modified_cappelletti
   skill  competitive_bidding/defense_vs_1nt
-  param  def = competitive.vs_1nt_strong.system default other
+  param  def = defence_to_1nt.strong
   param  system = general.system   # `brill`: the Brill card's treatments (below)
 
 # ── Direct and balancing: the calls both versions share ──────────────
-after (1N) | (1N) P (P) when def is cappelletti | def is modified_cappelletti
+after (1N) | (1N) P (P) when def is competitive_bidding/cappelletti | def is competitive_bidding/modified_cappelletti
   X   "Penalty: 15+ HCP"
       shows hcp>=15
       sets  ask=nt_penalty
@@ -50,7 +50,7 @@ after (1N) | (1N) P (P) when def is cappelletti | def is modified_cappelletti
 # suited": `totalpoints >= 10 and lengthlongestsuit >= 6 and singlesuited
 # and hcp >= 10`; "Cappelletti - S and a minor": `S >= 5 and (C >= 4 or D
 # >= 4) and loserlevel >= 2 and totalpoints >= 12 and hcp >= 10`.
-after (1N) | (1N) P (P) when def is cappelletti | def is modified_cappelletti, system is brill
+after (1N) | (1N) P (P) when def is competitive_bidding/cappelletti | def is competitive_bidding/modified_cappelletti, system is brill
   2D  "Cappelletti: both majors, 5-5 or longer, 10+ HCP"   alert
       shows H>=5, S>=5, hcp>=10, hcp<=17
       sets  ask=nt_majors
@@ -59,7 +59,7 @@ after (1N) | (1N) P (P) when def is cappelletti | def is modified_cappelletti, s
       sets  ask=nt_minors
 
 # ── Cappelletti ──────────────────────────────────────────────────────
-after (1N) | (1N) P (P) when def is cappelletti
+after (1N) | (1N) P (P) when def is competitive_bidding/cappelletti
   2C  "Cappelletti: one long suit, six or more"   alert
       shows longest>=6, second_longest<=4, hcp+length_points>=12, hcp<=17 | (system is brill, hcp<=18)
       shows hcp>=10 | system is not brill
@@ -96,7 +96,7 @@ when asked capp_relay, rho.last=P | rho.last=X
 
 # ── Modified Cappelletti ─────────────────────────────────────────────
 # 2♣ is a long minor or a major-minor two-suiter; 2♥/2♠ one-suited.
-after (1N) | (1N) P (P) when def is modified_cappelletti
+after (1N) | (1N) P (P) when def is competitive_bidding/modified_cappelletti
   2C  "Modified Cappelletti: a long minor, or a major and a minor"   alert
       shows ((C>=6 | D>=6), second_longest<=4, hcp+length_points>=12) | (((H>=5, S<=3) | (S>=5, H<=3)), (C>=4 | D>=4), hcp+length_points>=10)
       shows hcp<=17

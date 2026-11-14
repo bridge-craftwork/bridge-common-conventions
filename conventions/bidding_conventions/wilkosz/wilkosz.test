@@ -1,5 +1,5 @@
 # Wilkosz 2♦ (the default card with Wilkosz on).
-card    21GF-DEFAULT two_level.wilkosz.play=true
+card    21GF-DEFAULT bidding_conventions/wilkosz=true
 dealer  S
 vul     None
 

@@ -1,5 +1,5 @@
 # The McCabe adjunct (the default card with McCabe on).
-card    21GF-DEFAULT two_level.mccabe.play=true
+card    21GF-DEFAULT bidding_conventions/mccabe=true
 dealer  S
 vul     None
 

@@ -24,5 +24,5 @@ S AKJ742.AQ5.KQ94.      | 1S P 2N P 3C P 4S P                  | 5C     | a club
 N Q853.KJ6.A752.K3      | 1S P 2N P 3C P 4S P 5C P             | 5H     | ♦A: one keycard outside clubs, the second step
 
 # Off the card.
-card    21GF-SPECIALS2 slam.exclusion_blackwood.play=false
+card    21GF-SPECIALS2 bidding_conventions/exclusion_blackwood=false
 S .AKQ74.KQ5.AJ932      | 1H P 4D P                            | 4NT    | no Exclusion: the keycard ask

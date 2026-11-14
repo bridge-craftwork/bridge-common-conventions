@@ -1,5 +1,5 @@
 # DONT over their 1NT (dont.bid). East opens 1NT.
-card    21GF-DEFAULT competitive.vs_1nt_strong.system=dont
+card    21GF-DEFAULT defence_to_1nt.strong=competitive_bidding/dont
 dealer  E
 
 # seat hand                 | auction              | expect | why
@@ -27,6 +27,6 @@ N 954.K82.Q8743.J5          | 1NT 2H P             | P      | three of each majo
 N K954.82.Q873.J54          | 1NT 2H P             | 2S     | longer spades
 
 # Bridge-Classroom's DONT switch plays DONT when the convention is unset
-card    21GF-DEFAULT competitive.vs_1nt_strong.system=other competitive.dont.play=true
+card    21GF-DEFAULT defence_to_1nt.strong=none competitive_bidding/dont=true
 dealer  E
 S T82.J.AK9643.QJ8          | 1NT                  | X      | DONT through `competitive.dont.play`

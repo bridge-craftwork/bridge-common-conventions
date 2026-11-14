@@ -1,5 +1,5 @@
 # French 2♦ (the default card with French 2D on).
-card    21GF-DEFAULT two_level.french_2d.play=true
+card    21GF-DEFAULT bidding_conventions/french_2d=true
 dealer  S
 vul     None
 

@@ -16,17 +16,16 @@
 # is no BBA reference (BBA has no DONT; scenario DONT is bba-works:
 # false).
 #
-# The card turns it on with `competitive.vs_1nt_strong.system
-# = dont`, or with Bridge-Classroom's `competitive.dont.play` when the
-# convention field is unset.
+# It is on when DONT is the convention the card plays for
+# `defence_to_1nt.strong`.
 
 module dont "DONT over their 1NT"
   kind   convention
+  convention  competitive_bidding/dont
   needs  vs-1nt
   skill  competitive_bidding/dont
   skill  competitive_bidding/defense_vs_1nt
-  param  def       = competitive.vs_1nt_strong.system default other
-  param  dont_play = competitive_bidding/dont default false
+  param  def = defence_to_1nt.strong
 
 # The ceiling: 15 HCP, or 19 with a shapely hand (5-5 or longer, or a
 # seven-card suit). 2026-10-05, the self A/B against the card's default
@@ -35,7 +34,7 @@ module dont "DONT over their 1NT"
 # still passes.
 define dont_strength = hcp<=15 | (hcp<=19, longest+second_longest>=10 | longest>=7)
 
-after (1N) | (1N) P (P) when def is dont | (dont_play, def is other)
+after (1N) | (1N) P (P) when def is competitive_bidding/dont
   X   "DONT: one long suit, not spades"   alert
       shows (C>=6 | D>=6 | H>=6), second_longest<=3, hcp+length_points>=10, dont_strength
       sets  ask=dont_one

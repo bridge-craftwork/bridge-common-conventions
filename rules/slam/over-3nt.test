@@ -20,7 +20,7 @@ S AKQJ63.K3.A6.T54      | 1S P 2D P 2S P 3NT P                 | P      | both d
 card    Basic-Bridge
 dealer  S
 N AQ4.KJ5.J953.K75      | 1D P 2C P 3N P                       | 4NT    | 14 facing 18-21: 32-35, invite
-card    Basic-Bridge slam.quantitative_4nt.play=false
+card    Basic-Bridge bidding_conventions/quantitative_4nt=false
 N AQ4.KJ5.J953.K75      | 1D P 2C P 3N P                       | P      | no quantitative 4NT on the card: pass
 
 # After their overcall of our 2♣, 4♣ over opener's 3NT is not a jump: the

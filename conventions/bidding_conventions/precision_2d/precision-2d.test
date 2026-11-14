@@ -1,5 +1,5 @@
 # Precision 2♦ (the default card with Precision 2D on).
-card    21GF-DEFAULT two_level.precision_2d.play=true
+card    21GF-DEFAULT bidding_conventions/precision_2d=true
 dealer  S
 vul     None
 
