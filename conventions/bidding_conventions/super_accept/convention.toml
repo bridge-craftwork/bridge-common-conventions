@@ -2,6 +2,7 @@ id = "bidding_conventions/super_accept"
 name = "Super-Accepting a Transfer"
 source = "proposed"
 level = 5
+style_of = ["bidding_conventions/jacoby_transfers:super_accept", "bidding_conventions/jacoby_transfers:super_accept_doubleton"]
 names = ["super-accept", "super accept", "superaccept", "super-acceptance"]
 summary = """
 After partner's transfer over 1NT, opener with four-card support and a

@@ -121,7 +121,7 @@ N 82.QJ9732.K94.J8      | 1C P 1H P 1NT P              | 2H  | natural rebid, no
 # and sometimes 2C/3NT"). A five-card major transfers first, also when
 # the count is a slam invitation (opposite Kokish's 24-25 a 7-count is):
 # 4NT or 6NT follows the completion. Stand-in for Rick's card.
-card    21GF-GIB bidding_conventions/jacoby_2nt:modified=true bidding_conventions/kokish=true
+card    21GF-GIB bidding_conventions/modified_jacoby_2nt=true bidding_conventions/kokish=true
 dealer  S
 N 84.KJ863.Q72.J54      | 2C P 2D P 2H P 2S P 2N P          | 3D  | five hearts, 7 HCP: transfer, not 4NT
 N 84.KJ863.Q72.J54      | 2C P 2D P 2H P 2S P 2N P 3D P 3H P | 4NT | then quantitative with five hearts

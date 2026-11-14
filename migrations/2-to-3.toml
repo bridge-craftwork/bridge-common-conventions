@@ -742,6 +742,7 @@ order = [
 "major_openings.gazzilli.play" = "bidding_conventions/gazzilli"
 "major_openings.impossible_2s.play" = "bidding_conventions/impossible_2s"
 "major_openings.jacoby_2nt.play" = "bidding_conventions/jacoby_2nt"
+"major_openings.jacoby_2nt.modified" = "bidding_conventions/modified_jacoby_2nt"
 "major_openings.mini_splinters.play" = "bidding_conventions/mini_splinters"
 "major_openings.splinters.play" = "bidding_conventions/splinters"
 "major_openings.three_nt_raise.play" = "bidding_conventions/three_nt_raise"
@@ -806,7 +807,6 @@ order = [
 "major_openings.drury.in_comp" = "bidding_conventions/drury:in_comp"
 "major_openings.drury.reverse" = "bidding_conventions/drury:reverse"
 "major_openings.drury.two_d" = "bidding_conventions/drury:two_d"
-"major_openings.jacoby_2nt.modified" = "bidding_conventions/jacoby_2nt:modified"
 "major_openings.splinters.by_opener" = "bidding_conventions/splinters:by_opener"
 "major_openings.splinters.by_responder" = "bidding_conventions/splinters:by_responder"
 "major_openings.three_nt_raise.range_max" = "bidding_conventions/three_nt_raise:range_max"
@@ -839,8 +839,6 @@ order = [
 "notrump.stayman.forcing" = "bidding_conventions/stayman:forcing"
 "notrump.stayman.garbage" = "bidding_conventions/stayman:garbage"
 "notrump.stayman.over_2nt_both_majors" = "bidding_conventions/stayman:over_2nt_both_majors"
-"notrump.stayman.puppet_1nt" = "bidding_conventions/stayman:puppet_1nt"
-"notrump.stayman.puppet_2nt" = "bidding_conventions/stayman:puppet_2nt"
 "notrump.texas.bid_4c" = "bidding_conventions/texas:bid_4c"
 "notrump.texas.bid_4d" = "bidding_conventions/texas:bid_4d"
 "notrump.texas.bid_4h" = "bidding_conventions/texas:bid_4h"
@@ -896,6 +894,26 @@ switches = { "general.jump_shifts.strong_2" = "two_level", "general.jump_shifts.
 convention = "bidding_conventions/weak_jump_shifts"
 switches = { "general.jump_shifts.weak_2" = "two_level", "general.jump_shifts.weak_3" = "three_level" }
 
+# Puppet Stayman's two boxes sat under Stayman, and a card that showed
+# either was read as playing Stayman.
+[[place]]
+convention = "bidding_conventions/puppet_stayman"
+switches = { "notrump.stayman.puppet_1nt" = "over_1nt", "notrump.stayman.puppet_2nt" = "over_2nt" }
+also_plays = "bidding_conventions/stayman"
+
+# A convention that gives way: where both are played and `to` fills a part
+# of the function, `convention`'s entry is written `for` the parts that are
+# left (none, for a function without parts). The rules already read it so.
+[[yields]]
+function = "major_ask_over_notrump"
+convention = "bidding_conventions/stayman"
+to = "bidding_conventions/puppet_stayman"
+
+[[yields]]
+function = "two_nt_response_to_major"
+convention = "bidding_conventions/jacoby_2nt"
+to = "bidding_conventions/modified_jacoby_2nt"
+
 [[function]]
 function = "defence_to_1nt"
 settings = { strong = "competitive.vs_1nt_strong.system", weak = "competitive.vs_1nt_weak.system" }
@@ -913,7 +931,7 @@ no_entry = ["conventional"]
 "competitive.defense_vs_strong_nt.convention" = "defence_to_1nt.strong"
 "competitive.negative_doubles.through" = "competitive_bidding/negative_doubles:through"
 "major_openings.drury.two_way" = "bidding_conventions/drury:two_d"
-"notrump.stayman.puppet" = "bidding_conventions/stayman:puppet_1nt"
+"notrump.stayman.puppet" = "bidding_conventions/puppet_stayman:over_1nt"
 "other_conventions.blackwood.notes" = "bidding_conventions/blackwood:notes"
 "other_conventions.fourth_suit_forcing.game_forcing" = "bidding_conventions/fourth_suit_forcing:game_force"
 "other_conventions.gerber.directly_over_nt" = "bidding_conventions/gerber:directly_over_nt"

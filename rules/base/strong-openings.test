@@ -90,7 +90,7 @@ N AKQ32.AKJ.KQ2.A2      |            | 3NT    | default: 26-27 balanced, a five-
 # Stand-in for Rick's card: 21GF-GIB with modified Jacoby 2NT and Kokish.
 dealer  S
 vul     EW
-card    21GF-GIB bidding_conventions/jacoby_2nt:modified=true bidding_conventions/kokish=true
+card    21GF-GIB bidding_conventions/modified_jacoby_2nt=true bidding_conventions/kokish=true
 N K973.AQT43.J942.      | 2C P 2H P 3D P             | 4D   | four diamonds: agree opener's minor below game
 S AQJ.K8.AKT65.AK2      | 2C P 2H P 3D P 4D P        | 4NT  | diamonds agreed, 22+ opposite a positive: keycard
 S AQJ.K8.AKT65.AK2      | 2C P 2H P 3D P 4D P 4NT P 5C P | 6D | all five keycards, no queen: six

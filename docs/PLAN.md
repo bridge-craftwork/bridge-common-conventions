@@ -317,9 +317,12 @@ Classroom and Rusty (#28), and the template repository (#30).
 
 Each produces a small, expected difference against phase 2.
 
-- The nine treatments that name a different convention from their group:
+- ~~The nine treatments that name a different convention from their group:
   Reverse Bergen, Reverse Drury, two-way Drury, Modified Jacoby 2NT,
-  Puppet Stayman (two), super-accepts (two), the Parrish relay.
+  Puppet Stayman (two), super-accepts (two), the Parrish relay.~~ Done
+  2026-11-14 (Rick's rulings): Puppet Stayman and Modified Jacoby 2NT are
+  conventions of their own, each filling a function its parent also fills;
+  the other seven are styles of their parent (`style_of`).
 - Bergen's notes moved under Bergen; Texas given its own ID.
 - "Treatments mean nothing while their convention is off", enforced in
   one place in the library and the crate. Today Bergen, Drury and fourth

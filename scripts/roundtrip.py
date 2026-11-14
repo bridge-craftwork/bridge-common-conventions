@@ -212,7 +212,9 @@ def main():
             # A .test file's `card` lines name settings by address
             # (scripts/convert_tests.py). The rules that read the defence to
             # 1NT compare the function with an ID, in their conditions too.
-            body = lambda ls: [l for l in ls if not re.match(r"\s*(card|param|convention)\s", l)]
+            # A comment cannot change a bid, so comment lines are not held
+            # to the tag either (a source's URL added to a header).
+            body = lambda ls: [l for l in ls if not re.match(r"\s*(card|param|convention)\s|\s*#", l)]
             if base in BY_FUNCTION:
                 by_function += 1
             elif not base.endswith((".bid", ".test")) or body(old) != body(new):

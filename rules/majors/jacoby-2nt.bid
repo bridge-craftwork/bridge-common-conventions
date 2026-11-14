@@ -7,7 +7,7 @@ module jacoby-2nt "Jacoby 2NT"
   skill  bidding_conventions/jacoby_2nt
   skill  partnership_bidding/jacoby_2nt
   param  jacoby   = bidding_conventions/jacoby_2nt default false
-  param  modified = bidding_conventions/jacoby_2nt:modified default false
+  param  modified = bidding_conventions/modified_jacoby_2nt default false
   param  rkcb     = bidding_conventions/roman_keycard default false
   param  bw       = bidding_conventions/blackwood default false
 

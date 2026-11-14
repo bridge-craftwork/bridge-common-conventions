@@ -2,6 +2,7 @@ id = "bidding_conventions/reverse_drury"
 name = "Reverse Drury"
 source = "taxonomy"
 level = 5
+style_of = ["bidding_conventions/drury:reverse"]
 names = ["Reverse Drury", "Drury"]
 confirm_names = ["Drury"]
 summary = """

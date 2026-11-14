@@ -44,7 +44,7 @@
 "responses.2h_other"       = { kind = "text", label = "2♥ response" }
 "responses.2s_other"       = { kind = "text", label = "2♠ response" }
 "responses.2nt_other"      = { kind = "text", label = "2NT response" }
-"responses.3c"             = { kind = "text", label = "3♣ response", implies = { "bidding_conventions/puppet_stayman" = "bidding_conventions/stayman:puppet_1nt" } }
+"responses.3c"             = { kind = "text", label = "3♣ response", implies = { "bidding_conventions/puppet_stayman" = "bidding_conventions/puppet_stayman:over_1nt" } }
 "responses.3d"             = { kind = "text", label = "3♦ response" }
 "responses.3h"             = { kind = "text", label = "3♥ response" }
 "responses.3s"             = { kind = "text", label = "3♠ response" }

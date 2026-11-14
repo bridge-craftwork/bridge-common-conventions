@@ -2,6 +2,7 @@ id = "bidding_conventions/parrish_relay"
 name = "Parrish relay"
 source = "proposed"
 level = 7
+style_of = ["bidding_conventions/two_heart_bust:relay"]
 names = ["Parrish relay"]
 summary = """
 A treatment of the 2♥ bust over a 2♣ opening: a relay that follows the bust

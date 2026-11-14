@@ -406,7 +406,7 @@ S 83.KQ5.AKQ972.A6      | 1D P 1S P 3D P 3S P | 3NT    | two spades: 3NT
 # ── Opener's notrump once they come in after partner passed or responded
 # (Rick, 2026-11-06, bridge-classroom-bug-artifacts #90 and #93; Rick's
 # card stood in by 21GF-GIB with modified Jacoby 2NT and Kokish)
-card    21GF-GIB bidding_conventions/jacoby_2nt:modified=true bidding_conventions/kokish=true
+card    21GF-GIB bidding_conventions/modified_jacoby_2nt=true bidding_conventions/kokish=true
 dealer  S
 S AKJ.AT.JT43.AJ97      | 1D P P 1H    | 1NT | #90: 18 balanced, hearts held, after partner passed and they reopened
 S AQ5.K9.AQ52.KJ42      | 1C P P 1S    | 1NT | 18-19 with a spade stopper
