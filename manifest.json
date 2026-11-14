@@ -1,7 +1,7 @@
 {
  "schema": "pack-manifest/v1",
- "source_commit": "43bb2c04a8709be303d8cc2b7871b5600e2199d4",
- "rules_number": 9,
+ "source_commit": "7fecdb70f4a06dd3c6a1938471ba27382e90ba70",
+ "rules_number": 11,
  "name": "bridge-common-conventions",
  "pack_format_version": 1,
  "card_schema_version": 3,
@@ -753,8 +753,8 @@
    "changed": "2026-11-14T12:36:57-08:00"
   },
   "conventions/bidding_conventions/weak_jump_shifts/convention.toml": {
-   "sha256": "a6ccd9d32138b376f30b945ec604474357b9f443080c2425e2250c5def16d096",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "382c1a150334680c55e174cbb91dbed5cd912466a8bf062d8b50171ba42cb3bb",
+   "changed": "2026-11-14T13:36:00-08:00"
   },
   "conventions/bidding_conventions/western_cuebid/convention.toml": {
    "sha256": "a51de864cda72c12848e007eea9842361356aaef8ff64de10395731719edb927",
@@ -1425,8 +1425,8 @@
    "changed": "2026-11-09T15:45:18-08:00"
   },
   "rules/base/rebids.bid": {
-   "sha256": "d668d1af0327836adbba45704f4c726a903536a6a17cb7312bdda24757a304fb",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "0a8af84a9a92894e5f0d4eca9a4f1b7126e9fd244fc67d1397bbe2f7427b3a4e",
+   "changed": "2026-11-14T13:36:00-08:00"
   },
   "rules/base/rebids.notes.md": {
    "sha256": "8ca349c6b419937dfdaa7cb0414a22e2cc69a115454ee1fea1ebe54e32c48556",
@@ -1437,8 +1437,8 @@
    "changed": "2026-11-14T12:09:25-08:00"
   },
   "rules/base/responder-rebids.bid": {
-   "sha256": "0cb82ed9d494dc582cfa7598e02346008e697661bef2291aabfebec6d16d00a9",
-   "changed": "2026-11-14T11:28:48-08:00"
+   "sha256": "3d0d07982fd38639a2be7a550372b67ba00beef4679a67d9ceaef8447132dde5",
+   "changed": "2026-11-14T13:36:00-08:00"
   },
   "rules/base/responder-rebids.notes.md": {
    "sha256": "691d3aa3417834d053e3488b477cb6963a34a92980e192e723e6ca918d48b286",
@@ -1449,8 +1449,8 @@
    "changed": "2026-11-14T12:09:25-08:00"
   },
   "rules/base/responses.bid": {
-   "sha256": "661f6b6bd74a74a8bf5498af39021382f3410e7dfd8123f652930931f35431b1",
-   "changed": "2026-11-14T11:28:48-08:00"
+   "sha256": "d0e6ba9c036169c96442374680e03ad026c2b1b576b847b4898c839ba3c5bd46",
+   "changed": "2026-11-14T13:36:00-08:00"
   },
   "rules/base/responses.notes.md": {
    "sha256": "11787a49769ebae9e8013246ff6ed58af491a9bc6c5fe057e705b89935b6aa00",
@@ -1461,8 +1461,8 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "rules/base/soloway.bid": {
-   "sha256": "3ded14051ed2f3526e6501e8590bf45d5125ab544d02f9e4e6cc29e51d3ca012",
-   "changed": "2026-11-14T11:28:48-08:00"
+   "sha256": "aeb67ac4a7a8bb8b964a46542fa0d7542361b167142d3117f33e90e84e462d2a",
+   "changed": "2026-11-14T13:36:00-08:00"
   },
   "rules/base/soloway.notes.md": {
    "sha256": "1a585a10fe40e976346cc2957c8ffbf44e885c5538ea0ec2f77b6dc26a04b29e",
@@ -1509,8 +1509,8 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "rules/base/weak-jump-shifts.bid": {
-   "sha256": "441c8cc5cece553f508fee5977558f3b89372ce2f30c90d234dfe9b8c0c26661",
-   "changed": "2026-11-14T11:28:48-08:00"
+   "sha256": "56a1a6c3983736ccac9a4318352d109c2519d66085f55b8fb8b009992f4f9e2f",
+   "changed": "2026-11-14T13:36:00-08:00"
   },
   "rules/base/weak-jump-shifts.notes.md": {
    "sha256": "de8589964f9e306c6563643ffc319773a3551267716d2d457645666863d44dab",
@@ -1557,8 +1557,8 @@
    "changed": "2026-11-09T15:45:18-08:00"
   },
   "rules/competitive/after-interference.bid": {
-   "sha256": "ea84f63cb74837f7f2c3587e085059e4e440a695fd3a9410a689422f80d5f25c",
-   "changed": "2026-11-13T23:37:41-08:00"
+   "sha256": "e9338debafdce372ce6463c9f70b89b1dfb604ddd391c6b1ea09821e71c2b08f",
+   "changed": "2026-11-14T13:36:36-08:00"
   },
   "rules/competitive/after-interference.notes.md": {
    "sha256": "653d5de2251fd1409c73ba5efdfac81073206d8c0afecb48e6a7b0960a22b9a1",
@@ -2141,5 +2141,5 @@
    "changed": "2026-11-13T23:15:09-08:00"
   }
  },
- "pack_sha256": "b69658ea7244efb94404b76424b0034f3a92a11fdb247b7ae684b837d38d1d3e"
+ "pack_sha256": "ecca04dc2c9f1d164f18eb9206ad93285149a78f303a9eaee4668a690999d653"
 }
