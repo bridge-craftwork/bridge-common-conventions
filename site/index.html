@@ -44,8 +44,10 @@ main { max-width: 1200px; margin: 0 auto; padding: 0 16px 48px; }
 .mark.r { background: var(--rules); } .mark.t { background: var(--tests); } .mark.n { background: var(--notes); }
 .mark.s { background: var(--refs); } .mark.f { background: var(--fn); } .mark.c { background: var(--card); }
 .mark.d { background: var(--muted); }
+.mark.p { background: transparent; color: var(--card); border: 1px solid var(--card); }
+.chip.held { color: var(--card); }
 .mark.off { background: transparent; color: var(--off); border: 1px solid var(--off); font-weight: 400; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mark:not(.off) { color: #10141a; } }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mark:not(.off):not(.p) { color: #10141a; } }
 h2.cat { font-size: 16px; margin: 22px 0 4px; display: flex; align-items: baseline; gap: 10px; }
 h2.cat small { color: var(--muted); font-weight: 400; font-size: 13px; }
 .rows { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
@@ -104,8 +106,9 @@ dialog::backdrop { background: rgba(0, 0, 0, .45); }
       <label>Show
         <select id="kind">
           <option value="">everything</option>
-          <option value="card">what a card can hold</option>
-          <option value="skill">skills only (no card entry)</option>
+          <option value="card">a card entry of its own</option>
+          <option value="part">held as part of another convention or setting</option>
+          <option value="skill">skills: nothing on a card</option>
         </select>
       </label>
       <label>Category <select id="cat"><option value="">every category</option></select></label>
@@ -132,7 +135,8 @@ const MARKS = [
   ['n', 'N', 'Notes', c => c.notes.length],
   ['s', 'S', 'Sources cited', c => c.refs],
   ['f', 'F', 'Fills a function', c => c.functions.length],
-  ['c', 'C', 'A card can hold it', c => (c.card ? 1 : 0)],
+  ['c', 'C', 'A card entry of its own', c => (c.card ? 1 : 0)],
+  ['p', 'P', 'Held as part of another convention or setting', c => c.heldBy.length],
   ['d', 'D', 'Deals or a dealer script', c => c.deals],
 ]
 const $ = id => document.getElementById(id)
@@ -173,6 +177,24 @@ function build(pack, manifest) {
     for (const id of ids) named.set(id, [...(named.get(id) || []), path])
   }
   const cases = text => (text.match(/^[NESW] .*\|/gm) || []).length
+  // A convention with no entry of its own may still be on a card: as a
+  // treatment of another convention, or as a setting or one of its options.
+  const heldBy = new Map()
+  const hold = (id, what) => heldBy.set(id, [...new Set([...(heldBy.get(id) || []), what])])
+  for (const d of Object.values(pack.conventions)) {
+    for (const [t, a] of Object.entries(d.treatments || {})) {
+      for (const id of list(a.skill === false ? [] : a.skill)) if (id !== d.id) hold(id, `${d.name}: ${t}`)
+    }
+  }
+  for (const [section, fields] of Object.entries(pack.settings || {})) {
+    for (const [key, a] of Object.entries(fields)) {
+      for (const [option, id] of Object.entries(a.plays || {})) hold(id, `${section}.${key} = ${option}`)
+      for (const id of list(a.skill)) hold(id, `${section}.${key}`)
+    }
+  }
+  for (const fn of Object.values(pack.functions || {})) {
+    for (const was of Object.values(fn.was || {})) for (const id of list(was.skill)) hold(id, was.setting)
+  }
   const conventions = Object.values(pack.conventions).map(d => {
     const [cat, short] = d.id.split('/')
     const dir = `conventions/${cat}/${short}/`
@@ -187,6 +209,7 @@ function build(pack, manifest) {
     return {
       id: d.id, cat, short, def: d, name: d.name, level: d.level ?? null,
       card: list(d.contexts).length > 0, contexts: list(d.contexts),
+      heldBy: list(d.contexts).length > 0 ? [] : heldBy.get(d.id) || [],
       rules, tests: allTests.reduce((n, p) => n + cases(files[p]), 0), testFiles: allTests,
       notes: own.filter(p => p.endsWith('.notes.md')),
       refs: list(d.see).length, deals: list(d.deals).length + (d.dealer ? 1 : 0),
@@ -202,7 +225,8 @@ function build(pack, manifest) {
 function matches(c) {
   if (state.q && !c.search.includes(state.q)) return false
   if (state.kind === 'card' && !c.card) return false
-  if (state.kind === 'skill' && c.card) return false
+  if (state.kind === 'part' && !c.heldBy.length) return false
+  if (state.kind === 'skill' && (c.card || c.heldBy.length)) return false
   if (state.cat && c.cat !== state.cat) return false
   for (const key of state.has) {
     const m = MARKS.find(x => x[0] === key)
@@ -226,7 +250,8 @@ function draw() {
   const sum = $('summary')
   sum.replaceChildren(
     el('div', {}, el('b', { text: conventions.length }), 'definitions'),
-    el('div', {}, el('b', { text: count(c => c.card) }), 'a card can hold'),
+    el('div', {}, el('b', { text: count(c => c.card) }), 'with a card entry'),
+    el('div', {}, el('b', { text: count(c => c.heldBy.length) }), 'held another way'),
     el('div', {}, el('b', { text: conventions.reduce((n, c) => n + c.treatments.length, 0) }), 'treatments'),
     el('div', {}, el('b', { text: count(c => c.rules.length) }), 'with bidding rules'),
     el('div', {}, el('b', { text: model.allCases }), 'rule test cases'),
@@ -269,7 +294,9 @@ function row(c) {
   const treats = el('div', { class: 'treats' })
   for (const f of c.functions) treats.append(el('span', { class: 'chip fn', title: 'Fills this function', text: `→ ${f}` }))
   for (const t of c.treatments) treats.append(el('span', { class: 'chip', title: t.label || t.name, text: t.name }))
-  if (!c.functions.length && !c.treatments.length) treats.append(el('span', { class: 'none', text: c.card ? 'no treatments' : '' }))
+  for (const h of c.heldBy.slice(0, 3)) treats.append(el('span', { class: 'chip held', title: 'On a card as this, not as an entry of its own', text: `in ${h}` }))
+  if (c.heldBy.length > 3) treats.append(el('span', { class: 'none', text: `+${c.heldBy.length - 3} more` }))
+  if (!c.functions.length && !c.treatments.length && !c.heldBy.length) treats.append(el('span', { class: 'none', text: c.card ? 'no treatments' : '' }))
   const r = el('div', { class: `row${recent ? ' recent' : ''}`, tabindex: '0', role: 'button' },
     el('span', { class: 'lvl', title: 'Level, 1 to 10', text: c.level ?? '–' }),
     el('div', { class: 'name' }, c.name, el('small', { text: c.short + (recent ? ` · changed ${new Date(c.changed).toISOString().slice(0, 10)}` : '') })),
@@ -293,7 +320,9 @@ function detail(c) {
   if (list(d.names).length) section('Also called', el('p', { text: list(d.names).join(', ') }))
   if (c.contexts.length || c.functions.length) {
     section('Where it applies', el('p', {},
-      c.contexts.length ? `Context: ${c.contexts.join(', ')}. ` : 'Not held on a card. ',
+      c.contexts.length ? `Context: ${c.contexts.join(', ')}. `
+        : c.heldBy.length ? `No card entry of its own. On a card as: ${c.heldBy.join('; ')}. `
+        : 'Nothing on a card. ',
       c.functions.length ? `Fills: ${c.functions.join(', ')}.` : ''))
   }
   if (c.treatments.length) {

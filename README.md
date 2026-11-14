@@ -26,7 +26,9 @@ reader can rely on.
 
 ## Seeing what is defined
 
-The published branch also carries a page that lists every convention and
+**https://bridge-craftwork.github.io/bridge-common-conventions/**
+
+The published branch carries a page that lists every convention and
 treatment, with what each has behind it (bidding rules, tests, notes,
 sources, a function it fills) and a switch to highlight what changed
 lately. Its source is [site/index.html](site/index.html); it reads
