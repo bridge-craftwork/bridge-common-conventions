@@ -90,8 +90,10 @@ def main():
                 lines.append(f"full/{name}: {len(rows_a)} boards against {len(rows_b)}")
                 continue
             for ra, rb in zip(rows_a, rows_b):
+                if not ra and not rb:
+                    continue
                 counts["bidding: boards compared"] += 1
-                if ra == rb or not ra:
+                if ra == rb:
                     continue
                 a, b = json.loads(ra), json.loads(rb)
                 if a["auction"] != b["auction"]:
