@@ -12,8 +12,11 @@ with no difference over 122,430 auctions. On 25 hand-made cards (Rick's own,
 captured outside this repo, 2026-11-14) 5,772 of 139,125 auctions change, all
 where the card fills in a convention's treatments without ticking it and the
 upgrade now plays it (Stayman on 24 cards, Texas and support doubles on
-one each). `convention-card`'s JavaScript library and editor do not read the
-pack yet.**
+one each). `convention-card`'s JavaScript library reads its vocabulary from
+the pack's snapshot (`scripts/build_snapshot.py`), still as schema 2 paths:
+every export and editor row is byte-identical for those 47 cards. Cards are
+not stored in schema 3 by the JavaScript yet, and the editor's catalogue and
+the format maps still name things by path.**
 
 Rulings on the upgrade (Rick, 2026-11-14): a convention shown only in a note
 is played, since some cards have no box for it; where two conventions want

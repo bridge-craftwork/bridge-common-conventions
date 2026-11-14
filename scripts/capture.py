@@ -75,6 +75,8 @@ def main():
                     help="capture the cards in this directory instead of the corpus's")
     ap.add_argument("--siblings", type=pathlib.Path, default=HERE.parent,
                     help="where the other repos are checked out")
+    ap.add_argument("--convention-card", type=pathlib.Path,
+                    help="the convention-card checkout to capture with (default: the sibling)")
     ap.add_argument("--rbb", type=pathlib.Path, help="the rbb binary to bid with")
     ap.add_argument("--rules", type=pathlib.Path, help="the directory of .bid files")
     ap.add_argument("--no-check-tags", action="store_true",
@@ -82,7 +84,7 @@ def main():
     args = ap.parse_args()
 
     corpus = tomllib.loads(args.corpus.read_text())
-    cc = args.siblings / "convention-card"
+    cc = args.convention_card or args.siblings / "convention-card"
     out = args.out
     out.mkdir(parents=True, exist_ok=True)
     manifest = {"tools": {}, "cards": {}}
