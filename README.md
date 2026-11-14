@@ -24,6 +24,18 @@ published to the [`published`](../../tree/published) branch as two files:
 says what it was built from. [docs/CONTRACT.md](docs/CONTRACT.md) is what a
 reader can rely on.
 
+## Seeing what is defined
+
+The published branch also carries a page that lists every convention and
+treatment, with what each has behind it (bidding rules, tests, notes,
+sources, a function it fills) and a switch to highlight what changed
+lately. Its source is [site/index.html](site/index.html); it reads
+`pack.json` and `manifest.json` from beside it. To see it for a checkout:
+
+    python3 scripts/build_snapshot.py --out /tmp/snapshot
+    cp site/index.html /tmp/snapshot/
+    python3 -m http.server --bind 127.0.0.1 --directory /tmp/snapshot
+
 ## Changing it
 
 Open a pull request. The [Publish workflow](.github/workflows/publish.yml)
