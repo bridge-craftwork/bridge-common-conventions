@@ -13,10 +13,16 @@ captured outside this repo, 2026-11-14) 5,772 of 139,125 auctions change, all
 where the card fills in a convention's treatments without ticking it and the
 upgrade now plays it (Stayman on 24 cards, Texas and support doubles on
 one each). `convention-card`'s JavaScript library reads its vocabulary from
-the pack's snapshot (`scripts/build_snapshot.py`), still as schema 2 paths:
-every export and editor row is byte-identical for those 47 cards. Cards are
-not stored in schema 3 by the JavaScript yet, and the editor's catalogue and
-the format maps still name things by path.**
+the pack's snapshot (`scripts/build_snapshot.py`) and reads every card into
+what it means in schema 3, by the same rules as the crate (18 shared cases;
+identical output on those 47 cards). Its exported card files are schema 3.
+Inside, it still works in schema 2's paths. The other exports are
+byte-identical for the 22 public cards; on the 25 hand-made ones the only
+changes are boxes for conventions the upgrade now plays (3NT raise on ten
+cards; Drury, Texas and support doubles on one each). Not yet: the editor's
+save to its host, the card embedded in a PDF and the hand-off link still
+carry the working form, and the editor's catalogue and the format maps still
+name things by path.**
 
 Rulings on the upgrade (Rick, 2026-11-14): a convention shown only in a note
 is played, since some cards have no box for it; where two conventions want
@@ -24,6 +30,13 @@ one function, the one the card ticks or names wins over the one inferred
 from a note. For Phase 5: the Bridgodex "4NT: more" line is filed under
 Blackwood whatever it says (on Rick's cards it describes keycard's 0314 in
 the minors), and with Stayman unset v0.15.3 plays it over 2NT but not 1NT.
+Also for Phase 5: the PDF maps, the editor's catalogue and the BBO and
+Bridgodex maps ask for some fields by an older spelling
+(`other_conventions.gerber.play` for `slam.gerber.play`) and read the card
+literally, so a card holding the current spelling prints no Gerber box. It
+affects 19 of the 22 public cards today (Gerber, "Majors Limit+", the
+Lebensohl response). Making path reads follow a field's spellings fixes it;
+it was measured and held back as a correction.
 Work is tracked as
 [milestones](https://github.com/bridge-craftwork/bridge-common-conventions/milestones)
 (one per phase) and issues; the lists below are the outline. Update the status
