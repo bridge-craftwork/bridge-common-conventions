@@ -50,7 +50,7 @@ sometimes missed (we need the queen shown).
 - **The convention:** Bridge Bum, "Exclusion Blackwood"
   (https://www.bridgebum.com/exclusion_blackwood.php): a jump to the 4-
   or 5-level in a new suit shows a void, 1430 step answers excluding
-  that ace. Robert S. Todd, "Exclusion Keycard", Advancing in Bridge
+  that ace. Robert S. Todd, "Exclusion Keycard", Adventures in Bridge
   #584 (an unusual jump at the five level; 1430 or 0-1-1-2-2 answers).
   Convention-card `bidding_conventions/exclusion_blackwood.toml` (Kantar,
   *25 More Bridge Conventions You Should Know*, ch. 10).

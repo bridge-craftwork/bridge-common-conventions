@@ -52,7 +52,7 @@ to say more).
 ## Sources
 
 - **The convention:** Robert S. Todd, "Thinking and Responding:
-  Western Cuebids", Advancing in Bridge #510
+  Western Cuebids", Adventures in Bridge #510
   (https://www.advinbridge.com/this-week-in-bridge/510): a cue bid of
   their suit asks partner to bid notrump with a stopper, otherwise to
   make a natural descriptive bid (1♠ (2♣) 2♦ (P) 3♣). Convention-card

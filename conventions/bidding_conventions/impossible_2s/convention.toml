@@ -10,7 +10,7 @@ After 1♥–1NT–2♣ or 2♦, responder's 2♠ cannot be natural, so it shows
 raise of opener's minor, forcing to three of it.
 """
 see = [
-  { title = "The Impossible Spade Bid", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/269" },
+  { title = "The Impossible Spade Bid", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/269" },
   { title = "Impossible 2 Spade", site = "Kiva Bridge Club", url = "http://kivabridgeclub.com/images/Impossible%202%20Spade.pdf" },
   { title = "The Impossible ♠ Bid", site = "Adventures in Bridge", by = "Robert S. Todd", url = "https://static1.squarespace.com/static/5127d3d2e4b0b304f0b6db24/t/5c8e551f104c7b066eb43ac8/1552831776048/3+%28269%29+The+Impossilbe+Spade+Bid+.pdf" },
 ]

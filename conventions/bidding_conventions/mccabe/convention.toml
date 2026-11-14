@@ -10,6 +10,6 @@ to lead rather than show length, so the partnership can compete and direct
 the defence at once.
 """
 see = [
-  { title = "McCabe Responses to Preempts", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/468" },
-  { title = "Transfer McCabe Responses to Preempts", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/606" },
+  { title = "McCabe Responses to Preempts", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/468" },
+  { title = "Transfer McCabe Responses to Preempts", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/606" },
 ]

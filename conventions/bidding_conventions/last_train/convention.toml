@@ -10,5 +10,5 @@ in its suit.
 """
 see = [
   { title = "Last Train", site = "Wikipedia", url = "https://en.wikipedia.org/wiki/Last_Train_(bridge)" },
-  { title = "Slam Bidding: Last Train Slam Try", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/540" },
+  { title = "Slam Bidding: Last Train Slam Try", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/540" },
 ]

@@ -18,7 +18,7 @@ that is now the most prevalent treatment.
 see = [
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 20 },
   { title = "25 More Bridge Conventions You Should Know", kind = "book", chapter = 20 },
-  { title = "Slam Bidding: Control-Showing Bids", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/406" },
+  { title = "Slam Bidding: Control-Showing Bids", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/406" },
 ]
 
 [treatments.style]

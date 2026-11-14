@@ -10,5 +10,5 @@ fourth-seat major both show limit raises, split by trump length (usually 2♣
 three trumps, 2♦ four).
 """
 see = [
-  { title = "Fits and More: 2-Way Reverse Drury", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/525" },
+  { title = "Fits and More: 2-Way Reverse Drury", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/525" },
 ]

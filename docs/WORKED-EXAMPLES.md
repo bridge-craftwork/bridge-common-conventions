@@ -365,7 +365,7 @@ role = "about"
 kind = "published"
 title = "NT Bidding: DONT and Meckwell"
 by = "Robert S. Todd"
-site = "Advancing in Bridge"
+site = "Adventures in Bridge"
 url = "https://www.advinbridge.com/this-week-in-bridge/541"
 ```
 

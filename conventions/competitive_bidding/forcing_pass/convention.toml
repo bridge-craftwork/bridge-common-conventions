@@ -9,5 +9,5 @@ opponent bids, a pass is forcing: it asks partner to double or bid, and
 shows interest in continuing.
 """
 see = [
-  { title = "Slam Bidding: Forcing Pass Auctions", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/532" },
+  { title = "Slam Bidding: Forcing Pass Auctions", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/532" },
 ]

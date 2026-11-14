@@ -14,7 +14,7 @@ at the four level (4♦ for hearts, 4♥ for spades) with game values.
 see = [
   { title = "Texas Transfer", site = "Bridge Bum", url = "https://www.bridgebum.com/texas_transfer.php" },
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 2 },
-  { title = "NT Auctions: Opponents' Doubles of Our Stayman and Transfers", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/520" },
+  { title = "NT Auctions: Opponents' Doubles of Our Stayman and Transfers", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/520" },
 ]
 
 [treatments.super_accept]

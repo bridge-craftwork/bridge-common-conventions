@@ -16,7 +16,7 @@ kings, by number or, with specific kings, the cheapest one held.
 """
 see = [
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 9 },
-  { title = "Slam Bidding: 1430 Keycard Blackwood", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/403" },
+  { title = "Slam Bidding: 1430 Keycard Blackwood", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/403" },
 ]
 
 [treatments.style]

@@ -12,7 +12,7 @@ responder cue-bids fast or slow tells whether a stopper is held.
 see = [
   { title = "Lebensohl", by = "Larry Cohen", url = "https://www.larryco.com/bridge-articles/lebensohl" },
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 25 },
-  { title = "NT Bidding: Responding to 1NT in Competition - Lebensohl", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/545" },
+  { title = "NT Bidding: Responding to 1NT in Competition - Lebensohl", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/545" },
   { title = "Lebensohl over weak two bids", site = "Bridge Bum", url = "https://www.bridgebum.com/lebensohl_over_weak_two.php" },
 ]
 

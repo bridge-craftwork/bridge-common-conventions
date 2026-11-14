@@ -47,7 +47,7 @@ SITES = {
     "bridgebum.com": {"site": "Bridge Bum"},
     "en.wikipedia.org": {"site": "Wikipedia"},
     "larryco.com": {"by": "Larry Cohen", "site": "Larry Cohen"},
-    "advinbridge.com": {"by": "Robert S. Todd", "site": "Advancing in Bridge"},
+    "advinbridge.com": {"by": "Robert S. Todd", "site": "Adventures in Bridge"},
     "bridgebase.com": {"site": "Bridge Base Online"},
     "duralbridge.com": {"site": "Dural Bridge"},
     "bridgewinners.com": {"site": "Bridge Winners"},

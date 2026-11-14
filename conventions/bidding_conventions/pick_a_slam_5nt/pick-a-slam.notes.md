@@ -32,7 +32,7 @@ Pick-a-slam 5NT (2026-10-05), gated on `slam.pick_a_slam_5nt.play`.
 ## Sources
 
 - **The convention:** Robert S. Todd, "Slam Bidding: 5NT Choice of
-  Slams", Advancing in Bridge #535 (a jump to 5NT, not a keycard
+  Slams", Adventures in Bridge #535 (a jump to 5NT, not a keycard
   follow-up, asks partner to choose; six of his preferred suit or 6NT).
   Convention-card `bidding_conventions/pick_a_slam_5nt.toml` (Kantar, *25
   More Bridge Conventions You Should Know*, ch. 23).

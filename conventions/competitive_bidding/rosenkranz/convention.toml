@@ -10,5 +10,5 @@ raise denies one.
 """
 see = [
   { title = "Rosenkranz Double", site = "Bridge Bum", url = "https://www.bridgebum.com/rosenkranz_double.php" },
-  { title = "Rosenkrantz Redoubles", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/569" },
+  { title = "Rosenkrantz Redoubles", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/569" },
 ]

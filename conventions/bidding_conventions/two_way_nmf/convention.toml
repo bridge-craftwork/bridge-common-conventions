@@ -9,5 +9,5 @@ Played instead of NMF: after opener's 1NT rebid, responder's 2♣ relays to 2♦
 """
 see = [
   { title = "Two-Way New Minor Forcing aka xyNT", site = "Bridge Winners", url = "https://bridgewinners.com/article/view/two-way-new-minor-forcing-aka-xynt" },
-  { title = "2-Way New Minor Forcing and Wolff Signoff", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/586" },
+  { title = "2-Way New Minor Forcing and Wolff Signoff", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/586" },
 ]

@@ -13,5 +13,5 @@ off without.
 see = [
   { title = "Help Suit Game Try", site = "Bridge Bum", url = "https://www.bridgebum.com/help_suit_game_try.php" },
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 14 },
-  { title = "Help Suit Game Tries", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/465" },
+  { title = "Help Suit Game Tries", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/465" },
 ]

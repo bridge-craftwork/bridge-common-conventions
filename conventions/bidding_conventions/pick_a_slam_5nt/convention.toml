@@ -10,5 +10,5 @@ possible slams, usually in notrump or in a suit partner prefers.
 """
 see = [
   { title = "25 More Bridge Conventions You Should Know", kind = "book", chapter = 23 },
-  { title = "Slam Bidding: 5NT Choice of Slams", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/535" },
+  { title = "Slam Bidding: 5NT Choice of Slams", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/535" },
 ]

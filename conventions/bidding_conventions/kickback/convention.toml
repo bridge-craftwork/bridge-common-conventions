@@ -11,7 +11,7 @@ trumps, 4♥ with diamonds, 4♠ with hearts, and 4NT with spades. The answers
 then never take the auction past five of the trump suit.
 """
 see = [
-  { title = "Kickback Keycard Ask", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/582" },
+  { title = "Kickback Keycard Ask", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/582" },
 ]
 
 [treatments.rkcb_1430]

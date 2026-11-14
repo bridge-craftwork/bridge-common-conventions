@@ -12,5 +12,5 @@ meanings. It usually denies a four-card major.
 """
 see = [
   { title = "25 More Bridge Conventions You Should Know", kind = "book", chapter = 17 },
-  { title = "Inverted Minors and 1D-2C Auctions with Structure", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/591" },
+  { title = "Inverted Minors and 1D-2C Auctions with Structure", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/591" },
 ]

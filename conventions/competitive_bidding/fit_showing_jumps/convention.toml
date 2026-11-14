@@ -10,5 +10,5 @@ partner, so partner can judge how the hands fit.
 """
 see = [
   { title = "25 More Bridge Conventions You Should Know", kind = "book", chapter = 14 },
-  { title = "Fit-Showing Jumps", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/574" },
+  { title = "Fit-Showing Jumps", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/574" },
 ]

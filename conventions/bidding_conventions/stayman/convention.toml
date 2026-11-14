@@ -14,7 +14,7 @@ see = [
   { title = "Stayman", site = "Bridge Bum", url = "https://www.bridgebum.com/stayman.php" },
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 3 },
   { title = "25 More Bridge Conventions You Should Know", kind = "book", chapter = 9 },
-  { title = "Stayman Auctions After a 2NT Opening", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/633" },
+  { title = "Stayman Auctions After a 2NT Opening", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/633" },
 ]
 
 [treatments.forcing]

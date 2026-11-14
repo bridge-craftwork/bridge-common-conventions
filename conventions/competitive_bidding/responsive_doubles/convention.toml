@@ -12,7 +12,7 @@ kind (the majors or the minors).
 """
 see = [
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 23 },
-  { title = "Responsive Doubles", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/354" },
+  { title = "Responsive Doubles", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/354" },
 ]
 
 [treatments.through]

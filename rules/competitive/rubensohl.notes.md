@@ -86,5 +86,5 @@ double-dummy +63; halves +31/+107 (z +1.0): leans gain.
   two.
 - Larry Cohen, "Transfer Lebensohl"
   (https://www.larryco.com/bridge-articles/transfer-lebensohl), and
-  Robert S. Todd, Advancing in Bridge 548: opener completes with a
+  Robert S. Todd, Adventures in Bridge 548: opener completes with a
   minimum, any other bid is forcing.

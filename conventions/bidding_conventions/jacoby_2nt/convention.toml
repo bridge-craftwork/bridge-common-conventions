@@ -14,5 +14,5 @@ level, a good second suit at the four level, or strength by 3M, 3NT or 4M.
 """
 see = [
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 10 },
-  { title = "Slam Bidding: Jacoby 2NT", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/407" },
+  { title = "Slam Bidding: Jacoby 2NT", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/407" },
 ]

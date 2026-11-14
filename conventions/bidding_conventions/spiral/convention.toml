@@ -10,5 +10,5 @@ A relay that asks about trump length and quality in steps once a fit is
 found, so the asker can judge game or slam from how good the trumps are.
 """
 see = [
-  { title = "Fits and More: 2NT Trump Suit Game Try - Spiral", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/529" },
+  { title = "Fits and More: 2NT Trump Suit Game Try - Spiral", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/529" },
 ]

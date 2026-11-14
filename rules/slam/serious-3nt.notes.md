@@ -66,7 +66,7 @@ double-dummy +14, halves +51/-47 (z +0.1): neutral.
 ## Sources
 
 - **The convention:** Robert S. Todd, "Slam Bidding: Non-Serious 3NT",
-  Advancing in Bridge #539
+  Adventures in Bridge #539
   (https://www.advinbridge.com/this-week-in-bridge/539): when it applies
   (a bid and supported major at the three level in a game force, an
   8+ card fit, neither hand balanced), what 3NT, control bids, 4M and

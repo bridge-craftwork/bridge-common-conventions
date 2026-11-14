@@ -10,5 +10,5 @@ other bids by responder show values.
 """
 see = [
   { title = "25 More Bridge Conventions You Should Know", kind = "book", chapter = 11 },
-  { title = "Lebensohl over Reverses", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/417" },
+  { title = "Lebensohl over Reverses", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/417" },
 ]
