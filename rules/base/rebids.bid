@@ -22,7 +22,6 @@ module rebids "Opener's rebid"
   param  support_through = competitive_bidding/support_doubles:through
   param  walsh = bidding_conventions/walsh default true
   param  inverted = bidding_conventions/inverted_minors default false
-  param  weak_js = bidding_conventions/weak_jump_shifts:two_level default false
   param  weak_js3 = bidding_conventions/weak_jump_shifts:three_level default false
   param  gf21 = bidding_conventions/two_over_one default false
   param  style21 = bidding_conventions/two_over_one:rebid_style default bergen
@@ -307,7 +306,7 @@ after 1C (P) 1N (P)
 after 1m (P) 1y (P) | 1m (P) 2y (P)
   3N  "18-21 with six or more {m}: to play"
       shows m>=6, hcp=18..21
-      when  y is not m, !weak_js | !partner.jumped   # opposite a weak jump shift: weak-jump-shifts.bid
+      when  y is not m, !wjs_on | !partner.jumped   # opposite a weak jump shift: weak-jump-shifts.bid
       when  !(weak_nt, partner.last=2C)      # with a weak notrump 1D-2C-3NT is 15-17 balanced (below)
 after 1M (P) 1y (P) | 1M (P) 2y (P)
   4M  "19+ with six or more {M}: game"
@@ -494,7 +493,7 @@ after 1m (P) 1M (P) 3m (P) 3M (P)
 # 1S-2D-2H, 1H-2C-2D) is natural with no extras in every style. Raises
 # of responder's suit and the jumps (3M six 16-18, 3NT 18-19) are the
 # same in all three.
-after 1M (P) 2x (P) when x is not M, !weak_js | !partner.jumped   # a weak jump shift: weak-jump-shifts.bid
+after 1M (P) 2x (P) when x is not M, !wjs_on | !partner.jumped   # a weak jump shift: weak-jump-shifts.bid
   # Bergen: 2NT says nothing: any hand without a better call, a 5-3-3-2
   # of any strength below the 3NT rebid, no stopper promised. 2M is six
   # or more, any strength; a new suit is shape, not strength.

@@ -12,7 +12,13 @@ module weak-jump-shifts "Weak jump shifts"
   needs  responses
   skill  bidding_conventions/weak_jump_shifts
   param  weak2 = bidding_conventions/weak_jump_shifts:two_level default false
+  param  weak2_nc = bidding_conventions/weak_jump_shifts:not_in_comp default false
   param  weak3 = bidding_conventions/weak_jump_shifts:three_level default false
+
+# Weak jump shifts with no interference: the two-level box, or the
+# "not in competition" box other card formats have (#74). The modules
+# that give way to a weak jump shift read this too.
+define wjs_on = weak2 | weak2_nc
 
 # A response of 2x to 1y is a jump when x ranks above y (else a two over
 # one). responder-rebids.bid reads it to keep its 2/1 continuations away
@@ -20,7 +26,7 @@ module weak-jump-shifts "Weak jump shifts"
 define two_level_jump(x, y) = y is C | (y is D, x is H | x is S) | (y is H, x is S)
 
 # ── Opener after a weak jump shift at the two level ────────────────────
-after 1x (P) 2y (P) when weak2, y is not x, partner.jumped
+after 1x (P) 2y (P) when wjs_on, y is not x, two_level_jump(y, x), partner.jumped
   P   "To play: two of {y}"          priority -5
   4y  "Game: 18+ with two or more {y}"           shows y>=2, hcp>=18
       when  y is H | y is S
@@ -44,7 +50,7 @@ after 1x (P) 2y (P) when weak2, y is not x, partner.jumped
 # Responder answers the 2NT game try: three of his suit with a minimum,
 # 3NT with a maximum and two of the top three honours, else a feature
 # (an ace or king) with a maximum.
-after 1x (P) 2y (P) 2N (P) when weak2, y is not x
+after 1x (P) 2y (P) 2N (P) when wjs_on, y is not x, two_level_jump(y, x)
   3N  "Maximum: 4-5, two of the top three honours"   shows hcp>=4, quality(y)>=good
   3z  "Maximum: 4-5, a feature in {z}"
       shows hcp>=4, has(A,z) | has(K,z)
@@ -53,29 +59,29 @@ after 1x (P) 2y (P) 2N (P) when weak2, y is not x
   3y  "Minimum: 2-3, or no feature"
       priority -1
 
-after 1x (P) 2y (P) 2N (P) 3y (P) when weak2, y is not x
+after 1x (P) 2y (P) 2N (P) 3y (P) when wjs_on, y is not x, two_level_jump(y, x)
   P   "Minimum: to play"             priority -5
   4y  "Game"                              shows hcp>=17, y>=3
       when  y is H | y is S
-after 1x (P) 2y (P) 2N (P) 3z (P) when weak2, y is not x, z is not y
+after 1x (P) 2y (P) 2N (P) 3z (P) when wjs_on, y is not x, two_level_jump(y, x), z is not y
   4y  "Game in {y}"                              shows y>=2
       when  y is H | y is S
   3N  "Game in notrump"                          when  y is C | y is D
-after 1x (P) 2y (P) 2N (P) 3N (P) when weak2, y is not x
+after 1x (P) 2y (P) 2N (P) 3N (P) when wjs_on, y is not x, two_level_jump(y, x)
   P   "No further bid"                             priority -5
 
 # Responder after opener rebids his suit (not forcing): pass.
-after 1x (P) 2y (P) 3x (P) when weak2, y is not x
+after 1x (P) 2y (P) 3x (P) when wjs_on, y is not x, two_level_jump(y, x)
   P   "Opener's suit: play here"                 priority -5
 
 # Responder after opener's invitational raise: game with a maximum.
-after 1x (P) 2y (P) 3y (P) when weak2, y is not x
+after 1x (P) 2y (P) 3y (P) when wjs_on, y is not x, two_level_jump(y, x)
   P   "Minimum: play three"                      priority -5
   4y  "Maximum: 4-5, game"                      shows hcp>=4
       when  y is H | y is S
 # After opener's new suit (forcing): raise with four, else back to a
 # known suit as cheaply as possible.
-after 1x (P) 2y (P) 2z (P) | 1x (P) 2y (P) 3z (P) when weak2, y is not x, z is not x, z is not y
+after 1x (P) 2y (P) 2z (P) | 1x (P) 2y (P) 3z (P) when wjs_on, y is not x, two_level_jump(y, x), z is not x, z is not y
   3z  "Raise: four {z}"                          shows z>=4
   cheapest(y)  "Rebids {y}: no fit"              shows y>=6
       priority -1
@@ -84,7 +90,7 @@ after 1x (P) 2y (P) 2z (P) | 1x (P) 2y (P) 3z (P) when weak2, y is not x, z is n
 
 # Opener after responder's answer to the new suit: game with a fit found
 # (4 of a major, or 3NT), else stop.
-after 1x (P) 2y (P) 2z (P) * (P) | 1x (P) 2y (P) 3z (P) * (P) when weak2, y is not x, z is not x, z is not y
+after 1x (P) 2y (P) 2z (P) * (P) | 1x (P) 2y (P) 3z (P) * (P) when wjs_on, y is not x, two_level_jump(y, x), z is not x, z is not y
   P   "No game: stop here"                       priority -5
   4z  "Game in the fit"                          shows z>=4, hcp>=19
       when  partner.z>=4, z is H | z is S

@@ -42,6 +42,14 @@ CORRECTED = {
     ("bidding_conventions/reverse_flannery", "contexts"): "the same",
 }
 
+# Rule files whose bidding was corrected on purpose (Phase 5), and why.
+# Their text is no longer the tag's; the rule tests and the reviewed
+# differences are what hold them.
+CORRECTED_RULES = {
+    "weak-jump-shifts.bid": "#74: the not-in-competition box counts; follow-ups only after a real jump",
+    "soloway.bid": "#74", "responses.bid": "#74", "rebids.bid": "#74", "responder-rebids.bid": "#74",
+}
+
 # Files that did not stay in the pack, and where they went.
 ELSEWHERE = {
     "stock-cards.test": "rusty-bidding-bot's cards/: it tests the engine's stock cards, which the pack does not hold",
@@ -225,7 +233,7 @@ def main():
             # A comment cannot change a bid, so comment lines are not held
             # to the tag either (a source's URL added to a header).
             body = lambda ls: [l for l in ls if not re.match(r"\s*(card|param|convention)\s|\s*#", l)]
-            if base in BY_FUNCTION:
+            if base in BY_FUNCTION or base in CORRECTED_RULES:
                 by_function += 1
             elif not base.endswith((".bid", ".test")) or body(old) != body(new):
                 problems.append(f"{name}: text differs from {here[base].relative_to(HERE)}")
@@ -235,7 +243,7 @@ def main():
     print(f"{len(want)} card fields, {seen} definitions and {rules} rule files compared "
           f"with convention-card {cc_tag} and rusty-bidding-bot {rbb_tag}.")
     print(f"{converted} rule and test files differ from the tag only in their card, param and convention lines; "
-          f"{by_function} read the defence to 1NT as a function; {len(ELSEWHERE)} moved out.")
+          f"{by_function} read a function or were corrected; {len(ELSEWHERE)} moved out.")
     print(f"\nHeld in another form ({len(expected)}):")
     for e in expected:
         print("  " + e)
