@@ -117,17 +117,29 @@ def main():
         card_out = out / "cards"
         if card_out.exists():
             shutil.rmtree(card_out)
-        subprocess.run(["node", str(HERE / "scripts" / "capture-cards.mjs"), str(cc),
-                        str(cards), str(card_out)],
-                       check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        for name in names:
-            stem = name.rsplit(".", 1)[0]
-            files = sorted((card_out / stem).iterdir())
+        listing = subprocess.run(["node", str(HERE / "scripts" / "capture-cards.mjs"), str(cc),
+                                  str(cards), str(card_out)], check=True, text=True,
+                                 stdout=subprocess.PIPE, stderr=subprocess.DEVNULL).stdout
+        source = dict(line.split("\t") for line in listing.splitlines() if "\t" in line)
+        # One capture per card; a file can hold several (a BBO export).
+        # `bid_with` is the file the bidder is given: the card as it came,
+        # when the bidder reads that format itself, else the card as
+        # convention-card imported it.
+        bid_with = {}
+        for stem, name in sorted(source.items()):
+            folder = card_out / stem
+            files = sorted(folder.iterdir())
             errors = [f.name for f in files if "capture_error" in f.read_text()]
+            read = json.loads((folder / "import.json").read_text())
             manifest["cards"][stem] = {"source": name, "sha256": sha((cards / name).read_bytes()),
                                        "exports": len(files)}
             if errors:
                 manifest["cards"][stem]["export_errors"] = errors
+            if read.get("format") in ("card", "bbsa"):
+                bid_with[stem] = cards / name
+            else:
+                manifest["cards"][stem]["bid_as_imported"] = read.get("format")
+                bid_with[stem] = folder / "card.json"
 
         # --- rusty-bidding-bot ---
         if args.rbb:
@@ -151,11 +163,10 @@ def main():
                 shutil.rmtree(cov_out)
             cov_out.mkdir()
             rules = ["--rules", str(args.rules)] if args.rules else []
-            for name in names:
-                stem = name.rsplit(".", 1)[0]
+            for stem, card in bid_with.items():
                 target = full / f"{stem}.jsonl"
                 r = subprocess.run([str(args.rbb), "bid-pbn", "-i", str(tmp / "deals.pbn"),
-                                    "-o", str(target), "--ns-card", str(cards / name),
+                                    "-o", str(target), "--ns-card", str(card),
                                     "--json", "--all-meanings", *rules],
                                    capture_output=True, text=True)
                 if r.returncode:
@@ -180,7 +191,7 @@ def main():
                     "auctions_sha256": sha("\n".join(auctions).encode()),
                 }
                 c = subprocess.run([str(args.rbb), "card", "coverage", "-v", *rules,
-                                    str(cards / name)], capture_output=True, text=True)
+                                    str(card)], capture_output=True, text=True)
                 (cov_out / f"{stem}.txt").write_text(c.stdout if not c.returncode else c.stderr)
                 print(stem, len(auctions), "boards", flush=True)
 

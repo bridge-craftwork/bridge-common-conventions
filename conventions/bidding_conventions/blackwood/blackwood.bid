@@ -1,0 +1,215 @@
+# Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
+#
+# Standard Blackwood: 4NT asks for aces once a trump suit is agreed. The
+# answers count aces only; keycards(N) is aces without a trump king.
+
+module blackwood "Blackwood (standard)"
+  kind   convention
+  convention  bidding_conventions/blackwood
+  needs  base
+  skill  bidding_conventions/blackwood
+  skill  partnership_bidding/blackwood
+  param  style = bidding_conventions/control_bids:style default first_or_second_round
+  param  kstyle = slam.king_ask.style default five_nt   # five_nt | next_step | none (convention-card 0.28); a card that is silent plays 5NT (2026-10-29)
+
+# ── The ask ───────────────────────────────────────────────────────────
+#
+# Rick's ruling:
+#
+#   Slam asks isn't about 18 -- what has partner shown? It's more about
+#   33+ combined points, where in a suit contract the player with fewer
+#   trumps gets to switch to short-suit points -- 1 for a doubleton, 3
+#   for a singleton, 5 for a void, capped by number of trumps held. When
+#   the slam asker has unprotected suits, we will normally use control
+#   bids before keycard, and stop in game if there is a suit unprotected
+#   in both hands.
+#
+# So the test is **33 combined support points with the agreed suit as
+# trump**, `we.tp(trump)`: my exact count plus the range a raise recorded
+# for partner. It replaces `tp(trump) + partner.hcp.max`, which was a
+# workaround from before raises showed support points. The evidence
+# behind the boundaries is in slam-catch.notes.md.
+#
+# Two branches, because partner's range is read from a different end.
+#
+# 1. **Partner is limited** (a raise, a limit raise) and nothing has
+#    forced us to game. Partner has shown a top as well as a bottom, and
+#    the only other call on offer is game, so the ask carries the whole
+#    decision and 33 is measured against partner's maximum:
+#    `we.tp(trump).max >= 33`. With it, the hand must play for twelve
+#    tricks opposite a minimum (`losers <= 4`) and must not have **two
+#    bare side suits** -- two or more cards with neither the ace nor the
+#    king, where the first two tricks can go. That last test replaces
+#    `controls >= 7`: it says which suit is the problem rather than
+#    counting. One bare suit is allowed, because a raise facing it will
+#    usually hold something there; two is where partner cannot cover
+#    both. BBA draws the same line: over `1S P 2S P` and `1S P 3S P` on
+#    the Basic-Bridge card it asks with none or one bare suit (272
+#    boards) and never with two.
+#
+# 2. **We are already forced to game.** Partner's range has no top, so
+#    `we.tp(trump).max` says nothing; what is known is partner's floor.
+#    33 between us on that floor is the test, and where the trump
+#    agreement recorded no support points for partner the fallback is my
+#    own 18, a game force being worth about 13 (`slam_values`, named in
+#    slam-entry.bid with the other shared conditions). Here the
+#    ask ranks *behind* the system's descriptive calls: shortness, a
+#    second suit and a control bid all say more than 4NT does, and the
+#    ask is what is left when they are used up.
+#
+# When the card plays control bids (`slam.cue_bids.play`), a hand with a
+# bare suit goes to `control-bids.bid` first and comes back here only
+# once partner has shown a control.
+
+when we.trump is suit, !minor_given_way, !asked, we.forcing = none | we.forcing = round
+  4N  "Blackwood: how many aces?"
+      when  slam_values_limited     # 33 facing partner's maximum
+      when  !two_bare_suits  # and no two bare side suits
+      sets  ask=aces
+      artificial
+      priority 1
+
+when we.trump is suit, !minor_given_way, !asked, we.forcing = game, !answered control   # after a control dialogue its own rules decide
+  4N  "Blackwood: how many aces?"
+      when  slam_values  # 33 on partner's floor, or 18 of my own
+      sets  ask=aces
+      artificial
+      priority -1                      # after any natural 4NT
+
+# A fit known but not agreed (docs/JUDGMENT-LAYER.md, Phase 1): partner's
+# game raise, his preempt, a transfer completed. No rule set `trump`, so
+# the asks above never saw it. The ask agrees the major on the way.
+# Majors only for now: the sign-offs after an answer are awkward in a
+# minor.
+when we.trump is none, !asked, !they.bid   # uncontested for now: in competition it cost
+  4N  "Blackwood, agreeing ♠: how many aces?"
+      when  shown_fit(S), we.fit(S).min >= 8, fit_slam_values(S), !two_bare_beside(S)
+      sets  trump=S, ask=aces
+      artificial
+      priority 1
+  4N  "Blackwood, agreeing ♥: how many aces?"
+      when  shown_fit(H), we.fit(H).min >= 8, fit_slam_values(H), !two_bare_beside(H)
+      sets  trump=H, ask=aces
+      artificial
+      priority 1
+
+# The keycard suit when no rule has set the one we play in (Rick,
+# 2026-10-03; `kc_open`, slam-entry.bid): a suit agreed by what we have
+# shown, else, with no notrump bid by us, the last suit we bid
+# (1H-1S-2H-4NT asks for aces with hearts agreed). The ask sets it as
+# trump. As in rkcb-1430.bid.
+when we.trump is none, !asked, !they.bid
+  4N  "Blackwood, agreeing ♠: how many aces?"
+      when  kc_open(S), !shown_fit(S), !shown_fit(H), we.fit(S).min >= 8, fit_slam_values(S), !two_bare_beside(S)
+      sets  trump=S, ask=aces
+      artificial
+      priority -1
+  4N  "Blackwood, agreeing ♥: how many aces?"
+      when  kc_open(H), !shown_fit(S), !shown_fit(H), we.fit(H).min >= 8, fit_slam_values(H), !two_bare_beside(H)
+      sets  trump=H, ask=aces
+      artificial
+      priority -1
+  4N  "Blackwood, agreeing ♦: how many aces?"
+      when  kc_open(D), !shown_fit(S), !shown_fit(H), we.fit(D).min >= 8, fit_slam_values(D), !two_bare_beside(D)
+      when  hcp + partner.hcp.min >= 30   # a minor slam needs the high cards (rebids.test: 17 facing a preference)
+      sets  trump=D, ask=aces
+      artificial
+      priority -1
+  4N  "Blackwood, agreeing ♣: how many aces?"
+      when  kc_open(C), !shown_fit(S), !shown_fit(H), we.fit(C).min >= 8, fit_slam_values(C), !two_bare_beside(C)
+      when  hcp + partner.hcp.min >= 30   # a minor slam needs the high cards (rebids.test: 17 facing a preference)
+      sets  trump=C, ask=aces
+      artificial
+      priority -1
+
+# A minor set as trump, and a major agreed since (Rick, 2026-10-03): the
+# major is trump.
+when minor_given_way, !asked
+  4N  "Blackwood, agreeing ♠: how many aces?"
+      when  major_over_minor(S), fit_slam_values(S), !two_bare_beside(S)
+      sets  trump=S, ask=aces
+      artificial
+      priority 1
+  4N  "Blackwood, agreeing ♥: how many aces?"
+      when  major_over_minor(H), !major_over_minor(S), fit_slam_values(H), !two_bare_beside(H)
+      sets  trump=H, ask=aces
+      artificial
+      priority 1
+
+# After a control-bid exchange (`control-bids.bid`, when the card plays
+# them). `asked control(t)` is partner's control bid; `answered control(u)`
+# says partner was answering mine, so I am the hand that opened the
+# dialogue and the one that takes charge. Above it, the stop-in-game rule
+# at priority 20 has already ruled out a suit bare in both hands; below
+# it, any control still to show outranks the ask.
+
+# In a control-bid dialogue (control-bids.bid): ask once every side suit
+# is covered -- a control of mine, one partner has cued, or one I denied
+# that partner has promised by bidding on. A control bid below game still
+# comes first (priority 12), the ask before one past game (10).
+when we.trump is suit, asked control(t)
+  4N  "Blackwood: how many aces?"
+      when  all_covered
+      sets  ask=aces
+      artificial
+      priority 11
+
+when we.trump is suit, answered control(t), partner.last = 4{trump}
+  4N  "Blackwood: how many aces?"
+      when  all_covered_by_us
+      sets  ask=aces
+      artificial
+      priority 15
+
+when asked aces
+  5C  "0 or 4 aces"                    shows keycards(N) in 0|4  artificial
+  5D  "1 ace"                          shows keycards(N)=1       artificial
+  5H  "2 aces"                         shows keycards(N)=2       artificial
+  5S  "3 aces"                         shows keycards(N)=3       artificial
+
+# The asker places the contract: slam with at most one ace missing,
+# otherwise five of the trump suit (or pass when that is the answer).
+when answered aces
+  # The king ask (`slam.king_ask.style = five_nt`, 2026-10-05): all four aces
+  # are ours and the grand turns on the kings.
+  5N        "King ask: all the aces held"
+            when kstyle is five_nt, we.keycards(N)=4
+            sets ask=kings(N)
+            artificial
+            priority 1
+  6{trump}  "Small slam"
+            when we.keycards(N)>=3
+  P         "To play"
+            when partner.last=5{trump}, we.keycards(N).max<=2
+  5{trump}  "Signoff"
+            when we.keycards(N).max<=2
+  # "0 or 4" facing no ace of my own is four.
+  6{trump}  "Small slam"
+            when maybe we.keycards(N)>=3
+            priority -1
+
+# The king ask by 5NT: the number of kings by steps from 6♣ (6NT four),
+# as ACBL's SAYC booklet. Kings are controls less two for each ace.
+define bw_kings = controls - keycards(N) - keycards(N)
+
+when kstyle is five_nt, asked kings(N)
+  6C  "No king"       shows bw_kings = 0   artificial
+  6D  "One king"      shows bw_kings = 1   artificial
+  6H  "Two kings"     shows bw_kings = 2   artificial
+  6S  "Three kings"   shows bw_kings = 3   artificial
+  6N  "Four kings"    shows bw_kings = 4   artificial
+
+# The asker: the grand with every king between us, or with three and 33
+# HCP on partner's floor; else six, or 6NT when the answer has passed six
+# of our suit.
+define partner_kings = (partner.last = 6D) + (partner.last = 6H) + (partner.last = 6H) + (partner.last = 6S) + (partner.last = 6S) + (partner.last = 6S) + (partner.last = 6N) + (partner.last = 6N) + (partner.last = 6N) + (partner.last = 6N)
+
+when kstyle is five_nt, answered kings(N)
+  7{trump}  "Grand slam"
+            when bw_kings + partner_kings >= 4
+  7{trump}  "Grand slam"
+            when bw_kings + partner_kings >= 3, hcp + partner.hcp.min >= 33
+  P         "To play"
+            when partner.last = 6{trump}
+  6{trump}  "Small slam"
+  6N        "Small slam"

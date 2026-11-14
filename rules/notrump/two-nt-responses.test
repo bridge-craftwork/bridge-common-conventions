@@ -1,0 +1,135 @@
+# Responses to a 2NT opening: the 1NT structure one level up.
+card    Basic-Bridge
+dealer  S
+
+# seat hand             | auction        | expect | why
+N KJ54.Q762.93.874      | 2NT P          | 3C     | 6 HCP with four hearts and four spades: Stayman
+N KJ8542.Q72.93.87      | 2NT P          | 3H     | six spades: transfer
+N 82.QJ9732.K94.J8      | 2NT P          | 3D     | six hearts: transfer
+N K8.K74.Q963.T874      | 2NT P          | 3NT    | 8 HCP, no major: game
+N KJ2.Q74.K963.KT7      | 2NT P          | 4NT    | 12: quantitative, invites six
+N 832.J74.9632.874      | 2NT P          | P      | 1 HCP: 2NT is the limit
+S AQ3.KJ84.AQ54.K9      | 2NT P 3C P     | 3H     | four hearts
+S AQ32.KJ8.AQ54.K9      | 2NT P 3C P     | 3S     | four spades, not four hearts
+S AQ3.KJ8.AQ542.K9      | 2NT P 3C P     | 3D     | no four-card major
+S AQ3.KJ84.AQ54.K9      | 2NT P 3D P     | 3H     | completes the transfer
+N KJ54.Q762.93.874      | 2NT P 3C P 3H P | 4H    | the heart fit: game
+N KJ8542.Q72.93.87      | 2NT P 3H P 3S P | 4S    | six spades opposite 20-21: game
+
+# ── The BBA treatment (probed 2026-09-24) ───────────────────────────
+card    Basic-Bridge general.style=bba
+dealer  S
+N K432.7632.96.972      | 2NT P          | P      | bba: 3 HCP passes, four-card majors or not
+N K432.Q632.96.972      | 2NT P          | 3C     | bba: 5 HCP and a major: Stayman
+N K32.Q632.962.972      | 2NT P          | 3C     | bba: 4-3-3-3 too
+N 432.J72.K962.972      | 2NT P          | P      | bba: 4 HCP passes
+N 432.Q72.K962.972      | 2NT P          | 3NT    | bba: 5 HCP: game
+N T32.KT2.AT62.K72      | 2NT P          | 3NT    | bba: 10 and three tens: still 3NT
+N 432.K72.A962.A72      | 2NT P          | 4NT    | bba: 11: quantitative
+N 432.KT2.AT62.A72      | 2NT P          | 6NT    | bba: 11 and two tens: slam
+N 432.K72.A962.AJ2      | 2NT P          | 6NT    | bba: 12: slam
+N AQ542.98743.72.3      | 2NT P          | 3H     | bba: 5-5 in the majors: spades first
+
+# Responder after the completed transfer (2026-09-25): pass with 0-3,
+# 3NT with five of the major, 4M with six (BBA; 408 corpus boards had no
+# rule here).
+card    21GF-DEFAULT
+dealer  S
+N J65.J98762.75.93      | 2NT P 3D P 3H P    | P      | 2 HCP, six hearts: pass (BBA)
+N T.T9875.QT95.J95      | 2NT P 3D P 3H P    | P      | 3 HCP: pass
+N KT873.653.J876.J      | 2NT P 3H P 3S P    | 3NT    | 5 HCP, five spades: choose the game
+N J74.J9853.7.KJ43      | 2NT P 3D P 3H P    | 3NT    | five hearts, unbalanced: 3NT all the same
+
+# ── Weak hands (2026-09-25): a 4-count has no invitation, and Stayman
+# needs game values
+card    Basic-Bridge
+dealer  S
+N 732.K864.952.J93      | 2NT P | P   | 4 HCP: no game (BBA passes)
+N 732.7654.Q953.J9      | 2NT P | P   | 3 HCP and four hearts: no Stayman
+
+# Minor slam try over 2NT (2026-09-27)
+card    Basic-Bridge
+dealer  S
+N 72.K4.K72.AQ8743      | 2NT P        | 4C  | 12 with six clubs: slam try
+S AK5.AQ2.KQ5.KJ73      | 2NT P 4C P   | 6C  | four clubs: slam
+S AK5.AQ32.KQ54.K7      | 2NT P 4C P   | 4NT | two clubs: no fit
+
+# ── Puppet Stayman over 2NT (2026-09-28): the 21GF-MSTandMSS card ─────
+card    21GF-MSTandMSS
+dealer  S
+N K32.Q54.J432.K72      | 2NT P                | 3C  | 9 HCP, three cards in each major: Puppet looks for a 5-3 fit
+N KJ32.Q54.J43.K72      | 2NT P                | 3C  | four spades: Puppet
+N K3.Q5.J9432.K732      | 2NT P                | 3NT | 9 HCP, no three-card major: 3NT
+N KJ432.Q542.K2.72      | 2NT P                | 3H  | 5-4 in the majors: transfer to the five
+N K432.765.9432.72      | 2NT P                | P   | 3 HCP: pass
+S AQ5.KJ87.AK3.QJ7      | 2NT P 3C P           | 3D  | four hearts, no five
+S AQ5.KJ873.AK.QJ7      | 2NT P 3C P           | 3H  | five hearts
+S AQ5.KJ8.AK73.QJ7      | 2NT P 3C P           | 3NT | no four-card major
+N KJ32.Q54.J43.K72      | 2NT P 3C P 3D P      | 3H  | four spades: bid the major he does not hold
+N Q54.KJ32.J43.K72      | 2NT P 3C P 3D P      | 3S  | four hearts: bid spades
+N KJ32.Q543.J4.K72      | 2NT P 3C P 3D P      | 4D  | both majors, 10 HCP: opener chooses
+N AJ32.K543.K4.K72      | 2NT P 3C P 3D P      | 4C  | both majors, 14 HCP: slam interest
+N K32.Q54.J432.K72      | 2NT P 3C P 3D P      | 3NT | no four-card major, game values
+S AQ54.K87.AK3.KQ7      | 2NT P 3C P 3D P 3H P | 4S  | four spades: opener declares the fit
+S AQ5.K874.AK3.KQ7      | 2NT P 3C P 3D P 3H P | 3NT | no four spades
+S AQ54.K874.AK.KQ7      | 2NT P 3C P 3D P 4D P | 4S  | both majors: spades
+N KJ32.Q54.J43.K72      | 2NT P 3C P 3D P 3H P 4S P | P  | game values only
+N AKJ2.Q54.K43.K72      | 2NT P 3C P 3D P 3H P 4S P | 4N | 16 HCP in the fit: keycard first
+N K32.Q54.J432.K72      | 2NT P 3C P 3H P      | 4H  | three hearts opposite five: game
+N KJ2.Q5.J9432.K72      | 2NT P 3C P 3H P      | 3NT | no fit: 3NT
+N K32.Q54.J432.K72      | 2NT P 3C P 3NT P     | P   | no fit: 3NT
+S AQ5.KJ87.AK3.QJ7      | 2NT P 3C P 3D P 3N P    | P   | responder has no four-card major
+S AQ54.K87.AK3.KQ7      | 2NT P 3C P 3D P 4C P    | 4S  | both majors with slam interest: opener picks spades
+N AKJ2.Q54.K43.K72      | 2NT P 3C P 3D P 3H P 3N P | 4C | no fit, 16 HCP: Gerber first
+N KJ2.Q5.AJ432.K72      | 2NT P 3C P 3N P         | 4C  | 14 HCP and a five-card suit, 32 on opener's minimum: Gerber first
+# The same after 2♣–2♦–2NT (22-23), as BBA plays the card.
+N K32.Q54.J432.K72      | 2C P 2D P 2NT P         | 3C  | three cards in each major: Puppet
+N 732.Q54.J432.972      | 2C P 2D P 2NT P         | 3C  | 3 HCP opposite 22-23 is game values (BBA: 3C from 3)
+S AQ5.KJ87.AK3.KQ7      | 2C P 2D P 2NT P 3C P    | 3D  | four hearts, no five
+
+# ── Systems on (Rick, 2026-10-05): the same system after every natural
+# balanced 2NT, opener's range from the auction. 2NT 20-21, 2♣–2♦–2NT
+# 22-23, Kokish's 2NT 24-25. After 2♣ the side is forced to game.
+card    21GF-SPECIALS slam.gerber.play=false
+dealer  S
+N KJ54.Q762.93.874      | 2C P 2D P 2NT P              | 3C  | Stayman opposite 22-23
+N 82.QJ9732.K94.J8      | 2C P 2D P 2NT P              | 3D  | transfer opposite 22-23
+N KJ54.Q762.93.874      | 2C P 2D P 2H P 2S P 2NT P    | 3C  | Stayman opposite Kokish's 24-25
+N 82.QJ9732.K94.J8      | 2C P 2D P 2H P 2S P 2NT P    | 4D  | slam values in support points opposite 24-25: Texas, then keycard (2026-10-29)
+S AK4.KQ3.AQJ4.KQ2      | 2C P 2D P 2H P 2S P 2NT P 3C P | 3D | no four-card major
+S AK4.KQ3.AQJ4.KQ2      | 2C P 2D P 2H P 2S P 2NT P 3D P | 3H | completes the transfer
+N 8432.QJ973.94.82      | 2C P 2D P 2H P 2S P 2NT P 3D P 3H P | 3NT | 1 HCP, five hearts: game is forced, choose it
+# The thresholds move with opener's range.
+N 732.K74.9632.874      | 2NT P                        | P   | 3 HCP opposite 20-21: no game
+N 732.K74.9632.874      | 2C P 2D P 2NT P              | 3NT | 3 opposite 22-23: game
+N K8.K74.Q963.T874      | 2NT P                        | 3NT | 8 opposite 20-21: game only
+N K8.K74.Q963.T874      | 2C P 2D P 2H P 2S P 2NT P    | 4NT | 8 opposite 24-25: 32-33, quantitative
+N K83.QJ4.K872.Q95      | 2NT P                        | 3NT | 11 opposite 20-21: game only
+N K83.QJ4.K872.Q95      | 2C P 2D P 2NT P              | 6NT | 11 opposite 22-23: slam
+# Puppet after Kokish's 2NT.
+card    21GF-MSTandMSS two_level.kokish.play=true
+N K32.Q54.J432.972      | 2C P 2D P 2H P 2S P 2NT P    | 3C  | 6 HCP, three of each major: Puppet opposite 24-25
+# Over their interference after 2♣ (2♣ (2♠) P (P) 2NT).
+card    21GF-DEFAULT
+S AQ5.KQ7.AKJ4.K76      | 2C 2S P P                    | 2NT | 22 balanced, a spade stopper
+N 82.QJ9732.K94.J8      | 2C 2S P P 2NT P              | 3D  | systems on: transfer
+# Not systems on: a notrump rebid after a natural suit (1♣–1♥–1NT).
+N 82.QJ9732.K94.J8      | 1C P 1H P 1NT P              | 2H  | natural rebid, not a transfer
+
+# ── Jacoby over every 2NT (Rick, 2026-11-07: "people playing jacoby
+# transfers normally play them over 1NT, 2NT, 2C/2NT, and kokish relay,
+# and sometimes 2C/3NT"). A five-card major transfers first, also when
+# the count is a slam invitation (opposite Kokish's 24-25 a 7-count is):
+# 4NT or 6NT follows the completion. Stand-in for Rick's card.
+card    21GF-GIB major_openings.jacoby_2nt.modified=true two_level.kokish.play=true
+dealer  S
+N 84.KJ863.Q72.J54      | 2C P 2D P 2H P 2S P 2N P          | 3D  | five hearts, 7 HCP: transfer, not 4NT
+N 84.KJ863.Q72.J54      | 2C P 2D P 2H P 2S P 2N P 3D P 3H P | 4NT | then quantitative with five hearts
+N KJ863.84.Q72.J54      | 2C P 2D P 2H P 2S P 2N P          | 3H  | five spades, 7 HCP: transfer
+N KJ863.84.Q72.J54      | 2C P 2D P 2H P 2S P 2N P 3H P 3S P | 4NT | then quantitative with five spades
+N 84.J8632.Q72.954      | 2C P 2D P 2H P 2S P 2N P          | 3D  | five hearts, 3 HCP: transfer
+N 84.J8632.Q72.954      | 2C P 2D P 2H P 2S P 2N P 3D P 3H P | 3NT | then choice of games (game forced)
+N KJ86.Q863.72.J54      | 2C P 2D P 2H P 2S P 2N P          | 3C  | 4-4 in the majors: Stayman
+N 84.KJ863.Q72.J54      | 2C P 2D P 2N P                    | 3D  | the same over 2♣–2♦–2NT
+N 84.KJ863.KQ2.Q54      | 2N P                              | 3D  | 12 opposite 20-21 with five hearts: transfer first
+N 84.KJ863.KQ2.Q54      | 2N P 3D P 3H P                    | 4NT | then quantitative

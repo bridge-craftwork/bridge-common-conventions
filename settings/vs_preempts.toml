@@ -1,0 +1,12 @@
+# Card settings: vs_preempts. A setting's name is `vs_preempts.<key>`.
+# The attributes are described in settings/README.md.
+
+"takeout_double"           = { kind = "bool", label = "Vs preempts: double is takeout", skill = "competitive_bidding/takeout_doubles", level = 3, choice = "vs_preempts.double" }
+"takeout_double_thru"      = { kind = "text", bid = true, label = "Vs preempts: takeout double through", desc = "The highest preempt a double of is takeout (4♥: a double of 4♠ or higher is penalty)" }
+"takeout_double_penalty"   = { kind = "bool", label = "Vs preempts: double is penalty", level = 5, choice = "vs_preempts.double" }
+"conv_takeout"             = { kind = "text", label = "Vs preempts: conventional takeout" }
+"two_nt_overcall"          = { kind = "text", label = "Vs preempts: 2NT overcall" }
+"two_nt_response"          = { kind = "text", label = "Vs preempts: 2NT response to partner's double", desc = "Lebensohl, Ingberman, natural, …" }
+"cuebid"                   = { kind = "text", label = "Vs preempts: cuebid" }
+"jump_overcalls"           = { kind = "text", label = "Vs preempts: jump overcalls" }
+"notes"                    = { kind = "text", label = "Vs preempts notes (card write-in)", note = true }

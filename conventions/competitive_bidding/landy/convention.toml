@@ -1,0 +1,10 @@
+id = "competitive_bidding/landy"
+name = "Landy"
+source = "proposed"
+level = 4
+contexts = ["vs_notrump"]
+implements = ["defence_to_1nt"]
+names = ["Landy"]
+summary = """
+Over their 1NT, 2♣ shows both majors; other overcalls are natural.
+"""

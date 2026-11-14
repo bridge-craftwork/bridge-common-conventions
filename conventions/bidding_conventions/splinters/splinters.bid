@@ -1,0 +1,518 @@
+# Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
+#
+# Splinters over a major opening: responder's double jump in a new suit
+# (1♥–3♠, 4♣, 4♦; 1♠–4♣, 4♦, 4♥) agrees opener's major with four or more
+# trumps, game values, and a singleton or void in the suit bid; opener's
+# double jump after a one-level major response (1♦–1♠–4♣) agrees
+# responder's major with 17-21. Also: responder's double jump in the
+# overcaller's suit (1♥ (2♣) 4♣), opener's jump over a two-over-one
+# (1♠–2♥–4♣, 1♥–2♣–3♠), responder's over opener's raise (1♣–1♥–2♥–3♠)
+# and over opener's second suit (1♣–1♥–1♠–4♦), at the end of the file.
+# The splinterer's partner counts honours
+# in the short suit as wasted (the ace is not) and bids game, or makes a
+# slam try that the slam machinery (slam/) carries on. Wikipedia,
+# "Splinter bid"; BBA probes probes/splinter-*.toml. See
+# splinters.notes.md. The slam-or-game sections count support points
+# less the honours wasted opposite the shortness (`tp(M) - wasted_hcp`, the
+# engine's term since 2026-11-07: K 3, Q 2, J 1 opposite a singleton;
+# it was eight spelled-out combinations before).
+#
+# A double jump is never a jump shift here: strong jump shifts are single
+# jumps (1♥–2♠), invitational ones single jumps to the three level
+# (1♠–3♣); the double jumps had no meaning before.
+
+module splinters "Splinters over 1♥ / 1♠"
+  kind   convention
+  convention  bidding_conventions/splinters
+  needs  responses
+  skill  bidding_conventions/jacoby_2nt_splinters
+  skill  bidding_conventions/splinters
+  param  by_resp = by_responder default true
+  param  by_open = by_opener default true
+  param  cue     = bidding_conventions/control_bids default false
+  param  style   = bidding_conventions/control_bids:style default first_or_second_round
+  param  rkcb   = bidding_conventions/roman_keycard default false
+  # Under Transfer Walsh 1C-1D/1H are transfers: opener's splinters
+  # read them as natural and agreed the wrong major (self A/B, 2026-10-05).
+  param  twalsh  = minor_openings.one_club.transfer_resp default false
+
+# ── Responder ────────────────────────────────────────────────────────
+# 12-15 HCP with a small singleton, 11 with a void (BBA, both probes);
+# above that, Jacoby 2NT. A singleton honour, the ace included, is not
+# shortness to show: those hands bid Jacoby 2NT too (BBA). A passed hand
+# splinters with a maximum, 10-11 and four trumps.
+after 1H (P) when by_resp
+  3S  "Splinter: 4+ hearts, game values, at most one spade"  alert
+      shows H>=4, S<=1, !has(A,S), !has(K,S), !has(Q,S), !has(J,S), tp(H)>=15
+      shows hcp=12..15 | (hcp=11, S=0)
+      when  !passed_hand
+      sets  trump=H, forcing=game
+      artificial
+      priority 2                       # ahead of Jacoby 2NT
+  3S  "Splinter: 4+ hearts, 10-11, at most one spade"  alert
+      shows H>=4, S<=1, !has(A,S), !has(K,S), !has(Q,S), !has(J,S), hcp=10..11, tp(H)>=13
+      when  passed_hand
+      sets  trump=H, forcing=game
+      artificial
+      priority 2                       # ahead of Drury
+
+after 1M (P) when by_resp
+  4x  "Splinter: 4+ {M}, game values, at most one {x}"  alert
+      shows M>=4, x<=1, !has(A,x), !has(K,x), !has(Q,x), !has(J,x), tp(M)>=15
+      shows hcp=12..15 | (hcp=11, x=0)
+      when  x is not M, M is S | x is not S, !passed_hand
+      sets  trump=M, forcing=game
+      artificial
+      priority 2
+  4x  "Splinter: 4+ {M}, 10-11, at most one {x}"  alert
+      shows M>=4, x<=1, !has(A,x), !has(K,x), !has(Q,x), !has(J,x), hcp=10..11, tp(M)>=13
+      when  x is not M, M is S | x is not S, passed_hand
+      sets  trump=M, forcing=game
+      artificial
+      priority 2
+
+# Over a two-level overcall, the double jump in their suit (1♥ (2♣) 4♣,
+# 1♠ (2♦) 4♦, 1♠ (2♥) 4♥) is the splinter: the same hand, short in the
+# suit they bid. The simple cue bid stays the limit raise or better
+# (after-interference.bid), so the jump has no other meaning. Not by a
+# passed hand: Drury and the cue bid cover those.
+after 1M (2x) when by_resp, x is not M, M is S | x is not S, !passed_hand
+  4x  "Splinter: 4+ {M}, game values, at most one {x} (their suit)"  alert
+      shows M>=4, spl_short(x), tp(M)>=15
+      shows hcp=12..15 | (hcp=11, x=0)
+      sets  trump=M, forcing=game
+      artificial
+      priority 2
+
+# ── Opener's splinters ───────────────────────────────────────────────
+# Over a one-level major response, opener's double jump in a new suit
+# (1♣/1♦–1♥–3♠; 1x–1M–4y below 4M) agrees the major with four, a
+# singleton or void and 17-21 HCP (16 with a void): BBA's own range,
+# probes/splinter-by-opener-1D-1S.toml. Without a singleton or void the
+# same hands raise to game (rebids.bid).
+after 1m (P) 1H (P) when by_open, !(twalsh, m is C)
+  3S  "Splinter: 4 hearts, 17-21, at most one spade"  alert
+      shows H>=4, S<=1, !has(A,S), !has(K,S), !has(Q,S), !has(J,S), tp(H)>=19
+      shows hcp=17..21 | (hcp=16, S=0)
+      sets  trump=H, forcing=game
+      artificial
+      priority 2                       # ahead of the raise to game
+after 1x (P) 1M (P) when by_open, !(twalsh, x is C)
+  4y  "Splinter: 4 {M}, 17-21, at most one {y}"  alert
+      shows M>=4, y<=1, !has(A,y), !has(K,y), !has(Q,y), !has(J,y), tp(M)>=19
+      shows hcp=17..21 | (hcp=16, y=0)
+      when  y is not M, y is not x, M is S | y is not S
+      sets  trump=M, forcing=game
+      artificial
+      priority 2
+
+# ── Opener ───────────────────────────────────────────────────────────
+# Honours in partner's short suit other than the ace are wasted. Count
+# support points (tp: HCP and shortness) less the wasted honours (K 3,
+# Q 2, J 1: `wasted_hcp`). With 14 or more, a slam try: the cheapest control below
+# game when a side suit is bare (two or more cards, neither ace nor
+# king), else the keycard ask; with fewer, game. Corpus (splinters.notes.md):
+# 14 on support points beat 13 and 15, and beat BBA's own line, which
+# is about 13 HCP less wasted honours (probes/splinter-opener-*.toml).
+# The same over their double of the splinter (lead-directing, it takes
+# no room): 4M is still the sign-off. Without it 4M read as a Law-of-
+# total-tricks raise or a 19+ game bid (Brill daily 2026-10-11 board 1,
+# 1S P 4D X 4S; 2026-10-15).
+after 1H (P) 3S (P) | 1H (P) 3S (X) | 1H (P) 3S (X)
+  4H  "Game: no slam interest"
+      shows !(tp(H) - wasted_hcp >= 14)
+      priority 13                      # ahead of the control bids (12) and any natural reading
+  cheapest(C)  "Slam try: control bid in ♣"  alert
+      shows tp(H) - wasted_hcp >= 14
+      when  cue, H is not C, S is not C, under_game(C), has(A,C) | C<=0 | (style is first_or_second_round, has(K,C) | C<=1)
+      when  (H is not C, S is not C, C>=2, !has(A,C), !has(K,C)) | (H is not D, S is not D, D>=2, !has(A,D), !has(K,D)) | (H is not H, S is not H, H>=2, !has(A,H), !has(K,H)) | (H is not S, S is not S, S>=2, !has(A,S), !has(K,S))
+      sets  ask=control(C), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(C)
+      priority 14
+  cheapest(D)  "Slam try: control bid in ♦"  alert
+      shows tp(H) - wasted_hcp >= 14
+      when  cue, H is not D, S is not D, under_game(D), has(A,D) | D<=0 | (style is first_or_second_round, has(K,D) | D<=1)
+      when  (H is not C, S is not C, C>=2, !has(A,C), !has(K,C)) | (H is not D, S is not D, D>=2, !has(A,D), !has(K,D)) | (H is not H, S is not H, H>=2, !has(A,H), !has(K,H)) | (H is not S, S is not S, S>=2, !has(A,S), !has(K,S))
+      sets  ask=control(D), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(D)
+      priority 14
+  cheapest(H)  "Slam try: control bid in ♥"  alert
+      shows tp(H) - wasted_hcp >= 14
+      when  cue, H is not H, S is not H, under_game(H), has(A,H) | H<=0 | (style is first_or_second_round, has(K,H) | H<=1)
+      when  (H is not C, S is not C, C>=2, !has(A,C), !has(K,C)) | (H is not D, S is not D, D>=2, !has(A,D), !has(K,D)) | (H is not H, S is not H, H>=2, !has(A,H), !has(K,H)) | (H is not S, S is not S, S>=2, !has(A,S), !has(K,S))
+      sets  ask=control(H), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(H)
+      priority 14
+  cheapest(S)  "Slam try: control bid in ♠"  alert
+      shows tp(H) - wasted_hcp >= 14
+      when  cue, H is not S, S is not S, under_game(S), has(A,S) | S<=0 | (style is first_or_second_round, has(K,S) | S<=1)
+      when  (H is not C, S is not C, C>=2, !has(A,C), !has(K,C)) | (H is not D, S is not D, D>=2, !has(A,D), !has(K,D)) | (H is not H, S is not H, H>=2, !has(A,H), !has(K,H)) | (H is not S, S is not S, S>=2, !has(A,S), !has(K,S))
+      sets  ask=control(S), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(S)
+      priority 14
+  4N  "Keycard ask in {trump}"
+      shows tp(H) - wasted_hcp >= 14
+      when  rkcb
+      sets  ask=keycards(trump)
+      artificial
+      priority 12
+after 1M (P) 4x (P) | 1M (P) 4x (X) | 1M (2x) 4x (P) when x is not M, M is S | x is not S
+  4M  "Game: no slam interest"
+      shows !(tp(M) - wasted_hcp >= 14)
+      priority 13                      # ahead of the control bids (12) and any natural reading
+  cheapest(C)  "Slam try: control bid in ♣"  alert
+      shows tp(M) - wasted_hcp >= 14
+      when  cue, M is not C, x is not C, under_game(C), has(A,C) | C<=0 | (style is first_or_second_round, has(K,C) | C<=1)
+      when  (M is not C, x is not C, C>=2, !has(A,C), !has(K,C)) | (M is not D, x is not D, D>=2, !has(A,D), !has(K,D)) | (M is not H, x is not H, H>=2, !has(A,H), !has(K,H)) | (M is not S, x is not S, S>=2, !has(A,S), !has(K,S))
+      sets  ask=control(C), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(C)
+      priority 14
+  cheapest(D)  "Slam try: control bid in ♦"  alert
+      shows tp(M) - wasted_hcp >= 14
+      when  cue, M is not D, x is not D, under_game(D), has(A,D) | D<=0 | (style is first_or_second_round, has(K,D) | D<=1)
+      when  (M is not C, x is not C, C>=2, !has(A,C), !has(K,C)) | (M is not D, x is not D, D>=2, !has(A,D), !has(K,D)) | (M is not H, x is not H, H>=2, !has(A,H), !has(K,H)) | (M is not S, x is not S, S>=2, !has(A,S), !has(K,S))
+      sets  ask=control(D), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(D)
+      priority 14
+  cheapest(H)  "Slam try: control bid in ♥"  alert
+      shows tp(M) - wasted_hcp >= 14
+      when  cue, M is not H, x is not H, under_game(H), has(A,H) | H<=0 | (style is first_or_second_round, has(K,H) | H<=1)
+      when  (M is not C, x is not C, C>=2, !has(A,C), !has(K,C)) | (M is not D, x is not D, D>=2, !has(A,D), !has(K,D)) | (M is not H, x is not H, H>=2, !has(A,H), !has(K,H)) | (M is not S, x is not S, S>=2, !has(A,S), !has(K,S))
+      sets  ask=control(H), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(H)
+      priority 14
+  cheapest(S)  "Slam try: control bid in ♠"  alert
+      shows tp(M) - wasted_hcp >= 14
+      when  cue, M is not S, x is not S, under_game(S), has(A,S) | S<=0 | (style is first_or_second_round, has(K,S) | S<=1)
+      when  (M is not C, x is not C, C>=2, !has(A,C), !has(K,C)) | (M is not D, x is not D, D>=2, !has(A,D), !has(K,D)) | (M is not H, x is not H, H>=2, !has(A,H), !has(K,H)) | (M is not S, x is not S, S>=2, !has(A,S), !has(K,S))
+      sets  ask=control(S), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(S)
+      priority 14
+  4N  "Keycard ask in {trump}"
+      shows tp(M) - wasted_hcp >= 14
+      when  rkcb
+      sets  ask=keycards(trump)
+      artificial
+      priority 12
+
+# ── Responder, over opener's splinter ────────────────────────────────
+# The same count, with 11 or more: opener has shown 17-21 HCP and
+# shortness, where the splinter by responder showed 12-15.
+after 1m (P) 1H (P) 3S (P) when by_open, !(twalsh, m is C)
+  4H  "Game: no slam interest"
+      shows !(tp(H) - wasted_hcp >= 11)
+      priority 13                      # ahead of the control bids (12) and any natural reading
+  cheapest(C)  "Slam try: control bid in ♣"  alert
+      shows tp(H) - wasted_hcp >= 11
+      when  cue, H is not C, S is not C, under_game(C), has(A,C) | C<=0 | (style is first_or_second_round, has(K,C) | C<=1)
+      when  (H is not C, S is not C, C>=2, !has(A,C), !has(K,C)) | (H is not D, S is not D, D>=2, !has(A,D), !has(K,D)) | (H is not H, S is not H, H>=2, !has(A,H), !has(K,H)) | (H is not S, S is not S, S>=2, !has(A,S), !has(K,S))
+      sets  ask=control(C), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(C)
+      priority 14
+  cheapest(D)  "Slam try: control bid in ♦"  alert
+      shows tp(H) - wasted_hcp >= 11
+      when  cue, H is not D, S is not D, under_game(D), has(A,D) | D<=0 | (style is first_or_second_round, has(K,D) | D<=1)
+      when  (H is not C, S is not C, C>=2, !has(A,C), !has(K,C)) | (H is not D, S is not D, D>=2, !has(A,D), !has(K,D)) | (H is not H, S is not H, H>=2, !has(A,H), !has(K,H)) | (H is not S, S is not S, S>=2, !has(A,S), !has(K,S))
+      sets  ask=control(D), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(D)
+      priority 14
+  cheapest(H)  "Slam try: control bid in ♥"  alert
+      shows tp(H) - wasted_hcp >= 11
+      when  cue, H is not H, S is not H, under_game(H), has(A,H) | H<=0 | (style is first_or_second_round, has(K,H) | H<=1)
+      when  (H is not C, S is not C, C>=2, !has(A,C), !has(K,C)) | (H is not D, S is not D, D>=2, !has(A,D), !has(K,D)) | (H is not H, S is not H, H>=2, !has(A,H), !has(K,H)) | (H is not S, S is not S, S>=2, !has(A,S), !has(K,S))
+      sets  ask=control(H), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(H)
+      priority 14
+  cheapest(S)  "Slam try: control bid in ♠"  alert
+      shows tp(H) - wasted_hcp >= 11
+      when  cue, H is not S, S is not S, under_game(S), has(A,S) | S<=0 | (style is first_or_second_round, has(K,S) | S<=1)
+      when  (H is not C, S is not C, C>=2, !has(A,C), !has(K,C)) | (H is not D, S is not D, D>=2, !has(A,D), !has(K,D)) | (H is not H, S is not H, H>=2, !has(A,H), !has(K,H)) | (H is not S, S is not S, S>=2, !has(A,S), !has(K,S))
+      sets  ask=control(S), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(S)
+      priority 14
+  4N  "Keycard ask in {trump}"
+      shows tp(H) - wasted_hcp >= 11
+      when  rkcb
+      sets  ask=keycards(trump)
+      artificial
+      priority 12
+after 1x (P) 1M (P) 4y (P) when by_open, y is not M, y is not x, M is S | y is not S, !(twalsh, x is C)
+  4M  "Game: no slam interest"
+      shows !(tp(M) - wasted_hcp >= 11)
+      priority 13                      # ahead of the control bids (12) and any natural reading
+  cheapest(C)  "Slam try: control bid in ♣"  alert
+      shows tp(M) - wasted_hcp >= 11
+      when  cue, M is not C, y is not C, under_game(C), has(A,C) | C<=0 | (style is first_or_second_round, has(K,C) | C<=1)
+      when  (M is not C, y is not C, C>=2, !has(A,C), !has(K,C)) | (M is not D, y is not D, D>=2, !has(A,D), !has(K,D)) | (M is not H, y is not H, H>=2, !has(A,H), !has(K,H)) | (M is not S, y is not S, S>=2, !has(A,S), !has(K,S))
+      sets  ask=control(C), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(C)
+      priority 14
+  cheapest(D)  "Slam try: control bid in ♦"  alert
+      shows tp(M) - wasted_hcp >= 11
+      when  cue, M is not D, y is not D, under_game(D), has(A,D) | D<=0 | (style is first_or_second_round, has(K,D) | D<=1)
+      when  (M is not C, y is not C, C>=2, !has(A,C), !has(K,C)) | (M is not D, y is not D, D>=2, !has(A,D), !has(K,D)) | (M is not H, y is not H, H>=2, !has(A,H), !has(K,H)) | (M is not S, y is not S, S>=2, !has(A,S), !has(K,S))
+      sets  ask=control(D), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(D)
+      priority 14
+  cheapest(H)  "Slam try: control bid in ♥"  alert
+      shows tp(M) - wasted_hcp >= 11
+      when  cue, M is not H, y is not H, under_game(H), has(A,H) | H<=0 | (style is first_or_second_round, has(K,H) | H<=1)
+      when  (M is not C, y is not C, C>=2, !has(A,C), !has(K,C)) | (M is not D, y is not D, D>=2, !has(A,D), !has(K,D)) | (M is not H, y is not H, H>=2, !has(A,H), !has(K,H)) | (M is not S, y is not S, S>=2, !has(A,S), !has(K,S))
+      sets  ask=control(H), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(H)
+      priority 14
+  cheapest(S)  "Slam try: control bid in ♠"  alert
+      shows tp(M) - wasted_hcp >= 11
+      when  cue, M is not S, y is not S, under_game(S), has(A,S) | S<=0 | (style is first_or_second_round, has(K,S) | S<=1)
+      when  (M is not C, y is not C, C>=2, !has(A,C), !has(K,C)) | (M is not D, y is not D, D>=2, !has(A,D), !has(K,D)) | (M is not H, y is not H, H>=2, !has(A,H), !has(K,H)) | (M is not S, y is not S, S>=2, !has(A,S), !has(K,S))
+      sets  ask=control(S), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(S)
+      priority 14
+  4N  "Keycard ask in {trump}"
+      shows tp(M) - wasted_hcp >= 11
+      when  rkcb
+      sets  ask=keycards(trump)
+      artificial
+      priority 12
+
+# ── Later splinters (2026-10-30) ─────────────────────────────────────
+# Where the splinter comes a round later: opener's over a two-over-one,
+# responder's over opener's raise or opener's second suit. The partner
+# counts as above (support points less the honours wasted in the short
+# suit, `tp(t) - wasted_hcp`) against a threshold set by what the splinter
+# showed.
+define spl_short(s) = s<=1, !has(A,s), !has(K,s), !has(Q,s), !has(J,s)
+define spl_bare(t, s) = (t is not C, s is not C, C>=2, !has(A,C), !has(K,C)) | (t is not D, s is not D, D>=2, !has(A,D), !has(K,D)) | (t is not H, s is not H, H>=2, !has(A,H), !has(K,H)) | (t is not S, s is not S, S>=2, !has(A,S), !has(K,S))
+
+# Opener over a two-over-one: a double jump (1♠–2♥–4♣/4♦) agrees
+# responder's hearts with four, a singleton or void and 14+ HCP: the fast 4♥ (1♠–2♥–4♥) is
+# the minimum, so the splinter has slam interest. Seat 1 or 2: after a
+# passed hand 2♣ is Drury and 2♥ no two-over-one. Opener's splinters
+# raising a two-over-one minor (1♥–2m–3♠, 1♠–2♣–4♦) and 1♠–2m–3♥ stay
+# natural for now (Rick, 2026-10-31: advanced splinters deserve research
+# as a whole).
+after 1S (P) 2H (P) when by_open, seat <= 2
+  4y  "Splinter: 4+ hearts, 14+, at most one {y}"  alert
+      shows H>=4, spl_short(y), hcp>=14
+      when  y is C | y is D
+      sets  trump=H, forcing=game
+      artificial
+      priority 2
+# Responder over it: the two-over-one was 12+ (11+ forcing), opener
+# 14+ with shortness, so 16 support points less waste make the try.
+after 1S (P) 2H (P) 4y (P) when by_open, y is C | y is D
+  4H  "Game: no slam interest"
+      shows !tp(H) - wasted_hcp >= 16
+      priority 13
+  cheapest(C)  "Slam try: control bid in ♣"  alert
+      shows tp(H) - wasted_hcp >= 16
+      when  cue, H is not C, y is not C, under_game(C), has(A,C) | C<=0 | (style is first_or_second_round, has(K,C) | C<=1)
+      when  spl_bare(H,y)
+      sets  ask=control(C), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(C)
+      priority 14
+  cheapest(D)  "Slam try: control bid in ♦"  alert
+      shows tp(H) - wasted_hcp >= 16
+      when  cue, H is not D, y is not D, under_game(D), has(A,D) | D<=0 | (style is first_or_second_round, has(K,D) | D<=1)
+      when  spl_bare(H,y)
+      sets  ask=control(D), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(D)
+      priority 14
+  cheapest(H)  "Slam try: control bid in ♥"  alert
+      shows tp(H) - wasted_hcp >= 16
+      when  cue, H is not H, y is not H, under_game(H), has(A,H) | H<=0 | (style is first_or_second_round, has(K,H) | H<=1)
+      when  spl_bare(H,y)
+      sets  ask=control(H), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(H)
+      priority 14
+  cheapest(S)  "Slam try: control bid in ♠"  alert
+      shows tp(H) - wasted_hcp >= 16
+      when  cue, H is not S, y is not S, under_game(S), has(A,S) | S<=0 | (style is first_or_second_round, has(K,S) | S<=1)
+      when  spl_bare(H,y)
+      sets  ask=control(S), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(S)
+      priority 14
+  4N  "Keycard ask in {trump}"
+      shows tp(H) - wasted_hcp >= 16
+      when  rkcb
+      sets  ask=keycards(trump)
+      artificial
+      priority 12
+
+# Responder over opener's single raise: a jump in a new suit (1m–1♥–2♥–
+# 3♠) or a double jump below game (1x–1M–2M–4y) is a splinter with slam
+# interest, 18+ support points: opposite the raise's 12-15 the plain
+# game raise covers game values. Opener then tries for slam with 15
+# less waste.
+after 1x (P) 1H (P) 2H (P) when by_resp, x is not H, !(twalsh, x is C)
+  3S  "Splinter: 4+ hearts, slam interest, at most one spade"  alert
+      shows H>=4, spl_short(S), tp(H)>=18
+      sets  trump=H, forcing=game
+      artificial
+      priority 2
+after 1x (P) 1M (P) 2M (P) when by_resp, x is not M, !(twalsh, x is C)
+  4y  "Splinter: 4+ {M}, slam interest, at most one {y}"  alert
+      shows M>=4, spl_short(y), tp(M)>=18
+      when  y is not M, y is not x, M is S | y is not S
+      sets  trump=M, forcing=game
+      artificial
+      priority 2
+after 1x (P) 1H (P) 2H (P) 3S (P) when by_resp, x is not H, !(twalsh, x is C)
+  4H  "Game: no slam interest"
+      shows !tp(H) - wasted_hcp >= 15
+      priority 13
+  cheapest(C)  "Slam try: control bid in ♣"  alert
+      shows tp(H) - wasted_hcp >= 15
+      when  cue, H is not C, S is not C, under_game(C), has(A,C) | C<=0 | (style is first_or_second_round, has(K,C) | C<=1)
+      when  spl_bare(H,S)
+      sets  ask=control(C), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(C)
+      priority 14
+  cheapest(D)  "Slam try: control bid in ♦"  alert
+      shows tp(H) - wasted_hcp >= 15
+      when  cue, H is not D, S is not D, under_game(D), has(A,D) | D<=0 | (style is first_or_second_round, has(K,D) | D<=1)
+      when  spl_bare(H,S)
+      sets  ask=control(D), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(D)
+      priority 14
+  cheapest(H)  "Slam try: control bid in ♥"  alert
+      shows tp(H) - wasted_hcp >= 15
+      when  cue, H is not H, S is not H, under_game(H), has(A,H) | H<=0 | (style is first_or_second_round, has(K,H) | H<=1)
+      when  spl_bare(H,S)
+      sets  ask=control(H), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(H)
+      priority 14
+  cheapest(S)  "Slam try: control bid in ♠"  alert
+      shows tp(H) - wasted_hcp >= 15
+      when  cue, H is not S, S is not S, under_game(S), has(A,S) | S<=0 | (style is first_or_second_round, has(K,S) | S<=1)
+      when  spl_bare(H,S)
+      sets  ask=control(S), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(S)
+      priority 14
+  4N  "Keycard ask in {trump}"
+      shows tp(H) - wasted_hcp >= 15
+      when  rkcb
+      sets  ask=keycards(trump)
+      artificial
+      priority 12
+after 1x (P) 1M (P) 2M (P) 4y (P) when by_resp, x is not M, y is not M, y is not x, M is S | y is not S, !(twalsh, x is C)
+  4M  "Game: no slam interest"
+      shows !tp(M) - wasted_hcp >= 15
+      priority 13
+  cheapest(C)  "Slam try: control bid in ♣"  alert
+      shows tp(M) - wasted_hcp >= 15
+      when  cue, M is not C, y is not C, under_game(C), has(A,C) | C<=0 | (style is first_or_second_round, has(K,C) | C<=1)
+      when  spl_bare(M,y)
+      sets  ask=control(C), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(C)
+      priority 14
+  cheapest(D)  "Slam try: control bid in ♦"  alert
+      shows tp(M) - wasted_hcp >= 15
+      when  cue, M is not D, y is not D, under_game(D), has(A,D) | D<=0 | (style is first_or_second_round, has(K,D) | D<=1)
+      when  spl_bare(M,y)
+      sets  ask=control(D), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(D)
+      priority 14
+  cheapest(H)  "Slam try: control bid in ♥"  alert
+      shows tp(M) - wasted_hcp >= 15
+      when  cue, M is not H, y is not H, under_game(H), has(A,H) | H<=0 | (style is first_or_second_round, has(K,H) | H<=1)
+      when  spl_bare(M,y)
+      sets  ask=control(H), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(H)
+      priority 14
+  cheapest(S)  "Slam try: control bid in ♠"  alert
+      shows tp(M) - wasted_hcp >= 15
+      when  cue, M is not S, y is not S, under_game(S), has(A,S) | S<=0 | (style is first_or_second_round, has(K,S) | S<=1)
+      when  spl_bare(M,y)
+      sets  ask=control(S), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(S)
+      priority 14
+  4N  "Keycard ask in {trump}"
+      shows tp(M) - wasted_hcp >= 15
+      when  rkcb
+      sets  ask=keycards(trump)
+      artificial
+      priority 12
+
+# Responder over opener's second suit: 1m–1♥–1♠, a double jump in the
+# fourth suit (1♣–1♥–1♠–4♦, 1♦–1♥–1♠–4♣) agrees spades as the splinter
+# over 1♠ would: four trumps, 12-15 HCP (11 with a void). Opener counts
+# as over a splinter of his opening: 14 less waste.
+after 1m (P) 1H (P) 1S (P) when by_resp, !(twalsh, m is C)
+  4y  "Splinter: 4+ spades, game values, at most one {y}"  alert
+      shows S>=4, spl_short(y), tp(S)>=15
+      shows hcp=12..15 | (hcp=11, y=0)
+      when  y is C | y is D, y is not m
+      sets  trump=S, forcing=game
+      artificial
+      priority 2
+after 1m (P) 1H (P) 1S (P) 4y (P) when by_resp, y is C | y is D, y is not m, !(twalsh, m is C)
+  4S  "Game: no slam interest"
+      shows !tp(S) - wasted_hcp >= 14
+      priority 13
+  cheapest(C)  "Slam try: control bid in ♣"  alert
+      shows tp(S) - wasted_hcp >= 14
+      when  cue, S is not C, y is not C, under_game(C), has(A,C) | C<=0 | (style is first_or_second_round, has(K,C) | C<=1)
+      when  spl_bare(S,y)
+      sets  ask=control(C), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(C)
+      priority 14
+  cheapest(D)  "Slam try: control bid in ♦"  alert
+      shows tp(S) - wasted_hcp >= 14
+      when  cue, S is not D, y is not D, under_game(D), has(A,D) | D<=0 | (style is first_or_second_round, has(K,D) | D<=1)
+      when  spl_bare(S,y)
+      sets  ask=control(D), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(D)
+      priority 14
+  cheapest(H)  "Slam try: control bid in ♥"  alert
+      shows tp(S) - wasted_hcp >= 14
+      when  cue, S is not H, y is not H, under_game(H), has(A,H) | H<=0 | (style is first_or_second_round, has(K,H) | H<=1)
+      when  spl_bare(S,y)
+      sets  ask=control(H), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(H)
+      priority 14
+  cheapest(S)  "Slam try: control bid in ♠"  alert
+      shows tp(S) - wasted_hcp >= 14
+      when  cue, S is not S, y is not S, under_game(S), has(A,S) | S<=0 | (style is first_or_second_round, has(K,S) | S<=1)
+      when  spl_bare(S,y)
+      sets  ask=control(S), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(S)
+      priority 14
+  4N  "Keycard ask in {trump}"
+      shows tp(S) - wasted_hcp >= 14
+      when  rkcb
+      sets  ask=keycards(trump)
+      artificial
+      priority 12

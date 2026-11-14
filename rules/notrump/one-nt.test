@@ -1,0 +1,133 @@
+# The 1NT opening and natural responses.
+card    21GF-DEFAULT
+dealer  S
+
+# seat hand             | auction        | expect | why
+S AK52.KJ7.Q94.K83      |                | 1NT    | 16 HCP, 4-3-3-3
+N Q82.J73.Q942.J83      | 1NT P          | P      | 5 HCP: no game interest
+N T82.QT7.KT9.QT83      | 1NT P          | 2NT    | 7 HCP and four tens: 8 points, invite
+N 982.Q87.K95.Q853      | 1NT P          | P      | the same without the tens: 7 points
+N K75.KQ3.KQ74.KQ7      | 1NT P          | 4C     | 18 opposite 15-17: slam, no grand (Basic_NT board 66); this card plays Gerber, so ask first
+N K96.Q5.AKQ6.QT73      | 1NT P          | 4NT    | 16: invites 6NT
+N A3.K98.KJT7.AQ87      | 1NT P          | 4C     | 17: 32 opposite a minimum is enough (Rick; Basic_NT board 29); Gerber first
+S KQJ.KJ73.AK5.T52      | 1NT P 2NT P    | 3NT    | 17 opposite 8-9: game is certain
+S KQJ.KJ73.AQ5.T52      | 1NT P 2NT P    | P      | 16 declines (BBA too, Basic_NT board 51)
+S AK5.KJ7.Q942.K83      | 1NT P 4NT P    | 6NT    | 16 opposite 16: 32 is enough, as for the direct 6NT
+S AK5.QJ7.Q942.K83      | 1NT P 4NT P    | P      | 15: declines
+N Q65.AK653.J3.KQ5      | 1NT P          | 2D     | 15 HCP + 1 length = 16 with five hearts: transfer first, then 4NT
+
+# A strong responder never passes 1NT. Too strong for 3NT with a long
+# minor, he bids it; otherwise 3NT is the fallback.
+card    Basic-Bridge
+N 54.AQ.KQ6.AQ8654      | 1NT P          | 3C     | 17 with six clubs: too strong for 3NT
+N Q.K9.AQJ843.KQ87      | 1NT P          | 3D     | 17 with six diamonds
+N QT7.8.KQ72.AKQT6      | 1NT P          | 3C  | 16 with 5-4 in the minors: slam try in clubs (2026-09-27)
+N KQ2.Q8.KQ72.A874      | 1NT P          | 4NT    | 16 balanced: quantitative
+N 54.A2.KQ6.Q98654      | 1NT P          | 3NT    | 11 with six clubs: game values, play 3NT
+
+# ── The BBA treatment (probed 2026-09-24, one-nt.notes.md) ─────────
+card    Basic-Bridge general.style=bba
+dealer  S
+N 542.Q76.K82.K862      | 1NT P          | P      | bba: 8 HCP 4-3-3-3 without a ten passes
+N T42.Q76.K82.K862      | 1NT P          | 2NT    | bba: the same with a ten invites
+N 542.K76.K82.A862      | 1NT P          | 3NT    | bba: 10 HCP, game
+N 54.K76.K862.K862      | 1NT P          | 2NT    | bba: 9 HCP, both minors: invite
+N T4.KT6.KT82.K862      | 1NT P          | 2NT    | bba: with 4-4 in the minors the tens do not count (corpus; this probe bid 3NT)
+N AKT.QT.J963.AJT5      | 1NT P          | 3NT    | bba: 15 and three tens: no slam invitation (Basic_NT board 400)
+N K96.Q5.AKQ6.QT73      | 1NT P          | 4NT    | bba: 16 invites
+S AQT.KJT2.A95.Q83      | 1NT P 2NT P    | 3NT    | bba: 16 and two tens accepts (17)
+S AQT.KJ72.A95.Q83      | 1NT P 2NT P    | P      | bba: 16 and one ten declines
+S A832.KQ4.AT.KT32      | 1NT P 4NT P    | P      | bba: 16 declines 4NT, tens or not (1N_Balanced_Raise board 159)
+S KJ2.K732.AQ4.AT4      | 1NT P 4NT P    | 6NT    | bba: 17 accepts
+scoring IMP
+N 542.K76.K82.K862      | 1NT P          | 2NT    | bba at IMPs: 9 HCP 4-3-3-3 invites (probed; the count's game line is 9.8 in 4-3-3-3)
+N 65.K76.K862.AQ62      | 1NT P          | 3NT    | bba at IMPs: 12 HCP, game
+# Known miss of the IMP game count: 54.K76.K862.K862 (2-3-4-4, 9 HCP) -- BBA
+# 3NT at IMPs, the count 2NT (one-nt.notes.md).
+
+# ── Responder after the invitation is declined in the fit (2026-09-25)
+card    Basic-Bridge
+dealer  S
+N AQ83.82.Q52.T754      | 1NT P 2C P 2H P 2NT P 3S P | P | declined: play 3S
+S 75.AJT87.AJ9.AQ8      | 1NT P 3D P            | 4D  | 16 with three diamonds: shows the fit, responder decides (2026-09-27)
+S 75.AJT8.AJ9.AKQ8      | 1NT P 3D P            | 6D  | 18 with three diamonds: slam
+
+# The minor slam try over 1NT (2026-09-27)
+card    Basic-Bridge
+dealer  S
+N .AJ2.AQ72.AQ8743      | 1NT P 3C P 4C P  | 6C  | 17 with the club fit known: slam
+N 72.A4.AQ72.KQ874      | 1NT P 3C P 4C P  | 5C  | 15: game in the fit
+N A.AQ2.AQ752.K532      | 1NT P 3D P 3NT P | 6NT | no fit, 19: slam values anyway
+
+# A five-card major in 1NT only as the card allows (2026-09-30).
+card    Basic-Bridge notrump.one_nt.five_card_major=never
+dealer  S
+S A2.KQJ63.K82.Q93      |                                      | 1H     | never: open the major
+card    Basic-Bridge
+S A2.KQJ63.K82.Q93      |                                      | 1NT    | Basic-Bridge plays "1NT opening shape 5 major"
+
+# Natural majors without transfers (2026-09-30; probes/nt-van-*.toml,
+# BBA's bare SAYC card).
+card    Basic-Bridge notrump.jacoby_transfers.play=false notrump.one_nt.five_card_major=never
+dealer  N
+S KQJ54.K32.Q54.32      | 1NT P            | 3S     | five spades and game values: forcing
+S 54.AQJ54.K32.Q54      | 1NT P            | 3H     | five hearts and game values: forcing
+S KQ973.T.AK854.87      | 1NT P            | 3S     | 5-5 with the minor: the major first
+S AQ9752.2.Q942.T2      | 1NT P            | 3S     | six spades, 8 HCP: game (BBA too)
+S Q9854.32.J54.932      | 1NT P            | 2S     | weak with five spades: to play
+S 632.KJ7432.T8.76      | 1NT P            | 2H     | weak with six hearts: to play
+S 97654.AT953.864.      | 1NT P            | 2S     | weak 5-5 in the majors: spades
+S T73.AT653.Q732.6      | 1NT P            | 2H     | 6 HCP with five: to play, as BBA
+S .QT98542.65.K654      | 1NT P            | 4H     | seven hearts, 5 HCP: game to play (BBA)
+S KQJ53.73.J95.T96      | 1NT P            | 2C     | invitational with five: Stayman first
+N KQ2.J32.AK54.Q32      | 1NT P 3H P       | 4H     | three hearts: game in the fit
+N KQ32.J2.AK54.Q32      | 1NT P 3H P       | 3NT    | two hearts, four spades: 3NT (BBA)
+N Q7.AK2.AK54.Q632      | 1NT P 3S P       | 3NT    | two spades, a maximum: still 3NT
+N K72.AQ74.K54.A32      | 1NT P 3S P       | 4S     | three spades: game in the fit
+N KQ2.J32.AK54.Q32      | 1NT P 2H P       | P      | partner signed off
+S 2.AQJ752.K42.432      | 1NT P 3H P 3NT P | 4H     | six hearts: back to the major
+S 2.AQ752.KJ4.K432      | 1NT P 3H P 3NT P | P      | five: 3NT
+# Without Blackwood (bare SAYC); with it the slam-entry layer asks.
+card    Basic-Bridge notrump.jacoby_transfers.play=false notrump.one_nt.five_card_major=never slam.blackwood.play=false
+S AQJ65.K42.8.AQ82      | 1NT P 3S P 4S P  | 6S     | 16 and a singleton in the fit: slam
+S AT643.AT3.KT52.K      | 1NT P 3S P 4S P  | 6S     | 14 and six controls: slam-entry's direct slam (count 30 + 6), par's choice on the vanilla set (2026-10-01)
+S QT643.QJ3.KT52.K      | 1NT P 3S P 4S P  | P      | 11, two controls: game
+
+# The 1NT shape options (one-nt.bid). 21GF-DEFAULT: "1NT opening shape
+# 5422" on, 4441 off.
+card    21GF-DEFAULT
+dealer  S
+
+S A4.KQ93.K5.QJ862          |          | 1NT    | 5-4-2-2, five clubs, four hearts, both doubletons stopped
+S A4.K5.KQ93.QJ862          |          | 1NT    | five clubs, four diamonds
+S 84.KQ93.A5.AQJ62          |          | 1C     | a small doubleton: open the minor
+S KQ93.A4.K5.QJ862          |          | 1C     | four spades: open the minor
+
+# Two ranges by vulnerability, with qualifiers, as Rick's card
+# (one-nt.notes.md, "Range qualifiers" and "The alternate range"): 14+-17
+# vulnerable, 11+-14 not. "14+" is a good 14: total points 15-17.
+card    21GF-DEFAULT notrump.one_nt.range_min=14 notrump.one_nt.range_min_plus=true notrump.one_nt.range_max=17 notrump.one_nt.seat_vul=Vul notrump.one_nt_alt.range_min=11 notrump.one_nt_alt.range_min_plus=true notrump.one_nt_alt.range_max=14 notrump.one_nt_alt.seat_vul=NV notrump.one_nt_alt.same_responses=true
+dealer  S
+vul     None
+S KJ5.Q74.A963.K82      |          | 1NT    | 13 balanced, not vulnerable: the weak notrump
+S Q85.K74.AT963.Q8      |          | 1NT    | a good 11: the five-card suit makes 12
+S Q85.K74.A963.Q82      |          | P      | a flat 11 is not a good 11
+S KJ5.QT4.AJT3.K82      |          | 1D     | 14 and two tens is worth 15: above the weak range
+S AJ5.K74.AJ63.K82      |          | 1D     | 16: open the minor
+N Q85.K74.A632.Q82      | 1NT P    | 2NT    | 11 opposite 12-14 points: invite
+N KJ5.K74.A632.Q82      | 1NT P    | 3NT    | 13 opposite 12-14: game
+vul     NS
+S KJ5.Q74.A963.K82      |          | 1D     | 13 vulnerable: no weak notrump
+S KJ5.Q74.AJ63.K82      |          | 1D     | a plain 14 is not a good 14
+S KJ5.QT4.AJT3.K82      |          | 1NT    | a good 14: two tens
+S AQ5.K74.AJ63.K82      |          | 1NT    | 17
+N 982.K74.A632.Q82      | 1NT P    | 2NT    | 9 opposite 15-17 points: invite
+N Q85.K74.A632.Q82      | 1NT P    | 3NT    | 11 opposite 15-17: game
+# By seat: the weak notrump only in third and fourth seat.
+card    21GF-DEFAULT notrump.one_nt_alt.range_min=12 notrump.one_nt_alt.range_max=14 notrump.one_nt_alt.seat_vul=3rd/4th
+vul     None
+dealer  S
+S KJ5.Q74.A963.K82      |          | 1D     | 13 in first seat: 15-17 applies
+dealer  W
+S KJ5.Q74.A963.K82      | P P P    | 1NT    | 13 in fourth seat: 12-14
+N KJ5.Q74.A963.K82      | P        | 1D     | 13 in second seat (dealer W: North is second)

@@ -1,0 +1,158 @@
+# Responses to one-level suit openings (SAYC, BBA's Basic-Bridge card).
+# Every hand is a Basic_* corpus deal; where we differ from BBA the why says so.
+card    Basic-Bridge
+dealer  S
+
+# seat hand             | auction | expect | why
+# ── over 1♣
+N KQ2.JT63.KQ742.8      | 1C P    | 1D     | longest suit first: five diamonds
+N 9532.AQ972.K854.      | 1C P    | 1H     | five hearts before four spades
+N AK96.76.A62.T732      | 1C P    | 1S     | four spades, no diamonds or hearts to bid first
+N 986.Q83.QJ5.KJ82      | 1C P    | 1NT    | 9, balanced, nothing to show at the one level
+N 874.T9.Q72.KQJ96      | 1C P    | 2C     | 8 with five clubs: raise
+N 432.A.QJ72.QJT53      | 1C P    | 3C     | 10 with five clubs: limit raise
+N 986.AKQ92.KQ.K65      | 1C P    | 2H     | 17 with five hearts: strong jump shift
+N 3.T9842.T6.J8752      | 1C P    | P      | 1 HCP
+# ── over 1♦
+N KJT3.K76543.Q4.T      | 1D P    | 1H     | six hearts before four spades
+N K97653.A82.T32.J      | 1D P    | 1S     | six spades
+N Q2.QT4.T974.A642      | 1D P    | 1NT    | 8, no four-card major
+N A854.Q7.K7.QT984      | 1D P    | 2C     | 11+ with longer clubs: 2C before 1S
+N A86.T93.T6432.K2      | 1D P    | 2D     | 7 with five diamonds: raise
+N 643.3.AKT98.KJ94      | 1D P    | 3D     | 11 with five diamonds: limit raise
+N K73.QJ5.AQ93.732      | 1D P    | 2NT    | 12, balanced, no four-card major
+N A8.94.532.AK8632      | 1D P    | 2C     | 11 HCP + 2 length = 13 total: forcing 2C, too good to invite (BBA 3C; par)
+N 8754.T6.765.KJT5      | 1D P    | P      | 4 HCP
+# ── over 1♥
+N KQ4.84.JT865.K54      | 1H P    | 1NT    | 9, no heart fit, no four spades
+N KQT842..Q762.AJ7      | 1H P    | 1S     | six spades
+N T54.K9.542.AKJ32      | 1H P    | 2C     | 11 with five clubs
+N Q85.A5.KJ952.J73      | 1H P    | 2D     | 11 with five diamonds
+N KT52.J86.KJ4.942      | 1H P    | 2H     | 8 with three hearts: raise before 1S
+N 932.854.62.AKQJ2      | 1H P    | 2C     | 10 + doubleton = 11 support points, three hearts: new suit, then a jump raise (Rick)
+N 87.A96542.42.K64      | 1H P    | 4H     | 7 with six hearts: preemptive raise
+# Rick: 6-10 support points raise to 2M before any new suit; 11-12 with
+# four trumps is a limit raise; 11-12 with three is a new suit, then a jump.
+N AJT94.K62.863.J6      | 1H P    | 2H     | 10 support points, three hearts: raise, not 1S (Basic_Major 45)
+N AJ43.J42.A98.T98      | 1H P    | 2H     | flat 10, three hearts: raise, not 1S (Basic_Major 65)
+N A8.K862.Q863.J62      | 1H P    | 3H     | 11 support points, four hearts: limit raise
+N KQ75.K62.863.AJ6      | 1H P    | 1S     | 13, three hearts: a new suit first
+N AT752.Q3.AK.A932      | 1H P    | 2S     | 17 with five spades: strong jump shift
+N AK85.8.QT9862.K3      | 1H P    | 2D     | 12 HCP + 2 length = 14 total: forcing 2D, not an invitation (BBA 3D; par)
+N 64.JT3.KT76.9854      | 1H P    | P      | 4 HCP
+# ── over 1♠
+N Q8.JT8.A982.K852      | 1S P    | 1NT    | 10: 1NT, not a 2/1 on a four-card suit
+N K3.Q84.KJ852.J62      | 1S P    | 1NT    | 10 HCP and five diamonds: 1NT is 6-10 HCP, length does not count (par; constructed hand)
+N J8.AQ72.T32.A762      | 1S P    | 2C     | 11 with four clubs
+N T7.J6.KQ875.AJ62      | 1S P    | 2D     | 11, longer diamonds first
+N .KT9763.AQ98.432      | 1S P    | 3H     | 9 HCP + ten + 2 length = 11 total, six hearts: invitational jump shift (BBA 2H; par)
+N QJ52.K87.T53.J85      | 1S P    | 2S     | 7 with four spades: raise
+N T987.QT2.A52.A84      | 1S P    | 2S     | 10 support points: raise (Rick: 2M is 6-10)
+N AQ962.732.QJ83.6      | 1S P    | 4S     | 9 with five spades and a singleton: preemptive raise
+N T.AKT542.87.A953      | 1S P    | 2H     | 11 HCP + tens + 2 length = 14 total: forcing 2H (BBA 3H; par)
+N 2.84.76543.J8653      | 1S P    | P      | 1 HCP
+
+# ── Game values with a fit and no side suit: a three-card minor first (BBA)
+N KJ9753.A73.8.KT2      | 1S P    | 2C     | 11 + singleton: game values, no four-card side suit
+
+# ── Treatment: Walsh (card one_club_responses=walsh)
+card    Basic-Bridge minor_openings.one_club_responses=walsh
+N KQ2.JT63.KQ742.8      | 1C P    | 1H     | Walsh: bypass diamonds for the four-card major
+N AK96.76.AQ62.T73      | 1C P    | 1D     | Walsh, but 13 and game forcing: diamonds first
+N A86.T93.KJT64.K2      | 1C P    | 1D     | no four-card major: 1D
+
+# ── Treatment: 1m-2NT game forcing (card two_nt_response=game_forcing)
+card    Basic-Bridge minor_openings.two_nt_response=game_forcing
+N K73.QJ5.AQ93.K32      | 1D P    | 2NT    | 15, balanced, no major: game forcing 2NT
+N K73.QJ5.AQ93.KQ2      | 1D P    | 3NT    | 17, balanced: 3NT is 16-17 in this treatment
+N K73.QJ5.AQ93.732      | 1D P    | 2C     | 12, balanced: a new suit first, then 2NT
+
+# ── The BBA treatment (general.style=bba), probed with bba-cli (see
+# responses.notes.md, "BBA treatment (2026-09-24)"). Constructed hands
+# are probes; the others are Basic_* deals where BBA bids the same.
+card    Basic-Bridge general.style=bba
+dealer  S
+# three trumps: 2M up to 10 flat, 3M 11-12 flat or 9-11 with shortness
+N 432.K32.QJ2.A432      | 1S P    | 2S     | bba: three trumps, flat 10: raise (probe)
+N 432.KQ2.Q32.A432      | 1S P    | 3S     | bba: three trumps, flat 11: limit raise (probe)
+N 962.Q43.AQJ97.53      | 1S P    | 3S     | bba: three trumps, 9 and a doubleton: limit raise (Basic_Responses 28)
+N 932.854.62.AKQJ2      | 1H P    | 3H     | bba: three trumps, 10 and a doubleton: limit raise
+N KT52.J86.KJ4.942      | 1H P    | 2H     | bba: 8 with three hearts: raise
+# four trumps: 2M up to 8, 3M 9-10, 4M with a singleton, a new suit from 11
+N 5432.K32.J32.A32      | 1S P    | 2S     | bba: four trumps, 8: raise (probe)
+N 5432.K32.Q32.A32      | 1S P    | 3S     | bba: four trumps, 9: limit raise (probe)
+N T987.QT2.A52.A84      | 1S P    | 3S     | bba: four trumps, 10: limit raise (Basic_Major 23)
+N 5432.K432.J.A432      | 1S P    | 4S     | bba: four trumps, singleton, 8: game (probe)
+N 5432.K432.2.A432      | 1S P    | 2S     | bba: four trumps, singleton, 7: raise (probe)
+N 9743.J5.KQ8.AJT2      | 1S P    | 2C     | bba: four trumps and 11: a new suit (Basic_Major 185)
+# over 1H with three hearts and four spades: 1S from 11, or 10 and a doubleton
+N K32.5432.J32.A32      | 1H P    | 2H     | bba: 8, three spades and four hearts: raise (probe)
+N AJ43.J42.A98.T98      | 1H P    | 2H     | bba: flat 10, three hearts: raise, not 1S (Basic_Major 65)
+N KQ32.432.Q32.A32      | 1H P    | 1S     | bba: 11 with three hearts: 1S first (probe)
+# a two-level new suit: ten HCP and five hearts are enough over 1S
+N Q.K9653.KQT9.964      | 1S P    | 2H     | bba: 10 HCP, five hearts: 2H, not 1NT (Basic_Responses 178)
+
+# 2/1 game force (2026-09-30): on a 2/1 card the two-over-one is game
+# forcing with opening values (BBA from 13 HCP; ours 13 points with 12
+# HCP), and the 1NT response is 6-12, forcing when the card says so.
+card    21GF-DEFAULT
+dealer  N
+S 72.K84.A73.AQ952      | 1S P                                 | 2C     | 13 HCP: two over one, game forcing
+S 72.K84.Q73.AQ952      | 1S P                                 | 1NT    | 11 HCP: forcing 1NT, not a 2/1
+S 74.T84.A9.AKT743      | 1D P                                 | 3C     | six clubs, 11 HCP: short of the game-forcing 2C
+card    21GF-GIB
+S 72.K84.Q73.AQ952      | 1S P                                 | 1NT    | a 2/1 card without forcing 1NT: 1NT 6-12
+card    Basic-Bridge
+S 72.K84.Q73.AQ952      | 1S P                                 | 2C     | Standard American: 2C from 11, forcing one round
+
+# No limit raise on the card (2026-09-30: a bare SAYC .bbsa without
+# "1M-3M inviting"): 2M is the only raise below game and takes 6-12
+# support points; three trumps and a side suit with 11-12 still bid it
+# first. Random deals, SAYC-bare (BBA bids 2M on all but the last).
+card    Basic-Bridge major_openings.jump_raise.inv=false
+dealer  N
+S KT43.KQ86.875.K7      | 1S P                                 | 2S     | four trumps, 11 HCP: no 3S to bid
+S 983.AJT2.KT742.4      | 1S P                                 | 2S     | three trumps and a singleton: 10 support points
+S 3.K72.AJ652.J843      | 1H P                                 | 2H     | 9 HCP and a singleton: 11 support points
+S K92.A82.KQ93.854      | 1S P                                 | 2D     | three trumps, 12 HCP and four diamonds: a new suit first
+S KJ43.K82.Q93.Q54      | 1H P                                 | 2H     | four spades, three hearts and 11: the raise before 1S
+card    Basic-Bridge
+S KT43.KQ86.875.K7      | 1S P                                 | 3S     | the same four-trump 11 with the limit raise played
+card    21GF-DEFAULT minor_openings.inverted_minors.play=false
+S 5.A97.KJ83.KT865      | 1D P                                 | 3D     | 11, four diamonds and five clubs: the limit raise (no 2/1, no 2NT)
+
+# ── The Brill card's treatments (general.system = brill; notes, "Brill").
+# Each Brill line has a 21GF-GIB line beside it: the default is unchanged.
+dealer  N
+vul     None
+card    Brill
+S Q873.A92.KQ84.92      | 1S P       | 3S     | brill: the limit raise has four trumps
+S 873.A92.KQ84.Q92      | 1S P       | 1NT    | brill: three trumps and 11: 1NT first
+S 87.KQ9.A842.J932      | 1H P       | 1NT    | brill: three trumps and 10: 1NT first
+S 87.KQ9.A842.J932      | 1H P 1NT P 2C P | 3H | brill: then the three-card limit raise
+card    21GF-GIB
+S 873.A92.KQ84.Q92      | 1S P       | 3S     | default: three trumps will do
+
+# The weak three-card raise goes through 1NT on the 2/1 cards: the
+# single raise is constructive, 8+ support points with three trumps,
+# the weak raise 5-7 support points (Rick, 2026-11-06 and 2026-11-07,
+# bridge-classroom-bug-artifacts #87: "support points. with 9 support
+# points a direct, constructive raise is correct").
+card    21GF-GIB
+dealer  N
+S Q72.976.A874.J32      | 1S P       | 1NT    | 7 HCP flat, three spades: 7 support points, 1NT, then preference
+S Q72.97.AT8742.J2      | 1S P       | 2S     | #87 (board 14): 7 HCP and two doubletons, 9 support points: the direct raise (Rick, 2026-11-07)
+S Q72.976.A874.Q32      | 1S P       | 2S     | 8 HCP and three: the constructive raise
+S 732.Q76.A87.J432      | 1H P       | 1NT    | 7 HCP flat, three hearts: 7 support points
+S 72.Q76.A874.J432      | 1H P       | 2H     | 7 HCP and a doubleton: 8 support points, the constructive raise (Rick, 2026-11-07)
+S Q72.9765.A874.32      | 1S P       | 1NT    | 6 HCP and a doubleton: 7 support points, the weak raise via 1NT
+S A4.7.QT3.AQT7432      | 1H P       | 2C     | 12 HCP, 13 points: the 2/1, not the 1NT (2026-11-07)
+S Q842.Q82.9874.K9      | 1H P       | 2H     | four spades: no 1NT, so the raise (1S would deny three hearts)
+S Q872.76.A874.J32      | 1S P       | 2S     | four trumps raise at once
+dealer  S
+S Q72.976.AT874.J2      | P P 1S P   | 2S     | a passed hand raises: its 1NT is not forcing
+card    21GF-DEFAULT
+dealer  N
+S Q72.976.A874.J32      | 1S P       | 1NT    | the forcing 1NT holds it too
+card    Basic-Bridge
+S Q72.976.AT874.J2      | 1S P       | 2S     | SAYC: the 6-10 raise

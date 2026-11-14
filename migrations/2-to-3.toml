@@ -1,0 +1,227 @@
+# Card schema 2.0 -> 3.0: conventions are entries keyed by ID
+# (docs/CONTRACT.md, section 8; issue #3).
+#
+# Generated from the Phase 1 inventory (inventory/, scripts/restructure.py).
+# Permanent once published: it is how cards, files and PDFs already in
+# people's hands keep loading.
+#
+# A schema 2 card is nested `card_data`; every path below is a full dotted
+# path into it. A schema 3 card has `conventions`, keyed by ID, and
+# `settings`, the nested form of every path not named here.
+#
+# [convention]  "switch path" = "ID". The switch is the entry's `play`:
+#               true -> an entry (`play` left out); false -> `play = false`.
+#               Unset: an entry, played, when any of the convention's
+#               treatments below is on or filled in; otherwise no entry
+#               (Rick Wilson, 2026-11-13).
+# [treatment]   "field path" = "ID:treatment". The value moves into that
+#               entry under the treatment's name.
+# [[place]]     One convention played in several places, each a yes/no
+#               switch in schema 2. The entry is played when any place is
+#               on; every place is written, true or false, so the entry
+#               never falls back on a default. All false or unset with no
+#               treatment on: `play = false` when any was false, else no
+#               entry.
+# [[function]]  A setting whose value named a convention. The option's
+#               convention gets an entry. Where the function has parts
+#               (`strong`, `weak`), an entry chosen for only some of them
+#               lists them in `for`. Options with no convention (`natural`,
+#               `other`) leave no entry. `unless_chosen` is { switch = part }:
+#               a switch that turned its convention on for that part only
+#               while the part's setting was unset or `other`. Schema 2's
+#               precedence, kept: with another defence or `natural` chosen,
+#               the switch did nothing and leaves no entry.
+# [alias]       "older path" = "address": spellings schema 2 still read.
+# Everything else moves to `settings` at the same path.
+
+from = "2.0"
+to = "3.0"
+
+[convention]
+"competitive.bromad.play" = "competitive_bidding/bromad"
+"competitive.cue_bid_raise.play" = "competitive_bidding/support_cuebids"
+"competitive.dont.play" = "competitive_bidding/dont"
+"competitive.fit_showing_jumps.play" = "competitive_bidding/fit_showing_jumps"
+"competitive.ghestem.play" = "competitive_bidding/ghestem"
+"competitive.jordan_2nt.play" = "competitive_bidding/jordan_2nt"
+"competitive.lead_directing_double.play" = "competitive_bidding/lead_directing_doubles"
+"competitive.leaping_michaels.play" = "competitive_bidding/leaping_michaels"
+"competitive.michaels.play" = "competitive_bidding/michaels"
+"competitive.non_leaping_michaels.play" = "competitive_bidding/non_leaping_michaels"
+"competitive.raptor_1nt.play" = "competitive_bidding/raptor"
+"competitive.sandwich_nt.play" = "competitive_bidding/sandwich_nt"
+"competitive.scrambling_2nt.play" = "competitive_bidding/scrambling_2nt"
+"competitive.snapdragon.play" = "competitive_bidding/snapdragon"
+"competitive.unusual_vs_unusual.play" = "competitive_bidding/unusual_vs_unusual"
+"doubles.negative.play" = "competitive_bidding/negative_doubles"
+"doubles.responsive.play" = "competitive_bidding/responsive_doubles"
+"doubles.support.play" = "competitive_bidding/support_doubles"
+"general.soloway.play" = "bidding_conventions/soloway"
+"major_openings.bergen_raises.play" = "bidding_conventions/bergen_raises"
+"major_openings.drury.play" = "bidding_conventions/drury"
+"major_openings.gazzilli.play" = "bidding_conventions/gazzilli"
+"major_openings.impossible_2s.play" = "bidding_conventions/impossible_2s"
+"major_openings.jacoby_2nt.play" = "bidding_conventions/jacoby_2nt"
+"major_openings.mini_splinters.play" = "bidding_conventions/mini_splinters"
+"major_openings.splinters.play" = "bidding_conventions/splinters"
+"major_openings.three_nt_raise.play" = "bidding_conventions/three_nt_raise"
+"major_openings.two_over_one.play" = "bidding_conventions/two_over_one"
+"minor_openings.inverted_minors.play" = "bidding_conventions/inverted_minors"
+"minor_openings.walsh.play" = "bidding_conventions/walsh"
+"notrump.gambling_3nt.play" = "bidding_conventions/gambling_3nt"
+"notrump.jacoby_transfers.play" = "bidding_conventions/jacoby_transfers"
+"notrump.minor_suit_stayman.play" = "bidding_conventions/minor_suit_stayman"
+"notrump.minor_transfers.play" = "bidding_conventions/minor_suit_transfers"
+"notrump.smolen.play" = "bidding_conventions/smolen"
+"notrump.stayman.play" = "bidding_conventions/stayman"
+"notrump.texas.play" = "bidding_conventions/texas"
+"other_conventions.checkback.play" = "bidding_conventions/checkback"
+"other_conventions.fourth_suit_forcing.play" = "bidding_conventions/fourth_suit_forcing"
+"other_conventions.help_suit_game_tries.play" = "bidding_conventions/help_suit_game_try"
+"other_conventions.ingberman_2nt.play" = "bidding_conventions/ingberman"
+"other_conventions.new_minor_forcing.play" = "bidding_conventions/new_minor_forcing"
+"other_conventions.roudi.play" = "bidding_conventions/roudi"
+"other_conventions.sos_redouble.play" = "competitive_bidding/sos_redouble"
+"other_conventions.two_way_game_tries.play" = "bidding_conventions/two_way_game_tries"
+"other_conventions.wolff_signoff.play" = "bidding_conventions/wolff_signoff"
+"preempts.namyats.play" = "bidding_conventions/namyats"
+"slam.blackwood.play" = "bidding_conventions/blackwood"
+"slam.cue_bids.play" = "bidding_conventions/control_bids"
+"slam.exclusion_blackwood.play" = "bidding_conventions/exclusion_blackwood"
+"slam.four_nt_opening.play" = "bidding_conventions/four_nt_opening"
+"slam.gerber.play" = "bidding_conventions/gerber"
+"slam.kickback.play" = "bidding_conventions/kickback"
+"slam.minorwood.play" = "bidding_conventions/minorwood"
+"slam.non_serious_3nt.play" = "bidding_conventions/serious_3nt"
+"slam.pick_a_slam_5nt.play" = "bidding_conventions/pick_a_slam_5nt"
+"slam.quantitative_4nt.play" = "bidding_conventions/quantitative_4nt"
+"slam.rkcb.play" = "bidding_conventions/roman_keycard"
+"slam.spiral_cuebids.play" = "bidding_conventions/spiral"
+"slam.western_cuebid.play" = "bidding_conventions/western_cuebid"
+"two_level.benjamin.play" = "bidding_conventions/benjamin_2d"
+"two_level.flannery.play" = "bidding_conventions/flannery"
+"two_level.french_2d.play" = "bidding_conventions/french_2d"
+"two_level.kokish.play" = "bidding_conventions/kokish"
+"two_level.mccabe.play" = "bidding_conventions/mccabe"
+"two_level.mini_roman.play" = "bidding_conventions/mini_roman_2d"
+"two_level.multi.play" = "bidding_conventions/multi_2d"
+"two_level.ogust.play" = "bidding_conventions/ogust"
+"two_level.parrish_bust.play" = "bidding_conventions/two_heart_bust"
+"two_level.polish_two_suiters.play" = "bidding_conventions/polish_two_suiters"
+"two_level.precision_2d.play" = "bidding_conventions/precision_2d"
+"two_level.reverse_flannery.play" = "bidding_conventions/reverse_flannery"
+"two_level.wilkosz.play" = "bidding_conventions/wilkosz"
+
+[treatment]
+"competitive.michaels.minor_advance" = "competitive_bidding/michaels:minor_advance"
+"competitive.michaels.strength" = "competitive_bidding/michaels:strength"
+"competitive.unusual_2nt.shows" = "competitive_bidding/unusual_notrump:shows"
+"doubles.negative.through" = "competitive_bidding/negative_doubles:through"
+"doubles.responsive.through" = "competitive_bidding/responsive_doubles:through"
+"doubles.support.rdbl" = "competitive_bidding/support_doubles:rdbl"
+"doubles.support.through" = "competitive_bidding/support_doubles:through"
+"general.soloway.extended" = "bidding_conventions/soloway:extended"
+"major_openings.bergen_raises.reverse" = "bidding_conventions/bergen_raises:reverse"
+"major_openings.drury.fit" = "bidding_conventions/drury:fit"
+"major_openings.drury.in_comp" = "bidding_conventions/drury:in_comp"
+"major_openings.drury.reverse" = "bidding_conventions/drury:reverse"
+"major_openings.drury.two_d" = "bidding_conventions/drury:two_d"
+"major_openings.jacoby_2nt.modified" = "bidding_conventions/jacoby_2nt:modified"
+"major_openings.splinters.by_opener" = "bidding_conventions/splinters:by_opener"
+"major_openings.splinters.by_responder" = "bidding_conventions/splinters:by_responder"
+"major_openings.three_nt_raise.range_max" = "bidding_conventions/three_nt_raise:range_max"
+"major_openings.three_nt_raise.range_max_minus" = "bidding_conventions/three_nt_raise:range_max_minus"
+"major_openings.three_nt_raise.range_max_plus" = "bidding_conventions/three_nt_raise:range_max_plus"
+"major_openings.three_nt_raise.range_min" = "bidding_conventions/three_nt_raise:range_min"
+"major_openings.three_nt_raise.range_min_minus" = "bidding_conventions/three_nt_raise:range_min_minus"
+"major_openings.three_nt_raise.range_min_plus" = "bidding_conventions/three_nt_raise:range_min_plus"
+"major_openings.two_over_one.game_forcing_except" = "bidding_conventions/two_over_one:game_forcing_except"
+"major_openings.two_over_one.rebid_style" = "bidding_conventions/two_over_one:rebid_style"
+"notrump.gambling_3nt.description" = "bidding_conventions/gambling_3nt:description"
+"notrump.jacoby_transfers.over_2c_3nt" = "bidding_conventions/jacoby_transfers:over_2c_3nt"
+"notrump.jacoby_transfers.over_2nt" = "bidding_conventions/jacoby_transfers:over_2nt"
+"notrump.jacoby_transfers.super_accept" = "bidding_conventions/jacoby_transfers:super_accept"
+"notrump.jacoby_transfers.super_accept_doubleton" = "bidding_conventions/jacoby_transfers:super_accept_doubleton"
+"notrump.jacoby_transfers.vs_2c" = "bidding_conventions/jacoby_transfers:vs_2c"
+"notrump.jacoby_transfers.vs_double" = "bidding_conventions/jacoby_transfers:vs_double"
+"notrump.lebensohl.description" = "competitive_bidding/lebensohl:description"
+"notrump.minor_suit_stayman.over_2nt" = "bidding_conventions/minor_suit_stayman:over_2nt"
+"notrump.minor_transfers.over_2nt" = "bidding_conventions/minor_suit_transfers:over_2nt"
+"notrump.minor_transfers.over_2nt_3s_clubs" = "bidding_conventions/minor_suit_transfers:over_2nt_3s_clubs"
+"notrump.minor_transfers.over_2nt_4c_diamonds" = "bidding_conventions/minor_suit_transfers:over_2nt_4c_diamonds"
+"notrump.minor_transfers.style" = "bidding_conventions/minor_suit_transfers:style"
+"notrump.minor_transfers.three_c_diamonds" = "bidding_conventions/minor_suit_transfers:three_c_diamonds"
+"notrump.minor_transfers.two_nt" = "bidding_conventions/minor_suit_transfers:two_nt"
+"notrump.minor_transfers.two_nt_clubs" = "bidding_conventions/minor_suit_transfers:two_nt_clubs"
+"notrump.minor_transfers.two_nt_diamonds" = "bidding_conventions/minor_suit_transfers:two_nt_diamonds"
+"notrump.minor_transfers.two_s" = "bidding_conventions/minor_suit_transfers:two_s"
+"notrump.minor_transfers.two_s_clubs" = "bidding_conventions/minor_suit_transfers:two_s_clubs"
+"notrump.stayman.forcing" = "bidding_conventions/stayman:forcing"
+"notrump.stayman.garbage" = "bidding_conventions/stayman:garbage"
+"notrump.stayman.over_2nt_both_majors" = "bidding_conventions/stayman:over_2nt_both_majors"
+"notrump.stayman.puppet_1nt" = "bidding_conventions/stayman:puppet_1nt"
+"notrump.stayman.puppet_2nt" = "bidding_conventions/stayman:puppet_2nt"
+"notrump.texas.bid_4c" = "bidding_conventions/texas:bid_4c"
+"notrump.texas.bid_4d" = "bidding_conventions/texas:bid_4d"
+"notrump.texas.bid_4h" = "bidding_conventions/texas:bid_4h"
+"notrump.texas.bid_4s" = "bidding_conventions/texas:bid_4s"
+"notrump.texas.over_2nt" = "bidding_conventions/texas:over_2nt"
+"notrump.texas.two_under" = "bidding_conventions/texas:two_under"
+"other_conventions.fourth_suit_forcing.game_force" = "bidding_conventions/fourth_suit_forcing:game_force"
+"other_conventions.fourth_suit_forcing.notes" = "bidding_conventions/fourth_suit_forcing:notes"
+"other_conventions.fourth_suit_forcing.one_round" = "bidding_conventions/fourth_suit_forcing:one_round"
+"other_conventions.new_minor_forcing.after_2nt_rebid" = "bidding_conventions/new_minor_forcing:after_2nt_rebid"
+"other_conventions.new_minor_forcing.by_passed_hand" = "bidding_conventions/new_minor_forcing:by_passed_hand"
+"slam.blackwood.notes" = "bidding_conventions/blackwood:notes"
+"slam.cue_bids.style" = "bidding_conventions/control_bids:style"
+"slam.gerber.directly_over_nt" = "bidding_conventions/gerber:directly_over_nt"
+"slam.gerber.non_nt_seq" = "bidding_conventions/gerber:non_nt_seq"
+"slam.gerber.notes" = "bidding_conventions/gerber:notes"
+"slam.gerber.only_over_nt_openings" = "bidding_conventions/gerber:only_over_nt_openings"
+"slam.gerber.over" = "bidding_conventions/gerber:over"
+"slam.gerber.over_nt_seq" = "bidding_conventions/gerber:over_nt_seq"
+"slam.kickback.rkcb_0314" = "bidding_conventions/kickback:rkcb_0314"
+"slam.kickback.rkcb_1430" = "bidding_conventions/kickback:rkcb_1430"
+"slam.rkcb.minor_0314" = "bidding_conventions/roman_keycard:minor_0314"
+"slam.rkcb.queen_ask" = "bidding_conventions/roman_keycard:queen_ask"
+"slam.rkcb.style" = "bidding_conventions/roman_keycard:style"
+"two_level.mini_roman.maxi" = "bidding_conventions/mini_roman_2d:maxi"
+"two_level.multi.strong_option" = "bidding_conventions/multi_2d:strong_option"
+"two_level.parrish_bust.relay" = "bidding_conventions/two_heart_bust:relay"
+"two_level.reverse_flannery.two_d" = "bidding_conventions/reverse_flannery:two_d"
+"two_level.reverse_flannery.two_h" = "bidding_conventions/reverse_flannery:two_h"
+"two_level.reverse_flannery.two_s" = "bidding_conventions/reverse_flannery:two_s"
+
+[[place]]
+convention = "competitive_bidding/lebensohl"
+switches = { "notrump.lebensohl.play" = "over_1nt_interference", "competitive.lebensohl_weak_twos.play" = "after_weak_two_double" }
+
+[[place]]
+convention = "competitive_bidding/rubensohl"
+switches = { "notrump.rubensohl.play" = "over_1nt_interference", "competitive.rubensohl_after_double.play" = "after_double" }
+
+[[place]]
+convention = "competitive_bidding/unusual_notrump"
+switches = { "competitive.unusual_2nt.play" = "at_2nt", "competitive.unusual_1nt.play" = "at_1nt", "competitive.unusual_3nt.play" = "at_3nt", "competitive.unusual_4nt.play" = "at_4nt" }
+
+[[function]]
+function = "defence_to_1nt"
+settings = { strong = "competitive.vs_1nt_strong.system", weak = "competitive.vs_1nt_weak.system" }
+options = { cappelletti = "competitive_bidding/cappelletti", modified_cappelletti = "competitive_bidding/modified_cappelletti", landy = "competitive_bidding/landy", multi_landy = "competitive_bidding/multi_landy", dont = "competitive_bidding/dont", meckwell = "competitive_bidding/meckwell", suction = "competitive_bidding/suction" }
+no_entry = ["natural", "other"]
+unless_chosen = { "competitive.dont.play" = "strong" }
+
+[alias]
+"competitive.defense_vs_strong_nt.convention" = "defence_to_1nt.strong"
+"competitive.negative_doubles.through" = "competitive_bidding/negative_doubles:through"
+"major_openings.drury.two_way" = "bidding_conventions/drury:two_d"
+"notrump.stayman.puppet" = "bidding_conventions/stayman:puppet_1nt"
+"other_conventions.blackwood.notes" = "bidding_conventions/blackwood:notes"
+"other_conventions.fourth_suit_forcing.game_forcing" = "bidding_conventions/fourth_suit_forcing:game_force"
+"other_conventions.gerber.directly_over_nt" = "bidding_conventions/gerber:directly_over_nt"
+"other_conventions.gerber.non_nt_seq" = "bidding_conventions/gerber:non_nt_seq"
+"other_conventions.gerber.over_nt_seq" = "bidding_conventions/gerber:over_nt_seq"
+"other_conventions.gerber.play" = "bidding_conventions/gerber"
+"other_conventions.kickback.play" = "bidding_conventions/kickback"
+"vs_preempts.lebensohl_response" = "competitive_bidding/lebensohl:after_weak_two_double"
+"vs_to_double.two_nt_raise_majors.limit_plus" = "competitive_bidding/jordan_2nt"

@@ -1,0 +1,382 @@
+# Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
+#
+# Overcalls of a one-level opening on our right (Rick, 2026-09-22):
+#
+# - a simple overcall is always a five-card suit: 8-17 total points at the
+#   one level, 12-17 at the two level (BBA's Basic-Bridge meanings, which
+#   Rick adopted). No four-card overcalls on this card;
+# - too strong to overcall (18+ total points) is a takeout double first and
+#   the suit afterwards, whatever the shape (takeout-double.bid); the
+#   overcall's own ceiling is 16 HCP (17 from 2026-09-25, 16 from
+#   2026-09-27 so that 17+ is the power double), so a six-card suit with
+#   16 still overcalls, as BBA does;
+# - a jump overcall follows the weak-two rules: six cards, 4-10 HCP (10
+#   as BBA, 2026-09-25), and vulnerable two of the top three or three of
+#   the top five honours;
+# - a direct 1NT overcall is 15-18 balanced with a stopper in their suit,
+#   a point wider than our 1NT opening.
+#
+# With two five-card suits the higher-ranking one is bid, as in base.bid:
+# each rule requires its suit to be at least as long as the suits above it
+# and longer than the suits below it, so only one of them can fire.
+
+module overcalls "Suit and notrump overcalls"
+  kind   system
+  needs  base
+  skill  competitive_bidding/overcalls
+  skill  partnership_bidding/overcalls
+  param  one_min = overcalls.one_level_min default 8
+  param  one_max = overcalls.one_level_max default 16
+  param  two_min = overcalls.two_level_min default 12
+  param  two_max = overcalls.two_level_max default 17
+  param  jump    = overcalls.jump default weak
+  param  nt_min  = nt_overcalls.direct.range_min default 15
+  param  nt_max  = nt_overcalls.direct.range_max default 18
+  param  system  = general.system   # `brill`: the Brill card's treatments (1NT overcall)
+  param  nt_def  = competitive.vs_1nt_strong.system default other
+  param  dont_play = competitive_bidding/dont default false
+  param  raptor  = competitive_bidding/raptor default false
+  param  sandwich = competitive_bidding/sandwich_nt default false
+
+# ── Simple overcalls at the one level ────────────────────────────────
+# `(1x)` binds x to the suit they opened; the rules below never bid it.
+#
+# The suit has to be worth bidding (Rick, 2026-09-23): two of the top
+# three or three of the top five honours, **or else an opening hand** --
+# it takes 12 total points to overcall on a ten-high suit. Without that
+# we overcalled 1♠ on J8753 with 10 HCP and pushed the auction up for
+# the opponents.
+after (1x)
+  1S  "Overcall: five spades, {one_min}-{one_max} total points"
+      shows S>=5, S>=H, S>=D, S>=C
+      shows hcp+length_points>=one_min, hcp<=one_max
+      when  x is not S
+      when  quality(S)>=good | top5(S)>=3 | hcp+length_points>=12
+  1H  "Overcall: five hearts, {one_min}-{one_max} total points"
+      shows H>=5, H>S, H>=D, H>=C
+      shows hcp+length_points>=one_min, hcp<=one_max
+      when  x is not H
+      when  quality(H)>=good | top5(H)>=3 | hcp+length_points>=12
+  1D  "Overcall: five diamonds, {one_min}-{one_max} total points"
+      shows D>=5, D>S, D>H, D>=C
+      shows hcp+length_points>=one_min, hcp<=one_max
+      when  x is not D
+      when  quality(D)>=good | top5(D)>=3 | hcp+length_points>=12
+
+# ── Simple overcalls at the two level ────────────────────────────────
+# Only where the suit cannot be shown at the one level: clubs over any
+# opening, diamonds over a major, hearts over 1S. A two-level bid in a
+# suit that could have been shown more cheaply is a jump, below.
+# Up to the one-level maximum in HCP as well (ticket b400, 2026-10-02):
+# a 16-count with a good six-card suit is 18 total points, over the
+# two-level maximum but short of the power double's 17 HCP, and it used
+# to pass. Now no direct-seat pass holds more than 16 HCP.
+# The minimum is in HCP, a point less with six cards (ticket b238,
+# 2026-10-04; probes/oc-2C-over-1D.toml): BBA overcalls 2C over 1D from
+# 12 HCP with five clubs, 11 with six or seven, never on less (a weak
+# hand with seven clubs preempts at 3C). 12 total points let 10 HCP and
+# six clubs overcall, and partner read the overcall as 3+ HCP.
+after (1x)
+  2C  "Overcall: five clubs, {two_min}-{two_max} total points"
+      shows C>=5, C>S, C>H, C>D
+      shows hcp>=two_min | (C>=6, hcp>=two_min-1), hcp+length_points<=two_max | hcp<=one_max
+      when  x is not C
+      when  C>=6 | quality(C)>=good | top5(C)>=4
+  2D  "Overcall: five diamonds, {two_min}-{two_max} total points"
+      shows D>=5, D>S, D>H, D>=C
+      shows hcp>=two_min | (D>=6, hcp>=two_min-1), hcp+length_points<=two_max | hcp<=one_max
+      when  x is not D, x is not C
+      when  D>=6 | quality(D)>=good | top5(D)>=4
+  2H  "Overcall: five hearts, {two_min}-{two_max} total points"
+      shows H>=5, H>S, H>=D, H>=C
+      shows hcp>=two_min | (H>=6, hcp>=two_min-1), hcp+length_points<=two_max | hcp<=one_max
+      when  x is not H, x is not D, x is not C
+      when  H>=6 | quality(H)>=good | top5(H)>=4
+
+# ── Notrump overcall ─────────────────────────────────────────────────
+# With a five-card major we show the major instead, which is what BBA
+# does: every 1NT overcall in the corpus had four cards or fewer in both.
+after (1x)
+  1N  "{nt_min}-{nt_max} balanced with a stopper in {x}"
+      shows balanced, hcp>=nt_min, hcp<=nt_max, S<=4, H<=4
+      when  stop(x), !raptor             # Raptor 1NT shows two suits (raptor.bid)
+      when  system is not brill
+# brill (the Brill card, 15-17): balanced or semi-balanced, so a five-card
+# major will do. Brill /explain, 2026-10-15, "Overcalling 1Mi with 1N" and
+# "Overcalling 1Ma with 1N", "15-17": `stopper('C') and hcp>= 15 and hcp<=
+# 17 and (balanced or semibalanced)`.
+after (1x) when system is brill
+  1N  "{nt_min}-{nt_max} balanced or semi-balanced with a stopper in {x}"
+      shows balanced | semibalanced, C=2..5, D=2..5, H=2..5, S=2..5, hcp>=nt_min, hcp<=nt_max
+      when  stop(x), !raptor
+
+# Advancer when their partner raises over our 1NT overcall: nothing was
+# written (~160 corpus boards). BBA, 2026-09-25: a five-card suit at the
+# two level to play; a six-card minor at the three level; 3NT with 9+
+# and their suit held. BBA also doubles for takeout short in their suit;
+# the double cost 449 IMPs against par here, so it is left out.
+after (1x) 1N (2x)
+  2S  "To play: five or more spades"          shows S>=5, hcp<=8
+      when  x is H
+  3C  "To play: six or more clubs"            shows C>=6, hcp<=8, H<=3 | x is H, S<=3 | x is S
+  3D  "To play: six or more diamonds"         shows D>=6, D>C, hcp<=8, H<=3 | x is H, S<=3 | x is S
+  3N  "Game: 9+, {x} held"                    shows hcp>=9, stop(x)
+  P   "Not enough to advance"                        shows hcp>=0
+      priority -5
+
+# ── Over their 1NT, natural (2026-09-25, probes/vs-1N.toml) ───────────
+# No rules existed. BBA on Basic-Bridge (no conventional defence): a
+# five-card suit at the two level with 12+ total points (six cards from
+# about 10 HCP), the longest suit and the higher of two equal; a
+# preemptive three-level bid with seven cards and 4-10. (BBA also doubles
+# with 13+ and 4-3-3-3; neutral, left out.) Judged from the overcalling
+# side: +1,007 IMPs over 237 changed boards (par distance says -825, but
+# par distance counts a successful overcall against us: overcalls.notes.md).
+# The pass is shared by every defence, and the conventional defences
+# preempt in a narrower range (vs-1nt.bid). Landy keeps the natural 2♦/2♥/2♠ and uses 2♣ for the majors
+# (multi-landy.bid).
+# `natural` is the card's explicit word for it (convention-card 0.43; it used to load as `other`).
+after (1N) when (nt_def is other, !dont_play) | nt_def is natural | nt_def is landy
+  2S  "Natural: five spades, 12+ total points"    shows S>=5, S>=H, S>=D, S>=C, hcp+length_points>=12, hcp<=17
+  2H  "Natural: five hearts, 12+ total points"    shows H>=5, H>S, H>=D, H>=C, hcp+length_points>=12, hcp<=17
+  2D  "Natural: five diamonds, 12+ total points"  shows D>=5, D>S, D>H, D>=C, hcp+length_points>=12, hcp<=17
+after (1N) when (nt_def is other, !dont_play) | nt_def is natural
+  2C  "Natural: five clubs, 12+ total points"     shows C>=5, C>S, C>H, C>D, hcp+length_points>=12, hcp<=17
+  3S  "Preemptive: seven spades, 4-10"            shows S>=7, hcp=4..10
+      priority 1
+  3H  "Preemptive: seven hearts, 4-10"            shows H>=7, hcp=4..10
+      priority 1
+  3D  "Preemptive: seven diamonds, 4-10"          shows D>=7, hcp=4..10
+      priority 1
+  3C  "Preemptive: seven clubs, 4-10"             shows C>=7, hcp=4..10
+      priority 1
+
+# ── Weak jump overcalls ──────────────────────────────────────────────
+# The weak-two rules of preempts.bid: six cards and 4-10 HCP, and
+# vulnerable two of the top three or three of the top five honours.
+# A jump is only a jump where the suit was biddable more cheaply, so
+# each rule names the openings it applies to.
+after (1x) when jump is weak
+  2D  "Weak jump overcall: six diamonds, 4-10"   shows D=6, hcp=4..10, H<=3, S<=3
+      when  x is not D, x is not H, x is not S
+      when  !vul | quality(D)>=good | top5(D)>=3
+  2H  "Weak jump overcall: six hearts, 4-10"     shows H=6, hcp=4..10, S<=3
+      when  x is not H, x is not S
+      when  !vul | quality(H)>=good | top5(H)>=3
+  2S  "Weak jump overcall: six spades, 4-10"     shows S=6, hcp=4..10
+      when  x is not S
+      when  !vul | quality(S)>=good | top5(S)>=3
+
+# Seven-card suits jump to the three level, as they open at the three
+# level uncontested.
+after (1x) when jump is weak
+  3C  "Jump overcall: seven clubs, 4-10"    shows C=7, hcp=4..10, H<=3, S<=3
+      when  x is not C
+      when  !vul | quality(C)>=good | top5(C)>=3
+  3D  "Jump overcall: seven diamonds, 4-10" shows D=7, hcp=4..10, H<=3, S<=3
+      when  x is not D
+      when  !vul | quality(D)>=good | top5(D)>=3
+  3H  "Jump overcall: seven hearts, 4-10"   shows H=7, hcp=4..10, S<=3
+      when  x is not H
+      when  !vul | quality(H)>=good | top5(H)>=3
+  3S  "Jump overcall: seven spades, 4-10"   shows S=7, hcp=4..10
+      when  x is not S
+      when  !vul | quality(S)>=good | top5(S)>=3
+
+# ── The sandwich seat: (1x) P (1y) ───────────────────────────────────
+# Fourth hand after opener's partner has responded one of a suit
+# (2026-10-07). Nothing was written here, so this hand always passed
+# ("Defending: nothing more to say"): 78% of the positions where BBA
+# acted and that rule passed were such first entries (total-tricks.notes.md),
+# and conventions that answer this interference (support doubles and
+# redoubles) never arose in our own auctions. The same overcalls as in
+# the direct seat, in the suits they have not bid, and the same weak
+# jumps; 1NT is natural and stops both their suits; the double is for
+# takeout of the two unbid suits. BBA, 21GF-DEFAULT
+# (probes/oc4-1D-P-1H.toml, oc4-1H-P-1S.toml): overcalls 8-17 total
+# points at the one level and 12-17 at the two, 1NT 15-17, the double
+# 12+ with three or more in both unbid suits, weak jumps as in the
+# direct seat. Our double wants eight cards in the two suits (or 15+):
+# BBA passes most 12-14 hands with four-three. A five-card suit
+# overcalls first. Partner has passed, so there is no power double
+# here: strong hands overcall (up to 18 HCP) or double. Not written:
+# BBA's 2NT for the two lowest unbid suits and its natural bids in
+# responder's suit (2H, 3H over 1D P 1H with six or seven hearts).
+after (1x) P (1y) when y is not x
+  1S  "Overcall: five spades, {one_min}-18 total points"
+      shows S>=5, S>=H | x is H | y is H, S>=D | x is D | y is D, S>=C | x is C | y is C
+      shows hcp+length_points>=one_min, hcp<=18
+      when  x is not S, y is not S
+      when  quality(S)>=good | top5(S)>=3 | hcp+length_points>=12
+  1H  "Overcall: five hearts, {one_min}-18 total points"
+      shows H>=5, H>S | x is S | y is S, H>=D | x is D | y is D, H>=C | x is C | y is C
+      shows hcp+length_points>=one_min, hcp<=18
+      when  x is not H, y is not H, y is not S
+      when  quality(H)>=good | top5(H)>=3 | hcp+length_points>=12
+  2C  "Overcall: five clubs, {two_min}-18 total points"
+      shows C>=5, C>S | x is S | y is S, C>H | x is H | y is H, C>D | x is D | y is D
+      shows hcp>=two_min | (C>=6, hcp>=two_min-1), hcp<=18
+      when  x is not C, y is not C
+      when  C>=6 | quality(C)>=good | top5(C)>=4
+  2D  "Overcall: five diamonds, {two_min}-18 total points"
+      shows D>=5, D>S | x is S | y is S, D>H | x is H | y is H, D>=C | x is C | y is C
+      shows hcp>=two_min | (D>=6, hcp>=two_min-1), hcp<=18
+      when  x is not D, y is not D
+      when  D>=6 | quality(D)>=good | top5(D)>=4
+  2H  "Overcall: five hearts, {two_min}-18 total points"
+      shows H>=5, H>S | x is S | y is S, H>=D | x is D | y is D, H>=C | x is C | y is C
+      shows hcp>=two_min | (H>=6, hcp>=two_min-1), hcp<=18
+      when  x is not H, y is S
+      when  H>=6 | quality(H)>=good | top5(H)>=4
+  1N  "{nt_min}-{nt_max} balanced, both their suits stopped"
+      shows balanced, hcp>=nt_min, hcp<=nt_max, S<=4, H<=4
+      when  stop(x), stop(y), !passed_hand, !sandwich   # Sandwich 1NT shows the two unbid suits
+  # The takeout double of the two suits they have not bid.
+  X   "Takeout: hearts and spades, 12+"   shows H>=3, S>=3, H+S>=8 | hcp>=15, hcp>=12
+      when  x is C, y is D
+      priority -1
+  X   "Takeout: diamonds and spades, 12+" shows D>=3, S>=3, D+S>=8 | hcp>=15, hcp>=12
+      when  x is C, y is H
+      priority -1
+  X   "Takeout: diamonds and hearts, 12+" shows D>=3, H>=3, D+H>=8 | hcp>=15, hcp>=12
+      when  x is C, y is S
+      priority -1
+  X   "Takeout: clubs and spades, 12+"    shows C>=3, S>=3, C+S>=8 | hcp>=15, hcp>=12
+      when  x is D, y is H
+      priority -1
+  X   "Takeout: clubs and hearts, 12+"    shows C>=3, H>=3, C+H>=8 | hcp>=15, hcp>=12
+      when  x is D, y is S
+      priority -1
+  X   "Takeout: both minors, 12+"         shows C>=3, D>=3, C+D>=8 | hcp>=15, hcp>=12
+      when  x is H, y is S
+      priority -1
+  # With 15+, four or more in both and not balanced (1NT), the double
+  # comes before an overcall.
+  X   "Takeout: hearts and spades, 15+"     shows H>=4, S>=4, hcp>=15, !balanced
+      when  x is C, y is D
+      priority 1
+  X   "Takeout: diamonds and spades, 15+"   shows D>=4, S>=4, hcp>=15, !balanced
+      when  x is C, y is H
+      priority 1
+  X   "Takeout: diamonds and hearts, 15+"   shows D>=4, H>=4, hcp>=15, !balanced
+      when  x is C, y is S
+      priority 1
+  X   "Takeout: clubs and spades, 15+"      shows C>=4, S>=4, hcp>=15, !balanced
+      when  x is D, y is H
+      priority 1
+  X   "Takeout: clubs and hearts, 15+"      shows C>=4, H>=4, hcp>=15, !balanced
+      when  x is D, y is S
+      priority 1
+  X   "Takeout: both minors, 15+"           shows C>=4, D>=4, hcp>=15, !balanced
+      when  x is H, y is S
+      priority 1
+  P   "No overcall"  priority -10
+
+after (1x) P (1y) when y is not x, jump is weak
+  2S  "Weak jump overcall: six spades, 4-10"   shows S=6, hcp=4..10
+      when  x is not S, y is not S
+      when  !vul | quality(S)>=good | top5(S)>=3
+  2H  "Weak jump overcall: six hearts, 4-10"   shows H=6, hcp=4..10, S<=3
+      when  x is not H, y is not H, y is not S
+      when  !vul | quality(H)>=good | top5(H)>=3
+  3C  "Jump overcall: seven clubs, 4-10"    shows C=7, hcp=4..10, H<=3, S<=3
+      when  x is not C, y is not C
+      when  !vul | quality(C)>=good | top5(C)>=3
+  3D  "Jump overcall: seven diamonds, 4-10" shows D=7, hcp=4..10, H<=3, S<=3
+      when  x is not D, y is not D
+      when  !vul | quality(D)>=good | top5(D)>=3
+  3H  "Jump overcall: seven hearts, 4-10"   shows H=7, hcp=4..10, S<=3
+      when  x is not H, y is not H
+      when  !vul | quality(H)>=good | top5(H)>=3
+  3S  "Jump overcall: seven spades, 4-10"   shows S=7, hcp=4..10
+      when  x is not S, y is not S
+      when  !vul | quality(S)>=good | top5(S)>=3
+
+# ── Over their raise: (1x) P (2x), (1x) P (3x) ─────────────────────
+# Direct seat after opener's partner raised (2026-10-20, Brill daily
+# board 4: 1C P 2C with AKQJ85.QT8732.5.- passed twice, every other
+# entrant bid). Nothing was written here, so the seat fell through to
+# advances.bid's "Defending: nothing more to say". Standard practice,
+# the direct-seat overcalls one level up: a natural suit at the cheapest
+# level, five or more (a good suit or six) with 10+ total points at the
+# two level; at the three level six cards from 10 HCP, or five with 14+
+# and not balanced (the tripwire: five-card 3C overcalls on 11-13, and a
+# balanced 15, went down where the pass defended); up to 16 HCP;
+# a jump with six (seven at the four level is not written) and 4-10,
+# weak as over their opening. The takeout double of the raise is
+# takeout-double.bid's, the cue bid and 2NT two-suiters
+# two-suited-overcalls.bid's. Higher of equal-length suits, as above.
+after (1x) P (2x)
+  2S  "Overcall over their raise: five or more spades"
+      shows S>=5, S>=H | x is H, S>=D | x is D, S>=C | x is C
+      shows hcp+length_points>=10, hcp<=one_max
+      when  x is not S
+      when  S>=6 | quality(S)>=good | top5(S)>=3
+  2H  "Overcall over their raise: five or more hearts"
+      shows H>=5, H>S, H>=D | x is D, H>=C | x is C
+      shows hcp+length_points>=10, hcp<=one_max
+      when  x is C | x is D
+      when  H>=6 | quality(H)>=good | top5(H)>=3
+  2D  "Overcall over their raise: five or more diamonds"
+      shows D>=5, D>S, D>H, D>=C | x is C
+      shows hcp+length_points>=10, hcp<=one_max
+      when  x is C
+      when  D>=6 | quality(D)>=good | top5(D)>=3
+  3H  "Overcall over their raise: five or more hearts"
+      shows H>=5, H>=D, H>=C
+      shows (H>=6, hcp>=two_min-2) | (hcp>=14, !balanced), hcp<=one_max
+      when  x is S
+      when  H>=6 | quality(H)>=good | top5(H)>=4
+  3D  "Overcall over their raise: five or more diamonds"
+      shows D>=5, D>S | x is S, D>H | x is H, D>=C
+      shows (D>=6, hcp>=two_min-2) | (hcp>=14, !balanced), hcp<=one_max
+      when  x is H | x is S
+      when  D>=6 | quality(D)>=good | top5(D)>=4
+  3C  "Overcall over their raise: five or more clubs"
+      shows C>=5, C>S | x is S, C>H | x is H, C>D | x is D
+      shows (C>=6, hcp>=two_min-2) | (hcp>=14, !balanced), hcp<=one_max
+      when  x is not C
+      when  C>=6 | quality(C)>=good | top5(C)>=4
+  P   "No overcall over their raise"  priority -10
+
+after (1x) P (2x) when jump is weak
+  3S  "Weak jump over their raise: six spades, 4-10"   shows S=6, hcp=4..10
+      when  x is not S
+      when  !vul | quality(S)>=good | top5(S)>=3
+  3H  "Weak jump over their raise: six hearts, 4-10"   shows H=6, hcp=4..10, S<=3
+      when  x is C | x is D
+      when  !vul | quality(H)>=good | top5(H)>=3
+  3D  "Weak jump over their raise: six diamonds, 4-10" shows D=6, hcp=4..10, H<=3, S<=3
+      when  x is C
+      when  !vul | quality(D)>=good | top5(D)>=3
+
+# Over the jump raise only the three level is left below game: a natural
+# suit with the three-level overcall's values; four of a suit is not
+# written.
+after (1x) P (3x)
+  3S  "Overcall over their jump raise: five or more spades"
+      shows S>=5, S>=H | x is H, S>=D | x is D, S>=C | x is C
+      shows (S>=6, hcp>=two_min-2) | (hcp>=14, !balanced), hcp<=one_max
+      when  x is not S
+      when  S>=6 | quality(S)>=good | top5(S)>=4
+  3H  "Overcall over their jump raise: five or more hearts"
+      shows H>=5, H>S, H>=D | x is D, H>=C | x is C
+      shows (H>=6, hcp>=two_min-2) | (hcp>=14, !balanced), hcp<=one_max
+      when  x is C | x is D
+      when  H>=6 | quality(H)>=good | top5(H)>=4
+  3D  "Overcall over their jump raise: five or more diamonds"
+      shows D>=5, D>S, D>H, D>=C | x is C
+      shows (D>=6, hcp>=two_min-2) | (hcp>=14, !balanced), hcp<=one_max
+      when  x is C
+      when  D>=6 | quality(D)>=good | top5(D)>=4
+  P   "No overcall over their jump raise"  priority -10
+
+# ── Nothing to say ───────────────────────────────────────────────────
+# An explicit pass, so that the seat is covered and partner can draw the
+# negative inference that we had no overcall.
+# A strong hand doubles first (takeout-double.bid), so the pass caps the
+# hand at the one-level overcall maximum. A trap pass is not assumed until
+# it shows (Rick, ticket b400, 2026-10-02): BBA's direct-seat passers
+# over a one-level opening, vanilla set, 99% at most 14-16 HCP.
+after (1x)
+  P   "No overcall"  shows hcp<=one_max  priority -10

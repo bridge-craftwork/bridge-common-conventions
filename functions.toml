@@ -1,0 +1,47 @@
+# The jobs that one convention at a time can do (docs/CONTRACT.md, section 6).
+# A convention says which it fills with `implements`; two conventions a card
+# plays for the same part are in conflict.
+
+[defence_to_1nt]
+name = "Defence to their 1NT opening"
+parts = ["strong", "weak"]
+
+# What `competitive.vs_1nt_strong.system` held in card schema 2: its label, and the
+# words other tools write for each choice. `natural` and `other` name no
+# convention, so a card that held them has no entry for this part.
+[defence_to_1nt.was.strong]
+setting = "competitive.vs_1nt_strong.system"
+label = "Defense vs strong 1NT"
+options = ["cappelletti", "modified_cappelletti", "landy", "multi_landy", "dont", "meckwell", "suction", "natural", "other"]
+value_aliases = { Hamilton = "cappelletti", Pottage = "cappelletti", "Disturbing Opponents NT" = "dont", Penalty = "other", Standard = "other", "Strong - Suction" = "suction", "Weak - Suction" = "suction", "Strong 14+ (Meckwell)" = "meckwell", "Weak (Cappelletti)" = "cappelletti", "Strong 1NT" = "other", "Weak 1NT" = "other", Strong = "other", Weak = "other", "(Strong)" = "other", "(Weak)" = "other", "Strong/Weak" = "other" }
+desc = "Bridge-Classroom's system name (its editor's list: Cappelletti, DONT, Meckwell, Multi-Landy, Penalty...). Unset, natural or other: natural overcalls. cappelletti (Hamilton): X penalty, 2♣ one suit, 2♦ majors, 2♥/2♠ that major and a minor, 2NT minors. modified_cappelletti: 2♣ a minor one-suiter or a major and a minor, 2♥/2♠ one-suited. dont: X one suit, 2♣/2♦/2♥ that suit and a higher one, 2♠ spades. meckwell: X a minor or the majors, 2♣/2♦ that minor and a major, 2♥/2♠ natural, 2NT minors. multi_landy: X a four-card major and a longer minor, 2♣ majors, 2♦ one major, 2♥/2♠ that major and a minor. landy: 2♣ majors, the rest natural. Played against every 1NT range. See conventions/competitive/vs-1nt.notes.md"
+level = 5
+skill = ["competitive_bidding/defense_vs_1nt", "competitive_bidding/cappelletti", "competitive_bidding/modified_cappelletti", "competitive_bidding/dont", "competitive_bidding/meckwell", "competitive_bidding/landy", "competitive_bidding/multi_landy", "competitive_bidding/suction"]
+
+# What `competitive.vs_1nt_weak.system` held in card schema 2: its label, and the
+# words other tools write for each choice. `natural` and `other` name no
+# convention, so a card that held them has no entry for this part.
+[defence_to_1nt.was.weak]
+setting = "competitive.vs_1nt_weak.system"
+label = "Defense vs weak 1NT"
+options = ["cappelletti", "modified_cappelletti", "landy", "multi_landy", "dont", "meckwell", "suction", "natural", "other"]
+value_aliases = { Hamilton = "cappelletti", Pottage = "cappelletti", "Disturbing Opponents NT" = "dont", Penalty = "other", Standard = "other", "Strong - Suction" = "suction", "Weak - Suction" = "suction", "Strong 14+ (Meckwell)" = "meckwell", "Weak (Cappelletti)" = "cappelletti", "Strong 1NT" = "other", "Weak 1NT" = "other", Strong = "other", Weak = "other", "(Strong)" = "other", "(Weak)" = "other", "Strong/Weak" = "other" }
+desc = "Not read by the rules yet: vs_1nt_strong.system is played against every range"
+level = 5
+skill = ["competitive_bidding/defense_vs_1nt", "competitive_bidding/cappelletti", "competitive_bidding/modified_cappelletti", "competitive_bidding/dont", "competitive_bidding/meckwell", "competitive_bidding/landy", "competitive_bidding/multi_landy", "competitive_bidding/suction"]
+
+[defence_to_1nt.option]
+cappelletti = "competitive_bidding/cappelletti"
+modified_cappelletti = "competitive_bidding/modified_cappelletti"
+landy = "competitive_bidding/landy"
+multi_landy = "competitive_bidding/multi_landy"
+dont = "competitive_bidding/dont"
+meckwell = "competitive_bidding/meckwell"
+suction = "competitive_bidding/suction"
+
+[ace_ask]
+name = "Asking for aces or keycards"
+parts = ["major", "minor"]
+
+[michaels_vs_preempts]
+name = "Two-suited overcall of their preempt"

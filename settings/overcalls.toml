@@ -1,0 +1,20 @@
+# Card settings: overcalls. A setting's name is `overcalls.<key>`.
+# The attributes are described in settings/README.md.
+
+"one_level_min"            = { kind = "int", label = "1-level overcall: minimum", min = 0, max = 20 }
+"one_level_max"            = { kind = "int", label = "1-level overcall: maximum", min = 0, max = 25 }
+"two_level_min"            = { kind = "int", label = "2-level overcall: minimum", min = 0, max = 20 }
+"two_level_max"            = { kind = "int", label = "2-level overcall: maximum", min = 0, max = 25 }
+"often_4_cards"            = { kind = "bool", label = "Often 4-card suits at 1-level" }
+"jump"                     = { kind = "enum", label = "Jump overcalls", options = ["weak", "intermediate", "strong"], level = 3 }
+"conv_text"                = { kind = "text", label = "Conventional overcalls" }
+"responses.new_suit"       = { kind = "enum", label = "New-suit response", options = ["forcing", "nf_constructive", "nf", "transfer"] }
+"responses.jump_raise"     = { kind = "enum", label = "Jump-raise response", options = ["weak", "mixed", "invitational"] }
+"responses.cuebids_text"   = { kind = "text", label = "Cuebid response" }
+"responses.support_cuebid" = { kind = "bool", label = "Support cuebid", skill = "competitive_bidding/support_cuebids", level = 4 }
+"responses.jump_cuebid_mixed" = { kind = "bool", label = "Jump cuebid: mixed raise", desc = "Advancer's jump cuebid of their suit shows a mixed raise of partner's overcall: four-card support, between a preemptive jump raise and a limit raise", skill = "competitive_bidding/mixed_raise", level = 6 }
+"responses.natural_in_responders_suit" = { kind = "bool", label = "Advancer's bid of responder's suit is natural", desc = "(1♣) 1♦ (1♥) 2♥ is natural: RHO's 1♥ promises only 4, so advancer shows 5+. 2♣ would be the cue-bid raise", level = 6 }
+"very_light"               = { kind = "bool", label = "Very light overcalls" }
+# --- begin: Bridge-Classroom card fields (bc-export) ---
+"notes"                    = { kind = "text", label = "Overcall notes (card write-in)", note = true }
+# --- end: Bridge-Classroom card fields (bc-export) ---

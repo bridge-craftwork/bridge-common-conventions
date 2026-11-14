@@ -1,0 +1,516 @@
+# Our side once they come in (`after-interference.bid`): notes
+
+Responder's call when RHO has overcalled or doubled partner's one-level
+opening, and opener's answer to a negative double. Cases:
+`after-interference.test`.
+
+## Guidance (Rick, 2026-09-22)
+
+- **Negative doubles through 3♠**, plus natural bids.
+- The double shows **6+ total points with four or more cards in each
+  unbid major**, so a suit bid in the only unbid major promises five.
+  Where both majors have been bid (1♥-(1♠)) it shows the minors.
+- **Redouble is 10+** and says we own the hand.
+- Raises are 6-9 with support over an overcall. **Over a double the raise
+  starts at 4 total points**: BBA raises on 5 HCP with three trumps, and
+  taking the level away from a doubler is worth it. The jump raise is
+  five-card support for a major with less than 8; a minor raises to two,
+  which is what BBA does with the same hands.
+- 1NT denies an unbid four-card major (partner would hear about it from
+  the double) and denies three-card support for partner's major.
+
+## Evidence
+
+From `bba-cli --all-meanings` on the two Basic scenarios:
+
+- **(1x 1y) X** — "negative double", 6-21 total points, 4-6 cards in the
+  unbid major. A one-level suit bid in the only unbid major showed 5+
+  (1♣-(1♥)-1♠), but only 4+ when both majors were still unbid
+  (1♣-(1♦)-1♠ and 1♣-(1♦)-1♥), which is what the rules do.
+- **(1x X)** — responder over a double: pass 0-5; a new suit at the one
+  level 6+ with 4+; a raise "calculated bid" 7-9 with 3+; redouble
+  "penalty" 10+; a jump raise of a minor "preemptive" 3-7 with five.
+
+Effect: call-2 agreement over the two scenarios went from 49.5% to 62.8%,
+and Basic_Takeout_Double from 60.4% to 71.3% of calls.
+
+Two rules were wrong until the `.test` cases caught them: the negative
+double outranked a five-card major (it now denies one), and 1NT outranked
+a raise with three-card support for partner's major.
+
+## Over a two-level or jump overcall (Rick, 2026-09-22)
+
+- **a new suit is 10+ total points with five cards, and forcing**
+  (`competitive.new_suit_after_overcall_forcing`, default on; Basic-Bridge
+  turns it off, and then the same bids are made without the force);
+- **the negative double is 8+ with four cards** in each unbid major;
+- **the cue bid of their suit is a limit raise or better**: 11+ with
+  three-card support (`competitive.cue_bid_raise.play`, default on).
+  Opener accepts with 16+ and signs off in the suit otherwise.
+
+Their bid **in our suit** is a cue bid, not an overcall (Michaels and the
+like), so these rules are gated on `y is not x`. Without that they fired
+over a Michaels cue bid and cost about a point of agreement in each of
+the six Michaels scenarios. Since 2026-09-28 our answers to their
+Michaels and Unusual 2NT are in `two-suited-overcalls.bid`; opener's
+answer to the cue-bid raise got the same `y is not x` guard, since
+1♦ (2♦) 3♦ (our competitive raise over Michaels) was being read as
+"1x (2y) 3y", the cue-bid raise.
+
+Opener's answer to the negative double is written once with relative
+calls (`cheapest(S)`, `jump(N)`, `cheapest(x)`), so it is right at every
+level the opponents push us to. Before that it only covered a one-level
+overcall, and a two-level negative double was left to die: the corpus
+lost 12 points of identical auctions in McCabe_after_WJO and 11 in
+Opps_Preemptive_Overcall until opener could answer.
+
+Across the corpus this slice is worth +36.6 points of call agreement and
++75.6 points of contract agreement summed over the 90 scenarios it moved.
+
+## Opener's answer to the negative double, completed (2026-09-23)
+
+The block only bid majors, notrump with a stopper, and a six-card suit
+of its own, so 1♥-(1♠)-X — where the double shows the **minors** — and
+every minimum with no major and no stopper died on the spot: `1x 1y X P`
+was 665 boards of "no rule in a live auction" across the corpus and the
+largest second-call gap in the module. Opener now has, below the
+four-card major and the notrump rebid and in this order:
+
+1. an **unbid four-card minor** (`cheapest(D)` with four, `cheapest(C)`
+   with four and at least as many as diamonds, so 4-4 bids the cheaper);
+2. **three cards in the major partner promised** — an eight-card fit,
+   which is what BBA does (`1D (1S) X (P) 2H` on KQ6.832.KT84.A64);
+3. **five cards in his own suit** (the old rule needed six);
+4. `cheapest(x)` with nothing shown at priority -5, so the forcing
+   double always gets an answer.
+
+Two more holes at the top of the range: with **19+** and a four-card
+major opener bids the game (`1C (1S) X (P) 4H` on A63.AT92.A.AQJ43), and
+the jump in a major stops at 18 as before.
+
+Effect on the corpus: `1x 1y X P` gained 255 calls, and the whole
+module's slice took no-rule from 165,221 to 156,762 boards.
+
+## Opener when they compete over the negative double (2026-09-23)
+
+`1x (1y) X (2y)` was the second-largest second-call gap (225 boards
+across the corpus). They have bid again, so the double is no longer
+forcing and **pass is BBA's commonest answer** (it passes 11-18 there).
+Opener competes only with something to say: a four-card major at the
+cheapest level, a jump in it with 16-18, notrump with a stopper, or a
+six-card suit with 13+. Everything else passes, by rule rather than by
+having no rule.
+
+Over a **jump** by them (`1x (1y) X (3y)` and higher) even that is too
+much: BBA passes almost everything, and bidding there cost 43 calls.
+That context keeps only a four-card major or a stopper **with 13+**,
+and passes otherwise.
+
+`when y is not x` on both contexts: their bid in our suit is a cue bid,
+not an overcall. Without it these rules fired over Michaels and cost
+about 20 calls in the `1x (2x) X (4y)` auctions alone.
+
+## Measured effect (2026-09-23)
+
+Before → after, for the whole second-call slice in this module and
+`advances.bid` together:
+
+| | subset before | subset after | corpus before | corpus after |
+|---|---|---|---|---|
+| calls | 85.1% (89437) | 85.1% (89481) | 74.9% (1331086) | 74.9% (1331913) |
+| identical auctions | 41.3% | 41.4% | 14.9% | 14.9% |
+| same contract | 53.5% | 53.6% | 27.0% | 27.2% |
+| par, net IMPs | -7574 | -7431 | -244279 | -239918 |
+| no rule in a live auction | 5989 | 5692 | 165221 | 156762 |
+
+252 scenarios moved: +827 calls, +358 boards with the same contract,
+-8,459 no-rule points. The biggest movers are Double_double (+82 calls),
+Maximal_Double (+55), McCabe_after_WJO (+49 calls, -560 no-rule),
+After_Partner_Overcalls (+41 calls, +26 contracts) and
+After_Opp_Overcalls (+35). Two scenarios gain no-rule points because
+their auctions now live longer than they used to
+(After_Partner_Overcalls +174, Double_by_Advancer +115); both gained 26
+contracts in exchange.
+
+Accepted cost: 13 more boards flagged **trump fit under 7 cards** on the
+Basic-Bridge subset (176 → 189), nearly all opener naming a minor for a
+negative double whose `shows` is a disjunction, so the engine cannot
+know partner really holds it.
+
+## Gaps and open questions
+
+- **Their 1NT overcall**: `after 1x (1y)` binds a suit, so nothing fires
+  after `1x (1N)` and responder passes. It is the largest single no-rule
+  point left in the corpus — about 3,700 boards (`1D 1NT`, `1C 1NT`) —
+  and the `Opps_Overcall_1NT` scenario is 500 of them.
+- **Opener's rebid in a contested auction generally** is now the biggest
+  remaining cluster of dead auctions, and it is not written anywhere:
+  `1x (1y) 2z (P)` 68 boards, `1x (X) 1y (P)` 65, `1x (X) P (2y)` 60,
+  `1x (1y) 1z (2y)` 55, `1x (X) P (2x)` 51, `1x (X) XX (1y)` 50,
+  `1x (1y) 1z (P)` 48 on the Basic-Bridge subset alone, over 500 boards
+  in all. It sits between this module and `base/rebids.bid`; a decision
+  on where it belongs would unblock it.
+- **Responder's second call in a contested auction**: `1x (1y) X (P) 2x`
+  is 54 boards on the subset, and it is the next turn after the rules
+  added here.
+- **Jump shifts**: done 2026-10-05 (below). Lebensohl over an overcall
+  of 1m (BBA plays it on the 21GF card) is still open.
+- **Trap passes**: BBA passes with length and strength behind the
+  overcaller where we double or cue. Trap_Pass loses 3.0 points of call
+  agreement, and its contracts gain 2.6.
+- Opener's rebid after our side has been doubled
+  (`competitive.jordan_2nt`, support redoubles).
+- **For Rick.** Opener's answer to a negative double now names an unbid
+  four-card minor before rebidding a four-card suit of his own, and bids
+  a three-card major for partner's promised four before a five-card
+  minor. BBA is not consistent about this (it bids 2♦ on one 4-5 minor
+  hand and 2♣ on another identical one); the order above is what
+  measured best.
+
+## After their takeout double (2026-09-25)
+
+Basic_Takeout_Double was the weakest Basic scenario against par (-434).
+- **Support first over a major.** The raise was blocked by four cards in
+  the other major, so 1S (X) with three spades and four hearts passed:
+  hearts can't be bid at the one level over 1S. BBA raises. +338.
+- **Five-card major with 10-11 bids it.** BBA bids 1S (or 1H over a
+  minor) with five and 10-11; we redoubled. The suit now covers five
+  cards up to 11, and the redouble waits for 12 with such a hand. +418
+  (spades), +34 (hearts).
+
+Corpus: -160,381 -> -159,591.
+- **Re-checked from the acting side** (probes/tools/sideimps.py,
+  overcalls.notes.md "For Rick: which yardstick"):
+  - Support first over a major: both measures agree (+338 distance, +541
+    to the side).
+  - Five-card major before the redouble: they disagree. +452 by distance,
+    but the redouble is better for the side that acts by 654. For Rick.
+
+## Fallback: a player on the opening side who passed last time (2026-09-25)
+
+`when they.bid, !lho.opened, !rho.opened, me.last=P`: pass, priority
+-20. Six Basic_* N/S positions had no rule, all a responder who passed
+with 0-5 (or 8) and an opener who had let them have it, facing a
+balancing sequence. No call changes. Written with the negations because
+there is no self form of `opened` (`me.opened` and bare `opened` are
+unknown terms, which evaluate false without an error from `bid check`).
+
+## Trap pass (2026-09-25)
+
+Prerequisite for judging the one-level overcall quality test
+(overcalls.notes.md, "For Rick: which yardstick"): our opening side had
+no way to punish a light overcall, so the side yardstick flattered
+overcalling. With negative doubles responder cannot double for penalty.
+He now passes with four or more of their suit, two of the top three or
+three of the top five (Rick's penalty standard), 8+ HCP and at most two
+of opener's suit; opener's reopening double (rebids.bid) and
+responder's pass of it (responder-rebids.bid) already existed. The
+trap condition is a `when`, so a pass still promises nothing: a
+higher-priority `shows` would have made every pass read as a trap.
+
+Full corpus: +82 by par distance, +1,122 to the side that trapped (253
+boards). Basic_* competitive: -3 / +20 (4 boards).
+
+## Opener's answer to the negative double in support points (2026-09-25)
+
+Found while re-running the overcall quality A/B with the trap pass in:
+most of what an overcall "gained" by the side yardstick (1,815 boards,
++3,234) was our opening side bidding worse after it, 839 times
+dropping from game to a partscore. The main cause: opener answered the
+double in HCP (minimum up to 15, jump 16-18, game 19+), so 16 HCP with
+a singleton and four trumps jumped to 2♠ and responder passed, where
+uncontested it raised to 4♠ on 19 support points. The major answers
+now count `tp(M)`, and responder bids game over the jump with 8+
+(responder-rebids.bid, `partner.jumped`). Full corpus +730 by par
+distance, +836 by side (420 boards); Basic_* competitive +8 / -2.
+
+## Strong hands after the negative double (2026-09-25)
+
+Opener with 19+ and no fit or balanced notrump rebid his suit as
+"nothing better to say", and responder with 13+ unbalanced had no call
+over a minimum answer; both were passed out in partscores that reach
+game uncontested. Now: opener 3NT with a stopper, else a cue bid of
+their suit (game forcing); responder 3NT with a stopper, else the cue
+bid. Only over one- and two-level overcalls: over three-level ones it
+lost (-131 over 1♠ (3♥)). Full corpus +644 by par distance, +875 by
+side (257 boards).
+
+## Free bids where a new suit is not forcing (2026-09-25)
+
+On cards with `1X-(Y)-2Z forcing` off (Basic-Bridge and the 21GF
+cards in the corpus), the free new suit was "10+" (8+ over a one-level
+overcall) with no ceiling, so 14-counts made a non-forcing bid and
+opener passed. BBA on Basic (`probes/free-bid-1D-1S.toml`, 300
+responders with five hearts over 1♦ (1♠)): 2♥ is 8-13 total points,
+not forcing; 3♥ is 13-21, forcing; with five hearts and 6-7 it doubles.
+Now: the free bid up to 12 HCP, a jump with 13+ HCP forcing to game
+(opener raises a major with three, else 3NT with their suit stopped,
+else the game force), and the negative double over 1♠ allows five
+hearts under 8 HCP. Grid agreement 59% -> 69%. Full corpus +139 by par
+distance, +255 by side, in two steps.
+
+## More opening-side gaps in competitive auctions (2026-09-25)
+
+Basic_* competitive no-rule positions 103 -> 15: a pass fallback when
+partner passed at his last turn (the raiser after 1♠ (X) 2♠ (3♣) P
+(P)); opener after partner's forced answer to the reopening double
+(3NT with 18+ and a stopper, else pass); 1m (3x) 4m: 5m with 16+
+(rebids.bid); and 1NT (3x) (nt-interference.bid). Basic_* competitive
++18 / +30, full corpus +189 / +262.
+
+## Support first, and forcing free bids at the two level (2026-09-25)
+
+- The negative double's shape clause (`| S>=4 | H>=4`) let a hand with
+  four-card support for opener's major double instead of raising;
+  after opener's rebid of the suit it then passed, missing the fit
+  (1♥ (1♠) X 2♥ with Kxxx). With three or more of opener's major the
+  raise now comes first. Full corpus +179 by par distance, +368 by side
+  (965 boards).
+- Over a one-level overcall, the two-level free bids on cards where a
+  new suit is forcing (the 21GF cards) did not set `forcing=round`, so
+  opener could pass them. Fixed; +4 / +36, but the minor openings lose
+  (1♣ (1♠) 2♦ -89 by side): opener's forced rebids there need work.
+
+## The cue-bid raise of a minor (2026-09-26)
+
+New work queue for the invitational tail: contested boards where our
+opening side stops in a partscore with 25+ HCP between the hands and
+game makes double dummy (`probes/tools/missed_games.py FILE missed 25 25`). Top of it, 668
+boards: 1m (2x) 3x, opener signing off "no game opposite a limit raise"
+with 16-20, because with a minor he accepted only balanced with a
+stopper. Now 3NT from 14 with their suit held (any shape), else 5m from
+16; responder, whose cue bid has no upper limit, bids 3NT (13+,
+stopper) or 5m (14+) over the sign-off. The first try lost on the
+majors: the forced-rebid rules for free bids (rebids.bid) also matched
+the cue bid, their suit read as partner's; they now need
+`partner.z>=5`. Full corpus +1,006 by par distance, +2,269 by side.
+The same with a major: over opener's sign-off in three, responder with
+13+ bids game (240 boards in the queue). Full corpus +919 by par
+distance, +1,865 by side.
+
+## Cue-bid raise and notrump over a one-level overcall (2026-09-26)
+
+Over a one-level overcall responder had the negative double, one-level
+suits, 1NT and a simple raise, but no limit raise and no 2NT/3NT: those
+existed only over two-level overcalls, so 11-16 counts with a fit or a
+stopper passed (1♥ (1♠) P with three hearts and 11-16). Added the cue
+bid (three-card major support or four of a minor, 11+), 2NT 11-12
+(asks the notrump invitation) and 3NT 13+, both balanced with their
+suit stopped; opener's answers and responder's follow-ups now include
+the one-level cue. When they raise over the cue, opener bids game with
+16+ or competes in his suit (the engine keeps the round force, so pass
+is not available). Full corpus +1,100 by par distance, +2,660 by side
+(1,511 boards).
+
+## Accepting the major limit raise in support points (2026-09-26)
+
+Opener accepted the cue-bid raise of a major with 16 HCP, so 14-15
+with a doubleton or singleton stayed in three (52 boards in the
+missed-games queue). Now `tp(x)>=14`. Tried: 16 HCP -> 15 HCP +61;
+16 / 15 / 14 support points +519 / +697 / +750 by par distance
+(+1,339 / +1,723 / +1,905 by side). 14 kept, par deciding; it accepts
+12 HCP with a singleton, a normal acceptance.
+
+Opener's strong answers to the negative double (3NT with a stopper,
+else the cue bid) now start at 17 rather than 19: 17 +192 by par
+distance, +278 by side; 16 +158 / +192. A case in the test file that
+recorded BBA's 2♣ on K964.K4.AT.AQJT9 (17, spades held) now expects
+3NT.
+
+## A round force ends when they act over it (2026-09-27)
+
+The engine kept a `forcing=round` in force after the forcer's LHO bid,
+doubled or redoubled, so partner could not pass (hence the "engine keeps
+the round force" workaround above). Now the force holds only when RHO
+passes; a game force is unchanged. The compare tool's broken-force check
+uses the same rule.
+
+- The workaround after `1x (1y) 2y (3y)` (opener's `cheapest(x)` at -6)
+  is gone. With the force released it was dead code: the pass at -5
+  already outranked it, and removing it changed no board.
+- The engine change alone was neutral: 230 boards changed, -1 IMP by
+  side, +0 by par distance. It hid two things. With the cue raise of a
+  minor, opener now passed their raise with a fifth trump and responder
+  passed with game values: -159 by side on 57 boards. Added opener's 4m
+  with five (nine trumps opposite the cue's four), 5m with 16+ and no
+  stopper, and responder's game with 13+ after opener's pass or 4m:
+  +290 by side, +176 by par. Opener's 18+ raise of a forcing free bid
+  (rebids.bid) was gated on `we.forcing = round` and now used the card
+  field instead: +33 by side.
+- Doubles: takeout, negative, responsive and reopening doubles never
+  set `forcing=round`. They are forcing because their blocks have no
+  pass when RHO passes, and every block where RHO has bid has one.
+  They stay that way: a round force would remove the explicit penalty
+  passes (`1x (1y) P (P) X (P)` responder with four of theirs,
+  `1N (2y) X (P)` and `1N (3y) X (P)` opener).
+- Total, full corpus: vs BBA -142,200 -> -142,024; 213 boards, +358 by
+  side, +176 by par distance; no rule 4,639 -> 4,587; broken forces 83
+  both; contested missed games (`missed 10 25`) 996 -> 971, failed games
+  (`over 10`) 2,210 -> 2,196. Basic_* competitive one board -2 (par -1),
+  N/S one board +10 (par +2).
+- Still losing: `1H (1S) 2m (2S)` with a minimum now passes where the
+  forced opener used to find 3H or 3m, about -54 by side on 55 boards.
+  Most of these are responder bidding a minor with three hearts where
+  BBA raised to 2H, so the fix belongs in responder's choice, not here.
+- For Rick: the 18+ raise on every card (not only where the free bid
+  is forcing) was +99 by side and +27 by par, but it turns rebids.test's
+  1H (2C) 2D (P) 2H (Basic-Bridge, 64.AK8432.AK86.9) into 3D. Kept to
+  the forcing cards.
+
+## Raising opener's minor counts the trumps (2026-10-02)
+
+Responder's raises of a minor over an overcall now count the trumps the
+way the Law of Total Tricks does (`minor_raise(x)`, `minor_preempt(x)`
+in `total-tricks.bid`). One of a minor promises three, so:
+
+- the simple raise (`1m (1y) 2m`, and `1m (2y) 3m` with 7-10) needs five,
+  eight trumps; it took three over a two-level overcall (six trumps at
+  the three level) and passed with four or fewer only over a one-level
+  one;
+- the preemptive jump (`1m (1y) 3m`) needs six, nine trumps; it took
+  five (eight trumps at the three level).
+
+Major raises are unchanged (three-card support; a third-seat 1♥ may be
+four cards, and requiring eight known trumps there lost IMPs).
+
+**Evidence.** BBA on bare SAYC (Random_Pavlicek_SAYCvanilla, 95,558
+deals) at `1C (1x)` with five clubs and under 8: pass 108, 3♣ 26; with
+six, 3♣ 12, pass 2. At `1D (1x)`, five diamonds: pass 109, 3♦ 2; six:
+3♦ 12. Over a two-level overcall, BBA's 3♣/3♦ raise has five cards (28 +
+25 hands); it passes with three or four (about 190 hands each), where
+we raised. Counting opener's minor as four (raising 1♣ with four at the
+two level, as BBA sometimes does) lost 158 IMPs over 1♣ and was neutral
+over 1♦, so it is not done.
+
+**Measured** (errors yardstick, IMPs; even / odd boards):
+
+| set | boards changed | errors | contract / doubling | distance from par | side IMPs |
+|---|---|---|---|---|---|
+| vanilla SAYC random | 975 | +1,010 (+396 / +614) | +537 / +473 | +115 | +215 |
+| corpus | 747 | +951 (+329 / +622) | +531 / +420 | +245 | +190 |
+| 21GF random | 856 | +1,043 (+397 / +646) | +513 / +530 | +190 | +283 |
+
+The largest single gains: `1D (2S) 3D` → pass (+142 vanilla, +251
+corpus), `1C (2H/2D) 3C` → pass, `1C/1D (1H) 3m` → pass. The largest
+loss: `1C (2S) 3C` → pass with four clubs (−65 vanilla).
+
+The ticket test from Basic_Overcall 469 (1♣ (1♠) 3♣ with five clubs,
+Basic-Bridge card) now passes; the case is rewritten with six clubs, and
+the five-club hand expects a pass. One consequence in `rebids.test`:
+after `1D (2S) 3D (P)` the raise now shows five, so opener with five
+holds ten trumps and the Law bids 4♦ (it passed before; still not 5♦).
+
+## Jump shifts over their overcall, from the card (2026-10-05)
+
+`competitive.jump_shift_after_overcall` (`1X-(1Y)-2Z weak/strong` in
+`.bbsa`): weak on every 21GF and Precision card, strong on Basic-Bridge.
+
+- **weak**: `1x (1y)` and a jump to 2H/2S is preemptive, six or more
+  cards, 2-7 HCP, not with three-card support for partner's major;
+  opener passes it unless another rule (a strong balanced hand) bids.
+  Only at the two level: BBA alerts "1X-(1Y)-2Z weak" at 2H/2S only
+  (all 63 corpus alerts), and passes the weak six-card hands a three-level
+  jump would show; our first version also jumped at three and diverged
+  on about 20 boards, so it was cut back.
+- **strong**: the existing 13+ game-forcing jumps (where a new suit is
+  not forcing).
+- A passed hand's jump is a fit-showing jump when the card plays those
+  (`fit-showing-jumps.bid`).
+
+Tripwire (all scenarios, --limit 50): the weak jump shift now fires in
+Negative_Free_Bid, Dealing_with_Overcalls_Strong, Game_Overcalls and
+single boards elsewhere, all on cards that set it. BBA bids 1S rather
+than 2S with 8 HCP and six spades, and over 1D (1S) bids a forcing 2H
+with six hearts and 7-9 HCP: hence the 2-7 range.
+
+**For Rick:** with `weak` and a new suit not forcing (the Precision
+cards), a 13+ responder with a long suit now has no jump; he bids the
+non-forcing new suit or doubles. Fine, or should the jump stay strong
+there? **Rick, 2026-10-08: deferred to the Precision project**, which
+needs research first. Options then: the non-forcing new suit or a
+double (today), or a cue bid of their suit as the forcing route.
+
+## Opener's five-card rebid after the negative double (2026-10-09)
+
+`1S (2H) X (P) 2S` on QJT63.QJ.972.AK9 (no stopper, no second suit) was
+bid by "Five cards in {x}" and read as "Six cards, minimum" (Brill
+report, own-misdescribed). Standard practice: with no four-card major,
+no stopper and no second suit opener rebids a five-card suit. The
+minimum rebid now reads "five or more (usually six)" (`shows x>=5`,
+`when x>=6`: six-card hands still bid it first), and the five-card
+fallback is a minimum too (it went to 18; 16-18 now falls to "nothing
+better"). Case in after-interference.test. Measured with the rest of
+the read-as work: rebids.notes.md, "Read as the hand holds".
+
+The cue-bid raise's sign-off (`1D (1H) 2H (P) 3D` on four diamonds) read
+as rebids.bid's "Rebids diamonds: six or more": that block now takes
+only natural free bids (`partner.named(z)`), so the sign-off reads as
+it is meant.
+
+Still open here (rebids.notes.md, work queue): the three-card major for
+partner's double read as four (6 misdescribed at --limit 50), the
+"nothing better" 1S/2S read as four spades (9), 5m after the cue-bid
+raise read as 16+ (8).
+
+## Opener's major rebid is six or more (Rick, 2026-10-16)
+
+Brill daily, Rick 2026-10-16, board 8 (dealer W, None; Rusty South,
+Brill North): P 1♠ (3♥) X (P) 3♠ (P) 3NT, all pass, on
+93.875.AK42.AKQ8 opposite AKJT85.Q9.J9.T32 (6 spades). Par is 4♠ NS;
+3NT had no heart stopper. Rick: "North has promised 6+ spades here, so
+we have a spade fit, and also we don't have a heart stopper. The lack of
+a stopper prohibits the 3NT bid, and the spade fit indicates a 4S bid."
+And, widening it: "When opener opens 1M and rebids that M, it should be
+treated as 6+ in any context, even though there will be some times
+where it's the 'least lie' and there isn't a 6th card in the suit."
+
+- Opener's minimum rebid of his **major** over the negative double now
+  reads six or more (`shows x>=6`), at the two and three level. The
+  five-card "nothing better to say" rebid below it is kept as the least
+  lie and is read by the six-card rule: a read-as call by design, not a
+  bug in compare's count. A minor's rebid keeps the 2026-10-09 honest
+  "five or more (usually six)".
+- Responder's raise and game after the double count the fit from what
+  opener showed (`z>=8-partner.z.min`, responder-rebids.bid): two cards
+  opposite the six-card rebid, four opposite a four-card answer.
+- Responder's notrump after the double (2NT invitation, 3NT game) needs
+  their suit stopped (`stop(they.strain)` when their last bid was a
+  suit); a 13+ hand with no fit and their suit stopped may bid 3NT
+  unbalanced. The fit comes first (4M at priority 0, 3NT below).
+
+The rest (rebids.bid's other major rebids, measurements): rebids.notes.md,
+"A major rebid is six or more".
+
+## Sources
+
+- **Jump shifts in competition** (2026-10-05): the ACBL convention card's
+  "Jump shift in competition: weak / strong"; BBA's alerts
+  ("1X-(1Y)-2Z weak") for the range and the two-level limit. Weak jump
+  shifts by responder: standard practice, not yet cited to a book.
+
+- **The conventions:** negative doubles, the redouble, the cue-bid raise
+  (limit raise or better) and free bids. Standard practice, not yet
+  cited to a book or article.
+- **Rick's rulings:** negative doubles through 3♠ and what the double,
+  redouble, raises and 1NT show; over a two-level or jump overcall, the
+  forcing new suit, the 8+ double and the cue-bid raise (2026-09-22);
+  "Rick's penalty standard" for the trap pass (two of the top three or
+  three of the top five).
+- **BBA evidence:** `bba-cli --all-meanings` on the two Basic scenarios
+  ("Evidence").
+- **BBA probes:** `probes/free-bid-1D-1S.toml` (2026-09-25).
+- **Corpus measurements:** each section, judged by par distance and by
+  side IMPs (`probes/tools/sideimps.py`); the invitational work queue
+  from `probes/tools/missed_games.py` (2026-09-26).
+- **Where we differ:** opener's answer to the negative double names an
+  unbid four-card minor first, where BBA is inconsistent (for Rick);
+  the redouble after their takeout double, where the two yardsticks
+  disagree (2026-09-25, for Rick).
+- **The Law of Total Tricks** for the minor raises (2026-10-02): Larry
+  Cohen, *To Bid or Not to Bid* (1992); BBA's bare-SAYC raises on the
+  vanilla random set, and the measurements in that section.
+- **Opener's five-card rebid after a negative double** (2026-10-09):
+  standard practice, not yet cited to a book.
+- **Rick, 2026-10-16** (Brill daily board 8): opener's major rebid is six
+  or more in any context, a five-card one the least lie; no stopper, no
+  3NT; the known fit bids 4M.

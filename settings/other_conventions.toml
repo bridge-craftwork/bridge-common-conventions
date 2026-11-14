@@ -1,0 +1,24 @@
+# Card settings: other_conventions. A setting's name is `other_conventions.<key>`.
+# The attributes are described in settings/README.md.
+
+"reverse_bids.forcing"     = { kind = "bool", label = "Reverses forcing", skill = "bidding_conventions/reverse_bids", level = 4 }
+"two_way_nmf"              = { kind = "bool", label = "Two-way new minor forcing", skill = "bidding_conventions/two_way_nmf", level = 8 }
+"two_way_nmf_by_passed_hand" = { kind = "bool", label = "Two-way NMF by a passed hand", skill = "bidding_conventions/two_way_nmf", level = 8 }
+"xyz"                      = { kind = "bool", label = "XYZ", skill = "bidding_conventions/xyz", level = 9 }
+"jump_shift_response"      = { kind = "text", label = "Jump shift responses (as written)", desc = "The card's jump-shift line as an importer wrote it (\"Weak\")" }
+"notes"                    = { kind = "text", label = "Other conventions notes", note = true }
+"vs_strong_open"           = { kind = "text", label = "Defense vs strong openings" }
+# --- begin: Bridge-Classroom card fields (bc-export) ---
+"weak_jump_shifts_not_in_comp" = { kind = "bool", label = "Weak jump shifts (not in competition)", skill = "bidding_conventions/weak_jump_shifts", level = 5 }
+"weak_jump_shifts_in_comp" = { kind = "bool", label = "Weak jump shifts in competition", skill = "bidding_conventions/weak_jump_shifts", level = 5 }
+"weak_jump_shifts_notes"   = { kind = "text", label = "Weak jump shift notes", note = true }
+"nmf_notes"                = { kind = "text", label = "New minor forcing notes", note = true }
+"notes_line_1"             = { kind = "text", label = "Other conventions (write-in line 1)", note = true }
+"notes_line_2"             = { kind = "text", label = "Other conventions (write-in line 2)", note = true }
+# --- end: Bridge-Classroom card fields (bc-export) ---
+
+# --- begin: Bridge-Classroom card fields (bc-export) ---
+# Sections of Bridge-Classroom's card (the ACBL card's "vs takeout double",
+# "vs opening preempts" and "opening leads" boxes). Its 2NT-over-double
+# limit+ raise of a major is competitive.jordan_2nt.play, and its Lebensohl
+# 2NT response is competitive.lebensohl_weak_twos.play (aliases there).

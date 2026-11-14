@@ -1,0 +1,22 @@
+id = "bidding_conventions/two_heart_bust"
+name = "2♥ bust over 2♣"
+label = "Parrish 2♥ bust"
+source = "proposed"
+level = 7
+contexts = ["preemptive_openings"]
+names = ["Parrish", "2♥ bust", "Parrish 2♥ bust", "Double negative", "Second negative"]
+summary = """
+After 2♣–2♦ and opener's natural rebid, a cheapest-suit reply shows a very
+weak hand, so opener knows when to stop short of game. The Parrish form uses
+2♥ as the bust in some auctions.
+"""
+see = [
+  { title = "Todd Busts over 2C Opening Bids", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/593" },
+]
+
+[treatments.relay]
+kind = "bool"
+label = "Parrish relay"
+desc = "A relay that follows the 2♥ bust, so it depends on it"
+level = 7
+skill = "bidding_conventions/parrish_relay"

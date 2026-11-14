@@ -4,9 +4,24 @@ How this repo gets from empty to being the one place bridge-craftwork's tools
 read conventions from. Written 2026-11-13 from a design review of
 `convention-card` and `rusty-bidding-bot` (Rick Wilson with Claude).
 
-Status: **Phase 0 done: Rick accepted the contract on 2026-11-13. Phase 1:
-the inventory is generated ([inventory/](../inventory/README.md)) and awaits
-Rick's review.** Work is tracked as
+Status: **Phase 0 done (contract accepted 2026-11-13). Phases 1 to 3 are
+drafted and await Rick's review: the inventory (PR #59), the "before"
+capture (#60), and the content moved, restructured and converted to rule
+language 2 (#61). On the 22 public cards the engine bids from this pack
+with no difference over 122,430 auctions. On 25 hand-made cards (Rick's own,
+captured outside this repo, 2026-11-14) 5,772 of 139,125 auctions change, all
+where the card fills in a convention's treatments without ticking it and the
+upgrade now plays it (Stayman on 24 cards, Texas and support doubles on
+one each). `convention-card`'s JavaScript library and editor do not read the
+pack yet.**
+
+Rulings on the upgrade (Rick, 2026-11-14): a convention shown only in a note
+is played, since some cards have no box for it; where two conventions want
+one function, the one the card ticks or names wins over the one inferred
+from a note. For Phase 5: the Bridgodex "4NT: more" line is filed under
+Blackwood whatever it says (on Rick's cards it describes keycard's 0314 in
+the minors), and with Stayman unset v0.15.3 plays it over 2NT but not 1NT.
+Work is tracked as
 [milestones](https://github.com/bridge-craftwork/bridge-common-conventions/milestones)
 (one per phase) and issues; the lists below are the outline. Update the status
 line as phases complete.

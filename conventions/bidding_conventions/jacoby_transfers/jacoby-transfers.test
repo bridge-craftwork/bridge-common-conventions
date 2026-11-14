@@ -1,0 +1,130 @@
+# Jacoby transfers: the transfer, its completion, responder's rebids and
+# opener's answers.
+card    21GF-DEFAULT
+dealer  S
+
+# seat hand             | auction              | expect | why
+N 82.QJ973.K94.J83      | 1NT P                | 2D     | weak, five hearts
+N QJ973.82.K94.J83      | 1NT P                | 2H     | five spades
+N 82.KQ9732.A94.KQ      | 1NT P                | 2D     | mild slam interest (15 suit points): transfer, then jump to game
+S AK5.KJ7.Q942.K83      | 1NT P 2D P           | 2H     | three hearts: complete
+S AK5.Q72.Q942.K83      | 1NT P 2D P           | !P     | the transfer is forcing, even with a minimum
+
+# Responder's rebid. Notrump decisions count total points, the fifth
+# card of the major included (+1 a card beyond four); playing in the major
+# counts suit points (+½ a card beyond four).
+N 82.QJ973.J94.J83      | 1NT P 2D P 2H P      | P      | 5 HCP + 1 length = 6: sign off
+N 82.QJ973.K94.J83      | 1NT P 2D P 2H P      | 2NT    | 7 HCP + 1 length = 8: invite (responder counts length)
+N 82.KJ973.K94.Q83      | 1NT P 2D P 2H P      | 3NT    | 9 HCP + 1 length = 10: game, offering the choice
+N 82.QJ9732.K94.Q8      | 1NT P 2D P 2H P      | 3H     | 8 HCP + 1 length = 9 points: invite
+N 82.KJ973.K94.AQ3      | 1NT P 2D P 2H P      | 3NT    | 13, five hearts: choice of games
+N 82.KJ9732.K94.A8      | 1NT P 2D P 2H P      | 4H     | 13, six hearts
+N 82.KJ9732.K94.Q8      | 1NT P 2D P 2H P      | 4H     | 9 HCP + 1 length = 10 points: game, not an invite
+N 8.KJ973.K4.AQ832      | 1NT P 2D P 2H P      | 3C     | second suit, game forcing
+N 82.KQ9732.A94.KQ      | 1NT P 2D P 2H P      | 4H     | mild slam interest: jump to game
+N KJ973.82.K94.Q83      | 1NT P 2H P 2S P      | 3NT    | the same rules over spades
+N QJ973.82.K94.J83      | 1NT P 2H P 2S P      | 2NT    | 7 HCP + 1 length: invite
+N Q65.AK653.AT.AQ5      | 1NT P                | 2D     | 19 with five hearts: transfer first, not 6NT
+N Q65.AK653.AT.AQ5      | 1NT P 2D P 2H P      | 6NT    | then slam
+N Q65.AK653.J3.KQ5      | 1NT P 2D P 2H P      | 4NT    | 15 HCP + 1 length = 16: quantitative
+N 82.KJ973.K94.Q83      | 1NT P 2D P 2NT P     | 4H     | after a maximum super-accept, 9 is a game hand
+N AT984.KT.954.874      | 1NT P 2H P 2NT P     | 3S     | 7½ suit points: sign off; never pass the artificial 2NT
+N J82.Q8652.J4.A83      | 1NT P 2D P 2NT P     | 4H     | 8½ suit points opposite a maximum: game
+N Q8542.T86.43.A65      | 1NT P 2H P 2NT P     | 3S     | 6 HCP: sign off in the fit, never pass the artificial 2NT (1N board 284)
+
+# Opener answers an invitation: the fit decides the strain.
+S KQ5.KJ7.AK53.J52      | 1NT P 2D P 2H P 2NT P | 4H    | 17, three hearts
+S KQ5.KJ7.AQ53.T52      | 1NT P 2D P 2H P 2NT P | 3H    | 15, three hearts
+S KQ5.KJ7.AQ53.J52      | 1NT P 2D P 2H P 2NT P | 4H    | 16 and the eight-card fit: accept (par)
+S KQ53.KJ.AQ53.J52      | 1NT P 2D P 2H P 2NT P | P     | 16 without a fit: 3NT needs 17
+S KQ53.KJ.AK53.J52      | 1NT P 2D P 2H P 2NT P | 3NT   | 17, two hearts
+S KQ53.KJ.AQ53.T52      | 1NT P 2D P 2H P 2NT P | P     | 15, two hearts
+S KQ53.KJ.AK53.J52      | 1NT P 2D P 2H P 3H P  | 4H    | 3H showed six: two-card support is a fit
+
+# Opener after responder's jump to 4M (mild slam interest).
+S AK5.Q74.KQ82.K93      | 1NT P 2D P 2H P 4H P  | 4NT   | three trumps and a maximum: keycard
+S AJ5.J74.KQ82.K93      | 1NT P 2D P 2H P 4H P  | P     | a minimum: game
+
+# Systems on over our 1NT overcall.
+dealer  E
+N 82.QJ973.K94.J83      | 1C 1NT P         | 2D     | transfer over partner's 1NT overcall
+S AK5.KJ7.Q942.K83      | 1C 1NT P 2D P    | 2H     | completes the transfer
+
+# ── The BBA treatment (probed 2026-09-24): 5 hearts and 4 spades ────
+card    Basic-Bridge general.style=bba
+dealer  S
+N Q653.KJ874.K2.84      | 1NT P          | 2D     | bba: 5-4 with 9 HCP transfers, no Stayman
+N Q653.KJ874.K2.84      | 1NT P 2D P 2H P | 2S    | bba: then shows the spades, not forcing
+N Q653.KJ874.K2.A4      | 1NT P          | 2C     | bba: with game values, Stayman
+S AK7.Q52.AQ53.J92      | 1NT P 2D P 2H P 2S P | 3H | bba: three hearts, not a maximum
+S AK7.Q52.AQ53.K92      | 1NT P 2D P 2H P 2S P | 4H | bba: three hearts and 17
+S AK7.Q2.AQ53.J952      | 1NT P 2D P 2H P 2S P | P  | bba: no eight-card fit: play 2S
+S J8.KQ84.AK9.Q753      | 1NT P 2D P 2H P 2S P | 4H | bba: four hearts: game (Basic_Openers_Rebid board 54)
+N Q653.KJ874.K2.84      | 1NT P 2D P 2H P 2S P 3H P | 4H | bba: 9, the top of the invitation
+N Q653.KJ874.Q2.84      | 1NT P 2D P 2H P 2S P 3H P | P  | bba: 8 passes
+N AQ542.98743.72.3      | 1NT P          | 2H     | bba: 5-5 in the majors transfers to spades first
+
+# ── 5 hearts, 4 spades, 7-9: transfer, then 2S (BBA's; our default, Rick 2026-09-24)
+card    Basic-Bridge
+dealer  S
+N K873.QJ975.84.J3      | 1NT P               | 2D     | 5-4 majors, invitational: transfer, not Stayman
+N K873.QJ975.84.J3      | 1NT P 2D P 2H P     | 2S     | then show the spades, not forcing
+S AQ6.K2.KJ53.Q962      | 1NT P 2D P 2H P 2S P | P     | three spades, two hearts: play 2S
+
+# ── 5-5 with a singleton, invitational only through length (2026-09-25)
+card    Basic-Bridge
+dealer  S
+N 75.QJ952.3.KT974      | 1NT P 2D P 2H P | P | 6 HCP, 5-5: no natural invitation; BBA passes
+N KT432.Q32.2.QJ93      | 1NT P 2H P 2S P | 2NT | 8 HCP, five spades and a singleton: invites (BBA 2NT)
+N 965.T9654.K4.AT4      | 1NT P 2D P 2H P 2NT P 3H P | P | partner declined
+
+# Opener answers the quantitative 4NT with five hearts (double dummy,
+# probes/dd/quant-4nt-hearts.toml, notes 2026-10-03): the doubleton decides.
+card    21GF-DEFAULT
+dealer  S
+scoring IMP
+S AK5.KJ7.Q942.K83      | 1NT P 2D P 2H P 4NT P | 6NT  | 16, 4-3-3-3 with three hearts: no ruffing value, notrump
+S AK5.KJ52.Q94.K83      | 1NT P 2D P 2H P 4NT P | 6NT  | 16, 4-3-3-3 with four hearts: still notrump
+S AK52.QJ5.Q94.K83      | 1NT P 2D P 2H P 4NT P | P    | 15, 4-3-3-3: declines (5H loses to 4NT)
+S AK52.QJ5.Q942.K8      | 1NT P 2D P 2H P 4NT P | 6H   | 15, three hearts and a doubleton: the ruff makes slam
+S AK52.QJ52.Q94.K8      | 1NT P 2D P 2H P 4NT P | 6H   | 15, four hearts and a doubleton: slam, not 5H
+S AK52.KJ52.Q94.K8      | 1NT P 2D P 2H P 4NT P | 6H   | 16, four hearts and a doubleton: slam in the fit
+S AK52.KJ5.Q942.K8      | 1NT P 2D P 2H P 4NT P | 6H   | 16, three hearts and a doubleton: the fit
+S AK52.KQ5.Q942.K8      | 1NT P 2D P 2H P 4NT P | 6NT  | 17, three hearts: a maximum plays notrump
+S AK52.KJ.Q942.K83      | 1NT P 2D P 2H P 4NT P | 6NT  | 16 and two hearts: 6NT
+S AK52.QJ.Q942.K83      | 1NT P 2D P 2H P 4NT P | P    | 15 and two hearts: declines
+scoring MP
+S AK52.KJ52.Q94.K8      | 1NT P 2D P 2H P 4NT P | 6NT  | matchpoints: 6NT whenever accepting on values
+S AK52.QJ5.Q942.K8      | 1NT P 2D P 2H P 4NT P | 6H   | matchpoints: the 15 with a ruff still accepts in the fit
+
+# Six cards between the measures: over signoff in total points, under
+# invite in suit points (2026-10-07: these had no rule). HCP decide.
+card    21GF-DEFAULT notrump.jacoby_transfers.super_accept=false notrump.texas.play=false
+N J85.KJ9754.6.J52      | 1NT P 2D P 2H P      | P      | 6 HCP and six hearts: pass
+N T43.KQ9632.T9.82      | 1NT P 2D P 2H P      | P      | 5 HCP: pass, though the length counts 8
+N QT7532.JT7.QJ7.T      | 1NT P 2H P 2S P      | P      | 6 HCP and six spades: pass
+N A85.KJ9754.6.K52      | 1NT P 2D P 2H P      | 4H     | without Texas, game goes through the transfer
+N J9.AQJ942.AQ5.AT      | 1NT P 2D P 2H P      | 6H     | 18 HCP, six hearts: slam (no Texas, then keycard)
+N 92.AQJ942.AQ5.Q3      | 1NT P 2D P 2H P      | 5H     | 15 HCP, six hearts: invites six
+S KQ6.K7.K832.KQ95      | 1NT P 2D P 2H P 5H P | 6H     | 16 of 15-17: accepts
+S KQ6.K73.Q832.K95      | 1NT P 2D P 2H P 5H P | P      | 15: declines
+
+# ── The Brill card's treatments (general.system = brill; notes, "Brill").
+# Each Brill line has a 21GF-GIB line beside it: the default is unchanged.
+dealer  N
+vul     None
+card    Brill
+N Q632.KJ3.KQ4.A43      | 1NT P 2H P | 2S     | brill: 4-3-3-3 minimum, four spades: a plain completion
+N QJ6.KJ3.KQ54.A43      | 1NT P 2H P | 2S     | brill: three spades
+N Q3.KJ32.KQ54.A43      | 1NT P 2D P | 3H     | brill: four hearts, a minimum: the jump
+card    21GF-GIB
+N Q3.KJ32.KQ54.A43      | 1NT P 2D P | 2H     | default: a minimum completes
+
+# Responder over 3NT after showing 5-4 (Rick, 2026-11-06, bridge-classroom #85).
+card    21GF-DEFAULT
+dealer  S
+N AKT76.A95.9.AJ94      | 1N P 2H P 2S P 3C P 3N P             | 4N     | #85: 16 HCP, 18 total points with the 5-4 shown: invite
+N AKT76.K95.9.QJ94      | 1N P 2H P 2S P 3C P 3N P             | P      | 15 HCP, 16 total points: 31, no invitation
+S J5.KJT.AKT63.KQT      | 1N P 2H P 2S P 3C P 3N P 4N P        | 6N     | #85: 17, the top of the range: accept
+S J5.KJ72.AQ6.KJ72      | 1N P 2H P 2S P 3C P 3N P 4N P        | P      | a flat 15: decline
+S J5.KJT.AKT6.KQT3      | 1N P 2H P 2S P 3C P 3N P 4N P        | 6C     | 17 with four clubs: accept in the 4-4 fit

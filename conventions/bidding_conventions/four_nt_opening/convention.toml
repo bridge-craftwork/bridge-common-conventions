@@ -1,0 +1,6 @@
+id = "bidding_conventions/four_nt_opening"
+name = "4NT opening"
+label = "4NT opening (specific aces)"
+source = "proposed"
+level = 8
+contexts = ["slam"]

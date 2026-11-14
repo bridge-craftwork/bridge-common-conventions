@@ -1,0 +1,304 @@
+# Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
+#
+# Responses to a 2NT opening: the 1NT structure one level up, which is
+# what BBA plays on this card — 3♣ Stayman, 3♦ and 3♥ transfers, 3NT to
+# play, 4NT quantitative. With `notrump.stayman.puppet_2nt` 3♣ is Puppet
+# Stayman instead (at the end of the file).
+#
+# The same system answers every natural, balanced 2NT (Rick, 2026-10-05:
+# "the Kokish system should be all the same responses as after 2C/2NT,
+# but just with modified HCP range for opener"), wherever systems are on
+# (one-nt.bid, `systems on`): the 2NT opening (20-21), 2♣–2♦–2NT
+# (22-23), Kokish's 2♣–2♦–2♥–2♠–2NT (24-25), 2♣ and a positive then
+# 2NT, 2♣ (2♠) P (P) 2NT, a natural 2NT overcall. `nt2` below names
+# them; every context of the system starts `after nt2`. Opener's
+# range comes from what the auction showed, so every count here is a
+# strength band or measured against partner's range (`hcp>=25-partner.
+# hcp.min`), never an absolute number.
+#
+# Only the asking calls and opener's answers are here. What follows is
+# already written against the question in `stayman.bid` and
+# `jacoby-transfers.bid` (`when answered majors`, `when answered
+# transfer(M)`), and the strength bands read opener's range, so the same
+# rules invite and bid game at the right level. After 2♣ the side is in a
+# game force (strong-openings.bid), so the passes here are not available
+# there and the weakest hands bid game.
+#
+# Without these rules responder passed a 2NT opening whatever he held:
+# 4,345 boards across the corpus, 123 of them in the Basic_* scenarios.
+
+module two-nt-responses "Responses to a 2NT opening"
+  kind   system
+  needs  notrump-base
+  skill  partnership_bidding/basic_notrump
+  skill  bidding_conventions/stayman
+  skill  bidding_conventions/jacoby_transfers
+  param  stayman = bidding_conventions/stayman default true
+  param  jacoby  = bidding_conventions/jacoby_transfers default true
+  param  puppet  = bidding_conventions/stayman:puppet_2nt default false
+  param  gerber  = bidding_conventions/gerber default false
+  param  texas   = bidding_conventions/texas default false
+  param  tu      = bidding_conventions/texas:two_under default false
+  param  style   = general.style
+
+# The 2NT system's way in: our 2NT where the system came on (`systems on`
+# in one-nt.bid), RHO passing.
+define auction nt2 = systems 2N (P)
+
+after nt2
+  3C  "Stayman: asks for a four-card major"  alert
+      shows H=4 | S=4, strength>=game
+      when  stayman, !puppet, !shape 4333
+      when  style is not bba
+      sets  forcing=round, ask=majors
+      artificial
+      priority 1                           # ahead of a transfer with 5-4
+  3D  "Transfer to hearts"  announce "Transfer"
+      shows H>=5
+      when  jacoby
+      sets  forcing=round, ask=transfer(H)
+      artificial
+  3H  "Transfer to spades"  announce "Transfer"
+      shows S>=5
+      when  jacoby
+      sets  forcing=round, ask=transfer(S)
+      artificial
+  3N  "To play: {game} total points"       shows strength>=game, H<=4, S<=4
+      when  style is not bba
+  # With a five-card major and transfers, transfer first and bid 4NT or
+  # 6NT next (jacoby-transfers.bid), as over 1NT: opposite Kokish's 24-25
+  # a 7-count with five hearts is a slam invitation, and 4NT here hid the
+  # suit (2026-11-07).
+  4N  "Quantitative: {slam_invite} total points, invites 6NT"
+      when  quant_4nt   # slam.quantitative_4nt.play (slam-entry.bid)
+      shows balanced, strength=slam_invite, (H<=4, S<=4) | !jacoby   # with five, transfer first
+      when  style is not bba
+      sets  ask=quant
+  6N  "Slam: {slam} total points"          shows balanced, strength=slam, (H<=4, S<=4) | !jacoby
+      when  style is not bba
+  # A 4-count is the invitational band opposite 20-21, and there is no
+  # invitation over 2NT short of 4NT: pass (BBA passes with 4 too).
+  P   "No game: {signoff}-{invite} total points"    shows strength<=invite
+      when  style is not bba
+      priority -10
+
+  # The BBA treatment (probed 2026-09-24, two-nt-responses.notes.md): in
+  # HCP, tens aside. Pass with 4 or less, even with a four-card major;
+  # from 5 Stayman (4-3-3-3 too) or 3NT; 4NT with 11, 6NT with 12 (or 11
+  # and two tens). With 5-5 in the majors, transfer to spades first.
+  3C  "Stayman: asks for a four-card major"  alert
+      shows hcp>=25-partner.hcp.min, H=4 | S=4
+      when  stayman, !puppet
+      when  style is bba
+      sets  forcing=round, ask=majors
+      artificial
+      priority 1
+  3H  "Transfer to spades, 5-5 in the majors"  announce "Transfer"
+      shows S>=5, H>=5
+      when  jacoby
+      when  style is bba
+      sets  forcing=round, ask=transfer(S)
+      artificial
+  3N  "To play: game values"               shows hcp>=25-partner.hcp.min, H<=4, S<=4
+      when  style is bba
+  4N  "Quantitative: invites 6NT"
+      when  quant_4nt   # slam.quantitative_4nt.play (slam-entry.bid)
+      shows balanced, hcp>=32-partner.hcp.max, points<=31-partner.hcp.min, H<=4, S<=4   # with five, transfer first
+      when  style is bba
+      sets  ask=quant
+  6N  "Slam"                               shows balanced, points>=32-partner.hcp.min, H<=4, S<=4
+      when  style is bba
+  P   "No game: 4 HCP or less"             shows hcp<=24-partner.hcp.min
+      when  style is bba
+      priority -10
+
+# A slam try in a minor (2026-09-27; 483 boards stopped at 2NT-3NT where
+# BBA bid slam, half of them in a minor): four of the minor with six, or
+# five in an unbalanced hand, and slam-invite values. Opener bids six
+# with three-card support (20-21 and a fit is enough), else 4NT, no fit;
+# responder then bids 6NT with slam values.
+# With Gerber on the card 4♣ asks for aces instead (gerber.bid): the club
+# hands ask and bid 6♣. The diamond try stays.
+after nt2 when style is not bba
+  4C  "Slam try: six or more clubs, or five and unbalanced"
+      shows C>=6 | (C>=5, !balanced), strength>=slam_invite, H<=4, S<=4
+      when  !gerber, !tu                          # 4♣ is 2-under Texas
+  4D  "Slam try: six or more diamonds, or five and unbalanced"
+      shows D>=6 | (D>=5, !balanced), strength>=slam_invite, H<=4, S<=4
+      when  !texas                                # 4♦ is Texas (texas-transfers.bid)
+after nt2 4x (P) when (x is C, !gerber, !tu) | (x is D, !texas), style is not bba
+  6{x}  "A fit: slam"                       shows x>=3
+  4N    "No fit"                            shows x<=2
+after nt2 4x (P) 4N (P) when (x is C, !gerber, !tu) | (x is D, !texas), style is not bba
+  6N  "No fit, but slam values"                  shows strength>=slam
+  P   "No fit: 4NT"
+      priority -5
+
+# Opener answers Stayman. 3♦ is the negative, as over 1NT.
+after nt2 3C (P) when !puppet
+  3H  "4+ hearts"                 shows H>=4
+  3S  "4 spades, not 4 hearts"    shows S>=4, H<=3
+  3D  "No four-card major"        shows H<=3, S<=3
+
+# Opener completes the transfer.
+after nt2 3D (P)
+  3H  "Completes transfer"
+after nt2 3H (P)
+  3S  "Completes transfer"
+
+# Responder after the completed transfer. The generic rules after a
+# transfer (jacoby-transfers.bid) left weak and unbalanced hands with no
+# call opposite 20-21: 408 boards across the corpus. BBA: pass with 0-3;
+# from 4 (25 combined), 3NT with five of the major, balanced or not, and
+# game in the major with six. Fallbacks under the generic rules.
+after nt2 3D (P) 3H (P)
+  P   "Weak: play here"                        shows hcp<=24-partner.hcp.max
+      priority -1
+  3N  "Choice of games: five hearts, game values"  shows H=5, hcp>=25-partner.hcp.max
+      sets  ask=choice
+      priority -1
+  4H  "Game, six or more hearts"                  shows H>=6, hcp>=25-partner.hcp.max
+      priority -1
+after nt2 3H (P) 3S (P)
+  P   "Weak: play here"                        shows hcp<=24-partner.hcp.max
+      priority -1
+  3N  "Choice of games: five spades, game values"  shows S=5, hcp>=25-partner.hcp.max
+      sets  ask=choice
+      priority -1
+  4S  "Game, six or more spades"                  shows S>=6, hcp>=25-partner.hcp.max
+      priority -1
+
+# ── Puppet Stayman (`notrump.stayman.puppet_2nt`, 2026-09-28) ──────────────
+# 3♣ asks for a four- or five-card major. Responder bids it with game
+# values, a three- or four-card major and no five (a five-card major
+# transfers, 5-4 included); opener shows a five-card major (3♥/3♠), a
+# four-card one (3♦) or neither (3NT). After 3♦ responder bids the
+# major he does NOT hold, so the strong hand declares the 4-4 fit; 4♦
+# is both majors, 4♣ both with slam interest. BBA plays it this way,
+# after 2♣–2♦–2NT too (probed: two-nt-responses.notes.md, "Puppet
+# Stayman over 2NT"). Only the ask names an auction; the rest follows
+# the questions and answers.
+after nt2 when puppet
+  3C  "Puppet Stayman: asks for a four- or five-card major"  alert
+      shows strength>=game, H<=4, S<=4, H>=3 | S>=3
+      when  style is not bba
+      sets  forcing=game, ask=puppet
+      artificial
+      priority 2                           # ahead of 3NT, 4NT, 6NT and Gerber
+  3C  "Puppet Stayman: asks for a four- or five-card major"  alert
+      shows hcp>=25-partner.hcp.min, H<=4, S<=4, H>=3 | S>=3
+      when  style is bba
+      sets  forcing=game, ask=puppet
+      artificial
+      priority 2
+
+when asked puppet
+  3H  "Five hearts"                           shows H>=5
+  3S  "Five spades"                           shows S>=5, H<=4
+  3D  "A four-card major, no five"            shows H=4 | S=4, H<=4, S<=4
+      artificial
+  3N  "No four- or five-card major"           shows H<=3, S<=3
+
+# Opener has a four-card major. Responder names the one he does not hold.
+# Without one, the no-fit counts after Stayman (stayman.bid): 6NT from
+# 32 total points on opener's minimum.
+when answered puppet, partner.last=3D
+  3H  "Four spades, not four hearts"          alert
+      shows S=4, H<=3
+      sets  ask=puppet_fit(S)
+      artificial
+  3S  "Four hearts, not four spades"          alert
+      shows H=4, S<=3
+      sets  ask=puppet_fit(H)
+      artificial
+  4D  "Both majors, no slam interest: opener chooses"  alert
+      shows H=4, S=4, strength<=game
+      sets  ask=puppet_both
+      artificial
+  4C  "Both majors, slam interest: opener chooses"     alert
+      shows H=4, S=4, strength>=slam_invite
+      sets  ask=puppet_both
+      artificial
+  7N  "No four-card major: grand slam"        shows H<=3, S<=3, points>=37-partner.hcp.min
+  6N  "No four-card major: slam"              shows H<=3, S<=3, points>=32-partner.hcp.min
+  4N  "No four-card major: quantitative, invites 6NT"
+      when  quant_4nt   # slam.quantitative_4nt.play (slam-entry.bid)
+      shows H<=3, S<=3, balanced, strength=slam_invite, points<=31-partner.hcp.min
+      sets  ask=quant
+  3N  "No four-card major: game"              shows H<=3, S<=3, strength>=game
+      priority -1
+
+when asked puppet_fit(x)
+  4{x}  "Four {x}: game in the fit"           shows x=4   sets trump=x
+  3N    "No four {x}"                         shows x<=3
+when asked puppet_both
+  4S  "Four spades"                           shows S=4   sets trump=S
+  4H  "Four hearts, not four spades"          shows H=4, S<=3   sets trump=H
+after nt2 3C (P) 3D (P) 3N (P) when puppet
+  P   "No fit: 3NT"
+
+# Responder once opener has placed the contract in the 4-4 fit.
+when answered puppet_fit(x), partner.last=4{x}
+  6{x}  "Slam in the fit"                     shows tp(x)>=33-partner.hcp.min
+        priority -1                           # behind the keycard ask (slam/rkcb-1430.bid)
+  P     "Game in the fit"
+        priority -5
+when answered puppet_both, we.trump is suit
+  6{trump}  "Slam in the fit"                 shows tp(trump)>=33-partner.hcp.min
+        priority -1                           # behind the keycard ask (slam/rkcb-1430.bid)
+  P         "Game in the fit"
+            priority -5
+
+# Opener has a five-card major.
+when answered puppet, partner.last=3H
+  6H  "Slam in the five-three fit"            shows H>=3, tp(H)>=33-partner.hcp.min
+      sets  trump=H
+  4H  "Game in the five-three fit"            shows H>=3
+      sets  trump=H
+      priority -1                             # slam first when there
+  6N  "No fit: slam"                          shows H<=2, points>=32-partner.hcp.min
+  4N  "No fit: quantitative, invites 6NT"     shows H<=2, balanced, strength=slam_invite, points<=31-partner.hcp.min
+      when  quant_4nt   # slam.quantitative_4nt.play (slam-entry.bid)
+      sets  ask=quant
+  3N  "No fit: game"                          shows H<=2
+      priority -1
+when answered puppet, partner.last=3S
+  6S  "Slam in the five-three fit"            shows S>=3, tp(S)>=33-partner.hcp.min
+      sets  trump=S
+  4S  "Game in the five-three fit"            shows S>=3
+      sets  trump=S
+      priority -1
+  6N  "No fit: slam"                          shows S<=2, points>=32-partner.hcp.min
+  4N  "No fit: quantitative, invites 6NT"     shows S<=2, balanced, strength=slam_invite, points<=31-partner.hcp.min
+      when  quant_4nt   # slam.quantitative_4nt.play (slam-entry.bid)
+      sets  ask=quant
+  3N  "No fit: game"                          shows S<=2
+      priority -1
+# Opener has no major.
+when answered puppet, partner.last=3N
+  4C  "Gerber: how many aces?"                 alert
+      when  gerber
+      shows points>=32-partner.hcp.min
+      sets  ask=gerber
+      artificial
+      priority 1                              # ahead of 6NT: check the aces first
+  6N  "No fit: slam"                          shows points>=32-partner.hcp.min
+  4N  "No fit: quantitative, invites 6NT"     shows balanced, strength=slam_invite, points<=31-partner.hcp.min
+      when  quant_4nt   # slam.quantitative_4nt.play (slam-entry.bid)
+      sets  ask=quant
+  P   "No fit: 3NT"
+      priority -20                            # behind slam/over-3nt.bid (minor-suit slam tries)
+# After a 3NT that denies the 4-4 fit: the same counts.
+when answered puppet_fit(x), partner.last=3N
+  4C  "Gerber: how many aces?"                 alert
+      when  gerber
+      shows points>=32-partner.hcp.min
+      sets  ask=gerber
+      artificial
+      priority 1                              # ahead of 6NT: check the aces first
+  6N  "No fit: slam"                          shows points>=32-partner.hcp.min
+  4N  "No fit: quantitative, invites 6NT"     shows balanced, strength=slam_invite, points<=31-partner.hcp.min
+      when  quant_4nt   # slam.quantitative_4nt.play (slam-entry.bid)
+      sets  ask=quant
+  P   "No fit: 3NT"
+      priority -20

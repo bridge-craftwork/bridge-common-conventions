@@ -1,0 +1,20 @@
+id = "bidding_conventions/mini_roman_2d"
+name = "Mini-Roman 2♦"
+source = "proposed"
+level = 7
+contexts = ["preemptive_openings"]
+names = ["Mini-Roman", "Mini Roman", "Roman 2♦", "Mini-Maxi Roman"]
+summary = """
+An opening 2♦ showing a three-suited hand (4-4-4-1 or 5-4-4-0) of opening
+strength; responder bids the cheapest suit to play or 2NT to ask for the
+short suit.
+"""
+see = [
+  { title = "Mini-Roman 2♦", site = "ACBL Unit 390", url = "https://www.acblunit390.org/Simon/mini-roman.htm" },
+]
+
+[treatments.maxi]
+kind = "bool"
+label = "Mini-Roman 2♦: Mini-Maxi (also 19+)"
+desc = "The Mini-Roman 2♦ is either the three-suiter of opening strength (Mini) or a 19+ three-suiter (Maxi), which bids again after responder's sign-off. Off: Mini only"
+level = 8

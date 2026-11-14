@@ -1,0 +1,215 @@
+# Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
+#
+# Gerber: 4♣ asks for aces over partner's natural notrump, where no suit
+# has been agreed. Answers by steps (4♦ 0 or 4, 4♥ 1, 4♠ 2, 4NT 3); 5♣
+# then asks for kings the same way. The asker places the contract; 4NT
+# after an answer is a sign-off. Notes: gerber.notes.md.
+#
+# Where it applies (card `slam.gerber.*`):
+# - directly over partner's 1NT or 2NT where systems are on (2NT opening,
+#   2♣–2♦–2NT, Kokish's 2NT ...: one-nt.bid, `systems on`);
+# - over interference to our 1NT opening (a double, a two-level overcall);
+# - after 1NT–2♣–2♦ (Stayman, no major; not with the bba treatment);
+# - over partner's 1NT or 2NT rebid after 1x–1y, and by opener over a
+#   natural 2NT response (1m–2NT, 2♣–2NT), unless the card says
+#   `gerber.only_over_nt_openings` (BBA's "Gerber only for NT openings")
+#   or not `gerber.over_nt_seq`;
+# - brill: over a 3NT opening and opener's 3NT rebid after 2♣.
+# Never where clubs are natural or a suit is agreed: after a transfer, a
+# major Stayman answer, or a minor raise, 4♣ keeps its other meanings.
+#
+# 4♣ over 1NT is a transfer to diamonds with `transfers.texas_4c`, and
+# then Gerber is off there. Over 2NT the 4♣ slam try in clubs
+# (two-nt-responses.bid) is off when Gerber is on: those hands ask for
+# aces and bid 6♣ (gerber.notes.md, "Decisions").
+
+module gerber "Gerber: 4♣ asks for aces over partner's notrump"
+  kind   convention
+  convention  bidding_conventions/gerber
+  needs  notrump-base
+  skill  bidding_conventions/gerber
+  param  only_openings = only_over_nt_openings default false
+  param  nt_seq = over_nt_seq default true   # not in the .bbsa map: true unless a card JSON says no
+  param  texas_4c = bidding_conventions/texas:bid_4c default false
+  param  tu = bidding_conventions/texas:two_under default false   # 2-under Texas: 4C transfers
+  param  style = general.style
+  param  system = general.system   # `brill`: the Brill card's treatments (over 3NT)
+
+# ── The ask ───────────────────────────────────────────────────────────
+# The hands that would bid 6NT directly (one-nt.bid, two-nt-responses.bid)
+# check the aces first; priority 1 puts the ask ahead of 6NT. BBA asks a
+# point lower, 31 HCP between the hands (probes/gerber-resp-1N.toml,
+# gerber-resp-2N.toml), and then bids 6NT only with three aces between
+# the hands: that is the bba treatment. Our default keeps Rick's 4NT
+# invitation with 16 opposite 15-17 (one-nt.bid).
+after 1N (P) when !texas_4c, !tu
+  4C  "Gerber: how many aces?"  alert
+      shows balanced, points>=32-partner.hcp.min, H<=4, S<=4   # a major goes through Stayman or a transfer
+      when  style is not bba
+      sets  ask=gerber
+      artificial
+      priority 1                         # ahead of 6NT: check the aces first
+  4C  "Gerber: how many aces?"  alert
+      shows balanced, hcp>=31-partner.hcp.min, H<=4, S<=4
+      when  style is bba
+      sets  ask=gerber
+      artificial
+      priority 1
+
+# Over 2NT a long club suit asks too, and plays in 6♣ (BBA from 9 HCP
+# with six clubs; our threshold is the old 4♣ slam try's).
+after nt2 when !tu
+  4C  "Gerber: how many aces?"  alert
+      shows H<=4, S<=4, (balanced, strength>=slam) | (C>=6 | (C>=5, !balanced), strength>=slam_invite)
+      when  style is not bba
+      sets  ask=gerber
+      artificial
+      priority 1
+  4C  "Gerber: how many aces?"  alert
+      shows H<=4, S<=4, (balanced, hcp>=31-partner.hcp.min) | (C>=6, hcp>=29-partner.hcp.min)
+      when  style is bba
+      sets  ask=gerber
+      artificial
+      priority 1
+
+# brill (the Brill card): Gerber over a 3NT opening too (25-27), where
+# our default reads 4C as a club slam try (over-3nt.bid). Brill /explain,
+# 2026-10-15, after 3N P: "Gerber" `slammish`. Slam values: 31 between
+# the hands, as over-3nt.bid counts.
+after 3N (P) when system is brill
+  4C  "Gerber: how many aces?"  alert
+      shows hcp>=31-partner.hcp.min
+      sets  ask=gerber
+      artificial
+      priority 1
+
+# Brill: also over opener's 3NT rebid after 2♣ (2♣–2♦–3NT, and after
+# their overcall, 2♣ (2♥) P (P) 3NT, 2♣ P 2♦ (2♥) 3NT). Our default reads
+# 4♣ after 2♣–2♦–3NT as the club slam try, as over the 3NT opening
+# (over-3nt.bid), and has no rule after interference (notes, "Gaps").
+after 2C (*) P (P) 3N (P) | 2C (P) 2D (*) 3N (P) when system is brill
+  4C  "Gerber: how many aces?"  alert
+      shows hcp>=31-partner.hcp.min
+      sets  ask=gerber
+      artificial
+      priority 1
+
+# Over interference to our 1NT opening (a double or a suit overcall at
+# the two level) the jump to 4♣ is still Gerber, the same hands as
+# without it: 4♣ is not a sensible cue-bid or natural call there.
+after 1N (X) when !texas_4c, !tu
+  4C  "Gerber: how many aces?"  alert
+      shows balanced, points>=32-partner.hcp.min
+      when  style is not bba
+      sets  ask=gerber
+      artificial
+      priority 1
+  4C  "Gerber: how many aces?"  alert
+      shows balanced, hcp>=31-partner.hcp.min
+      when  style is bba
+      sets  ask=gerber
+      artificial
+      priority 1
+after 1N (2y) when y is not N, !texas_4c, !tu
+  4C  "Gerber: how many aces?"  alert
+      shows balanced, points>=32-partner.hcp.min
+      when  style is not bba
+      sets  ask=gerber
+      artificial
+      priority 1
+  4C  "Gerber: how many aces?"  alert
+      shows balanced, hcp>=31-partner.hcp.min
+      when  style is bba
+      sets  ask=gerber
+      artificial
+      priority 1
+
+# After Stayman's 2♦ (no major) the jump to 4♣ is Gerber: no suit is
+# agreed and clubs are not natural. The hands that bid 6NT there
+# (stayman.bid) check the aces first. The bba treatment keeps BBA's 4♣
+# minor slam try (stayman.bid).
+after 1N (P) 2C (P) 2D (P) when style is not bba
+  4C  "Gerber: how many aces?"  alert
+      shows balanced, points>=32-partner.hcp.min
+      sets  ask=gerber
+      artificial
+      priority 1
+
+# Over a notrump rebid or response (the card's "over NT sequence";
+# BBA's "Gerber only for NT openings" turns it off).
+after 1x (P) 1y (P) 1N (P) | 1x (P) 1y (P) 2N (P) when !only_openings, nt_seq
+  4C  "Gerber: how many aces?"  alert
+      shows balanced, points>=32-partner.hcp.min
+      sets  ask=gerber
+      artificial
+      priority 1
+
+# Gerber by opener over responder's natural 2NT: 1♣–2NT and 1♦–2NT
+# (Bridge Bum: 4♣ over any natural notrump; PBS Gerber_By_Opener), and
+# 2♣–2NT, the balanced positive. After 1♣ too: clubs are not agreed, and
+# opener with long clubs shows them at the three level first. Slam
+# values against responder's minimum; over 2♣–2NT the balanced hands
+# that bid 6NT (strong-openings.bid) ask first.
+after 1m (P) 2N (P) when !only_openings, nt_seq
+  4C  "Gerber: how many aces?"  alert
+      shows H<=4, S<=4, strength>=slam
+      sets  ask=gerber
+      artificial
+      priority 1
+after 2C (P) 2N (P) when !only_openings, nt_seq
+  4C  "Gerber: how many aces?"  alert
+      shows balanced, points>=33-partner.hcp.min
+      sets  ask=gerber
+      artificial
+      priority 1
+
+# ── The answers ───────────────────────────────────────────────────────
+when asked gerber
+  4D  "0 or 4 aces"   shows keycards(N) in 0|4   artificial
+  4H  "1 ace"         shows keycards(N)=1        artificial
+  4S  "2 aces"        shows keycards(N)=2        artificial
+  4N  "3 aces"        shows keycards(N)=3        artificial
+
+# ── The asker places the contract ─────────────────────────────────────
+# we.keycards(N) is my aces plus partner's answer, four in the deck, so
+# "0 or 4" resolves against my own. Rules without `shows` rank by
+# priority, then file order: the grand before the king ask before six.
+# The thresholds (my points plus opener's minimum) were set on the
+# corpus: 7NT from 35 with all the aces, the king ask at 33-34
+# (gerber.notes.md, "Grand slam and the king ask"; the textbook 37 for
+# 7NT scored 400 IMPs worse).
+when answered gerber
+  7N  "Grand slam"
+      when  we.keycards(N)=4, points + partner.hcp.min >= 35
+      priority 3
+  5C  "Gerber: how many kings?"  alert
+      when  we.keycards(N)=4, points + partner.hcp.min >= 33, points + partner.hcp.min <= 34
+      when  C<=5                         # a long club suit settles for six
+      sets  ask=gerber_kings
+      artificial
+      priority 2
+  6C  "Small slam"
+      when  we.keycards(N)>=3, C>=6, imps       # at matchpoints 6NT scored better (notes)
+      priority 1
+  6N  "Small slam"
+      when  we.keycards(N)>=3
+  4N  "Signoff"
+      when  we.keycards(N).max<=2
+  # "0 or 4" facing no ace of my own is four.
+  6N  "Small slam"
+      when  maybe we.keycards(N)>=3
+      priority -1
+
+when asked gerber_kings
+  5D  "0 or 4 kings"  shows (controls - keycards(N) - keycards(N) = 0) | (controls - keycards(N) - keycards(N) = 4)   artificial
+  5H  "1 king"        shows controls - keycards(N) - keycards(N) = 1   artificial
+  5S  "2 kings"       shows controls - keycards(N) - keycards(N) = 2   artificial
+  5N  "3 kings"       shows controls - keycards(N) - keycards(N) = 3   artificial
+
+# All four aces are ours (the king ask needs them): seven with all four
+# kings as well, else six. Kings are controls less two for each ace.
+when answered gerber_kings
+  7N  "Grand slam"
+      when  (partner.last=5N, controls - keycards(N) - keycards(N) >= 1) | (partner.last=5S, controls - keycards(N) - keycards(N) >= 2) | (partner.last=5H, controls - keycards(N) - keycards(N) >= 3) | (partner.last=5D, controls - keycards(N) - keycards(N) >= 4)
+      priority 1
+  6N  "Small slam"

@@ -1,0 +1,73 @@
+id = "bidding_conventions/minor_suit_transfers"
+name = "Minor-Suit Transfers over 1NT"
+label = "Minor-suit transfers"
+desc = "Minor-suit transfers over 1NT; style says which structure"
+source = "proposed"
+level = 5
+contexts = ["notrump_openings"]
+names = ["minor suit transfers", "minor-suit transfers", "four-suit transfers", "4-way transfers", "four way transfers", "2♠ relay"]
+confirm_names = ["2♠ relay"]
+summary = """
+Over partner's 1NT, responder's 2♠ and 2NT (or 3♣) are transfers or relays
+to the minors, so a long minor can be shown weak to play or strong with slam
+interest.
+"""
+see = [
+  { title = "Minor Suit Transfers", site = "Bridge Bum", url = "https://www.bridgebum.com/minor_suit_transfers.php" },
+  { title = "25 More Bridge Conventions You Should Know", kind = "book", chapter = 5 },
+]
+
+[treatments.style]
+kind = "enum"
+label = "Minor-suit transfers: style"
+desc = "relay: 2♠ relays to 3♣, pass or correct to 3♦. four_way: 2♠ clubs, 2NT diamonds; the step below the suit shows good support. four_way_reversed: the suit itself shows good support. bba: 2♠ clubs, 3♣ diamonds, always completed (BBA). two_nt_three_c: 2NT clubs, 3♣ diamonds, leaving 2♠ free (for minor-suit Stayman); BBA's 21GF-MSTandMSS."
+options = ["relay", "four_way", "four_way_reversed", "bba", "two_nt_three_c"]
+default = "relay"
+level = 5
+
+[treatments.two_s]
+kind = "bool"
+label = "1NT–2♠ transfer"
+desc = "The card's 2♠ transfer box, as Bridgodex marks it; what it transfers to is in the card's notes"
+level = 5
+
+[treatments.two_s_clubs]
+kind = "bool"
+label = "1NT–2♠ transfer to clubs"
+level = 5
+
+[treatments.two_nt]
+kind = "bool"
+label = "1NT–2NT transfer"
+desc = "The card's 2NT transfer box, as Bridgodex marks it"
+level = 5
+
+[treatments.two_nt_clubs]
+kind = "bool"
+label = "1NT–2NT transfer to clubs"
+level = 5
+
+[treatments.two_nt_diamonds]
+kind = "bool"
+label = "1NT–2NT transfer to diamonds"
+level = 5
+
+[treatments.three_c_diamonds]
+kind = "bool"
+label = "1NT–3♣ transfer to diamonds"
+level = 5
+
+[treatments.over_2nt]
+kind = "bool"
+label = "Minor-suit transfers over 2NT"
+level = 6
+
+[treatments.over_2nt_3s_clubs]
+kind = "bool"
+label = "2NT–3♠ transfer to clubs"
+level = 6
+
+[treatments.over_2nt_4c_diamonds]
+kind = "bool"
+label = "2NT–4♣ transfer to diamonds"
+level = 6

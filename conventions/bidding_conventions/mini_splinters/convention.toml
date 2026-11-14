@@ -1,0 +1,7 @@
+id = "bidding_conventions/mini_splinters"
+name = "Mini-splinters"
+label = "Mini splinters"
+source = "proposed"
+level = 7
+contexts = ["major_openings"]
+taught_under = ["bidding_conventions/splinters"]

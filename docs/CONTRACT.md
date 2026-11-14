@@ -116,6 +116,7 @@ rule_language_version = 2
 |---|---|
 | `id` | The ID; must match the path |
 | `name` | Display name |
+| `label`, `desc` | The caption and one-line description a card editor shows, where they differ from `name` and `summary`. Carried from the card's switch; Phase 5 folds them in |
 | `contexts` | One or more context keys. The first is the main one. Left out for a skill that never appears on a card |
 | `level` | 1 to 10: the lowest level at which it is taught. Bands are derived from `levels.toml`, never stored |
 | `names` | The ways people write it, for finding it in free text |
@@ -153,11 +154,17 @@ never treatment names.
 | `value_aliases` | Other spellings of an enum option, as another tool writes them |
 | `requires` | Another treatment of the same convention that this one depends on |
 | `choice` | A group name: yes/no treatments sharing it are alternatives, at most one on |
-| `bid`, `note`, `explains`, `implies`, `many` | As in `convention-card`'s field list today, unchanged |
+| `bid`, `note`, `explains`, `implies`, `many`, `heading`, `about`, `plays` | As in `convention-card`'s field list today, unchanged. `explains`, `requires` and `implies` name another treatment of the same convention by its bare name, anything else by its address |
+| `taught_under` | IDs the treatment is also taught under, besides its convention |
+| `skill` | Carried from card schema 2 until Phase 5: an ID when the treatment names a different convention from its group (the variants), `false` when the field named no convention at all (a note, a range) |
 
 - **A treatment means nothing while its convention is not played.** A reader
   ignores its value; a card keeps it, so switching the convention back on
   restores it.
+- **A silent treatment of a played convention takes the definition's
+  `default`**, and only then a reader's own. A treatment that says where
+  the convention is played has `default = true` for its main place, so a
+  bare entry plays it there.
 - **The same calls in a different auction are one convention with a yes/no
   treatment for each place.** What can be played without another convention
   has its own ID; what only modifies another is a treatment of it.
@@ -313,6 +320,10 @@ parts = ["2c", "2d", "2h", "2s"]
   a system fixes as a whole (a Precision 1♣ against a 2/1 1♣) is part of
   choosing the system and gets no function or part.
 - A function's name is never also a setting's section name.
+- `[<function>.option]` and `[<function>.was.<part>]` record a card schema 2
+  setting whose value chose the convention: the option words, the setting's
+  label and the spellings other tools write. Card tools need them to read
+  and write older formats; nothing else does.
 - Adding a convention to a function touches that convention's definition
   and nothing else.
 
@@ -450,8 +461,12 @@ committed back to `main`.
 
 ### 11. Migrations
 
-`migrations/<from>-to-<to>.toml`, one per card schema step, in the format of
-`convention-card`'s `1-to-2.toml`, extended for moves into `conventions`.
+`migrations/<from>-to-<to>.toml`, one per card schema step. `1-to-2.toml` is
+`convention-card`'s, unchanged. `2-to-3.toml` moves a card into
+`conventions` and `settings`; its own header describes its tables:
+`[convention]` (a switch becomes an entry), `[treatment]`, `[[place]]`
+(several switches become one entry with a treatment per place),
+`[[function]]` (a setting's value becomes an entry) and `[alias]`.
 
 - A reader given a card older than the schema it reads applies the
   migrations in order, once, and writes the card back in the current schema.
@@ -535,3 +550,17 @@ Not settled here:
 - where a v2 card's `other_agreements` entry keeps its `section` until every
   card model prints by context (Phase 3 design);
 - how a second pack is laid over this one (after the cut-over).
+
+## Changed since acceptance
+
+Additions made while restructuring the content (Phase 3), for Rick's review.
+None changes a decision.
+
+| Section | Addition | Why |
+|---|---|---|
+| 4 | `label` and `desc` on a definition | 36 switches carry a caption that differs from the definition's name, and 9 a description. Tools show them today |
+| 4 | `skill`, `taught_under`, `plays`, `heading`, `about` on a treatment | Each is an attribute a card field has today. Without them the move would lose information (`scripts/roundtrip.py`) |
+| 4 | A played convention's silent treatment takes the definition's `default` first | It is what lets a bare `"lebensohl": {}` play Lebensohl over interference to 1NT. Every default in the field list agrees with the rules' own, so nothing changes |
+| 6 | `[<function>.option]` and `[<function>.was.<part>]` in `functions.toml` | The two defence-to-1NT settings had labels, option words and other tools' spellings that the card formats still need |
+| 11 | The tables of `2-to-3.toml` | The 1-to-2 format has no way to say "this switch becomes an entry" |
+

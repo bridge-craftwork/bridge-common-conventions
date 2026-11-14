@@ -1,0 +1,146 @@
+# minor-transfers (`minor-transfers.bid`): notes
+
+Responses to 1NT with a long minor. One card field,
+`notrump.minor_transfers`, chooses the treatment. Cases:
+`minor-transfers.test` (a section per treatment).
+
+## Guidance (Rick, 2026-09-21)
+
+- **relay** is the default: 2S relays to 3C, and responder passes or
+  corrects to 3D.
+- **four_way**: 2S shows clubs and 2NT diamonds. Opener shows good support
+  (Kxx or better) by bidding the step below the suit (2NT over 2S, 3C over
+  2NT); bidding the suit denies it. This is how Rick plays it.
+- **four_way_reversed**: the same, with the two answers swapped (the suit
+  shows good support).
+- **bba**: BBA's own treatment (below).
+- **two_nt_three_c** (2026-10-13): 2NT transfers to clubs, 3♣ to
+  diamonds, any strength, opener always completes; 2♠ stays free for
+  Minor Suit Stayman. BBA's 21GF-MSTandMSS, derived on import from its
+  `1N-2N transfer to clubs` and `1N-3C transfer to diamonds` keys
+  (convention-card PR #55). The rules moved here unchanged from
+  minor-suit-stayman.bid, which had read the two `notrump.transfers.*`
+  switches while the field had no value for the pair. Not offered over
+  a 2♣ overcall (`vs_2c`): it never was; open question.
+- Treatments are card choices, not separate conventions; only the calls
+  that differ are written per treatment (LANGUAGE.md, "Treatments").
+- Another variant Rick mentioned, not built: a 2S range ask, where 2S is
+  weak with clubs or a notrump invitation, and opener bids 3C with a maximum
+  and 2NT otherwise.
+
+What we build on top:
+
+- The transfers are for weak and invitational hands with no five-card
+  major. With a five-card major, transfer to the major first; with game
+  values, bid 3NT.
+- After a minor transfer, responder plays the minor at the three level, or
+  bids 3NT: with game values, or with invitational values opposite good
+  support (the minor should run).
+- With four-way transfers 2NT is not natural. Invitational hands without a
+  major go through Stayman and bid 2NT next (`stayman.bid`), and the natural
+  2NT (`one-nt.bid`) is off.
+
+## Evidence from BBA
+
+BBA's cards set the treatment through several switches: 21GF-DEFAULT
+and 13 other PBS cards have `1N-2S transfer to clubs` and
+`1N-3C transfer to diamonds`, which import as `bba`. In the corpus BBA's
+opener always completes (3C or 3D, no super-accept). Responder passes when
+weak (43 and 56 deals) and bids 3NT when invitational or better (22, 23).
+With a five-card major and a six-card minor BBA transfers to the major
+(616 calls).
+
+Other switch combinations (Minor Suit Stayman over 1NT, 3C Puppet
+Stayman, 2S clubs alone) import as `none`: we do not know how BBA plays
+them.
+
+Corpus, when this module was added: +752 calls agree with BBA, 1 fewer.
+
+## Gaps (not built yet)
+
+- Slam tries and game-forcing hands with a long minor.
+- The 2S range ask.
+- Interference over the transfers.
+
+## Under interference (2026-09-23)
+
+A 2♣ overcall of our 1NT takes none of these calls away, so
+`after 1N (2C) when vs_2c` repeats each treatment's opening call and
+opener's answer. The only change is a **five-HCP floor**, the same one
+the major transfers picked up: BBA does not enter at the two level over
+their 2♣ with nothing.
+
+Over a *double* there is no minor transfer written. On the cards that
+keep transfers on over a double (Basic-Bridge, 21GF-GIB) the minor
+transfers are off, so a weak hand with a long minor has nowhere to run
+and passes, which is what BBA does. A card with both on would want
+these rules here too.
+
+Evidence and numbers: `nt-interference.notes.md`.
+
+## Length points (2026-09-23)
+
+With `points` counting length a six-card minor adds two points, so
+`5.K73.QJ9542.J83` (7 HCP) is 9 — invitational, no longer weak:
+
+- **relay / none**: the relay stays for weak hands (0–7 total points);
+  invitational hands with a long minor bid the natural 2NT
+  (`one-nt.bid`, see its notes). Before, this hand had no rule at all.
+  9 HCP and six diamonds (11) bids 3NT.
+- **four_way**: Stayman's "invitational without a major" clause (for
+  2NT) now excludes a six-card minor, `C<=5, D<=5`: that hand transfers,
+  as designed, and bids 3NT opposite good support.
+- Test hands for the weak sequences were changed to genuinely weak ones
+  (`5.J73.QJ9542.832`); the 8-HCP `5.Q73.J83.AQ9542` is now 10 and bids
+  3NT directly.
+
+The corpus has no `relay` or `four_way` card, so these are measured only
+through the `none` cards, where every option was within 10 IMPs.
+
+## Convention score: the switch (2026-10-07)
+
+The conv-ab run reported the convention unmeasured: only 9 of our
+auctions changed with it "off". The rules were not at fault; the off
+switch was. `probes/conv-ab.toml` set `notrump.minor_transfers=none`
+and `notrump.minor_transfers.over_2nt=false`, but `minor_transfers` is
+derived on import from BBA's `1N-2S/2N/3C transfer` keys
+(`notrump.minor_transfers.two_s_clubs`, `two_nt_clubs`, `two_nt_diamonds`,
+`three_c_diamonds`) and already reads `none` on 21GF-MSTandMSS
+(Minor_Suit_Transfer's card), whose 2NT/3♣ transfers
+minor-suit-stayman.bid reads from those keys. Setting it to `none`
+changed nothing there, and the exported off card kept the keys, so
+BBA went on transferring too (only its 2NT key changed). The off list
+now also clears the four `transfers.*` keys, which switches both
+engines. (Since 2026-10-13 21GF-MSTandMSS reads `two_nt_three_c`, and
+`minor_transfers=none` alone switches our side off.)
+
+Measured (Minor_Suit_Transfer, 2N_and_1_Minor): **+0.60 IMPs per
+changed board** (Rusty's gain +378, BBA's +59; 528 changed boards, 499
+of ours; halves +54/+265, agree): good.
+
+## Card schema 2.0
+
+- (2026-10-30) Card schema 2.0 (convention-card ADR-0002): the enum became
+  `notrump.minor_transfers.play` and `.style` (no `none`; off is `play =
+  false`). The modules read `mtp` with default **true**, so a card silent on
+  minor-suit transfers still plays relay, as before. 0 calls changed on
+  `compare --limit 50`.
+
+## Sources
+
+- **The treatments:** `relay`, `four_way` and `four_way_reversed` as Rick
+  described them (2026-09-21; `four_way` is how Rick plays it). Beyond
+  that description, standard practice, not yet cited to a book or
+  article.
+- **`bba`:** BBA's `1N-2S transfer to clubs` and `1N-3C transfer to
+  diamonds` keys, as BBA plays them in the corpus ("Evidence from BBA").
+  How BBA plays its other switch combinations (Minor Suit Stayman over
+  1NT, 3♣ Puppet Stayman, 2♠ clubs alone) is unknown, so they import as
+  `none`.
+- **Rick's rulings:** the treatments and the default (2026-09-21); the 2♠
+  range ask he mentioned is not built.
+- **BBA evidence:** the corpus figures above, and the interference
+  evidence in `nt-interference.notes.md`. No `probes/*.toml` spec yet.
+- **Corpus measurements:** when the module was added; length points
+  (2026-09-23), measured only through the `none` cards, since no corpus
+  card plays `relay` or `four_way`.

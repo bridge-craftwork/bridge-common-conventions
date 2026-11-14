@@ -1,0 +1,235 @@
+# Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
+#
+# Control bids: with a trump suit agreed and slam in the air, name a suit
+# you can control instead of asking for keycards straight away. Rick's
+# rulings:
+#
+#   When the slam asker has unprotected suits, we will normally use
+#   control bids before keycard, and stop in game if there is a suit
+#   unprotected in both hands.
+#
+# So this is the branch that runs *before* the ask in `blackwood.bid` /
+# `rkcb-1430.bid`, whenever the card plays control bids and the asker has
+# a suit it cannot control on its own. It is gated on the card:
+# `slam.cue_bids.play` is BBA's own `Cue bid` key, off on Basic-Bridge
+# (which is why BBA blasts 4NT there) and on for the 21GF cards.
+#
+# No auction patterns: like the rest of slam/, the rules key on
+# `we.trump`, `we.forcing` and the control-bid dialogue itself.
+
+module control-bids "Control bids before the keycard ask"
+  kind   convention
+  convention  bidding_conventions/control_bids
+  needs  base
+  skill  bidding_conventions/control_bids
+  skill  partnership_bidding/slam_bidding
+  param  style = style default first_or_second_round
+
+# ── The treatment (Rick, 2026-09-25) ─────────────────────────────────
+#
+#   In a game force with a suit agreed, new non-jump bids below game are
+#   control bids. You bid the cheapest control you can show; any suit you
+#   skip over you are denying. Partner then shows the cheapest control
+#   they have. If either player skips (denies) a suit and the other
+#   continues control bidding, they are promising a control in the
+#   skipped suit. Standard control bids are aces and voids; the
+#   first-and-second-round treatment, more common now, shows an ace, king,
+#   singleton or void. Control bidding past game shows first-round
+#   control. A singleton or void in partner's own suit is not shown.
+#
+# `style` is the card's choice: `first_round` (aces and voids) or
+# `first_or_second_round` (the default). "Partner's own suit" is one
+# partner has shown four or more of.
+#
+# The engine keeps the dialogue: each ladder call (`sets ladder=control`)
+# records the suits it skipped as denied by its bidder
+# (`partner.denied(x)`, `me.denied(x)`) and the suit it names as cued
+# (`partner.cued(x)`). `cheapest(x)` is the non-jump bid; `under_game(x)`
+# says whether it is still below game; `prefer 0 - cheapest_rank(x)`
+# picks the cheapest of the controls I hold.
+#
+# Majors only (Rick, 2026-09-25): "we don't usually use control bids for
+# minors". With a minor agreed, new suits show stoppers on the way to 3NT
+# (responder-rebids.bid).
+#
+# ── Opening the dialogue ──────────────────────────────────────────────
+#
+# The values are the ask's own (slam-catch.notes.md): 33 support points
+# between us, or 18 of my own facing a game force. What sends the hand
+# here rather than straight to 4NT is a side suit I cannot control.
+
+when we.trump is suit, !asked, !answered control, (trump is H | trump is S), we.forcing = game
+  cheapest(C)  "Control bid in ♣"  alert
+      when  trump is not C, !partner.cued(C), !me.cued(C), under_game(C)
+      when  slam_values, side_suit_uncontrolled, controlled(C), denials_promised
+      sets  ask=control(C), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(C)
+      priority 12
+  cheapest(D)  "Control bid in ♦"  alert
+      when  trump is not D, !partner.cued(D), !me.cued(D), under_game(D)
+      when  slam_values, side_suit_uncontrolled, controlled(D), denials_promised
+      sets  ask=control(D), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(D)
+      priority 12
+  cheapest(H)  "Control bid in ♥"  alert
+      when  trump is not H, !partner.cued(H), !me.cued(H), under_game(H)
+      when  slam_values, side_suit_uncontrolled, controlled(H), denials_promised
+      sets  ask=control(H), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(H)
+      priority 12
+  cheapest(S)  "Control bid in ♠"  alert
+      when  trump is not S, !partner.cued(S), !me.cued(S), under_game(S)
+      when  slam_values, side_suit_uncontrolled, controlled(S), denials_promised
+      sets  ask=control(S), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(S)
+      priority 12
+
+# Over a limited raise: partner has shown a top as well as a bottom, so
+# 33 is measured against partner's maximum, and the control bid forces
+# to game itself.
+
+when we.trump is suit, !asked, !answered control, (trump is H | trump is S), (we.forcing = none | we.forcing = round)
+  cheapest(C)  "Control bid in ♣"  alert
+      when  trump is not C, !partner.cued(C), !me.cued(C), under_game(C)
+      when  slam_values_limited, side_suit_uncontrolled, controlled(C), denials_promised
+      sets  ask=control(C), ladder=control, forcing=game
+      artificial
+      prefer 0 - cheapest_rank(C)
+      priority 12
+  cheapest(D)  "Control bid in ♦"  alert
+      when  trump is not D, !partner.cued(D), !me.cued(D), under_game(D)
+      when  slam_values_limited, side_suit_uncontrolled, controlled(D), denials_promised
+      sets  ask=control(D), ladder=control, forcing=game
+      artificial
+      prefer 0 - cheapest_rank(D)
+      priority 12
+  cheapest(H)  "Control bid in ♥"  alert
+      when  trump is not H, !partner.cued(H), !me.cued(H), under_game(H)
+      when  slam_values_limited, side_suit_uncontrolled, controlled(H), denials_promised
+      sets  ask=control(H), ladder=control, forcing=game
+      artificial
+      prefer 0 - cheapest_rank(H)
+      priority 12
+  cheapest(S)  "Control bid in ♠"  alert
+      when  trump is not S, !partner.cued(S), !me.cued(S), under_game(S)
+      when  slam_values_limited, side_suit_uncontrolled, controlled(S), denials_promised
+      sets  ask=control(S), ladder=control, forcing=game
+      artificial
+      prefer 0 - cheapest_rank(S)
+      priority 12
+
+# ── Answering a control bid ───────────────────────────────────────────
+#
+# Show the cheapest control I have, promising every suit partner has
+# denied; past game, first-round controls only. With no such call, sign
+# off in game: that is also where a suit denied by both hands leaves us.
+# When every side suit is covered the keycard ask comes first
+# (blackwood.bid, rkcb-1430.bid).
+
+when we.trump is suit, asked control(t), (trump is H | trump is S)
+  cheapest(C)  "Control bid in ♣"  alert
+      when  trump is not C, !partner.cued(C), !me.cued(C), under_game(C)
+      when  controlled(C), denials_promised
+      sets  ask=control(C), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(C)
+      priority 12
+  cheapest(D)  "Control bid in ♦"  alert
+      when  trump is not D, !partner.cued(D), !me.cued(D), under_game(D)
+      when  controlled(D), denials_promised
+      sets  ask=control(D), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(D)
+      priority 12
+  cheapest(H)  "Control bid in ♥"  alert
+      when  trump is not H, !partner.cued(H), !me.cued(H), under_game(H)
+      when  controlled(H), denials_promised
+      sets  ask=control(H), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(H)
+      priority 12
+  cheapest(S)  "Control bid in ♠"  alert
+      when  trump is not S, !partner.cued(S), !me.cued(S), under_game(S)
+      when  controlled(S), denials_promised
+      sets  ask=control(S), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(S)
+      priority 12
+  cheapest(C)  "Control bid in ♣: first-round control"  alert
+      when  trump is not C, !partner.cued(C), !me.cued(C), !under_game(C), (trump is H, cheapest_rank(C) < 27) | (trump is S, cheapest_rank(C) < 28)
+      when  first_round(C), denials_promised_first
+      sets  ask=control(C), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(C)
+      priority 10
+  cheapest(D)  "Control bid in ♦: first-round control"  alert
+      when  trump is not D, !partner.cued(D), !me.cued(D), !under_game(D), (trump is H, cheapest_rank(D) < 27) | (trump is S, cheapest_rank(D) < 28)
+      when  first_round(D), denials_promised_first
+      sets  ask=control(D), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(D)
+      priority 10
+  cheapest(H)  "Control bid in ♥: first-round control"  alert
+      when  trump is not H, !partner.cued(H), !me.cued(H), !under_game(H), (trump is H, cheapest_rank(H) < 27) | (trump is S, cheapest_rank(H) < 28)
+      when  first_round(H), denials_promised_first
+      sets  ask=control(H), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(H)
+      priority 10
+  cheapest(S)  "Control bid in ♠: first-round control"  alert
+      when  trump is not S, !partner.cued(S), !me.cued(S), !under_game(S), !kb_spade_ask, (trump is H, cheapest_rank(S) < 27) | (trump is S, cheapest_rank(S) < 28)
+      when  first_round(S), denials_promised_first
+      sets  ask=control(S), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(S)
+      priority 10
+  4{trump}  "Signoff: no further control"
+      sets  ladder=control
+      priority -5
+  5{trump}  "Signoff: no further control"
+      priority -6
+
+# ── Partner signed off in game ────────────────────────────────────────
+#
+# Partner bid game over my control bid, denying what it skipped. I may
+# still go on past game with first-round controls, promising every suit
+# partner has denied; otherwise pass.
+
+# Not when I bypassed a suit myself: partner's sign-off says he cannot
+# cover it, and no control of mine past game can (2026-09-30; the case
+# surfaced when slam_values moved to 32).
+when we.trump is suit, answered control(t), partner.last = 4{trump}, (trump is H | trump is S), !me.denied(C), !me.denied(D), !me.denied(H), !me.denied(S)
+  cheapest(C)  "Control bid in ♣: first-round control"  alert
+      when  trump is not C, !partner.cued(C), !me.cued(C), (trump is H, cheapest_rank(C) < 27) | (trump is S, cheapest_rank(C) < 28)
+      when  slam_values, first_round(C), denials_promised_first
+      sets  ask=control(C), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(C)
+      priority 10
+  cheapest(D)  "Control bid in ♦: first-round control"  alert
+      when  trump is not D, !partner.cued(D), !me.cued(D), (trump is H, cheapest_rank(D) < 27) | (trump is S, cheapest_rank(D) < 28)
+      when  slam_values, first_round(D), denials_promised_first
+      sets  ask=control(D), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(D)
+      priority 10
+  cheapest(H)  "Control bid in ♥: first-round control"  alert
+      when  trump is not H, !partner.cued(H), !me.cued(H), (trump is H, cheapest_rank(H) < 27) | (trump is S, cheapest_rank(H) < 28)
+      when  slam_values, first_round(H), denials_promised_first
+      sets  ask=control(H), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(H)
+      priority 10
+  cheapest(S)  "Control bid in ♠: first-round control"  alert
+      when  trump is not S, !partner.cued(S), !me.cued(S), !kb_spade_ask, (trump is H, cheapest_rank(S) < 27) | (trump is S, cheapest_rank(S) < 28)
+      when  slam_values, first_round(S), denials_promised_first
+      sets  ask=control(S), ladder=control
+      artificial
+      prefer 0 - cheapest_rank(S)
+      priority 10
+  P   "No further bid"
+      priority 2

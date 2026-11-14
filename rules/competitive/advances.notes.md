@@ -1,0 +1,397 @@
+# Advancing an overcall (`advances.bid`): notes
+
+Advancer's call after partner's overcall, direct or balancing, at the
+one level or the two. Cases: `advances.test`.
+
+## Guidance
+
+Rick has not ruled on the advance yet; the ranges are BBA's Basic-Bridge
+meanings, which are the usual ones:
+
+- **raise** 7-11 total points with three-card support;
+- **new suit** 8+ with four cards at the one level, 9+ with five at the
+  two level;
+- **1NT** 8-11 balanced with a stopper in their suit, denying an unbid
+  four-card major and three-card support for partner's major;
+- **jump raise** weak: four-card support and less than 8
+  (`overcalls.responses.jump_raise`);
+- an overcall is not forcing, so advancer **passes** with less.
+
+## Evidence
+
+From `bba-cli --all-meanings`, grouped over all four opening suits:
+
+| call | BBA's meaning |
+|---|---|
+| raise | "calculated bid", 7-12 total points, 3+ support |
+| new suit, one level | "bidable suit", 8-21, 4+ |
+| new suit, two level | "bidable suit", 9-21, 5+ |
+| pass | 0-12 total points (0-16 over a one-level overcall) |
+
+## Advancing a two-level overcall (2026-09-23)
+
+The advance of a two-level overcall was the largest no-rule cluster in
+the corpus after the first round (`(1x) 2y (P)` and `(1x) 2y (2x)`
+together, about 200 boards of the Basic-Bridge subset alone). It is now
+written, and it splits on **what the two-level overcall was**:
+
+- **a simple two-level overcall** (y could not have been shown at the
+  one level: 2♣ over anything, 2♦ over 1♥/1♠, 2♥ over 1♠) is 12-17 with
+  five cards, so advancer can invite. The raise to three is 7-10 with
+  **four**-card support, the cue bid of their suit is a limit raise or
+  better (11+ with three), 2NT is 11-12 and 3NT 13+ with a stopper, and
+  a new suit is 10+ with five (12+ where it has to go to the three
+  level). 4M is 13+ with four-card support, so that a limit raise cues
+  rather than blasting;
+- **a weak jump overcall** (everything else) is a six-card suit and 4-9,
+  so the raise is a further preempt: three-card support in a major or
+  four in a minor, under 11 total points, and 4M with four-card support
+  and 11+, there being no cue bid worth making opposite a weak hand.
+
+The `when` on each context spells the distinction out in `is` tests
+(`x is C | (x is D, y is not C) | (x is H, y is S)` is "y is a jump"),
+because the language has no operator for suit rank.
+
+Advancer only bids while RHO has left him room — his pass, his double,
+or his simple raise of their own suit. Over RHO's free bid, his notrump
+or his jump the corpus says advancer passes, and trying to bid there
+cost 130 calls across the corpus, so those auctions get the bare
+`(*)` pass rule that covers the seat and nothing else.
+
+**The overcaller answers the cue bid.** The cue `sets ask=cue_raise(y)`
+and the answer is written `when asked cue_raise(t)`, once, whatever
+level the cue was made at: 13+ total points bids the game, a minimum
+signs off in the suit. Without it the cue bid was passed out and the
+comparison flagged 30 boards whose contract was an artificial call.
+
+### Evidence
+
+`bba-cli --all-meanings`, grouped by abstracted prefix:
+
+| prefix | call | BBA's meaning | hands |
+|---|---|---|---|
+| (1x) 2y (P), simple | 3y | "calculated bid", 7-10 tp, 3+ | all had **four** |
+| (1x) 2y (P), simple | 2x | "limit raise or better" / "strength cue bid", 9-10+ | 3+ support |
+| (1x) 2y (P), simple | new suit, 2 level | "bidable suit", 9-10 tp, 5+ | |
+| (1x) 2y (P), simple | new suit, 3 level | "bidable suit", 12-17 tp, 5+ | |
+| (1x) 2y (P), jump | 3y | "preemptive", 4-14 tp | 2-4 support |
+| (1x) 2y (P), jump | 4y | "calculated bid", 3+ support | |
+| (1x) 2y (2x) | 3y | "calculated bid", 6-12 tp, 3+ | |
+| (1x) 2y (*) | P | 0-12 tp | 73 of 99 simple, 206 of 264 jump |
+
+BBA's 2NT over a weak jump overcall is artificial (a feature ask); we do
+not play it, and our natural 2NT is gated to the simple overcall.
+
+## Advancer's cue-bid raise (2026-09-23)
+
+`(1x) 1y (P) 2x` is a limit raise or better: three-card support and 12+
+total points. BBA's meaning is "limit raise or better in !y", 20 calls
+in the corpus on 12-18 HCP. 2NT with a stopper is 12-15 there, which is
+BBA's 14-15 widened a little to meet the 1NT advance at 11.
+
+The cue bid carries **no `priority`**, so descriptiveness ranks it: a
+five-card suit of our own is still bid first, which is what the existing
+case `K8.J72.Q93.AQT87 | 1D 1H P | 2C` requires.
+
+## Advancer over RHO's 1NT (2026-09-23)
+
+`after (1x) 1y (1z)` binds a suit, so RHO's 1NT left advancer with no
+rule at all. The raise is 9-11 with three-card support (two points more
+than over a pass — 1NT may be preparing a penalty double, and BBA passes
+these hands out to 16 total points) and the cue bid 12+.
+
+## Advancing a balancing overcall (2026-09-23)
+
+Partner reopened, so he is 8-15 rather than 8-17 and part of his values
+are borrowed from us. The direct-seat block no longer carries the
+`(1x) P (P) 1y (P)` spelling; there is a separate balancing block with
+everything about two points dearer: the raise 9-11, 1NT 10-11, 2NT
+13-15, a new suit at the one level 7+ and at the two level 11+, the cue
+bid 13+. Those are BBA's own `Balancing` meanings (raise 9-11 HCP, 1NT
+10-11, one-level suit 7-9, cue bid 13).
+
+Effect on the three balancing scenarios (Balancing,
+Too_Strong_for_Overcall4th, Trap_Pass_Opener): calls +5, contracts
+11.7% → 12.1%, par +98 IMPs, identical auctions 8.7% → 8.1%.
+
+## Measured effect of the whole slice (2026-09-23)
+
+Basic-Bridge subset (`compare --min-coverage 50`, 24 scenarios, 11,656
+boards) and the whole corpus, before → after the second-call work in
+this module and in `after-interference.bid`:
+
+| | subset before | subset after | corpus before | corpus after |
+|---|---|---|---|---|
+| calls | 85.1% (89437) | 85.1% (89481) | 74.9% (1331086) | 74.9% (1331913) |
+| identical auctions | 41.3% | 41.4% | 14.9% | 14.9% |
+| same contract | 53.5% | 53.6% | 27.0% | 27.2% |
+| par, net IMPs | -7574 | -7431 | -244279 | -239918 |
+| no rule in a live auction | 5989 | 5692 | 165221 | 156762 |
+
+## 2NT and a five-card major (2026-11-09)
+
+Over 1♣ (1♦) P, Rusty advanced 2NT with QT6.A8643.J9.KJ5 in a Brill
+daily, and all 8 other entrants bid 1♥ with the same hand. Rick agreed
+that the major comes first. The 2NT advance now denies a five-card major
+when that major can be bid at the one level (`H<=4 | y is S, S<=4`).
+Over a 1♠ overcall 2NT stays: a first version that denied five hearts
+there too bid 2♥ instead on 3 corpus boards and cost 24 IMPs of contract
+errors. No corpus board reaches the one-level case.
+
+## Gaps and open questions
+
+- Advancer's **continuations** after the overcaller rebids, and after
+  the cue-bid answer: `when asked cue_raise(t)` is answered once and
+  then the auction has no more rules.
+- Advancer over RHO's free bid, notrump or jump: we pass by rule. BBA
+  passes most of them too, but not all, and a responsive double is the
+  proper tool (off on this card).
+- The **support cue bid** (`overcalls.responses.support_cuebid`) is
+  still unwritten; the cue here is always a limit raise.
+- Advancing a **1NT overcall** needs nothing here: systems are on, and
+  the notrump modules carry the `(1x) 1N (P)` and `(1x) P (P) 1N (P)`
+  spellings of their patterns (see `overcalls.notes.md`).
+- **For Rick.** Over a simple two-level overcall the raise to three now
+  asks for four-card support, because every BBA hand that raised had
+  four even though its stated meaning allows three. With three and 7-10
+  we pass. Is that right, or should three-card support raise?
+- **For Rick.** 4M by advancer is 13+ with four-card support over a
+  simple overcall (so that 11-12 cues first) but 11+ over a weak jump
+  (where there is no cue worth making). The split is a judgment call.
+
+## Fallback: the defending side after they bid on (2026-09-25)
+
+Once our E/W overcalled in boards BBA bid N/S alone, the overcaller and
+advancer had no rule whenever the opening side bid again (63 of the
+remaining no-rule positions in Basic_* N/S). A pass at priority -20
+under `when lho.opened | rho.opened` now closes them: each of us has
+described his hand once. It changes no call (the engine passed anyway)
+but it hides the defending side from the no-rule count, which falls
+from 95,896 to 28,594 over the corpus. **A real gap on the defending
+side (a big fit worth competing on, a second suit) now shows only as a
+divergence from BBA, not as a problem.** A narrower form (partner
+passed last) closed about two thirds as many; say if you want that one
+instead.
+
+Advancer over our E/W's overcall of their 1NT also passes (see
+nt-interference.notes.md for the raises that were tried).
+
+## Systems on after they double our 1NT overcall (2026-09-27)
+
+Rick: systems are on after a 1NT overcall, and by default also after a
+penalty double of it (some play escapes there, as over 1NT (X)). Every
+notrump context spelled `(1x) 1N (P)` now also takes `(1x) 1N (X)`,
+still gated by `nt_overcalls.direct.systems_on`. Ticket
+basic-takeout-double-b160: North, Q9.JT942.932.J84, transfers with 2♦
+(BBA too) instead of passing 1NT doubled.
+
+## Raising a one-level overcall: trumps and points (2026-10-02)
+
+Over a one-level overcall (RHO passing, doubling or bidding at the one
+level) the raises now count trumps the way BBA does:
+
+- **three-card support** raises to two with 8-11 total points (was
+  7-11);
+- **four-card support** raises to two at any strength up to 11;
+- the **weak jump** (under 8) needs five trumps, or four at favourable
+  vulnerability (`weak_jump_raise(y)` in `total-tricks.bid`); it took
+  four at any vulnerability.
+
+Unchanged over a two-level bid by RHO (`(1x) 1y (2z)`): letting the weak
+four-card hand raise to two there lost (−34 and −20 IMPs on the two
+commonest auctions), so that block keeps 7-11 with three.
+
+**Evidence** (vanilla SAYC random set, BBA on bare SAYC, the advancer of
+a one-level major overcall, any RHO action up to 2♦): with three hearts
+BBA raises to 2♥ from about 8 HCP and passes 5-7 (we raised 495 such
+hands); with four it raises to 2♥ with 2-11 HCP (169 hands where we
+jumped) and jumps mostly with five or at favourable. On the boards
+where this was the first difference, BBA's pass beat our raise by 729
+IMPs and its 2M beat our 3M by 362 (errors yardstick).
+
+**Measured** against the two previous changes (errors yardstick, IMPs;
+even / odd boards):
+
+| set | boards | errors | contract / doubling | distance from par | side IMPs |
+|---|---|---|---|---|---|
+| vanilla SAYC random | 690 | +582 (+328 / +254) | +88 / +494 | −100 | +215 |
+| corpus | 844 | +342 (+152 / +190) | +18 / +324 | −156 | +265 |
+| 21GF random | 630 | +715 (+377 / +338) | +178 / +537 | +56 | −42 |
+
+Most of the gain is in the doubling errors (the opponents, also us,
+missing a penalty double of the light raise), but the contract errors
+gain on all three sets as well, so the change is kept. Distance from
+par is mixed (for Rick, below).
+
+## The overcaller's rebid over their raise (2026-10-02)
+
+After `(1x) 1y (2x) P (P)` the six-card rebid was written as 3{y}, a
+jump: a one-level overcall always outranks their suit, so 2{y} is
+there. BBA on bare SAYC rebids 2{y} with six from 10 HCP (88 hands, 66
+of them where we jumped). Now 2{y}, 10+. Small and positive everywhere
+(errors yardstick): vanilla +43 over 38 boards, corpus +23 over 24,
+21GF +31 over 33; distance from par +7 / +2 / +1.
+
+## Advancing from the sandwich seat (2026-10-07)
+
+Partner came in after (1x) P (1y) (overcalls.bid, same date). I am a
+passed hand and both of them have bid, so the advance is short: raise
+with three at the two level, compete at three with four, preempt with
+four and a weak hand (`weak_jump_raise`); otherwise pass. After the
+takeout double: the longer unbid suit (a major with equal length), a
+jump with four and 9-11, 1NT with both their suits stopped, else the
+longer unbid suit however short; a free bid over their call with four
+(a major) or five (a minor). Standard practice, not yet cited; not
+probed against BBA.
+
+## Never pass out our own artificial bid (2026-10-12)
+
+Brill round robin 2026-10-09, board 90000102: `1S 2S X 3S X P P P`,
+-1,700. South's Michaels 2♠ and North's cue 3♠ were both artificial;
+after E's double both our passes came from "Defending: nothing more to
+say" (priority -20), and the auction ended in our cue bid, doubled.
+
+The guard, in the rules with one new engine term:
+
+- `artificial_contract` (engine 0.7.0, CONTRACT.md): our side made the
+  auction's last bid, the rule that explained it says `artificial`, and
+  it did not answer partner's question. Answers (Lebensohl's and other
+  relay completions, keycard answers) are left out: the asker may choose
+  to play them, and does (418 corpus boards pass "Lebensohl: as asked"
+  with clubs, 165 keycard answers in our suit are passed at the slam).
+- `passes_out_artificial` (base.bid, a `define`):
+  `artificial_contract, rho.last=P`: RHO has passed our artificial bid,
+  so my pass leaves LHO to end the auction, or ends it. After RHO's
+  double my pass is allowed (it gives partner another turn: opener's
+  pass of a doubled Stayman 2♣ means something), and partner runs.
+- The catch-all passes carry `when !passes_out_artificial`: this file's
+  "Defending: nothing more to say", base.bid's "Game reached",
+  after-interference.bid's two "nothing new to say", and two transfer
+  fallbacks with the same hole: jacoby-transfers.bid's "Weak: play here"
+  (responder passed his own transfer, doubled and passed back) and
+  nt-interference.bid's "Nothing more to show".
+- The runout (base.bid, priority -60, below every real rule): the
+  cheapest bid in our best known fit (my length plus partner's shown
+  minimum), never in a suit they have bid naturally.
+
+For the Michaels case the Michaels bidder now describes instead of
+passing (two-suited-overcalls.notes.md, 2026-10-12); were he to pass,
+North would run to 4♥.
+
+**Measured** (full corpus, 170,633 boards, against main; the boards
+where our auction changed):
+
+- Boards whose final contract was our artificial bid, passed by a
+  catch-all: 76 → 9 (the 9 are doubled Lebensohl completions the asker
+  had chosen to play: answers, left alone). The runout fires on 48
+  boards, the game-force fallbacks take over on 25 more (the force of
+  the cue bid now applies once the pass is gone).
+- Most of it is the advancer's game-forcing cue of their preempt
+  (`3x X P 4x P`), which the doubler passed out: 67 boards before, 0
+  after; We_X_Opps_Preempt alone 51 boards.
+- 77 boards changed. Errors yardstick +583 IMPs (halves +341 / +242),
+  contract errors +450, doubling +133; distance from par +402 (+242 /
+  +160); side IMPs +698. Whole set vs BBA, net errors -101,747 →
+  -101,164.
+- The tripwire: no change outside the guard's own positions and the
+  Michaels scenarios.
+
+## Mixed raise: the jump cuebid (2026-10-28)
+
+Switched on by `overcalls.responses.jump_cuebid_mixed` (Rick asked for
+it, 2026-10-28: "a jump cue bid of opener's suit, showing 4+ card
+support for partner's overcall, and 7-9 support points"). Over a
+one-level overcall, advancer's `3{x}` shows four or more trumps and
+7-9 support points (`tp(y)`), ahead of the raise to two and the
+preemptive raise (priority 2). The plain cue bid stays the limit raise
+or better. The overcaller bids game with 16+ total points (25 opposite
+9), 3NT over a minor with 16+ balanced and their suit stopped, else three
+of his suit. Cases: `advances.test`, "Mixed raise".
+
+**Where:** over RHO's pass, double or one-level bid, in the direct
+seat. Not over a two-level overcall: there their suit outranks ours
+(`(1♠) 2♥ (P) 3♠`), so the jump cuebid would force four of ours. Not
+after a balancing overcall, whose ranges are two points higher.
+
+**BBA plays it in competition only** (probe 2026-10-28, `rbb probe
+--ns-card 21GF-SPECIALS --set "Mixed raise=1|0" --dealer W`, four
+hands with four spades and 7-9 support points over 1♣–1♠):
+
+| prefix | `Mixed raise = 1` | `Mixed raise = 0` |
+|---|---|---|
+| 1♣ 1♠ X | 3♣ 3♣ 3♣ (the 6-count passes) | 2♠ 2♠ 2♠ |
+| 1♣ 1♠ P | P P 2♠ P | the same |
+
+The corpus agrees: in Mixed_Raise_In_Comp BBA's advancer jump-cuebids
+43 times over a double and 16 times over a one-level bid, never over a
+pass. And the key does not touch 1M–3M: over `1♠ P` on 21GF-DEFAULT
+(no Bergen) BBA bids the same five hands either way. So BBA's `Mixed
+raise` key is this convention; convention-card mapped it to
+`major_openings.jump_raise.mixed`, which made our responder play 1M–3M
+as a mixed raise on the cards with it on (21GF-GIB, 21GF-SPECIALS) and
+our advancer not play this. Remapped to
+`overcalls.responses.jump_cuebid_mixed` (convention-card v0.22.1,
+Rick, 2026-10-28). Over a pass we play it as Rick defined it; BBA there
+raises or passes.
+
+**Not vulnerable only.** In Mixed_Raise_In_Comp BBA's jump cuebid after
+their double is almost all non-vulnerable (none vul 24, EW vul 14, both
+4, NS vul 1); vulnerable it passes or raises. Measured on that scenario
+(500 boards, vs BBA, errors):
+
+| | errors | contract | doubling | par distance |
+|---|---|---|---|---|
+| old mapping (convention off) | −129 | −160 | +31 | −151 |
+| remapped, any vulnerability | −217 | −156 | −61 | −98 |
+| remapped, not vulnerable | **−78** | **−80** | **+2** | **−85** |
+
+So `!vul`, over the pass too. BBA's choice between pass, raise and the
+jump cuebid at equal vulnerability does not follow length or HCP (the
+same 4-card 6-9 hands do all three); not modelled. Not played either:
+over a 1♥ overcall and their double (spades shown), BBA cuebids 2♠ as
+the raise (22 boards); the cue of the doubler's suit is a separate
+treatment.
+
+**Self A/B** (`probes/self-ab.toml`, `mixed-raise`: Mixed_Raise_In_Comp,
+We_Overcall, Basic_Overcall, After_Partner_Overcalls; 500 boards each,
+both sides). First version, any vulnerability: 304 boards changed,
+contract errors −100, doubling +25, distance from par +61, z −1.4,
+**leans loss**: three-level contracts going down vulnerable opposite a
+light overcall (board 34: 3♠−2), against their game shut out (19 boards
+from their 4♥ to our 3♠). Not vulnerable: 147 boards changed, contract
+errors **+4**, doubling −10, distance from par +51, halves differ,
+z −0.2, **neutral**.
+
+## Sources
+
+- **The ranges:** BBA's Basic-Bridge meanings, which are the usual ones,
+  from `bba-cli --all-meanings` ("Evidence"). Rick has not ruled on the
+  advance; the usual ranges are standard practice, not yet cited to a
+  book or article.
+- **Rick's rulings:** a five-card major the one level allows is bid
+  before 2NT (2026-11-09, from the Brill field PBNs: 8 of 8 entrants
+  bid 1♥);
+  systems on after a 1NT overcall, and by default
+  after a penalty double of it (2026-09-27, ticket
+  basic-takeout-double-b160).
+- **BBA evidence:** BBA's advances of two-level and balancing overcalls
+  and its cue-bid raise (2026-09-23 sections). No `probes/*.toml` spec
+  yet.
+- **Corpus measurements:** the whole slice (2026-09-23) and the
+  defending-side fallback (2026-09-25).
+- **Brill round robin 2026-10-09, board 90000102**
+  (`probes/brill-90000102.pbn`): the guard against passing out our own
+  artificial bid (2026-10-12).
+- **Where we differ from BBA's stated meanings:** the raise of a
+  two-level overcall asks for four trumps, as every BBA hand that raised
+  had, although its meaning allows three (for Rick).
+- **Raising a one-level overcall** (2026-10-02): BBA's raises on the
+  vanilla SAYC random set (95,558 deals, bare SAYC) and the measurements
+  in that section; the Law of Total Tricks (Cohen, *To Bid or Not to
+  Bid*, 1992) hedged a trump for a weak hand, which is BBA's practice,
+  not the book's.
+- **Mixed raise** (2026-10-28): Rick's definition (above); the BBA probe
+  and corpus count in that section. The usual statements of the
+  convention (Bridge World Standard and others) are not yet cited; the
+  convention-card summary (`spec/conventions/competitive_bidding/mixed_raise.toml`)
+  matches.

@@ -1,0 +1,402 @@
+# Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
+#
+# No auction patterns here. These rules key off auction state that other
+# modules set (trump agreed, game forcing), so they work after any auction
+# that reaches that state.
+
+module rkcb-1430 "Roman Keycard Blackwood (1430 or 0314, as the card says)"
+  kind   convention
+  needs  base
+  skill  bidding_conventions/roman_keycard
+  skill  partnership_bidding/roman_key_card
+  param  rkcb   = bidding_conventions/roman_keycard default false
+  param  rstyle = bidding_conventions/roman_keycard:style default 1430
+  param  m0314 = bidding_conventions/roman_keycard:minor_0314 default false
+  param  gstyle = general.style
+  param  style = bidding_conventions/control_bids:style default first_or_second_round
+  param  kstyle = slam.king_ask.style default five_nt   # five_nt | next_step | none (convention-card 0.28); a card that is silent plays 5NT (2026-10-29)
+  param  kspec  = slam.king_ask.specific default false
+
+# ── The ask ───────────────────────────────────────────────────────────
+#
+# Rick's ruling:
+#
+#   Slam asks isn't about 18 -- what has partner shown? It's more about
+#   33+ combined points, where in a suit contract the player with fewer
+#   trumps gets to switch to short-suit points -- 1 for a doubleton, 3
+#   for a singleton, 5 for a void, capped by number of trumps held. When
+#   the slam asker has unprotected suits, we will normally use control
+#   bids before keycard, and stop in game if there is a suit unprotected
+#   in both hands.
+#
+# So the test is **33 combined support points with the agreed suit as
+# trump**, `we.tp(trump)`: my exact count plus the range a raise recorded
+# for partner. It replaces `tp(trump) + partner.hcp.max`, which was a
+# workaround from before raises showed support points. The evidence
+# behind the boundaries is in slam-catch.notes.md.
+#
+# Two branches, because partner's range is read from a different end.
+#
+# 1. **Partner is limited** (a raise, a limit raise) and nothing has
+#    forced us to game. Partner has shown a top as well as a bottom, and
+#    the only other call on offer is game, so the ask carries the whole
+#    decision and 33 is measured against partner's maximum:
+#    `we.tp(trump).max >= 33`. With it, the hand must play for twelve
+#    tricks opposite a minimum (`losers <= 4`) and must not have **two
+#    bare side suits** -- two or more cards with neither the ace nor the
+#    king, where the first two tricks can go. That last test replaces
+#    `controls >= 7`: it says which suit is the problem rather than
+#    counting. One bare suit is allowed, because a raise facing it will
+#    usually hold something there; two is where partner cannot cover
+#    both. BBA draws the same line: over `1S P 2S P` and `1S P 3S P` on
+#    the Basic-Bridge card it asks with none or one bare suit (272
+#    boards) and never with two.
+#
+# 2. **We are already forced to game.** Partner's range has no top, so
+#    `we.tp(trump).max` says nothing; what is known is partner's floor.
+#    33 between us on that floor is the test, and where the trump
+#    agreement recorded no support points for partner the fallback is my
+#    own 18, a game force being worth about 13 (`slam_values`, named in
+#    slam-entry.bid with the other shared conditions). Here the
+#    ask ranks *behind* the system's descriptive calls: shortness, a
+#    second suit and a control bid all say more than 4NT does, and the
+#    ask is what is left when they are used up.
+#
+# When the card plays control bids (`slam.cue_bids.play`), a hand with a
+# bare suit goes to `control-bids.bid` first and comes back here only
+# once partner has shown a control.
+
+when rkcb, we.trump is suit, !minor_given_way, !asked, we.forcing = none | we.forcing = round, !kb_asks(trump), !mw_asks(trump)   # Kickback, Minorwood: their own ask
+  4N  "Keycard ask in {trump}"
+      when  slam_values_limited     # 33 facing partner's maximum
+      when  !two_bare_suits  # and no two bare side suits
+      sets  ask=keycards(trump)
+      artificial
+      priority 1
+
+when rkcb, we.trump is suit, !minor_given_way, !asked, we.forcing = game, !answered control, !kb_asks(trump), !mw_asks(trump)   # after a control dialogue its own rules decide
+  4N  "Keycard ask in {trump}"
+      when  slam_values  # 33 on partner's floor, or 18 of my own
+      sets  ask=keycards(trump)
+      artificial
+
+# A fit known but not agreed (docs/JUDGMENT-LAYER.md, Phase 1): partner's
+# game raise, his preempt, a transfer completed. No rule set `trump`, so
+# the asks above never saw it. The ask agrees the major on the way.
+# Majors only for now: the sign-offs after an answer are awkward in a
+# minor.
+when rkcb, we.trump is none, !asked, !they.bid   # uncontested for now: in competition it cost
+  4N  "Keycard ask in ♠"
+      when  shown_fit(S), we.fit(S).min >= 8, fit_slam_values(S), !two_bare_beside(S)
+      sets  trump=S, ask=keycards(S)
+      artificial
+      priority 1
+  4N  "Keycard ask in ♥"
+      when  shown_fit(H), we.fit(H).min >= 8, fit_slam_values(H), !two_bare_beside(H)
+      sets  trump=H, ask=keycards(H)
+      artificial
+      priority 1
+
+# The keycard suit when no rule has set the one we play in (Rick,
+# 2026-10-03; `kc_open`, slam-entry.bid): a suit agreed by what we have
+# shown, else, with no notrump bid by us, the last suit we bid
+# (1H-1S-2H-4NT asks in hearts). The ask sets it as trump. The majors
+# agreed publicly, and partner's own six-card major, are the rules above.
+# The ask needs the fit and the values, as above.
+when rkcb, we.trump is none, !asked, !they.bid
+  4N  "Keycard ask in ♠"
+      when  kc_open(S), !shown_fit(S), !shown_fit(H), we.fit(S).min >= 8, fit_slam_values(S), !two_bare_beside(S)
+      sets  trump=S, ask=keycards(S)
+      artificial
+      priority -1
+  4N  "Keycard ask in ♥"
+      when  kc_open(H), !shown_fit(S), !shown_fit(H), we.fit(H).min >= 8, fit_slam_values(H), !two_bare_beside(H)
+      sets  trump=H, ask=keycards(H)
+      artificial
+      priority -1
+  4N  "Keycard ask in ♦"
+      when  kc_open(D), !shown_fit(S), !shown_fit(H), we.fit(D).min >= 8, fit_slam_values(D), !two_bare_beside(D)
+      when  hcp + partner.hcp.min >= 30   # a minor slam needs the high cards (rebids.test: 17 facing a preference)
+      sets  trump=D, ask=keycards(D)
+      artificial
+      priority -1
+  4N  "Keycard ask in ♣"
+      when  kc_open(C), !shown_fit(S), !shown_fit(H), we.fit(C).min >= 8, fit_slam_values(C), !two_bare_beside(C)
+      when  hcp + partner.hcp.min >= 30   # a minor slam needs the high cards (rebids.test: 17 facing a preference)
+      sets  trump=C, ask=keycards(C)
+      artificial
+      priority -1
+
+# The same 4NT in competition, for reading only (2026-10-05, DOPI and
+# ROPI): the asks above are off once they have bid, but partner's 4NT is
+# still keycard for the suit we play in, and the answer comes by DOPI or
+# ROPI (dopi-ropi.bid). Never chosen: `read_only` is a condition on the
+# caller's hand that no hand meets, and that a reader cannot judge, so
+# it stays possible when the call is read (docs/LANGUAGE.md, section 8).
+# Low priority as well, so any other meaning of 4NT comes first.
+define read_only = bare(C), !bare(C)
+
+when rkcb, we.trump is none, !asked, they.bid
+  4N  "Keycard ask in ♠"
+      when  kc_open(S) | shown_fit(S)
+      sets  trump=S, ask=keycards(S)
+      artificial
+      when  read_only
+      priority -60
+  4N  "Keycard ask in ♥"
+      when  kc_open(H) | shown_fit(H), !shown_fit(S)
+      sets  trump=H, ask=keycards(H)
+      artificial
+      when  read_only
+      priority -60
+  4N  "Keycard ask in ♦"
+      when  kc_open(D), !shown_fit(S), !shown_fit(H)
+      sets  trump=D, ask=keycards(D)
+      artificial
+      when  read_only
+      priority -60
+  4N  "Keycard ask in ♣"
+      when  kc_open(C), !shown_fit(S), !shown_fit(H)
+      sets  trump=C, ask=keycards(C)
+      artificial
+      when  read_only
+      priority -60
+
+# A trump suit agreed and partner's jump to game in competition
+# (total-tricks.bid's `ask=signoff`, 1H-2NT-(3C)-4H): 4NT over the
+# sign-off is still keycard. For reading, as above.
+when rkcb, we.trump is suit, they.bid, asked signoff
+  4N  "Keycard ask in {trump}"
+      sets  ask=keycards(trump)
+      artificial
+      when  read_only
+      priority -60
+
+# A minor set as trump, and a major agreed since (Rick, 2026-10-03:
+# "normally a major fit will replace a minor fit"; 1S-2C-3C-4S-4NT): the
+# ask is in the major, and makes it trump.
+when rkcb, minor_given_way, !asked
+  4N  "Keycard ask in ♠"
+      when  major_over_minor(S), fit_slam_values(S), !two_bare_beside(S)
+      sets  trump=S, ask=keycards(S)
+      artificial
+      priority 1
+  4N  "Keycard ask in ♥"
+      when  major_over_minor(H), !major_over_minor(S), fit_slam_values(H), !two_bare_beside(H)
+      sets  trump=H, ask=keycards(H)
+      artificial
+      priority 1
+
+# After a control-bid exchange (`control-bids.bid`, when the card plays
+# them). `asked control(t)` is partner's control bid; `answered control(u)`
+# says partner was answering mine, so I am the hand that opened the
+# dialogue and the one that takes charge. Above it, the stop-in-game rule
+# at priority 20 has already ruled out a suit bare in both hands; below
+# it, any control still to show outranks the ask.
+
+# In a control-bid dialogue (control-bids.bid): ask once every side suit
+# is covered -- a control of mine, one partner has cued, or one I denied
+# that partner has promised by bidding on. A control bid below game still
+# comes first (priority 12), the ask before one past game (10).
+when rkcb, we.trump is suit, asked control(t), !kb_asks(trump)
+  4N  "Keycard ask in {trump}"
+      when  all_covered
+      sets  ask=keycards(trump)
+      artificial
+      priority 11
+  # Partner's control bid has passed 4NT (a first-round control past
+  # game, as over a non-serious 3NT, serious-3nt.bid): with every suit
+  # covered and the values, bid the slam rather than go on cueing and
+  # stop in five (2026-10-05, Serious boards 17 and 47).
+  6{trump}  "Small slam"
+      when  all_covered, slam_values, partner.last >= 5C
+      priority 11
+
+when rkcb, we.trump is suit, answered control(t), partner.last = 4{trump}, !kb_asks(trump)
+  4N  "Keycard ask in {trump}"
+      when  all_covered_by_us
+      sets  ask=keycards(trump)
+      artificial
+      priority 15
+
+when rkcb, asked keycards(t)
+  # The card's keycard order (Rick, 2026-11-09: "we should follow the
+  # card's keycard order"; the 2026-09-27 "1430 whatever the card says"
+  # was a misunderstanding): `slam.rkcb.style` 0314 answers 0314 in every
+  # suit, as BBA and GIB do; 1430 cards keep the `minor_0314` treatment,
+  # which swaps the first two answers when a minor is trumps.
+  5C  "1 or 4 keycards"                shows keycards(t) in 1|4  artificial
+      when  kc_first_14(t)
+  5D  "0 or 3 keycards"                shows keycards(t) in 0|3  artificial
+      when  kc_first_14(t)
+  5C  "0 or 3 keycards"                shows keycards(t) in 0|3  artificial
+      when  !kc_first_14(t)
+  5D  "1 or 4 keycards"                shows keycards(t) in 1|4  artificial
+      when  !kc_first_14(t)
+  # Five keycards answer as two: the steps wrap (0/3, 1/4, 2/5), and the
+  # asker, holding none, knows which (Benjamin_2D 222, 2026-10-07: we
+  # passed the ask with five).
+  5H  "2 or 5 keycards, no {t} queen"     shows keycards(t) in 2|5, !has(Q,t)  artificial
+  5S  "2 or 5 keycards and the {t} queen" shows keycards(t) in 2|5, has(Q,t)  artificial
+
+# The asker places the contract. we.keycards(t) combines my exact count
+# with partner's answer; the deck limit of 5 keycards resolves "1 or 4".
+when rkcb, answered keycards(t)
+  7{t}  "Grand slam"
+        when we.keycards(t)=5, has(Q,t) | partner.has(Q,t) | partner.last = 5S, grand_try, kstyle is not five_nt   # with the king ask, ask first (2026-10-07)
+  # The king ask (`slam.king_ask.style = five_nt`, 2026-10-05): every keycard
+  # and the queen are ours, and the grand turns on the side kings.
+  5N    "King ask: all keycards and the {t} queen held"
+        when kstyle is five_nt, we.keycards(t)=5, has(Q,t) | partner.has(Q,t) | partner.last = 5S
+        sets ask=kings(t)
+        artificial
+  6{t}  "Small slam"
+        when we.keycards(t)>=4
+  # The count that fits (2026-10-07): with 30 HCP between us the low
+  # count of an open answer is impossible (`kc_high`, slam-entry.bid),
+  # so no sign-off: on with all five and the queen, else six.
+  7{t}  "Grand slam"
+        when kc_high(t), we.keycards(t).max=5, has(Q,t) | partner.last = 5S, grand_try, kstyle is not five_nt   # with the king ask, ask first (2026-10-07)
+  5N    "King ask: all keycards and the {t} queen held"
+        when kstyle is five_nt, kc_high(t), we.keycards(t).max=5, has(Q,t) | partner.last = 5S
+        sets ask=kings(t)
+        artificial
+  6{t}  "Small slam"
+        when kc_high(t)
+  P     "To play"
+        when partner.last=5{t}, we.keycards(t).max<=3
+  5{t}  "Signoff"
+        when we.keycards(t).max<=3     # filtered out as illegal when the answer
+                                       # is already 5{t}; P above covers that
+        sets ask=keycard_correct(t)    # partner corrects only with 3-4
+  5{t}  "Signoff"
+        when maybe we.keycards(t)>=4   # 0 or 3 / 1 or 4 still open
+        sets ask=keycard_correct(t)
+  # With clubs as trumps every answer but 5♣ passes the sign-off
+  # (2026-10-05: we passed partner's artificial 5♦ on ~30 boards). Six
+  # then: the answer is never a place to play, and an open count ("0 or
+  # 3") is far more often the higher one opposite slam values.
+  6{t}  "Small slam"
+        priority -1
+
+# The king ask by 5NT: the number of kings outside the trump suit (its
+# king is a keycard), by steps from 6♣. As ACBL's SAYC booklet and BBA
+# (6♣ 0, 6♦ 1, 6♥ 2, 6♠ 3). Kings are controls less two for each ace.
+# The text says "One king", as blackwood.bid's answers do: the trump
+# king was counted as a keycard, and these rules also read the answers
+# to Blackwood's 5NT (kings(N)), where differing texts left the table
+# told only "artificial".
+define side_kings(t) = controls - keycards(N) - keycards(N) - has(K,t)
+
+when kstyle is five_nt, asked kings(t), !kspec | t is C | t is D
+  6C  "No king"     shows side_kings(t) = 0   artificial
+  6D  "One king"    shows side_kings(t) = 1   artificial
+  6H  "Two kings"   shows side_kings(t) = 2   artificial
+  6S  "Three kings" shows side_kings(t) = 3   artificial
+
+# The asker: the grand with every side king between us, or with two, 33
+# HCP on partner's floor and a hand that can take care of the missing
+# king's suit (a singleton or void, or six trumps in either hand); else six, or 6NT when
+# the answer has passed six of a minor. With a flat hand the missing king
+# is a finesse for the grand: on Puppet Stayman's 4-4 fits it went down
+# as often as it made (2026-10-07, rkcb-1430.notes.md).
+define partner_side_kings = (partner.last = 6D) + (partner.last = 6H) + (partner.last = 6H) + (partner.last = 6S) + (partner.last = 6S) + (partner.last = 6S)
+define our_side_kings(t) = side_kings(t) + partner_side_kings
+
+when kstyle is five_nt, answered kings(t), !kspec | t is C | t is D
+  7{t}  "Grand slam"
+        when our_side_kings(t) >= 3
+  7{t}  "Grand slam"
+        when our_side_kings(t) >= 2, hcp + partner.hcp.min >= 33, C<=1 | D<=1 | H<=1 | S<=1 | t>=6 | partner.t.min>=6
+  P     "To play"
+        when partner.last = 6{t}
+  6{t}  "Small slam"
+  6N    "Small slam"
+
+# ── Specific kings (`slam.king_ask.specific`, Rick, 2026-10-28) ──────
+# 5NT is answered by the cheapest side king below six of trumps, six of
+# trumps with none of those. With hearts trumps the spade king is not
+# shown; the asker can ask for it with 6♠ (7♥ with it, 6NT without).
+# Majors only: with a minor as trumps every side king is above six of
+# it, so the count answers stay. A new suit below trumps then asks
+# for that king: seven of trumps with it, six of a higher suit below
+# trumps with that king instead, six of trumps with neither. The asker
+# places the grand: with every side king accounted for (in either hand,
+# or the asker short in the suit, at most one card), seven; with one
+# missing and askable, he asks; else six.
+when kstyle is five_nt, kspec, asked kings(t), t is H | t is S
+  6C  "The club king"
+      shows has(K,C)
+      when  t is not C
+      artificial
+  6D  "The diamond king, not the club king"
+      shows has(K,D), !has(K,C)
+      when  t is H | t is S
+      artificial
+  6H  "The heart king, no club or diamond king"
+      shows has(K,H), !has(K,C), !has(K,D)
+      when  t is S
+      artificial
+  6{t}  "No side king below {t}"
+      shows !has(K,C), !has(K,D), t is not S | !has(K,H)
+
+define king_held(s) = has(K,s) | partner.last = 6{s}   # partner's answer names its king
+# Side kings not accounted for. One of them is still worth the grand
+# with the count style's margin (33 HCP, shortness or six trumps).
+define kings_unheld(t) = (!(t is C | king_held(C))) + (!(t is D | king_held(D))) + (!(t is H | king_held(H))) + (!(t is S | king_held(S)))
+define king_margin(t) = hcp + partner.hcp.min >= 33, C<=1 | D<=1 | H<=1 | S<=1 | t>=6 | partner.t.min>=6
+
+when kstyle is five_nt, kspec, answered kings(t), t is H | t is S
+  # Ask when the king asked for is the only one missing, or one of two
+  # with the margin for the other (the answer 7 can leave one unknown).
+  6D    "Asks for the diamond king"  alert
+        when t is H | t is S, !king_held(D), kings_unheld(t) = 1 | (kings_unheld(t) = 2, king_margin(t))
+        sets ask=king_in(D)
+        artificial
+        priority 3
+  6H    "Asks for the heart king"  alert
+        when t is S, !king_held(H), kings_unheld(t) = 1 | (kings_unheld(t) = 2, king_margin(t))
+        sets ask=king_in(H)
+        artificial
+        priority 3
+  # Hearts trumps: the spade king is asked above six of trumps (7♥ with
+  # it, 6NT without), after the diamond king is settled.
+  6S    "Asks for the spade king"  alert
+        when t is H, !king_held(S), king_held(D) | !partner.last = 6C, kings_unheld(t) = 1 | (kings_unheld(t) = 2, king_margin(t))
+        sets ask=king_in(S)
+        artificial
+        priority 2
+  7{t}  "Grand slam"
+        when kings_unheld(t) = 0 | (kings_unheld(t) = 1, king_margin(t))
+        priority 1
+  P     "To play"
+        when partner.last = 6{t}
+  6{t}  "Small slam"
+  6N    "Small slam"
+
+when kspec, asked king_in(z)
+  7{trump}  "The {z} king"
+            shows has(K,z)
+  6H        "No diamond king; the heart king"
+            shows !has(K,D), has(K,H)
+            when  z is D, we.trump is S
+            artificial
+  6{trump}  "Neither king"
+            shows !has(K,z)
+  6N        "No spade king"
+            shows !has(K,S)
+            when  z is S, we.trump is H
+            artificial
+
+when kspec, answered king_in(z)
+  P         "To play"
+            when partner.last = 7{trump} | partner.last = 6{trump} | partner.last = 6N
+  6{trump}  "Small slam"
+
+# When the answer was ambiguous the asker signs off in five, and the answerer
+# corrects to six holding the higher count (3 or 4 keycards).
+when rkcb, asked keycard_correct(t)
+  6{t}  "Corrects to six: the higher count"   shows keycards(t) in 3|4|5
+  P     "Accepts the sign-off"
+
+# TODO: queen ask (next step after 5C/5D), specific-king ask at 5NT.

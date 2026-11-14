@@ -1,0 +1,34 @@
+id = "competitive_bidding/lebensohl"
+name = "Lebensohl"
+source = "taxonomy"
+level = 5
+contexts = ["after_interference", "vs_openings"]
+names = ["Lebensohl", "Lebensohl over interference", "slow shows", "fast denies"]
+summary = """
+When they overcall partner's 1NT, responder's 2NT is a relay to 3♣: the two-
+step route shows a weaker or different hand from a direct bid, and whether
+responder cue-bids fast or slow tells whether a stopper is held.
+"""
+see = [
+  { title = "Lebensohl", by = "Larry Cohen", url = "https://www.larryco.com/bridge-articles/lebensohl" },
+  { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 25 },
+  { title = "NT Bidding: Responding to 1NT in Competition - Lebensohl", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/545" },
+]
+
+[treatments.over_1nt_interference]
+kind = "bool"
+label = "Lebensohl over interference to 1NT"
+default = true
+level = 5
+
+[treatments.description]
+kind = "text"
+label = "Lebensohl notes"
+explains = "over_1nt_interference"
+skill = false
+
+[treatments.after_weak_two_double]
+kind = "bool"
+label = "Lebensohl after doubling a weak two"
+level = 7
+context = "vs_openings"

@@ -1,0 +1,35 @@
+id = "competitive_bidding/unusual_notrump"
+name = "Unusual notrump"
+source = "proposed"
+level = 4
+contexts = ["overcalls"]
+
+[treatments.at_1nt]
+kind = "bool"
+label = "Unusual 1NT"
+level = 6
+skill = "competitive_bidding/michaels_unusual"
+
+[treatments.at_2nt]
+kind = "bool"
+label = "Unusual 2NT"
+default = true
+level = 4
+skill = "competitive_bidding/michaels_unusual"
+
+[treatments.shows]
+kind = "text"
+label = "Unusual 2NT shows"
+skill = false
+
+[treatments.at_3nt]
+kind = "bool"
+label = "Unusual 3NT"
+level = 6
+skill = "competitive_bidding/michaels_unusual"
+
+[treatments.at_4nt]
+kind = "bool"
+label = "Unusual 4NT"
+level = 5
+skill = "competitive_bidding/michaels_unusual"

@@ -1,0 +1,12 @@
+# Card settings: slam. A setting's name is `slam.<key>`.
+# The attributes are described in settings/README.md.
+
+"king_ask.style"           = { kind = "enum", options = ["five_nt", "next_step", "none"], default = "five_nt", label = "King ask", desc = "How the asker, once every keycard (and the trump queen) is known to be held, asks for side kings: 5NT, the next available bid, or not at all. A card that does not say plays 5NT, the standard companion of keycard", skill = "bidding_conventions/roman_keycard", level = 5 }
+"king_ask.specific"        = { kind = "bool", label = "King ask: specific kings", desc = "The king ask is answered by the cheapest side king below six of trumps (six of trumps with none) instead of the number of kings. A new suit below trumps then asks for that king: seven of trumps with it, six of a higher suit below trumps with that king instead, six of trumps with neither. The asker places the grand", skill = "bidding_conventions/roman_keycard", level = 7 }
+"dopi"                     = { kind = "bool", label = "DOPI", skill = "bidding_conventions/dopi_ropi", level = 7 }
+"depo"                     = { kind = "bool", label = "DEPO", skill = "bidding_conventions/depo", level = 7 }
+"ropi"                     = { kind = "bool", label = "ROPI", skill = "bidding_conventions/dopi_ropi", level = 7 }
+"control_bids"             = { kind = "text", label = "Control bids (notes)" }
+"vs_interference"          = { kind = "text", label = "Vs interference" }
+"trump_level"              = { kind = "text", label = "Trump-level cutover" }
+"notes"                    = { kind = "text", label = "Slam notes", note = true }

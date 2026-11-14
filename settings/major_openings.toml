@@ -1,0 +1,30 @@
+# Card settings: major_openings. A setting's name is `major_openings.<key>`.
+# The attributes are described in settings/README.md.
+
+"five_card_majors"         = { kind = "bool", label = "Five-card majors", default = true }
+"min_length_1st_2nd"       = { kind = "enum", label = "Min length 1st/2nd seat", options = ["4", "5"], default = "5" }
+"min_length_3rd_4th"       = { kind = "enum", label = "Min length 3rd/4th seat", options = ["4", "5"], default = "5" }
+"one_nt_response.forcing"  = { kind = "bool", label = "Forcing 1NT response", skill = "bidding_conventions/forcing_1nt", level = 4, choice = "major_openings.one_nt_response" }
+"one_nt_response.semi_forcing" = { kind = "bool", label = "Semi-forcing 1NT response", skill = "bidding_conventions/semi_forcing_1nt", level = 5, choice = "major_openings.one_nt_response" }
+"one_nt_response.bypass_1s" = { kind = "bool", label = "1NT may bypass 1♠ over 1♥", level = 4 }
+"art_raises_other"         = { kind = "text", label = "Other artificial raises" }
+"jump_raise.weak"          = { kind = "bool", label = "Jump raise: weak", level = 4, choice = "major_openings.jump_raise" }
+"jump_raise.mixed"         = { kind = "bool", label = "Jump raise: mixed", level = 6, choice = "major_openings.jump_raise" }
+"jump_raise.inv"           = { kind = "bool", label = "Jump raise: invitational", level = 3, choice = "major_openings.jump_raise" }
+"jump_raise.force"         = { kind = "bool", label = "Jump raise: forcing", level = 4, choice = "major_openings.jump_raise" }
+"jump_raise_after_overcall.weak"  = { kind = "bool", label = "Jump raise after overcall: weak", level = 4, choice = "major_openings.jump_raise_after_overcall" }
+"jump_raise_after_overcall.mixed" = { kind = "bool", label = "Jump raise after overcall: mixed", level = 6, choice = "major_openings.jump_raise_after_overcall" }
+"jump_raise_after_overcall.inv"   = { kind = "bool", label = "Jump raise after overcall: invitational", level = 4, choice = "major_openings.jump_raise_after_overcall" }
+"jump_raise_after_overcall.force" = { kind = "bool", label = "Jump raise after overcall: forcing", level = 4, choice = "major_openings.jump_raise_after_overcall" }
+"notes"                    = { kind = "text", label = "Major opening notes", note = true }
+"bergen_raises_notes"      = { kind = "text", label = "Bergen raises notes", note = true }
+"two_nt_response_forcing"  = { kind = "bool", label = "1M–2NT forcing" }
+"two_nt_response_inv"      = { kind = "bool", label = "1M–2NT invitational" }
+"two_nt_response_range_min" = { kind = "int", label = "1M–2NT range: minimum", min = 0, max = 30 }
+"two_nt_response_range_min_plus" = { kind = "bool", label = "1M–2NT range: minimum has a plus", choice = "major_openings.two_nt_response_range_min_qualifier", desc = "A good hand at that end: the range written with a plus (\"14+-17\" is a good 14 to 17)" }
+"two_nt_response_range_min_minus" = { kind = "bool", label = "1M–2NT range: minimum has a minus", choice = "major_openings.two_nt_response_range_min_qualifier", desc = "A poor hand at that end: the range written with a minus (\"15-17-\" is 15 to a poor 17)" }
+"two_nt_response_range_max" = { kind = "int", label = "1M–2NT range: maximum", min = 0, max = 30 }
+"two_nt_response_range_max_plus" = { kind = "bool", label = "1M–2NT range: maximum has a plus", choice = "major_openings.two_nt_response_range_max_qualifier", desc = "A good hand at that end: the range written with a plus (\"14+-17\" is a good 14 to 17)" }
+"two_nt_response_range_max_minus" = { kind = "bool", label = "1M–2NT range: maximum has a minus", choice = "major_openings.two_nt_response_range_max_qualifier", desc = "A poor hand at that end: the range written with a minus (\"15-17-\" is 15 to a poor 17)" }
+# --- begin: Bridge-Classroom card fields (bc-export) ---
+# --- end: Bridge-Classroom card fields (bc-export) ---

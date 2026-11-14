@@ -1,0 +1,12 @@
+# Card settings: doubles. A setting's name is `doubles.<key>`.
+# The attributes are described in settings/README.md.
+
+"takeout_style"            = { kind = "text", label = "Takeout double style", aliases = ["competitive.takeout_doubles.style"], skill = "competitive_bidding/takeout_doubles", level = 2 }
+"maximal"                  = { kind = "bool", label = "Maximal doubles", skill = "competitive_bidding/maximal_doubles", level = 6 }
+"after_overcall_penalty"   = { kind = "bool", label = "Double after overcall: penalty" }
+"after_overcall_penalty_notes" = { kind = "text", label = "Special doubles", note = true }
+"card_showing"             = { kind = "bool", label = "Card-showing doubles" }
+"min_offshape_to"          = { kind = "bool", label = "Minimum off-shape takeout doubles" }
+# --- begin: Bridge-Classroom card fields (bc-export) ---
+"notes"                    = { kind = "text", label = "Double notes (card write-in)", note = true }
+# --- end: Bridge-Classroom card fields (bc-export) ---

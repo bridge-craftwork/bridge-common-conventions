@@ -1,0 +1,674 @@
+# Michaels cue bids and the Unusual 2NT (`two-suited-overcalls.bid`): notes
+
+Two-suited overcalls of a one-level suit opening on our right, advancer's
+answers, the two-suiter's rebid, and the opening side's answer when
+they make one. Cases: `two-suited-overcalls.test`.
+
+## Guidance (Rick, 2026-09-28)
+
+- **Michaels**: (1m) 2m shows both majors; (1M) 2M the other major and a
+  minor. Strength conventions (for example weak or strong, not
+  intermediate) and vulnerability.
+- **Unusual 2NT**: the two lowest unbid suits (over a major, both minors).
+- **Advancer**: preference, jump preference (invitational), asking for
+  the minor after a major-minor Michaels, cue bids with game interest,
+  passing.
+- **The two-suiter's rebids** (the strong variety bids again), and the
+  opening side's actions over them.
+- Card fields under Bridge-Classroom's paths.
+
+## Card fields
+
+| Field | Meaning | Source |
+|---|---|---|
+| `direct_cuebids.nat_minors_michaels` | our cue of a natural 1♣/1♦ is Michaels | Bridge-Classroom's DirectCuebidsMatrix (new here) |
+| `direct_cuebids.quasi_michaels` | the same over a 1♣/1♦ that may be short | the matrix (new) |
+| `direct_cuebids.nat_majors_michaels` | our cue of 1♥/1♠ is Michaels | the matrix (new) |
+| `direct_cuebids.{art,quasi,nat_minors,nat_majors}_{michaels,natural,other}`, `direct_cuebids.description` | the rest of the matrix and its notes | recorded, not read |
+| `competitive.michaels.play` | Bridge-Classroom's catalog switch: Michaels over both | existing |
+| `competitive.michaels.strength` | `wide_range` (default) or `weak_or_strong` | was free text; now an enum. `weak_or_strong` is the value Bridge-Classroom's seed card writes |
+| `competitive.michaels.minor_advance` | advancing a major-suit Michaels with a hand for partner's minor: `ask_2nt` (default) or `pass_or_correct` | convention-card PR #55 (2026-10-13); no `.bbsa` key, so every imported card plays `ask_2nt` |
+| `competitive.unusual_2nt.play`, `nt_overcalls.jump_2nt_lowest_unbid` | the Unusual 2NT (catalog switch, and the card's NT-overcall box) | existing; either turns the rules on |
+| `competitive.unusual_vs_unusual.play` | the opening side's cue bids over their 2NT, Bridgebum's way | existing |
+
+The matrix's columns are the kind of opening (artificial ♣/♦, quasi-
+natural ♣/♦, natural ♣/♦, natural ♥/♠) and its rows what our cue bid
+means (Michaels, natural, other). The rules read the Michaels cells of
+the natural columns and of quasi (a possibly short minor is treated like
+a natural one: our rules cannot see the opponents' minimum length when
+we choose). The artificial column is recorded only; there are no
+strong-club rules yet.
+
+**`.bbsa`**: `Michaels Cuebid` now sets the matrix
+(`nat_minors_michaels` and `nat_majors_michaels`) instead of
+`competitive.michaels.play`. The meaning is certain from the probes
+below: over 1♣/1♦ BBA's alert is "5+ hearts, 5+ spades", over 1♥/1♠
+"5+ in the other major, 0-3 in theirs", and BBA's minor openings are
+natural. `Unusual 2NT` keeps its mapping (`competitive.unusual_2nt.play`),
+whose meaning the probes confirm (the two lowest unbid suits, five-five).
+Nothing about short or artificial minors is mapped.
+
+Rick's own card (a Bridge-Classroom export) sets `nat_minors_michaels`,
+`nat_majors_michaels` and `nt_overcalls.jump_2nt_lowest_unbid`, which the
+rules now read, and says "minimax Mich, Leaping Michaels" in
+`direct_cuebids.description`. Free text is not parsed: **for Rick**, set
+`competitive.michaels.strength = weak_or_strong` on the card for
+mini-maxi. Leaping Michaels is not written.
+
+## What BBA does (probes, 2026-09-28, 21GF-DEFAULT, IMPs)
+
+Specs in `probes/`, made with `probes/gen_hands.py`, dealer E opening,
+columns None / NS (we vulnerable) / EW.
+
+**The overcall** (`michaels-1C`, `-1D`, `-1H`, `-1S`, `unusual-2n-1C`,
+`-1D`, `-1H`, `-1S`: 200-300 five-five hands each, 5-19 HCP):
+
+- Michaels: BBA's alert is "8 to 29 total points" not vulnerable, "12 to
+  29" vulnerable. In HCP: not vulnerable about half the 7-counts bid it,
+  almost all from 8 (singletons and voids in their suit count); up to 17
+  HCP; 18-19 double. Vulnerable, 8-10 overcalls the higher suit, 11-12
+  split, 13+ Michaels. Same over all four openings.
+- Unusual 2NT: "9 to 29 total points" at every vulnerability, from about
+  7 HCP, and still 2NT on 19. Over 1♣ diamonds and hearts, over 1♦ clubs
+  and hearts. With six-six in the minors BBA sometimes bids 4NT (Unusual
+  4NT: not written).
+
+**Advancer** (`michaels-adv-1C`, `michaels-adv-1H`, `unusual-2n-adv-1H`):
+
+- BBA never passes the cue. Preference "to the partner's longer" with
+  two or more; with equal length it prefers spades over hearts and
+  diamonds over clubs.
+- The jump preference is **preemptive** in BBA ("4 to 9 total points,
+  3+"), the jump to game "preemptive" 4-11 with four trumps (and with
+  more it bids game too).
+- 2NT after a major Michaels: "to the partner's longer", asking for the
+  minor.
+- The cue bid is a "strength cue bid" with 17+ (16+ after 2NT).
+- 3NT with their suit held, 15-16+.
+- After 2NT: preference at the three level, 4m "preemptive" 4-8 with
+  four, 5m to play.
+
+**The opening side** (`vs-michaels-1H`, `vs-michaels-1C`,
+`vs-unusual-2n-1H`; BBA's cards play no Unusual vs Unusual):
+
+- 1♥ (2♥): 2♠ limit raise or better (10+, three hearts); X "support"
+  6-9 with three; 3♥/4♥ preemptive; 2NT/3NT natural with spades held;
+  3m natural 13+.
+- 1♣ (2♣): 2♥ limit raise or better in clubs (12+, four); 2♠ "strength
+  cue" 11+; X "support" 6-9 with four clubs; 2♦ natural, forcing;
+  3NT with both majors held.
+- 1♥ (2NT): 3♣ limit raise or better; 3♦ "strength cue" 14+; 3♥ 7-10
+  with three; 4♥ preemptive; 3♠ natural; X penalty, 10+.
+
+## What we play, and where we differ from BBA
+
+- **The overcall**: as BBA, in our count: `hcp+length_points` 9+ not
+  vulnerable (7 HCP five-five), 11+ vulnerable (9 HCP), up to 17 HCP
+  (the power double above). BBA waits for about 11 HCP vulnerable;
+  **11 beat 13 on both yardsticks** (+93 IMPs par distance, +231 to the
+  overcalling side, 334 boards). Not vulnerable, 10 and 8 were tried:
+  the yardsticks disagreed both times (10: par +81, side −146; 8: par
+  −51, side +94), so 9 stays.
+- **weak_or_strong** (mini-maxi, Bridgebum and Wikipedia): weak 9-11
+  HCP-ish (`hcp+length_points` 9+, 11+ vulnerable, HCP 11 at most), or
+  16+ and bids again. Played on both sides of the whole corpus it lost
+  on both yardsticks (par −603, side −430, 1,283 boards), which only
+  says it is not BBA's method: the corpus auctions were bid with a wide
+  range. It stays an option for cards that ask for it.
+- **The jump preference is invitational** (Rick; Wikipedia: "preference
+  bids or jump preferences"); BBA's is preemptive, and Bridgebum's jump
+  is preemptive too. BBA's way measured +3 par, +65 side IMPs (312
+  boards): a wash. Rick's ruling stands; **for Rick** if he wants BBA's.
+- **The cue bid** by advancer is 16+, game or slam interest, forcing
+  (BBA 17+, Bridgebum "game or slam interest"); over 1♠ (2♠), where the
+  hearts can only be shown at the three level, the cue is 12+ (game
+  interest), since there is no room for an invitational jump. Since
+  2026-10-13 the cue of a major promises three of partner's major (a
+  strong raise); a hand that wants partner's minor asks with 2NT
+  instead, and three of a minor is natural (section "2NT asks for the
+  minor", below).
+- **The opening side**: the cue of their known suit (after Michaels) or
+  of their lower suit (after 2NT) is the limit raise, as BBA; the
+  raise itself is competitive (BBA uses a double for the 6-9 raise and
+  keeps 3♥ preemptive); four of our major with four trumps is
+  preemptive. **Not written**: BBA's doubles (the 6-9 raise double after
+  Michaels, the penalty double after 2NT), because opener would need
+  answers to them. With Unusual vs Unusual on we play Bridgebum's
+  version (3♣ game force in the other major, 3♦ the limit raise, 3♠
+  natural 7-10).
+- **Opener** accepts the limit raise with 14+ support points (a major)
+  or 14+ HCP (3NT; five of the minor from 16); after the competitive
+  raise bids game with 17+ support points; after responder's 2NT bids
+  3NT with 14+; once responder has raised or bid notrump and they bid on,
+  passes, or doubles with 15+.
+- `after-interference.bid`: two contexts that read our raise over their
+  cue bid as a cue-bid raise now say `y is not x` (1♦ (2♦) 3♦ was taken
+  for "1x (2y) 3y": opener accepted a "limit raise" that was a 6-9
+  raise).
+
+## Corpus (2026-09-28)
+
+Before and after, whole corpus and the boards where both sides bid in
+BBA's auction (`--auctions competitive`). "vs BBA" is distance from par
+against BBA; "side" is `probes/tools/sideimps.py BASE NEW`.
+
+| | calls agreeing | vs BBA (par distance) | side IMPs | no rule in a live auction |
+|---|---|---|---|---|
+| whole corpus | 76.7% → 77.0% | −114,531 → −113,454 (**+1,077**) | **+3,480** (4,351 boards) | 2,835 → 2,800 |
+| competitive auctions | 71.1% → 71.9% | −40,830 → −39,732 (**+1,098**) | **+3,268** (4,181 boards) | |
+
+The two yardsticks agree. By opening (side IMPs): over 1♣ +1,084, 1♥
++941, 1♦ +776, 1♠ +680.
+
+The two-suited scenarios (calls agreeing with BBA; vs BBA in IMPs):
+
+| scenario | calls | vs BBA |
+|---|---|---|
+| Michaels_Cuebid | 62.5% → 72.9% | −410 → −391 |
+| Michaels_after_1m | 58.5% → 69.2% | −598 → −352 |
+| Michaels_and_Unusual | 60.5% → 74.1% | −204 → −126 |
+| Unusual_2N | 62.6% → 77.9% | −280 → −195 |
+| Two-Suited_Overcalls | 63.0% → 73.7% | −48 → −83 |
+| Opps_Michaels_Cuebid | 60.3% → 75.2% | −429 → −20 |
+| Opps_Michaels_and_Unusual | 60.4% → 73.0% | −307 → −206 |
+| Opps_2-Suited_Overcalls | 63.7% → 72.8% | −363 → −350 |
+| Leaping_Michaels, Non_Leaping_* | unchanged (not written) | |
+
+Probe agreement with BBA after the change (None / we vulnerable):
+Michaels over 1♣ 260/300 and 205/300 (we bid it lighter vulnerable, by
+design), over 1♥ 273/300 and 193/300; Unusual 2NT over 1♥ 256/300 and
+262/300; advancer after 1♣ (2♣) 151/300, after 1♥ (2♥) 157/300, after
+1♥ (2NT) 177/300 (the differences are the invitational jump, our
+preemptive four-level raise with four trumps and 9 HCP or less where
+BBA bids game from 12, and our 4m preempt after 2NT); the opening side
+216/300 over Michaels of 1♥, 171/300 over Michaels of 1♣, 209/300 over
+2NT (mostly BBA's doubles).
+
+## Gaps and open questions
+
+- Michaels and the Unusual 2NT in the **balancing seat**
+  (`(1x) P (P) 2x`), by a passed hand over a second-seat opening only
+  through the same rules; after two suits bid (`1x P 1y 2NT`): written
+  2026-10-30 (below).
+- **Leaping Michaels** (Rick's card) and non-leaping Michaels over weak
+  twos; Unusual 1NT and 4NT (BBA bids 4NT with six-six).
+- The opening side's **doubles** (above), and "unusual over unusual"
+  over a minor opening and over Michaels (we play BBA's natural-ish
+  structure there whatever the card says).
+- Advancer when opener's partner bids more than a preference allows
+  (a jump, notrump): pass unless a simple competitive preference fits.
+- A two-suiter that is 6-5: no special treatment.
+
+## Two-suiters over preempts and at the four level (2026-10-05)
+
+Fast lane (CLAUDE.md "Pace"): written from the sources below, then
+`compare` of Jordan_2N, Leaping_Michaels, Non_Leaping_Michaels_After_2-Bid
+and _3-Bid, Unusual_2N (`--limit 50`) read at the conventions' own calls.
+Call agreement there 71.7% -> 78.8%.
+
+- **Unusual 1NT** (`competitive.unusual_1nt.play`, on in every PBS
+  21GF card): a passed hand's 1NT over their opening shows the two lowest
+  unbid suits; in the sandwich seat (`(1x) P (1y) 1NT`) the two unbid
+  suits. Five-four or better, 6+ HCP. Advancer: the longer suit (lower
+  with equal length) at the cheapest level, a jump with four and 11+.
+  **BBA hardly plays it**: in GIB_Sandwich_NT_BPH it overcalls 1S with
+  five spades (five-five included), bids 2NT with six-five, and passes
+  most five-four and five-five hands of 9-10 HCP; its only 1NTs in the
+  corpus are five-four minors with 10 HCP. We bid the convention as
+  defined (-14 agreeing calls in that scenario). Gating it off with five
+  spades only made us pass: a passed hand has no 1-level overcall rule.
+- **Unusual 4NT** (`competitive.unusual_4nt.play`, on in every 21GF
+  card): the jump to 4NT over their one-level opening or their raise
+  shows the two lowest unbid suits, six-six or seven-five (six-five goes
+  through the Unusual 2NT, which has no upper limit: BBA bids 2NT there,
+  and our first try at six-five took 20 of its 2NTs); over a weak two or
+  three-level preempt five-five with four losers; over four of a major
+  the minors, five-five, five losers. Advancer: the longer suit at the
+  five level.
+- **Michaels over their preempt** (BBA's reading of its Michaels switch,
+  no separate card field): the cue of a weak two (13+ total points), in
+  the balancing seat or over their raise (11+), and of a three-level
+  preempt (16+): both majors over a minor, the other major and a minor
+  over a major. BBA's thresholds are not probed; 15 at the four level
+  overcalled BBA's 3S on 5-5 hands, so 16. Advancer: game in a known
+  major with three and 8+ HCP (or four), else the cheapest preference
+  with three, 3NT with their suit held, else pass or correct (4♣ for the
+  unknown minor, 4♥ for the unknown major). **BBA style**: over 2♥/2♠ 3M
+  it asks with 3NT ("to the partner's longer"); we bid 4♣ pass or correct
+  and keep 3NT natural.
+- **Leaping Michaels** (`competitive.leaping_michaels.play`; 21GF-WJS-MSS
+  and Precision only, not the cards of the Leaping_Michaels scenario,
+  where BBA plays the cue instead): Rosen's table. 5-5, at most five
+  losers. With it the direct cue of a weak two is not Michaels (Rosen: a
+  stopper ask, not written). After (2♦) 4♣ advancer bids 4♥ pass or
+  correct, not Bridge Bum's 4♦ ask.
+- **Non-Leaping Michaels** (`competitive.non_leaping_michaels.play`; no
+  PBS card plays it): Rosen's table over a three-level preempt, five
+  losers; the cue of a minor is both majors (shared with the Michaels
+  rule).
+- **Direct jump cue bids** (`competitive.direct_jump_cuebid_major`,
+  `_minor`; no PBS card turns them on, BBA plays none): as the PBS
+  scenarios Jump_Cuebid_Strong and _Weak define them. Gambling: a solid
+  seven-card suit, no stopper in theirs, asks for 3NT; strong: the same
+  with six controls; majors: five-five, up to 10 HCP; preempt: seven of
+  their minor, up to 10 HCP, two top honours. Advancer: 3NT with a
+  stopper, else 4♣ pass or correct. Not written: over a major the
+  `minor` option (meaning unknown), and the strong variety's 4♣/4♦
+  control answers.
+- All of these over a preempt require the opener's suit to be shown
+  (`rho.x>=5`), so a Multi 2♦ is not cue-bid as diamonds.
+
+Questions for Rick (decisions taken):
+- Unusual 1NT against BBA's near-silence: we play it as defined.
+- What does `direct_jump_cuebid_major = minor` mean? Not written.
+- Michaels-over-preempt strength (13 / 11 / 14 / 16 total points) is
+  ours, not probed; worth a grid if the Leaping scenarios matter.
+
+## Cue-bid raises are artificial (2026-10-09)
+
+The seven "Cue bid: limit raise or better" rules carried a bare `alert`,
+so `partner.named(z)` counted them as natural bids of their suit and
+rebids.bid's free-bid block read opener's sign-off as "six or more"
+(rebids.notes.md, "Read as the hand holds"). They are now `alert
+artificial`, as the cue bids in after-interference.bid are.
+
+## Answering advancer's cue bid; Michaels is artificial (2026-10-12)
+
+Brill round robin 2026-10-09, board 90000102 (Rusty N/S on 21GF-GIB,
+BBA E/W; E/W vulnerable): `1S 2S X 3S X P P P`, North in 3♠ doubled
+down eight, -1,700. South (`.QT953.AJ854.86`, Michaels) passed the
+doubled cue bid with advances.bid's catch-all "Defending: nothing more
+to say", and North passed it out the same way. Two holes: no rule for
+the Michaels bidder after a cue of a major (the old `(1x) 2x (P) 3x (P)`
+block was written for both majors: over 1♠ (2♠) 3♠ its "minimum: spades"
+was 4♠, their suit), and nothing kept a catch-all pass from leaving our
+cue bid as the contract (advances.notes.md, "Never pass out our own
+artificial bid").
+
+What we play now:
+
+- **Every Michaels-family call is `artificial`**, not only alerted: the
+  cue bids over one-level openings and preempts, the Unusual 1NT, 2NT
+  and 4NT, advancer's cue bids and 2NT ask, the opening side's cue
+  bids, the jump cue bids (but the preempt in their minor, which is a
+  place to play) and Leaping Michaels' 4♦ over 2♦. Leaping and
+  Non-Leaping Michaels' minor bids and the pass-or-correct bids stay
+  bare alerts: they name a suit we may play in. `partner.named(S)` no
+  longer reads a Michaels 2♠ as spades.
+- **The cue of a minor** (both majors known): as before, a minimum names
+  the longer major cheaply, 13+ bids its game, now also when RHO doubles
+  the cue (`(1m) 2m (*) 3m (P|X)`).
+- **The cue of a major**: over 1♥ (2♥) 3♥ a minimum (up to 12) bids 3♠,
+  a maximum names the minor at the four level (below 4♠), or bids 4♠
+  with six. Over 1♠ (2♠) 3♠ (12+, game interest) there is no room below
+  4♥, so the Michaels bidder names the minor at the four level whatever
+  his strength; advancer places the contract: game in the major with
+  three, five of the minor with four and 13+, else pass the minor with
+  four, or the major's five-two fit.
+- **RHO doubles the cue**: the Michaels bidder still describes (a pass
+  is not "nothing extra, you choose": the cue bidder could not choose
+  without knowing the minor). The same over a doubled 2NT ask.
+- On the board: South now bids 4♦ (makes ten tricks double dummy;
+  E/W make 4♠ +1, par N/S -300 in 6♦X/6♥X). Had South passed, North
+  would run to 4♥ (the runout, base.bid).
+
+Measured: the Michaels convention score (`probes/tools/conv_ab.py
+--only michaels --reuse-bba`, main's rules against these) -105 → -90
+(Rusty's gain +210 → +225, halves -60/-45 → -45/-45); the Unusual 2NT
+unchanged (-497). On the full corpus the four Michaels_Cuebid boards
+whose 1♠ (2♠) 3♠ answer changed gained 27 IMPs (errors); the opening
+side's 3♦ "game force without a fit" over their 2NT, now artificial,
+moved three boards from opener's 3♥/3♠ rebid to the game-force 3NT
+(-4 IMPs): opener has no rebid rule over the artificial cue (gap).
+
+Not written: BBA's double of our Michaels (W,
+7 HCP, a spade void) and its double of the cue bid (E) read as "no
+rule". Writing them means a meaning for our own side too (the 6-9 raise
+double BBA plays, or values) with opener's answers; left as a gap.
+
+Sources: Bridgebum's "Michaels Cuebid" covers the 2NT ask and the
+minimum rebid after the raise of the cue, not the cue of a major or a
+doubled cue; Larry Cohen's "Michaels Cue Bid"
+(<https://www.larryco.com/bridge-articles/michaels-cue-bid>) says the
+meaning of pass and redouble after their double "requires discussion".
+Naming the minor at the four level is the extension of the 2NT ask,
+standard practice, not yet cited.
+
+## 2NT asks for the minor; the cue raises the major (2026-10-13)
+
+**Rick (2026-10-13)**: "If partner wants to play in the cue bidder's
+minor, they bid 2NT to ask 'which minor'. Normally bidding the minor
+says 'I have a 6+ card suit of my own'." On board 90000102 (above)
+North, `864.K7.KQT9.A942`, 12 HCP with both minors and a doubleton
+heart, had cue-bid 3♠ ("12+, describe your hand"); by the ruling he
+asks with 2NT and places the contract after South's 3♦.
+
+What we play after (1M) 2M, both majors:
+
+- **2NT asks for the minor** at any strength, with a doubleton or less
+  in partner's major (still priority −1: the fallback for every hand
+  without a major fit that has no better call). The Michaels bidder
+  names it at the three level over a pass or a double. When RHO bids
+  over the ask the force is off: he names it at the four level with 13+
+  or a six-card minor, else passes (naming it with any hand lost 23
+  IMPs on 14 corpus boards; the restriction about broke even).
+- **After the answer** advancer counts HCP (shortness in partner's
+  major is no value: support points made two invitations with a void
+  in it go down): pass up to 9, four of the minor invites (10-12 with
+  three-card support, 10-11 with four; the Michaels bidder accepts with
+  14+, or 12+ and a sixth card), 3NT with 13+ and their major held,
+  five of the minor with 13+ (12 with four trumps), and with 17+ and
+  four-card support the cue of their major as a slam try (the Michaels
+  bidder bids six with 13+, else five). The same over RHO's bid, where
+  a pass is the weak hand's.
+- **Three of a minor by advancer is natural**: six or more of his own,
+  at most two of partner's major, up to 12 HCP, to play; the Michaels
+  bidder passes.
+- **3NT direct** (13+, their major held, no fit) only without three
+  cards in both minors; with three of each, 2NT first.
+- **The cue bid is the strong raise of partner's major**: three-card
+  support, 16+ over 1♥ (2♥), 12+ over 1♠ (2♠). The Michaels bidder's
+  answers follow from the known fit: over 1♥ (2♥) 3♥ a minimum bids 3♠
+  (the cue bidder then bids 4♠, or 3NT without a fit after a minor cue),
+  a maximum names the minor at the four level or bids 4♠ with six; over
+  1♠ (2♠) 3♠ a minimum bids 4♥, a maximum (13+) names the minor at the
+  four level. Once the minor is named the cue bidder bids game in the
+  major (slam bidding after it is a gap).
+- **Minor-suit Michaels and the Unusual 2NT**: both suits are known, so
+  no ask is needed; their cue bids stay "16+, game or slam interest".
+  Nothing changed there.
+- The guard of 2026-10-12 stays: no passing out our own artificial bid.
+
+On the board North now bids `1♠ 2♠ X 2NT`, South 3♦, and North 5♦
+over a pass or over 4♠ (13 support points, four diamonds; 5♦ takes ten
+tricks double dummy, -100 or -300 doubled, against E/W's 4♠ +1, -650;
+par N/S -300). E/W's calls after 2NT are BBA's and not reproduced here
+(our own West raises to 3♠ instead of doubling).
+
+Measured (`probes/tools/conv_ab.py --only michaels,unusual-2nt
+--reuse-bba`): the Michaels convention score -90 -> **-78** (Rusty's
+gain +225 -> +237, halves -45/-45 -> -43/-35); the Unusual 2NT
+unchanged (-497). Tripwire (`compare --limit 50`, all scenarios): 16
+boards changed, every one an auction after a major-suit Michaels (11
+of them in other scenarios: Opps_Michaels_*, Namyats, Goulash and
+such). Full Michaels_Cuebid, Michaels_and_Unusual, Unusual_2N and
+Opps_2-Suited_Overcalls against main (`errors_diff.py`, 36 changed
+boards): errors **+34** (halves +28/+6), contract -16, doubling +50;
+distance from par -27. By first call: natural 3♦ +43 (6 boards),
+natural 3♣ over 1♥ -14 (4), the four-level answer over RHO's bid
+4♣ +18 / 4♦ -18 (5 each). The natural three of a minor is Rick's
+definition and stays.
+
+
+Questions for Rick (decisions taken):
+- After the cue raise of a major and the Michaels bidder's maximum
+  (naming the minor), slam is not explored: the cue bidder bids game.
+- Advancer's natural three of a minor is capped at 12 HCP; a stronger
+  hand with its own suit asks with 2NT, or bids 3NT.
+- With a weak hand that fits only one minor, advancer still asks and
+  passes the answer (no pass-or-correct correction). Pass or correct is
+  now the card's other treatment (below).
+
+Sources: Bridgebum, "Michaels Cuebid": after (1♥) 2♥, 2NT "asks the
+overcaller to bid his minor suit at the 3-level", three of a minor
+"natural, showing a very good club suit (usually 6+)", non-forcing;
+after the raise of the cue the Michaels bidder bids his cheapest suit
+with 0-10, everything else game forcing (we: a minimum up to 12, the
+cue of a major as a raise is ours). Larry Cohen, "Michaels Cue Bid":
+3♣ pass or correct to play in partner's minor, 2NT as an ask among
+"sophisticated methods"; we follow Rick and Bridgebum (natural 3m).
+The invite / slam-try structure after the answer is ours: standard
+practice, not yet cited.
+
+## Two treatments: `competitive.michaels.minor_advance` (2026-10-13)
+
+After a Michaels cue bid of a major (1♥ (2♥), 1♠ (2♠): the other major
+and a minor), advancer who wants to play in partner's minor has two
+treatments, chosen by the card field (convention-card PR #55):
+
+- **`ask_2nt`** (default; Rick 2026-10-13, Bridge Bum): everything in
+  the section above. 2NT asks for the minor at any strength; 3♣ and 3♦
+  are natural (six of advancer's own, up to 12 HCP, to play); the cue
+  raises partner's major.
+- **`pass_or_correct`** (Larry Cohen, "Michaels Cue Bid": "If you want
+  to play in the minor, you should bid 3♣ to allow partner to pass or
+  correct (don't guess!)", and as the "advanced method", "2NT with
+  invitational hands"):
+  - **3♣ pass or correct**: up to 9 HCP, at most two of partner's major
+    (the fallback, as the 2NT ask is under `ask_2nt`). The Michaels
+    bidder passes with clubs and bids 3♦ with diamonds, also over a
+    double; when RHO bids, the force is off as over the 2NT ask (the
+    minor at the four level with 13+ or a six-card minor, else pass).
+    Advancer passes the correction: he chose a partscore.
+  - **2NT asks with 10+** (invitational or better), at most two of
+    partner's major; the answer and everything after it are
+    `ask_2nt`'s (invite with four of the minor, 3NT, five, the slam
+    try).
+  - **3♦ natural**: six of advancer's own, as under `ask_2nt`; the
+    Michaels bidder passes. Cohen's article does not say how advancer
+    shows a long minor of his own; 3♦ stays natural because 3♣ is the
+    only call pass or correct needs. **There is no natural 3♣**: with
+    long clubs of his own advancer bids 3♣ (partner passes with clubs,
+    else plays 3♦ in a probable misfit) or, with 13+ and their major
+    held, 3NT. A gap, recorded rather than invented.
+  - Unchanged: the preferences, the jump preference, game in the
+    major, the cue raise, 3NT.
+
+**Which BBA plays** (`probes/michaels-minor-advance.toml`, 1♠ (2♠) P,
+21GF-DEFAULT, 14 hands, none and NS vulnerable): **2NT on every hand
+without a heart fit**, from 3 HCP with both minors to 12 HCP, and with
+advancer's own seven-card minor too; its alert is "to the partner's
+longer", 0-37 total points. So BBA's style is `ask_2nt` with no natural
+three of a minor (our `ask_2nt` keeps 3m natural: Rick's definition).
+With 12 HCP vulnerable BBA bids 3NT. With three hearts it prefers 3♥.
+
+**Self A/B** (`probes/tools/self_ab.py --name michaels-minor-advance
+--scenarios Michaels_Cuebid Michaels_and_Unusual --base
+competitive.michaels.minor_advance=ask_2nt --variant
+...=pass_or_correct --side ns`, 1,000 boards): 40 changed (2NT -> 3♣
+on 35 of them); actor errors contract -4, doubling +3 (halves -5/+4,
+differ), z -0.1: **neutral**. Distance from par +22. The worst board
+(Michaels_Cuebid 121, -6) is the four-level answer over RHO's bid.
+It is the card's choice; neither treatment is better on these deals.
+
+Tests: `two-suited-overcalls.test`, the "pass or correct" section
+(card override `competitive.michaels.minor_advance=pass_or_correct`)
+and two `ask_2nt` cases on the same hands.
+
+Questions for Rick (decisions taken):
+- `pass_or_correct` has no natural 3♣ (above); should a long club suit
+  of advancer's own have a route (e.g. 3♣ then 4♣ over the correction)?
+- 3♣ pass or correct is capped at 9 HCP and 2NT starts at 10 (Cohen:
+  "invitational hands"); a 10-12 hand that only wants a partscore asks
+  and passes the answer.
+
+Sources: Larry Cohen, "Michaels Cue Bid"
+(<https://www.larryco.com/bridge-articles/michaels-cue-bid>), fetched
+2026-10-13: the pass-or-correct 3♣ and the invitational 2NT; it does
+not cover 3♦, advancer's own minor or the cue raise. Bridge Bum and
+Rick for `ask_2nt` (above). The BBA probe above.
+
+
+## Over their raise (2026-10-20)
+
+Brill daily 2026-10-20, board 4: 1C P 2C, AKQJ85.QT8732.5.- passed; one
+entrant bid 3C for the majors. Now the cue of their raised minor,
+(1m) P (2m) 3m, shows both majors (five-five or better, the wide-range
+values of the direct cue bid: 9+ total points not vulnerable, 11+
+vulnerable, up to 17 HCP; at either `competitive.michaels.strength`),
+and 2NT over a raise the two lowest unbid suits (over a major the
+minors, over 1C diamonds and hearts, over 1D clubs and hearts) when the
+card plays the Unusual 2NT. Advancer: the longer major at the three
+level (spades with equal length), game with four-card support or three
+and 10+, 3NT with 13+ and their minor held; over a bid by RHO a
+preference with three cards, else pass. After 2NT: the preference, 4H
+with four (or three and 10+), five of a minor with four and 12+. The
+two-suiter bids game over the preference with 16+ or four losers or
+fewer (six-six, six-five: the board's hand has three), else passes.
+Standard practice, not yet cited; the cue of a raised major is not
+written. Tripwire: 9 boards changed by these rules, +14 contract
+errors, +2 doubling, +15 against par.
+
+## After both opponents have bid; 4NT balancing (2026-10-30)
+
+Found by comparing Brill's convention files with our rules (Brill's
+service reads these calls; Rusty had no rule for any of them). Brill's
+definitions were hints only: the rules follow the sources below.
+
+- **2NT after opener and responder have both bid** (card
+  `competitive.unusual_2nt.play` or `nt_overcalls.jump_2nt_lowest_unbid`):
+  (1x) P (1y) 2NT and (1x) P (2y) 2NT (a new suit, not a jump shift)
+  show five-five in the two suits they have not bid: 1H P 1S 2NT the
+  minors, 1C P 1D 2NT the majors, 1C P 1H 2NT diamonds and spades,
+  1H P 2C 2NT diamonds and spades. Bridge Bum: the Unusual 2NT "is also
+  in effect if both opponents have bid up to 2♠" (1H 2D 2NT = clubs and
+  spades), and after their two-over-one it promises extra; 12+ total
+  points. After a 1NT response, (1x) P (1N) 2NT, only one suit is bid:
+  the two lowest unbid, 11+. First written as 10 and 9 (the direct 2NT's
+  9 by analogy, which came from BBA's "9 to 29 total points" alert);
+  the whole corpus (all scenarios, 500 boards each, 2026-10-31) chose
+  two more. Judged by the 2NT bidder's contract errors (Rick,
+  2026-10-31: the side bidding the change, taken as doubled):
+  +2 everywhere +93 IMPs on 107 boards (halves +45/+48), +2 only
+  vulnerable +72 on 58 (halves +24/+48); the non-vulnerable step
+  between them +21 (halves +21/0). Distance from par +166 beside it.
+  Balancing after their raise, (1x) P (2x) P (P) 2NT, the same as the
+  direct 2NT over the raise (standard practice, not yet cited: Bridge
+  Bum's "not Unusual" balancing 2NT is over a weak two, not over a
+  raise). Above the takeout double with 15+ (overcalls.bid): the
+  five-five is the exact description, and the Unusual 2NT has no upper
+  limit (BBA).
+- **Sandwich seat with a 1NT two-suiter on**: with the Sandwich 1NT
+  (sandwich-nt.bid, five-four or five-five) or a passed hand's Unusual
+  1NT, the one-level sandwich seat stays theirs and 2NT is not bid
+  there. The first version took 30 of GIB_Sandwich_NT_BPH's 1NT boards
+  (21GF-GIB plays the passed-hand Unusual 1NT). BBA itself bids 2NT
+  there with some six-five hands (boards 4, 35, 37): open question.
+- **Advancer** after any of these 2NTs: the longer of partner's suits at
+  the cheapest level (the lower with equal length), game in a major with
+  four-card support and 10+ HCP, five of a minor with four and 13+ (when
+  partner has no major); over a double the same; when RHO bids, the
+  cheapest preference with four, else pass. The 2NT bidder passes a
+  three-level preference, or bids game in a major with 16+ or four
+  losers. One named pattern (`u2n_two_bid`) holds the four entries.
+- **The Unusual 4NT, balancing and over their raised preempt** (card
+  `competitive.unusual_4nt.play`, on the Brill card): 4NT over (3x) P (P)
+  and (2x) P (3x) as the direct jump over three (five-five, four losers);
+  over (4M) P (P), (3M) P (4M), (2M) P (4M) and the balancing seat after
+  their raise to game, (3M) P (4M) P (P), the minors, five-five with
+  five losers, as the direct 4NT over 4M; over (3m) P (4M) the two unbid
+  suits. Advancer: the longer suit at the five level (spades added for
+  the last case). Wikipedia: a 4NT overcall shows the same two suits as
+  2NT and is "an extreme two suiter", usually six-five; our five-five
+  with few losers over a preempt is the existing deviation (above).
+- **Kept: our 4NT over their 4♠ shows both minors.** Brill reads it as a
+  three-suited takeout; Wikipedia's 4NT overcall is the two-suiter, and
+  no source we have says otherwise. Recorded, not changed.
+- Opps_Preempt board 6 (3H P P, KQ.T.AK742.KQT87): 4NT, 5C made with
+  par 6C; BBA doubled and played 4C. 11 contract errors to BBA's 13.
+- **Tripwire** (all scenarios, `--limit 50`, against HEAD): 33 boards
+  changed, every one first at one of these calls (2NT 26, the rest
+  1NT-response 2NT and 4NT). The side that bid them: contract errors -2,
+  doubling -5 (fewer). The other side: contract +5, doubling +52, almost
+  all undoubled sacrifices and partscores of ours going down (our weak
+  doubling, as both sides are ours). Totals: errors -50 IMPs to us
+  (contract -3, doubling -47), par distance -10. Judged as a bidding
+  change on its contract errors: neutral to slightly better. The worst
+  boards are light two-suiters doubled or set (Gavin_Transfers_after_2N
+  board 33, 1D P 1N 2N on 9 HCP five-five: 3C doubled, 12 IMPs;
+  1m-1N 45; SCS16_1or2C 29 the best, -12).
+
+Open questions (not written):
+- Brill's **jump to 3NT and 4NT after (1x) P (1y)** as two-suiters
+  (1H P 1S 3NT, 1C P 1H 4NT, ...): exotic, no standard source.
+- **Unusual NT over a weak two after responder raises** (2M P 3M 3NT /
+  4NT, 2D P 3H 3NT): Brill reads them as two-suiters; not written.
+- (3M) X (4M) 4NT, after partner's takeout double: advancer's two-suiter
+  (Brill), a different module (advances), not written.
+- BBA's passed-hand 2NT in the sandwich seat with six-five (above).
+
+## Sources
+
+- **Rick's rulings** (2026-09-28): the task above, and the jump
+  preference as invitational. (2026-10-13): 2NT asks for the minor
+  whenever advancer wants to play in it; three of a minor is advancer's
+  own six-card suit (`minor_advance = ask_2nt`, the default), and Cohen's
+  pass or correct as the card's alternative.
+- **Bridgebum**, "Michaels Cuebid"
+  (<https://www.bridgebum.com/michaels_cuebid.php>): what the cue shows,
+  "no point minimum" with vulnerability considered, the mini-maxi option
+  (0-10 or 16+), preference with the cheaper suit on equal length, jump
+  raises **preemptive**, 2NT asking for the minor, the raise of the cue
+  "game or slam interest", the Michaels bidder's minimum rebid after it.
+  We differ: the jump is invitational (Rick), equal length prefers
+  spades (BBA).
+- **Bridgebum**, "Unusual 2NT" (<https://www.bridgebum.com/unusual_2nt.php>):
+  the two lowest unbid suits, preference, preemptive jumps, the cue with
+  a good hand. We differ: equal minors prefer diamonds (BBA; Bridgebum
+  says the cheapest).
+- **Bridgebum**, "Unusual vs. Unusual"
+  (<https://www.bridgebum.com/unusual_vs_unusual.php>): over 1♥ (2NT),
+  3♣ a game force in the other major, 3♦ a limit raise, 3♥ 7-10, 3♠
+  natural 7-10, double for penalty. Played when the card turns the
+  convention on; the double is not written.
+- **Wikipedia**, "Michaels cuebid"
+  (<https://en.wikipedia.org/wiki/Michaels_cuebid>): 8+ points, the
+  mini-maxi variant (weak 8-12, strong 16+), jump preferences, the cue as
+  a game or slam try, 2NT for the minor.
+- Bridge Guys' page could not be fetched (server error, 2026-09-28): not
+  used.
+- **BBA probes**: `probes/michaels-1C.toml`, `-1D`, `-1H`, `-1S`,
+  `probes/unusual-2n-1C.toml`, `-1D`, `-1H`, `-1S`,
+  `probes/michaels-adv-1C.toml`, `michaels-adv-1H.toml`,
+  `unusual-2n-adv-1H.toml`, `probes/vs-michaels-1H.toml`,
+  `vs-michaels-1C.toml`, `vs-unusual-2n-1H.toml` (with the alerts they
+  record).
+- **Bridge-Classroom**: `DirectCuebidsMatrix.vue` (the matrix fields),
+  `conventionCatalog.js` (`competitive.michaels.play`,
+  `competitive.unusual_2nt.play`, `nt_overcalls.jump_2nt_lowest_unbid`),
+  the seed card (`competitive.michaels.strength = weak_or_strong`).
+- **Corpus measurements**: the thresholds and the treatments above
+  (2026-09-28).
+- **Neil Rosen**, "Leaping and Non-Leaping Michaels", English Bridge,
+  August 2013
+  (<https://www.bridgewebs.com/alton/EBU%20-%20Stage%202%20Conventions%20-%20Leaping%20and%20Non-Leaping%20Michaels.pdf>):
+  both tables, "four or five losers at most", the cue of a weak two as a
+  stopper ask, non-leaping bids not forcing. We differ: pass or correct
+  4♥ instead of Bridge Bum's 4♦ ask after (2♦) 4♣.
+- **Bridge Bum**, "Leaping Michaels"
+  (<https://www.bridgebum.com/leaping_michaels.php>): the same over weak
+  twos.
+- **Wikipedia**, "Unusual notrump"
+  (<https://en.wikipedia.org/wiki/Unusual_notrump>): the passed hand's
+  Unusual 1NT, the Unusual 4NT. Lengths and strength (five-four and 6+
+  HCP for 1NT; six-six / seven-five for 4NT) are ours: standard
+  practice, not yet cited.
+- **Brill round robin 2026-10-09, board 90000102**
+  (`probes/brill-90000102.pbn`): the answers to the cue bid and the
+  artificial marks (2026-10-12 section).
+- **Larry Cohen**, "Michaels Cue Bid"
+  (<https://www.larryco.com/bridge-articles/michaels-cue-bid>): passes and
+  redoubles after their double need discussion; 3♣ pass or correct and
+  the invitational 2NT ask (`minor_advance = pass_or_correct`,
+  2026-10-13). Our answer to the cue of
+  a major (name the minor at the four level) is ours: standard practice,
+  not yet cited.
+- **Practice-Bidding-Scenarios** `btn/Jump_Cuebid_Strong.btn`,
+  `Jump_Cuebid_Weak.btn`: the direct jump cue bids.
+- **BBA corpus** (2026-10-05): "Michaels Cuebid" notes over weak twos
+  and three-level preempts in Leaping_Michaels and the Non-Leaping
+  scenarios; "Unusual 1NT" and "Unusual 4NT" notes across the corpus.
+- Brill daily 2026-10-20, board 4: the cue of the raised minor; the
+  rest of "Over their raise" is standard practice, not yet cited.
+- **Bridge Bum**, "Unusual 2NT" (<https://www.bridgebum.com/unusual_2nt.php>,
+  2026-10-30): "also in effect if both opponents have bid up to 2♠",
+  the unbid suits, extra values after their two-over-one: the 2NT after
+  both opponents have bid. The balancing 2NT after their raise and the
+  2NT after a 1NT response are standard practice, not yet cited.
+- **Wikipedia**, "Unusual notrump" (2026-10-30): the two lowest unbid
+  suits; a 4NT overcall shows the same two suits as 2NT, an extreme
+  two-suiter (usually six-five). The balancing 4NT and the 4NT over
+  their raised preempt are that reading in seats it does not name; our
+  five-five strength is ours.
+- **Brill's convention files** (2026-10-30 gap list): where Rusty had no
+  rule; hints, not copied.

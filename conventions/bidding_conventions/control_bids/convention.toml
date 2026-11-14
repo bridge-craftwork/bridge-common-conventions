@@ -1,0 +1,30 @@
+id = "bidding_conventions/control_bids"
+name = "Control (Cue) Bids"
+label = "Control (cue) bids"
+desc = "BBA's 'Cue bid'. With a trump suit agreed and slam in the air, bid a control below game instead of asking straight away"
+source = "proposed"
+level = 5
+contexts = ["slam"]
+names = ["Control bids", "Cue bids", "Cuebids", "Control-showing bids", "Italian cuebids", "Italian cue bids", "Ace-and-king cuebids"]
+confirm_names = ["Cue bids", "Cuebids"]
+summary = """
+With a trump suit agreed and slam possible, bidding a new suit below game
+shows a control there (an ace or void, and in many styles a king or
+singleton), so the partnership can find out whether a suit is unguarded
+before asking for keycards. Control bids once showed first-round controls
+only; Italian champion teams found first or second round more effective, and
+that is now the most prevalent treatment.
+"""
+see = [
+  { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 20 },
+  { title = "25 More Bridge Conventions You Should Know", kind = "book", chapter = 20 },
+  { title = "Slam Bidding: Control-Showing Bids", by = "Robert S. Todd", site = "Advancing in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/406" },
+]
+
+[treatments.style]
+kind = "enum"
+label = "Control bids show"
+desc = "first_round: the ace or a void only, the historical style. first_or_second_round: king and singleton too, as Italian champion teams showed to be more effective; the most prevalent treatment today"
+options = ["first_round", "first_or_second_round"]
+default = "first_or_second_round"
+skill = false

@@ -1,0 +1,139 @@
+# Responses to a weak two, and opener's answer to 2NT.
+card    Basic-Bridge
+dealer  S
+
+# seat hand             | auction    | expect | why
+N AK4.AQ5.KQ76.Q83      | 2S P       | 2NT    | 20: asks
+N K843.A5.Q976.Q83      | 2S P       | 3S     | four-card support, not enough for game
+N KQ43.A5.AQ76.A83      | 2S P       | 4S     | four-card support and 17: game
+N 84.A52.QJ76.J832      | 2S P       | P      | no interest
+# Feature (the default treatment)
+S KQJ976.32.A4.J43      | 2S P 2NT P | 3D     | maximum with the diamond ace: the feature
+S KQJ976.32.54.543      | 2S P 2NT P | 3S     | minimum: no feature
+
+# Ogust
+card    Basic-Bridge two_level.weak_two_2nt_response=ogust
+S KQJ976.32.A4.J43      | 2S P 2NT P | 3S     | Ogust: maximum, good suit
+S J87654.32.A4.KJ3      | 2S P 2NT P | 3H     | Ogust: maximum, poor suit
+S KQJ976.32.54.543      | 2S P 2NT P | 3D     | Ogust: minimum, good suit
+S J87654.32.543.K3      | 2S P 2NT P | 3C     | Ogust: minimum, poor suit
+S QJT853.Q75.53.Q3      | 2S P 2NT P | 3C     | Ogust: 7 is a minimum (bridgebum 5-7; was 3H before 2026-10-07)
+S AQ8743.952.J43.6      | 2S P 2NT P | 3D     | Ogust: 7, two top honours: minimum, good suit
+S KQ8743.952.K43.6      | 2S P 2NT P | 3S     | Ogust: 8 is a maximum, good suit
+S AKQ874.95.843.62      | 2S P 2NT P | 3NT    | Ogust: AKQ, 3NT ahead of 3S
+
+# ── BBA's responses (probed 2026-09-24, weak-two-responses.notes.md)
+card    Basic-Bridge general.style=bba
+dealer  S
+vul     None
+N AQ52.K95.K932.Q6      | 2H P       | P      | bba: 14 with three hearts at love all: pass
+N AQ52.K95.KJ93.Q6      | 2H P       | 2NT    | bba: 15 with three: ask
+N AQ52.K95.KJ93.K6      | 2H P       | 4H     | bba: 16 with three: game
+N AQ5.K952.Q932.Q6      | 2H P       | 2NT    | bba: 13 with four at love all: ask
+N AQ5.K952.J932.Q6      | 2H P       | P      | bba: 12 with four: pass, no preemptive raise
+N AQ52.9.KQ932.KJ6      | 2H P       | P      | bba: 15 with a singleton: pass
+N 652.AQJT974.KT.A      | 2D P       | 2H     | bba: six hearts and 14: natural and forcing
+vul     NS
+N AQ52.K95.Q932.Q6      | 2H P       | 2NT    | bba: vulnerable, 13 with three: ask
+N AQ52.K95.KJ93.Q6      | 2H P       | 4H     | bba: vulnerable, 15 with three: game
+vul     EW
+N AQ52.K95.KQ93.K6      | 2H P       | 2NT    | bba: favourable, 17 with three: ask
+N AQ5.K952.K932.Q6      | 2H P       | P      | bba: favourable, 14 with four: pass
+vul     None
+# Opener's answer: 5-7 rebids the suit, 8-10 shows A, Kx or Qxx, else 3NT
+S 986.Q8.AQ7432.72      | 2D P 2NT P | 3NT    | bba: eight, no side feature
+S Q75.2.KQT843.J63      | 2D P 2NT P | 3S     | bba: eight with spade queen third
+S 97.54.KQJ642.653      | 2D P 2NT P | 3D     | bba: six: minimum
+S 5.AQT762.965.K43      | 2H P 2NT P | 3C     | bba: nine with Kxx of clubs
+S KQT543.3.75.T532      | 2S P 2NT P | 3S     | bba: five: minimum
+S AQ7543.532.87.QT      | 2S P 2NT P | 3NT    | bba: queen doubleton is not a feature
+N AK95.Q83.AK92.76      | 2H P 2NT P 3C P | 4H | bba: partner's maximum: game
+
+# ── Standard feature answers, the default (Rick, 2026-09-24): an ace or king
+# with a maximum, else a queen, rarely a jack; 3NT is AKQ in the suit
+card    Basic-Bridge
+dealer  S
+S AKQ964.73.853.72      | 2S P 2NT P | 3NT    | AKQ: solid suit
+S KQJ964.A3.853.72      | 2S P 2NT P | 3H     | maximum with the heart ace
+S KQJ964.73.Q53.72      | 2S P 2NT P | 3D     | maximum, no side ace or king: the queen
+S AKT964.73.J53.72      | 2S P 2NT P | 3D     | maximum, AK of spades and the diamond jack
+S AQJT64.73.J53.72      | 2S P 2NT P | 3S     | a side jack without AK of the suit: rebid the suit
+S KJ9864.73.853.72      | 2S P 2NT P | 3S     | minimum
+
+# ── Responses to a weak two: BBA's, now the default (par +453, 2026-09-24).
+# Preemptive raises by vulnerability, from probes (South 73.KQJ964.853.72).
+card    Basic-Bridge
+dealer  S
+vul     None
+N 985.T875.J642.98      | 2H P       | 3H     | love all: four trumps, flat, 1 HCP: raise
+N 9.T875.KQ64.J985      | 2H P       | 4H     | four trumps and a singleton, not vulnerable: game
+vul     NS
+N 985.T875.J642.98      | 2H P       | P      | vulnerable: the flat 1-count passes
+N 9.T875.KQ64.J985      | 2H P       | 3H     | vulnerable: the singleton hand raises to three
+vul     EW
+N 985.T875.J642.98      | 2H P       | P      | favourable: the flat 1-count passes
+N 9.T875.KQ64.J985      | 2H P       | 4H     | favourable: game with the singleton
+
+# ── Responder after 2x-2M-3x, opener without three-card support
+# (probes w2-2H-2S-3H, w2-2D-2H-3D, w2-2D-2S-3D; 2026-09-25)
+vul     None
+N AQJ8763.2.Q6.AQ8       | 2H P 2S P 3H P | 4S | seven spades: game facing a doubleton
+N AKQJ42.A.J52.Q64       | 2H P 2S P 3H P | 4S | six spades, four top honours, 17: game
+N AKQ983.A.J6.KJ82       | 2H P 2S P 3H P | P  | 18 with six: no game facing a minimum
+N AKQJ97.9.K.AQ732       | 2H P 2S P 3H P | 3S | six spades and 19: forcing
+N AKQ97.T.AQJT6.KJ       | 2H P 2S P 3H P | 4H | 20, five spades: game in hearts
+N KQJ75.KQ9.A4.KQ9       | 2D P 2S P 3D P | 3NT | 20, five spades: game in notrump
+N A5.AKJ987.J8.KQ3       | 2D P 2H P 3D P | P  | 18 with six hearts: pass
+S 7.QJ9864.K52.Q43       | 2H P 2S P 3H P 3S P | 3NT | no doubleton spade: 3NT
+S 72.QJ9864.K52.Q4       | 2H P 2S P 3H P 3S P | 4S  | a doubleton: game in spades
+S KQJ976.32.A4.J43      | 2S P 2NT P 3D P 3S P | P | responder signed off
+S Q8.8.KQ9632.KT42      | 2D P 2NT P 3C P 3D P | P | responder signed off (Basic_Weak_2 431)
+S A63.KQJT54.7.754      | 2H P 3H P | P | the raise is preemptive
+
+# ── 3NT before 5D over 2D (ticket basic-weak-2-b104, 2026-09-27)
+card    Basic-Bridge
+dealer  S
+vul     None
+N AK.AK985.JT2.A74      | 2D P  | 3NT | 19, diamond help, every side suit held: 3NT, not 5D
+N AK.AK985.J2.A742      | 2D P  | 3NT | two diamonds are help enough
+N 64.AK985.JT2.AK4      | 2D P  | !3NT | no spade stopper
+N A6.KT7632.KJT.KJ      | 2D P  | !3NT | six hearts: bid them
+
+# Slam opposite the answer to 2NT (Basic_Weak_2 201).
+card    Basic-Bridge
+dealer  S
+vul     EW
+N AKJT86.AJ.AK8.AQ      | 2H P 2NT P 3S P                      | 4NT    | 26 opposite a maximum: agree hearts and ask (plain Blackwood on this card)
+N AKJT86.AJ.AK8.AQ      | 2H P 2NT P 3S P 4NT P 5C P           | 6H/5NT | no aces opposite, all four here: small slam (5NT asks for kings first when the card plays the king ask)
+
+# Game opposite a maximum answer (ticket basic-weak-2-b278, 2026-09-28):
+# responder's HCP plus partner's floor, 21 or more.
+N AJ94.AT6.K95.A62      | 2H P 2NT P 3C P      | 4H     | 16 opposite a maximum with a club feature: game (Basic_Weak_2 278)
+N Q82.Q64.KT9.AQ72      | 2H P 2NT P 3C P      | 4H     | 13 opposite a feature (8-10): game
+N AJ94.AT6.K95.A62      | 2H P 2NT P 3H P      | P      | 16 opposite a minimum: no game
+card    Basic-Bridge two_level.weak_two_2nt_response=ogust
+N K94.A85.KQ64.Q93      | 2S P 2NT P 3H P      | 4S     | Ogust maximum (8-10) and 14: game
+N K94.A85.KQ64.Q93      | 2S P 2NT P 3C P      | 3S     | Ogust minimum and 14: sign off
+
+# ── Slam after the answer (2026-10-09, Ogust convention score; notes
+# "Slam after the answer"). 4NT is keycard in opener's suit.
+card    21GF-Ogust
+dealer  S
+vul     None
+N AJ9.AK74.5.AKQ82      | 2D P 2NT P 3NT P     | 4NT    | AKQ opposite, a singleton and 21: keycard in diamonds (Ogust 109)
+N KQJT3.AK8.6.AKQJ      | 2D P 2NT P 3NT P     | P      | AKQ opposite, but a five-card major of my own: no minor-suit ask (Ogust 271)
+N AQ82.AQ2.7.AKT87      | 2D P 2NT P 3NT P     | P      | 19 with a singleton: 3NT
+N AKJT5.AJ53.AK6.Q      | 2D P 2NT P 3C P      | 4NT    | three diamonds, 22 opposite a minimum: keycard (Ogust 121)
+N AK862.AQ3.AK9.Q2      | 2D P 2NT P 3H P      | 4NT    | three diamonds, 22 opposite a maximum: keycard (Ogust 278)
+N AJ94.AT6.K95.A62      | 2H P 2NT P 3S P      | 4H     | 16 opposite a maximum: game, no slam
+S T.T85.AKQ632.763      | 2D P 2NT P 3NT P 4NT P | 5S   | keycard answer: two and the queen
+N AJ9.AK74.5.AKQ82      | 2D P 2NT P 3NT P 4NT P 5S P | 5NT/6D | two keycards and the queen opposite: slam (king ask first with it)
+# Responder's own major: natural, forcing, slam interest
+N AQ.AQT53.A.AKQ72      | 2D P 2NT P 3D P      | 3H     | five hearts, 25 opposite a minimum: natural (Ogust 114)
+N AQJ85.AK9.K.AQT3      | 2D P 2NT P 3D P      | 3S     | five spades, 23 opposite a minimum (Ogust 456)
+N AQJ85.AK9.K.AQT3      | 2D P 2NT P 3H P      | 3S     | five spades opposite a maximum
+S 984.962.KQJ732.3      | 2D P 2NT P 3D P 3H P | 4H     | three hearts: raise, agreeing them
+S 984.96.KQJ732.T3      | 2D P 2NT P 3D P 3H P | 3NT    | two hearts: 3NT
+N AQ.AQT53.A.AKQ72      | 2D P 2NT P 3D P 3H P 4H P | 4NT | hearts agreed: keycard
+N AQJ85.AK9.K.AQT3      | 2D P 2NT P 3D P 3S P 3NT P | P | no spade fit, 28 between us: 3NT
+N AQJ853.AK9.K.AQT      | 2D P 2NT P 3D P 3S P 3NT P | 4S | six spades: game in them

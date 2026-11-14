@@ -1,0 +1,52 @@
+# Standard Blackwood (Basic-Bridge card).
+card    Basic-Bridge
+dealer  S
+
+# seat hand             | auction                      | expect | why
+N K532.J83.QJ43.Q3      | 1S P 3S P 4NT P              | 5C     | no aces: "0 or 4"
+N A532.J83.QJ43.Q3      | 1S P 3S P 4NT P              | 5D     | one ace
+S AK932.KQ4.AQ5.K2      | 1S P 3S P 4NT P 5D P         | 6S     | two aces + one: one missing, slam
+S AK932.KQ4.AQ5.K2      | 1S P 3S P 4NT P 5C P         | 5S     | two + "0 or 4" = two: two missing, sign off
+S KQ932.KQ4.KQ5.K2      | 1S P 3S P 4NT P 5C P         | 6S     | no aces of mine: "0 or 4" is 4
+
+# When to ask. Over a limited raise the ask must beat bidding game, so it
+# needs 33 support points facing partner's maximum, seven controls and at
+# most four losers. Hands from Rabbis_Rule and To_Finesse_Or_Not_To_Finesse
+# where BBA bids the same.
+S AKQ952.A.AQ865.5      | 1S P 2S P                    | 4NT    | 25 support points opposite a 6-9 raise, 7 controls, 2 losers
+S AK9874.A.AQJ54.9      | 1S P 2S P                    | 4NT    | 6-5 with every top card: only the aces are in doubt
+S AKT842.A.AQJ97.5      | 1S P 2S P                    | 4NT    | as above
+S AK9743.A.AQ32.93      | 1S P 3S P                    | 4NT    | opposite a limit raise the bar is two points lower
+S AKT862.A.AQ92.95      | 1S P 3S P                    | 4NT    | as above
+
+# And when not to. These are the same shape and nearly the same strength;
+# what they lack is the last two support points, so game is the limit.
+S AKJ642.A6.AQ52.7      | 1S P 2S P                    | 4S     | 22 support points: not enough to leave game
+S AK9865.A8.AQ85.7      | 1S P 2S P                    | 4S     | as above
+S AKT876.A.AQ97.T9      | 1S P 2S P                    | 4S     | as above
+S AKJ63.T5.Q8.AJT9      | 1S P 3S P                    | 4S     | 15 HCP: game in the fit
+S AKQJ5..T9643.AJ6      | 1S P 3S P                    | 4S     | shape but only six controls
+
+# Two bare side suits and the ask is off: there is no answer that makes
+# twelve tricks safe when the first two tricks can go in either of two
+# suits. `rbb probe` on the Basic-Bridge card, where BBA agrees.
+S AKQJT9.AK.Q54.32      | 1S P 3S P                    | 4S     | ♦Q54 and ♣32: two suits where the first two tricks can go
+S AKQJT9.A.KQ54.32      | 1S P 3S P                    | 4NT    | the same hand with the ♦K: one bare suit is allowed
+
+# The keycard suit (Rick, 2026-10-03): with no notrump bid by us, 4NT
+# asks for aces, the last suit bid agreed (it was quantitative here).
+card    Basic-Bridge
+dealer  N
+N Q2.AJ874.5.KQ932      | 1H P 1S P 2C P 4NT P                 | 5D     | one ace: Blackwood with clubs agreed, not a quantitative 4NT
+
+# The king ask by 5NT (`slam.king_ask.style = five_nt`): all four aces ours; the
+# answer counts the kings, 6♣ none up to 6NT four.
+card    Basic-Bridge
+dealer  S
+S AKQJ2.KQ4.AQ5.AQ      | 1S P 3S P 4NT P 5D P                 | 5NT    | three aces and partner's one: all four
+N J854.A83.QJ43.Q3      | 1S P 3S P 4NT P 5D P 5NT P           | 6C     | no king
+N J854.A83.KJ43.Q3      | 1S P 3S P 4NT P 5D P 5NT P           | 6D     | one king
+S AKQ32.KQ4.AK5.AQ      | 1S P 3S P 4NT P 5D P 5NT P 6D P      | 7S     | three kings of mine and one: every king
+S AKQ32.QJ4.AQ5.A2      | 1S P 3S P 4NT P 5D P 5NT P 6C P      | 6S     | one king between us: six
+card    Basic-Bridge slam.king_ask.style=none
+S AKQJ2.KQ4.AQ5.AQ      | 1S P 3S P 4NT P 5D P                 | 6S     | no king ask on the card

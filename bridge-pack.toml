@@ -1,0 +1,5 @@
+name = "bridge-common-conventions"
+description = "bridge-craftwork's conventions, card settings and bidding rules"
+pack_format_version = 1
+card_schema_version = 3
+rule_language_version = 2

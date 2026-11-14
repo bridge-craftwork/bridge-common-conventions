@@ -1,0 +1,17 @@
+# Card settings: direct_cuebids. A setting's name is `direct_cuebids.<key>`.
+# The attributes are described in settings/README.md.
+
+"art_michaels"             = { kind = "bool", label = "Cue of an artificial 1♣/1♦: Michaels", skill = "competitive_bidding/michaels_unusual", level = 4 }
+"art_natural"              = { kind = "bool", label = "Cue of an artificial 1♣/1♦: natural" }
+"art_other"                = { kind = "bool", label = "Cue of an artificial 1♣/1♦: other" }
+"quasi_michaels"           = { kind = "bool", label = "Cue of a possibly short 1♣/1♦: Michaels", skill = "competitive_bidding/michaels_unusual", level = 4 }
+"quasi_natural"            = { kind = "bool", label = "Cue of a possibly short 1♣/1♦: natural" }
+"quasi_other"              = { kind = "bool", label = "Cue of a possibly short 1♣/1♦: other" }
+"nat_minors_michaels"      = { kind = "bool", label = "Cue of a natural 1♣/1♦: Michaels (both majors)", skill = "competitive_bidding/michaels_unusual", level = 4 }
+"nat_minors_natural"       = { kind = "bool", label = "Cue of a natural 1♣/1♦: natural" }
+"nat_minors_other"         = { kind = "bool", label = "Cue of a natural 1♣/1♦: other" }
+"nat_majors_michaels"      = { kind = "bool", label = "Cue of 1♥/1♠: Michaels (the other major and a minor)", skill = "competitive_bidding/michaels_unusual", level = 4 }
+"nat_majors_natural"       = { kind = "bool", label = "Cue of 1♥/1♠: natural" }
+"nat_majors_other"         = { kind = "bool", label = "Cue of 1♥/1♠: other" }
+"description"              = { kind = "text", label = "Direct cuebids: notes" }
+# ── end of the direct cue bid block ──────────────────────────────────
