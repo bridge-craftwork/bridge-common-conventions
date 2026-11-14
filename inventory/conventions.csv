@@ -1,0 +1,185 @@
+id,name,origin,new_id,contexts,switches_today,treatments,implements,modules
+basic_bidding/hand_evaluation,Hand Evaluation,no switch today,,,,0,,
+basic_bidding/major_suit_openings,Major Suit Openings,no switch today,,,,0,,
+basic_bidding/minor_suit_openings,Minor Suit Openings,no switch today,,,,0,,
+basic_bidding/notrump_openings,Notrump Openings,no switch today,,,,0,,
+bidding_conventions/bart,BART,no switch today,,,,0,,
+bidding_conventions/benjamin_2d,Benjamin 2♦,card switch,,preemptive_openings,two_level.benjamin.play,0,,benjamin
+bidding_conventions/bergen_raises,Bergen raises,card switch,,major_openings,major_openings.bergen_raises.play,1,,
+bidding_conventions/blackwood,Blackwood,card switch,,slam,slam.blackwood.play,1,ace_ask,blackwood
+bidding_conventions/checkback,Checkback,card switch,,responses_rebids,other_conventions.checkback.play,0,,checkback
+bidding_conventions/control_bids,Control (Cue) Bids,card switch,,slam,slam.cue_bids.play,1,,control-bids
+bidding_conventions/depo,DEPO,no switch today,,,,0,,
+bidding_conventions/dopi_ropi,DOPI and ROPI,no switch today,,,,0,,
+bidding_conventions/drury,Drury,card switch,,major_openings,major_openings.drury.play,4,,
+bidding_conventions/exclusion_blackwood,Exclusion Blackwood,card switch,,slam,slam.exclusion_blackwood.play,0,,exclusion
+bidding_conventions/flannery,Flannery 2♦,card switch,,preemptive_openings,two_level.flannery.play,0,,flannery
+bidding_conventions/forcing_1nt,Forcing 1NT,no switch today,,,,0,,
+bidding_conventions/four_nt_opening,4NT opening,card switch,yes,slam,slam.four_nt_opening.play,0,,four-nt-opening
+bidding_conventions/fourth_suit_forcing,Fourth Suit Forcing,card switch,,responses_rebids,other_conventions.fourth_suit_forcing.play,3,,
+bidding_conventions/french_2d,French 2♦,card switch,,preemptive_openings,two_level.french_2d.play,0,,french-2d
+bidding_conventions/gambling_3nt,Gambling 3NT,card switch,,notrump_openings,notrump.gambling_3nt.play,1,,gambling-3nt
+bidding_conventions/gazzilli,Gazzilli,card switch,,major_openings,major_openings.gazzilli.play,0,,gazzilli
+bidding_conventions/gerber,Gerber,card switch,,slam,slam.gerber.play,6,,gerber
+bidding_conventions/grand_slam_force,Grand slam force,no switch today,,,,0,,
+bidding_conventions/help_suit_game_try,Help Suit Game Try,card switch,,responses_rebids,other_conventions.help_suit_game_tries.play,0,,
+bidding_conventions/impossible_2s,Impossible 2♠,card switch,,major_openings,major_openings.impossible_2s.play,0,,impossible-2s
+bidding_conventions/ingberman,Ingberman 2NT,card switch,,responses_rebids,other_conventions.ingberman_2nt.play,0,,ingberman
+bidding_conventions/inverted_minors,Inverted Minor Raises,card switch,,minor_openings,minor_openings.inverted_minors.play,0,,inverted-minors
+bidding_conventions/jacoby_2nt,Jacoby 2NT,card switch,,major_openings,major_openings.jacoby_2nt.play,1,,
+bidding_conventions/jacoby_2nt_splinters,Jacoby 2NT & Splinters,no switch today,,,,0,,
+bidding_conventions/jacoby_transfers,Jacoby Transfers,card switch,,notrump_openings,notrump.jacoby_transfers.play,6,,jacoby-transfers
+bidding_conventions/kickback,Kickback,card switch,,slam,slam.kickback.play,2,,
+bidding_conventions/kokish,Kokish relay,card switch,,preemptive_openings,two_level.kokish.play,0,,kokish
+bidding_conventions/kokish_game_tries,Kokish game tries,no switch today,,,,0,,
+bidding_conventions/lars_multi,Lars Multi 2♦,no switch today,,,,0,,
+bidding_conventions/last_train,Last Train,no switch today,,,,0,,
+bidding_conventions/mccabe,McCabe adjunct,card switch,,preemptive_openings,two_level.mccabe.play,0,,mccabe
+bidding_conventions/mini_roman_2d,Mini-Roman 2♦,card switch,,preemptive_openings,two_level.mini_roman.play,1,,mini-roman
+bidding_conventions/mini_splinters,Mini-splinters,card switch,yes,major_openings,major_openings.mini_splinters.play,0,,
+bidding_conventions/minor_suit_stayman,Minor Suit Stayman,card switch,,notrump_openings,notrump.minor_suit_stayman.play,1,,minor-suit-stayman
+bidding_conventions/minor_suit_transfers,Minor-Suit Transfers over 1NT,card switch,,notrump_openings,notrump.minor_transfers.play,10,,
+bidding_conventions/minorwood,Minorwood,card switch,,slam,slam.minorwood.play,0,,
+bidding_conventions/modified_jacoby_2nt,Modified Jacoby 2NT,no switch today,,,,0,,
+bidding_conventions/muiderberg,Muiderberg twos,no switch today,,,,0,,
+bidding_conventions/multi_2d,Multi 2♦,card switch,,preemptive_openings,two_level.multi.play,1,,multi
+bidding_conventions/namyats,Namyats,card switch,,preemptive_openings,preempts.namyats.play,0,,namyats
+bidding_conventions/new_minor_forcing,New Minor Forcing,card switch,,responses_rebids,other_conventions.new_minor_forcing.play,2,,new-minor-forcing
+bidding_conventions/ogust,Ogust,card switch,,preemptive_openings,two_level.ogust.play,0,,
+bidding_conventions/over_splinters,Over-splinters,no switch today,,,,0,,
+bidding_conventions/parrish_relay,Parrish relay,no switch today,,,,0,,
+bidding_conventions/pick_a_slam_5nt,Pick-a-slam 5NT,card switch,,slam,slam.pick_a_slam_5nt.play,0,,pick-a-slam
+bidding_conventions/picture_3nt,1M–3NT picture raise,no switch today,,,,0,,
+bidding_conventions/polish_two_suiters,Polish two-suiters,card switch,,preemptive_openings,two_level.polish_two_suiters.play,0,,polish-two-suiters
+bidding_conventions/precision_2d,Precision 2♦,card switch,,preemptive_openings,two_level.precision_2d.play,0,,precision-2d
+bidding_conventions/preempt_keycard,Keycard over preempts,no switch today,,,,0,,
+bidding_conventions/preemptive_bids,Preemptive Bids,no switch today,,,,0,,
+bidding_conventions/puppet_stayman,Puppet Stayman,no switch today,,,,0,,
+bidding_conventions/quantitative_4nt,Quantitative 4NT,card switch,yes,slam,slam.quantitative_4nt.play,0,,
+bidding_conventions/range_stayman,Range Stayman,no switch today,,,,0,,
+bidding_conventions/reverse_bergen_raises,Reverse Bergen raises,no switch today,,,,0,,
+bidding_conventions/reverse_bids,Reverse Bids,no switch today,,,,0,,
+bidding_conventions/reverse_drury,Reverse Drury,no switch today,,,,0,,
+bidding_conventions/reverse_flannery,Reverse Flannery,card switch,,preemptive_openings,two_level.reverse_flannery.play,3,,
+bidding_conventions/roman_keycard,Roman Keycard,card switch,,slam,slam.rkcb.play,3,ace_ask,
+bidding_conventions/roudi,Roudi,card switch,,responses_rebids,other_conventions.roudi.play,0,,roudi
+bidding_conventions/schuler_shift,Schuler shift,no switch today,,,,0,,
+bidding_conventions/semi_forcing_1nt,Semi-forcing 1NT,no switch today,,,,0,,
+bidding_conventions/serious_3nt,Serious 3NT,card switch,,slam,slam.non_serious_3nt.play,0,,
+bidding_conventions/six_key_rkcb,Six-key Roman Keycard,no switch today,,,,0,,
+bidding_conventions/smolen,Smolen,card switch,,notrump_openings,notrump.smolen.play,0,,smolen
+bidding_conventions/soloway,Soloway jump shifts,card switch,,responses_rebids,general.soloway.play,1,,
+bidding_conventions/spiral,Spiral,card switch,,slam,slam.spiral_cuebids.play,0,,
+bidding_conventions/splinters,Splinters,card switch,,major_openings,major_openings.splinters.play,2,,splinters
+bidding_conventions/stayman,Stayman,card switch,,notrump_openings,notrump.stayman.play,5,,stayman
+bidding_conventions/strong_2c,Strong 2♣,no switch today,,,,0,,
+bidding_conventions/super_accept,Super-Accepting a Transfer,no switch today,,,,0,,
+bidding_conventions/texas,Texas transfers,card switch,yes,notrump_openings,notrump.texas.play,6,,texas-transfers
+bidding_conventions/three_nt_raise,3NT raise of a major,card switch,yes,major_openings,major_openings.three_nt_raise.play,6,,
+bidding_conventions/tislevoll,Tislevoll slam try,no switch today,,,,0,,
+bidding_conventions/transfer_walsh,Transfer Walsh,no switch today,,,,0,,
+bidding_conventions/transfers_after_double,Transfers after a takeout double,no switch today,,,,0,,
+bidding_conventions/two_heart_bust,2♥ bust over 2♣,card switch,,preemptive_openings,two_level.parrish_bust.play,1,,
+bidding_conventions/two_over_one,2/1 Game Force,card switch,,major_openings general,major_openings.two_over_one.play,2,,
+bidding_conventions/two_way_drury,Two-way Drury,no switch today,,,,0,,
+bidding_conventions/two_way_game_tries,Two-way game tries,card switch,,responses_rebids,other_conventions.two_way_game_tries.play,0,,
+bidding_conventions/two_way_nmf,Two-way new minor forcing,no switch today,,,,0,,
+bidding_conventions/walsh,Walsh,card switch,,minor_openings,minor_openings.walsh.play,0,,
+bidding_conventions/weak_2s,Weak Twos,no switch today,,,,0,,
+bidding_conventions/weak_jump_shifts,Weak jump shifts,no switch today,,,,0,,
+bidding_conventions/western_cuebid,Western cue bid,card switch,,after_interference,slam.western_cuebid.play,0,,
+bidding_conventions/wilkosz,Wilkosz 2♦,card switch,,preemptive_openings,two_level.wilkosz.play,0,,wilkosz
+bidding_conventions/wolff_signoff,Wolff signoff,card switch,,responses_rebids,other_conventions.wolff_signoff.play,0,,wolff
+bidding_conventions/xyz,XYZ,no switch today,,,,0,,
+competitive_bidding/advancing_overcalls,Responding to Overcalls,no switch today,,,,0,,
+competitive_bidding/anti_lead_directing_doubles,Anti-lead-directing doubles,no switch today,,,,0,,
+competitive_bidding/balancing,Balancing,no switch today,,,,0,,
+competitive_bidding/bromad,BROMAD,card switch,,after_interference,competitive.bromad.play,0,,
+competitive_bidding/cappelletti,Cappelletti over 1NT,an option of a setting today,,vs_notrump,,0,defence_to_1nt,
+competitive_bidding/collante,Collante,no switch today,,,,0,,
+competitive_bidding/crash,CRASH,no switch today,,,,0,,
+competitive_bidding/defense_vs_1nt,Defending against 1NT,no switch today,,,,0,,
+competitive_bidding/defense_vs_preempts,Defending against Preempts,no switch today,,,,0,,
+competitive_bidding/dont,DONT,card switch,,vs_notrump,competitive.dont.play,0,defence_to_1nt,dont
+competitive_bidding/equal_level_conversion,Equal level conversion,no switch today,,,,0,,
+competitive_bidding/exit_transfers,Exit transfers,no switch today,,,,0,,
+competitive_bidding/fit_showing_jumps,Fit-showing jumps,card switch,,after_interference overcalls,competitive.fit_showing_jumps.play,0,,fit-showing-jumps
+competitive_bidding/forcing_pass,Forcing pass,no switch today,,,,0,,
+competitive_bidding/ghestem,Ghestem,card switch,,overcalls,competitive.ghestem.play,0,,ghestem
+competitive_bidding/good_bad_2nt,Good/bad 2NT,no switch today,,,,0,,
+competitive_bidding/jordan_2nt,Jordan 2NT,card switch,,after_interference,competitive.jordan_2nt.play,0,,
+competitive_bidding/landy,Landy,an option of a setting today,,vs_notrump,,0,defence_to_1nt,
+competitive_bidding/law_of_total_tricks,The Law of Total Tricks,no switch today,,,,0,,
+competitive_bidding/lead_directing_doubles,Lead-directing doubles,card switch,,doubles,competitive.lead_directing_double.play,0,,lead-directing-doubles
+competitive_bidding/leaping_michaels,Leaping Michaels,card switch,,vs_openings,competitive.leaping_michaels.play,0,michaels_vs_preempts,
+competitive_bidding/lebensohl,Lebensohl,card switch,,after_interference vs_openings,notrump.lebensohl.play competitive.lebensohl_weak_twos.play,3,,lebensohl
+competitive_bidding/mathe,Mathe,no switch today,,,,0,,
+competitive_bidding/maximal_doubles,Maximal doubles,no switch today,,,,0,,
+competitive_bidding/meckwell,Meckwell over 1NT,an option of a setting today,,vs_notrump,,0,defence_to_1nt,meckwell
+competitive_bidding/michaels,Michaels cue bid,card switch,yes,overcalls,competitive.michaels.play,2,,
+competitive_bidding/michaels_unusual,Michaels & Unusual 2NT,no switch today,,,,0,,
+competitive_bidding/mitchell_stayman,Mitchell Stayman,no switch today,,,,0,,
+competitive_bidding/mixed_raise,Mixed raise,no switch today,,,,0,,
+competitive_bidding/modified_cappelletti,Modified Cappelletti,an option of a setting today,,vs_notrump,,0,defence_to_1nt,
+competitive_bidding/multi_landy,Landy and Multi-Landy over 1NT,an option of a setting today,,vs_notrump,,0,defence_to_1nt,
+competitive_bidding/negative_doubles,Negative Doubles,card switch,,doubles,doubles.negative.play,1,,
+competitive_bidding/non_leaping_michaels,Non-leaping Michaels,card switch,,vs_openings,competitive.non_leaping_michaels.play,0,michaels_vs_preempts,
+competitive_bidding/overcalls,Overcalls,no switch today,,,,0,,
+competitive_bidding/raptor,Raptor 1NT,card switch,,overcalls,competitive.raptor_1nt.play,0,,raptor
+competitive_bidding/responsive_doubles,Responsive Doubles,card switch,,doubles,doubles.responsive.play,1,,responsive-doubles
+competitive_bidding/rodrigue,Rodrigue,no switch today,,,,0,,
+competitive_bidding/rosenkranz,Rosenkranz double,no switch today,,,,0,,
+competitive_bidding/rubensohl,Rubensohl,card switch,,after_interference,notrump.rubensohl.play competitive.rubensohl_after_double.play,2,,
+competitive_bidding/sandwich_nt,Sandwich 1NT,card switch,,overcalls,competitive.sandwich_nt.play,0,,sandwich-nt
+competitive_bidding/scrambling_2nt,Scrambling 2NT,card switch,,doubles,competitive.scrambling_2nt.play,0,,scrambling-2nt
+competitive_bidding/snapdragon,Snapdragon doubles,card switch,,doubles,competitive.snapdragon.play,0,,snapdragon
+competitive_bidding/sos_redouble,SOS redouble,card switch,,after_interference,other_conventions.sos_redouble.play,0,,sos-redouble
+competitive_bidding/spear,Spear,no switch today,,,,0,,
+competitive_bidding/suction,Suction,an option of a setting today,,vs_notrump,,0,defence_to_1nt,suction
+competitive_bidding/support_cuebids,Support Cuebids,card switch,,overcalls after_interference,competitive.cue_bid_raise.play,0,,
+competitive_bidding/support_doubles,Support Doubles and Redoubles,card switch,,doubles,doubles.support.play,2,,support-doubles
+competitive_bidding/takeout_doubles,Takeout Doubles,no switch today,,,,0,,
+competitive_bidding/thrump_double,Thrump double,no switch today,,,,0,,
+competitive_bidding/transfer_advances,Transfer advances,no switch today,,,,0,,
+competitive_bidding/unusual_notrump,Unusual notrump,card switch,yes,overcalls,competitive.unusual_2nt.play competitive.unusual_1nt.play competitive.unusual_3nt.play competitive.unusual_4nt.play,5,,
+competitive_bidding/unusual_vs_unusual,Unusual vs Unusual,card switch,,after_interference,competitive.unusual_vs_unusual.play,0,,
+declarer_play/elimination_plays,Elimination Plays,no switch today,,,,0,,
+declarer_play/entry_management,Entry Management,no switch today,,,,0,,
+declarer_play/finessing,Finessing,no switch today,,,,0,,
+declarer_play/holdup_plays,Holdup Plays,no switch today,,,,0,,
+declarer_play/squeeze_plays,Squeeze Plays,no switch today,,,,0,,
+declarer_play/suit_establishment,Suit Establishment,no switch today,,,,0,,
+declarer_play/trump_management,Trump Management,no switch today,,,,0,,
+defense/defensive_signals,Defensive Signals,no switch today,,,,0,,
+defense/lavinthal,Lavinthal,no switch today,,,,0,,
+defense/odd_even_discards,Odd-even discards,no switch today,,,,0,,
+defense/opening_leads,Opening Leads,no switch today,,,,0,,
+defense/reverse_smith_echo,Reverse Smith echo,no switch today,,,,0,,
+defense/rusinow_leads,Rusinow leads,no switch today,,,,0,,
+defense/second_hand_play,Second Hand Play,no switch today,,,,0,,
+defense/smith_echo,Smith echo,no switch today,,,,0,,
+defense/third_hand_play,Third Hand Play,no switch today,,,,0,,
+defense/trump_suit_preference,Trump suit preference,no switch today,,,,0,,
+defense/upside_down_signals,Upside-down signals,no switch today,,,,0,,
+partnership_bidding/advanced_forcing,Advanced Forcing (Partnership),no switch today,,,,0,,
+partnership_bidding/basic_bidding,Basic Bidding (Partnership),no switch today,,,,0,,
+partnership_bidding/basic_major,Basic Major (Partnership),no switch today,,,,0,,
+partnership_bidding/basic_notrump,Basic Notrump (Partnership),no switch today,,,,0,,
+partnership_bidding/blackwood,Blackwood (Partnership),no switch today,,,,0,,
+partnership_bidding/jacoby_2nt,Jacoby 2NT (Partnership),no switch today,,,,0,,
+partnership_bidding/miscellaneous,Miscellaneous Auctions,no switch today,,,,0,,
+partnership_bidding/negative_doubles,Negative Doubles (Partnership),no switch today,,,,0,,
+partnership_bidding/overcalls,Overcalls (Partnership),no switch today,,,,0,,
+partnership_bidding/passed_hand_bidding,Passed Hand Bidding,no switch today,,,,0,,
+partnership_bidding/rebids,Rebids by Opener or Responder,no switch today,,,,0,,
+partnership_bidding/responders_rebid,Responder's Rebid,no switch today,,,,0,,
+partnership_bidding/roman_key_card,Roman Key Card (Partnership),no switch today,,,,0,,
+partnership_bidding/slam_bidding,Slam Bidding,no switch today,,,,0,,
+partnership_bidding/stayman_transfers,Stayman & Transfers (Partnership),no switch today,,,,0,,
+partnership_bidding/two_club,Two Club (Partnership),no switch today,,,,0,,
+partnership_bidding/weak_twos,Weak Twos (Partnership),no switch today,,,,0,,
+practice_deals/100_miscellaneous,100 Miscellaneous Deals,no switch today,,,,0,,
+practice_deals/100_notrump,100 Notrump Deals,no switch today,,,,0,,
+precision/1c_mixed,Precision 1♣ (Mixed),no switch today,,,,0,,
+precision/1c_opener,Precision 1♣ (Opener),no switch today,,,,0,,
+precision/1c_responder,Precision 1♣ (Responder),no switch today,,,,0,,
