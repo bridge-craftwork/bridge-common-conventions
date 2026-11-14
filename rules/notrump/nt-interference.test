@@ -1,0 +1,124 @@
+# Our 1NT when RHO doubles or overcalls 2♣.
+#
+# Basic-Bridge has `Transfers if RHO doubles` on, so the 1NT structure
+# survives the double. Hands from a `1NT X` probe of that card.
+card    Basic-Bridge
+dealer  S
+
+# seat hand                 | auction  | expect | why
+N KJ9.8632.KT532.A          | 1NT X    | 2C     | four hearts, 11: Stayman is still 2♣
+N Q965.J87.Q76.Q95          | 1NT X    | 2C     | four spades and 7: a point below the uncontested floor
+N T943.KQT97.75.42          | 1NT X    | 2D     | five hearts: transfer, however weak
+N T6.AT865.984.872          | 1NT X    | 2D     | 4 HCP, five hearts: transfer
+N A9854.8643.J5.95          | 1NT X    | 2H     | five spades: transfer
+N AJT862.65.Q43.98          | 1NT X    | 2H     | six spades
+N KJ532.97432.A7.6          | 1NT X    | 2H     | 5-5: transfer to the longer, not Stayman
+N J872.J6432.AK9.7          | 1NT X    | 2D     | five hearts and four spades: transfer, not Stayman
+N 9.AK6.K63.AKJT82          | 1NT X    | XX     | 18: we own the hand
+N 74.Q98.AT42.8654          | 1NT X    | XX     | 6 HCP, no suit to show
+N K6.84.T32.JT8532          | 1NT X    | P      | 4 HCP and no major: pass
+
+# 21GF-DEFAULT leaves `Transfers if RHO doubles` off, so the two-level
+# calls are natural escapes and nothing else acts. Hands from
+# `Opps_Double_1_NT`.
+card    21GF-DEFAULT
+dealer  S
+
+N J9753.KT63.54.T6          | 1NT X    | 2S     | 4 HCP, five spades: run
+N JT98762.63.K8.83          | 1NT X    | 2S     | seven spades
+N QT9.976543.T73.3          | 1NT X    | 2H     | 2 HCP, six hearts
+N 64.T73.42.KJ9632          | 1NT X    | 2C     | 4 HCP, six clubs
+N J5.84.QJ7632.T84          | 1NT X    | 2D     | 4 HCP, six diamonds
+N KJT63.T976.QJ6.7          | 1NT X    | P      | 7 HCP: sit for the double
+N T8762.87.A97.AT7          | 1NT X    | P      | 8 HCP with five spades: no reason to run
+N J96542.5.J53.K74          | 1NT X    | P      | 5 HCP: above the escape cut
+
+# A 2♣ overcall: the double takes over as Stayman and everything else
+# keeps its own call (`Transfers if RHO bids clubs`, on for both cards).
+N AJ52.95.KT.T6542          | 1NT 2C   | X      | four spades and 8: Stayman
+N Q85.Q962.J7.KJ54          | 1NT 2C   | X      | four hearts and 9
+N 6.AT953.Q75.JT93          | 1NT 2C   | 2D     | five hearts and 7: transfer
+N J95432.Q87.T93.K          | 1NT 2C   | 2H     | six spades and 6
+N AT9.J6.Q2.976532          | 1NT 2C   | 2S     | six clubs, 9½ total points: the minor transfer is unchanged
+N AT9.J6.K2.976532          | 1NT 2C   | 3NT    | 8 HCP + ½ + 2 length = 10½: game (BBA transfers; Rick's count)
+N 9.T73.AJT874.964          | 1NT 2C   | 3C     | six diamonds and 5
+N KQ8.KT6.742.T952          | 1NT 2C   | 2NT    | 8 balanced: the natural invitation
+N A9.JT87432.2.T65          | 1NT 2C   | 4D     | seven hearts and nothing: Texas as a preempt
+N 942.QJ9854.532.2          | 1NT 2C   | P      | 3 HCP: below the floor for entering at the two level
+N KT852.8732.5.T82          | 1NT 2C   | P      | 3 HCP with five spades
+
+# ── Their natural 2♦/2♥/2♠ overcall (2026-09-25; BBA probes
+# nt-2D-resp, nt-2H-resp, nt-2S-resp)
+card    Basic-Bridge
+dealer  S
+N K75.KQT4.76.Q964      | 1NT 2D | X   | negative: four hearts, 10 HCP (BBA)
+N 53.KJ942.9874.T2      | 1NT 2D | 2H  | five hearts, 4 HCP: to play
+N J8.T432.A743.AT7      | 1NT 2H | P   | 9 HCP, no stopper in hearts: pass
+N K96.A854.KJ6.832      | 1NT 2H | 3NT | 11 HCP, no four spades: game (BBA)
+N AJ92.KQ.J95.K654      | 1NT 2H | X   | negative: four spades
+N 4.A742.K97.AT643      | 1NT 2S | X   | negative: four hearts (BBA)
+N T3.AQT86.KJ7.QT6      | 1NT 2S | 3H  | five hearts and 12: forcing (BBA)
+N Q42.A76.J765.T92      | 1NT 2H | P   | 7 HCP: nothing to say
+S AQ5.K832.QJ9.A64      | 1NT 2S X P | 3H | four hearts for partner's double
+S AQ5.K83.KJ92.A64      | 1NT 2D X P | 2NT | no four-card major, a diamond stopper
+S AQ5.K83.QJ92.A64      | 1NT 2D P P | P   | partner passed: let them play
+N K75.KQT4.76.Q964      | 1NT 2D X P 2H P | 4H | game in the heart fit
+
+# ── Their preempt over our 1NT (2026-09-25)
+N 974.Q7.QT62.K762      | 1NT 3H          | P   | 7: nothing to say
+N Q74.K7.AT62.K762      | 1NT 3H          | 3NT | 12 with a heart stopper: game
+N K74.7.AT62.KJ762      | 1NT 3H          | X   | 11, no stopper, short hearts: takeout
+S AQ5.KJ83.KQ2.Q64      | 1NT 3H X P      | P   | four hearts: defends
+S AQ5.K8.KQ32.Q642      | 1NT 3H X P      | 3NT | a heart stopper, no four-card major
+
+# ── Their conventional overcalls (2026-09-28): 21GF-DEFAULT plays
+# Cappelletti on both sides, so their 2♦ shows the majors, 2♥ hearts and
+# a minor, 2NT the minors, and their double is for penalties.
+card    21GF-DEFAULT
+dealer  S
+N KQ3.K82.A974.Q65      | 1NT 2D          | 3NT | 14, both majors held: game
+N KQ3.J82.A974.Q65      | 1NT 2D          | X   | 12, no heart stopper: values
+N 954.K82.Q8743.J5      | 1NT 2D          | P   | 6: nothing to say
+N 43.K2.T8.AQJ9652      | 1NT 2D          | 3C  | seven clubs, 10: natural and forcing
+S AQ3.K984.AJ52.K9      | 1NT 2D X 2H     | X   | four hearts: penalty
+S AQ3.K98.AJ52.K94      | 1NT 2D X 2H     | P   | three hearts: leave it to partner
+N AJ92.Q5.J95.J654      | 1NT 2H          | X   | Cappelletti 2♥ has five hearts: negative double as over a natural 2♥
+N 954.K82.Q873.AJ5      | 1NT 2NT         | 3NT | 10 HCP: game
+N KQJ85.K82.Q87.54      | 1NT 2NT         | 3S  | five spades, 11: forcing
+N 954.K82.Q873.J54      | 1NT 2NT         | P   | 6: nothing to say
+S AQ3.K984.AJ52.K9      | 1NT 2C X 2D     | 2H  | Stayman through their relay: four hearts
+S AQ3.K98.AJ52.K94      | 1NT 2C X 2D     | X   | no major, four diamonds: penalty
+S AQ3.K984.AJ52.K9      | 1NT X 2S P      | P   | partner's escape: to play
+
+# ── Their natural 2♣, transfers off (2026-09-30; probes/nt-2C-nat-resp,
+# vanilla SAYC corpus). Basic-Bridge plays a natural defence, so their
+# 2♣ shows five clubs; with `vs_2c` off nothing of the 1NT structure
+# survives and BBA (bare SAYC) plays no negative double.
+card    Basic-Bridge notrump.jacoby_transfers.vs_2c=false
+dealer  S
+N J965.T62.K64.J76      | 1NT 2C       | P   | 5 HCP, four spades: pass, opener may reopen (BBA)
+N KJ65.K964.JT85.J      | 1NT 2C       | P   | 9 HCP, both majors, no club stopper: pass (BBA)
+N A85.K873.82.Q762      | 1NT 2C       | 2NT | 9 HCP, a club stopper: invites (BBA)
+N 64.965.AKT53.T87      | 1NT 2C       | 2D  | five diamonds, 7: to play (BBA)
+N T74.QT953.987.Q7      | 1NT 2C       | 2H  | five hearts, 4: to play (BBA)
+N KQ53.Q843.953.K8      | 1NT 2C       | 3C  | 10 HCP, four-card majors: the Stayman cue-bid (BBA 3NT)
+N KT8.K94.KJT52.65      | 1NT 2C       | 3D  | five diamonds, 10: forcing to game (BBA)
+N A93.KT5.Q74.KJ82      | 1NT 2C       | 3NT | 13 HCP, a club stopper, no major: game
+N AQ932.A5.K843.85      | 1NT 2C       | 3S  | five spades, 13: forcing (BBA 2♠, to play)
+N AQ7632.T6.3.9842      | 1NT 2C       | 2S  | six spades but 6 HCP, 8 points: to play (BBA 4♠)
+N J95.KJ8543.K7.K7      | 1NT 2C       | 4H  | six hearts, 11: game (BBA)
+S AK43.T73.AJ86.A3      | 1NT 2C P P   | X   | two clubs: the reopening double (BBA)
+S Q43.A86.AK32.K42      | 1NT 2C P P   | P   | three clubs: let them play (BBA)
+N 9.Q.QJ.AKJT97654      | 1NT 2C P P X P | P | clubs: defends (BBA)
+N Q854.QT92.T87.76      | 1NT 2C P P X P | 2H | four hearts (BBA 2♠)
+S QJ93.A53.AQ7.QJT      | 1NT 2C 3D P  | 3NT | a club stopper: game in notrump (BBA)
+S AK74.975.AK4.Q92      | 1NT 2C 2NT P | 3NT | 16 HCP: accepts (BBA passes)
+S AT82.K62.AKT7.J2      | 1NT 2C 2NT P | P   | 15: declines (BBA)
+S Q863.KQ76.AKT.JT      | 1NT 2C 3C P  | 3H  | the cue-bid: four hearts
+S AQ7.QJT.A654.KT4      | 1NT 2C 3C P  | 3NT | the cue-bid: no major, a club stopper
+
+# A 2♣ that does not show clubs (Cappelletti on 21GF-DEFAULT) is not
+# read as natural: with `vs_2c` off nothing here applies.
+card    21GF-DEFAULT notrump.jacoby_transfers.vs_2c=false
+dealer  S
+N T74.QT953.987.Q7      | 1NT 2C       | P   | Cappelletti 2♣: the natural rules stay out

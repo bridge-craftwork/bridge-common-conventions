@@ -1,0 +1,165 @@
+# Responder and opener once the opponents come in, Basic-Bridge card.
+card    Basic-Bridge
+dealer  N
+vul     None
+
+# Responder over an overcall: negative doubles and natural bids.
+# seat hand                 | auction | expect | why
+S AT73.J9876.K54.5          | 1C 1H   | X      | negative double: four spades, the unbid major
+S K764.Q.T9752.K94          | 1C 1H   | X      | four spades and 7 HCP is enough
+S KJ54.Q762.93.874          | 1C 1H   | X      | four spades: the double, not 1NT
+S KJ543.72.Q963.T8          | 1C 1H   | 1S     | five spades: bid them
+S K8.KQ742.963.T87          | 1C 1S   | 2H     | five hearts at the two level: 8+ total points
+S K8.K74.Q963.T874          | 1C 1S   | 1N     | 7 HCP balanced with a spade stopper
+S 83.8742.963.T874          | 1C 1D   | P      | 2 HCP: nothing to say
+
+# Responder over a takeout double.
+S Q6.987.AJ6542.K7          | 1D X    | XX     | 10 HCP: we own the hand
+S AQ53.T964.Q85.Q3          | 1D X    | XX     | 10 HCP balanced
+S K854.J72.Q93.T87          | 1H X    | 1S     | four spades and 7 total points
+S K85.J72.Q93.T874          | 1H X    | 2H     | three hearts and 7 total points: raise
+S 852.J7.Q9732.874          | 1D X    | 2D     | five diamonds and 4 HCP: the single raise
+S 852.J7532.Q73.87          | 1H X    | 3H     | five hearts and 3 HCP: preempt them in a major
+
+# Opener answers a negative double.
+N K862.A3.KQ54.T87          | 1D 1H X P | 1S  | four spades for partner's double
+N A2.A3.KQJ654.T87          | 1D 1H X P | 2D  | six diamonds, minimum
+N A2.KQ3.AQJ654.T8          | 1D 1H X P | 3D  | six diamonds and 16 HCP: jump
+
+# Responder over a two-level overcall: Rick's ranges (X 8+ with four,
+# a new suit 10+ with five, the cue bid a limit raise or better).
+S KJ54.Q762.A3.876          | 1H 2C   | X      | 8 HCP with four spades: the negative double
+S KQJ54.Q7.A93.876          | 1H 2C   | 2S     | five spades and 11 HCP
+S K54.Q76.AQ3.8762          | 1H 2C   | 3C     | three hearts and 11 HCP: the cue-bid raise
+S KJ4.Q76.J93.8762          | 1H 2C   | 2H     | three hearts and 7 HCP: the simple raise
+S 954.Q76.J93.8762          | 1H 2C   | P      | 4 HCP: nothing
+S K54.Q76.AQ3.KJ62          | 1H 3C   | 4C     | 15 HCP: the cue bid at the three level
+
+# Opener answers the double at the level the overcall forced.
+N A2.KQJ654.K873.T         | 1H 2C X P | 2H    | six hearts, minimum
+N K862.KQJ65.A4.T7         | 1H 2C X P | 2S    | four spades for the double
+
+# Opener answers a negative double with no major of his own: an unbid
+# four-card minor, then three cards in the major partner promised, then
+# five cards in his own suit. Corpus hands (Basic_Minor, Basic_Overcall)
+# where BBA makes the same call.
+N 754.AQ.AQ52.QT74          | 1D 1S X P | 2C  | four clubs: a new suit before rebidding a four-card one
+N 8.A9.KJ643.AT543          | 1D 1H X P | 2C  | five clubs beside five diamonds
+N 762.KQ4.AQ85.J97          | 1D 1S X P | 2H  | three hearts is the fit partner promised
+N K964.K4.AT.AQJT9      | 1C 1S X P        | 3NT | 17 with K964 in spades: game (BBA 2C; 17+ measured better, 2026-09-26)
+N A63.AT92.A.AQJ43          | 1C 1S X P | 4H  | four hearts and 19 HCP: bid the game
+# Five cards and nothing else to say: the rebid partner reads as five or
+# more, minimum (Brill report, 2026-10-09: it read as six).
+N QJT63.QJ.972.AK9          | 1S 2H X P | 2S  | five spades, no stopper, no second suit: rebid them
+# The cue-bid raise: a minimum signs off in the suit at any length.
+N A543.QJT2.KT98.Q          | 1D 1H 2H P | 3D | four diamonds, minimum: no game opposite the limit raise
+
+# Opener when they compete over the negative double: a four-card major
+# at the cheapest level, a six-card suit with the values, else pass.
+N 865.AKT6.94.AK84          | 1C 1D X 2D | 2H | four hearts, competing
+N K3.K2.A98752.QJ4          | 1D 1H X 2H | 3D | six diamonds and 13 HCP
+N A75.J642.AK543.Q          | 1D 1H X 2H | P  | a minimum with nothing to add
+N 762.KQ4.AQ85.J97          | 1D 1S X 2S | P  | the three-card fit is not worth the three level
+N A75.J642.AK543.Q          | 1D 1H X 3H | P  | they jumped over the double: a minimum passes (2026-09-27)
+
+# ── The opening side: a player who passed last time (2026-09-25)
+card    Basic-Bridge
+dealer  S
+N T942.J965.KJ3.T2      | 1C P P X P 2NT        | P | responder passed with 3 HCP: still nothing
+S K3.Q72.A64.KJ763      | 1C P P X P 2NT P P    | P | opener let them have it: pass again
+
+# ── Trap pass and the penalty route (2026-09-25)
+card    Basic-Bridge
+dealer  S
+N KQT9.K3.Q843.K98      | 1H 1S             | P  | four good spades and 12: trap pass
+S 7.AQJ64.KJ5.A762      | 1H 1S P P         | X  | opener reopens, short in spades
+N KQT9.K3.Q843.K98      | 1H 1S P P X P     | P  | converts for penalty
+N 8753.K3.Q843.K98      | 1H 1S             | !P | four small spades: not a trap
+
+# ── Opener's answer to the negative double in support points (2026-09-25)
+S AQ73.K964.AJ42.Q      | 1D 1H X P        | 4S | 16 HCP, a singleton, four spades: 19 support points
+S AQ73.K964.AJ42.Q      | 1D 2C X P        | 4H/4S | the same over a two-level overcall
+S KJ.AQ432.AKQJ.74      | 1H 1S X P        | 3NT | 20 with a spade stopper: game
+S 64.AKJ43.AKQ2.AQ      | 1H 1S X P        | 2S  | 23, no spade stopper, no fit: cue bid, game forcing
+
+# ── Free bids where a new suit is not forcing (Basic-Bridge; BBA probe
+# free-bid-1D-1S, 2026-09-25)
+N 9.Q9754.K75.JT84      | 1D 1S            | X   | five hearts, 6 HCP: too weak for 2H, doubles
+N Q7.KJ643.752.KJ3      | 1D 1S            | 2H  | five hearts, 10 HCP: the free bid
+N AJ.AJT95.3.KJ432      | 1D 1S            | 3H  | 14 HCP: jumps, forcing to game
+S AJ85.Q.KQ76.K832      | 1D 1S 3H P       | 3NT | no fit, spades stopped
+S AJ8.Q54.KQ76.K83      | 1D 1S 3H P       | 4H  | three hearts: game
+dealer  E
+W KQ62.Q43.8752.76      | 1S X 2S 3C P P  | 3S  | four spades opposite five: nine trumps, compete to three (total tricks, 2026-09-27)
+E KJT32.QT6.KJ.KJ7      | 1S 2D P P X P 3C P | P | partner's forced answer: no game
+
+# ── Support first; forcing free bids (2026-09-25)
+dealer  S
+N J6.KQ95.J975.J92      | 1H 1S            | 2H  | four hearts: raise, not the negative double
+
+# ── Opener answers the cue-bid raise of a minor (2026-09-26)
+card    Basic-Bridge
+dealer  S
+S KT75.KJ84.AJT6.A      | 1D 2S 3S P       | 3NT | 16 with spades held: game
+S 72.AJ3.KQ964.AK5      | 1D 2S 3S P       | 5D  | 17, no spade stopper: game in diamonds
+S Q75.KJ84.AJT6.72      | 1D 2S 3S P       | 4D  | 11: no game
+N 3.QT6.AQJ3.AJ874      | 1D 2S 3S P 4D P  | 5D  | 14 opposite the sign-off: game
+N A62.KJ74.K63.Q74      | 1H 2D 3D P 3H P  | 4H  | 13 opposite the sign-off: game
+N 862.KJ74.K63.Q74      | 1H 2D 3D P 3H P  | P   | 11: the limit raise
+
+# ── Over a one-level overcall: cue-bid raise and notrump (2026-09-26)
+card    Basic-Bridge
+dealer  S
+N KT95.K42.KQ4.873      | 1H 1S            | 2S  | 11 with three hearts: cue bid, limit raise or better
+N K6.Q63.KJ3.J7543      | 1S 1H            | !2H | two spades: no cue bid
+N AJ6.KJ3.Q65.KJ64      | 1D 1H            | 3NT | 15 balanced with hearts held
+S AQ6.A9763.A6.T83      | 1H 1S 2S P       | 4H  | 14 with a doubleton: accepts the limit raise
+S Q64.A9763.A65.Q3      | 1H 1S 2S P       | 3H  | 12, flat: no game
+
+# ── The cue bid forces only when RHO passes (2026-09-27)
+card    Basic-Bridge
+dealer  S
+S Q75.KJ84.AJT6.72      | 1D 1H 2H 3H      | P   | their raise ends the force: a minimum passes
+S Q64.A9763.A65.Q3      | 1H 1S 2S 3S      | P   | 12, flat: nothing to add over their raise
+S Q7.K84.AJT65.K72      | 1D 1H 2H 3H      | 4D  | five diamonds: nine trumps, compete
+N AQ5.4.KQ98.AJ974      | 1D 1H 2H 3H P P  | 5D  | 16 opposite opener's pass: game in the minor
+N K85.4.KQ98.QJ974      | 1D 1H 2H 3H P P  | P   | 11: the limit raise, they have it
+
+# The preemptive jump raise over an overcall (Basic_Overcall 469).
+card    Basic-Bridge
+dealer  E
+vul     NS
+W 3.J73.952.QT8653      | 1C 1S                                | 3C     | six clubs and less than 8: preempt (nine trumps)
+W 3.J73.9652.QT853      | 1C 1S                                | P      | five clubs: eight trumps, not the three level (BBA on bare SAYC passes 108 of 134)
+
+# Raises of a minor over an overcall count the trumps (2026-10-02,
+# total-tricks.bid): five cards for a raise (eight trumps opposite
+# opener's three), six for the preemptive jump.
+card    Basic-Bridge
+dealer  N
+vul     None
+S QJ.K7.86532.8543          | 1C 2S   | P      | four clubs: seven trumps, no raise to the three level
+S QJ.K7.8653.85432          | 1C 2S   | 3C     | five clubs and 7 total points: raise
+S 982.KJ3.Q732.K42          | 1D 2C   | P      | three diamonds: no raise, even at the two level
+S 98.KJ3.Q7432.K42          | 1D 2C   | 2D     | five diamonds: raise
+S 9.83.8732.QJ7632          | 1C 1H   | 3C     | six clubs and 4 HCP: preempt
+
+# Jump shifts over their one-level overcall: weak on the 21GF cards
+# (competitive.jump_shift_after_overcall = weak), two level only.
+card    21GF-DEFAULT
+S 82.KQT874.93.854          | 1C 1D   | 2H     | weak jump shift: six hearts, 5 HCP
+S KQT874.82.93.854          | 1D 1H   | 2S     | weak jump shift in spades
+S 82.KQT874.93.854          | 1C 1S   | X      | a three-level jump is not weak: the negative double
+S 92.KQT874.93.854          | 1S 1N   | P      | not over their notrump
+N KJ3.A5.K962.Q932          | 1C 1D 2H P | P   | opener passes the weak jump
+card    21GF-DEFAULT competitive.jump_shift_after_overcall=strong
+S 82.KQT874.93.854          | 1C 1D   | 1H     | strong jump shifts: the weak hand bids 1H
+
+# Opener's major rebid over the negative double is six or more (Rick,
+# 2026-10-16, Brill daily board 8); a five-card hand with nothing else
+# still bids it, the least lie, and partner reads six.
+card    Brill
+dealer  N
+N AKJT85.Q9.J9.T32          | 1S 3H X P | 3S  | six spades, minimum (the board)
+N AKJ98.Q9.J96.T32          | 1S 3H X P | 3S  | five spades and nothing else: the least lie
+N AKJ98.Q9.K96.Q32          | 1S 2H X P | 2S  | the same at the two level

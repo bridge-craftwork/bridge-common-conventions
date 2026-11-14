@@ -1,0 +1,54 @@
+# Natural openings, with the 21GF-DEFAULT card imported from BBA.
+card    21GF-DEFAULT
+dealer  S
+
+# seat hand             | auction | expect | why
+S AKJ52.K73.94.Q83      |         | 1S     | 13 HCP, five spades
+S K52.A73.Q94.KJ83      |         | 1C     | 13 HCP, four clubs
+S K52.A73.QJ94.K83      |         | 1D     | 13 HCP, four diamonds
+S Q52.J73.Q94.K832      |         | P      | 8 HCP
+
+# 1m may hold a five-card major (minor_openings.may_hold_5_card_major):
+# on, the longer minor opens; off (21GF-WJS-MSS), the major.
+S AKJ54.2.AQ8763.4      |         | 1D     | 5-6 with 14 HCP: the longer minor
+S KQJ54.2.4.AK8763      |         | 1C     | six clubs, five spades: clubs
+card    21GF-WJS-MSS
+S AKJ54.2.AQ8763.4      |         | 1S     | off: a five-card major opens
+S KQJ54.2.4.AK8763      |         | 1S     | off: spades, not clubs
+
+# No forcing 2C opening (general.forcing_opening_2c off): a 22-count
+# opens at the one level.
+card    21GF-DEFAULT general.forcing_opening_2c=false
+S AKQJ5.AK3.KQ4.Q3      |         | 1S     | 24 HCP: no 2C, so 1S
+card    21GF-DEFAULT
+S AKQJ5.AK3.KQ4.Q3      |         | 2C     | 24 HCP: 2C
+
+# Never pass out our own artificial bid (2026-10-12; Brill round robin
+# 2026-10-09, board 90000102): a pass that would end the auction in
+# partner's or my own artificial bid is ruled out, and the hand runs to
+# its best known fit.
+dealer  N
+S 8642.QJ853.73.42      | 1N P 2D X P P | 2H  | my transfer doubled and passed back: bid the hearts
+N AK2.K74.QJ5.A863      | 1N P 2C X     | P   | a pass that gives partner another turn is allowed
+S KJ84.Q853.T73.42      | 1N P 2C X P P | 2S  | Stayman doubled and passed back: the best fit (a major)
+S 8642.QJ853.73.42      | 1N P 2D P 2H P | P  | the completed transfer is natural: pass
+# Partner's game-forcing cue of their preempt, RHO passes: the doubler
+# names his suit (3N_over_RHO_3x 414: passed out in 4S before).
+dealer  E
+S AJ86.AKT962.AQ.Q      | 3S X P 4S P   | 5H  | the cue is no place to play: six hearts
+
+# A call above game our system does not read (Rick, 2026-10-29): back to
+# the agreed suit at the cheapest level. Rick's "play my card" deal: his
+# card had no king ask, and 5NT was passed with 13 tricks in hearts.
+card    21GF-DEFAULT major_openings.jacoby_2nt.modified=true slam.king_ask.style=none
+dealer  N
+N KQ82.AK976.K973.-     | 1H P 2N P 3D P 3H P 3S P 3N P 4C P 4N P 5H P 5N P | 6H | 5NT means nothing here: six of the agreed suit, not a pass
+card    21GF-DEFAULT major_openings.jacoby_2nt.modified=true
+N KQ82.AK976.K973.-     | 1H P 2N P 3D P 3H P 3S P 3N P 4C P 4N P 5H P 5N P | 6H | with the king ask: two side kings
+
+# The asker never passes an unread five-level answer to his quantitative
+# 4NT (Bridge-Classroom #94, Rick 2026-11-06).
+card    21GF-DEFAULT
+dealer  N
+vul     None
+S K73.AQT43.J94.A2      | 1N P 2D P 2H P 4N P 5C P   | 6NT  | an unread 5C over quantitative 4NT: slam, not pass

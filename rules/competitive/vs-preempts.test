@@ -1,0 +1,78 @@
+# Defence against their weak twos (Basic-Bridge card, natural).
+card    Basic-Bridge
+dealer  E
+vul     None
+S AKJ2.8.KQ43.J432      | 2H           | X   | short hearts, the other three: takeout
+S K72.JT6.KQ84.KT3      | 2H           | P   | three hearts, 12: pass (BBA)
+S AQJ974.83.K95.A6      | 2H           | 2S  | six good spades, 14: overcall
+S AQ5.KJ4.QJ83.K73      | 2H           | 2NT | 16 balanced, hearts held
+S 75.AQJ.KJ9832.A3      | 2S           | 3D  | six diamonds, 15
+# Advancer after our double
+N T76.65.A753.AT72      | 2S X P       | 3C/3D | 8, no major: a minor at the cheapest level
+N KJ7.KT842.65.Q93      | 2S X P       | 3H  | five hearts, 9: 3H (a jump would be game)
+N QJ82.A7.765.AK32      | 2S X P       | P   | four good spades and 14: penalty
+N Q73.A4.K42.K8764      | 2S X P       | 3NT | 12 with spades held
+N 43.KQJ75.K2.A843      | 2D X P       | 3D  | 13 with five hearts: the cue bid, forcing to game
+
+# Balancing over their weak two, and three-level preempts (2026-09-27)
+dealer  E
+N AKJ2.8.KQ43.J432      | 2H P P       | X   | reopening double: short hearts, 13
+N KJ987.83.K95.Q62      | 2H P P       | 2S  | balancing with five spades and 9
+N 952.K83.Q95.Q862      | 2H P P       | P   | nothing to reopen with
+S AKJ2.8.KQ43.KJ32      | 3H           | X   | 16, short hearts: takeout over the preempt
+S AQJ974.83.K95.A6      | 3H           | 3S  | six good spades, 14
+S AQ5.KJ4.KQJ3.K73      | 3H           | 3NT | 19 with hearts held
+S 952.K83.Q95.Q862      | 3H           | P   | nothing
+
+# Balancing over three-level, and four-level preempts (2026-09-27)
+dealer  E
+N AKJ2.8.KQ43.J432      | 3H P P       | X   | reopening double: a singleton heart, 14
+N 952.K83.Q95.Q862      | 3H P P       | P   | nothing to reopen with
+S AKJ2.8.KQ43.KJ32      | 4H           | X   | 17, short hearts: takeout
+S AQJ974.83.K95.A6      | 4H           | 4S  | six good spades, 14
+S AQ5.KJ4.KQJ3.K73      | 4S           | X   | 19: values, for penalty
+S 952.K83.Q95.Q862      | 4S           | P   | nothing
+N AK752.8.KQ43.J32      | 4H X P       | 4S  | five spades: take the double out
+N 952.K83.Q95.Q862      | 4H X P       | P   | leave it in
+
+# Lebensohl after our double of their weak two (21GF cards:
+# competitive.lebensohl_weak_twos.play).
+card    21GF-DEFAULT
+N 843.92.Q7632.J42      | 2H X P           | 2N  | weak with diamonds: the relay
+N 843.92.KQ763.A42      | 2H X P           | 3D  | 9-12: the direct three-level suit is constructive
+N KQ43.92.A763.AK2      | 2H X P           | 3H  | fast cue: game values, four spades, no heart stopper
+N 943.92.AQ63.AK42      | 2H X P           | 3N  | fast 3NT: no stopper, no four-card major
+N K43.Q92.A763.KQ2      | 2H X P           | 2N  | game values with hearts stopped: slow
+S A762.3.KQJ4.AK32      | 2H X P 2N P      | 3C  | the doubler bids 3C as asked
+N 843.92.Q7632.J42      | 2H X P 2N P 3C P | 3D  | weak: correct to diamonds
+N 843.92.Q76.QJ842      | 2H X P 2N P 3C P | P   | weak with clubs: pass
+N K43.Q92.A763.KQ2      | 2H X P 2N P 3C P | 3N  | slow 3NT: hearts stopped
+N AQ43.K92.A763.K4      | 2H X P 2N P 3C P | 3H  | slow cue: four spades and a heart stopper
+S A762.3.KQJ4.AK32      | 2H X P 3H P      | 3S  | the doubler shows four spades
+S 843.92.KQ763.A42      | 2S P P X P       | 3D  | the balancing double too
+card    21GF-DEFAULT competitive.lebensohl_weak_twos.play=false
+N K43.Q92.A763.KQ2      | 2H X P           | 3N  | without Lebensohl: natural 3NT with the stopper
+
+# Their four-level minor preempt (Brill daily 2026-10-14 board 5). The
+# Basic-Bridge card has no 4m opening: read as natural. (21GF cards
+# play Namyats, which reads it as a strong heart preempt.)
+card    Basic-Bridge
+dealer  N
+vul     NS
+S T865.AQ.AQ74.A95      | P 4C             | X   | 16 HCP, three clubs: the double, partner converts or bids
+S T865.Q2.AQ74.A95      | P 4C             | P   | 12 HCP and three clubs: no double
+S KQ86.AJ95.KQ74.5      | P 4C             | X   | short in clubs, both majors
+S AKJ875.Q2.A74.95      | P 4C             | 4S  | six spades, 14+
+S KJ74.Q93.T862.J3      | P 4C P P X P     | 4S  | four spades: take it out
+S K74.Q93.T862.J73      | P 4C P P X P     | P   | no four-card major: leave it in
+
+# Their preempt raised to game (Brill daily 2026-10-14 board 4): with a
+# void in theirs and six of my own I declare; the big flat hand still
+# doubles for penalty.
+card    21GF-GIB
+dealer  W
+vul     All
+S AQJ7.AKQT94..K84      | 2D P 5D          | 5H  | void in diamonds, six hearts: bid them
+S AQJ7.AKQ94.5.K84      | 2D P 5D          | X   | five hearts and a singleton: takeout
+S Q87.AK.KQ84.A984      | 2D P 5D          | X   | four diamonds and 18: penalty, as before
+N KT543.J8.Q5.7532      | 2D P 5D X P      | P   | two diamonds: leave the double in

@@ -1,0 +1,173 @@
+# Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
+#
+# Natural opening bids. The 1-level suit openings are written to be mutually
+# exclusive (longest suit; higher of two 5-card suits; 1C with 3-3 in the
+# minors, 1D with 4-4), so ranking only has to choose between a suit opening
+# and something more descriptive such as 1NT.
+#
+# Not yet covered: 2-level and higher openings, and anything above 21 HCP.
+
+module base "Natural opening bids"
+  kind   system
+  skill  basic_bidding/major_suit_openings
+  skill  basic_bidding/minor_suit_openings
+  skill  partnership_bidding/basic_bidding
+  param  min_open = general.min_hcp_open default 12
+  param  style = general.style
+  # 1m with a five-card major and a longer minor (off: open the major)
+  param  may5 = minor_openings.may_hold_5_card_major default true
+  # 2C is the strong opening (off: no 2C, a strong hand opens at one;
+  # but a forcing 1C card keeps 2C until 1C is built, strong-openings.bid)
+  param  forcing_2c = general.forcing_opening_2c default true
+  param  forcing_1c = general.forcing_opening_1c default false
+
+# An opening needs 12 total points: HCP plus one for each card beyond four
+# in every suit (12 flat, 11 with a five-card suit, 10 with a six-card one).
+# The rule of 20 was tried as an extra requirement without a six-card suit
+# (it rules out 11 HCP with 5-3-3-2). BBA opens those hands far more often
+# than it passes them: it cost 2,939 agreeing calls and gained 225, so we
+# keep the 12 total points alone.
+# That leaves no gap between a weak two and a one-level opening.
+#
+# bba (probed 2026-09-24, preempts.notes.md): a ten-count with a six-card
+# suit opens at the one level only when the weak two is out (two aces, a
+# major with the ace-king, or a side four-card major with an honour), and
+# then, with the side major, only with two aces or kings among its honours
+# (controls 3+, or two kings). Six clubs and ten HCP pass.
+when opening
+  1S  "Major opening: 5+ spades"
+      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), S>=5, S>=H, (S>=D, S>=C) | !may5
+      when  style is standard
+  1H  "Major opening: 5+ hearts"
+      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), H>=5, H>S, (H>=D, H>=C) | !may5
+      when  style is standard
+  1D  "3+ diamonds"
+      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), D>=3, D>C | D>=4, D>=C, H<=4 | (H<D, may5), S<=4 | (S<D, may5)
+      when  style is standard
+  1C  "3+ clubs"
+      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), C>D | (C=3, D=3), H<=4 | (H<C, may5), S<=4 | (S<C, may5)
+      when  style is standard
+  1S  "Major opening: 5+ spades"
+      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), S>=5, S>=H, (S>=D, S>=C) | !may5, hcp>=11 | S<=5 | H<=3 | controls>=3 | (controls=2, !has(A,S), !has(A,H), !has(A,D), !has(A,C))
+      when  style is not standard
+  1H  "Major opening: 5+ hearts"
+      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), H>=5, H>S, (H>=D, H>=C) | !may5, hcp>=11 | H<=5 | S<=3 | controls>=3 | (controls=2, !has(A,S), !has(A,H), !has(A,D), !has(A,C))
+      when  style is not standard
+  1D  "3+ diamonds"
+      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), D>=3, D>C | D>=4, D>=C, H<=4 | (H<D, may5), S<=4 | (S<D, may5), hcp>=11 | D<=5 | (H<=3, S<=3) | controls>=3 | (controls=2, !has(A,S), !has(A,H), !has(A,D), !has(A,C))
+      when  style is not standard
+  1C  "3+ clubs"
+      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), C>D | (C=3, D=3), H<=4 | (H<C, may5), S<=4 | (S<C, may5), hcp>=11 | C<=5
+      when  style is not standard
+  P   "No opening bid"
+      shows hcp<=min_open-1, hcp+length_points<=min_open-1 | hcp<=9
+      priority -10
+  P   "No opening bid"
+      shows hcp=10, longest=6
+      when  style is not standard
+      priority -10
+
+# Third seat may open light with a good four-card major; fourth seat opens
+# by the rule of 15 (HCP plus spade length), and passes otherwise.
+when opening, seat=3
+  1S  "Major opening: 4+ good spades, 10-11 HCP"
+      shows S>=4, hcp=10..11, quality(S)>=good
+  1H  "Major opening: 4+ good hearts, 10-11 HCP"
+      shows H>=4, hcp=10..11, quality(H)>=good, S<=3
+when opening, seat=4
+  P   "No opening bid: HCP and spades under 15"
+      shows hcp<=14
+      when  hcp + S <= 14
+      priority 1
+
+# Once our side has bid game, a player with nothing more to add passes.
+# Slam tries and corrections are separate rules that outrank this.
+when game_reached
+  P   "No further bid"
+      when  !passes_out_artificial
+      priority -50
+
+# Partner bid at game or above, in a suit other than our agreed one, and
+# our system gives the call no meaning (a 5NT king ask the card does not
+# play, a convention we do not know): passing may leave us in a contract
+# nobody chose. Bid the agreed suit at the cheapest level, five, six or
+# seven (Rick, 2026-10-29).
+when game_reached, we.trump is suit, partner.unread, rho.last=P, !(partner.last=P | partner.last=X | partner.last=XX | partner.last=4{trump} | partner.last=5{trump} | partner.last=6{trump} | partner.last=7{trump})
+  cheapest(trump) "Back to the agreed suit"
+      priority -40
+
+# Partner answered my quantitative 4NT with a five-level suit our system
+# gives no meaning: below slam it is never a place to stop (Rick,
+# 2026-11-06, bridge-classroom-bug-artifacts #94: 4NT, 5♣ unread, passed
+# in a 4-0 fit with thirteen tricks in four strains). Read it as an
+# acceptance with a suit to offer: slam in notrump. The keycard asks
+# have their own continuations (rkcb-1430.bid, `answered keycards`).
+when answered quant, partner.unread, partner.last >= 5C, partner.last <= 5S, rho.last=P
+  6N  "Slam: partner accepted the invitation"
+      priority -40
+when answered quant_major(M), partner.unread, partner.last >= 5C, partner.last <= 5S, rho.last=P
+  6N  "Slam: partner accepted the invitation"
+      priority -40
+
+# ── Never pass out our own artificial bid ────────────────────────────
+# Brill round robin 2026-10-09, board 90000102: 1S 2S X 3S X P P P, a
+# doubled Michaels cue bid passed out for -1,700. The catch-all passes
+# (this file's "Game reached", advances.bid's "Defending: nothing more
+# to say", after-interference.bid's "nothing new to say", and two
+# transfer fallbacks) do not apply when our side's last bid is
+# artificial (a cue bid, a transfer, Stayman, a relay; not an answer to
+# partner's question, which the asker may choose to play) and RHO has
+# passed it: my pass would leave LHO to end the auction, or end it
+# (partner's game-forcing cue of their preempt, 3S X P 4S P, was passed
+# out by the doubler 67 times on the corpus). After RHO's double, a pass
+# that gives partner another turn may mean something (opener's pass of a
+# doubled Stayman 2C), and partner, the hand that knows what the bid
+# meant, runs at his turn.
+#
+# With no real rule left, the hand to call bids its best known fit
+# naturally (its own length plus partner's shown length) at the cheapest
+# level, never in a suit they have bid naturally. A fallback below every
+# real rule.
+define passes_out_artificial = artificial_contract, rho.last=P
+when passes_out_artificial
+  cheapest(S) "Runout: our best known fit"
+      prefer we.fit(S).min
+      when  !lho.named(S), !rho.named(S)
+      priority -60
+  cheapest(H) "Runout: our best known fit"
+      prefer we.fit(H).min
+      when  !lho.named(H), !rho.named(H)
+      priority -60
+  cheapest(D) "Runout: our best known fit"
+      prefer we.fit(D).min
+      when  !lho.named(D), !rho.named(D)
+      priority -60
+  cheapest(C) "Runout: our best known fit"
+      prefer we.fit(C).min
+      when  !lho.named(C), !rho.named(C)
+      priority -60
+
+# A game force must not be passed below game. When no better rule applies,
+# bid game: in the agreed suit, or in notrump without one.
+when we.forcing = game, !game_reached
+  4{trump}  "Game in the agreed suit"   when we.trump is H | we.trump is S
+            priority -40
+  5{trump}  "Game in the agreed suit"   when we.trump is C | we.trump is D
+            priority -40
+  3N        "Game in notrump"           when we.trump is none
+            priority -40
+  # A fit shown but not agreed (2026-09-27, ticket b455: 1H X P 2H 3H 4D,
+  # where the doubler's three spades met five and nobody bid 4S): game in
+  # the known eight-card fit, a major first, above the 3NT fallback.
+  4S        "Game in the spade fit"     shows S + partner.S.min >= 8
+            when  we.trump is none
+            priority -38
+  4H        "Game in the heart fit"     shows H + partner.H.min >= 8
+            when  we.trump is none
+            priority -38
+  5D        "Game in the diamond fit"   shows D + partner.D.min >= 8
+            when  we.trump is none
+            priority -41
+  5C        "Game in the club fit"      shows C + partner.C.min >= 8
+            when  we.trump is none
+            priority -41

@@ -1,0 +1,347 @@
+# Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
+#
+# The strong openings above 1NT (Rick, 2026-09-23).
+#
+# Balanced hands have a ladder, and every rung is a place to stop:
+#
+#   2NT            20-21        2♣ then 3NT    24-25
+#   2♣ then 2NT    22-23        3NT            26-27
+#                               2♣ then 4NT    28+
+#
+# Unbalanced hands open 2♣ on **23 total points**, or on playing strength:
+# within one trick of game, which is nine tricks with a major and ten with
+# a minor, since game there is eleven. Playing tricks are counted as
+# 13 - losers, and the hand needs a six-card suit or 5-5 to be counted
+# that way at all (strong-openings.notes.md has BBA's own 2♣ hands).
+#
+# Responder: 2♦ waits, a suit at the cheapest level is a positive with a
+# real suit, and after opener describes, the cheapest minor is the second
+# negative — a bust, less than a jack and a queen.
+
+module strong-openings "2♣ and 2NT openings"
+  kind   system
+  needs  base
+  skill  bidding_conventions/strong_2c
+  skill  partnership_bidding/two_club
+  param  two_c      = two_level.two_clubs.meaning default strong
+  param  two_d_resp = two_level.two_clubs.2d_response default waiting
+  param  bust_2h    = two_level.parrish_bust.play default false
+  param  kokish     = two_level.kokish.play default false   # 2♣–2♦–2♥ is the relay (openings/kokish.bid)
+  # Off: no strong 2C, and strong hands open at the one level (base.bid
+  # lifts its 21 HCP cap). A card whose forcing opening is 1C (Precision)
+  # keeps 2C as the stand-in until a forcing 1C is built: without it the
+  # strong hands open one of a suit and are passed out.
+  param  forcing_2c = general.forcing_opening_2c default true
+  param  forcing_1c = general.forcing_opening_1c default false
+  param  two_nt_min = notrump.two_nt.range_min default 20
+  param  two_nt_max = notrump.two_nt.range_max default 21
+  param  three_nt_min = notrump.three_nt.range_min default 26
+  param  three_nt_max = notrump.three_nt.range_max default 27
+  param  gambling   = notrump.gambling_3nt.play default false
+  param  rkcb   = slam.rkcb.play default false
+  param  benjamin   = two_level.benjamin.play default false
+  # French 2♦ (openings/french-2d.bid) takes every 24+ hand: 2♣ stops at 23.
+  param  french     = two_level.french_2d.play default false
+  param  style      = general.style
+  param  system     = general.system   # `brill`: the Brill card's treatments (3NT)
+
+when opening
+  2N  "{two_nt_min}-{two_nt_max} HCP, balanced"
+      shows hcp=two_nt_min..two_nt_max, balanced
+  3N  "{three_nt_min}-{three_nt_max} HCP, balanced"
+      shows hcp=three_nt_min..three_nt_max, balanced
+      shows S<=4 | system is not brill, H<=4 | system is not brill
+      when  !gambling, !french
+  # brill (the Brill card: 3NT 25-27): no five-card major in the 3NT
+  # opening, which then opens 2C (below). Brill /explain, 2026-10-15,
+  # "Balanced hand, 25-27 HCP": `(balanced or semibalanced) and hcp>= 25
+  # and hcp<= 27 and H<= 4 and S <= 4`.
+  # Three ways in, written apart because one condition for all of them
+  # cannot be read. Any of them is a 2♣ opening.
+  2C  "Strong 2♣: 22+ HCP"    alert
+      shows hcp>=22, !balanced | (system is not brill, hcp<=25) | (system is brill, hcp<=24 | S>=5 | H>=5) | hcp>=28 | gambling   # balanced 26-27 opens 3NT, unless 3NT is Gambling (brill: 25-27 without a five-card major)
+      when  two_c is strong | two_c is very_strong, forcing_2c | forcing_1c, !benjamin   # Benjamin: openings/benjamin.bid
+      shows !french | hcp<=23
+      sets  forcing=game, ask=strong_2c
+      artificial
+      priority 1                       # ahead of a one-level opening
+  2C  "Strong 2♣: nine tricks with a major"  alert
+      shows hcp>=17, losers<=4, hcp+length_points>=23
+      shows (H>=6, quality(H)>=good) | (S>=6, quality(S)>=good) | (H>=5, S>=5)
+      when  two_c is strong | two_c is very_strong, forcing_2c | forcing_1c, !benjamin   # Benjamin: openings/benjamin.bid
+      shows !french | hcp<=23
+      sets  forcing=game, ask=strong_2c
+      artificial
+      priority 1
+  2C  "Strong 2♣: ten tricks with a long suit"  alert
+      shows hcp>=17, losers<=3, hcp+length_points>=23
+      shows (C>=6, quality(C)>=good) | (D>=6, quality(D)>=good) | (H>=6, quality(H)>=good) | (S>=6, quality(S)>=good) | shape 5-5-x-x
+      when  two_c is strong | two_c is very_strong, forcing_2c | forcing_1c, !benjamin   # Benjamin: openings/benjamin.bid
+      shows !french | hcp<=23
+      sets  forcing=game, ask=strong_2c
+      artificial
+      priority 1
+
+# ── Responder ────────────────────────────────────────────────────────
+after 2C (P)
+  2D  "Waiting"                        artificial
+      when  two_d_resp is waiting | two_d_resp is negative
+      priority -1
+  2H  "Positive: five or more hearts, 8+"
+      shows H>=5, hcp>=8
+      when  !bust_2h, (H>=6, top5(H)>=3) | quality(H)>=good
+  2S  "Positive: five or more spades, 8+"
+      shows S>=5, hcp>=8
+      when  (S>=6, top5(S)>=3) | quality(S)>=good
+  3C  "Positive: five or more clubs, 8+"
+      shows C>=5, hcp>=8
+      when  (C>=6, top5(C)>=3) | quality(C)>=good
+      priority -1                      # balanced hands bid 2NT
+  3D  "Positive: five or more diamonds, 8+"
+      shows D>=5, hcp>=8
+      when  (D>=6, top5(D)>=3) | quality(D)>=good
+      priority -1
+  2N  "Positive: balanced, 8+"         shows balanced, hcp>=8
+  2H  "Bust: fewer than 3 HCP"         shows hcp<=2
+      when  bust_2h
+      sets  forcing=none                # opener may stop below game
+      artificial
+      priority 1
+
+# ── Opener describes after the waiting bid ───────────────────────────
+after 2C (P) 2D (P)
+  2N  "22-23 HCP, balanced"            shows hcp=22..23, balanced
+  # With a Gambling 3NT the balanced 26-27 opens 2C too, and rebids 3NT
+  # (before 2026-10-05 it had no opening at all and passed: Kokish_Relay,
+  # 10 of 50 boards). BBA rebids 3NT with 26-27 there.
+  3N  "24-25 HCP, balanced"   shows balanced, hcp>=24, hcp<=25 | (gambling, hcp<=27)
+      when  !kokish
+  # With Kokish the 24-25 goes through the relay (kokish.bid, 2♣–2♦–2♥–
+  # 2♠–2NT), so 3NT is the next rung up: 26-27 (BBA, Kokish_Relay with
+  # Gambling: 85 boards, 59 at 26 and 26 at 27; the relay's 2NT 93 at 25).
+  # Without a Gambling 3NT the 26-27 opens 3NT and we never rebid this,
+  # but partner's 3NT reads the same (2026-11-07).
+  3N  "26-27 HCP, balanced"   shows balanced, hcp>=26, hcp<=27
+      when  kokish
+  4N  "28+ HCP, balanced"              shows hcp>=28, balanced
+  2H  "5+ hearts"                      shows H>=5
+  2S  "5+ spades"                      shows S>=5
+  3C  "5+ clubs"                       shows C>=5
+  3D  "5+ diamonds"                    shows D>=5
+
+# ── Opener after their overcall and partner's pass (2026-10-05) ──────
+# The balanced hands rebid notrump as on the ladder, with a stopper in
+# their suit; systems are on over the 2NT (one-nt.bid, `systems on`).
+# Only the balanced rebids are written here so far.
+after 2C (2x) P (P) | 2C (3x) P (P)
+  2N  "22-23 HCP, balanced, a stopper in {x}"    shows hcp=22..23, balanced, stop(x)
+  3N  "24-25 HCP, balanced, a stopper in {x}"    shows hcp=24..25, balanced, stop(x)
+
+# ── Opener after a positive response ─────────────────────────────────
+# Partner has a real suit and 8+, so the only questions left are the fit
+# and the strain. `y is not D | partner.D>=5` is what tells the 3♦
+# positive from the 2♦ waiting bid, which has its own block above.
+# Responder after a positive and opener's suit: raise with three or more,
+# agreeing the suit for the slam modules (2026-09-25: we bid 3NT with
+# support and missed the slams BBA bid, To_Finesse_Or_Not_To_Finesse).
+after 2C (P) 2N (P) 3S (P) | 2C (P) 3C (P) 3S (P) | 2C (P) 3D (P) 3S (P)
+  4S  "Support: three or more spades"   shows S>=3   sets trump=S, forcing=game
+      priority 1
+after 2C (P) 2N (P) 3H (P) | 2C (P) 3C (P) 3H (P) | 2C (P) 3D (P) 3H (P)
+  4H  "Support: three or more hearts"   shows H>=3   sets trump=H, forcing=game
+      priority 1
+# Opener's minor after a major positive: four-card support raises below
+# game and agrees it, leaving the keycard ask to opener (2026-11-07,
+# bridge-classroom-bug-artifacts #94: 2C-2H-3D with J942 opposite AKT65
+# bid 3NT, where 6D and 7D make).
+after 2C (P) 2y (P) 3m (P) when y is H | y is S, m is C | m is D, !bust_2h | y is S
+  4m  "Support: four or more {m}"       shows m>=4   sets trump=m, forcing=game
+      priority 1
+
+# The raise is the 22+ hand (Rick, 2026-10-01): the balanced 22-24 that
+# was going to rebid 2NT, or any 22+ with three trumps, even with a suit
+# of its own (BBA raises on all of them: probes/slam-2C-2H-opener.toml).
+# A lighter 2C, opened on playing tricks, has a long suit and shows it.
+# So responder counts the raise as 22, not the 2C floor of 17.
+after 2C (P) 2y (P) | 2C (P) 3y (P) when y is not D | partner.D>=5, y is not H | !bust_2h
+  cheapest(y) "Raise: three or more {y}, 22+"  shows y>=3, hcp>=22   sets trump=y
+      priority 1
+  cheapest(S) "Five or more spades"           shows S>=5   when y is not S
+  cheapest(H) "Five or more hearts"           shows H>=5   when y is not H
+  cheapest(D) "Five or more diamonds"         shows D>=5   when y is not D
+  cheapest(C) "Five or more clubs"            shows C>=5   when y is not C
+  cheapest(N) "Balanced, no fit for {y}"      shows balanced, hcp>=22   # every balanced 2C is 22+
+      priority -1
+
+# ── Responder's rebid over opener's 2NT (2026-09-28) ─────────────────
+# Opener is balanced, 22+, with exactly two cards in my major (three
+# would have raised). We are forced to game and hold 30+ between us, so
+# every call here is a step towards slam (NT_Ladder 426: 2C P 2S P 2NT
+# P, where six spades opposite two bid 3NT and BBA reached 6S).
+# BBA, probes/strong2c-2S-2N-resp.toml and strong2c-2H-2N-resp.toml:
+# a six-card suit rebids, a four-card side suit is shown, 5-3-3-2 bids a
+# quantitative 4NT with 8-9 and 6NT with 10+.
+# That is BBA's treatment (`general.style = bba`). By default systems are
+# on over this 2NT (Rick, 2026-10-05; one-nt.bid, `systems on`): the 2NT
+# system of two-nt-responses.bid answers it, Stayman and transfers.
+after 2C (P) 2y (P) 2N (P) when y is H | y is S, y is not H | !bust_2h, style is bba
+  3y  "Six or more {y}"      shows y>=6   sets trump=y
+      priority 2                             # the fit first, before a side suit
+  3S  "Four or more spades"                    shows S>=4
+      when  y is H
+      priority 1                             # a major fit before a minor suit
+  3H  "Four or more hearts"                    shows H>=4
+      when  y is S
+      priority 1
+  3C  "Four or more clubs"                     shows C>=4
+  3D  "Four or more diamonds"                  shows D>=4
+  4N  "Quantitative: invites 6NT"
+      when  quant_4nt   # slam.quantitative_4nt.play (slam-entry.bid)
+      shows balanced, hcp + partner.hcp.min >= 30, hcp + partner.hcp.min <= 32
+      sets  ask=quant
+  6N  "Slam in notrump"            shows balanced, hcp + partner.hcp.min >= 33
+  3N  "To play"
+      priority -1
+
+# Opener with four cards in responder's second major agrees it and asks
+# for keycards at once: 30+ between us and a fit (BBA asks on almost
+# every hand after 2C P 2S P 2NT P 3S P, probes/strong2c-2S-2N-3S-opener.toml).
+# Without 1430 or 0314 on the card, game in the fit.
+after 2C (P) 2y (P) 2N (P) 3z (P) when y is H | y is S, z is H | z is S, z is not y, y is not H | !bust_2h, style is bba
+  4N  "Keycard ask in {z}: four-card support"  shows z>=4
+      when  rkcb
+      sets  trump=z, ask=keycards(z)
+      artificial
+  4z  "Four-card support: game in {z}"          shows z>=4
+      when  !rkcb
+      sets  trump=z
+
+# After the balanced positive, opener shows a suit or raises the notrump.
+after 2C (P) 2N (P)
+  3S  "Five or more spades"                   shows S>=5
+  3H  "Five or more hearts"                   shows H>=5
+  3D  "Five or more diamonds"                 shows D>=5
+  3C  "Five or more clubs"                    shows C>=5
+  3N  "Balanced 22, no suit to show"         shows balanced, hcp>=22   # 23+ bids 4NT or 6NT
+      priority -1
+  4N  "Quantitative: 23-24 balanced, invites 6NT"  shows balanced, hcp=23..24
+      when  quant_4nt   # slam.quantitative_4nt.play (slam-entry.bid)
+      sets  ask=quant
+  6N  "Slam in notrump"            shows hcp>=25, balanced
+
+# ── Responder's second call: the second negative ─────────────────────
+# Having waited, responder shows a bust by bidding the cheapest minor;
+# anything else is a positive and the auction is already game forcing.
+# With the 2♥ bust (`parrish_bust`) the bust was shown at once: 2♦ has
+# 3+ HCP and there is no second negative.
+after 2C (P) 2D (P) 2H (P)
+  3C  "Second negative: fewer than 3 HCP"  shows hcp<=2  when !bust_2h  artificial  priority 1
+after 2C (P) 2D (P) 2S (P)
+  3C  "Second negative: fewer than 3 HCP"  shows hcp<=2  when !bust_2h  artificial  priority 1
+after 2C (P) 2D (P) 3C (P)
+  3D  "Second negative: fewer than 3 HCP"  shows hcp<=2  when !bust_2h  artificial  priority 1
+
+# ── Responder's second call over opener's major (2026-11-07) ─────────
+# Rick, bridge-classroom-bug-artifacts #92: 2♣–2♦–2♥ (natural, Kokish
+# off) had no responder rules but the second negative, so every other
+# hand fell through to the base "Game in notrump" (3NT with six good
+# spades, or with a heart fit too weak for slam-entry's raise). Standard
+# practice: a five-card suit of my own is shown (2♠ over 2♥ at the two
+# level, a minor at three, each denying a fit), a raise is slam-entry's
+# or base.bid's game in the fit, and 2NT
+# waits with no fit and nothing to show, leaving room below 3NT for
+# opener's second suit or six-card major. With Kokish on, 2♥ is the
+# relay (kokish.bid) and these are off.
+after 2C (P) 2D (P) 2y (P) when y is S | !kokish, y is H | y is S, !bust_2h
+  2S  "Five or more spades"               shows S>=5, hcp>=3, quality(S)>=fair, H<=2
+      when  y is H
+      priority 1
+  3D  "Five or more diamonds"             shows D>=5, hcp>=3, quality(D)>=fair, y<=2
+  2N  "No fit, nothing to show: waiting"  shows y<=2, hcp>=3
+      priority -1
+
+# Opener after the waiting 2NT: a six-card major rebids, a second suit
+# is shown, 3NT with a five-card major and nothing more to say. Natural
+# and forcing (the 2♣ game force).
+after 2C (P) 2D (P) 2y (P) 2N (P) when y is S | !kokish, y is H | y is S, !bust_2h
+  3y  "Six or more {y}"                     shows y>=6
+      priority 1
+  3S  "Four or more spades"                 shows S>=4
+      when  y is H
+  3D  "Four or more diamonds"               shows D>=4
+  3C  "Four or more clubs"                  shows C>=4
+  3N  "Five {y}, nothing more to show"     shows y=5
+      priority -1
+
+# ── Opener's new suit over responder's transfer (2026-11-07) ─────────
+# Rick, bridge-classroom-bug-artifacts #94: 2♣–2♥(positive)–2NT, systems
+# on (Rick, 2026-10-05), 3♦ transfer, and opener bid 4♦ instead of
+# completing. Opener's 2NT denied three hearts, so it cannot be a
+# super-accept: it is natural, five or more of the minor, slam interest
+# (we are forced to game with 30+ between us). Before, nothing read it
+# (base.bid's runout fallback), responder took it as an answer to the
+# transfer and bid a quantitative 4NT, and the 5♣ that followed was
+# passed. The completion stays opener's own call (priority 0): these are
+# here so the 4m is read, and answered.
+after 2C (P) 2H (P) 2N (P) 3D (P) | 2C (P) 2S (P) 2N (P) 3H (P) when style is not bba, !bust_2h
+  4C  "Five or more clubs: slam interest, no fit"     shows C>=5
+      sets  forcing=game
+      priority -1
+  4D  "Five or more diamonds: slam interest, no fit"  shows D>=5
+      sets  forcing=game
+      priority -1
+
+# Responder: with three or more of opener's minor the fit is found, and
+# with 30+ between us the keycard ask agrees it (0314 or 1430 as the
+# card and rkcb-1430.bid say); without RKCB, slam in the fit. No fit:
+# back to my major, which opener may pass or bid on over.
+after 2C (P) 2y (P) 2N (P) 3x (P) 4m (P) when y is H | y is S, x is D | y is S, x is H | y is H, m is C | m is D, style is not bba, !bust_2h
+  4N  "Keycard ask in {m}: three or more {m}"   shows m>=3
+      when  rkcb
+      sets  trump=m, ask=keycards(m)
+      artificial
+      priority 2
+  6m  "Slam: three or more {m}"                 shows m>=3
+      when  !rkcb
+      sets  trump=m
+      priority 2
+  4y  "No fit for {m}: my {y}"                   shows m<=2
+      priority 1
+
+# ── The 2♥ bust (`two_level.parrish_bust.play`) ─────────────────
+# 2♣–2♥ shows fewer than 3 HCP (2♦ is then waiting with 3+, game
+# forcing). Opener describes naturally; a suit at the two level is
+# forcing one round, 2NT (22-23) and a three-level suit may be passed.
+# Hearts are bid at the three level (2♥ was artificial).
+after 2C (P) 2H (P) when bust_2h
+  2N  "22-23 HCP, balanced"            shows hcp=22..23, balanced
+  3N  "24-25 HCP, balanced"            shows balanced, hcp>=24, hcp<=25 | (gambling, hcp<=27)
+  4N  "28+ HCP, balanced"              shows hcp>=28, balanced
+  2S  "5+ spades: forcing one round"   shows S>=5
+      sets  forcing=round
+  3H  "5+ hearts"                      shows H>=5
+  3C  "5+ clubs"                       shows C>=5
+  3D  "5+ diamonds"                    shows D>=5
+after 2C (P) 2H (P) 2S (P) when bust_2h
+  3S  "Three or more spades"           shows S>=3
+      sets  trump=S
+      priority 1
+  2N  "No spade support"
+after 2C (P) 2H (P) 3H (P) when bust_2h
+  4H  "Raise to game: three or more hearts"   shows H>=3
+      sets  trump=H
+      priority 1
+  P   "No support"
+after 2C (P) 2H (P) 3C (P) | 2C (P) 2H (P) 3D (P) | 2C (P) 2H (P) 2N (P) when bust_2h
+  P   "No further bid"
+      priority 1
+# Opener after the bust's 2NT (no spade support): game with it in hand.
+after 2C (P) 2H (P) 2S (P) 2N (P) when bust_2h
+  4S  "Game in hand: six or more spades"   shows S>=6, losers<=3
+      priority 1
+  3S  "Six or more spades: to play"        shows S>=6
+  3H  "Five or more hearts too"            shows H>=5
+  3D  "Four or more diamonds too"          shows D>=4
+  3C  "Four or more clubs too"             shows C>=4
+  P   "No further bid"
+      priority -1

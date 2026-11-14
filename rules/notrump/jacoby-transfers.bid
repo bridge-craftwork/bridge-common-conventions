@@ -1,0 +1,249 @@
+# Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
+
+module jacoby-transfers "Jacoby Transfers"
+  kind   convention
+  card   notrump.jacoby_transfers.play
+  needs  notrump-base
+  skill  bidding_conventions/jacoby_transfers
+  skill  partnership_bidding/stayman_transfers
+  param  texas = notrump.texas.play default false
+  param  systems_on = nt_overcalls.direct.systems_on default true
+  param  vs_double = notrump.jacoby_transfers.vs_double default false
+  param  vs_2c = notrump.jacoby_transfers.vs_2c default false
+  param  style = general.style
+  param  system = general.system   # `brill`: the Brill card's treatments
+
+# The transfer is a question: "bid my suit". Opener's next call answers it,
+# whether a plain completion or a super-accept.
+after nt1 when !they.bid | systems_on
+  2D  "Transfer to hearts"  announce "Transfer"  shows H>=5  sets forcing=round, ask=transfer(H)  artificial
+  2H  "Transfer to spades"  announce "Transfer"  shows S>=5  sets forcing=round, ask=transfer(S)  artificial
+  2H  "Transfer to spades, 5-5 in the majors"  announce "Transfer"  shows S>=5, H>=5
+      when  style is bba                  # BBA transfers to spades first with 5-5
+      sets  forcing=round, ask=transfer(S)
+      artificial
+
+# Opener completes the transfer. Super-accepts are separate modules
+# (super-accept.bid, superaccept-doubleton.bid), switched on by the card.
+after nt1 2D (P)
+  2H  "Completes transfer"
+      when  system is not brill
+after nt1 2H (P)
+  2S  "Completes transfer"
+      when  system is not brill
+
+# brill (the Brill card): the plain completion denies four trumps, except
+# with 4-3-3-3 and a minimum. Brill /explain, 2026-10-15, "No superaccept":
+# `hearts < 4 or (not max and ExplicitShape == '3=4=3=3')` (spades:
+# `spades < 4 or (not max and ExplicitShape == '4=3=3=3')`). The other
+# four-trump hands super-accept: super-accept.bid, superaccept-doubleton.bid.
+after nt1 2D (P) when system is brill
+  2H  "Completes transfer: 2-3 ♥, or a minimum 3=4=3=3"
+      shows H<=3 | (H=4, shortest=3, hcp<=15)
+after nt1 2H (P) when system is brill
+  2S  "Completes transfer: 2-3 ♠, or a minimum 4=3=3=3"
+      shows S<=3 | (S=4, shortest=3, hcp<=15)
+
+# Responder's second call, once opener has answered. There is no auction
+# pattern: `answered transfer(M)` holds after any auction where partner
+# answered my transfer, and binds M to the major.
+#
+# `strength` bands are measured against what opener has shown: after a
+# 15-17 1NT, invite is 8-9 and game 10-15; after a maximum super-accept the
+# invitational band shrinks, so invitational hands bid game. Notrump
+# decisions use `strength`, total points (HCP + ½ per ten + 1 per card
+# beyond four, so the fifth card of the major counts); playing in the major
+# uses `suit_strength` (HCP + ½ per card beyond four).
+when answered transfer(M)
+  3M  "Sign off in the known fit"              shows suit_strength=signoff
+      when partner.M>=4, !(partner.last=2{M})  # after a 2S or 2NT super-accept, not Brill's plain 4-card completion
+  4M  "Game: in the fit, opposite a super-accept"  shows suit_strength=invite
+      when partner.M>=4                        # the super-accept is for thin games
+  P   "Weak: to play, {signoff} total points"  shows strength=signoff
+      when maybe partner.M<=3 | partner.last=3{M}   # never pass an artificial super-accept (2S, 2NT)
+      when !passes_out_artificial                   # nor my own transfer, doubled and passed back (base.bid)
+  2N  "Invitational: {invite} total points, exactly 5 {M}"  shows M=5, balanced | shortest>=2, strength=invite
+      sets ask=invite(M)
+  3M  "Invitational: {invite} total points, 6+ {M}"  shows M>=6, suit_strength=invite
+      when partner.last=2{M}                   # after a super-accept 3M is the sign-off
+      sets ask=invite(M)
+  # Six cards and a count between the two measures: too much to pass in
+  # total points (the sixth card counts two), too little to invite in
+  # suit points (it counts one). J85.KJ9754.6.J52 (6 HCP) had no call at all
+  # (convention score, 2026-10-07: 6 no-rule boards with Texas, 26
+  # without; 13 without super-accepts, whose plain completion is then
+  # the whole 1NT range). HCP decide, as for the five-card hands below.
+  3M  "Invitational: 6+ {M}"                   shows M>=6, strength>=invite, suit_strength=signoff, hcp>=25-partner.hcp.max
+      when partner.last=2{M}
+      sets ask=invite(M)
+      priority -1
+  P   "Weak in HCP: play here"                 shows M>=6, strength>=invite, suit_strength=signoff, hcp<=24-partner.hcp.max
+      when partner.last=2{M}
+      priority -1
+  3N  "Choice of games: 5 {M}, {game} total points"  shows M=5, balanced, strength=game
+      when maybe partner.M<=2                  # only while the fit is unknown
+      sets ask=choice                          # opener corrects with 3+ {M}
+  4M  "Game: {game} total points, 6+ {M}"      shows M>=6, suit_strength=game
+      when !texas                              # with Texas, game-only hands use it
+  4M  "Game: 6+ {M}, mild slam interest"             shows M>=6, suit_points>=31-partner.points.max, suit_points<=32-partner.points.min
+      when texas                               # 14-17 opposite 15-17: slam if opener has
+                                               # the right hand; Texas is for 18+
+      sets ask=slam_try(M)
+  4M  "Game: {game} total points, 6+ {M}"      shows M>=6, suit_strength=game
+      when texas                               # game-only hands normally use Texas
+      priority -1                              # a fallback: 4M still reads as the slam try
+  4M  "Game: in the known fit"                  shows suit_strength=game
+      when partner.M>=3                        # known, e.g. after a super-accept
+  # Without Texas the slam hands with six come through the transfer too
+  # (convention score, 2026-10-07: 39 had no rule). Five of the major
+  # invites six; six bids it.
+  5M  "Slam invitation: 6+ {M}"                shows M>=6, suit_strength=slam_invite
+      when !texas, partner.last=2{M}
+      sets ask=major_slam_invite(M)
+  6M  "Slam: 6+ {M}"                           shows M>=6, suit_strength>=slam
+      when !texas, partner.last=2{M}
+  3m  "Second suit, game forcing"              shows m>=4, strength>=game
+      sets forcing=game, ask=new_suit(M)
+  4N  "Quantitative, 5 {M}"                    shows M=5, balanced, strength=slam_invite
+      when  quant_4nt   # slam.quantitative_4nt.play (slam-entry.bid)
+      sets ask=quant_major(M)
+  6N  "Slam: {slam} total points, 5 {M}"       shows M=5, balanced, strength=slam
+  # Invitational in total points only through length (5-5 with a
+  # singleton, 6 HCP): no natural invitation fits. BBA passes.
+  P   "Weak in HCP: play here"                 shows M=5, strength=invite, hcp<=24-partner.hcp.max
+      when maybe partner.M<=3 | partner.last=3{M}
+      priority -1
+  # With a singleton and a real invitation in HCP, BBA bids 2NT anyway
+  # (Basic_Openers_Rebid 172, KT432.Q32.2.QJ93).
+  2N  "Invitational, exactly 5 {M}, a singleton"   shows M=5, strength=invite, hcp>=25-partner.hcp.max
+      sets ask=invite(M)
+      priority -1
+
+# Opener's answer to the invitation (`when asked invite(M)`) is a base
+# rule in rebids.bid: it answers any invitation in a major, transfers or
+# not.
+
+# Opener answers the quantitative 4NT with five in the major: slam with
+# 32 combined. Double dummy on dealt hands (probes/dd/quant-4nt-hearts.toml,
+# jacoby-transfers.notes.md, 2026-10-03): the doubleton is what makes the
+# major worth playing. A fit and a doubleton count the doubleton (`tp`),
+# so a minimum with one accepts in the major; 4-3-3-3 has no ruffing value
+# and plays notrump, or passes with a minimum. At IMPs the major with
+# four trumps, or three below a maximum; 6NT otherwise and at matchpoints.
+# 5M (to play, a minimum) never beat the better of pass and slam.
+when asked quant_major(M)
+  6M  "Accepts in {M}: four trumps, a doubleton"
+      shows M>=4, shortest=2, points>=32-partner.points.min
+      when  imps
+  6M  "Accepts in {M}: three trumps, a doubleton, not a maximum"
+      shows M=3, shortest=2, points>=32-partner.points.min, hcp<=shown.hcp.max-1
+      when  imps
+  6M  "Accepts in {M}: a fit and a doubleton"
+      shows M>=3, shortest=2, points<=31-partner.points.min, tp(M)>=32-partner.points.min
+  6N  "Accepts the slam invitation"     shows points>=32-partner.points.min
+  P   "Declines"                        shows points<=31-partner.points.min
+
+# Opener after responder's second suit (game forcing): rebid the major with
+# three-card support, which agrees it below game so that responder can look
+# for slam; otherwise 3NT.
+when asked new_suit(M)
+  3M  "3+ {M}: support"             shows M>=3   sets trump=M
+  3N  "No fit: 2 {M}"               shows M<=2
+
+# Responder over opener's 3NT, with the 5-4 shown (Rick, 2026-11-06,
+# bridge-classroom #85: AKT76.A95.9.AJ94 passed 3NT opposite 17 and
+# 6NT made; "Rusty should invite slam here"). over-3nt.bid counts HCP
+# for a balanced hand; this hand has shown its shape, and its fifth
+# major card is a trick in notrump too, so it counts total points:
+# 32 on opener's floor invites with a quantitative 4NT, 34 bids six.
+# This 4NT takes over over-3nt.bid's (which counts HCP) in this auction,
+# so opener reads one meaning. He accepts in points, one more than the
+# textbook 32 on responder's floor (17 shown: a 16-count with two tens
+# or a fifth card accepts, a flat 15 declines), in the minor with four
+# of it (a 4-4 fit takes a ruff), else 6NT.
+when answered new_suit(M), partner.last=3N, !they.bid
+  6N  "Small slam: 5-4 shown, {slam} total points"
+      shows points + partner.hcp.min >= 34
+  4N  "Quantitative: invites 6NT, 5-4 shown"
+      when  quant_4nt   # slam.quantitative_4nt.play (slam-entry.bid)
+      shows points + partner.hcp.min >= 32, points + partner.hcp.min <= 33
+      sets  ask=quant_two_suits
+
+when asked quant_two_suits
+  6C  "Accepts, in clubs: four clubs"     shows C>=4, points>=33-partner.points.min
+      when  partner.C>=4
+      priority 1
+  6D  "Accepts, in diamonds: four diamonds"  shows D>=4, points>=33-partner.points.min
+      when  partner.D>=4
+      priority 1
+  6N  "Accepts the slam invitation"       shows points>=33-partner.points.min
+  P   "Declines"                          shows points<=32-partner.points.min
+
+# Opener after the jump to game with mild slam interest: bid on with a good
+# fit and a maximum, even without having super-accepted.
+when asked slam_try(M)
+  4N  "Keycard ask: good fit and a maximum"   shows M>=3, points>=31-partner.suit_points.min
+      sets ask=keycards(M)
+      artificial
+  P   "No slam: plays game"
+
+# Opener answers five of the major: six unless minimum.
+when asked major_slam_invite(M)
+  6M  "Accepts the slam invitation: not a minimum"   shows hcp>=shown.hcp.max-1
+  P   "Declines: a minimum"           shows hcp<=shown.hcp.max-2
+
+# BBA's treatment (probed 2026-09-24, jacoby-transfers.notes.md), our
+# default since Rick's ruling the same day: with five hearts, four spades
+# and 7-9 HCP transfer rather than bid Stayman, then show the spades. The 2S is not forcing: opener passes
+# with three spades and two hearts. He prefers hearts: game with four,
+# or with three and 17; with four spades (two hearts) game from 16.
+after 1N (P) 2D (P) 2H (P)
+  2S  "5 hearts and 4 spades, invitational, not forcing"
+      shows H=5, S=4, hcp>=24-partner.hcp.max, hcp<=24-partner.hcp.min
+
+after 1N (P) 2D (P) 2H (P) 2S (P)
+  4H  "Accepts, in the heart fit"      shows H>=4 | (H=3, points>=24-partner.hcp.min)
+  3H  "Declines, in the heart fit"     shows H=3, points<=23-partner.hcp.min
+  4S  "Accepts, in the spade fit"      shows S>=4, H<=2, points>=23-partner.hcp.min
+  3S  "Declines, in the spade fit"     shows S>=4, H<=2, points<=22-partner.hcp.min
+  P   "No eight-card fit: play 2S"     shows H<=2, S<=3
+
+# Responder bids game over the decline with the top of the range.
+after 1N (P) 2D (P) 2H (P) 2S (P) 3H (P)
+  4H  "Game: the top of the invitation"  shows hcp>=25-partner.hcp.max
+  P   "Minimum: play 3H"                 shows hcp<=24-partner.hcp.max
+after 1N (P) 2D (P) 2H (P) 2S (P) 3S (P)
+  4S  "Game: the top of the invitation"  shows hcp>=25-partner.hcp.max
+  P   "Minimum: play 3S"                 shows hcp<=24-partner.hcp.max
+
+# ── Under interference ───────────────────────────────────────────────
+# `transfers.vs_double` and `transfers.vs_2c` say the transfers survive
+# RHO's double or 2♣ overcall. They keep their own calls in both cases:
+# 2♦ for hearts and 2♥ for spades. Opener completes as usual; the
+# super-accepts are not written for these auctions, so he simply bids
+# the major. One `after` line takes one `when`, so the double and the
+# 2♣ overcall are two contexts.
+
+# With both majors, transfer to the longer, and to spades when they are
+# equal: that is what BBA does under interference, and the higher suit
+# leaves us better placed if they bid again. (Uncontested, Stayman comes
+# first with 5-4 for Smolen; here it does not.)
+after 1N (X) when vs_double
+  2H  "Transfer to spades"  announce "Transfer"  shows S>=5  when S>=H  sets forcing=round, ask=transfer(S)  artificial
+  2D  "Transfer to hearts"  announce "Transfer"  shows H>=5  when H>S   sets forcing=round, ask=transfer(H)  artificial
+
+# Over the 2♣ overcall the transfer has a floor of five HCP: below that
+# BBA leaves the auction alone rather than push to the two level with
+# nothing. (Over the double there is no floor — running is the point.)
+after 1N (2C) when vs_2c
+  2H  "Transfer to spades"  announce "Transfer"  shows S>=5, hcp>=5  when S>=H  sets forcing=round, ask=transfer(S)  artificial
+  2D  "Transfer to hearts"  announce "Transfer"  shows H>=5, hcp>=5  when H>S   sets forcing=round, ask=transfer(H)  artificial
+
+after 1N (X) 2D (P) when vs_double
+  2H  "Completes transfer"
+after 1N (X) 2H (P) when vs_double
+  2S  "Completes transfer"
+after 1N (2C) 2D (P) when vs_2c
+  2H  "Completes transfer"
+after 1N (2C) 2H (P) when vs_2c
+  2S  "Completes transfer"

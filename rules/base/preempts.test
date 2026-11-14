@@ -1,0 +1,96 @@
+# Weak twos and preempts (Rick's rules), Basic-Bridge card.
+card    Basic-Bridge
+dealer  S
+vul     None
+
+# seat hand             | auction | expect | why
+S KQJ976.32.54.J43      |         | 2S     | 6 HCP, six spades: weak two
+S 32.KQJ976.54.J43      |         | 2H     | six hearts
+S 32.54.KQJ976.J43      |         | 2D     | six diamonds
+S J87654.K3.Q42.83      |         | 2S     | not vulnerable: a poor suit is fine
+S KQJ9764.32.54.J3      |         | 3S     | seven spades: the three level
+S KQJ97642.3.54.J3      |         | 4S     | eight spades: game
+S KQJ976.K3.A4.J43      |         | 1S     | 12 HCP: an opening bid, not a weak two
+S KQ976.32.A4.J432      |         | P      | 8 HCP, five spades: nothing in first seat
+
+vul     NS
+S J87654.K3.Q42.83      |         | P      | vulnerable: two of the top three or three of the top five
+S KQJ654.32.Q42.83      |         | 2S     | vulnerable with KQJ: fine
+
+# Third seat is looser: a good five-card suit will do.
+vul     None
+N KQT96.32.54.J432      | P P     | 2S     | third seat: a good five-card suit
+N J8764.32.54.KJ32      | P P     | P      | third seat: a poor five-card suit is still a pass
+
+# Fourth seat has no weak two: 2S is a sound opening.
+E KQJ976.K3.A42.83      | P P P   | 2S     | fourth seat: six spades and opening values
+E KQJ976.32.54.J43      | P P P   | P      | fourth seat: no weak two with 6 HCP
+E K53.AKJ954.A4.A8      | P P P   | 1H     | fourth seat: 21 total points is too strong for 2H (12-15; Rick, 2026-11-09)
+E K72.AKT632.Q.Q97      | P P P   | 1H     | fourth seat: 16 total points opens one and rebids
+E KJ9632.A3.K54.32      | P P P   | 2S     | fourth seat: 13 total points, a six-card suit
+
+# ── The BBA weak-two treatment (general.style=bba): 10 HCP in diamonds too,
+# and a side four-card major allowed
+card    Basic-Bridge general.style=bba
+dealer  S
+S J8.6.AQ9543.K762      |            | 2D     | bba: 10 HCP six diamonds (Basic_Weak_2)
+S 8752.AKQT73.T.T6      |            | 2H     | bba: a side four-card spade suit does not stop it
+card    Basic-Bridge
+S J8.6.AQ9543.K762      |            | 2D     | default (BBA's opening, Rick 2026-09-24): 10 HCP, one ace: a weak two
+card    Basic-Bridge general.style=standard
+S J8.6.AQ9543.K762      |            | 1D     | standard: 10 HCP and six diamonds opens 1D
+
+# ── BBA's ten-counts and side majors (probed 2026-09-24, preempts.notes.md)
+card    Basic-Bridge general.style=bba
+dealer  S
+vul     None
+S Q2.AKJ862.T95.93      |            | 1H     | bba: ten with the heart ace-king opens at the one level
+S K2.AQJ862.T95.93      |            | 2H     | bba: ten without the ace-king is a weak two
+S 92.AQ8762.A95.93      |            | 1H     | bba: two aces open at the one level
+S AK2.QJ8762.95.93      |            | 2H     | bba: a side ace-king does not count
+S 92.Q2.AKJ862.T93      |            | 2D     | bba: the diamond ace-king is still a weak two
+S A2.92.AQ8762.T93      |            | 1D     | bba: two aces open 1D
+S 9.KJ82.AQ8762.93      |            | 1D     | bba: honoured side major, an ace and a king: 1D
+S 9.QJ82.AQ8762.J3      |            | P      | bba: honoured side major, one ace and no king: pass
+S 9.9832.AQ8762.KJ      |            | 2D     | bba: a side major without an honour is no bar
+S 9.J982.AQ8762.Q3      |            | P      | bba: nine with a jack in the side major: no weak two
+S 9.K982.93.AK8762      |            | P      | bba: ten with six clubs passes
+S 9.84.AQT654.8642      |            | 3D     | bba: six-four in the minors, not vulnerable: 3D
+S 9.84.8642.AQT654      |            | 3C     | bba: six clubs and four diamonds: 3C
+S 9.84.AQT654.K642      |            | 2D     | bba: nine with six-four: 2D
+vul     All
+S 9.84.AQT654.8642      |            | 2D     | bba: vulnerable, six-four opens 2D
+
+# ── Responder to a three-level preempt: pass without a reason to bid
+# (2026-09-30), 3NT or a long major over a minor, and the preempter
+# passes the raise to four of the minor.
+card    Basic-Bridge
+dealer  S
+vul     None
+N 874.653.8.QT9875      | 3S P       | P      | a misfit: pass
+N K9.QT92.Q87.K965      | 3S P       | P      | two trumps and 10 HCP: pass
+N .AKT54.K953.J875      | 3S P       | P      | a void in partner's suit, 11 HCP: pass
+N AT754.AK43.KQ86.      | 3C P       | P      | 16 with a void in clubs and no 3NT: pass
+N AQ62.K5.A3.AQ952      | 3D P       | 3N     | 19, the diamond ace, the side suits stopped: 3NT
+N AK84.Q98.A864.A4      | 3C P       | 3N     | 17, the club ace, the side suits stopped: 3NT
+N J73.AKQT965.4.A6      | 3D P       | 4H     | seven hearts and 14: 4H to play
+S 85.432.AQJT632.Q      | 3D P 4D P  | P      | partner's raise: pass
+S A8.J3.92.AT97642      | 3C P 4C P  | P      | partner's raise: pass
+
+# ── The Brill card's treatments (general.system = brill; notes, "Brill").
+# Each Brill line has a 21GF-GIB line beside it: the default is unchanged.
+dealer  N
+vul     None
+card    Brill
+N KQT952.Q852.4.73      |            | 2S     | brill: a four-card side major is fine
+N KQT952.85432.4.7      |            | P      | brill: five hearts, no weak two
+N 82.Q853.KQJ852.4      |            | 2D     | brill: four hearts with the queen
+N 5.Q852.4.KQJ9762      |            | 3C     | brill: a four-card side major is fine at the three level too
+N KQJ9764.85432.4.      |            | P      | brill: seven spades and five hearts, no preempt
+N 5.32.KJ.KJT87632      |            | 4C     | brill: no Namyats; 4C is a natural preempt, eight clubs
+N .9532.Q8.KJT8763      |            | 4C     | brill: seven clubs and a void
+N 5.3.KJ.KJT876532      |            | 5C     | brill: nine clubs
+card    21GF-GIB
+N 5.32.KJ.KJT87632      |            | 5C     | default: 4C is Namyats on 21GF-GIB
+N KQT952.85432.4.7      |            | 2S     | default: no honour in the side hearts
+N 5.Q852.4.KQJ9762      |            | P      | default: no four-card major with the queen

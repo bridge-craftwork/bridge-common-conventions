@@ -1,0 +1,241 @@
+# Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
+#
+# Weak two-bids and higher preempts (Rick, 2026-09-22):
+#
+# - a weak two is 4-9 HCP with a six-card suit, a major 4-10 (2026-09-23);
+#   vulnerable it needs two of the top three or three of the top five
+#   honours;
+# - third seat is looser: a five-card suit will do, and no suit-quality
+#   requirement;
+# - fourth seat has no weak two: 2 of a suit there shows a six-card suit
+#   and the values of a minimum opening bid;
+# - with a seven-card suit open at the three level, not the two;
+# - the same guidelines apply to a weak jump overcall (competitive.bid,
+#   not written yet).
+
+module preempts "Weak two-bids and preempts"
+  kind   system
+  needs  base
+  skill  bidding_conventions/weak_2s
+  skill  bidding_conventions/preemptive_bids
+  skill  partnership_bidding/weak_twos
+  param  two_d = two_level.two_diamonds.meaning default weak
+  param  two_h = two_level.two_hearts.meaning default weak
+  param  two_s = two_level.two_spades.meaning default weak
+  param  style = general.style
+  param  system = general.system   # `brill`: the Brill card's treatments (below)
+  param  flannery = two_level.flannery.play default false
+  param  multi    = two_level.multi.play default false
+  param  benjamin = two_level.benjamin.play default false
+  param  polish   = two_level.polish_two_suiters.play default false
+  param  mini_roman = two_level.mini_roman.play default false
+  param  french   = two_level.french_2d.play default false
+  param  wilkosz  = two_level.wilkosz.play default false
+  param  prec_2d  = two_level.precision_2d.play default false
+
+# The natural weak twos give way when a convention takes the call
+# (conventions/openings/): Flannery, Multi, Benjamin, Mini-Roman, French,
+# Wilkosz and Precision 2♦ take 2♦; Multi
+# shows the weak twos in a major through 2♦ (BBA opens every such hand
+# 2♦, probes/multi-openings.toml), and Polish two-suiters take 2♥ and 2♠.
+define weak_2d_open = !flannery, !multi, !benjamin, !mini_roman, !french, !wilkosz, !prec_2d
+define weak_2h_open = !multi, !polish
+define weak_2s_open = !multi, !polish
+# For the responses (weak-two-responses.bid): a 2x opening that is a natural weak two.
+define weak_two_suit(x) = x is not D | (!flannery, !multi, !benjamin, !mini_roman, !french, !wilkosz, !prec_2d), x is not H | (!multi, !polish), x is not S | (!multi, !polish)
+
+# ── Weak two-bids, first and second seat ─────────────────────────────
+when opening, seat<=2
+# standard: 4-9 (a major 4-10), no side four-card major; vulnerable, a
+# good suit. The default follows BBA (below; Rick, 2026-09-24).
+  2D  "Weak two: six diamonds, 4-9"    shows D=6, hcp=4..9, H<=3, S<=3
+      when two_d is weak, weak_2d_open, style is standard, !vul
+  2D  "Weak two: six diamonds, 4-9, a good suit"   shows D=6, hcp=4..9, H<=3, S<=3, quality(D)>=good | top5(D)>=3
+      when two_d is weak, weak_2d_open, style is standard, vul
+  2H  "Weak two: six hearts, 4-10"     shows H=6, hcp=4..10, S<=3
+      when two_h is weak, weak_2h_open, style is standard, !vul
+  2H  "Weak two: six hearts, 4-10, a good suit"    shows H=6, hcp=4..10, S<=3, quality(H)>=good | top5(H)>=3
+      when two_h is weak, weak_2h_open, style is standard, vul
+  2S  "Weak two: six spades, 4-10"     shows S=6, hcp=4..10
+      when two_s is weak, weak_2s_open, style is standard, !vul
+  2S  "Weak two: six spades, 4-10, a good suit"    shows S=6, hcp=4..10, quality(S)>=good | top5(S)>=3
+      when two_s is weak, weak_2s_open, style is standard, vul
+
+# The default and bba (probed 2026-09-24, preempts.notes.md): every weak two goes to 10
+# HCP. A side four-card major stops it only when it holds the jack or
+# better. A ten-count with two aces opens at the one level, and so does a
+# major with the ace-king (base.bid decides between one and pass). The
+# hand conditions are in `shows` and `when` stays public, so that these
+# rules never widen what a weak two shows under the default style.
+  2D  "Weak two: six diamonds, 4-10"   shows D=6, hcp=4..10, H<=3 | (!has(A,H), !has(K,H), !has(Q,H), !has(J,H)), S<=3 | (!has(A,S), !has(K,S), !has(Q,S), !has(J,S)), hcp<=9 | !has(A,D) | (!has(A,S), !has(A,H), !has(A,C))
+      when two_d is weak, weak_2d_open, style is not standard, system is not brill, !vul
+  2D  "Weak two: six diamonds, 4-10, a good suit"   shows D=6, hcp=4..10, quality(D)>=good | top5(D)>=3, H<=3 | (!has(A,H), !has(K,H), !has(Q,H), !has(J,H)), S<=3 | (!has(A,S), !has(K,S), !has(Q,S), !has(J,S)), hcp<=9 | !has(A,D) | (!has(A,S), !has(A,H), !has(A,C))
+      when two_d is weak, weak_2d_open, style is not standard, system is not brill, vul
+  2H  "Weak two: six hearts, 4-10"     shows H=6, hcp=4..10, S<=3 | (!has(A,S), !has(K,S), !has(Q,S), !has(J,S)), hcp<=9 | !has(A,H) | (!has(K,H), !has(A,S), !has(A,D), !has(A,C))
+      when two_h is weak, weak_2h_open, style is not standard, system is not brill, !vul
+  2H  "Weak two: six hearts, 4-10, a good suit"     shows H=6, hcp=4..10, quality(H)>=good | top5(H)>=3, S<=3 | (!has(A,S), !has(K,S), !has(Q,S), !has(J,S)), hcp<=9 | !has(A,H) | (!has(K,H), !has(A,S), !has(A,D), !has(A,C))
+      when two_h is weak, weak_2h_open, style is not standard, system is not brill, vul
+  2S  "Weak two: six spades, 4-10"     shows S=6, hcp=4..10, H<=3 | (!has(A,H), !has(K,H), !has(Q,H), !has(J,H)), hcp<=9 | !has(A,S) | (!has(K,S), !has(A,H), !has(A,D), !has(A,C))
+      when two_s is weak, weak_2s_open, style is not standard, system is not brill, !vul
+  2S  "Weak two: six spades, 4-10, a good suit"     shows S=6, hcp=4..10, quality(S)>=good | top5(S)>=3, H<=3 | (!has(A,H), !has(K,H), !has(Q,H), !has(J,H)), hcp<=9 | !has(A,S) | (!has(K,S), !has(A,H), !has(A,D), !has(A,C))
+      when two_s is weak, weak_2s_open, style is not standard, system is not brill, vul
+
+# brill (the Brill card, general.system = brill): Brill's weak two is
+# six cards, 5-11 HCP, with no five-card side major; a four-card one is
+# allowed. Brill /explain, 2026-10-15: "Weak 2 S" requires `hcp<= 11 and
+# S == 6 and hcp> 4 and bestsuit('S') and loserlevel >= 2 and S_points >= 6
+# and H <= 4 and not shapeopenings` (2D: `S <= 4 and H <= 4`). No
+# vulnerability condition. The top stays at 10 and the ace clause stays,
+# so the choice against a one-level opening is the default's.
+  2D  "Weak two: six diamonds, 5-10, no five-card major"   shows D=6, hcp=5..10, H<=4, S<=4, hcp<=9 | !has(A,D) | (!has(A,S), !has(A,H), !has(A,C))
+      when two_d is weak, weak_2d_open, system is brill
+  2H  "Weak two: six hearts, 5-10, no five spades"         shows H=6, hcp=5..10, S<=4, hcp<=9 | !has(A,H) | (!has(K,H), !has(A,S), !has(A,D), !has(A,C))
+      when two_h is weak, weak_2h_open, system is brill
+  2S  "Weak two: six spades, 5-10, no five hearts"         shows S=6, hcp=5..10, H<=4, hcp<=9 | !has(A,S) | (!has(K,S), !has(A,H), !has(A,D), !has(A,C))
+      when two_s is weak, weak_2s_open, system is brill
+
+# ── Third seat: five cards will do, and no quality requirement ───────
+when opening, seat=3
+  2D  "Weak two: five or six diamonds, 4-9"  shows D>=5, D<=6, hcp=4..9, H<=3, S<=3
+      when two_d is weak, weak_2d_open, D>=6 | quality(D)>=good
+  2H  "Weak two: five or six hearts, 4-9"  shows H>=5, H<=6, hcp=4..9, S<=3
+      when two_h is weak, weak_2h_open, H>=6 | quality(H)>=good
+  2S  "Weak two: five or six spades, 4-9"  shows S>=5, S<=6, hcp=4..9
+      when two_s is weak, weak_2s_open, S>=6 | quality(S)>=good
+
+# ── Fourth seat: no weak two; 2 of a suit is a sound minimum opening ─
+# The hand that would open one and rebid two of the suit: a six-card suit
+# and 12-15 total points (Rick, 2026-11-09). Stronger hands open one.
+when opening, seat=4
+  2D  "Fourth seat: six diamonds, 12-15"  shows D>=6, points>=12, points<=15
+      when two_d is weak, weak_2d_open
+  2H  "Fourth seat: six hearts, 12-15"    shows H>=6, points>=12, points<=15
+      when two_h is weak, weak_2h_open
+  2S  "Fourth seat: six spades, 12-15"    shows S>=6, points>=12, points<=15
+      when two_s is weak, weak_2s_open
+
+# ── Three- and four-level preempts (not in fourth seat) ─────────────
+when opening, seat<=3
+  3C  "Preempt: seven clubs, 4-9"      shows C=7, hcp=4..9, H<=3, S<=3
+      when !vul | quality(C)>=good | top5(C)>=3, system is not brill
+  3D  "Preempt: seven diamonds, 4-9"   shows D=7, hcp=4..9, H<=3, S<=3
+      when !vul | quality(D)>=good | top5(D)>=3, system is not brill
+  3H  "Preempt: seven hearts, 4-9"     shows H=7, hcp=4..9, S<=3
+      when !vul | quality(H)>=good | top5(H)>=3, system is not brill
+  3S  "Preempt: seven spades, 4-9"     shows S=7, hcp=4..9
+      when !vul | quality(S)>=good | top5(S)>=3, system is not brill
+  # brill: a side major may be four cards, never five (Brill /explain,
+  # 2026-10-15, "Preempt": `clubs >= 7 and hcp>= 5 and hcp<= 11 and
+  # totalpoints >= 6 and not shapeopenings and H <= 4 and S <= 4`; 3H
+  # `S <= 4`, 3S `H <= 4`).
+  3C  "Preempt: seven clubs, 4-9, no five-card major"     shows C=7, hcp=4..9, H<=4, S<=4
+      when !vul | quality(C)>=good | top5(C)>=3, system is brill
+  3D  "Preempt: seven diamonds, 4-9, no five-card major"  shows D=7, hcp=4..9, H<=4, S<=4
+      when !vul | quality(D)>=good | top5(D)>=3, system is brill
+  3H  "Preempt: seven hearts, 4-9, no five spades"        shows H=7, hcp=4..9, S<=4
+      when !vul | quality(H)>=good | top5(H)>=3, system is brill
+  3S  "Preempt: seven spades, 4-9, no five hearts"        shows S=7, hcp=4..9, H<=4
+      when !vul | quality(S)>=good | top5(S)>=3, system is brill
+  4H  "Preempt: eight hearts"          shows H>=8, hcp=4..10, S<=3
+  4S  "Preempt: eight spades"          shows S>=8, hcp=4..10
+  5C  "Preempt: eight clubs"           shows C>=8, hcp=4..10, H<=3, S<=3
+      when  system is not brill
+  5D  "Preempt: eight diamonds"        shows D>=8, hcp=4..10, H<=3, S<=3
+      when  system is not brill
+  # brill (the Brill card, no Namyats): four of a minor is a natural
+  # preempt with eight, five with nine. Brill /explain, 2026-10-15,
+  # "Preemptive_4_Level_Openings": `C >= 8 and hcp>= 5 and hcp<= 11 and
+  # loserlevel >= 3 and H <= 4 and S <= 4 and not shapeopenings` (and
+  # `C >= 7 ... loserlevel >= 4`); "Preemptive_5_Level_Openings" `C >= 8
+  # ... loserlevel >= 5`. Seen at the table: 2026-10-14 IMP board 5,
+  # Brill opened 4C with KJT8763 in clubs. Brill's seven-card 4m wants
+  # `loserlevel >= 4`; we take a void as that shape (an approximation).
+  4C  "Preempt: seven or eight clubs, no five-card major"  shows C=8 | (C=7, shortest=0), hcp=4..10, H<=4, S<=4
+      when  system is brill
+      priority 1                         # a seven-card suit with a void: ahead of 3C
+  4D  "Preempt: seven or eight diamonds, no five-card major"  shows D=8 | (D=7, shortest=0), hcp=4..10, H<=4, S<=4
+      when  system is brill
+      priority 1
+  5C  "Preempt: nine or more clubs"                   shows C>=9, hcp=4..10, H<=4, S<=4
+      when  system is brill
+  5D  "Preempt: nine or more diamonds"                shows D>=9, hcp=4..10, H<=4, S<=4
+      when  system is brill
+
+# bba: not vulnerable, six-four in the minors opens at the three level
+# with 4-8 (9-10 open 2D, and six clubs have no weak two).
+  3D  "Preempt: six diamonds and four clubs, 4-8"  shows D=6, C=4, hcp=4..8
+      when !vul, seat<=2, style is bba
+  3C  "Preempt: six clubs and four diamonds, 4-8"  shows C=6, D=4, hcp=4..8
+      when !vul, seat<=2, style is bba
+
+# ── Responder to a three-level preempt ────────────────────────────────
+# Before these rules responder had no call at all after 3x-(P): ~700
+# corpus boards where BBA bid (probes/preempt-resp-3S.toml, 3C). BBA,
+# 2026-09-25:
+# - over 3M, game with four trumps whatever the strength, with three and
+#   9 support points (HCP and shortness), with two and 15 HCP;
+# - over 3m, a preemptive 4m with three trumps and less than 12, and 5m
+#   with four and a singleton or 12+ (15+ with three and a singleton);
+#   strong hands without a fit pass (3NT and a long major: 2026-09-30,
+#   below and preempts.notes.md). Vulnerable, 4m is
+#   invitational (9-14, two trumps will do), weak hands pass, and 5m wants
+#   15, or 12 with four trumps and a singleton. (BBA follows relative
+#   vulnerability, and is mixed at equal; keying on ours alone scores
+#   best against par: preempts.notes.md.)
+after 3H (P)
+  4H  "Raise to game"  shows H>=4 | (H=3, tp(H)>=9) | (H=2, hcp>=15)
+after 3S (P)
+  4S  "Raise to game"  shows S>=4 | (S=3, tp(S)>=9) | (S=2, hcp>=15)
+after 3C (P)
+  3N  "To play: 16+, A or K of clubs, side suits stopped"
+      shows hcp>=16, has(A,C) | has(K,C), stop(S), stop(H), stop(D)
+      priority 2
+  4H  "To play: seven hearts"    shows H>=7, hcp>=12
+      priority 2
+  4S  "To play: seven spades"    shows S>=7, hcp>=12
+      priority 2
+  5C  "Game in clubs: 17+ and a doubleton"  shows C>=2, hcp>=17
+      priority 1
+  5C  "Game in clubs"  shows C>=4, shortest<=1 | hcp>=12 | (C>=3, hcp>=15, shortest<=1)
+      when  !vul
+      priority 1
+  4C  "Preemptive raise"  shows C>=3, hcp<=11
+      when  !vul
+  5C  "Game in clubs"  shows C>=3, hcp>=15 | (C>=4, hcp>=12, shortest<=1)
+      when  vul
+      priority 1
+  4C  "Invitational raise"  shows C>=2, hcp=9..14
+      when  vul
+after 3D (P)
+  3N  "To play: 16+, A or K of diamonds, side suits stopped"
+      shows hcp>=16, has(A,D) | has(K,D), stop(S), stop(H), stop(C)
+      priority 2
+  4H  "To play: seven hearts"    shows H>=7, hcp>=12
+      priority 2
+  4S  "To play: seven spades"    shows S>=7, hcp>=12
+      priority 2
+  5D  "Game in diamonds: 17+ and a doubleton"  shows D>=2, hcp>=17
+      priority 1
+  5D  "Game in diamonds"  shows D>=4, shortest<=1 | hcp>=12 | (D>=3, hcp>=15, shortest<=1)
+      when  !vul
+      priority 1
+  4D  "Preemptive raise"  shows D>=3, hcp<=11
+      when  !vul
+  5D  "Game in diamonds"  shows D>=3, hcp>=15 | (D>=4, hcp>=12, shortest<=1)
+      when  vul
+      priority 1
+  4D  "Invitational raise"  shows D>=2, hcp=9..14
+      when  vul
+
+# Responder passes everything else (2026-09-30): a misfit, a weak hand,
+# or a strong one without a fit and without 3NT. Before this rule the
+# pass was the engine's "no rule" (vanilla SAYC: ~490 boards).
+after 3x (P) when x is not N
+  P   "No game: no fit, or not enough"
+      priority -10
+
+# The preempter after partner's raise to four of the minor: pass. BBA
+# passed all 45 times on the vanilla SAYC set, 6-10 HCP.
+after 3x (P) 4x (P) when x is C | x is D
+  P   "No further bid"
+      priority -10

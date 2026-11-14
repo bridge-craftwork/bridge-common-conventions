@@ -1,0 +1,78 @@
+# Overcalls of a one-level opening, Basic-Bridge card. Hands are from
+# Practice-Bidding-Scenarios boards where we and BBA make the same call.
+card    Basic-Bridge
+dealer  E
+vul     None
+
+# seat hand                 | auction | expect | why
+S AKT75.KJ9.3.JT93          | 1D      | 1S     | 11 HCP, five spades: a one-level overcall
+S 72.AT852.K92.KT6          | 1D      | P      | AT852 is not a suit: 2 of the top 5 and only 10 total points
+S KJ432.JT.A85.Q94          | 1H      | 1S     | five spades over their heart opening
+S 3.AQ3.AJ5.T97652          | 1D      | 2C     | 11 HCP, six clubs: the two level needs 12 total points
+S T986.A4.Q8.AQJ65          | 1H      | 2C     | 13 HCP, five clubs headed by AQJ
+S 9.AKQ752.AT9.T98          | 1S      | 2H     | 13 HCP, six hearts: hearts over spades costs a level
+S KT3.T87.AQJT3.KQ          | 1C      | 1N     | 15 HCP balanced with a club stopper
+S AKQ8.QJ65.985.A8          | 1C      | 1N     | 17 HCP balanced, no five-card major
+S KQJ752.2.J32.Q73          | 1C      | 2S     | 8 HCP, six spades: the weak jump overcall
+S KQ976.32.A4.J432          | 1C      | 1S     | five spades and 9 total points: overcall, not a jump
+S 872.J43.QT65.964          | 1D      | P      | no overcall: nothing to say
+S AKQ765.A4.KQ3.A2          | 1H      | X      | 20 HCP: too strong to overcall, double first
+
+vul     Both
+S J87654.K3.Q42.83          | 1C      | P      | six ragged spades and 9 total points: nothing to bid
+S KQJ654.32.Q42.83          | 1C      | 2S     | vulnerable with KQJ: the jump is fine
+
+# Too strong for a two-level overcall in total points, short of the power
+# double in HCP: overcall, don't pass (ticket b400, 2026-10-02).
+card    Basic-Bridge
+dealer  W
+N A82.76.AKQT85.K3      | 1H                     | 2D     | 16 HCP and six good diamonds: 18 total points, overcall
+N AQ73.84.6.AKQJT4      | 1H                     | 2C     | 16 HCP and six solid clubs
+
+# Two-level overcalls: 12 HCP with five, 11 with six or more; BBA,
+# probes/oc-2C-over-1D.toml (ticket b238, 2026-10-04).
+card    Basic-Bridge
+dealer  S
+W J73.J3.K4.KQ6432      | 1D                     | P      | 10 HCP, six clubs: too weak for a two-level overcall
+W J73.Q3.K4.KQ6432      | 1D                     | 2C     | 11 HCP and six clubs
+W J73.Q3.K42.KQ643      | 1D                     | P      | 11 HCP and five clubs: one short
+
+# The sandwich seat: (1x) P (1y) (2026-10-07).
+card    21GF-DEFAULT
+dealer  S
+E AKJ9.T3.62.Q9843      | 1D P 1H                | P      | 10 HCP: too weak to double, clubs too poor for 2C
+E AKJ9.T3.62.AQ843      | 1D P 1H                | 2C     | 14, four spades and five clubs: below 15 the suit comes first
+E AKJ9.T3.6.AKQ843      | 1D P 1H                | X      | 17, four spades and six clubs: double first
+E KQ9643.KT954.4.4      | 1D P 1H                | 2S     | six spades, 8 HCP: weak jump
+E AQJT64.AT86.3.K6      | 1D P 1H                | 1S     | a five-card suit overcalls
+E 73.A43.A8.KQJT43      | 1D P 1H                | 2C     | six good clubs, 14
+E 65.AKQ9.AQ54.654      | 1D P 1H                | 1NT    | 15 balanced, AKQ9 and AQ54 hold their suits
+E AK93.Q83.KT.KT65      | 1D P 1H                | 1NT    | 15 balanced, both their suits held
+E Q.KQ86.Q98.KQJ86      | 1H P 1S                | 2C     | five good clubs, 14
+E K7.KT54.K54.AJT3      | 1H P 1S                | P      | 14, four-three in the minors: pass
+E QJ9.92.AK86.K854      | 1H P 1S                | X      | 13, four-four in the minors
+E 8.AKJ54.AQ953.K5      | 1H P 1S                | 2D     | hearts are theirs: five diamonds
+E 4.T54.765.KJ9853      | 1H P 1S                | P      | 5 HCP
+
+# ── The Brill card's treatments (general.system = brill; notes, "Brill").
+# Each Brill line has a 21GF-GIB line beside it: the default is unchanged.
+dealer  N
+vul     None
+card    Brill
+E KQ.AJ932.KQ2.J52      | 1D         | 1NT    | brill: semi-balanced with five hearts, 16: 1NT
+E KQ2.AJ3.KQ32.J52      | 1S         | 1NT    | brill: 15-17
+card    21GF-GIB
+E KQ.AJ932.KQ2.J52      | 1D         | 1H     | default: the five-card major is overcalled
+
+# Over their raise (2026-10-20, Brill daily board 4): the direct seat
+# after (1x) P (2x) or (3x). North is the direct seat with dealer East.
+card    21GF-DEFAULT
+dealer  E
+vul     None
+N KQJ75.A84.T93.82      | 1C P 2C    | 2S     | 10 HCP, five good spades: overcall over their raise
+N KQT987.43.J52.83      | 1D P 2D    | 3S     | 6 HCP, six spades: the weak jump over their raise
+N 83.AQJ95.K4.Q972      | 1S P 2S    | P      | 12 HCP, five hearts: the three level needs six or 14+
+N 83.AQJ952.K4.Q97      | 1S P 2S    | 3H     | 12 HCP, six good hearts: three-level overcall
+N 9873.Q42.J65.K83      | 1H P 2H    | P      | nothing to say over their raise
+N A3.K42.KQJ875.83      | 1C P 3C    | 3D     | 13 HCP, six good diamonds over the jump raise
+N 8.Q3.KQT94.AJ852      | 1S P 3S    | P      | five-five minors over the jump raise: no rule above 3S, pass

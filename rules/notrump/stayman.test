@@ -1,0 +1,115 @@
+# Stayman and what follows it.
+card    21GF-DEFAULT
+dealer  S
+
+# seat hand             | auction          | expect | why
+N KJ82.Q7.K943.J83      | 1NT P            | 2C     | 10 HCP, four spades
+N KJ82.Q73.K94.J83      | 1NT P            | 3NT    | 4-3-3-3 bids notrump, not Stayman
+S AK5.KJ72.Q94.K83      | 1NT P 2C P       | 2H     | four hearts
+S AK52.KJ7.Q94.K83      | 1NT P 2C P       | 2S     | four spades, not four hearts
+S AK5.KJ7.Q942.K83      | 1NT P 2C P       | 2D     | no four-card major
+N KJ82.Q7.K943.J83      | 1NT P 2C P 2S P  | 4S     | 10: game in the fit
+N KJ82.Q7.Q943.J83      | 1NT P 2C P 2S P  | 4S     | 9 HCP + 1 for the doubleton = 10 support points: game
+N KJ82.Q7.Q943.T83      | 1NT P 2C P 2S P  | 3S     | 8½ total, 9 support points: invite in the fit
+N AQ82.K.KQ943.J83      | 1NT P 2C P 2S P  | 6S     | 15 HCP + 3 for the singleton = 18 support points: slam
+N KJ82.Q7.K943.J83      | 1NT P 2C P 2H P  | 3NT    | four spades, no heart fit: game
+N A852.AT8.KQT.KQ3      | 1NT P 2C P 2S P  | 6S     | 18 in the fit: slam
+N A852.AT8.KQT.KQ3      | 1NT P 2C P 2D P  | 4C     | 18, no fit: Gerber checks the aces before 6NT (gerber.bid)
+
+# Systems on over our 1NT overcall: the same auction, one call later.
+dealer  E
+N KJ82.Q7.K943.J83      | 1C 1NT P         | 2C     | Stayman over partner's 1NT overcall
+S AK5.KJ72.Q94.K83      | 1C 1NT P 2C P    | 2H     | four hearts, as over a 1NT opening
+N KJ82.Q7.K943.J83      | 1C 1NT P 2C P 2S P | 4S   | the spade fit, game
+
+# Opener answers the raise: with the four-four fit found, 16 accepts.
+dealer  S
+S KQ5.KJ72.AQ5.J52      | 1NT P 2C P 2H P 3H P | 4H | 16 in the eight-card fit: accept (par)
+S KQ5.KJ72.AQ5.T52      | 1NT P 2C P 2H P 3H P | P  | 15: decline
+
+# ── Light Stayman: our default against the BBA treatment (probed 2026-09-24)
+card    Basic-Bridge
+dealer  S
+N 942.A983.964.K87      | 1NT P               | P      | 7 HCP 4-3-3-3: no game interest (default)
+card    Basic-Bridge general.style=bba
+N 942.A983.964.K87      | 1NT P               | 2C     | bba: 7 HCP and four hearts is enough for Stayman
+# Known miss of the pass-with-three-spades count (2026-09-25): after 2S
+# BBA bids 2NT at matchpoints (passes at IMPs); the count, and its fit,
+# say pass (stayman.notes.md).
+N 942.A983.964.K87      | 1NT P 2C P 2S P     | P      | bba: 7 HCP, three spades, no ten: the count passes
+N K42.A983.964.Q87      | 1NT P 2C P 2S P     | 2NT    | bba: 9, no fit: invite
+N 942.A983.964.K87      | 1NT P 2C P 2H P     | P      | bba: the fit is found, play there
+N 942.A983.964.Q87      | 1NT P               | P      | bba: 6 HCP is not enough
+S AKT5.Q72.AJ3.QJ2      | 1NT P 2C P 2S P 2NT P | P    | bba: 17 and one ten declines opposite 7-9
+S AKT5.QT2.AJ3.QJ2      | 1NT P 2C P 2S P 2NT P | 3NT  | bba: 17 and two tens accepts (18)
+
+# ── BBA treatment, more probes (2026-09-24) ─────────────────────────
+card    Basic-Bridge general.style=bba
+dealer  S
+N 542.KQ76.K82.862      | 1NT P               | 2C     | bba: 4-3-3-3 with four hearts uses Stayman
+N Q9642.J743.97.62      | 1NT P               | 2H     | bba: 5-4 in the majors below 7 HCP transfers
+N 542.K876.K82.Q62      | 1NT P 2C P 2H P     | P      | bba: 8 HCP 4-3-3-3 counts 7 in the fit: pass
+N 542.K876.K82.K62      | 1NT P 2C P 2H P     | 3H     | bba: 9 HCP 4-3-3-3 invites
+N 542.K876.A82.K62      | 1NT P 2C P 2H P     | 3H     | bba: 10 HCP 4-3-3-3 still invites
+N 54.K876.K862.Q62      | 1NT P 2C P 2H P     | 3H     | bba: 8 HCP 4-4-3-2 invites
+N 54.K876.A862.K62      | 1NT P 2C P 2H P     | 4H     | bba: 10 HCP, game
+N T4.QT76.K862.Q62      | 1NT P 2C P 2H P     | P      | bba: tens do not count in the fit
+N 5.Q876.K862.Q652      | 1NT P 2C P 2H P     | 3H     | bba: 7 HCP and a singleton invites
+N K876.5.K862.K652      | 1NT P 2C P 2S P     | 4S     | bba: 9 HCP and a singleton: game (re-probed 2026-09-24; the earlier 3S was wrong)
+N K876.5.A862.K652      | 1NT P 2C P 2S P     | 4S     | bba: 10 HCP and a singleton: game
+N K542.Q76.K82.862      | 1NT P 2C P 2D P     | 2NT    | bba: no fit, 8 HCP
+N K542.QT6.KT2.J62      | 1NT P 2C P 2D P     | 3NT    | bba: no fit, 9 and two tens: game
+N K842.KQ5.AQ.QJ82      | 1NT P 2C P 2D P     | 6NT    | bba: 17, no fit: slam (Basic_What_To_Open board 204)
+S AK73.A732.86.KJ3      | 1NT P 2C P 2H P 2NT P | 3S   | bba: four spades too, declining
+N K542.Q76.K82.J62      | 1NT P 2C P 2H P 2NT P 3S P | 4S | bba: 9, the top of the invitation
+N K542.Q76.K82.862      | 1NT P 2C P 2H P 2NT P 3S P | P  | bba: 8 passes
+S AQ52.KJ7.A95.Q83      | 1NT P 2C P 2S P 3S P  | P    | bba: 16 declines the raise
+S AQ52.KJ7.A95.K83      | 1NT P 2C P 2S P 3S P  | 4S   | bba: 17 accepts
+S AQ952.KJ7.A95.Q8      | 1NT P 2C P 2S P 3S P  | 4S   | bba: 16 with a fifth trump accepts
+scoring IMP
+N 54.K876.K862.K62      | 1NT P 2C P 2H P     | 4H     | bba at IMPs: 9 in the fit is game
+N 5.K876.K862.Q652      | 1NT P 2C P 2H P     | 4H     | bba at IMPs: 8 and a singleton is game
+# Known miss of the IMP spade-fit count: K876.5.K862.Q652 after 2S -- BBA
+# 4S, the count 3S (stayman.notes.md).
+
+# ── No fit, balanced 16-17: as over 1NT (Rick, 2026-09-24)
+card    Basic-Bridge
+dealer  S
+N K842.KQ5.AQ.QJ82      | 1NT P 2C P 2D P     | 6NT    | 17, no fit: slam (Basic_What_To_Open 204)
+N K842.KQ5.AJ.QJ82      | 1NT P 2C P 2D P     | 4NT    | 16, no fit: quantitative
+
+# ── BBA's 3C/3D after Stayman (probed 2026-09-24, probes/stay-3m-*.toml)
+card    Basic-Bridge general.style=bba
+scoring MP
+dealer  S
+N 98.K764.Q2.AQ975      | 1NT P 2C P 2D P     | 3C     | bba: 11, no diamond stopper (Qx): 3C
+N 98.Q764.K2.AQ975      | 1NT P 2C P 2D P     | 3NT    | bba: 11 with Kx in diamonds: 3NT
+N J973.82.A4.AQ953      | 1NT P 2C P 2D P     | 3NT    | bba: 11 with a diamond stopper
+N K973.82.A4.AQ953      | 1NT P 2C P 2D P     | 3C     | bba: 13: 3C whatever the stoppers
+N 9.A764.832.AQ975      | 1NT P 2C P 2D P     | 3C     | bba: 10, diamonds unstopped
+N Q8.K764.AQ975.32      | 1NT P 2C P 2D P     | 3NT    | bba: 11, five diamonds with honours
+N KJT7.KT.T8654.KJ      | 1NT P 2C P 2D P     | 3D     | bba: 11, five diamonds without an honour
+N AQ92.K43.7.KJ743      | 1NT P 2C P 2H P     | 3C     | bba: no heart fit, game values, five clubs
+N 4.QJ64.AK984.Q94      | 1NT P 2C P 2S P     | 3D     | bba: no spade fit, game values, five diamonds
+S 932.KJ.KQJ83.AK5      | 1NT P 2C P 2D P 3C P | 3NT   | bba: 17, the suits held
+S A63.T62.KJ3.AQJ6      | 1NT P 2C P 2D P 3C P | 4C    | bba: four clubs, a flat minimum
+S 87.AK2.AQJ.KT965      | 1NT P 2C P 2D P 3C P | 5C    | bba: the fit, spades open, 17
+S J75.K84.AK92.AT3      | 1NT P 2C P 2D P 3C P | 3D    | bba: a minimum with three clubs
+S A83.T62.AJ8.AQ43      | 1NT P 2C P 2D P 3D P | 4D    | bba: three diamonds, a flat minimum
+S A96.K87.KT.KQ652      | 1NT P 2C P 2D P 3D P | 4C    | bba: a minimum with five clubs
+S AK72.K54.QJ7.Q43      | 1NT P 2C P 2S P 3C P | 3H    | bba: flat minimum, three hearts (responder has four)
+N A965.42.K4.QT843      | 1NT P 2C P 2D P 3C P 4C P | P  | bba: 9 passes the raise
+N A98.AJ42.8.A9642      | 1NT P 2C P 2D P 3C P 4C P | 5C | bba: 13 bids the game
+N KQ93.J65.A.QT652      | 1NT P 2C P 2D P 3C P 3D P | 3NT | bba: 3NT over the minimum
+
+# Without transfers (2026-09-30): an invitation with five in a major goes
+# through Stayman, and 5-4 game hands bid the five-card major over 2♦.
+card    Basic-Bridge notrump.jacoby_transfers.play=false notrump.one_nt.five_card_major=never
+dealer  N
+S KQJ53.73.J95.T96      | 1NT P 2C P 2D P  | 2S     | five spades, invitational
+S Q74.KQJ75.942.74      | 1NT P 2C P 2D P  | 2H     | five hearts, invitational
+S KQJ53.73.J95.T96      | 1NT P 2C P 2H P  | 2S     | five spades over 2H, invitational
+S AJ93.AJ982.J2.T7      | 1NT P            | 2C     | 5-4 in the majors, game values: Stayman
+S AJ93.AJ982.J2.T7      | 1NT P 2C P 2D P  | 3H     | then the five-card major, forcing
+N K72.Q4.AK54.A632      | 1NT P 2C P 2D P 3H P | 3NT | two hearts: 3NT
+N K72.Q84.AK54.A63      | 1NT P 2C P 2D P 3H P | 4H  | three hearts: game in the fit

@@ -1,0 +1,538 @@
+# Opener's rebid (SAYC, BBA's Basic-Bridge card). Every hand is a Basic_*
+# corpus deal where we and BBA agree.
+card    Basic-Bridge
+dealer  S
+
+# seat hand             | auction      | expect | why
+# ── Rick's rulings
+S KQ2.974.K82.AT94      | 1C P 1D P    | 1NT    | 1NT rebid: 12-14 HCP, balanced
+S A2.AJ2.K4.KQT854      | 1C P 1D P    | 3C     | jump rebid: 16-18, six clubs
+S K7.KQ96.K5.AT432      | 1C P 1H P    | 3H     | jump raise: 16-18 support points, four hearts
+S AK5.7.J832.AKQT9      | 1C P 1H P    | 2D     | reverse: 17+, clubs longer than diamonds
+S KQJ4.KJ.A2.AJT63      | 1C P 1H P    | 2S     | jump in a new suit: 19+, game forcing
+
+# ── After a one-level response
+S KT86.AK72.J9.Q87      | 1C P 1D P    | 1NT    | both majors: Walsh 1NT (Rick, 2026-09-24)
+# standard: a four-card major up the line, even balanced
+S AJT53.Q.8.AKT974      | 1C P 1D P    | 1S     | a new suit at the one level
+S J8.AJ.763.AK8654      | 1C P 1D P    | 2C     | six clubs, minimum
+S AT7.AQ.A84.A8743      | 1C P 1D P    | 2NT    | 18-19, balanced
+S AT82.52.Q.AKJ862      | 1C P 1H P    | 1S     | four spades: 1S before anything else
+S J87.AJ86.KJ5.A43      | 1C P 1H P    | 2H     | four hearts, minimum: raise
+S AK6.AKQT.876.K83      | 1C P 1H P    | 4H     | four hearts, 19+: game
+S 5432.AQT2.J4.AJ8      | 1C P 1S P    | 2S     | four spades, minimum: raise
+S Q542.J.A7654.AQ4      | 1D P 1H P    | 1S     | 1S with four spades
+S 5.A5.AK9843.AJ75      | 1D P 1H P    | 2C     | 6-4: the new suit, not a diamond rebid
+S Q72.9.KJ9762.AK6      | 1D P 1H P    | 2D     | six diamonds, minimum
+S A.KQ64.KQ862.AK4      | 1D P 1S P    | 2H     | reverse: 21 HCP, diamonds longer
+S J.QJ7643.AK4.K32      | 1H P 1S P    | 2H     | six hearts, minimum
+S AQ4.AKQ93.A93.43      | 1H P 1S P    | 2NT    | 18-19, balanced
+S AQ.AKJT7.QJ83.K2      | 1H P 1S P    | 3D     | jump in a new suit: 20, game forcing
+S Q8.AKQ832.963.KJ      | 1H P 1S P    | 3H     | jump rebid: six hearts, 16-18 suit points
+
+# ── After 1NT
+S KQ986.K75.AJ.J42      | 1S P 1NT P   | P      | minimum, nothing to add
+S K8765.AJ43.K.Q94      | 1S P 1NT P   | 2H     | a second suit
+S 52.AQJ954.3.KJ54      | 1H P 1NT P   | 2C     | six-four: show the lower four-card suit, not 2H (Rick, 2026-11-09)
+S AQJ954.32.3.KQ54      | 1S P 1NT P   | 2C     | six-four, a minimum: the second suit still comes first
+S AT8754.8.AK8.QT2      | 1S P 1NT P   | 2S     | six spades, minimum
+S KQ987.962.AK.AQ7      | 1S P 1NT P   | 2NT    | 18-19, balanced
+S AQ9762.K4.K5.K83      | 1S P 1NT P   | 3S     | six spades, 16-18
+S K.KQ87.AKQT65.92      | 1D P 1NT P   | 2H     | reverse: 17+, diamonds longer
+
+# ── After a raise
+S KJ972.AT.A863.QT      | 1S P 2S P    | P      | 14 with two doubletons: no game
+S KJT65.Q3.AQ72.A8      | 1S P 2S P    | 3S     | invitation
+S AQ632.AQ62.8.AQ2      | 1S P 2S P    | 4S     | 18 with a singleton: game
+S AK432.J.T62.AJ42      | 1S P 3S P    | 4S     | accepts the limit raise: a singleton
+S AK952.A3.Q54.952      | 1S P 3S P    | P      | 13, flat: declines
+
+# ── After a two-over-one
+S KJT75.AK4.Q4.543      | 1S P 2C P    | 2S     | minimum: rebid the spades
+S A9874.AQJ8.J98.Q      | 1S P 2C P    | 2H     | four hearts
+S AT965.Q.AQT2.KT4      | 1S P 2C P    | 2D     | four diamonds
+S AKQ73.AJ7.Q3.Q42      | 1S P 2D P    | 3NT    | 18-19, balanced
+S AKJ64.Q76.83.QJ6      | 1S P 2H P    | 3H     | three hearts: raise
+S 95.AKQT4.QJ.Q953      | 1H P 2C P    | 3C     | four clubs: raise
+S T32.AKQ732.A7.A4      | 1H P 2C P    | 4H     | 17 + two length points = 19 opposite a two-level response: game
+
+# ── Too strong for a jump rebid, and the hands with no natural rebid.
+# All of these used to pass a forcing response (rebids.notes.md).
+S AT2.A.953.AKQJ75      | 1C P 1H P    | 3NT    | 18 and six clubs: 3NT, not a 16-18 jump
+S Q64.A7.AKQ754.A5      | 1D P 1H P    | 3NT    | 19 and six diamonds
+S 63.AKQJ97.A9.A43      | 1H P 1S P    | 4H     | 19 in suit points with six hearts: game
+S A4.AKJ9.52.A8432      | 1C P 1S P    | 2C     | 16 with 5-4: too weak to reverse, rebid the clubs
+S JT.A7.A742.AK654      | 1C P 1H P    | 2C     | 16 with five clubs and four diamonds
+S J83.A.AQ62.AQT85      | 1C P 1D P    | 3D     | 19 support points for diamonds: the minor jump raise
+S K93.AK6.AT9542.J      | 1D P 2C P    | 3D     | 16-18 with six diamonds after a two-over-one
+S KJ6.Q2.AQJ87.AQ5      | 1D P 2C P    | 3NT    | 19 balanced
+S KQJ8.AKJ6.K.KJ82      | 1C P 1D P    | 2H     | 21 with 4-4-1-4: the jump shift needs no fifth club
+S AKJ6.KJ632.J.K94      | 1H P 2D P    | 2H     | 16 with five hearts: no reverse, rebid them
+
+# ── Opener's third call, when responder has signed off (`asked signoff`)
+S Q975.9.AKJ96.KT3      | 1D P 1H P 1S P 1NT P | P      | 13 opposite 6-10: nothing more to say
+S AJ62.A2.AQ7632.Q      | 1D P 1H P 1S P 1NT P | 3D     | 17 with six diamonds: one more try
+S T93.QT5.KT86.AKQ      | 1D P 1S P 1NT P 2H P | 2S     | three spades opposite five: preference
+S K32.QT5.AT2.QJ73      | 1C P 1S P 1NT P 2H P | 2S     | the same after a 1NT rebid
+S QJ.Q.J52.AKT7643      | 1C P 1H P 2C P 2H P  | P      | 13: partner has chosen hearts
+
+# ── Answering an invitational raise in a minor (`asked invite(m)`)
+S A7.42.AK976.A875      | 1D P 1H P 2C P 3C P  | 3NT    | 15 and a shape for notrump: accepts
+S J4.JT.AKJ72.J954      | 1D P 1H P 2C P 3C P  | P      | 10: declines
+
+# ── The fourth suit at the one level
+S KT64.KQ98.AQ.T94      | 1C P 1D P 1H P 1S P  | 2S     | four spades, minimum: raise
+S AJ84.Q952.A.AT63      | 1C P 1D P 1H P 1S P  | 3S     | four spades, 16-18: jump raise
+
+# ── A big one-suiter after a 1NT response
+S AJ8.AKQ96432..K4      | 1H P 1NT P           | 4H     | 19+ with six hearts: game
+
+# ── Opener's rebid once they come in ─────────────────────────────────
+# Basic_* corpus deals where we and BBA agree, one or more per rule.
+
+# Partner made a free bid in a new suit at the one level: opener always
+# bids again, over an overcall or over a takeout double.
+S KJT4.Q63.A86.A75      | 1C 1D 1H P   | 1NT | 12-14 balanced with a diamond stopper
+S A3.KJ72.AQ7.AT83      | 1C 1H 1S P   | 2NT | 18-19 balanced with a heart stopper
+S Q6.K83.AK9.AKT76      | 1C 1D 1S P   | 2NT | 19 balanced: the jump in notrump
+S KQ.K6.KQ642.AT64      | 1D 1H 1S P   | 2C  | a second suit below the first, four cards
+S T.KQJ.QJT543.AJ3      | 1D 1H 1S P   | 2D  | six diamonds, minimum
+S KJ2.T9.J2.AKQ842      | 1C 1D 1H P   | 2C  | six clubs, minimum
+S KJ97.AK95.QT.T43      | 1C 1D 1H P   | 2H  | four hearts for partner's free bid: raise
+S Q973.T82.AKQ85.K      | 1D 1H 1S P   | 3S  | 16-18 support points with four spades
+S J872.K.KQ942.KT5      | 1D X 1H P    | 1S  | over the double: four spades at the one level
+S 86.KT5.AKJ864.A2      | 1D X 1H P    | 3D  | six diamonds, 16-18 suit points
+S AQ4.Q52.T83.AT43      | 1C X 1H P    | 1NT | 12-14 balanced; no stopper is needed over a double
+S A.J942.K3.KJT652      | 1C X 1S P    | 2C  | six clubs, minimum
+S 94.AT.AJ9.KQJT75      | 1C X 1S P    | 3C  | six clubs, 16-18
+S KJ63.T83.KQJ7.Q3      | 1D X 1S P    | 2S  | four spades for partner's free bid
+S A93.QT.84.AK9854      | 1C X 1H P    | 2C  | six clubs rather than a three-card raise
+
+# A free bid at the two level: partner has five and 8-10 or more.
+S 74.AKJ432.Q93.K8      | 1H 1S 2C P   | 2H  | six hearts, minimum
+S A8.74.A43.KQ6432      | 1C 1S 2H P   | 3C  | six clubs, minimum, at the cheapest level
+S AK.432.KQJ643.AK      | 1D 1S 2H P   | 4H  | 18+ support points opposite partner's five hearts
+S AK5.853.KQ85.QT3      | 1D 1S 2H P   | 3H  | three hearts for partner's five: the fit
+S 4.AQ4.A2.AT97653      | 1C 1H 2D P   | 3C  | seven clubs, minimum
+S J862..AKQT97.T43      | 1D 1S 2H P   | 3D  | seven diamonds, minimum
+S 64.AK8432.AK86.9      | 1H 2C 2D P   | 2H  | six hearts over a two-level overcall
+S J72.AJT.KQ953.Q8      | 1D 2C 2S P   | 3S  | three spades for partner's five
+S AK9.KJT5.72.AK87      | 1C 2D 2H P   | 4H  | 19 with four hearts: the game
+
+# Partner raised opener's suit: the uncontested ladder, pass to 16
+# support points, invite with 17-18, bid the game with 19.
+S AKT2.JT742.AT.A6      | 1H 1S 2H P   | 3H  | 17-18 support points: the invitation
+S K.AKQ8532.954.KJ      | 1H 1S 2H P   | 4H  | 19+ support points with seven hearts
+S K84.Q954.AKQ73.T      | 1D 1S 2D P   | 3D  | 17-18 with the diamond fit
+S KQ6.AKJT3.AT82.3      | 1H 2C 2H P   | 4H  | 19+ support points: game over their overcall
+S K5.KQ984.Q4.AQ62      | 1H 2C 2H P   | 3H  | 17-18: one more try
+S AQT987.AQ2.AJ3.5      | 1S 2C 2S P   | 4S  | 19+ with six spades
+S K98642.A3.AJ5.K5      | 1S 2C 2S P   | 3S  | 17 support points: invite
+S AKJ874.AKJ6.KT.6      | 1S X 2S P    | 4S  | over the double: 19+ and the game
+S AJ976.AQJT.62.KJ      | 1S X 2S P    | 3S  | 17-18: the invitation
+S 9.AQJ543.AKJT9.5      | 1H 3C 3H P   | 4H  | game opposite a preemptive raise
+S AK9532.A5.AQ63.5      | 1S 3C 3S P   | 4S  | game opposite a preemptive raise
+
+# Partner bid 1NT over their call: 6-10 with a stopper.
+S K7.975.AT.AJT542      | 1C 1S 1N P   | 2C  | six clubs, minimum
+S 643.AJ.43.AKT843      | 1C 1D 1N P   | 2C  | six clubs, minimum
+
+# Partner redoubled and they ran: we own the hand, and opener has
+# nothing to prove.
+S 9.KQJ986.AT6.Q95      | 1H X XX 1S   | 2H  | six hearts after the redouble
+S KQJ965.K6.KJ3.JT      | 1S X XX 2H   | 2S  | six spades after the redouble
+S AT52.Q7.AJ9432.7      | 1D X XX 2C   | 2D  | six diamonds after the redouble
+
+# Partner passed and they kept bidding: opener needs a real reason, and
+# bidding again at all shows it, so no jumps (Rick, 2026-09-27).
+S T.96.AKQJT32.KQ6      | 1D 1S P 2S   | 3D  | seven solid diamonds: the free bid shows the extras
+S .A753.KJ6.AJ9754      | 1C 1S P 2S   | 3C  | six clubs, worth one more
+S AJ9873.AQ4.632.K      | 1S X P 2H    | 2S  | six spades opposite a silent partner
+S AQJ832.QT86.AK3.      | 1S X P 2H    | 2S  | six spades and 16: bidding at all shows extras, no jump (Rick, 2026-09-27)
+S 96.AKQ9542.AQ98.      | 1H X P 2S    | 3H  | seven hearts and 16: the free bid, not a jump
+S K.K3.AKQJ962.J96      | 1D X P 1S    | 2D  | seven diamonds and 17: the free bid, not a jump
+S Q63.AKQJ963.QT4.      | 1H X P 2H    | 3H  | seven hearts, minimum, over their cue bid
+S KQ93.Q3.AJT984.7      | 1D 1H P 2C   | 2D  | six diamonds, minimum
+S 6.A42.73.AKJ9754      | 1C 1D P 2S   | 3C  | seven clubs, minimum
+
+# They bought it and partner passed: opener reopens.
+S 8.AKQJ5.T43.K972      | 1H 1S P P    | X   | reopening double: a singleton spade
+S Q6.T84.KQT82.AK6      | 1D 1S P P    | X   | reopening double: short in spades
+S QJ92.KT76.A9.KJT      | 1C 1D P P    | X   | reopening double: two diamonds, the other suits
+S 4.AQT94.AQ9853.A      | 1D 1S P P    | 2H  | five hearts and 14+ in the reopening seat
+S 8.AQT9.J4.AKT986      | 1C 1S P P    | 2C  | six clubs in the reopening seat
+S A64.A82.A.J97543      | 1C 2S P P    | 3C  | six clubs over their two-level overcall
+S AK7.J98.A542.KQJ      | 1D 2S P P    | 2NT | 18 balanced with a spade stopper
+S A76.A82.AQT8542.      | 1D 2H P P    | 3D  | seven diamonds in the reopening seat
+S AQ65.KJ83.KQ876.      | 1D 2C P P    | X   | reopening double: no clubs, the other three suits
+# Brill daily 2026-10-14 board 1: 5-4-2-2 with two of theirs passes.
+# Reopening it with the double lost on the corpus (rebids.notes.md,
+# 2026-10-15): par decides, the pass stays.
+S AT543.AKJ5.J6.Q7      | 1S 2D P P    | P   | 5-4-2-2, two clubs: no double without three clubs
+S AT6543.AKJ5.J6.7      | 1S 2D P P    | 2S  | six spades rebid
+
+# They competed over partner's free bid.
+S KQT8.AKJ.KQ4.T94      | 1C 1D 1S 2D  | 3S  | four spades and 16-18 support points
+S 52.J84.A8.AQJT92      | 1C 1D 1H 2D  | 3C  | six clubs, minimum
+S 82.AQ84.76.AQT93      | 1C 1D 1H 2D  | 2H  | four hearts for partner's free bid
+S AKT5.AK.92.A8754      | 1C 1H 1S 2H  | 4S  | 19+ support points with four spades
+S Q6.K652.AKJ75.J4      | 1D 1S 2H 2S  | 3H  | four hearts for partner's five
+S A74.K63.A932.K83      | 1D 1S 2C 2S  | 3C  | three clubs for partner's five
+S 3.Q92.AQ2.AKT873      | 1C 1S 2H 2S  | 4H  | 18+ support points with three hearts
+
+# Rick: with six or more of the major and 19-21, jump to 4M (length counts a
+# full point a card, as for opening)
+S T98.AKQJ943..AQ4      | 1H P 1S P        | 4H     | 16 + three length points (Basic_Major board 99)
+S 73.AKT9743.A5.KQ      | 1H P 1S P        | 4H     | 16 + three length points (Basic_Openers_Rebid board 471)
+
+# ── The BBA treatment (general.style=bba), probed with bba-cli (see
+# rebids.notes.md, "BBA treatment (2026-09-24)")
+card    Basic-Bridge general.style=bba
+dealer  S
+# raising partner's major: HCP and length, not shortness
+S 32.K432.AK432.K2      | 1D P 1H P    | 2H     | bba: 13 + a length point: minimum raise (probe)
+S 32.KQ32.AK432.K2      | 1D P 1H P    | 3H     | bba: 15 + a length point: jump raise (probe)
+S 32.KQ32.AKQ32.K2      | 1D P 1H P    | 4H     | bba: 17 and 19 support points: game (probe)
+S AT93.AJ84.A753.K      | 1D P 1H P    | 3H     | bba: 16 with a singleton king: jump raise (Basic_Openers_Rebid 134)
+# rebidding a six-card major: 3M 15-18; seven cards and 13+: game
+S 32.AKJ432.K32.K2      | 1H P 1S P    | 2H     | bba: six hearts, 14 (probe)
+S 32.AKQ432.K32.K2      | 1H P 1S P    | 3H     | bba: six hearts, 15 (probe)
+S A63.AKT984.AQ.87      | 1H P 1S P    | 3H     | bba: six hearts, 17: 3H, not game (Basic_Openers_Rebid 170)
+S 32.AKJ5432.K2.K2      | 1H P 1S P    | 4H     | bba: seven hearts, 14: game (probe)
+# 1C-1D: 1NT with one four-card major, 1H only with both, a jump shift from 18
+S AJ72.763.K.AKJ95      | 1C P 1D P    | 1NT    | bba: 16, four spades and five clubs: 1NT (Basic_Minor 73)
+S AQ64.T872.K7.K92      | 1C P 1D P    | 1H     | bba: both majors: 1H (Basic_Minor 232)
+S KJ32.A32.K.AK432      | 1C P 1D P    | 2S     | bba: 18 with four spades: jump shift (probe)
+# 1D-1M: balanced with four clubs, 1NT on 12-13, 2C on 14
+S K9.AJ6.J652.K643      | 1D P 1S P    | 1NT    | bba: 12, 4-4 in the minors: 1NT (Basic_Minor 161)
+S Q64.92.AQT7.AQ85      | 1D P 1H P    | 2C     | bba: 14, 4-4 in the minors: 2C (Basic_Openers_Rebid 100)
+# after 1NT: a jump shift in hearts from 17 suit points
+S KJT72.AK32.74.AQ      | 1S P 1NT P   | 3H     | bba: 17, 5-4: jump shift (Basic_Responses 196)
+S AJ975.AQT7.2.AJ2      | 1S P 1NT P   | 2H     | bba: 16, 5-4: 2H (Basic_Responses 165)
+# after a single raise: pass to 15, 3M on 16, game on 17
+S A5432.KQ2.K32.K2      | 1S P 2S P    | P      | bba: 15, five trumps: pass (probe)
+S AK432.K32.K32.K2      | 1S P 2S P    | 3S     | bba: 16: game try (probe)
+S AKJ32.K432.K2.K2      | 1S P 2S P    | 4S     | bba: 17: game (probe)
+S AJ5432.K32.K2.K2      | 1S P 2S P    | 3S     | bba: 14 with six trumps: game try (probe)
+
+# ── 1C-1D in the standard treatment: majors up the line (Rick, 2026-09-24)
+card    Basic-Bridge general.style=standard
+S KT86.AK72.J9.Q87      | 1C P 1D P        | 1H     | standard: both majors, 1H up the line
+S KT86.A72.K9.Q873      | 1C P 1D P        | 1S     | standard: four spades, balanced, still 1S
+# ── 1C-1D with the Walsh switch off: majors up the line, as BBA (2026-09-30)
+card    Basic-Bridge minor_openings.walsh.play=false
+S KT86.AK72.J9.Q87      | 1C P 1D P        | 1H     | Walsh off: both majors, 1H up the line (probes/rebid-1C-1D-21GF.toml)
+S KT86.A72.K9.Q873      | 1C P 1D P        | 1S     | Walsh off: four spades, balanced 12, 1S
+S KJ2.AQ72.J92.KQ8      | 1C P 1D P        | 1H     | Walsh off: 4-4-3-3 with four hearts, 1H not 1NT
+S K8.AQ72.92.KJ873      | 1C P 1D P        | 1H     | Walsh off: four hearts and five clubs, 1H
+S KQ7.AJ3.QT7.7652      | 1C P 1D P        | 1NT    | Walsh off: 1NT denies a four-card major
+card    Basic-Bridge minor_openings.walsh.play=false general.style=bba
+S KT86.A72.K9.Q873      | 1C P 1D P        | 1S     | bba, Walsh off: up the line too (BBA on 21GF-DEFAULT)
+card    Basic-Bridge
+S KT86.A72.K9.Q873      | 1C P 1D P        | 1NT    | Walsh (default): balanced 12-14, 1NT with a major
+S K4.QJ7.AJ84.K984      | 1D P 1H P        | 1NT    | balanced 13 with four clubs: 1NT, not 2C (Rick)
+S K4.QJ7.AJ84.K984      | 1D P 1S P        | 1NT    | the same after 1S
+
+# ── Calls that had no rule (2026-09-25)
+card    Basic-Bridge
+dealer  S
+S AQ9762.K4.K5.K83      | 1S P 3C P       | 3NT | 15 with a club fit: 3NT is still the game
+S AKQT862.K.Q.QJ73      | 1S P 3C P       | 4S  | seven good spades: game in them
+S KJ4.KQT95.AKQ5.8      | 1H P 3D P       | 3NT | four diamonds and 18: 3NT
+S AKT43.8.AKQJ65.9      | 1D P 1NT P 2S P 3D P | P | 17 and a preference: minimum for the reverse
+S AKT43.8.AKQJ65.A      | 1D P 1NT P 2S P 3D P | 5D | 21 with six diamonds: game
+S J.A5.QJ764.AQ753      | 1D P 3D P       | 5D  | 14, 5-5 with a singleton: game in the minor
+S AQJT.K765.AK72.Q      | 1D P 1NT P      | 3NT | 19, 4-4-4-1: game (BBA 3NT)
+
+# ── Strong rebids after an overcall (2026-09-25)
+S 9.KQT.AJ54.AKJ43      | 1C 1H 2D P       | 3NT | 18 with hearts held: game
+S AKQJ5.K4.AK852.4      | 1S 2C 2H P       | 3C  | 20, no fit, no club stopper: cue bid
+S A4.A2.AQ94.QJ763      | 1C 3S 4C P      | 5C  | 18 opposite the raise: game
+S 43.KQJ8.AKQJ6.95      | 1D 2S 3D P      | 4D  | 16, no spade stopper: not 5D; the raise shows five (2026-10-02), ten trumps: the Law's four level
+S KJ65.A.QJ83.AQ72      | 1D 2H 3D P      | 3NT | 17 with the heart ace: game
+S AKQJ.A2.83.AQJ63      | 1C 2D 3C P      | 5C  | 21, no diamond stopper: game in clubs
+S A4.J6.AQ74.AKQ73      | 1C 1H 1NT P     | 3NT | 20 opposite 6-10 with hearts held: game
+S A52.K6.AQ74.KJ73      | 1C 1H 1NT P     | 2NT | 17: invites
+S KQ84.AKQ973.Q.94      | 1H X P 2H    | 3H  | 16 over their cue bid: 3H, not the 4H jump (Basic_Takeout_Double 193)
+
+# The strong double after 1x (X) 1z (1y) (Basic_Takeout_Double 6).
+card    Basic-Bridge
+dealer  E
+vul     EW
+E KQJ.KQ4.J63.AQ93      | 1C X 1D 1S                           | X      | 18: the strong hand doubles, as BBA
+E KQJ.KQ4.J63.AQ93      | 1C X 1D 1S X P 2D P                  | 2NT    | then 18-19 balanced with a spade stopper
+
+# Opener with three spades facing the strong jump shift (Basic_Weak_2 180).
+card    Basic-Bridge
+dealer  S
+vul     All
+S T97.AKJT72.Q84.4      | 1H P 2S P                            | 4S     | three spades opposite five: game in the fit
+
+# Six-card major over responder's 2NT invitation (Basic_Weak_2 220).
+card    Basic-Bridge
+dealer  S
+vul     NS
+S AQ6542.JT65.97.K      | 1S P 2C P 2H P 2NT P                 | 3S     | the sixth spade: decline in spades, not in notrump
+S AKJ542.KQ65.97.K      | 1S P 2C P 2H P 2NT P                 | 4S     | the same with a maximum: accept in spades
+
+# Counting tricks after a minor raise; opener over a preemptive raise
+# (Basic_Overcall 469).
+card    Basic-Bridge
+dealer  E
+vul     NS
+E K2.A9.AT.AKJ9742      | 1C P 2C P                            | 3NT    | seven clubs to the AKJ with support, every suit stopped: nine tricks
+E K2.A9.AT.AKJ9742      | 1C 1S 3C 4S                          | 5C     | 19 and seven clubs opposite the preemptive raise
+
+# Over a forcing 1NT opener may not pass: a balanced minimum bids a
+# three-card minor (2026-09-30, 2/1 game force).
+card    21GF-DEFAULT
+dealer  N
+N AKJ52.K84.73.Q52      | 1S P 1N P                            | 2C     | three clubs: the forced rebid
+
+# Over responder's game-forcing 2NT after a 2/1 (12-14 or 18+, Rick
+# 2026-11-06): opener counts slam on its minimum.
+card    21GF-DEFAULT
+dealer  N
+N AKJ52.KQ84.A3.Q2      | 1S P 2C P 2H P 2N P                  | 6NT    | 20 points facing 13+: 33 on his floor
+N AJ852.KQ84.Q3.Q2      | 1S P 2C P 2H P 2N P                  | 3NT    | 15 points facing 12-14 or 18+: 3NT, the strong branch invites over it
+N AKJ52.KQ84.K3.Q2      | 1S P 2C P 2H P 2N P                  | 4NT    | 18 points facing 13+: 31, quantitative
+N AKQJ843.2.5.T532      | 1S P 2D P 2S P 2N P                  | 4S     | a self-sufficient suit plays in game (corpus, Namyats 16)
+
+# ── The major invitation without transfers (2026-09-30) ──────────────
+# Vanilla SAYC random deals (BBA bare SAYC); the answer used to live in
+# jacoby-transfers.bid, so with transfers off opener had no rule.
+card    Basic-Bridge notrump.jacoby_transfers.play=false
+dealer  S
+S AJ2.KT94.Q543.Q2      | 1D P 1H P 2H P 3H P      | P      | 12 HCP: a minimum declines
+S KJ73.KQ75.A642.8      | 1D P 1H P 2H P 3H P      | 4H     | 13 HCP and a singleton: accepts
+S AK7653.Q5.96.QJ2      | 1S P 1NT P 2S P 3S P     | P      | 12 HCP: declines
+S AQJ932.K53.A95.8      | 1S P 1NT P 2S P 3S P     | 4S     | 14 HCP and a singleton: accepts
+S AKJ4.J974.52.K75      | 1C P 1S P 2S P 3S P      | P      | 12 HCP: declines
+S KQ98.K5.985.AQ42      | 1C P 1S P 2S P 3S P      | 4S     | 14 HCP: accepts
+
+# Opposite a raise that can hold 12 (no limit raise on the card,
+# 2026-09-30) opener invites from 15 support points.
+card    Basic-Bridge major_openings.jump_raise.inv=false
+dealer  S
+S AKJ54.A72.Q97.65      | 1S P 2S P                | 3S     | 15 with the fit: invites a raise of 6-12
+S AQJ54.A72.Q97.65      | 1S P 2S P                | P      | 14: no game opposite 12
+card    Basic-Bridge
+S AKJ54.A72.Q97.65      | 1S P 2S P                | P      | 15 opposite a raise of 6-10: no game
+
+# A notrump jump stops at 3NT: past it, 4NT with no notrump bid by us is
+# keycard (Rick, 2026-10-03; slam-entry.bid, "The keycard suit").
+card    Basic-Bridge
+dealer  S
+S KQ4.AQ852.K93.Q4      | 1H 2S 3D P                           | !4NT   | 16 balanced, spades held: not a natural 4NT
+
+# Semi-forcing 1NT (2/1 with one_nt_response.semi_forcing): opener passes
+# only a balanced minimum; otherwise as over the forcing 1NT.
+card    21GF-DEFAULT major_openings.one_nt_response.forcing=false major_openings.one_nt_response.semi_forcing=true
+N 32.K54.QJ54.Q854      | 1S P                | 1NT    | 9 HCP, no fit: the semi-forcing 1NT
+S AKJ54.Q32.K54.32      | 1S P 1NT P          | P      | balanced minimum: pass
+S AKJ54.Q3.K543.32      | 1S P 1NT P          | 2D     | 5-4 minimum: natural 2D
+S AKJ54.Q32.KQ4.32      | 1S P 1NT P          | 2D     | 15 balanced: does not pass, three-card diamonds
+card    21GF-DEFAULT
+S AKJ54.Q32.K54.32      | 1S P 1NT P          | 2D     | forcing 1NT: no pass
+
+# The call partner reads must fit the hand that bids it (2026-10-09,
+# Brill report "own-misdescribed"; rebids.notes.md, "Read as the hand
+# holds"). Over a forcing 1NT a minor rebid is three or more, four-card
+# or three-card alike.
+card    21GF-DEFAULT
+dealer  S
+S AKJ54.K3.Q32.J32      | 1S P 1NT P          | 2C     | forcing 1NT, three clubs: read as three or more
+S AKJ54.K3.Q2.J532      | 1S P 1NT P          | 2C     | four clubs: the same 2C
+# A forcing free bid: five diamonds and nothing better, read as five or more.
+S 432.KQ3.AQJ54.32      | 1D 1S 2C P          | 2D     | no stopper, no fit, no second suit: rebid five diamonds
+card    Basic-Bridge
+dealer  S
+S A2.32.KJ32.AQJ32      | 1C P 1S P           | 2C     | 5-4 with 15, too weak to reverse: 2C, read as five or more
+# The reverse opposite responder's forced 2NT (6-10, no fit): still game.
+S J.AQ95.AK973.AQ3      | 1D P 1S P 2H P 2NT P | 3NT  | 20 opposite the forced minimum: game
+
+# 1M-2x: opener's rebid in a 2/1 game force by the card's style
+# (major_openings.two_over_one.rebid_style; Quiros, ACBL Bridge Bulletin,
+# September 2026; Rick, 2026-10-16: Bergen the default). The same hands
+# under each style: Bergen 2NT default, 2M six, new suits no extras;
+# Lawrence 2M default 5+, new suits extras, 2NT balanced with stoppers;
+# Schuler 2M exactly five, 2NT six+, new suits extras.
+card    21GF-DEFAULT
+dealer  S
+S AQ952.K84.Q73.J2      | 1S P 2C P           | 2NT    | Bergen: 5-3-3-2 minimum, the default 2NT
+S AKJ52.984.732.K2      | 1S P 2C P           | 2NT    | Bergen: the default promises no stopper
+S AQ952.K84.KQ3.J2      | 1S P 2C P           | 2NT    | Bergen: 5-3-3-2 with 15, still the default
+S AQ9542.K84.Q3.J2      | 1S P 2C P           | 2S     | Bergen: six spades
+S AQ952.KJ84.73.Q2      | 1S P 2C P           | 2H     | four hearts: natural in every style
+S KJ84.AQ952.73.Q2      | 1H P 2D P           | 2S     | Bergen: four spades, a minimum (no extras promised)
+S 84.AQ952.73.KQJ2      | 1H P 2D P           | 3C     | Bergen: four clubs, a minimum
+S K8.AQ9542.73.QJ2      | 1H P 2D P           | 2H     | Bergen: six hearts
+S AQ9542.KJ84.3.Q2      | 1S P 2C P           | 2S     | Bergen: 6-4, the six first
+S AQ9542.KJ84.3.Q2      | 1S P 2H P           | 3H     | Bergen: a heart fit raises before the six spades
+S AKJ542.K8.A3.J32      | 1S P 2C P           | 3S     | the jump keeps 16-18 in every style
+S AQ952.K84.Q73.J2      | 1S P 2C P 2NT P 3NT P | P    | Bergen: the default opposite fast-arrival 3NT: pass
+card    Brill
+S AQ952.K84.Q73.J2      | 1S P 2C P           | 2NT    | Brill: 2NT the balanced minimum, 2S six (Bergen's defaults)
+card    21GF-DEFAULT major_openings.two_over_one.rebid_style=lawrence
+S AQ952.K84.Q73.J2      | 1S P 2C P           | 2NT    | Lawrence: balanced, hearts and diamonds stopped
+S AKJ52.984.732.K2      | 1S P 2C P           | 2S     | Lawrence: no heart or diamond stopper: the default 2S
+S AQ9542.K84.Q3.J2      | 1S P 2C P           | 2S     | Lawrence: six spades, the same default rebid
+S AQ9542.KJ84.3.Q2      | 1S P 2C P           | 2H     | Lawrence: 6-4, the natural 2H before the default 2S
+S KJ84.AQ952.73.Q2      | 1H P 2D P           | 2H     | Lawrence: 2S would show extras: the default 2H
+S AK84.AQ952.73.K2      | 1H P 2D P           | 2H     | Lawrence: 16 is not the reverse's 17
+S 84.AQ952.73.KQJ2      | 1H P 2D P           | 2H     | Lawrence: 3C would show extras
+S A4.AQ952.73.AKJ2      | 1H P 2D P           | 3C     | Lawrence: four clubs with extras
+S AJ9852.K84.Q3.J2      | 1S P 2C P 2S P 2N P  | 3S     | Lawrence: six spades, a minimum: the sixth card
+S AQJ95.K84.Q73.J2      | 1S P 2C P 2S P 2N P  | 3NT    | Lawrence: five spades, no extras: game
+card    21GF-DEFAULT major_openings.two_over_one.rebid_style=schuler
+S AQ952.K84.Q73.J2      | 1S P 2C P           | 2S     | Schuler: exactly five, the default 2S
+S AQ9542.K84.Q3.J2      | 1S P 2C P           | 2NT    | Schuler: six spades bid 2NT
+S KJ84.AQ952.73.Q2      | 1H P 2D P           | 2H     | Schuler: five hearts, 2S would show extras
+S K8.AQ9542.73.QJ2      | 1H P 2D P           | 2NT    | Schuler: six hearts
+# Outside the game force 2M is six or more and a five-card hand bids it
+# as the least lie (d24a9f6); the style does not apply.
+card    SAYC
+S AQ952.K84.Q73.J2      | 1S P 2C P           | 2S     | forcing one round: five spades, the least lie (read as six)
+card    21GF-DEFAULT major_openings.two_over_one.play=false
+S AQ952.K84.Q73.J2      | 1S P 2C P           | 2S     | the 2/1 card without the game force: the least lie
+# After a minor's jump rebid (2026-10-20, Brill daily board 7).
+card    Basic-Bridge
+dealer  S
+S 83.Q5.AKQ972.AQ6      | 1D P 1S P 3D P 4D P | P      | 17 HCP but two bare side suits: 5D needs tricks it lacks (board 7, DD 10 tricks)
+S A3.Q5.AKQ972.K63      | 1D P 1S P 3D P 4D P | 5D     | 18 HCP, one bare suit: accepts
+S K83.Q5.AKQ972.A6      | 1D P 1S P 3D P 3S P | 4S     | three spades opposite five
+S 83.KQ5.AKQ972.A6      | 1D P 1S P 3D P 3S P | 3NT    | two spades: 3NT
+
+# ── Opener's notrump once they come in after partner passed or responded
+# (Rick, 2026-11-06, bridge-classroom-bug-artifacts #90 and #93; Rick's
+# card stood in by 21GF-GIB with modified Jacoby 2NT and Kokish)
+card    21GF-GIB major_openings.jacoby_2nt.modified=true two_level.kokish.play=true
+dealer  S
+S AKJ.AT.JT43.AJ97      | 1D P P 1H    | 1NT | #90: 18 balanced, hearts held, after partner passed and they reopened
+S AQ5.K9.AQ52.KJ42      | 1C P P 1S    | 1NT | 18-19 with a spade stopper
+S AQ5.K9.AQ52.KJ42      | 1C P P 2H    | 2NT | the same over a two-level reopening
+S AQ5.Q9.Q852.KQ42      | 1C P P 1S    | P   | 14 balanced: pass, 12-14 does not reopen
+S 9875.K9.AQ52.AKJ      | 1C P P 1S    | P   | 18 balanced, no spade stopper: no notrump
+# Rick 2026-11-07, "we can follow BBA's lead" (probes/opnt-*.toml)
+S K6.AK4.Q985.AQ82      | 1D P 1H 2S   | X   | #93: 18 balanced, three hearts: values double, as BBA
+S K6.A43.Q985.AK82      | 1D P 1H 2S   | X   | 16 balanced, three hearts: values double
+S 76.AK4.Q985.AQ82      | 1D P 1H 2S   | X   | 16, no spade stopper: the double does not need one
+S K63.A4.QJ95.AQ82      | 1D P 1H 2S   | P   | 16, two hearts: pass (BBA doubles with two only from 17)
+S AK63.K62.K864.A6      | 1D P 1H 2S   | 2NT | 17, four spades: 2NT, not the double (BBA)
+S AJ8.AQ6.AK85.J54      | 1D P 1H 2S   | 3NT | 19 balanced with a spade stopper: 3NT (BBA)
+S Q85.Q52.AKJ6.Q93      | 1D P 1H 2S   | P   | 14: pass
+S AQ.K95.AJ52.KQ42      | 1D P 1S 2H   | 3NT | 19 balanced, two spades: 3NT (BBA)
+S AQ.K95.AJ52.QJ42      | 1D P 1S 2H   | 2NT | 17-18 balanced, two spades: 2NT
+S AQ5.K9.Q852.Q842      | 1C P 1H 1S   | 1NT | 13 balanced with a spade stopper
+S AQ5.K9.Q852.J842      | 1C P 1H 1S   | P   | 12 balanced: pass, as BBA
+S AQ5.K9.AQ52.KJ42      | 1C P 1H 1S   | 3NT | 19 balanced with a spade stopper: 3NT (BBA)
+S AQ5.K9.AQ52.QJ42      | 1C P 1H 1S   | 2NT | 17-18: jump to 2NT
+S K6.AK4.Q985.AQ82      | 1D P 1H 2S X P 3S P | 3NT | spades held over the cue bid
+S 76.AK4.KQ85.AQ82      | 1D P 1H 2S X P 3S P | 4H  | no spade stopper, three hearts
+S K6.AK4.Q985.AQ82      | 1D P 1H 2S 2N P 3H P | 4H  | three hearts opposite five
+S K6.AK4.Q985.AQ82      | 1D P 1S 2H 2N P 3S P | 3NT | two spades: 3NT
+S AQ.K95.AJ52.KQ42      | 1D P 1S 2H 2N 3H X 4H | P | described: partner's double decides
+S AKJ.AT.JT43.AJ97      | 1D P P 1H 1N P 2C P | P | #90: partner's 2C is a sign-off opposite 18-19
+
+# ── The double after 1C P 1D (overcall): the other major (Rick 2026-11-07:
+# "yes"; BBA, probes/opnt-1C-1D-*.toml). Same card as above.
+S AJ5.KQ84.J4.KJ84      | 1C P 1D 1S   | X   | four hearts, 15 balanced
+S KJ5.Q84.A4.KJ842      | 1C P 1D 1S   | 1NT | 14 with three hearts: 1NT, as BBA
+S KJ5.Q84.A4.KQ842      | 1C P 1D 1H   | X   | three spades, 15
+S KJ85.Q84.A4.KJ84      | 1C P 1D 1H   | 1S  | four spades, 14: 1S, as BBA (Rick 2026-11-07: "yes to 1 and 2")
+S AJ85.K84.A4.KQ84      | 1C P 1D 1H   | 2S  | 17, four spades: the jump to 2S, as BBA
+S AJ85.84.KQ4.AJ84      | 1C P 1D 2H   | X   | four spades, 15
+S 84.AJ85.KQ4.AJ84      | 1C P 1D 2S   | X   | four hearts, 15
+S 84.AJ8.KQ4.AJ842      | 1C P 1D 2S   | P   | three hearts, 15: pass, as BBA
+S AQ5.752.K5.AJ964      | 1C P 1D 1H X P 2H P | 2S | no heart stopper over the cue bid: the major, forcing
+S AQ5.K52.K5.AJ964      | 1C P 1D 1H X P 2H P | 3NT | hearts held
+
+# ── 1C P 1D (1H): opener's natural spades (Rick 2026-11-07: "yes to 1
+# and 2"; BBA, probes/opns-1C-1D-1H.toml). Same card as above.
+S QJ74.976.Q5.AQJ3      | 1C P 1D 1H   | 1S  | 12, four spades, no heart stopper: 1S
+S AQ94.K87.62.KJ76      | 1C P 1D 1H   | 1S  | 13 with a heart stopper: 1S before 1NT
+S KQ85.84.A4.AK984      | 1C P 1D 1H   | 2S  | 16, four spades and five clubs: the jump
+S KJ85.Q84.A4.KJ84      | 1C P 1D 1H 1S P 2N P | 3NT | 14 opposite the 11-12 invitation: accepts
+S KJ85.Q84.A4.KJ84      | 1C P 1D 1H 1S P 2H P | 3NT | the cue bid: hearts held
+S KJ85.84.A4.KQJ84      | 1C P 1D 1H 1S P 2H P | 3C  | no heart stopper, five clubs
+S KJ85.Q84.A4.KJ84      | 1C P 1D 1H 1S P 2S P | P   | the raise: to play
+S AJ85.84.A4.AKQ84      | 1C P 1D 1H 2S P 3S P | 4S  | 18 opposite a minimum raise: game
+S AJ85.84.A4.AKQ84      | 1C P 1D 1H 2S P 3C P | P   | no heart stopper: no game opposite 3C
+S AJ85.K84.A4.AQ84      | 1C P 1D 1H 2S P 3C P | 3NT | 18 with a heart stopper
+
+# ── Opener's third call after the double and a weak answer (Rick
+# 2026-11-07: "yes to 1 and 2"; BBA, probes/opnt-o-1C-1D-*.toml).
+S AQ5.K52.K5.AJ964      | 1C P 1D 1H X P 2C P | 2NT | 17 with a heart stopper: invites
+S AQ5.K52.K5.AJ964      | 1C P 1D 1H X P 1S P | 3NT | three spades opposite four, hearts held: 3NT (BBA)
+S AQ5.K52.K5.QJ964      | 1C P 1D 1H X P 2C P | P   | 15: a minimum passes
+S AJ5.KQ84.J4.AKJ8      | 1C P 1D 1S X P 2H P | 4H  | 18, four hearts opposite four: game
+S 85.AKQ4.KQ4.AJ84      | 1C P 1D 1S X P 2C P | 2S  | 18, no spade stopper: the cue bid
+S AJ85.K4.KQ4.AJ84      | 1C P 1D 2H X P 3C P | 3NT | the answer at the three level: 3NT with hearts held
+S AQ5.K52.K5.AJ964      | 1C P 1D 1H   | X   | 17 with a heart stopper, three spades: the double, as BBA
+S AQ5.K52.K5.AJ964      | 1C P 1D 1S   | X   | 17 with a spade stopper, three hearts: the double, as BBA
+S AQ5.K5.K54.AJ964      | 1C P 1D 1S   | 2NT | 17, two hearts: no double, 2NT
+
+# 14-16 bids on after the double and a weak answer (Rick 2026-11-07:
+# "3: yes"; BBA, probes/opnt-o-1C-1D-*.toml)
+S A95.K954.AJ3.Q65      | 1C P 1D 1S X P 2C P | 2D  | 14, three diamonds: competes, as BBA
+S 97.AK87.AQT.J754      | 1C P 1D 1S X P 2H P | 3H  | 14, four hearts opposite four: invites, as BBA
+S A64.QJ3.Q6.AQJ82      | 1C P 1D 1S X P 2H P | 2NT | 14, three hearts and a spade stopper: invites, as BBA
+S AJ85.K5.AQ7.8765      | 1C P 1D 2H X P 3C P | 3D  | 15, four spades, three diamonds over 3C, as BBA
+S AJ8.K53.AQ7.8765      | 1C P 1D 2H X P 3C P | P   | three spades: pass, as BBA mostly
+S KJ5.Q84.A4.KQ842      | 1C P 1D 1H X P 1S P | 1NT | 15, a heart stopper: 1NT, as BBA
+S KJ5.984.A4.KQ842      | 1C P 1D 1H X P 1S P | P   | 15, no heart stopper: pass
+
+# Strong new suits over their overcall of the response, and the natural
+# minor-suit bids around them (Rick 2026-11-07: "5: yes", "6: yes";
+# BBA, probes/opnj-*.toml)
+S K874.A4.AJ.AQJT4      | 1C P 1D 2H   | 2S  | 19, four spades and five clubs: the reverse, game forcing
+S AJ2.6.AKJ5.AQ985      | 1C P 1S 2H   | X   | three spades: the support double first
+S A2.6.AKJ5.AQJ985      | 1C P 1S 2H   | 3D  | 19, diamonds and long clubs: 3D, game forcing
+S A2.AKJ5.AQJ85.92      | 1D P 1S 2C   | 2H  | 19, four hearts and five diamonds: the reverse
+S 6.A2.KQJ85.AKJ92      | 1D P 1H 1S   | 3C  | 18, five-five: the jump, game forcing
+S 6.A2.KQJ85.KJ932      | 1D P 1H 1S   | 2C  | 14, five-five in the minors: 2C
+S 62.A2.KQJ85.KJ92      | 1D P 1H 2S   | 3C  | 13, four clubs and five diamonds: 3C, as BBA
+S AQ5.K9.AQ52.KJ42      | 1C P 1H 2S   | 3NT | 19 balanced with a spade stopper
+S AQ.K95.AJT52.KJ4      | 1C P 1S 2H   | 2NT | 18, two spades, a heart stopper: 2NT
+S K874.A4.AJ.AQJT4      | 1C P 1D 2H 2S P 3S P | 4NT | 21 support points opposite 8+: keycard
+S K874.A4.AJ.AQJT4      | 1C P 1D 2H 2S P 3C P | 3NT | hearts held: 3NT
+S 6.A2.QJT85.KJ932      | 1D P 1H 1S 2C P 3D P | P | 11 HCP, 13 points: declines
+S 6.A2.KQJ85.KJ932      | 1D P 1H 1S 2C P 3D P | 5D | 14 HCP, 16 points: accepts
+
+# Rick 2026-11-07 ("4: yes", "5: yes", 4m forcing): the unbalanced
+# double, and slam after the strong new suit
+S AKQ2.Q.AT6.K6542      | 1C P 1D 2H   | X   | 18, four spades, five clubs, unbalanced: the double, as BBA
+S K65.AKJ3.9.AK875      | 1C P 1D 1S   | X   | 18, four hearts, five clubs: the double, as BBA
+S A.AKT5.AK5.KT854      | 1C P 1D 1S   | 2H  | 21: the reverse
+S K874.A4.AJ.AQJT4      | 1C P 1D 2H 2S P 4C P | 5C | partner's 4C is forcing: game with a minimum for slam
+S AK74.A4.A2.AKQJ4      | 1C P 1D 2H 2S P 4C P | 4NT | 23 opposite 7+: keycard
+S K874.A4.AJ.AQJT4      | 1C P 1D P 2S P 4C P | 5C | the same uncontested: 4C forcing
+S K874.A4.AJ.AQJT4      | 1C P 1D P 2S P 3S P | 4NT | the same uncontested: keycard
+S K874.A4.AJ.KQJT4      | 1C P 1D P 2S P 3S P | 4S | 18, 20 support points opposite 8: game
+
+# With a weak notrump (Rick, 2026-11-07: "3 yes and after 2/1 a jump to
+# 3NT shows 15-17, 2NT shows 12-14 or 18-19"): his card, 14+-17
+# vulnerable, 11+-14 not. Not vulnerable the 15-17 balanced hands open
+# the minor and rebid 1NT, 2NT stays 18-19; after 1D-2C the jump to 3NT
+# is 15-17 and 2NT 12-14 or 18+. Vulnerable (15-17 opens 1NT) as before.
+card    21GF-DEFAULT notrump.one_nt.range_min=14 notrump.one_nt.range_min_plus=true notrump.one_nt.range_max=17 notrump.one_nt.seat_vul=Vul notrump.one_nt_alt.range_min=11 notrump.one_nt_alt.range_min_plus=true notrump.one_nt_alt.range_max=14 notrump.one_nt_alt.seat_vul=NV notrump.one_nt_alt.same_responses=true
+dealer  S
+vul     None
+S AJ5.Q74.AJ63.K82      | 1D P 1S P    | 1NT    | 15 balanced above the weak notrump: 1NT
+S AQ5.K74.AJ63.K82      | 1D P 1H P    | 1NT    | 17: still 1NT
+S AQ5.K74.AQ63.K82      | 1D P 1S P    | 2NT    | 18: 2NT
+S KJ5.QT4.AJT3.K82      | 1D P 1S P    | 1NT    | 14 with two tens, judged out of 11+-14: 1NT
+S AJ5.Q74.K82.AJ63      | 1C P 1H P    | 1NT    | 15 after 1C-1H
+S AJ5.K74.K82.AJ63      | 1C P 1D P    | 1NT    | 16 after 1C-1D
+S AQ5.K74.K82.AQ63      | 1C P 1H P    | 2NT    | 18 after 1C-1H
+S AJ5.Q74.AJ63.K82      | 1D P 2C P    | 3NT    | after the 2/1: 15-17 jumps to 3NT
+S AQ5.K74.AQ63.K82      | 1D P 2C P    | 2NT    | 18: 2NT, 12-14 or 18+, game forcing
+S AQ5.K74.AQ63.K82      | 1D P 2C P 2NT P 3NT P | 4NT | 18 over 3NT: the strong branch invites
+S AJ5.Q74.AJ63.K82      | 1D 1H X P    | 1NT    | the negative double: 15-17 with a heart stopper
+S AJ5.Q74.AJ63.K82      | 1D P 1S P 1NT P 2NT P | P | 15 declines the invitation
+S AQ5.K74.AJ63.K82      | 1D P 1S P 1NT P 2NT P | 3NT | 17 accepts
+vul     NS
+S AQ5.K74.AQ63.K82      | 1D P 1S P    | 2NT    | vulnerable 18: 2NT as before
+S KJ5.Q74.A963.K82      | 1D P 1S P    | 1NT    | vulnerable 13: 1NT 12-14 as before
+S KJ5.Q74.A963.K82      | 1D P 2C P    | 2NT    | vulnerable 13 after the 2/1: 2NT 12-14
+S AQ5.K74.AQ63.K82      | 1D P 2C P    | 3NT    | vulnerable 18 after the 2/1: 3NT 18-19

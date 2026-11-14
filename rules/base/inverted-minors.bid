@@ -1,0 +1,161 @@
+# Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
+#
+# Inverted minors, as BBA plays them on 21GF-DEFAULT (probed 2026-09-25,
+# probes/minor-resp-inv-*.toml, inv-opener-*.toml; inverted-minors.notes.md):
+#
+# - 1m-2m is 10+ HCP, four or more of the minor, no four-card major,
+#   forcing one round; 1m-3m is weak, 5-9 with five or more.
+# - Opener: 2NT 12-14 balanced; 3NT 18-19 balanced; 3m a minimum,
+#   unbalanced; a new suit at the two level shows a stopper and extras
+#   (15+) or shape; a jump in a new suit is a splinter (four trumps).
+# - Responder then places the contract: 3NT with game values and the
+#   suits held, 3m/pass with a minimum, 5m with shape.
+#
+# BBA's stopper-showing bids are up the line and more detailed; this is a
+# first cut that keeps the auction going to the right level.
+
+module inverted-minors "Inverted minor raises"
+  kind   convention
+  card   minor_openings.inverted_minors.play
+  needs  responses
+  skill  bidding_conventions/inverted_minors
+
+after 1m (P)
+  2m  "Inverted raise: 10+, 4+ {m}, no 4-card major, forcing"  shows m>=4, hcp>=10, H<=3, S<=3
+      sets  forcing=round, trump=m
+  3m  "Weak raise: 5-9, 5+ {m}, no 4-card major"  shows m>=5, hcp=5..9, H<=3, S<=3
+      sets  trump=m
+
+# Opener over the weak raise (5-9): game needs about 18 (rebids.bid's
+# 14+ is for the limit raise without inverted minors; conv-ab 2026-10-07
+# found 14-counts bidding 3NT opposite 5-9).
+after 1m (P) 3m (P)
+  3N  "Game opposite the weak raise: 18+, balanced"   shows hcp>=18, balanced | semibalanced
+      priority 1
+  5m  "Game opposite the weak raise: 18+, unbalanced"  shows hcp>=18
+      priority 1
+  P   "No game opposite the weak raise"              shows hcp<=17
+      priority 1
+
+# ── 1C-2C ─────────────────────────────────────────────────────────
+after 1C (P) 2C (P)
+  2N  "12-14 balanced"                        shows balanced, hcp<=14
+  3N  "18-19 balanced"                        shows balanced, hcp>=18
+  3C  "Minimum, unbalanced"                   shows !balanced, hcp<=14
+  2D  "Extras or shape, a diamond stopper"    shows stop(D), hcp>=15 | !balanced
+      priority -1
+  2H  "Extras or shape, a heart stopper"      shows stop(H), hcp>=15 | !balanced, !stop(D)
+      priority -1
+  2S  "Extras or shape, a spade stopper"      shows stop(S), hcp>=15 | !balanced, !stop(H), !stop(D)
+      priority -1
+  3H  "Splinter: heart shortness, four clubs"  shows H<=1, C>=4, hcp>=13
+      priority 1
+  3S  "Splinter: spade shortness, four clubs"  shows S<=1, C>=4, hcp>=13
+      priority 1
+  4C  "Slam try, extras and a fit"            shows C>=4, hcp>=16, !balanced
+# Opposite 12-14 and a nine-card minor fit, game from 12 (11 with a
+# fifth trump): 3NT makes about half the time there (conv-ab, 2026-10-07).
+after 1C (P) 2C (P) 2N (P)
+  3N  "Game values"                           shows hcp>=12 | (hcp>=11, C>=5)
+  3C  "Minimum, to play"                      shows hcp<=11, hcp<=10 | C<=4, !balanced
+  P   "Minimum, balanced"      shows hcp<=11, hcp<=10 | C<=4, balanced
+after 1C (P) 2C (P) 2N (P) 3C (P)
+  P   "No further bid"
+      priority -1
+after 1C (P) 2C (P) 3C (P)
+  3N  "Game values, the majors held"          shows hcp>=12, stop(S), stop(H)
+  5C  "Game values"                           shows hcp>=13
+      priority -1
+  P   "Minimum"                               shows hcp<=12
+      priority -2
+# Opener's slam try: responder declines in game; with more, the slam
+# rules (keycards) come first.
+after 1C (P) 2C (P) 4C (P)
+  5C  "Declines the slam try"
+      priority -1
+after 1C (P) 2C (P) 2D (P) | 1C (P) 2C (P) 2H (P) | 1C (P) 2C (P) 2S (P)
+  2N  "10-12, balanced"                       shows hcp<=12, balanced
+  3N  "Game values"                           shows hcp>=13
+  3C  "10-12, unbalanced"                     shows hcp<=12
+      priority -1
+after 1C (P) 2C (P) 2D (P) 2N (P) | 1C (P) 2C (P) 2H (P) 2N (P) | 1C (P) 2C (P) 2S (P) 2N (P)
+  3N  "Game"                                  shows hcp>=15
+  3C  "Minimum, unbalanced"                   shows hcp<=14
+      priority -1
+after 1C (P) 2C (P) 3H (P)
+  3N  "A heart stopper"                           shows hcp>=10, stop(H)
+  5C  "Game in clubs"                        shows hcp>=12
+      priority -1
+  4C  "Minimum"                               shows hcp<=11
+      priority -1
+after 1C (P) 2C (P) 3S (P)
+  3N  "A spade stopper"                           shows hcp>=10, stop(S)
+  5C  "Game in clubs"                        shows hcp>=12
+      priority -1
+  4C  "Minimum"                               shows hcp<=11
+      priority -1
+
+# ── 1D-2D ─────────────────────────────────────────────────────────
+after 1D (P) 2D (P)
+  2N  "12-14 balanced"                        shows balanced, hcp<=14
+  3N  "18-19 balanced"                        shows balanced, hcp>=18
+  3D  "Minimum, unbalanced"                   shows !balanced, hcp<=14
+  2H  "Extras or shape, a heart stopper"      shows stop(H), hcp>=15 | !balanced
+      priority -1
+  2S  "Extras or shape, a spade stopper"      shows stop(S), hcp>=15 | !balanced, !stop(H)
+      priority -1
+  3H  "Splinter: heart shortness, four diamonds"  shows H<=1, D>=4, hcp>=13
+      priority 1
+  3S  "Splinter: spade shortness, four diamonds"  shows S<=1, D>=4, hcp>=13
+      priority 1
+  4D  "Slam try, extras and a fit"            shows D>=4, hcp>=16, !balanced
+# Opposite 12-14 and a nine-card minor fit, game from 12 (11 with a
+# fifth trump): 3NT makes about half the time there (conv-ab, 2026-10-07).
+after 1D (P) 2D (P) 2N (P)
+  3N  "Game values"                           shows hcp>=12 | (hcp>=11, D>=5)
+  3D  "Minimum, to play"                      shows hcp<=11, hcp<=10 | D<=4, !balanced
+  P   "Minimum, balanced"      shows hcp<=11, hcp<=10 | D<=4, balanced
+after 1D (P) 2D (P) 2N (P) 3D (P)
+  P   "No further bid"
+      priority -1
+after 1D (P) 2D (P) 3D (P)
+  3N  "Game values, the majors held"          shows hcp>=12, stop(S), stop(H)
+  5D  "Game values"                           shows hcp>=13
+      priority -1
+  P   "Minimum"                               shows hcp<=12
+      priority -2
+# Opener's slam try: responder declines in game; with more, the slam
+# rules (keycards) come first.
+after 1D (P) 2D (P) 4D (P)
+  5D  "Declines the slam try"
+      priority -1
+after 1D (P) 2D (P) 2H (P) | 1D (P) 2D (P) 2S (P)
+  2N  "10-12, balanced"                       shows hcp<=12, balanced
+  3N  "Game values"                           shows hcp>=13
+  3D  "10-12, unbalanced"                     shows hcp<=12
+      priority -1
+after 1D (P) 2D (P) 2H (P) 2N (P) | 1D (P) 2D (P) 2S (P) 2N (P)
+  3N  "Game"                                  shows hcp>=15
+  3D  "Minimum, unbalanced"                   shows hcp<=14
+      priority -1
+after 1D (P) 2D (P) 3H (P)
+  3N  "A heart stopper"                           shows hcp>=10, stop(H)
+  5D  "Game in diamonds"                        shows hcp>=12
+      priority -1
+  4D  "Minimum"                               shows hcp<=11
+      priority -1
+after 1D (P) 2D (P) 3S (P)
+  3N  "A spade stopper"                           shows hcp>=10, stop(S)
+  5D  "Game in diamonds"                        shows hcp>=12
+      priority -1
+  4D  "Minimum"                               shows hcp<=11
+      priority -1
+
+
+# Opener after responder's minimum over the splinter.
+after 1C (P) 2C (P) 3x (P) 4C (P) when x is H | x is S
+  P   "No further bid"
+      priority -1
+after 1D (P) 2D (P) 3x (P) 4D (P) when x is H | x is S
+  P   "No further bid"
+      priority -1

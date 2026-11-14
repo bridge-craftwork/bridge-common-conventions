@@ -1,0 +1,379 @@
+# Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
+#
+# Takeout doubles of a one-level opening, and advancer's replies
+# (Rick, 2026-09-22):
+#
+# - a takeout double is 12 total points with three or more cards in every
+#   unbid suit;
+# - it is also the call with 17+ HCP and any shape, including a long
+#   strong suit: too strong to overcall is double first, then bid the suit
+#   (overcalls.bid stops at 16 HCP). In HCP since 2026-09-27: BBA's power
+#   doubles step up at 17 HCP (takeout-double.notes.md), and an HCP
+#   threshold lets the deck and the auction rule the power hand out;
+# - advancer answers on the standard ladder: a suit at the cheapest level
+#   is 0-8, a jump 9-11, and the cue bid of their suit 12+;
+# - advancer bids his longest suit, majors first, and the cheaper of two
+#   equal suits.
+#
+# Not written yet: responsive doubles (off on this card), advancer over
+# RHO's bid, and doubles of anything but a one-level suit opening.
+
+module takeout-double "Takeout doubles"
+  kind   system
+  needs  base
+  needs  overcalls
+  skill  competitive_bidding/takeout_doubles
+  param  oc_max = overcalls.one_level_max default 16
+
+# ── The double ───────────────────────────────────────────────────────
+after (1x)
+  X   "Takeout: the unbid suits and 12+, or any 18+"
+      shows hcp+length_points>=12
+      shows ((S>=3 | x is S), (H>=3 | x is H), (D>=3 | x is D), (C>=3 | x is C)) | hcp>=oc_max+1
+      # A queen or jack, alone, in a doubleton of their suit is marked
+      # down: 12 with Qx or Jx there passes, 13 doubles. BBA does this at
+      # every vulnerability (probes/td-1S-shape.toml; ticket b60); we only
+      # at unfavourable, the one where it gains on both yardsticks (notes).
+      shows hcp+length_points>=13 | x>=3 | has(A,x) | has(K,x) | (!has(Q,x), !has(J,x)) | !vul | they.vul
+
+# ── Advancer, when RHO passes ────────────────────────────────────────
+# The double is forcing: advancer names his suit however weak he is.
+# A suit at the cheapest level says nothing beyond 0-8 total points.
+after (1x) X (P) | (1x) P (P) X (P)
+  1H  "0-8 total points, four or more hearts"   shows H>=4, H>=S | x is S, hcp+length_points<=8 | (H=4, hcp<=9)
+      when  x is not H, x is not S
+  1S  "0-8 total points, four or more spades"   shows S>=4, S>H | x is H, hcp+length_points<=8 | (S=4, hcp<=9)
+      when  x is not S
+  1D  "0-8 total points, four or more diamonds" shows D>=4, D>C, S<=3 | x is S, H<=3 | x is H, hcp+length_points<=8 | (D=4, hcp<=9)
+      when  x is not D, x is not H, x is not S
+  2C  "0-8 total points, four or more clubs"    shows C>=4, C>=D, S<=3 | x is S, H<=3 | x is H, hcp+length_points<=8 | (C=4, hcp<=9)
+      when  x is not C
+  2D  "0-8 total points, four or more diamonds" shows D>=4, D>C, S<=3 | x is S, H<=3 | x is H, hcp+length_points<=8 | (D=4, hcp<=9)
+      when  x is not D, x is not C
+  2H  "0-8 total points, four or more hearts"   shows H>=4, H>=S | x is S, hcp+length_points<=8 | (H=4, hcp<=9)
+      when  x is not H, x is not D, x is not C
+  1N  "7-10 HCP, balanced, a stopper in {x}"
+      shows balanced, hcp>=7, hcp<=10
+      when  stop(x)
+
+# Jumps invite: 9-11 total points with the same suits.
+after (1x) X (P) | (1x) P (P) X (P)
+  2H  "9-11 total points, four or more hearts"   shows H>=4, H>=S | x is S, hcp+length_points=9..11, H>=5 | hcp>=10
+      when  x is not H, x is not S
+  2S  "9-11 total points, four or more spades"   shows S>=4, S>H | x is H, hcp+length_points=9..11, S>=5 | hcp>=10
+      when  x is not S
+  3C  "9-11 total points, four or more clubs"    shows C>=4, C>=D, S<=3 | x is S, H<=3 | x is H, hcp+length_points=9..11, C>=5 | hcp>=10
+      when  x is not C
+  3D  "9-11 total points, four or more diamonds" shows D>=4, D>C, S<=3 | x is S, H<=3 | x is H, hcp+length_points=9..11, D>=5 | hcp>=10
+      when  x is not D, x is not C
+  3H  "9-11 total points, four or more hearts"   shows H>=4, H>=S | x is S, hcp+length_points=9..11, H>=5 | hcp>=10
+      when  x is not H, x is not D, x is not C
+  2N  "11-12 total points, balanced, a stopper in {x}"
+      shows balanced, hcp+length_points=11..12
+      when  stop(x)
+
+# BBA (probes/advance-1S-X.toml, 2026-09-25): 12+ with their suit held
+# and no four-card unbid major bids 3NT; with no four-card suit to name,
+# the cheapest three-card suit.
+after (1x) X (P) | (1x) P (P) X (P)
+  3N  "Game: 12+, a stopper in {x}"  shows hcp>=12, stop(x), (H<=3 | x is H), (S<=3 | x is S)
+      priority 2
+  1D  "0-8, no four-card suit to show: three diamonds"  shows D>=3, H<=3, S<=3, hcp<=8
+      when  x is C
+      priority -2
+  1H  "0-8, no four-card suit to show: three hearts"   shows H>=3, S<=3, hcp<=8
+      when  x is not H, x is not S
+      priority -3
+  2C  "0-8, no four-card suit to show: three clubs"    shows C>=3, H<=3, S<=3, hcp<=8
+      when  x is not C
+      priority -2
+  2D  "0-8, no four-card suit to show: three diamonds" shows D>=3, H<=3, S<=3, hcp<=8
+      when  x is not D, x is not C
+      priority -3
+
+# The cue bid is the only game force: 12+ with no clear suit to jump in.
+after (1x) X (P) | (1x) P (P) X (P)
+  2{x} "Cue bid: 12+ total points, asks for a description"
+      alert  artificial
+      shows  hcp+length_points>=12
+      sets   forcing=game
+      priority 1
+
+# ── The doubler's rebid ──────────────────────────────────────────────
+# Advancer's cheapest suit said 0-8, so a minimum double passes. The
+# hands too strong to overcall show themselves now: 18+ total points
+# bids its own suit, raises with support, or bids notrump with a
+# stopper. This is the second half of "double first, then bid the suit".
+after (1x) X (P) 1y (P) | (1x) P (P) X (P) 1y (P)
+  P   "Minimum takeout double"
+      shows hcp<=16
+      priority -5
+  2{y} "18-19 total points, four-card support"
+      shows y>=4, hcp+length_points=17..19
+  3{y} "20-21 total points, four-card support"
+      shows y>=4, hcp+length_points=20..21
+  4{y} "22+ total points, four-card support for partner's major"
+      shows y>=4, hcp+length_points>=22
+      when  y is H | y is S
+  1N  "18-19 balanced with a stopper in {x}"
+      shows balanced, hcp=17..19
+      when  stop(x)
+  cheapest(S) "18+ total points and a five-card spade suit"
+      shows S>=5, hcp+length_points>=18 | hcp>=17
+      when  x is not S, y is not S
+  cheapest(H) "18+ total points and a five-card heart suit"
+      shows H>=5, hcp+length_points>=18 | hcp>=17
+      when  x is not H, y is not H
+  cheapest(D) "18+ total points and a five-card diamond suit"
+      shows D>=5, hcp+length_points>=18 | hcp>=17
+      when  x is not D, y is not D
+  cheapest(C) "18+ total points and a five-card club suit"
+      shows C>=5, hcp+length_points>=18 | hcp>=17
+      when  x is not C, y is not C
+
+after (1x) X (P) 2y (P) | (1x) P (P) X (P) 2y (P)
+  P   "Minimum takeout double"
+      shows hcp<=16
+      priority -5
+  3{y} "Strong raise: four-card support, 18+"
+      shows y>=4, hcp+length_points>=18 | hcp>=17
+  3{y} "Strong raise: three-card support, 20+"
+      shows y=3, hcp>=20
+  cheapest(S) "18+ total points and a five-card spade suit"
+      shows S>=5, hcp+length_points>=18 | hcp>=17
+      when  x is not S, y is not S
+  cheapest(H) "18+ total points and a five-card heart suit"
+      shows H>=5, hcp+length_points>=18 | hcp>=17
+      when  x is not H, y is not H
+  cheapest(D) "18+ total points and a five-card diamond suit"
+      shows D>=5, hcp+length_points>=18 | hcp>=17
+      when  x is not D, y is not D
+  cheapest(C) "18+ total points and a five-card club suit"
+      shows C>=5, hcp+length_points>=18 | hcp>=17
+      when  x is not C, y is not C
+  2N  "18-19 balanced with a stopper in {x}"
+      shows balanced, hcp=17..19
+      when  stop(x)
+
+# The doubler again when they compete (2026-09-25; no rules before). BBA:
+# after (1x) X (2x) P P a five-card suit with 16+, or double again with
+# 12+ short in their suit; when opener competes over the advance, raise
+# with four and 16+, or show a five-card suit with 16+ (+645 with the
+# suit bids). The second double first cost ~1,500 IMPs against par
+# because advancer had no answer and left it in; with the takeout
+# answers below it gains (2026-09-27, ticket b89, notes).
+after (1x) X (2x) P (P)
+  cheapest(S) "16+ and five spades"                 shows S>=5, hcp>=16
+      when  x is not S
+      priority 1
+  cheapest(H) "16+ and five hearts"                 shows H>=5, S<=4, hcp>=16
+      when  x is not H
+      priority 1
+  X   "Takeout again: short in {x}"                 shows x<=1, hcp>=12
+  P   "No further bid"                                priority -5
+
+# Advancer after the second double: it is still for takeout. Bid the
+# longest unbid suit, a major first; pass only with a trump stack.
+after (1x) X (2x) P (P) X (P)
+  cheapest(S) "Takeout: four or more spades"        shows S>=4, S>=H, S>=D, S>=C
+      when  x is not S
+      priority 1
+  cheapest(H) "Takeout: four or more hearts"        shows H>=4, H>=D, H>=C
+      when  x is not H
+      priority 1
+  cheapest(D) "Takeout: my longest, diamonds"       shows D>=C
+      when  x is not D
+  cheapest(C) "Takeout: my longest, clubs"          shows C>=3
+      when  x is not C
+      priority -1
+  P   "Penalty: five of their suit"                 shows x>=5, hcp>=5
+      priority 2
+
+after (1x) X (P) 1y (2x) | (1x) X (P) 2y (2x)
+  3{y} "16+, four-card support"                     shows y>=4, hcp+length_points>=16
+  cheapest(C) "16+ and five clubs"                  shows C>=5, hcp>=16, y<=3
+      when  x is not C, y is not C
+  cheapest(D) "16+ and five diamonds"               shows D>=5, D>C, hcp>=16, y<=3
+      when  x is not D, y is not D
+  # The strong balanced double, as without their bid (2026-10-05, the
+  # Raptor self A/B: 1♣ X P 1♥ 2♣ passed with 18 HCP; BBA bids 2NT).
+  2N  "18-19 balanced with a stopper in {x}"       shows balanced, hcp=17..19
+      when  stop(x)
+  P   "No further bid"                                priority -5
+
+# The doubler when their responder bid over the double, partner passed
+# and opener bid again (2026-09-25: 1H (X) 1S (P) 1NT, where 18+ with a
+# long suit passed). The strong double shows its suit now.
+after (1x) X (1y) P (*) | (1x) X (2y) P (*) when y is not x, !rho.last=P
+  cheapest(S) "18+ total points and five spades"
+      shows S>=5, hcp+length_points>=18 | hcp>=17
+      when  x is not S, y is not S
+  cheapest(H) "18+ total points and five hearts"
+      shows H>=5, S<=4, hcp+length_points>=18 | hcp>=17
+      when  x is not H, y is not H
+  cheapest(D) "18+ total points and five diamonds"
+      shows D>=5, S<=4, H<=4, hcp+length_points>=18 | hcp>=17
+      when  x is not D, y is not D
+  cheapest(C) "18+ total points and five clubs"
+      shows C>=5, D<=4, S<=4, H<=4, hcp+length_points>=18 | hcp>=17
+      when  x is not C, y is not C
+
+# The doubler after advancer's cue bid when opener bids again
+# (2026-09-27; Basic_Takeout_Double 193, 1H (X) P (2H) 3H). The cue bid
+# forced to game and asked for a description. The power double (17+
+# HCP) doubles; anything less describes itself, or passes where the
+# force allows it. So not doubling denies the power hand, and partner can
+# count the double's shape (the Law of Total Tricks, total-tricks.bid).
+after (1x) X (P) 2x (*) when !rho.last=P
+  X   "Power double: 17+ HCP"
+      shows hcp>=17
+      priority 1
+  P   "No extras: 16 or less"                   shows hcp<=16
+      priority -5
+  # Below the pass: where the game force rules the pass out, the
+  # minimum describes itself; a pass (BBA's forcing pass) denies only
+  # the power hand, not every four-card suit.
+  cheapest(S) "Four or more spades, no extras"   shows S>=4, hcp<=16
+      when  x is not S
+      priority -6
+  cheapest(H) "Four or more hearts, no extras"   shows H>=4, S<=3, hcp<=16
+      when  x is not H
+      priority -6
+  cheapest(N) "A stopper in {x}, no extras"     shows stop(x), hcp<=16
+      priority -7
+  # Four-card minors up the line (Rick, ticket b455): clubs with 4-4.
+  cheapest(D) "Four or more diamonds, no extras" shows D>=4, D>C | x is C, hcp<=16
+      when  x is not D
+      priority -8
+  cheapest(C) "Four or more clubs, no extras"    shows C>=4, C>=D | x is D, hcp<=16
+      when  x is not C
+      priority -8
+
+# ── Advancer when RHO does not pass ──────────────────────────────────
+# The double is no longer forcing: advancer passes with nothing and bids
+# his own suit freely. Over a one-level bid a four-card major is enough;
+# higher up he needs five cards and more values.
+after (1x) X (1y) | (1x) P (P) X (1y)
+  1S  "Free bid: 6+ total points, four or more spades"
+      shows S>=4, hcp+length_points>=6
+      when  x is not S, y is not S
+  cheapest(H) "Free bid: 6+ total points, five or more hearts"
+      shows H>=5, hcp+length_points>=6
+      when  x is not H, y is not H
+  cheapest(D) "Free bid: 6+ total points, five or more diamonds"
+      shows D>=5, S<=3, H<=4, hcp+length_points>=6
+      when  x is not D, y is not D
+  cheapest(C) "Free bid: 6+ total points, five or more clubs"
+      shows C>=5, S<=3, H<=4, hcp+length_points>=6
+      when  x is not C, y is not C
+  1N  "8-11 total points, balanced, a stopper in both their suits"
+      shows balanced, hcp+length_points>=8, hcp+length_points<=11
+      when  stop(x), stop(y)
+  2{x} "Cue bid: 12+ total points"
+      alert  artificial
+      shows  hcp+length_points>=12
+      sets   forcing=game
+      priority 1
+  P   "No free bid"  priority -10
+
+after (1x) X (2y) | (1x) P (P) X (2y)
+  cheapest(S) "Free bid: 8+ total points, five or more spades"
+      shows S>=5, hcp+length_points>=8
+      when  x is not S, y is not S
+  cheapest(H) "Free bid: 8+ total points, five or more hearts"
+      shows H>=5, S<=4, hcp+length_points>=8
+      when  x is not H, y is not H
+  cheapest(D) "Free bid: 8+ total points, five or more diamonds"
+      shows D>=5, S<=4, H<=4, hcp+length_points>=8
+      when  x is not D, y is not D
+  cheapest(C) "Free bid: 8+ total points, five or more clubs"
+      shows C>=5, S<=4, H<=4, hcp+length_points>=8
+      when  x is not C, y is not C
+  2N  "11-12 total points, balanced, a stopper in {x}"
+      shows balanced, hcp+length_points>=11, hcp+length_points<=12
+      when  stop(x)
+  P   "No free bid"  priority -10
+
+# RHO redoubled: partner still wants to hear a suit, so advancer names
+# his cheapest four-card suit however weak he is.
+after (1x) X (XX) | (1x) P (P) X (XX)
+  cheapest(S) "Four or more spades"   shows S>=4, S>H
+      when  x is not S
+  cheapest(H) "Four or more hearts"   shows H>=4, H>=S
+      when  x is not H
+  cheapest(D) "Four or more diamonds" shows D>=4, D>C, S<=3 | x is S, H<=3 | x is H
+      when  x is not D
+  cheapest(C) "Four or more clubs"    shows C>=4, C>=D, S<=3 | x is S, H<=3 | x is H
+      when  x is not C
+  P   "No four-card suit to name"  priority -10
+
+# The doubler when advancer passed the redouble (2026-09-27, ticket b197:
+# 1S X XX P P P was -520). Advancer had no four-card suit to name, so the
+# doubler runs to his cheapest four-card suit and advancer corrects;
+# leaving it in needs four of their suit.
+after (1x) X (XX) P (P)
+  cheapest(C) "Rescue: four or more clubs, the cheapest"     shows C>=4
+      when  x is not C
+      priority 1
+  cheapest(D) "Rescue: four or more diamonds, the cheapest"  shows D>=4, C<=3 | x is C
+      when  x is not D
+      priority 1
+  cheapest(H) "Rescue: four or more hearts, the cheapest"    shows H>=4, C<=3 | x is C, D<=3 | x is D
+      when  x is not H
+      priority 1
+  cheapest(S) "Rescue: four or more spades"                  shows S>=4, C<=3 | x is C, D<=3 | x is D, H<=3 | x is H
+      when  x is not S
+      priority 1
+  P   "Leaves it in: four or more of their suit"             shows x>=4
+      priority 2
+
+
+# ── The double of their raise (2026-10-05) ───────────────────────────
+# (1x) P (2x) X: they have found a fit, so the double is for takeout,
+# not penalty (penalty-doubles.bid read it as penalty, priority -6):
+# a singleton or void in their suit, three or more in each unbid suit,
+# 13+ HCP (BBA mostly passes there: a first try at 12+ total points
+# with a doubleton doubled on 95 of the tripwire's boards, BBA agreed
+# on 14; scrambling-2nt.notes.md). Written with Scrambling 2NT (scrambling-2nt.bid), whose
+# scenario starts here (PBS btn/Scrambling_2NT.btn: 13+, 4-4-4-1 or
+# 5-4-4-0 short in their major).
+after (1x) P (2x)
+  X   "Takeout of their raise: short in {x}, the unbid suits, 13+ HCP"
+      shows hcp>=13, x<=1
+      shows (S>=3 | x is S), (H>=3 | x is H), (D>=3 | x is D), (C>=3 | x is C)
+
+# Advancer must bid (they have a fit; partner is short there): his
+# longest unbid suit, majors first; four of a major or 3NT with game
+# values opposite the double; a pass only with their suit stacked.
+after (1x) P (2x) X (P)
+  4S  "Game: four or more spades, 11+"
+      shows S>=4, S>=H | x is H, hcp+length_points>=11
+      when  x is not S
+      priority 1
+  4H  "Game: four or more hearts, 11+"
+      shows H>=4, H>S | x is S, hcp+length_points>=11
+      when  x is not H
+      priority 1
+  3N  "Game: 11+ with {x} stopped"
+      shows hcp>=11, stop(x), S<=3 | x is S, H<=3 | x is H
+      priority 1
+  P   "Penalty: five or more {x} with two top honours"
+      shows x>=5, quality(x)>=good
+      priority 1
+  cheapest(S) "Four or more spades"     shows S>=4, S>=H | x is H
+      when  x is not S
+  cheapest(H) "Four or more hearts"     shows H>=4, H>S | x is S
+      when  x is not H
+  cheapest(D) "Four or more diamonds"   shows D>=4, D>C, S<=3 | x is S, H<=3 | x is H
+      when  x is not D
+  cheapest(C) "Four or more clubs"      shows C>=4, C>=D, S<=3 | x is S, H<=3 | x is H
+      when  x is not C
+  # No four-card suit: the longest unbid suit, cheapest first.
+  cheapest(C) "No four-card suit: clubs"    when x is not C, C>=D | x is D
+      priority -5
+  cheapest(D) "No four-card suit: diamonds" when x is not D, D>C | x is C
+      priority -5
+  cheapest(H) "No four-card suit: hearts"   when x is not H
+      priority -6
+  cheapest(S) "No four-card suit: spades"   when x is not S
+      priority -7

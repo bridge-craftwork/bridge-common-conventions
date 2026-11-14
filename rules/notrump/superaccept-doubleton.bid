@@ -1,0 +1,38 @@
+# Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
+
+module superaccept-doubleton "Superaccept doubleton"
+  kind   convention
+  card   notrump.jacoby_transfers.super_accept_doubleton
+  needs  super-accept
+  skill  bidding_conventions/super_accept
+  param  system = general.system   # `brill`: the Brill card's treatments
+
+# Four-card support, a maximum and a doubleton: bid the doubleton when it is
+# cheaper than 2NT, otherwise 2NT. (BBA calls this "Extended acceptance".)
+# With the queen in a spade doubleton BBA bids 2NT: the queen is worth
+# more as a stopper than the shortness is for ruffs.
+after nt1 2D (P)
+  2S  "Super-accept: 4+ hearts, maximum, doubleton spade"  alert
+      shows H>=4, hcp>=16, S=2, !has(Q,S)      # with Qx, KQ or AQ: 2NT, as BBA
+      artificial
+  2N  "Super-accept: 4+ hearts, maximum, a doubleton"      alert
+      shows H>=4, hcp>=16, shortest=2
+      artificial
+after nt1 2H (P)
+  2N  "Super-accept: 4+ spades, maximum, a doubleton"      alert
+      shows S>=4, hcp>=16, shortest=2
+      artificial
+
+# brill (the Brill card): a maximum 4-3-3-3 bids 2NT too, as the jump to
+# three of the major is the minimum (super-accept.bid). Brill /explain,
+# 2026-10-15: "Superaccept, no doubleton" `max and ExplicitShape ==
+# '3=4=3=3'`; "Superaccept, max" (over 2H) `max and ExplicitShape ==
+# '4=3=3=3'`; "Superaccept, doubleton" `max and S <= 2 and hearts > 3`.
+after nt1 2D (P) when system is brill
+  2N  "Super-accept: 4 hearts, maximum, 3=4=3=3"   alert
+      shows H=4, S=3, D=3, C=3, hcp>=16
+      artificial
+after nt1 2H (P) when system is brill
+  2N  "Super-accept: 4 spades, maximum, 4=3=3=3"   alert
+      shows S=4, H=3, D=3, C=3, hcp>=16
+      artificial

@@ -1,0 +1,98 @@
+# Penalty doubles by judgment (penalty-doubles.notes.md, 2026-10-01).
+card    Basic-Bridge
+# They sacrifice over our cue-bid raise: partner's limit raise or better
+# and my opener make 22+ between us (Random_Pavlicek_SAYCvanilla 264).
+dealer  W
+vul     None
+E A93.A8765.AQ.AT3      | 1H 2S 3S 4S P P     | X   | 22+ between us: they are too high
+# Passed round to me at the two level: my 15, partner's overcall, three
+# of their trumps (Random_Pavlicek_SAYCvanilla 1106).
+dealer  E
+vul     NS
+N QJ42.QJ4.AJ8.K42      | P 1C 1D 1S 2D P P   | X   | 21+ between us, three diamonds
+# Partner's 1NT overcall and my 8: 23 between us whatever my clubs
+# (Random_Pavlicek_SAYCvanilla 5260).
+dealer  W
+vul     NS
+W J542.9643.AQJ.54      | P 1H 1N 3C          | X   | 23+ between us: they are too high
+# Partner answered it: he sits.
+E K97.QT8.JT93.KJ6      | P 1H 1N 3C X P      | P   | partner doubled for penalty
+# Four small trumps double from 20 known, good ones from 17 (2026-10-03,
+# retuned after PRs #44/#45). Opener's 1D is 12+ declarer points, so
+# 11+ HCP with no suit beyond five: 8 and 9 of mine make 19 and 20.
+dealer  N
+vul     None
+S 8653.A4.Q7.QT852      | 1D 1S 2C 2S P P      | !X  | four small and 19 known: not a penalty double
+S 8653.A4.Q7.QJ852      | 1D 1S 2C 2S P P      | X   | four small and 20 known
+# Passed round to me: four good spades, my 7 and opener's 10 make 17
+# (after my pass, opener's 1D reads 10+ here).
+S KQT5.843.T72.Q85      | 1D 1S P 2S P P       | X   | four good spades and 17 known
+S KQT5.843.T72.J85      | 1D 1S P 2S P P       | !X  | four good spades and 16 known: not yet
+# Not their artificial bids: Stayman shows no clubs.
+dealer  N
+W AKQ.83.9762.KQJ9      | 1NT P 2C            | !X  | Stayman is not a contract
+# Not over partner's 1NT: 22 between us, but they came in with shape
+# (Random_Pavlicek_21GF 8379).
+dealer  N
+vul     None
+S J74.J96.8432.A62      | 1NT P P 2H P P      | P   | partner's notrump: no penalty double
+# Partner silent, 22 in my own hand: a double of their game is for
+# penalty, not left to a sequence that passes (Random_Pavlicek_SAYCvanilla
+# 6129; the partner-has-shown-values condition dropped, 2026-10-01).
+dealer  N
+vul     None
+S K.KT.AKQ5.KQ8753      | P 5D                | X   | 22 in my hand: they are too high
+# My takeout double, partner ran, they bid on: the second double is for
+# penalty (Random_Pavlicek_SAYCvanilla 74599).
+dealer  S
+vul     Both
+E AKJ.A.AT73.AK642      | 1H P P X 2H P P     | X   | 22 in my hand, passed round to me
+# They bid game and I hold 17: they have 23 at most (2026-10-02). Not
+# with 16.
+dealer  N
+vul     None
+E AQ4.K5.KJ93.AJ62      | 1H P 2H P 4H        | X   | 17+ against their game
+E AQ4.K5.KJ93.QJ62      | 1H P 2H P 4H        | !X  | 16: not enough on my own
+W AQ4.K5.KJ93.AJ62      | 1NT P 3NT           | X   | 17+ against their 3NT
+# They bid over our game: the side that bid game doubles with values and
+# two of their trumps (2026-10-02), also after partner's signoff.
+N A4.KQJ54.K93.T96      | 1H 2S 4H 4S         | X   | 12+ and two spades: they bid over our game
+N 4.KQJ54.K93.AT96      | 1H 2S 4H 4S         | !X  | one spade: not a penalty double
+S K32.A87.QJ4.8765      | 1H 2S 4H 4S P P     | X   | 20 known between us, three spades
+# They ran from our redouble (2026-10-09): the redoubler doubles the
+# doubler's rescue with four of their suit (Basic_Takeout_Double 130).
+dealer  E
+vul     NS
+W J.T96.AK9864.J83      | 1S X XX P P 2D        | X   | they ran from our redouble: six diamonds
+# Opener's double of the advance lost on the random sets: he leaves
+# it to the redoubler.
+E AQT87.J5.JT98.A9      | 1S X XX 2D            | P   | opener: the redoubler decides
+# They ran from partner's penalty double of 1NT (a card whose double
+# of 1NT is for penalty).
+card    21GF-DEFAULT
+dealer  E
+vul     None
+N 98.Q32.J854.Q862      | 1N X 2D               | X   | four diamonds: they ran into them
+N 9843.Q2.J54.Q862      | 1N X 2D               | P   | three diamonds: not a penalty double
+# A raise of the suit partner doubled is not a run (Brill daily
+# 2026-10-08 board 2: 4H doubled on T764 made).
+card    21GF-GIB
+dealer  E
+vul     NS
+S K87.T764.87.J742      | P P 1N P 2D P 2H X 4H | P   | they raised hearts, they did not run
+# A void in their suit and no long suit of mine: the big hand still
+# doubles their game (Brill daily 2026-10-14 board 7; 4S doubled went
+# down). Void and six of my own: vs-preempts.test.
+dealer  S
+vul     All
+S .AKJT7.A854.AJ63      | 1H 1S P 2H P 2S P 4S | X   | 19 HCP, void, five hearts: too high
+card    Basic-Bridge
+# Partner preempted and they overcalled: my double is for penalty
+# (Berkowitz-Cohen: penalty after our 2D and 2M openings).
+dealer  N
+S AQ4.K5.KJ93.QJ62      | 2H 3D                 | X   | 15+ and their suit: penalty
+S 84.K5.KQT93.J652      | 2H 3D                 | X   | five diamonds and 9 HCP
+S AQ4.K52.J93.QJ62      | 2H 3D                 | !X  | 13 and three poor diamonds: not enough
+# Their one-level overcall after we have both bid, passed round to me.
+S Q82.KJ7.T85.KJ74      | 1C P 1H 1S P P        | X   | three spades and 22 known between us
+S 82.KJ7.QT85.KJ74      | 1C P 1H 1S P P        | !X  | two spades and 21 known: not yet
