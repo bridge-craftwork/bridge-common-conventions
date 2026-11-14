@@ -6,10 +6,10 @@ module jacoby-2nt "Jacoby 2NT"
   skill  bidding_conventions/jacoby_2nt_splinters
   skill  bidding_conventions/jacoby_2nt
   skill  partnership_bidding/jacoby_2nt
-  param  jacoby   = major_openings.jacoby_2nt.play default false
-  param  modified = major_openings.jacoby_2nt.modified default false
-  param  rkcb     = slam.rkcb.play default false
-  param  bw       = slam.blackwood.play default false
+  param  jacoby   = bidding_conventions/jacoby_2nt default false
+  param  modified = bidding_conventions/jacoby_2nt:modified default false
+  param  rkcb     = bidding_conventions/roman_keycard default false
+  param  bw       = bidding_conventions/blackwood default false
 
 after 1M (P) when !passed_hand, jacoby | modified
   2N  "Jacoby 2NT: 4+ {M}, game forcing"  alert

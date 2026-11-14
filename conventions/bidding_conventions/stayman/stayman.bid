@@ -2,18 +2,18 @@
 
 module stayman "Stayman"
   kind   convention
-  card   notrump.stayman.play
+  convention  bidding_conventions/stayman
   needs  notrump-base
   skill  bidding_conventions/stayman
   skill  partnership_bidding/stayman_transfers
-  param  minors = notrump.minor_transfers.style default relay
-  param  mtp    = notrump.minor_transfers.play default true
+  param  minors = bidding_conventions/minor_suit_transfers:style default relay
+  param  mtp    = bidding_conventions/minor_suit_transfers default true
   param  systems_on = nt_overcalls.direct.systems_on default true
-  param  vs_double = notrump.jacoby_transfers.vs_double default false
-  param  vs_2c = notrump.jacoby_transfers.vs_2c default false
+  param  vs_double = bidding_conventions/jacoby_transfers:vs_double default false
+  param  vs_2c = bidding_conventions/jacoby_transfers:vs_2c default false
   param  style = general.style
-  param  jacoby = notrump.jacoby_transfers.play default true
-  param  smolen = notrump.smolen.play default false
+  param  jacoby = bidding_conventions/jacoby_transfers default true
+  param  smolen = bidding_conventions/smolen default false
 
 after nt1 when !they.bid | systems_on
   2C  "Stayman: asks for a 4-card major"  alert

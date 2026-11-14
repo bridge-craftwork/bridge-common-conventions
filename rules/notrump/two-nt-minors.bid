@@ -19,10 +19,10 @@ module two-nt-minors "Minor-suit transfers and Minor Suit Stayman over 2NT"
   needs  two-nt-responses
   skill  bidding_conventions/minor_suit_transfers
   skill  bidding_conventions/minor_suit_stayman
-  param  mst = notrump.minor_transfers.over_2nt default false
-  param  mss = notrump.minor_suit_stayman.over_2nt default false
-  param  rkcb   = slam.rkcb.play default false
-  param  gerber = slam.gerber.play default false
+  param  mst = bidding_conventions/minor_suit_transfers:over_2nt default false
+  param  mss = bidding_conventions/minor_suit_stayman:over_2nt default false
+  param  rkcb   = bidding_conventions/roman_keycard default false
+  param  gerber = bidding_conventions/gerber default false
 
 # ── Minor-suit transfer: 3♠ relays to 4♣ ────────────────────────────
 after nt2 when mst, !mss

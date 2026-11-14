@@ -14,8 +14,8 @@ module weak-two-responses "Responses to a weak two"
   param  ask2nt = two_level.weak_two_2nt_response default feature
   param  two_c  = two_level.two_clubs.meaning default strong
   param  style  = general.style
-  param  rkcb   = slam.rkcb.play default false
-  param  aces   = slam.blackwood.play default false
+  param  rkcb   = bidding_conventions/roman_keycard default false
+  param  aces   = bidding_conventions/blackwood default false
 
 # Standard responder (the default until 2026-09-24): 2NT from 15, raises
 # with four. The default is now BBA's, below: par preferred it (+453 IMPs

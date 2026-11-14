@@ -16,7 +16,7 @@
 
 module inverted-minors "Inverted minor raises"
   kind   convention
-  card   minor_openings.inverted_minors.play
+  convention  bidding_conventions/inverted_minors
   needs  responses
   skill  bidding_conventions/inverted_minors
 

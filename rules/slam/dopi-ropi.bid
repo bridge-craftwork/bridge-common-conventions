@@ -23,9 +23,9 @@ module dopi-ropi "DOPI and ROPI: answering an ace or keycard ask over interferen
   param  ropi   = slam.ropi default false
   param  depo   = slam.depo default false
   param  gstyle = general.style
-  param  rkcb   = slam.rkcb.play default false
-  param  rstyle = slam.rkcb.style default 1430
-  param  m0314  = slam.rkcb.minor_0314 default false
+  param  rkcb   = bidding_conventions/roman_keycard default false
+  param  rstyle = bidding_conventions/roman_keycard:style default 1430
+  param  m0314  = bidding_conventions/roman_keycard:minor_0314 default false
 
 # The first step of the keycard answers is "1 or 4" (1430) unless the
 # card plays 0314 (`slam.rkcb.style`), or its `minor_0314` treatment

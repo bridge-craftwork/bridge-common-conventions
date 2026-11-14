@@ -10,7 +10,7 @@
 
 module checkback "Checkback Stayman"
   kind   convention
-  card   other_conventions.checkback.play
+  convention  bidding_conventions/checkback
   needs  responder-rebids
   skill  bidding_conventions/checkback
 

@@ -16,8 +16,8 @@ module reverse-flannery "Reverse Flannery"
   kind   convention
   needs  responses
   skill  bidding_conventions/reverse_flannery
-  param  rf_2h = two_level.reverse_flannery.two_h default false
-  param  rf_2s = two_level.reverse_flannery.two_s default false
+  param  rf_2h = bidding_conventions/reverse_flannery:two_h default false
+  param  rf_2s = bidding_conventions/reverse_flannery:two_s default false
 
 # ── Responder ────────────────────────────────────────────────────────
 after 1m (P)

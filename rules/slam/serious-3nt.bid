@@ -13,9 +13,9 @@ module serious-3nt "Non-serious 3NT before control bids in a major-fit game forc
   kind   convention
   needs  base
   skill  bidding_conventions/serious_3nt
-  param  nsplay = slam.non_serious_3nt.play default false
-  param  cue    = slam.cue_bids.play default false
-  param  rkcb   = slam.rkcb.play default false
+  param  nsplay = bidding_conventions/serious_3nt default false
+  param  cue    = bidding_conventions/control_bids default false
+  param  rkcb   = bidding_conventions/roman_keycard default false
 
 # Partner has just agreed (or raised) our major at the three level.
 define ns_position = partner.last = 3{trump}, !our_notrump

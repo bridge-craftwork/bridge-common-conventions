@@ -25,8 +25,8 @@ module strong-openings "2♣ and 2NT openings"
   skill  partnership_bidding/two_club
   param  two_c      = two_level.two_clubs.meaning default strong
   param  two_d_resp = two_level.two_clubs.2d_response default waiting
-  param  bust_2h    = two_level.parrish_bust.play default false
-  param  kokish     = two_level.kokish.play default false   # 2♣–2♦–2♥ is the relay (openings/kokish.bid)
+  param  bust_2h    = bidding_conventions/two_heart_bust default false
+  param  kokish     = bidding_conventions/kokish default false   # 2♣–2♦–2♥ is the relay (openings/kokish.bid)
   # Off: no strong 2C, and strong hands open at the one level (base.bid
   # lifts its 21 HCP cap). A card whose forcing opening is 1C (Precision)
   # keeps 2C as the stand-in until a forcing 1C is built: without it the
@@ -37,11 +37,11 @@ module strong-openings "2♣ and 2NT openings"
   param  two_nt_max = notrump.two_nt.range_max default 21
   param  three_nt_min = notrump.three_nt.range_min default 26
   param  three_nt_max = notrump.three_nt.range_max default 27
-  param  gambling   = notrump.gambling_3nt.play default false
-  param  rkcb   = slam.rkcb.play default false
-  param  benjamin   = two_level.benjamin.play default false
+  param  gambling   = bidding_conventions/gambling_3nt default false
+  param  rkcb   = bidding_conventions/roman_keycard default false
+  param  benjamin   = bidding_conventions/benjamin_2d default false
   # French 2♦ (openings/french-2d.bid) takes every 24+ hand: 2♣ stops at 23.
-  param  french     = two_level.french_2d.play default false
+  param  french     = bidding_conventions/french_2d default false
   param  style      = general.style
   param  system     = general.system   # `brill`: the Brill card's treatments (3NT)
 

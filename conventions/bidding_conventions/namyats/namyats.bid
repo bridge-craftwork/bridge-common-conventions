@@ -13,7 +13,7 @@
 
 module namyats "Namyats: 4♣/4♦ strong major preempts"
   kind   convention
-  card   preempts.namyats.play
+  convention  bidding_conventions/namyats
   needs  preempts
   skill  bidding_conventions/namyats
 

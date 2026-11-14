@@ -34,9 +34,9 @@ module overcalls "Suit and notrump overcalls"
   param  nt_max  = nt_overcalls.direct.range_max default 18
   param  system  = general.system   # `brill`: the Brill card's treatments (1NT overcall)
   param  nt_def  = competitive.vs_1nt_strong.system default other
-  param  dont_play = competitive.dont.play default false
-  param  raptor  = competitive.raptor_1nt.play default false
-  param  sandwich = competitive.sandwich_nt.play default false
+  param  dont_play = competitive_bidding/dont default false
+  param  raptor  = competitive_bidding/raptor default false
+  param  sandwich = competitive_bidding/sandwich_nt default false
 
 # ── Simple overcalls at the one level ────────────────────────────────
 # `(1x)` binds x to the suit they opened; the rules below never bid it.

@@ -8,7 +8,7 @@
 
 module four-nt-opening "4NT opening: asks for specific aces"
   kind   convention
-  card   slam.four_nt_opening.play
+  convention  bidding_conventions/four_nt_opening
   needs  base
 
 # ── The opening ───────────────────────────────────────────────────────

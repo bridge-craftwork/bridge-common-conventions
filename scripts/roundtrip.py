@@ -13,6 +13,7 @@ Exit status 0 when the only differences are the ones listed in EXPECTED,
 each of which says where that information now lives.
 """
 import pathlib
+import re
 import subprocess
 import sys
 import tomllib
@@ -175,7 +176,7 @@ def main():
 
     # rule files: the same bytes, wherever they sit now
     here = {f.name: f for f in HERE.rglob("*") if f.suffix in (".bid", ".test") or f.name.endswith(".notes.md")}
-    rules = 0
+    rules = converted = 0
     for name in git(rbb, "ls-tree", "-r", "--name-only", rbb_tag, "conventions").split("\n"):
         base = name.rsplit("/", 1)[-1]
         if not (base.endswith((".bid", ".test", ".notes.md"))):
@@ -184,10 +185,19 @@ def main():
         if base not in here:
             problems.append(f"{name}: not in the pack")
         elif here[base].read_text() != git(rbb, "show", f"{rbb_tag}:{name}"):
-            problems.append(f"{name}: text differs from {here[base].relative_to(HERE)}")
+            # A .bid file's header is converted to rule language 2
+            # (scripts/convert_rules.py); everything below it is unchanged.
+            old = git(rbb, "show", f"{rbb_tag}:{name}").split("\n")
+            new = here[base].read_text().split("\n")
+            body = lambda ls: [l for l in ls if not re.match(r"\s+(card|param|convention)\s", l)]
+            if not base.endswith(".bid") or body(old) != body(new):
+                problems.append(f"{name}: text differs from {here[base].relative_to(HERE)}")
+            else:
+                converted += 1
 
     print(f"{len(want)} card fields, {seen} definitions and {rules} rule files compared "
           f"with convention-card {cc_tag} and rusty-bidding-bot {rbb_tag}.")
+    print(f"{converted} rule files differ from the tag only in their header's card, param and convention lines.")
     print(f"\nHeld in another form ({len(expected)}):")
     for e in expected:
         print("  " + e)

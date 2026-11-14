@@ -17,7 +17,7 @@ module sos-redouble "SOS redouble"
   kind   convention
   needs  base
   skill  competitive_bidding/sos_redouble
-  card   other_conventions.sos_redouble.play
+  convention  competitive_bidding/sos_redouble
 
 after 1x (X) P (P)
   XX  "SOS: {x} is short, pick another suit"

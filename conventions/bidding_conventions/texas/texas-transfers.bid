@@ -2,11 +2,11 @@
 
 module texas-transfers "Texas Transfers"
   kind   convention
-  card   notrump.texas.play
+  convention  bidding_conventions/texas
   needs  notrump-base
   skill  bidding_conventions/jacoby_transfers
-  param  tu = notrump.texas.two_under default false
-  param  o23 = notrump.jacoby_transfers.over_2c_3nt default true
+  param  tu = two_under default false
+  param  o23 = bidding_conventions/jacoby_transfers:over_2c_3nt default true
 
 # Texas shows a six-card major and one of two hands: game with no slam
 # interest (pass the completion), or slam values (keycard after it): 33 total

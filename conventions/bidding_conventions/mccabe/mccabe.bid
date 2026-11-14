@@ -16,7 +16,7 @@
 
 module mccabe "McCabe adjunct"
   kind   convention
-  card   two_level.mccabe.play
+  convention  bidding_conventions/mccabe
   needs  weak-two-responses
   skill  bidding_conventions/mccabe
 

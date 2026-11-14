@@ -7,11 +7,11 @@
 
 module new-minor-forcing "New Minor Forcing"
   kind   convention
-  card   other_conventions.new_minor_forcing.play
+  convention  bidding_conventions/new_minor_forcing
   needs  responder-rebids
   skill  bidding_conventions/new_minor_forcing
-  param  checkback = other_conventions.checkback.play default false
-  param  roudi = other_conventions.roudi.play default false
+  param  checkback = bidding_conventions/checkback default false
+  param  roudi = bidding_conventions/roudi default false
   param  twoway = other_conventions.two_way_nmf default false
   param  xyz = other_conventions.xyz default false
 

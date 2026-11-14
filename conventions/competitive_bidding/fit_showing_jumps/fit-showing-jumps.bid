@@ -21,7 +21,7 @@
 
 module fit-showing-jumps "Fit-showing jumps"
   kind   convention
-  card   competitive.fit_showing_jumps.play
+  convention  competitive_bidding/fit_showing_jumps
   needs  base
   needs  overcalls
   skill  competitive_bidding/fit_showing_jumps

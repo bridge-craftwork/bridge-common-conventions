@@ -12,11 +12,11 @@
 
 module minor-suit-stayman "Minor Suit Stayman over 1NT"
   kind   convention
-  card   notrump.minor_suit_stayman.play
+  convention  bidding_conventions/minor_suit_stayman
   needs  notrump-base
   skill  bidding_conventions/minor_suit_stayman
   param  systems_on = nt_overcalls.direct.systems_on default true
-  param  rkcb   = slam.rkcb.play default false
+  param  rkcb   = bidding_conventions/roman_keycard default false
 
 after nt1_undoubled when !they.bid | systems_on
   2S  "Minor Suit Stayman: 5-4+ in the minors, game values"  alert

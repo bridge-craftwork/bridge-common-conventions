@@ -2,6 +2,4 @@ name = "bridge-common-conventions"
 description = "bridge-craftwork's conventions, card settings and bidding rules"
 pack_format_version = 1
 card_schema_version = 3
-# The rule files are still in rule language 1; they are converted in the
-# next step of Phase 3.
-rule_language_version = 1
+rule_language_version = 2

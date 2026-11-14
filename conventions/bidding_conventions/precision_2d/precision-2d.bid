@@ -22,7 +22,7 @@
 
 module precision-2d "Precision 2♦"
   kind   convention
-  card   two_level.precision_2d.play
+  convention  bidding_conventions/precision_2d
   needs  preempts
   skill  bidding_conventions/precision_2d
 

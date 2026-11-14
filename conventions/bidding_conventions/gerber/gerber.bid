@@ -25,13 +25,13 @@
 
 module gerber "Gerber: 4♣ asks for aces over partner's notrump"
   kind   convention
-  card   slam.gerber.play
+  convention  bidding_conventions/gerber
   needs  notrump-base
   skill  bidding_conventions/gerber
-  param  only_openings = slam.gerber.only_over_nt_openings default false
-  param  nt_seq = slam.gerber.over_nt_seq default true   # not in the .bbsa map: true unless a card JSON says no
-  param  texas_4c = notrump.texas.bid_4c default false
-  param  tu = notrump.texas.two_under default false   # 2-under Texas: 4C transfers
+  param  only_openings = only_over_nt_openings default false
+  param  nt_seq = over_nt_seq default true   # not in the .bbsa map: true unless a card JSON says no
+  param  texas_4c = bidding_conventions/texas:bid_4c default false
+  param  tu = bidding_conventions/texas:two_under default false   # 2-under Texas: 4C transfers
   param  style = general.style
   param  system = general.system   # `brill`: the Brill card's treatments (over 3NT)
 

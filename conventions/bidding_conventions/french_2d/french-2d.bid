@@ -19,7 +19,7 @@
 
 module french-2d "French 2♦ (game forcing)"
   kind   convention
-  card   two_level.french_2d.play
+  convention  bidding_conventions/french_2d
   needs  strong-openings
   skill  bidding_conventions/french_2d
 

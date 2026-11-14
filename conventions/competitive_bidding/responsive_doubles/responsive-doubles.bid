@@ -15,7 +15,7 @@
 
 module responsive-doubles "Responsive doubles"
   kind   convention
-  card   doubles.responsive.play
+  convention  competitive_bidding/responsive_doubles
   needs  base
   skill  competitive_bidding/responsive_doubles
 

@@ -41,8 +41,8 @@ module rubensohl "Rubensohl: transfers after interference over 1NT and after dou
   needs  nt-interference
   needs  vs-preempts
   skill  competitive_bidding/rubensohl
-  param  over_nt  = notrump.rubensohl.play default false
-  param  after_x  = competitive.rubensohl_after_double.play default false
+  param  over_nt  = competitive_bidding/rubensohl:over_1nt_interference default false
+  param  after_x  = competitive_bidding/rubensohl:after_double default false
 
 define rub_nt(y) = over_nt, rho.y>=4, (maybe rho.H<=3) | (maybe rho.S<=3)
 define rub_nt_opener(y) = over_nt, lho.y>=4, (maybe lho.H<=3) | (maybe lho.S<=3)

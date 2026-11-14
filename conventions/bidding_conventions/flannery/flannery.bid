@@ -16,7 +16,7 @@
 
 module flannery "Flannery 2♦"
   kind   convention
-  card   two_level.flannery.play
+  convention  bidding_conventions/flannery
   needs  preempts
   skill  bidding_conventions/flannery
 

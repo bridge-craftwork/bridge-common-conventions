@@ -29,8 +29,8 @@ module vs-preempts "Defence against preempts"
   skill  competitive_bidding/defense_vs_preempts
   skill  competitive_bidding/takeout_doubles
   skill  competitive_bidding/lebensohl
-  param  leb = competitive.lebensohl_weak_twos.play default false
-  param  rub = competitive.rubensohl_after_double.play default false
+  param  leb = competitive_bidding/lebensohl:after_weak_two_double default false
+  param  rub = competitive_bidding/rubensohl:after_double default false
 
 # ── Direct seat over their weak two ──────────────────────────────────
 after (2x) when x is not N, rho.hcp.max <= 12

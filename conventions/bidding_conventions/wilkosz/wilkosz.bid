@@ -20,7 +20,7 @@
 
 module wilkosz "Wilkosz 2♦"
   kind   convention
-  card   two_level.wilkosz.play
+  convention  bidding_conventions/wilkosz
   needs  preempts
   skill  bidding_conventions/wilkosz
 

@@ -18,10 +18,10 @@ module bergen "Bergen raises: four-card raises at the three level"
   needs  responses
   skill  bidding_conventions/bergen_raises
   skill  bidding_conventions/reverse_bergen_raises
-  param  bergen  = major_openings.bergen_raises.play default false
-  param  reverse = major_openings.bergen_raises.reverse default false
-  param  drury   = major_openings.drury.play default false
-  param  drury_r = major_openings.drury.reverse default false
+  param  bergen  = bidding_conventions/bergen_raises default false
+  param  reverse = bidding_conventions/bergen_raises:reverse default false
+  param  drury   = bidding_conventions/drury default false
+  param  drury_r = bidding_conventions/drury:reverse default false
 
 # ── Responder ────────────────────────────────────────────────────────
 after 1M (P) when bergen | reverse

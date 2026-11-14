@@ -16,7 +16,7 @@
 
 module smolen "Smolen: 5-4 in the majors after Stayman's denial"
   kind   convention
-  card   notrump.smolen.play
+  convention  bidding_conventions/smolen
   needs  stayman
   skill  bidding_conventions/smolen
   param  style = general.style

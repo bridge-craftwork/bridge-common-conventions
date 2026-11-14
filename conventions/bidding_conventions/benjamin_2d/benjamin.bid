@@ -20,7 +20,7 @@
 
 module benjamin "Benjamin 2♣ and 2♦"
   kind   convention
-  card   two_level.benjamin.play
+  convention  bidding_conventions/benjamin_2d
   needs  strong-openings
   skill  bidding_conventions/benjamin_2d
 

@@ -9,7 +9,7 @@
 
 module roudi "Roudi"
   kind   convention
-  card   other_conventions.roudi.play
+  convention  bidding_conventions/roudi
   needs  responder-rebids
   skill  bidding_conventions/roudi
 

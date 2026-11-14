@@ -22,8 +22,8 @@ module game-tries "Help-suit and two-way game tries after 1M-2M"
   needs  rebids
   skill  bidding_conventions/help_suit_game_try
   skill  bidding_conventions/two_way_game_tries
-  param  two_way = other_conventions.two_way_game_tries.play default false
-  param  help    = other_conventions.help_suit_game_tries.play default false
+  param  two_way = bidding_conventions/two_way_game_tries default false
+  param  help    = bidding_conventions/help_suit_game_try default false
 
 # The invitational range of rebids.bid's 3M (17-18 support points), with
 # 14 HCP at least: BBA passes 15 HCP and a singleton opposite a raise

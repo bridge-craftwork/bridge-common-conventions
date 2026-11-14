@@ -13,11 +13,11 @@
 module nt-interference "Our 1NT when RHO acts"
   kind   system
   needs  notrump-base
-  param  vs_double = notrump.jacoby_transfers.vs_double default false
-  param  vs_2c     = notrump.jacoby_transfers.vs_2c default false
-  param  texas     = notrump.texas.play default false   # Texas is on over their bid when it jumps (texas-transfers.bid)
-  param  leb       = notrump.lebensohl.play default false
-  param  rub       = notrump.rubensohl.play default false
+  param  vs_double = bidding_conventions/jacoby_transfers:vs_double default false
+  param  vs_2c     = bidding_conventions/jacoby_transfers:vs_2c default false
+  param  texas     = bidding_conventions/texas default false   # Texas is on over their bid when it jumps (texas-transfers.bid)
+  param  leb       = competitive_bidding/lebensohl:over_1nt_interference default false
+  param  rub       = competitive_bidding/rubensohl:over_1nt_interference default false
 
 # ── They doubled, transfers on ───────────────────────────────────────
 # 2♣ is Stayman and 2♦/2♥ are the transfers (see the other modules).

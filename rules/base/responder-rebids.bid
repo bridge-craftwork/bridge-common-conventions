@@ -19,19 +19,19 @@ module responder-rebids "Responder's second call"
   needs  rebids
   skill  partnership_bidding/responders_rebid
   skill  bidding_conventions/fourth_suit_forcing
-  param  nmf = other_conventions.new_minor_forcing.play default false
-  param  fsf = other_conventions.fourth_suit_forcing.play default false
+  param  nmf = bidding_conventions/new_minor_forcing default false
+  param  fsf = bidding_conventions/fourth_suit_forcing default false
   param  style = general.style
   param  weak_js = general.jump_shifts.weak_2 default false   # a weak jump shift is not a 2/1
-  param  inverted = minor_openings.inverted_minors.play default false
+  param  inverted = bidding_conventions/inverted_minors default false
   # Artificial calls after opener's 1NT rebid (checkback.bid, roudi.bid,
   # two-way-nmf.bid) switch off the natural calls they take.
-  param  checkback = other_conventions.checkback.play default false
-  param  roudi = other_conventions.roudi.play default false
+  param  checkback = bidding_conventions/checkback default false
+  param  roudi = bidding_conventions/roudi default false
   param  twoway_sw = other_conventions.two_way_nmf default false
   param  xyz = other_conventions.xyz default false   # xyz.bid: two-way NMF after 1NT too
-  param  imp2s = major_openings.impossible_2s.play default false
-  param  rkcb = slam.rkcb.play default false
+  param  imp2s = bidding_conventions/impossible_2s default false
+  param  rkcb = bidding_conventions/roman_keycard default false
 
 # ── Opener rebid 1NT (12-14, or above a weak notrump) ───────────────
 # The counts are against opener's shown minimum (a three-point range),

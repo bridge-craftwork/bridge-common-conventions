@@ -25,7 +25,7 @@ module lead-directing-doubles "Lead-directing doubles of artificial bids"
   kind   convention
   needs  base
   skill  competitive_bidding/lead_directing_doubles
-  card   competitive.lead_directing_double.play
+  convention  competitive_bidding/lead_directing_doubles
 
 define ldd_suit(x) = x>=5, top5(x)>=3 | (x>=6, quality(x)>=good)
 

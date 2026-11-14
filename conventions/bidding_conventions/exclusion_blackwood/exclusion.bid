@@ -10,7 +10,7 @@
 
 module exclusion "Exclusion Blackwood: a jump to five in a void asks for keycards outside it"
   kind   convention
-  card   slam.exclusion_blackwood.play
+  convention  bidding_conventions/exclusion_blackwood
   needs  base
   skill  bidding_conventions/exclusion_blackwood
   param  gstyle = general.style

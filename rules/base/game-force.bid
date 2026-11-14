@@ -12,7 +12,7 @@ module game-force "When the auction forces to game"
   kind   system
   needs  base
   skill  bidding_conventions/two_over_one
-  param  wolff = other_conventions.wolff_signoff.play default false
+  param  wolff = bidding_conventions/wolff_signoff default false
 
 # Responder's third bid at the three level, below game: "a 3rd bid by
 # responder at the 3 level or higher is usually considered a GF" (Rick).

@@ -11,7 +11,7 @@
 
 module ingberman "Ingberman 2NT after opener's reverse"
   kind   convention
-  card   other_conventions.ingberman_2nt.play
+  convention  bidding_conventions/ingberman
   needs  responder-rebids
   skill  bidding_conventions/ingberman
 

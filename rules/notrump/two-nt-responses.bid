@@ -33,12 +33,12 @@ module two-nt-responses "Responses to a 2NT opening"
   skill  partnership_bidding/basic_notrump
   skill  bidding_conventions/stayman
   skill  bidding_conventions/jacoby_transfers
-  param  stayman = notrump.stayman.play default true
-  param  jacoby  = notrump.jacoby_transfers.play default true
-  param  puppet  = notrump.stayman.puppet_2nt default false
-  param  gerber  = slam.gerber.play default false
-  param  texas   = notrump.texas.play default false
-  param  tu      = notrump.texas.two_under default false
+  param  stayman = bidding_conventions/stayman default true
+  param  jacoby  = bidding_conventions/jacoby_transfers default true
+  param  puppet  = bidding_conventions/stayman:puppet_2nt default false
+  param  gerber  = bidding_conventions/gerber default false
+  param  texas   = bidding_conventions/texas default false
+  param  tu      = bidding_conventions/texas:two_under default false
   param  style   = general.style
 
 # The 2NT system's way in: our 2NT where the system came on (`systems on`

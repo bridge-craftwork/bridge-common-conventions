@@ -4,9 +4,13 @@ How this repo gets from empty to being the one place bridge-craftwork's tools
 read conventions from. Written 2026-11-13 from a design review of
 `convention-card` and `rusty-bidding-bot` (Rick Wilson with Claude).
 
-Status: **Phase 0 done: Rick accepted the contract on 2026-11-13. Phase 1:
-the inventory is generated ([inventory/](../inventory/README.md)) and awaits
-Rick's review.** Work is tracked as
+Status: **Phase 0 done (contract accepted 2026-11-13). Phases 1 to 3 are
+drafted and await Rick's review: the inventory (PR #59), the "before"
+capture (#60), and the content moved, restructured and converted to rule
+language 2 (#61). The engine bids from this pack with no difference over
+122,430 auctions. `convention-card`'s JavaScript library and editor do not
+read the pack yet.**
+Work is tracked as
 [milestones](https://github.com/bridge-craftwork/bridge-common-conventions/milestones)
 (one per phase) and issues; the lists below are the outline. Update the status
 line as phases complete.

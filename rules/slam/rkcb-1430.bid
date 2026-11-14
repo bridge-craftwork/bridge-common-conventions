@@ -9,11 +9,11 @@ module rkcb-1430 "Roman Keycard Blackwood (1430 or 0314, as the card says)"
   needs  base
   skill  bidding_conventions/roman_keycard
   skill  partnership_bidding/roman_key_card
-  param  rkcb   = slam.rkcb.play default false
-  param  rstyle = slam.rkcb.style default 1430
-  param  m0314 = slam.rkcb.minor_0314 default false
+  param  rkcb   = bidding_conventions/roman_keycard default false
+  param  rstyle = bidding_conventions/roman_keycard:style default 1430
+  param  m0314 = bidding_conventions/roman_keycard:minor_0314 default false
   param  gstyle = general.style
-  param  style = slam.cue_bids.style default first_or_second_round
+  param  style = bidding_conventions/control_bids:style default first_or_second_round
   param  kstyle = slam.king_ask.style default five_nt   # five_nt | next_step | none (convention-card 0.28); a card that is silent plays 5NT (2026-10-29)
   param  kspec  = slam.king_ask.specific default false
 

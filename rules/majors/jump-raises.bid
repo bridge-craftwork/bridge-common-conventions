@@ -20,8 +20,8 @@ module jump-raises "Weak and mixed jump raises of a major"
   param  weak    = major_openings.jump_raise.weak default false
   param  mixed   = major_openings.jump_raise.mixed default false
   param  inv     = major_openings.jump_raise.inv default true
-  param  bergen  = major_openings.bergen_raises.play default false
-  param  reverse = major_openings.bergen_raises.reverse default false
+  param  bergen  = bidding_conventions/bergen_raises default false
+  param  reverse = bidding_conventions/bergen_raises:reverse default false
 
 after 1M (P) when !bergen, !reverse, !inv
   3M  "Weak jump raise: four {M}, about 3-6"

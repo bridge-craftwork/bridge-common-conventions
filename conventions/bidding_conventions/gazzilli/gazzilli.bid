@@ -18,7 +18,7 @@
 
 module gazzilli "Gazzilli 2♣ after 1M-1NT and 1♥-1♠"
   kind   convention
-  card   major_openings.gazzilli.play
+  convention  bidding_conventions/gazzilli
   needs  rebids
   skill  bidding_conventions/gazzilli
 

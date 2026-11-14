@@ -16,7 +16,7 @@ module snapdragon "Snapdragon doubles"
   needs  base
   needs  advances
   skill  competitive_bidding/snapdragon
-  card   competitive.snapdragon.play
+  convention  competitive_bidding/snapdragon
 
 after (1x) 1y (1z) | (1x) 1y (2z) | (1x) 2y (2z) | (1x) 2y (3z) when y is not x, z is not x, z is not y
   X   "Snapdragon: five or more clubs, tolerance for {y}, 8+"

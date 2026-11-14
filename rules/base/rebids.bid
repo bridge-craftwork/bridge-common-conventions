@@ -18,17 +18,17 @@ module rebids "Opener's rebid"
   skill  bidding_conventions/reverse_bids
   param  style = general.style
   param  new_suit_forcing = competitive.new_suit_after_overcall_forcing default true
-  param  support_x = doubles.support.play default false
-  param  support_through = doubles.support.through
-  param  walsh = minor_openings.walsh.play default true
-  param  inverted = minor_openings.inverted_minors.play default false
+  param  support_x = competitive_bidding/support_doubles default false
+  param  support_through = competitive_bidding/support_doubles:through
+  param  walsh = bidding_conventions/walsh default true
+  param  inverted = bidding_conventions/inverted_minors default false
   param  weak_js = general.jump_shifts.weak_2 default false
   param  weak_js3 = general.jump_shifts.weak_3 default false
-  param  gf21 = major_openings.two_over_one.play default false
-  param  style21 = major_openings.two_over_one.rebid_style default bergen
+  param  gf21 = bidding_conventions/two_over_one default false
+  param  style21 = bidding_conventions/two_over_one:rebid_style default bergen
   param  semi = major_openings.one_nt_response.semi_forcing default false
   param  twalsh = minor_openings.one_club.transfer_resp default false
-  param  rkcb = slam.rkcb.play default false
+  param  rkcb = bidding_conventions/roman_keycard default false
 
 # A notrump jump reaches 3NT at most: the last bid is below 2NT, so the
 # cheapest notrump bid is 2NT or lower. In a suit's terms: the cheapest

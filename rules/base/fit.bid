@@ -10,8 +10,8 @@
 module fit "A major-suit fit: agreed, or seen by one hand"
   kind   judgement
   needs  base
-  param  texas = notrump.texas.play default false
-  param  tu    = notrump.texas.two_under default false
+  param  texas = bidding_conventions/texas default false
+  param  tu    = bidding_conventions/texas:two_under default false
 
 # ── The two concepts ──────────────────────────────────────────────────
 #

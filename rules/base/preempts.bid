@@ -24,14 +24,14 @@ module preempts "Weak two-bids and preempts"
   param  two_s = two_level.two_spades.meaning default weak
   param  style = general.style
   param  system = general.system   # `brill`: the Brill card's treatments (below)
-  param  flannery = two_level.flannery.play default false
-  param  multi    = two_level.multi.play default false
-  param  benjamin = two_level.benjamin.play default false
-  param  polish   = two_level.polish_two_suiters.play default false
-  param  mini_roman = two_level.mini_roman.play default false
-  param  french   = two_level.french_2d.play default false
-  param  wilkosz  = two_level.wilkosz.play default false
-  param  prec_2d  = two_level.precision_2d.play default false
+  param  flannery = bidding_conventions/flannery default false
+  param  multi    = bidding_conventions/multi_2d default false
+  param  benjamin = bidding_conventions/benjamin_2d default false
+  param  polish   = bidding_conventions/polish_two_suiters default false
+  param  mini_roman = bidding_conventions/mini_roman_2d default false
+  param  french   = bidding_conventions/french_2d default false
+  param  wilkosz  = bidding_conventions/wilkosz default false
+  param  prec_2d  = bidding_conventions/precision_2d default false
 
 # The natural weak twos give way when a convention takes the call
 # (conventions/openings/): Flannery, Multi, Benjamin, Mini-Roman, French,

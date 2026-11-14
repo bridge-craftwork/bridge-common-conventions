@@ -18,8 +18,8 @@ module sandwich-nt "Sandwich 1NT: the two unbid suits"
   needs  base
   needs  two-suited-overcalls
   skill  competitive_bidding/sandwich_nt
-  card   competitive.sandwich_nt.play
-  param  u1n = competitive.unusual_1nt.play default false
+  convention  competitive_bidding/sandwich_nt
+  param  u1n = competitive_bidding/unusual_notrump:at_1nt default false
 
 after (1x) P (1y) when y is not x, !passed_hand | !u1n
   1N  "Sandwich 1NT: the two unbid suits, hearts and spades"

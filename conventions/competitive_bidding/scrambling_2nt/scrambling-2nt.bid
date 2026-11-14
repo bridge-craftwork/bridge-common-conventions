@@ -17,7 +17,7 @@ module scrambling-2nt "Scrambling 2NT"
   needs  base
   needs  takeout-double
   skill  competitive_bidding/scrambling_2nt
-  card   competitive.scrambling_2nt.play
+  convention  competitive_bidding/scrambling_2nt
 
 after (1M) P (2M) X (P) | (1M) P (2M) P (P) X (P)
   2N  "Scrambling: both minors, pick one"

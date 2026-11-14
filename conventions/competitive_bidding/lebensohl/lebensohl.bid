@@ -17,10 +17,11 @@
 
 module lebensohl "Lebensohl after they overcall our 1NT"
   kind   convention
-  card   notrump.lebensohl.play
+  convention  competitive_bidding/lebensohl
+  card   over_1nt_interference
   needs  nt-interference
   skill  competitive_bidding/lebensohl
-  param  rub = notrump.rubensohl.play default false
+  param  rub = competitive_bidding/rubensohl:over_1nt_interference default false
 
 # Responder. The context is the natural-overcall one of nt-interference.bid.
 after 1N (2y) when y is not C, rho.y>=4, (maybe rho.H<=3) | (maybe rho.S<=3), !rub

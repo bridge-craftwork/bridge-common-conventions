@@ -21,9 +21,9 @@ module fourth-suit-forcing "Fourth suit forcing"
   kind   convention
   needs  base
   skill  bidding_conventions/fourth_suit_forcing
-  param  fsf_play  = other_conventions.fourth_suit_forcing.play default false
-  param  fsf_round = other_conventions.fourth_suit_forcing.one_round default false
-  param  fsf_gf    = other_conventions.fourth_suit_forcing.game_force default false
+  param  fsf_play  = bidding_conventions/fourth_suit_forcing default false
+  param  fsf_round = bidding_conventions/fourth_suit_forcing:one_round default false
+  param  fsf_gf    = bidding_conventions/fourth_suit_forcing:game_force default false
 
 # Played at all; and whether it forces to game (the card's game_force, or
 # Bridge-Classroom's plain `play` without one_round).

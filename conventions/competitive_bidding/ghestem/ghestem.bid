@@ -29,7 +29,7 @@ module ghestem "Ghestem two-suited overcalls"
   needs  base
   needs  two-suited-overcalls
   skill  competitive_bidding/ghestem
-  card   competitive.ghestem.play
+  convention  competitive_bidding/ghestem
 
 after (1C)
   2C  "Ghestem: five or more diamonds and spades"

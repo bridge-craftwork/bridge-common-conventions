@@ -17,21 +17,21 @@ module responses "Responses to one-level suit openings"
   skill  bidding_conventions/forcing_1nt
   skill  bidding_conventions/semi_forcing_1nt
   param  limit_raise = major_openings.jump_raise.inv default true
-  param  bergen      = major_openings.bergen_raises.play default false
-  param  rbergen     = major_openings.bergen_raises.reverse default false
+  param  bergen      = bidding_conventions/bergen_raises default false
+  param  rbergen     = bidding_conventions/bergen_raises:reverse default false
   param  strong_js   = general.jump_shifts.strong_2 default true
   param  inv_js      = general.jump_shifts.invitational default false
   param  weak_js     = general.jump_shifts.weak_2 default false
   param  weak_js3    = general.jump_shifts.weak_3 default false
-  param  soloway     = general.soloway.play default false
+  param  soloway     = bidding_conventions/soloway default false
   param  over_1c     = minor_openings.one_club_responses default up_the_line
   param  nt2         = minor_openings.two_nt_response default invitational
   param  style       = general.style
   param  system      = general.system   # `brill`: the Brill card's treatments (limit raises)
-  param  inverted    = minor_openings.inverted_minors.play default false
-  param  drury       = major_openings.drury.play default false
-  param  drury_rev   = major_openings.drury.reverse default false
-  param  gf21        = major_openings.two_over_one.play default false
+  param  inverted    = bidding_conventions/inverted_minors default false
+  param  drury       = bidding_conventions/drury default false
+  param  drury_rev   = bidding_conventions/drury:reverse default false
+  param  gf21        = bidding_conventions/two_over_one default false
   param  f1n         = major_openings.one_nt_response.forcing default false
   param  twalsh      = minor_openings.one_club.transfer_resp default false
   param  semi        = major_openings.one_nt_response.semi_forcing default false   # opener's pass: rebids.bid

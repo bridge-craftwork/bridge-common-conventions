@@ -16,7 +16,7 @@ module spiral "Spiral 2NT: how many trumps, minimum or maximum, after 1X-1M-2M"
   kind   convention
   needs  base
   skill  bidding_conventions/spiral
-  param  spiral = slam.spiral_cuebids.play default false
+  param  spiral = bidding_conventions/spiral default false
 
 # A maximum for the single raise (12-15 HCP opener): 14 or more.
 define sp_max = hcp >= 14

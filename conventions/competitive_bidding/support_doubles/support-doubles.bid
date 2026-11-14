@@ -17,11 +17,11 @@
 
 module support-doubles "Support doubles and redoubles"
   kind   convention
-  card   doubles.support.play
+  convention  competitive_bidding/support_doubles
   needs  rebids
   skill  competitive_bidding/support_doubles
-  param  rdbl = doubles.support.rdbl default false
-  param  through = doubles.support.through
+  param  rdbl = rdbl default false
+  param  through = through
 
 # ── Opener: the double shows three, the raise four ───────────────────
 # BBA doubles on every hand with three of partner's major, 11 to 21, and

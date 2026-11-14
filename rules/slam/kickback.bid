@@ -12,9 +12,9 @@ module kickback "Kickback: the step above four of the trump suit asks for keycar
   kind   convention
   needs  base
   skill  bidding_conventions/kickback
-  param  kbplay = slam.kickback.play default false
-  param  kb1430 = slam.kickback.rkcb_1430 default false
-  param  kb0314 = slam.kickback.rkcb_0314 default false
+  param  kbplay = bidding_conventions/kickback default false
+  param  kb1430 = bidding_conventions/kickback:rkcb_1430 default false
+  param  kb0314 = bidding_conventions/kickback:rkcb_0314 default false
   param  kstyle = slam.king_ask.style default five_nt   # five_nt | next_step | none (convention-card 0.28); a card that is silent plays 5NT (2026-10-29)
 
 # The card plays Kickback when any of its three fields is on.

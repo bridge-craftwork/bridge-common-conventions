@@ -26,7 +26,7 @@ module dont "DONT over their 1NT"
   skill  competitive_bidding/dont
   skill  competitive_bidding/defense_vs_1nt
   param  def       = competitive.vs_1nt_strong.system default other
-  param  dont_play = competitive.dont.play default false
+  param  dont_play = competitive_bidding/dont default false
 
 # The ceiling: 15 HCP, or 19 with a shapely hand (5-5 or longer, or a
 # seven-card suit). 2026-10-05, the self A/B against the card's default

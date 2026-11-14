@@ -68,23 +68,23 @@ module two-suited-overcalls "Michaels cue bids and the Unusual 2NT"
   skill  competitive_bidding/unusual_vs_unusual
   skill  competitive_bidding/leaping_michaels
   skill  competitive_bidding/non_leaping_michaels
-  param  mich_play   = competitive.michaels.play default false
+  param  mich_play   = competitive_bidding/michaels default false
   param  mich_minors = direct_cuebids.nat_minors_michaels default false
   param  mich_quasi  = direct_cuebids.quasi_michaels default false
   param  mich_majors = direct_cuebids.nat_majors_michaels default false
-  param  strength    = competitive.michaels.strength default wide_range
-  param  mich_adv    = competitive.michaels.minor_advance default ask_2nt
-  param  u2n_play    = competitive.unusual_2nt.play default false
+  param  strength    = competitive_bidding/michaels:strength default wide_range
+  param  mich_adv    = competitive_bidding/michaels:minor_advance default ask_2nt
+  param  u2n_play    = competitive_bidding/unusual_notrump:at_2nt default false
   param  u2n_jump    = nt_overcalls.jump_2nt_lowest_unbid default false
-  param  uvu         = competitive.unusual_vs_unusual.play default false
-  param  u1n_play    = competitive.unusual_1nt.play default false
-  param  u4n_play    = competitive.unusual_4nt.play default false
-  param  leaping     = competitive.leaping_michaels.play default false
-  param  nlm         = competitive.non_leaping_michaels.play default false
+  param  uvu         = competitive_bidding/unusual_vs_unusual default false
+  param  u1n_play    = competitive_bidding/unusual_notrump:at_1nt default false
+  param  u4n_play    = competitive_bidding/unusual_notrump:at_4nt default false
+  param  leaping     = competitive_bidding/leaping_michaels default false
+  param  nlm         = competitive_bidding/non_leaping_michaels default false
   param  djc_major   = competitive.direct_jump_cuebid_major
   param  djc_minor   = competitive.direct_jump_cuebid_minor
-  param  ghestem     = competitive.ghestem.play default false
-  param  sandwich    = competitive.sandwich_nt.play default false
+  param  ghestem     = competitive_bidding/ghestem default false
+  param  sandwich    = competitive_bidding/sandwich_nt default false
 
 # ── Michaels over a minor: both majors ───────────────────────────────
 # Wide range (BBA, probes/michaels-1C.toml and -1D): not vulnerable from

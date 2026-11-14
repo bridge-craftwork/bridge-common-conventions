@@ -15,10 +15,10 @@ module over-3nt "Slam after partner's 3NT"
   kind   judgement
   needs  base
   skill  partnership_bidding/slam_bidding
-  param  q4n   = slam.quantitative_4nt.play default true
-  param  texas = notrump.texas.play default false
-  param  tu    = notrump.texas.two_under default false
-  param  o23   = notrump.jacoby_transfers.over_2c_3nt default true
+  param  q4n   = bidding_conventions/quantitative_4nt default true
+  param  texas = bidding_conventions/texas default false
+  param  tu    = bidding_conventions/texas:two_under default false
+  param  o23   = bidding_conventions/jacoby_transfers:over_2c_3nt default true
   param  system = general.system   # `brill`: Gerber here instead (gerber.bid)
 
 # After 2♣–2♦–3NT (24+ shown, opener's second bid) Texas uses 4♦/4♥, or

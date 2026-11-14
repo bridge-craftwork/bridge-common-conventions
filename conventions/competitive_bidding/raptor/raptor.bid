@@ -21,7 +21,7 @@ module raptor "Raptor 1NT: a four-card major and a longer minor"
   needs  base
   needs  overcalls
   skill  competitive_bidding/raptor
-  card   competitive.raptor_1nt.play
+  convention  competitive_bidding/raptor
 
 after (1x)
   1N  "Raptor: five or more diamonds and four of a major"

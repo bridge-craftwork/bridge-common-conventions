@@ -7,7 +7,7 @@
 
 module wolff "Wolff sign-off after opener's 2NT rebid"
   kind   convention
-  card   other_conventions.wolff_signoff.play
+  convention  bidding_conventions/wolff_signoff
   needs  base
   skill  bidding_conventions/wolff_signoff
 

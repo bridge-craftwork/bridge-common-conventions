@@ -7,7 +7,7 @@
 
 module pick-a-slam "Pick-a-slam 5NT: choose among the slams"
   kind   convention
-  card   slam.pick_a_slam_5nt.play
+  convention  bidding_conventions/pick_a_slam_5nt
   needs  base
   skill  bidding_conventions/pick_a_slam_5nt
 

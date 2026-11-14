@@ -20,7 +20,7 @@ module transfer-walsh "Transfer Walsh responses to 1♣"
   card   minor_openings.one_club.transfer_resp
   needs  responder-rebids
   skill  bidding_conventions/transfer_walsh
-  param  q4n = slam.quantitative_4nt.play default true
+  param  q4n = bidding_conventions/quantitative_4nt default true
 
 # ── Responder ────────────────────────────────────────────────────────
 # A game force with longer diamonds and a major starts with 1♠ (as Walsh
