@@ -1,0 +1,117 @@
+# Hand decisions the inventory script cannot derive from the sources.
+# Everything here is reviewed by Rick; the script reads it and writes the
+# tables beside it. Sources: issues #2 to #6 (2026-11-13) and docs/CONTRACT.md.
+
+[sources]
+convention_card = "v0.44.0"
+rusty_bidding_bot = "v0.15.3"
+
+# A switch whose convention is not the `skill` on its field: a new ID, or
+# the one ID to use where the field names two.
+[switch_id]
+"notrump.texas.play"                 = "bidding_conventions/texas"
+"major_openings.mini_splinters.play" = "bidding_conventions/mini_splinters"
+"major_openings.three_nt_raise.play" = "bidding_conventions/three_nt_raise"
+"major_openings.jacoby_2nt.play"     = "bidding_conventions/jacoby_2nt"
+"major_openings.splinters.play"      = "bidding_conventions/splinters"
+"slam.quantitative_4nt.play"         = "bidding_conventions/quantitative_4nt"
+"slam.four_nt_opening.play"          = "bidding_conventions/four_nt_opening"
+"competitive.michaels.play"          = "competitive_bidding/michaels"
+
+# IDs that do not exist at the source tag.
+[new_ids]
+"bidding_conventions/texas"            = "Texas transfers"
+"bidding_conventions/mini_splinters"   = "Mini-splinters"
+"bidding_conventions/three_nt_raise"   = "3NT raise of a major"
+"bidding_conventions/quantitative_4nt" = "Quantitative 4NT"
+"bidding_conventions/four_nt_opening"  = "4NT opening"
+"competitive_bidding/michaels"         = "Michaels cue bid"
+"competitive_bidding/unusual_notrump"  = "Unusual notrump"
+
+# The same calls in a different auction: one convention, a yes/no treatment
+# per place. `main` is the place a bare entry plays (default true); the
+# others default false.
+[places."competitive_bidding/lebensohl"]
+"notrump.lebensohl.play"               = { treatment = "over_1nt_interference", main = true }
+"competitive.lebensohl_weak_twos.play" = { treatment = "after_weak_two_double", context = "vs_openings" }
+
+[places."competitive_bidding/rubensohl"]
+"notrump.rubensohl.play"                  = { treatment = "over_1nt_interference", main = true }
+"competitive.rubensohl_after_double.play" = { treatment = "after_double" }
+
+[places."competitive_bidding/unusual_notrump"]
+"competitive.unusual_2nt.play" = { treatment = "at_2nt", main = true }
+"competitive.unusual_1nt.play" = { treatment = "at_1nt" }
+"competitive.unusual_3nt.play" = { treatment = "at_3nt" }
+"competitive.unusual_4nt.play" = { treatment = "at_4nt" }
+
+# Groups with a switch that stay settings (issue #3, Jordan; Phase 6).
+[stay_settings]
+groups = ["vs_to_double.two_nt_raise_majors", "vs_to_double.two_nt_raise_minors"]
+
+# Settings whose value becomes a convention entry, through a function.
+[functions.defence_to_1nt]
+name = "Defence to their 1NT opening"
+parts = ["strong", "weak"]
+settings = { strong = "competitive.vs_1nt_strong.system", weak = "competitive.vs_1nt_weak.system" }
+options = { cappelletti = "competitive_bidding/cappelletti", modified_cappelletti = "competitive_bidding/modified_cappelletti", landy = "competitive_bidding/landy", multi_landy = "competitive_bidding/multi_landy", dont = "competitive_bidding/dont", meckwell = "competitive_bidding/meckwell", suction = "competitive_bidding/suction" }
+
+[functions.ace_ask]
+name = "Asking for aces or keycards"
+parts = ["major", "minor"]
+implements = ["bidding_conventions/blackwood", "bidding_conventions/roman_keycard"]
+
+[functions.michaels_vs_preempts]
+name = "Two-suited overcall of their preempt"
+implements = ["competitive_bidding/leaping_michaels", "competitive_bidding/non_leaping_michaels"]
+
+# Contexts. A card section gives the default; `convention` overrides it.
+# The first context listed is the main one.
+[context.section]
+notrump = ["notrump_openings"]
+major_openings = ["major_openings"]
+minor_openings = ["minor_openings"]
+two_level = ["preemptive_openings"]
+preempts = ["preemptive_openings"]
+slam = ["slam"]
+doubles = ["doubles"]
+other_conventions = ["responses_rebids"]
+
+[context.convention]
+"bidding_conventions/soloway"                = ["responses_rebids"]
+"bidding_conventions/two_over_one"           = ["major_openings", "general"]
+"bidding_conventions/western_cuebid"         = ["after_interference"]
+"competitive_bidding/lebensohl"              = ["after_interference", "vs_openings"]
+"competitive_bidding/rubensohl"              = ["after_interference"]
+"competitive_bidding/sos_redouble"           = ["after_interference"]
+# The card's `competitive` section, placed by hand (issue #10).
+"competitive_bidding/michaels"               = ["overcalls"]
+"competitive_bidding/unusual_notrump"        = ["overcalls"]
+"competitive_bidding/leaping_michaels"       = ["vs_openings"]
+"competitive_bidding/non_leaping_michaels"   = ["vs_openings"]
+"competitive_bidding/unusual_vs_unusual"     = ["after_interference"]
+"competitive_bidding/dont"                   = ["vs_notrump"]
+"competitive_bidding/support_cuebids"        = ["overcalls", "after_interference"]
+"competitive_bidding/lead_directing_doubles" = ["doubles"]
+"competitive_bidding/sandwich_nt"            = ["overcalls"]
+"competitive_bidding/snapdragon"             = ["doubles"]
+"competitive_bidding/bromad"                 = ["after_interference"]
+"competitive_bidding/ghestem"                = ["overcalls"]
+"competitive_bidding/raptor"                 = ["overcalls"]
+"competitive_bidding/scrambling_2nt"         = ["doubles"]
+"competitive_bidding/fit_showing_jumps"      = ["after_interference", "overcalls"]
+"competitive_bidding/jordan_2nt"             = ["after_interference"]
+"competitive_bidding/cappelletti"            = ["vs_notrump"]
+"competitive_bidding/modified_cappelletti"   = ["vs_notrump"]
+"competitive_bidding/landy"                  = ["vs_notrump"]
+"competitive_bidding/multi_landy"            = ["vs_notrump"]
+"competitive_bidding/meckwell"               = ["vs_notrump"]
+"competitive_bidding/suction"                = ["vs_notrump"]
+
+# Convention modules the script cannot classify from their header
+# (issue #11). Proposals for review.
+[module_later]
+"reverse-flannery" = "Phase 5: switched by two treatments of its convention (bidding_conventions/reverse_flannery); beside it once the treatment rule is enforced"
+"nt-splinter"      = "Phase 6: switched by enum settings (notrump.three_d_response, notrump.three_major_splinter); a convention once those are placed"
+"two-nt-minors"    = "stays whole: the rules for minor-suit Stayman and minor transfers over 2NT"
+"jump-raises"      = "part of the system: the jump raise's strength is a setting, and Bergen only stands it down"
