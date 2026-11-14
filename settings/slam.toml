@@ -10,3 +10,8 @@
 "vs_interference"          = { kind = "text", label = "Vs interference" }
 "trump_level"              = { kind = "text", label = "Trump-level cutover" }
 "notes"                    = { kind = "text", label = "Slam notes", note = true }
+# The card's free line beside its 4NT boxes. It is about whatever ace ask the
+# card plays, not about Blackwood: it was a treatment of Blackwood until
+# 2026-11-14, and a card with only this note was then taken to play
+# Blackwood (#72). The path keeps Blackwood's name because cards hold it.
+"blackwood.notes"          = { kind = "text", label = "4NT notes", aliases = ["other_conventions.blackwood.notes"] }
