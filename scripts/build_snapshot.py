@@ -20,10 +20,11 @@ engine has checked the rules and run their tests, and pushes the result to
 the `published` branch.
 
 The rules number is the count of commits on the first-parent history of the
-commit built from that changed a source file of the pack (SOURCES). It only
-increases while that history is not rewritten, and two snapshots with the
-same number hold the same sources. Nothing in either file depends on when
-the build ran, so the same commit always gives the same bytes.
+commit built from that changed a source file of the pack (SOURCES), leaving
+out the files that cannot change a bid: notes (`.notes.md`) and tests
+(`.test`). It only increases while that history is not rewritten, and two
+snapshots with the same number bid the same. Nothing in either file depends
+on when the build ran, so the same commit always gives the same bytes.
 """
 import argparse
 import hashlib
@@ -39,6 +40,9 @@ TEXT = (".bid", ".test", ".notes.md")
 # change the snapshot.
 SOURCES = ["bridge-pack.toml", "conventions", "rules", "settings", "contexts.toml",
            "functions.toml", "levels.toml", "alerts.toml", "migrations"]
+# Source files that cannot change a bid. A commit that changes only these
+# changes the snapshot but not the rules number.
+NOT_RULES = [":(exclude,glob)**/*.notes.md", ":(exclude,glob)**/*.test"]
 
 
 def git(root, *args):
@@ -48,7 +52,8 @@ def git(root, *args):
 def history(root):
     """The commit built from, the rules number, and each file's last change."""
     commit = git(root, "rev-parse", "HEAD").strip()
-    number = int(git(root, "rev-list", "--count", "--first-parent", "HEAD", "--", *SOURCES).strip())
+    number = int(git(root, "rev-list", "--count", "--first-parent", "HEAD", "--",
+                     *SOURCES, *NOT_RULES).strip())
     changed = {}
     log = git(root, "log", "--format=%x00%cI", "--name-only", "--", *SOURCES)
     for block in log.split("\x00")[1:]:
