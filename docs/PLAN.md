@@ -4,8 +4,8 @@ How this repo gets from empty to being the one place bridge-craftwork's tools
 read conventions from. Written 2026-11-13 from a design review of
 `convention-card` and `rusty-bidding-bot` (Rick Wilson with Claude).
 
-Status: **Phase 0: decisions settled, contract drafted, awaiting Rick's
-acceptance.** Work is tracked as
+Status: **Phase 0 done: Rick accepted the contract on 2026-11-13. Phase 1,
+the inventory, is next.** Work is tracked as
 [milestones](https://github.com/bridge-craftwork/bridge-common-conventions/milestones)
 (one per phase) and issues; the lists below are the outline. Update the status
 line as phases complete.
@@ -198,7 +198,7 @@ Settle the open decisions and write them down before any content moves.
 - Worked examples (`docs/WORKED-EXAMPLES.md`): Texas transfers, Bergen
   raises and DONT written in the new format, with what they showed.
 
-**Done when** Rick accepts the contract.
+**Done when** Rick accepts the contract. Accepted 2026-11-13.
 
 ### Phase 1: the inventory
 

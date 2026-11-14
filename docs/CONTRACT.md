@@ -1,10 +1,10 @@
 # The contract between a convention pack and its readers
 
-**Status: draft for Rick Wilson's acceptance (Phase 0).** Nothing reads this
-repo yet and no content has moved. The decisions behind it are issues #2 to
-#6, settled 2026-11-13; [WORKED-EXAMPLES.md](WORKED-EXAMPLES.md) tests it on
-three real conventions, and the points it raised are listed at
-[the end](#open-before-acceptance).
+**Status: accepted by Rick Wilson, 2026-11-13 (Phase 0).** Nothing reads
+this repo yet and no content has moved. The decisions behind it are issues
+#2 to #6; [WORKED-EXAMPLES.md](WORKED-EXAMPLES.md) tests it on three real
+conventions, and the points it raised are listed at
+[the end](#settled-with-acceptance).
 
 A **pack** is a repo, or a directory, of bridge content in the shape below:
 convention definitions, card settings and bidding rules. This repo is one
@@ -517,18 +517,18 @@ the card and the name of the bidder that produced the auction.
   shows no behaviour difference; a change that corrects it lists every
   difference.
 
-## Open before acceptance
+## Settled with acceptance
 
-Raised by [WORKED-EXAMPLES.md](WORKED-EXAMPLES.md). This draft already
-states a proposal for each; Rick accepts or changes it.
+Raised by [WORKED-EXAMPLES.md](WORKED-EXAMPLES.md) and accepted as written
+here. D6, D9 and D14 were ruled on separately and are in the sections above.
 
-| | Question | This draft says |
+| | Question | The contract says |
 |---|---|---|
 | D3 | A convention's own scenario may be tagged with the ID it is taught under | Accepted by the check (section 4, Deals) |
 | D4 | References carried over have no date and no role | `used` left out, `role` defaults to `about` (section 4, References) |
 | D7 | A variant's level is stated twice | The treatment's level is read (section 4, Variants) |
 
-Not settled here, and not needed to accept this contract:
+Not settled here:
 
 - the format inside `examples.pbn` (Phase 8);
 - how the rules number is derived (Phase 4);
