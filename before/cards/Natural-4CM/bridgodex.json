@@ -1,0 +1,77 @@
+{
+ "notes": "",
+ "settings": {
+  "1_no_trump": {
+   "2nt_nat": "on",
+   "5_card_major": "on",
+   "a_range_max": "17",
+   "a_range_min": "15"
+  },
+  "2_no_trump": {
+   "range_max": "21",
+   "range_min": "20"
+  },
+  "3_no_trump": {
+   "range_max": "27",
+   "range_min": "25"
+  },
+  "carding": {
+   "nt_std_att": "on",
+   "nt_std_count": "on",
+   "suits_std_att": "on",
+   "suits_std_count": "on"
+  },
+  "doubles": {
+   "negative": "on",
+   "negative_thru": "2S"
+  },
+  "majors": {
+   "jump_raise_inv": "on"
+  },
+  "minors": {
+   "1c_jump_raise_inv": "on",
+   "1c_single_raise_nf": "on",
+   "1d_jump_raise_inv": "on",
+   "1d_single_raise_nf": "on"
+  },
+  "nt_overcalls": {
+   "balance_1nt_max": "15",
+   "balance_1nt_min": "10",
+   "direct_1nt_max": "18",
+   "direct_1nt_min": "15"
+  },
+  "overcalls": {
+   "1_lvl_max": "16",
+   "1_lvl_min": "8",
+   "2_lvl_max": "16",
+   "2_lvl_min": "8",
+   "jump_weak": "on"
+  },
+  "overview": {
+   "forcing_2c": "on",
+   "general_approach": "Natural, four-card majors (5-card majors off, strong 1NT, strong 2C, weak twos)"
+  },
+  "signals": {
+   "partner_lead_att": "on"
+  },
+  "slams": {
+   "4nt_blackwood": "on"
+  },
+  "two_level": {
+   "2c_2d_waiting": "on",
+   "2c_str": "on",
+   "2d_max": "11",
+   "2d_min": "5",
+   "2d_weak": "on",
+   "2h_max": "11",
+   "2h_min": "5",
+   "2h_weak": "on",
+   "2s_max": "11",
+   "2s_min": "5",
+   "2s_weak": "on"
+  },
+  "vs_preempts": {
+   "to_dbl_thru": "4D"
+  }
+ }
+}

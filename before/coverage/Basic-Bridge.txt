@@ -1,0 +1,9 @@
+107 modules read 191 card fields
+
+card                     system           read  ignored  unmapped  coverage
+Basic-Bridge             sayc               19        0         2      100%
+
+Basic-Bridge: settings switched on that no rule reads
+Basic-Bridge: settings with no card field
+  1NT opening NT style
+  Shape Bergen structure

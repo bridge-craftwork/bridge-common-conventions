@@ -1,0 +1,45 @@
+{
+ "entries": 69,
+ "level": {
+  "band": "advanced",
+  "level": 7,
+  "why": "Level 7: the highest level at least 3 of its conventions reach (Exclusion Blackwood (7), Pick-a-slam 5NT (7), Lebensohl (over weak twos) (7))"
+ },
+ "system": "2/1",
+ "ticked": [
+  "competitive/lebensohl_weak_twos",
+  "competitive/unusual_2nt",
+  "doubles/support_doubles",
+  "major_openings/drury",
+  "major_openings/forcing_1nt",
+  "major_openings/jacoby_2nt",
+  "major_openings/splinters",
+  "major_openings/two_over_one",
+  "minor_openings/inverted_minors",
+  "notrump/jacoby_transfers",
+  "notrump/lebensohl_interference",
+  "notrump/smolen",
+  "notrump/texas_transfers",
+  "other_conventions/fourth_suit_forcing_1rnd",
+  "slam/control_bids",
+  "slam/exclusion_blackwood",
+  "slam/pick_a_slam_5nt",
+  "slam/rkcb_1430"
+ ],
+ "values": {
+  "doubles.support.rdbl": true,
+  "general.forcing_opening_2c": true,
+  "major_openings.drury.play": true,
+  "major_openings.jump_raise.inv": true,
+  "major_openings.min_length_1st_2nd": "5",
+  "major_openings.one_nt_response.forcing": true,
+  "notrump.one_nt.five_card_major": "sometimes",
+  "notrump.one_nt.range_max": 17,
+  "notrump.one_nt.range_min": 15,
+  "overcalls.responses.jump_cuebid_mixed": true,
+  "slam.cue_bids.play": true,
+  "slam.dopi": true,
+  "slam.king_ask.style": "five_nt",
+  "slam.ropi": true
+ }
+}

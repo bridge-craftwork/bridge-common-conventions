@@ -1,0 +1,64 @@
+{
+ "notes": "",
+ "settings": {
+  "1_no_trump": {
+   "2d_tfr": "on",
+   "2h_tfr": "on",
+   "5_card_major": "on",
+   "a_range_max": "17",
+   "a_range_min": "15",
+   "lebensohl": "on",
+   "smolen": "on",
+   "tfr_4d": "on",
+   "tfr_4h": "on"
+  },
+  "3_no_trump": {
+   "range_max": "27",
+   "range_min": "25"
+  },
+  "direct_cuebids": {
+   "nat_majors_michaels": "on",
+   "nat_minors_michaels": "on"
+  },
+  "doubles": {
+   "responsive": "on",
+   "support": "on",
+   "support_rdbl": "on"
+  },
+  "majors": {
+   "art_raises_2nt": "on",
+   "art_raises_splinter": "on",
+   "drury_2c": "on",
+   "jump_raise_inv": "on"
+  },
+  "nt_overcalls": {
+   "balance_1nt_max": "15",
+   "balance_1nt_min": "11",
+   "direct_1nt_max": "17",
+   "direct_1nt_min": "15"
+  },
+  "other": {
+   "fsf_1rnd": "on",
+   "nmf": "on"
+  },
+  "overview": {
+   "forcing_2c": "on",
+   "general_approach": "brill"
+  },
+  "slams": {
+   "4nt_rkc_0314": "on",
+   "gerber_directly_over_nt": "on"
+  },
+  "two_level": {
+   "2d_weak": "on",
+   "2h_weak": "on",
+   "2s_weak": "on"
+  },
+  "vs_1nt_opening": {
+   "vs_a": "cappelletti"
+  },
+  "vs_preempts": {
+   "2nt_lebensohl_resp": "on"
+  }
+ }
+}

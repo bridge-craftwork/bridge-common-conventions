@@ -1,0 +1,101 @@
+{
+ "notes": "",
+ "settings": {
+  "1_no_trump": {
+   "2d_tfr": "on",
+   "2h_tfr": "on",
+   "5_card_major": "on",
+   "a_range_max": "17",
+   "a_range_min": "15"
+  },
+  "2_no_trump": {
+   "range_max": "21",
+   "range_min": "20",
+   "tfr_3lvl": "on",
+   "tfr_4lvl": "on"
+  },
+  "3_no_trump": {
+   "range_max": "27",
+   "range_min": "25"
+  },
+  "carding": {
+   "nt_std_att": "on",
+   "nt_std_count": "on",
+   "suits_std_att": "on",
+   "suits_std_count": "on"
+  },
+  "direct_cuebids": {
+   "nat_majors_michaels": "on",
+   "nat_minors_michaels": "on"
+  },
+  "doubles": {
+   "negative": "on",
+   "negative_thru": "2S"
+  },
+  "majors": {
+   "art_raises_2nt": "on",
+   "jump_raise_inv": "on"
+  },
+  "minors": {
+   "1c_1nt_max": "10",
+   "1c_1nt_min": "6",
+   "1c_2nt_max": "15",
+   "1c_2nt_min": "13",
+   "1c_jump_raise_inv": "on",
+   "1c_single_raise_nf": "on",
+   "1d_jump_raise_inv": "on",
+   "1d_single_raise_nf": "on"
+  },
+  "nt_overcalls": {
+   "balance_1nt_max": "15",
+   "balance_1nt_min": "10",
+   "direct_1nt_max": "18",
+   "direct_1nt_min": "15",
+   "jump_2nt_2_lowest_unbid": "on"
+  },
+  "other": {
+   "fsf_1rnd": "on"
+  },
+  "overcalls": {
+   "1_lvl_max": "16",
+   "1_lvl_min": "8",
+   "2_lvl_max": "16",
+   "2_lvl_min": "8",
+   "jump_weak": "on"
+  },
+  "overview": {
+   "forcing_2c": "on",
+   "general_approach": "SAYC (ACBL Standard American Yellow Card)"
+  },
+  "signals": {
+   "partner_lead_att": "on"
+  },
+  "slams": {
+   "4nt_blackwood": "on",
+   "gerber_directly_over_nt": "on",
+   "gerber_over_nt_seq": "on"
+  },
+  "two_level": {
+   "2c_2d_waiting": "on",
+   "2c_str": "on",
+   "2d_max": "11",
+   "2d_min": "5",
+   "2d_weak": "on",
+   "2h_max": "11",
+   "2h_min": "5",
+   "2h_weak": "on",
+   "2s_max": "11",
+   "2s_min": "5",
+   "2s_weak": "on"
+  },
+  "vs_preempts": {
+   "to_dbl_thru": "4D"
+  },
+  "vs_to_double": {
+   "2nt_over_majors_raise": "on",
+   "2nt_over_minors_raise": "on",
+   "jump_shift_weak": "on",
+   "redouble_10_plus": "on"
+  }
+ }
+}

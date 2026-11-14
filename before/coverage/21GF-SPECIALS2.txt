@@ -1,0 +1,16 @@
+107 modules read 191 card fields
+
+card                     system           read  ignored  unmapped  coverage
+21GF-SPECIALS2           two_over_one       60        0         9      100%
+
+21GF-SPECIALS2: settings switched on that no rule reads
+21GF-SPECIALS2: settings with no card field
+  1NT opening NT style
+  Collante
+  Lebensohl after 1m
+  Mark on queen
+  Mark on king
+  Rodrigue
+  Strength Lawrence structure
+  Support 1NT
+  Two suit takeout double

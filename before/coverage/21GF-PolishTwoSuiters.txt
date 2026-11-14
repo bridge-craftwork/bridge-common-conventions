@@ -1,0 +1,14 @@
+107 modules read 191 card fields
+
+card                     system           read  ignored  unmapped  coverage
+21GF-PolishTwoSuiters    two_over_one       57        0         7      100%
+
+21GF-PolishTwoSuiters: settings switched on that no rule reads
+21GF-PolishTwoSuiters: settings with no card field
+  1NT opening NT style
+  Lebensohl after 1m
+  Mark on queen
+  Mark on king
+  Strength Lawrence structure
+  Support 1NT
+  Two suit takeout double

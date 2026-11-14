@@ -1,0 +1,13 @@
+107 modules read 191 card fields
+
+card                     system           read  ignored  unmapped  coverage
+21GF-Ogust               two_over_one       57        0         6      100%
+
+21GF-Ogust: settings switched on that no rule reads
+21GF-Ogust: settings with no card field
+  1NT opening NT style
+  Lebensohl after 1m
+  Mark on queen
+  Mark on king
+  Shape Bergen structure
+  Two suit takeout double

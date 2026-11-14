@@ -1,0 +1,249 @@
+{
+ "cards": {
+  "21GF-DEFAULT": {
+   "bidding": {
+    "auctions_sha256": "48642da94fb9cdb6f7d2b79eeabce024ede5a569f9a2075963ee28e7f5f7040f",
+    "boards": 5565,
+    "sha256": "c8275bc0518b53e75300714c219b4a5c5b14487e417f0d9eb2bb258b8aa58921"
+   },
+   "exports": 8,
+   "sha256": "d2dc479cdbd9e94c060009812f3f3d8ee0702f5778870fad7652cc848de13961",
+   "source": "21GF-DEFAULT.bbsa"
+  },
+  "21GF-Flannery": {
+   "bidding": {
+    "auctions_sha256": "e2c33097f5de50fbf458f3c5b7dfb71ec5e586dd73528ebee111f3231715fbff",
+    "boards": 5565,
+    "sha256": "a1f194d8c3ee5fcd411c76b1415db5ab6a08ff6df61e716901f8d7cfe18684e9"
+   },
+   "exports": 8,
+   "sha256": "5030b73b1e5d00181828bdcd3bb2a1e91f472983b9c2e406b95a7cebd8cfe952",
+   "source": "21GF-Flannery.bbsa"
+  },
+  "21GF-GIB": {
+   "bidding": {
+    "auctions_sha256": "8bd43227671cccda51de918df1f0e55fdd99934abff8a392f93ca54a05e0c7f7",
+    "boards": 5565,
+    "sha256": "875aa3a59d05b64ab90c27ac77ae6ff444c8f8eded5f967cfd2ae2545c298451"
+   },
+   "exports": 8,
+   "sha256": "edf0197a15d2914d2bd4a1fea23f478f86a4671f94da8891a93433257e989793",
+   "source": "21GF-GIB.bbsa"
+  },
+  "21GF-GIB-Bergen": {
+   "bidding": {
+    "auctions_sha256": "fc8316d9ea8e6c12a3b8176c952703ddb1d9007a49e850dbe0dd8d7a186e6375",
+    "boards": 5565,
+    "sha256": "d6f954f2b1b57334a50bed5cae5e6facec169d39167cb122864ea9804ca8706f"
+   },
+   "exports": 8,
+   "sha256": "e72aca5fbd10a11273ba8845818bf94acf4a610218a160d8afdfefab4757bd3f",
+   "source": "21GF-GIB-Bergen.bbsa"
+  },
+  "21GF-Gazzilli": {
+   "bidding": {
+    "auctions_sha256": "46dd64dafc63ec2b1b957551744eda3239904ef86fcaf08b9cea26627bcee7f0",
+    "boards": 5565,
+    "sha256": "aa9a4baecef95820e184f679e9ac10118fbefcb1d7708b49ec538e39f8404690"
+   },
+   "exports": 8,
+   "sha256": "e4c6ef70c5a3399ad6d9369a147671f5a93e3debd06ccc3494610e5b278f7e48",
+   "source": "21GF-Gazzilli.bbsa"
+  },
+  "21GF-MSS": {
+   "bidding": {
+    "auctions_sha256": "cb3df45cd57517733fd3590bcb8a3e577a63224372f4d36d7f28d8c34d8fbe41",
+    "boards": 5565,
+    "sha256": "2000221007c0ce26f2945a660289163a7189391064e748b109891cee797b041b"
+   },
+   "exports": 8,
+   "sha256": "afecbe64c123565259eba835525187cb97ce6b99ea16045cebf9174cb0bcdcff",
+   "source": "21GF-MSS.bbsa"
+  },
+  "21GF-MSTandMSS": {
+   "bidding": {
+    "auctions_sha256": "db186fd833bcd7e405174e339686cafef6480f6f619bd0665e2b03f7e950d42d",
+    "boards": 5565,
+    "sha256": "56b3759d481a54e3cb59e3704dbedf9704bd7cb0c43dc4686973a33dbdece1bb"
+   },
+   "exports": 8,
+   "sha256": "0366511b19380e007d290676f932b53d34f644b30541fa322070613a04e1730a",
+   "source": "21GF-MSTandMSS.bbsa"
+  },
+  "21GF-Multi": {
+   "bidding": {
+    "auctions_sha256": "356d22d0d57129127264780c96827053933ccf3720ddaa57806b32d553fb0caa",
+    "boards": 5565,
+    "sha256": "47c566bc53275b435e4181d2369eae576f3b0f9644767a6d6e775c7a06526436"
+   },
+   "exports": 8,
+   "sha256": "13a32e471aaa8e810ebf81e24c51146b21f4aad7c1822664be76a53d69965f99",
+   "source": "21GF-Multi.bbsa"
+  },
+  "21GF-NoInvertedMinor": {
+   "bidding": {
+    "auctions_sha256": "985d998d40993588b8e31129fdb3ae89f90d95455c605f2c0a1c993bf8c700bc",
+    "boards": 5565,
+    "sha256": "54f41656b582885f7b8432eb6033206b8a1ffa4e81fd3e49d6f6ab9f43022fd6"
+   },
+   "exports": 8,
+   "sha256": "0bedc3974c62b5551de13455c1d1dd82847a01ef381f1e358b8f57ea24e71f0b",
+   "source": "21GF-NoInvertedMinor.bbsa"
+  },
+  "21GF-Ogust": {
+   "bidding": {
+    "auctions_sha256": "be793b0c46be4d64013d4d787eb3c151d26d4de6310788f155bea7b232a540e4",
+    "boards": 5565,
+    "sha256": "da734c01ba8c965d6819cf388ea0076eafcf65dd89f7e2b175e294514ed1a989"
+   },
+   "exports": 8,
+   "sha256": "2c265927b7fe97441d9fcff62083f7240cbc4ed8bfc73d14eaeaf3d69650e9ba",
+   "source": "21GF-Ogust.bbsa"
+  },
+  "21GF-PolishTwoSuiters": {
+   "bidding": {
+    "auctions_sha256": "fa60ba72a32e3d8f1d557ffe9d9934fd72fe9104528013ee42a3c248562ab941",
+    "boards": 5565,
+    "sha256": "9547f996fca6dd362f3021488380aa7219da3fcef8c5a2a6a7cd3f2df4c19927"
+   },
+   "exports": 8,
+   "sha256": "e2e4213a0a98781cfbc41eaf42903170ce2b1145004f616f9c37b9ebdbc8002a",
+   "source": "21GF-PolishTwoSuiters.bbsa"
+  },
+  "21GF-Puppet": {
+   "bidding": {
+    "auctions_sha256": "9f37cc6c1259f0d901d140479f9abcab51782accd604d60dc0c642f6a1f1a8b2",
+    "boards": 5565,
+    "sha256": "66b8386e5ad89632f92f449f8484a165d8a5b70ddeb1f4151c4568be383aeff9"
+   },
+   "exports": 8,
+   "sha256": "dfee70c0302a1ac3f39687fdb3429ad9c9e077a1190e282bd6852660ff5b203a",
+   "source": "21GF-Puppet.bbsa"
+  },
+  "21GF-SPECIALS": {
+   "bidding": {
+    "auctions_sha256": "ca2be24d54cf7bf5a17a1326c9278487213fd7ea936b3c5d28a5eb71994b832f",
+    "boards": 5565,
+    "sha256": "96b18ec5f056dc84beb15c177ce627172679b9c4b1377ff8e95fef865757fa63"
+   },
+   "exports": 8,
+   "sha256": "177da5261dd2acbf37e1435b4f151025c8416f587e4348b68463546158b1016a",
+   "source": "21GF-SPECIALS.bbsa"
+  },
+  "21GF-SPECIALS2": {
+   "bidding": {
+    "auctions_sha256": "92d83cd572cbc3aec4e609279913ec0b42e0725088ab55b218f69428b9ae3177",
+    "boards": 5565,
+    "sha256": "c8d795ec56c7266862f38d344b08f310ff670b254ed54aff2a9a6488c3b74a16"
+   },
+   "exports": 8,
+   "sha256": "68e2672a55bb2c150c660fd4013fd9809d5a346dbffeeef70b0c98bb4a1eec2b",
+   "source": "21GF-SPECIALS2.bbsa"
+  },
+  "21GF-WJS-MSS": {
+   "bidding": {
+    "auctions_sha256": "7633d03b240f4a82bcf8384017353a3e4d59722484950ff52c11868c8277d268",
+    "boards": 5565,
+    "sha256": "7aa05f13c1c2595efb3d3a13bf50548af8370da677ae58b670e326ebce683b36"
+   },
+   "exports": 8,
+   "sha256": "411e0595c4996d101d4aa51de4a4abb78071e6fd0acdb5f98d797704a76b6fce",
+   "source": "21GF-WJS-MSS.bbsa"
+  },
+  "Basic-Bridge": {
+   "bidding": {
+    "auctions_sha256": "7127bb588b6a7e469232173b5e8705dcb21f7cb00d58cea04819a2abea6dd687",
+    "boards": 5565,
+    "sha256": "a97ae920023f381a01033d4b547c33285fbea25c153d2adccfaa34323d32a206"
+   },
+   "exports": 8,
+   "sha256": "a8adc5013bd0fbd71620eb1c9267d56d8fbec0b155d7c89c4ede3542175e49aa",
+   "source": "Basic-Bridge.bbsa"
+  },
+  "Brill": {
+   "bidding": {
+    "auctions_sha256": "d6ce2425a327aa7fa4a066ca4d3b4db7ba6fad5c441c504fe15f5e7747be6e3d",
+    "boards": 5565,
+    "sha256": "d10110592c45b8bab18bfa5638d45112944feba9359b8897ebcee04edfce6c03"
+   },
+   "exports": 8,
+   "sha256": "5704cef484bf9b51191a7de8746878b69f1838d0b3218bb4ebe51e59648e2869",
+   "source": "Brill.json"
+  },
+  "Natural": {
+   "bidding": {
+    "auctions_sha256": "6ef130052fd41ef8e75ab85b4869044d79ee92de64ee1d1740c26d4dad25176b",
+    "boards": 5565,
+    "sha256": "e62314e4c48eb085722710c2657ba19593726a9631bf7722d92ec16c55763a3e"
+   },
+   "exports": 8,
+   "sha256": "5b1de0a32b422efa97fd2f6193ef5ea6db52e22ce175ac185b6dbf21d6162fef",
+   "source": "Natural.json"
+  },
+  "Natural-4CM": {
+   "bidding": {
+    "auctions_sha256": "6ef130052fd41ef8e75ab85b4869044d79ee92de64ee1d1740c26d4dad25176b",
+    "boards": 5565,
+    "sha256": "e62314e4c48eb085722710c2657ba19593726a9631bf7722d92ec16c55763a3e"
+   },
+   "exports": 8,
+   "sha256": "a1bed47f712d204fb484560011909b0fd5517e33d0129eed89609d71a219a821",
+   "source": "Natural-4CM.json"
+  },
+  "Precision": {
+   "bidding": {
+    "auctions_sha256": "3ed787a189cb770d7d0007e0f82f8989aa4c4b206e22b03dfffdfdbff8c02778",
+    "boards": 5565,
+    "sha256": "bd911a54b55389d3b605c8761389b1e913eaf836495e6ff4ac5b374df73b0e03"
+   },
+   "exports": 8,
+   "sha256": "9461fad8a90d81134e56b507b14ef5035857333d054f16292641f40c18384e67",
+   "source": "Precision.bbsa"
+  },
+  "Precision-14-16": {
+   "bidding": {
+    "auctions_sha256": "0f036eb39571946324a1ac638aad0a638bcdfdb49f63c58aeb4639f38929792f",
+    "boards": 5565,
+    "sha256": "6ff0c0fb2f96495ca5fa535b35762abfec96b3318ebffe2bc15f8a38c0436ac7"
+   },
+   "exports": 8,
+   "sha256": "a63deb129906f75ee7eeb90aeb03d5655c02e888d4bc8c29c553a4f06e975a2f",
+   "source": "Precision-14-16.bbsa"
+  },
+  "SAYC": {
+   "bidding": {
+    "auctions_sha256": "2a8170ccb0ae6f62cbc4654504b6659993a012c98d88424f14f8fd4f3d239ca3",
+    "boards": 5565,
+    "sha256": "6f262999fa5f976e35ca4723a3bde965763fe977415f503d5ba431e9c5b7e01c"
+   },
+   "exports": 8,
+   "sha256": "ac8b48949c913c3e4112d20d86ceff2f442ea7e88c352de6bb17acc6a3f4cf82",
+   "source": "SAYC.json"
+  }
+ },
+ "corpus": [
+  {
+   "glob": "bbsa/*.bbsa",
+   "ref": "385ea89fd9ed062a2f7fc3a1d2ff4ab1f49b7af3",
+   "repo": "Practice-Bidding-Scenarios"
+  },
+  {
+   "glob": "cards/json/*.json",
+   "ref": "v0.15.3",
+   "repo": "rusty-bidding-bot"
+  }
+ ],
+ "deals": {
+  "boards_per_file": 20,
+  "count": 5565,
+  "glob": "pbn/*.pbn",
+  "ref": "385ea89fd9ed062a2f7fc3a1d2ff4ab1f49b7af3",
+  "repo": "Practice-Bidding-Scenarios",
+  "sha256": "2d9d657c65a64157dd04b3295e08a7f0d627a3cba95d7ee37da8e89855cb9a93"
+ },
+ "tools": {
+  "convention-card": "v0.44.0",
+  "rbb": "rbb 0.15.3 (rule language 1)",
+  "rules": "v0.15.3"
+ }
+}
