@@ -132,3 +132,11 @@ name = "Responder's 2NT over one of a major"
 # Wilson, 2026-11-14).
 [checkback_after_1nt_rebid]
 name = "Responder's artificial 2♣ or 2♦ after a 1NT rebid"
+
+# Responder's 2NT after partner's opening is doubled for takeout. Jordan
+# (a limit raise or better) fills each part in the place the card plays it.
+# A card may instead mark the 2NT as a limit raise only or a weak raise, or
+# give it a point range; those name no convention and stay settings.
+[two_nt_over_takeout_double]
+name = "Responder's 2NT over their takeout double"
+parts = ["major", "minor"]

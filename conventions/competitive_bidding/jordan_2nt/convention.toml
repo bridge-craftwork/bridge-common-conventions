@@ -13,3 +13,18 @@ limit raise or better in partner's suit, leaving the direct raises weak.
 see = [
   { title = "Jordan 2NT", site = "Bridge Bum", url = "https://www.bridgebum.com/jordan_2nt.php" },
 ]
+
+[treatments.over_major]
+kind = "bool"
+implements = ["two_nt_over_takeout_double.major"]
+label = "Jordan (Truscott) 2NT"
+desc = "1M–(X)–2NT shows 4+ card support and 10+ points"
+default = true
+level = 5
+
+[treatments.over_minor]
+kind = "bool"
+implements = ["two_nt_over_takeout_double.minor"]
+label = "Vs takeout double: 2NT raise of a minor, limit or better"
+level = 6
+choice = "vs_to_double.two_nt_raise_minors"
