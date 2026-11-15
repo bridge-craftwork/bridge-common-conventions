@@ -6,6 +6,8 @@ module texas-transfers "Texas Transfers"
   needs  notrump-base
   skill  bidding_conventions/jacoby_transfers
   param  tu = two_under default false
+  param  tex1 = over_1nt default false
+  param  tex2 = over_2nt default false
   param  o23 = bidding_conventions/jacoby_transfers:over_2c_3nt default true
 
 # Texas shows a six-card major and one of two hands: game with no slam
@@ -41,8 +43,15 @@ define texas_room_h = !tu, !me.named(S), rho.last=P | rho.last=X | (they.level<=
 # Over 2♣–2♦–3NT only with `notrump.jacoby_transfers.over_2c_3nt` (Rick,
 # 2026-11-07: "i would make this a treatment on the Jacoby Transfer card";
 # "default to on"). Off, 4♦ and 4♥ there are natural.
-define auction texas_entry = systems 1N (*) | systems 2N (*)
-  2C (*) 2D (*) 3N (P)   when o23
+# The card says where it plays Texas: over 1NT (and our 1NT overcalls),
+# over 2NT (and the 2♣ auctions that reach 2NT or 3NT). A card that plays
+# it over 1NT plays it over 2NT too, whatever its 2NT box says: most cards
+# have one Texas box. Other modules read these two.
+define texas_1nt = tex1
+define texas_2nt = tex1 | tex2
+define auction texas_entry = systems 1N (*)   when tex1
+  systems 2N (*)   when tex1 | tex2
+  2C (*) 2D (*) 3N (P)   when o23, tex1 | tex2
 
 after texas_entry
   4D  "Texas: 6+ ♥, game only or slam values"  announce "Transfer"

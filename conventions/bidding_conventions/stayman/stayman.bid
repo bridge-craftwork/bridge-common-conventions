@@ -7,7 +7,7 @@ module stayman "Stayman"
   skill  bidding_conventions/stayman
   skill  partnership_bidding/stayman_transfers
   param  minors = bidding_conventions/minor_suit_transfers:style default relay
-  param  mtp    = bidding_conventions/minor_suit_transfers default true
+  param  mtp    = bidding_conventions/minor_suit_transfers:over_1nt default true
   param  systems_on = nt_overcalls.direct.systems_on default true
   param  vs_double = bidding_conventions/jacoby_transfers:vs_double default false
   param  vs_2c = bidding_conventions/jacoby_transfers:vs_2c default false

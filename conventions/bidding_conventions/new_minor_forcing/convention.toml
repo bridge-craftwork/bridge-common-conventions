@@ -16,9 +16,15 @@ see = [
   { title = "New Minor Forcing Fundamentals", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/227" },
 ]
 
+[treatments.after_1nt_rebid]
+kind = "bool"
+implements = ["checkback_after_1nt_rebid"]
+label = "New minor forcing"
+default = true
+level = 5
+
 [treatments.after_2nt_rebid]
 kind = "bool"
-independent = true
 label = "NMF after a 2NT rebid"
 level = 6
 

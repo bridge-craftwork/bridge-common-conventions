@@ -4,6 +4,7 @@ label = "Two-way new minor forcing"
 source = "proposed"
 level = 8
 contexts = ["responses_rebids"]
+implements = ["checkback_after_1nt_rebid"]
 names = ["Two-way NMF", "Two-way new minor forcing", "xyNT"]
 summary = """
 Played instead of NMF: after opener's 1NT rebid, responder's 2♣ relays to 2♦

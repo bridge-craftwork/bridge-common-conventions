@@ -766,16 +766,12 @@ order = [
 "minor_openings.walsh.play" = "bidding_conventions/walsh"
 "notrump.gambling_3nt.play" = "bidding_conventions/gambling_3nt"
 "notrump.jacoby_transfers.play" = "bidding_conventions/jacoby_transfers"
-"notrump.minor_suit_stayman.play" = "bidding_conventions/minor_suit_stayman"
-"notrump.minor_transfers.play" = "bidding_conventions/minor_suit_transfers"
 "notrump.smolen.play" = "bidding_conventions/smolen"
 "notrump.stayman.play" = "bidding_conventions/stayman"
-"notrump.texas.play" = "bidding_conventions/texas"
 "other_conventions.checkback.play" = "bidding_conventions/checkback"
 "other_conventions.fourth_suit_forcing.play" = "bidding_conventions/fourth_suit_forcing"
 "other_conventions.help_suit_game_tries.play" = "bidding_conventions/help_suit_game_try"
 "other_conventions.ingberman_2nt.play" = "bidding_conventions/ingberman"
-"other_conventions.new_minor_forcing.play" = "bidding_conventions/new_minor_forcing"
 "other_conventions.roudi.play" = "bidding_conventions/roudi"
 "other_conventions.sos_redouble.play" = "competitive_bidding/sos_redouble"
 "other_conventions.two_way_game_tries.play" = "bidding_conventions/two_way_game_tries"
@@ -857,8 +853,6 @@ order = [
 "notrump.jacoby_transfers.vs_2c" = "bidding_conventions/jacoby_transfers:vs_2c"
 "notrump.jacoby_transfers.vs_double" = "bidding_conventions/jacoby_transfers:vs_double"
 "notrump.lebensohl.description" = "competitive_bidding/lebensohl:description"
-"notrump.minor_suit_stayman.over_2nt" = "bidding_conventions/minor_suit_stayman:over_2nt"
-"notrump.minor_transfers.over_2nt" = "bidding_conventions/minor_suit_transfers:over_2nt"
 "notrump.minor_transfers.over_2nt_3s_clubs" = "bidding_conventions/minor_suit_transfers:over_2nt_3s_clubs"
 "notrump.minor_transfers.over_2nt_4c_diamonds" = "bidding_conventions/minor_suit_transfers:over_2nt_4c_diamonds"
 "notrump.minor_transfers.style" = "bidding_conventions/minor_suit_transfers:style"
@@ -867,7 +861,6 @@ order = [
 "notrump.minor_transfers.two_nt_clubs" = "bidding_conventions/minor_suit_transfers:two_nt_clubs"
 "notrump.minor_transfers.two_nt_diamonds" = "bidding_conventions/minor_suit_transfers:two_nt_diamonds"
 "notrump.minor_transfers.two_s" = "bidding_conventions/minor_suit_transfers:two_s"
-"notrump.minor_transfers.two_s_clubs" = "bidding_conventions/minor_suit_transfers:two_s_clubs"
 "notrump.stayman.forcing" = "bidding_conventions/stayman:forcing"
 "notrump.stayman.garbage" = "bidding_conventions/stayman:garbage"
 "notrump.stayman.over_2nt_both_majors" = "bidding_conventions/stayman:over_2nt_both_majors"
@@ -875,12 +868,10 @@ order = [
 "notrump.texas.bid_4d" = "bidding_conventions/texas:bid_4d"
 "notrump.texas.bid_4h" = "bidding_conventions/texas:bid_4h"
 "notrump.texas.bid_4s" = "bidding_conventions/texas:bid_4s"
-"notrump.texas.over_2nt" = "bidding_conventions/texas:over_2nt"
 "notrump.texas.two_under" = "bidding_conventions/texas:two_under"
 "other_conventions.fourth_suit_forcing.game_force" = "bidding_conventions/fourth_suit_forcing:game_force"
 "other_conventions.fourth_suit_forcing.notes" = "bidding_conventions/fourth_suit_forcing:notes"
 "other_conventions.fourth_suit_forcing.one_round" = "bidding_conventions/fourth_suit_forcing:one_round"
-"other_conventions.new_minor_forcing.after_2nt_rebid" = "bidding_conventions/new_minor_forcing:after_2nt_rebid"
 "other_conventions.new_minor_forcing.by_passed_hand" = "bidding_conventions/new_minor_forcing:by_passed_hand"
 "slam.cue_bids.style" = "bidding_conventions/control_bids:style"
 "slam.gerber.directly_over_nt" = "bidding_conventions/gerber:directly_over_nt"
@@ -925,6 +916,24 @@ switches = { "general.jump_shifts.strong_2" = "two_level", "general.jump_shifts.
 convention = "bidding_conventions/weak_jump_shifts"
 switches = { "general.jump_shifts.weak_2" = "two_level", "general.jump_shifts.weak_3" = "three_level" }
 
+# Phase 6 (#91): a convention with a second line of its own for another
+# auction is played in two places; its old switch is the first.
+[[place]]
+convention = "bidding_conventions/new_minor_forcing"
+switches = { "other_conventions.new_minor_forcing.play" = "after_1nt_rebid", "other_conventions.new_minor_forcing.after_2nt_rebid" = "after_2nt_rebid" }
+
+[[place]]
+convention = "bidding_conventions/texas"
+switches = { "notrump.texas.play" = "over_1nt", "notrump.texas.over_2nt" = "over_2nt" }
+
+[[place]]
+convention = "bidding_conventions/minor_suit_stayman"
+switches = { "notrump.minor_suit_stayman.play" = "over_1nt", "notrump.minor_suit_stayman.over_2nt" = "over_2nt" }
+
+[[place]]
+convention = "bidding_conventions/minor_suit_transfers"
+switches = { "notrump.minor_transfers.play" = "over_1nt", "notrump.minor_transfers.two_s_clubs" = "two_s_clubs", "notrump.minor_transfers.over_2nt" = "over_2nt" }
+
 # Phase 6: boxes that had no convention of their own.
 [[place]]
 convention = "bidding_conventions/dopi_ropi"
@@ -956,6 +965,18 @@ means = ["bidding_conventions/reverse_flannery:two_h", "bidding_conventions/reve
 function = "major_ask_over_notrump"
 convention = "bidding_conventions/stayman"
 to = "bidding_conventions/puppet_stayman"
+
+# New Minor Forcing after a 1NT rebid gives way to XYZ and to two-way NMF,
+# as the rules already read it; after a 2NT rebid it stays.
+[[yields]]
+function = "checkback_after_1nt_rebid"
+convention = "bidding_conventions/new_minor_forcing"
+to = "bidding_conventions/xyz"
+
+[[yields]]
+function = "checkback_after_1nt_rebid"
+convention = "bidding_conventions/new_minor_forcing"
+to = "bidding_conventions/two_way_nmf"
 
 [[yields]]
 function = "two_nt_response_to_major"

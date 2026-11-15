@@ -465,7 +465,7 @@ N A93.K2.AKJ65.Q42      | 1C P 1D P 2S P  | 6NT | 17 balanced, three clubs only 
 # Opposite the weak-notrump card's 1NT rebid, 15-17 (Rick, 2026-11-07;
 # rebids.bid), read as a good 14 to 17: invite with 9-10, game with 11+;
 # vulnerable the rebid is 12-14 and the counts as before.
-card    21GF-DEFAULT notrump.one_nt.range_min=14 notrump.one_nt.range_min_plus=true notrump.one_nt.range_max=17 notrump.one_nt.seat_vul=Vul notrump.one_nt_alt.range_min=11 notrump.one_nt_alt.range_min_plus=true notrump.one_nt_alt.range_max=14 notrump.one_nt_alt.seat_vul=NV notrump.one_nt_alt.same_responses=true bidding_conventions/new_minor_forcing=false
+card    21GF-DEFAULT notrump.one_nt.range_min=14 notrump.one_nt.range_min_plus=true notrump.one_nt.range_max=17 notrump.one_nt.seat_vul=Vul notrump.one_nt_alt.range_min=11 notrump.one_nt_alt.range_min_plus=true notrump.one_nt_alt.range_max=14 notrump.one_nt_alt.seat_vul=NV notrump.one_nt_alt.same_responses=true bidding_conventions/new_minor_forcing:after_1nt_rebid=false
 dealer  S
 vul     None
 N KJ64.Q73.82.Q642      | 1D P 1S P 1NT P | P   | 8 opposite a good 14 to 17: no game

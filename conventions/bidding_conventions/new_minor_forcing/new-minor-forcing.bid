@@ -8,6 +8,7 @@
 module new-minor-forcing "New Minor Forcing"
   kind   convention
   convention  bidding_conventions/new_minor_forcing
+  card   after_1nt_rebid
   needs  responder-rebids
   skill  bidding_conventions/new_minor_forcing
   param  checkback = bidding_conventions/checkback default false

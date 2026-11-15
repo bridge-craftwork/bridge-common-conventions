@@ -448,11 +448,19 @@ box on 18 public cards, the 4♣/4♦ transfer box on 7).
   that Jordan implements; the limit boxes become a Jordan entry; the point
   ranges stay settings (Rick, 2026-11-13).
 
-- Five treatments that stand on their own (`independent`) become places:
-  New Minor Forcing after a 1NT rebid and after a 2NT rebid, and the
-  over-2NT forms of Texas, minor-suit Stayman and minor transfers. With a
-  function for responder's 2♣/2♦ after a 1NT rebid, which New Minor Forcing,
-  two-way NMF, Checkback, Roudi and XYZ fill (Rick, 2026-11-14; #91).
+- ~~Five treatments that stand on their own (`independent`) become
+  places.~~ Done 2026-11-14 (#91): New Minor Forcing is played after a 1NT
+  rebid and after a 2NT rebid; Texas, minor-suit Stayman and minor-suit
+  transfers over 1NT and over 2NT (minor-suit transfers also in BBA's
+  "2♠ to clubs" line). Each convention's old switch is its first place. A
+  new function, `checkback_after_1nt_rebid`, is filled by New Minor Forcing
+  (in that place), two-way NMF, Checkback, Roudi and XYZ; New Minor Forcing
+  gives way to XYZ and to two-way NMF, as the rules already read it. No
+  treatment is `independent` any more. The Texas rules read the two places:
+  over 2NT if either box says so (most cards have one Texas box), over 1NT
+  only if that box does. Measured: two cards say "Texas over 2NT" without
+  the 1NT box, and now bid that (20 auctions on the stock SAYC card, which
+  had no Texas; 59 on one hand-made card, which had it over 1NT too).
 
 **Done when** the inventory has no unplaced rows and the differences are
 reviewed, as in phase 5.

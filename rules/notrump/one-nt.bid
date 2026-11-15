@@ -16,7 +16,7 @@ module notrump-base "1NT opening and natural responses"
   param  alt_where = notrump.one_nt_alt.seat_vul
   param  one_less = notrump.one_nt.allow_one_less default false
   param  minors   = bidding_conventions/minor_suit_transfers:style default relay
-  param  mtp      = bidding_conventions/minor_suit_transfers default true
+  param  mtp      = bidding_conventions/minor_suit_transfers:over_1nt default true
   param  three_c_transfer = bidding_conventions/minor_suit_transfers:three_c_diamonds default false
   param  three_d  = notrump.three_d_response default natural
   param  systems_on = nt_overcalls.direct.systems_on default true

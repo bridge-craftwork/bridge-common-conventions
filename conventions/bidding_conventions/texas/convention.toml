@@ -6,38 +6,50 @@ level = 4
 contexts = ["notrump_openings"]
 taught_under = ["bidding_conventions/jacoby_transfers"]
 
+[treatments.over_1nt]
+kind = "bool"
+skill = "bidding_conventions/jacoby_transfers"
+label = "Texas transfers"
+default = true
+level = 4
+
 [treatments.bid_4c]
 kind = "bool"
+skill = "bidding_conventions/jacoby_transfers"
 label = "4♣ is a transfer"
 desc = "The bid: 4♣ over 1NT transfers (South African Texas: to ♥, with 4♦ to ♠)"
 level = 6
 
 [treatments.bid_4d]
 kind = "bool"
+skill = "bidding_conventions/jacoby_transfers"
 label = "4♦ is a transfer"
 desc = "The bid: 4♦ over 1NT transfers (Texas: to ♥)"
 level = 4
 
 [treatments.bid_4h]
 kind = "bool"
+skill = "bidding_conventions/jacoby_transfers"
 label = "4♥ is a transfer"
 desc = "The bid: 4♥ over 1NT transfers (Texas: to ♠)"
 level = 4
 
 [treatments.bid_4s]
 kind = "bool"
+skill = "bidding_conventions/jacoby_transfers"
 label = "4♠ is a transfer"
 desc = "The bid: 4♠ over 1NT transfers (to a minor); no printed card has a box for it"
 level = 6
 
 [treatments.two_under]
 kind = "bool"
+skill = "bidding_conventions/jacoby_transfers"
 label = "2-under Texas"
 desc = "Texas one step lower: 4♣ transfers to ♥ and 4♦ to ♠. Opener's bid of the suit in between (4♦ over 4♣, 4♥ over 4♦) is a super-accept; four of the major is a plain completion"
 level = 7
 
 [treatments.over_2nt]
 kind = "bool"
-independent = true
+skill = "bidding_conventions/jacoby_transfers"
 label = "Texas transfers over 2NT (4♦/4♥)"
 level = 4
