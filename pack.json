@@ -88,6 +88,7 @@
   "bidding_conventions/bergen_raises": {
    "id": "bidding_conventions/bergen_raises",
    "name": "Bergen raises",
+   "brief": "3♣ = 7-9 pts, 3♦ = 10-12 pts (or similar)",
    "source": "proposed",
    "level": 5,
    "contexts": [
@@ -135,6 +136,7 @@
   "bidding_conventions/blackwood": {
    "id": "bidding_conventions/blackwood",
    "name": "Blackwood",
+   "brief": "4NT asks for aces (4 / 5 / 6 / 7 = 0–3 aces)",
    "label": "Standard Blackwood",
    "source": "taxonomy",
    "level": 2,
@@ -158,14 +160,7 @@
      "kind": "book",
      "chapter": 1
     }
-   ],
-   "treatments": {
-    "notes": {
-     "kind": "text",
-     "label": "4NT notes",
-     "skill": false
-    }
-   }
+   ]
   },
   "bidding_conventions/checkback": {
    "id": "bidding_conventions/checkback",
@@ -191,6 +186,7 @@
   "bidding_conventions/control_bids": {
    "id": "bidding_conventions/control_bids",
    "name": "Control (Cue) Bids",
+   "brief": "With a trump suit agreed, bid a control below game on the way to slam",
    "label": "Control (cue) bids",
    "desc": "BBA's 'Cue bid'. With a trump suit agreed and slam in the air, bid a control below game instead of asking straight away",
    "source": "proposed",
@@ -297,6 +293,7 @@
   "bidding_conventions/drury": {
    "id": "bidding_conventions/drury",
    "name": "Drury",
+   "brief": "2♣ by passed hand = limit raise",
    "source": "proposed",
    "level": 5,
    "contexts": [
@@ -350,6 +347,7 @@
   "bidding_conventions/exclusion_blackwood": {
    "id": "bidding_conventions/exclusion_blackwood",
    "name": "Exclusion Blackwood",
+   "brief": "Jump in a void suit asks for keycards excluding that suit",
    "source": "proposed",
    "level": 7,
    "contexts": [
@@ -580,6 +578,7 @@
   "bidding_conventions/gerber": {
    "id": "bidding_conventions/gerber",
    "name": "Gerber",
+   "brief": "4♣ ace ask over 1NT/2NT",
    "source": "proposed",
    "level": 3,
    "contexts": [
@@ -670,6 +669,7 @@
   "bidding_conventions/help_suit_game_try": {
    "id": "bidding_conventions/help_suit_game_try",
    "name": "Help Suit Game Try",
+   "brief": "Sub-game bid asks help in that suit",
    "label": "Help suit game tries",
    "source": "taxonomy",
    "level": 5,
@@ -739,6 +739,7 @@
   "bidding_conventions/ingberman": {
    "id": "bidding_conventions/ingberman",
    "name": "Ingberman 2NT",
+   "brief": "After 1♣-1♥-1♠, 2NT = forcing minor-suit inquiry",
    "source": "proposed",
    "level": 7,
    "contexts": [
@@ -787,6 +788,7 @@
   "bidding_conventions/inverted_minors": {
    "id": "bidding_conventions/inverted_minors",
    "name": "Inverted Minor Raises",
+   "brief": "Single raise = strong, jump = weak",
    "label": "Inverted minors",
    "source": "proposed",
    "level": 5,
@@ -816,6 +818,7 @@
   "bidding_conventions/jacoby_2nt": {
    "id": "bidding_conventions/jacoby_2nt",
    "name": "Jacoby 2NT",
+   "brief": "GF raise of major",
    "source": "proposed",
    "level": 4,
    "contexts": [
@@ -859,6 +862,7 @@
   "bidding_conventions/jacoby_transfers": {
    "id": "bidding_conventions/jacoby_transfers",
    "name": "Jacoby Transfers",
+   "brief": "2♦ → 2♥, 2♥ → 2♠",
    "label": "Jacoby transfers",
    "source": "taxonomy",
    "level": 3,
@@ -936,6 +940,7 @@
   "bidding_conventions/kickback": {
    "id": "bidding_conventions/kickback",
    "name": "Kickback",
+   "brief": "Suit-above-trump = keycard ask",
    "source": "proposed",
    "level": 9,
    "contexts": [
@@ -976,6 +981,7 @@
   "bidding_conventions/kokish": {
    "id": "bidding_conventions/kokish",
    "name": "Kokish relay",
+   "brief": "After 2♣–2♦, 2♥ asks; rebid shows hearts",
    "source": "proposed",
    "level": 8,
    "contexts": [
@@ -1056,6 +1062,7 @@
   "bidding_conventions/mccabe": {
    "id": "bidding_conventions/mccabe",
    "name": "McCabe adjunct",
+   "brief": "After weak two doubled: 2NT = lead-directing raise",
    "source": "proposed",
    "level": 8,
    "contexts": [
@@ -1084,6 +1091,7 @@
   "bidding_conventions/mini_roman_2d": {
    "id": "bidding_conventions/mini_roman_2d",
    "name": "Mini-Roman 2♦",
+   "brief": "3-suited hand, short in a specified suit",
    "source": "proposed",
    "level": 7,
    "contexts": [
@@ -1268,6 +1276,7 @@
   "bidding_conventions/minorwood": {
    "id": "bidding_conventions/minorwood",
    "name": "Minorwood",
+   "brief": "4 of the agreed minor = RKCB",
    "source": "proposed",
    "level": 7,
    "contexts": [
@@ -1295,6 +1304,7 @@
   "bidding_conventions/modified_jacoby_2nt": {
    "id": "bidding_conventions/modified_jacoby_2nt",
    "name": "Modified Jacoby 2NT",
+   "brief": "Variant response structure (showing controls/HCP first)",
    "source": "proposed",
    "level": 6,
    "contexts": [
@@ -1346,6 +1356,7 @@
   "bidding_conventions/multi_2d": {
    "id": "bidding_conventions/multi_2d",
    "name": "Multi 2♦",
+   "brief": "Weak 2 in a major (or strong variants)",
    "source": "proposed",
    "level": 8,
    "contexts": [
@@ -1437,6 +1448,7 @@
   "bidding_conventions/new_minor_forcing": {
    "id": "bidding_conventions/new_minor_forcing",
    "name": "New Minor Forcing",
+   "brief": "After 1m-1M-1NT, 2 of other minor = forcing inquiry",
    "label": "New minor forcing",
    "source": "taxonomy",
    "level": 5,
@@ -1478,6 +1490,7 @@
   "bidding_conventions/ogust": {
    "id": "bidding_conventions/ogust",
    "name": "Ogust",
+   "brief": "2NT over weak two asks suit + hand quality",
    "source": "taxonomy",
    "level": 5,
    "contexts": [
@@ -1531,6 +1544,7 @@
   "bidding_conventions/pick_a_slam_5nt": {
    "id": "bidding_conventions/pick_a_slam_5nt",
    "name": "Pick-a-slam 5NT",
+   "brief": "5NT after a fit suggests slam, lets partner pick the strain",
    "source": "proposed",
    "level": 7,
    "contexts": [
@@ -1692,6 +1706,7 @@
    "treatments": {
     "over_1nt": {
      "kind": "bool",
+     "brief": "Over 2NT, asks for 5-card major",
      "label": "Puppet Stayman over 1NT (3♣)",
      "desc": "Bridge Classroom's editor, its PDFs and the BBO and Bridgodex importers write notrump.stayman.puppet for this (BBO's 1NPuppet, the Classic card's 1NT box)",
      "level": 7
@@ -1965,6 +1980,7 @@
   "bidding_conventions/serious_3nt": {
    "id": "bidding_conventions/serious_3nt",
    "name": "Serious 3NT",
+   "brief": "In a 2/1 auction, 3NT denies slam interest",
    "label": "Non-serious 3NT",
    "source": "proposed",
    "level": 9,
@@ -2008,6 +2024,7 @@
   "bidding_conventions/smolen": {
    "id": "bidding_conventions/smolen",
    "name": "Smolen",
+   "brief": "Show 5-4 majors after Stayman",
    "source": "proposed",
    "level": 4,
    "contexts": [
@@ -2062,6 +2079,7 @@
   "bidding_conventions/spiral": {
    "id": "bidding_conventions/spiral",
    "name": "Spiral",
+   "brief": "Step-wise control showing (1st-round controls in order)",
    "label": "Spiral cuebids",
    "source": "proposed",
    "level": 8,
@@ -2086,6 +2104,7 @@
   "bidding_conventions/splinters": {
    "id": "bidding_conventions/splinters",
    "name": "Splinters",
+   "brief": "Double-jump shows shortness",
    "source": "proposed",
    "level": 5,
    "contexts": [
@@ -2332,6 +2351,7 @@
   "bidding_conventions/texas": {
    "id": "bidding_conventions/texas",
    "name": "Texas transfers",
+   "brief": "4♦/4♥ at game level",
    "source": "proposed",
    "level": 4,
    "contexts": [
@@ -2485,6 +2505,7 @@
   "bidding_conventions/two_heart_bust": {
    "id": "bidding_conventions/two_heart_bust",
    "name": "2♥ bust over 2♣",
+   "brief": "After 2♣, 2♥ shows a flat 0-3 HCP",
    "label": "Parrish 2♥ bust",
    "source": "proposed",
    "level": 7,
@@ -2520,6 +2541,7 @@
   "bidding_conventions/two_over_one": {
    "id": "bidding_conventions/two_over_one",
    "name": "2/1 Game Force",
+   "brief": "2♣/2♦/2♥ response = GF",
    "label": "2/1 game force",
    "source": "taxonomy",
    "level": 4,
@@ -2643,6 +2665,7 @@
   "bidding_conventions/walsh": {
    "id": "bidding_conventions/walsh",
    "name": "Walsh",
+   "brief": "After 1♣, bypass 4-card ♦ to show 4-card major",
    "label": "Walsh responses (BBA's switch)",
    "desc": "BBA's 'Walsh style'. With it on BBA still bids 1♦ over 1♣ with four diamonds and a four-card major, so our rules read one_club_responses instead",
    "source": "proposed",
@@ -2782,6 +2805,7 @@
   "bidding_conventions/western_cuebid": {
    "id": "bidding_conventions/western_cuebid",
    "name": "Western cue bid",
+   "brief": "4 of an opponent's suit asks for a stopper for 3NT",
    "label": "Western cuebid",
    "source": "proposed",
    "level": 4,
@@ -3012,6 +3036,7 @@
   "competitive_bidding/dont": {
    "id": "competitive_bidding/dont",
    "name": "DONT",
+   "brief": "Disturbing Opponents NT — double = single-suited",
    "desc": "Bridge-Classroom's DONT switch: plays DONT when vs_1nt_strong.system is unset or other",
    "source": "taxonomy",
    "level": 5,
@@ -3231,6 +3256,7 @@
   "competitive_bidding/lead_directing_doubles": {
    "id": "competitive_bidding/lead_directing_doubles",
    "name": "Lead-directing doubles",
+   "brief": "Double of artificial bid suggests opening lead",
    "source": "proposed",
    "level": 5,
    "contexts": [
@@ -3264,6 +3290,7 @@
   "competitive_bidding/leaping_michaels": {
    "id": "competitive_bidding/leaping_michaels",
    "name": "Leaping Michaels",
+   "brief": "4♣/4♦ over weak two = good 5+ in that minor + 5+ major",
    "source": "proposed",
    "level": 7,
    "contexts": [
@@ -3339,6 +3366,7 @@
    "treatments": {
     "over_1nt_interference": {
      "kind": "bool",
+     "brief": "2NT relay after interference to 1NT",
      "label": "Lebensohl over interference to 1NT",
      "default": true,
      "level": 5
@@ -3351,6 +3379,7 @@
     },
     "after_weak_two_double": {
      "kind": "bool",
+     "brief": "2NT relay after partner doubles a weak two",
      "label": "Lebensohl after doubling a weak two",
      "level": 7,
      "context": "vs_openings"
@@ -3453,6 +3482,7 @@
   "competitive_bidding/michaels": {
    "id": "competitive_bidding/michaels",
    "name": "Michaels cue bid",
+   "brief": "Cue = two-suited overcall",
    "label": "Michaels cuebid",
    "source": "proposed",
    "level": 4,
@@ -3626,6 +3656,7 @@
   "competitive_bidding/negative_doubles": {
    "id": "competitive_bidding/negative_doubles",
    "name": "Negative Doubles",
+   "brief": "Takeout-style double after overcall",
    "label": "Negative doubles",
    "source": "taxonomy",
    "level": 3,
@@ -3725,6 +3756,7 @@
   "competitive_bidding/responsive_doubles": {
    "id": "competitive_bidding/responsive_doubles",
    "name": "Responsive Doubles",
+   "brief": "Double after partner double + opp raise = takeout",
    "label": "Responsive doubles",
    "source": "proposed",
    "level": 5,
@@ -3842,6 +3874,7 @@
   "competitive_bidding/sandwich_nt": {
    "id": "competitive_bidding/sandwich_nt",
    "name": "Sandwich 1NT",
+   "brief": "1NT in 4th seat after two suits bid = unusual NT",
    "label": "Sandwich NT",
    "source": "proposed",
    "level": 7,
@@ -3901,6 +3934,7 @@
   "competitive_bidding/snapdragon": {
    "id": "competitive_bidding/snapdragon",
    "name": "Snapdragon doubles",
+   "brief": "After 3 suits bid, double = 4+ in 4th suit + tolerance for partner",
    "source": "proposed",
    "level": 8,
    "contexts": [
@@ -3933,6 +3967,7 @@
   "competitive_bidding/sos_redouble": {
    "id": "competitive_bidding/sos_redouble",
    "name": "SOS redouble",
+   "brief": "Redouble asking partner to pick another suit",
    "source": "proposed",
    "level": 7,
    "contexts": [
@@ -3996,6 +4031,7 @@
   "competitive_bidding/support_cuebids": {
    "id": "competitive_bidding/support_cuebids",
    "name": "Support Cuebids",
+   "brief": "Cue of opp's suit = 3+ card limit raise",
    "label": "Cue-bid raise",
    "source": "taxonomy",
    "level": 4,
@@ -4027,6 +4063,7 @@
   "competitive_bidding/support_doubles": {
    "id": "competitive_bidding/support_doubles",
    "name": "Support Doubles and Redoubles",
+   "brief": "Double after interference = exactly 3-card support",
    "label": "Support doubles",
    "source": "proposed",
    "level": 5,
@@ -4180,6 +4217,7 @@
     },
     "at_2nt": {
      "kind": "bool",
+     "brief": "2NT = two lowest unbid suits",
      "label": "Unusual 2NT",
      "default": true,
      "level": 4,
@@ -4207,6 +4245,7 @@
   "competitive_bidding/unusual_vs_unusual": {
    "id": "competitive_bidding/unusual_vs_unusual",
    "name": "Unusual vs Unusual",
+   "brief": "Defenses to opponents' Unusual 2NT",
    "source": "proposed",
    "level": 8,
    "contexts": [
@@ -7066,6 +7105,13 @@
     "kind": "text",
     "label": "Slam notes",
     "note": true
+   },
+   "blackwood.notes": {
+    "kind": "text",
+    "label": "4NT notes",
+    "aliases": [
+     "other_conventions.blackwood.notes"
+    ]
    }
   },
   "two_level": {
@@ -11071,7 +11117,6 @@
     "other_conventions.fourth_suit_forcing.one_round": "bidding_conventions/fourth_suit_forcing:one_round",
     "other_conventions.new_minor_forcing.after_2nt_rebid": "bidding_conventions/new_minor_forcing:after_2nt_rebid",
     "other_conventions.new_minor_forcing.by_passed_hand": "bidding_conventions/new_minor_forcing:by_passed_hand",
-    "slam.blackwood.notes": "bidding_conventions/blackwood:notes",
     "slam.cue_bids.style": "bidding_conventions/control_bids:style",
     "slam.gerber.directly_over_nt": "bidding_conventions/gerber:directly_over_nt",
     "slam.gerber.non_nt_seq": "bidding_conventions/gerber:non_nt_seq",
@@ -11200,7 +11245,6 @@
     "competitive.negative_doubles.through": "competitive_bidding/negative_doubles:through",
     "major_openings.drury.two_way": "bidding_conventions/drury:two_d",
     "notrump.stayman.puppet": "bidding_conventions/puppet_stayman:over_1nt",
-    "other_conventions.blackwood.notes": "bidding_conventions/blackwood:notes",
     "other_conventions.fourth_suit_forcing.game_forcing": "bidding_conventions/fourth_suit_forcing:game_force",
     "other_conventions.gerber.directly_over_nt": "bidding_conventions/gerber:directly_over_nt",
     "other_conventions.gerber.non_nt_seq": "bidding_conventions/gerber:non_nt_seq",

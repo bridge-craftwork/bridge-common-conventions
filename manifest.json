@@ -1,7 +1,7 @@
 {
  "schema": "pack-manifest/v1",
- "source_commit": "311ed921381efb217a1baf0151987457b3fccf37",
- "rules_number": 12,
+ "source_commit": "aaca1ce723eceb00ea1263b7531ea0d80033c62a",
+ "rules_number": 14,
  "name": "bridge-common-conventions",
  "pack_format_version": 1,
  "card_schema_version": 3,
@@ -57,8 +57,8 @@
    "changed": "2026-11-14T10:40:01-08:00"
   },
   "conventions/bidding_conventions/bergen_raises/convention.toml": {
-   "sha256": "fea88205a8655f68412cc7694bc67ff1980d005ba33101c3521c907ac1879865",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "afd988e97f09914fda568b26b58f5e33eec72cecaa75850dfc1b442f8d0443c9",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/blackwood/blackwood.bid": {
    "sha256": "d3bace48df9f07e5acae158df1fa011483240a8d8375ee862c653a6b5ebfdd9d",
@@ -73,8 +73,8 @@
    "changed": "2026-11-13T23:15:09-08:00"
   },
   "conventions/bidding_conventions/blackwood/convention.toml": {
-   "sha256": "7982233985c0d68b0fb7b1138bedaff9ade1f5ff4200b63636a43fab276d5569",
-   "changed": "2026-11-13T23:15:09-08:00"
+   "sha256": "7cbfe92959c7711dcdcb468ab67404f02c0cf778636282dbdee11900d23e8c7c",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/checkback/checkback.bid": {
    "sha256": "10ec651e2cba38b4a5bf3c9b46fcd151e6713c6ecd58ed51cbc62c930bc019a5",
@@ -105,8 +105,8 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "conventions/bidding_conventions/control_bids/convention.toml": {
-   "sha256": "81c3c3c6838275484f99f5c8b11f4f48bd7c53aa7e3f1c7cc1a8c9edfe01657f",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "7fffda45a39d6d61871d43fc5fb582bf5a917f8145efeadbab7dcc99942a5f2e",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/depo/convention.toml": {
    "sha256": "4cb4a88f7766259aaf6467dad59a56afd22902b4302d375a6a80d82c82354f66",
@@ -117,12 +117,12 @@
    "changed": "2026-11-14T12:36:57-08:00"
   },
   "conventions/bidding_conventions/drury/convention.toml": {
-   "sha256": "091e464ee42c3c521c751a8f14bc1d100c0d48c0c4b52a6c31227af474cb2186",
-   "changed": "2026-11-14T12:48:14-08:00"
+   "sha256": "730a06b1377fa8595b43ad7bb689d750f10ea9af7f175b358c34f1000c0ac190",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/exclusion_blackwood/convention.toml": {
-   "sha256": "6c22bc17a7d654cd035b4fe092d07fc272176709ed9364c0b1fad54fb38b85b9",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "87fff3feac52592cf0b4c6f119ec6e66948c7b8a9716c8fa6d9ed5f2fdcf54ee",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/exclusion_blackwood/exclusion.bid": {
    "sha256": "0ddb4f765637116527aa96ba1549027087c347b4ac2e55a11fe5e20c50e53e82",
@@ -225,8 +225,8 @@
    "changed": "2026-11-13T23:15:09-08:00"
   },
   "conventions/bidding_conventions/gerber/convention.toml": {
-   "sha256": "46efe6de77ebac55cb3e8571fc07defbc8d6e7400e917cb5e28d72e129747d62",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "2e44a6699fa43594c29eed13901de4a1b3e154cf5932eb7dac25288159e77889",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/gerber/gerber.bid": {
    "sha256": "4a31206e6b8d0836a2252d269fed936d8f26442ebba0f7948f65b1a2768d29eb",
@@ -245,8 +245,8 @@
    "changed": "2026-09-30T13:35:03-07:00"
   },
   "conventions/bidding_conventions/help_suit_game_try/convention.toml": {
-   "sha256": "5d0273a195a7e290056777c324f28c177c7418ddd3711b0c94b05cd0774de9e0",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "35c8d90fa7a3606b85bc2228a39a080aff925022d22bf2aba5a691679f845fee",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/impossible_2s/convention.toml": {
    "sha256": "d7e5f0ce6d1983ee66aa304b988392971b9f9b7fb13ff09630f82465d1817d45",
@@ -265,8 +265,8 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "conventions/bidding_conventions/ingberman/convention.toml": {
-   "sha256": "9bd6e46463d451255fd670c1410d8dca08b508924784b6e2b77c008df39920d4",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "f2241ab531bc3b6eab2df8c4b554397d52bc3cc7675d676500866ce31a6ef75e",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/ingberman/ingberman.bid": {
    "sha256": "e81ce3962ea7801d57ac5341da4116fa533869d3c9860c0fd1bc46ffabbb2a52",
@@ -285,8 +285,8 @@
    "changed": "2026-11-14T10:40:01-08:00"
   },
   "conventions/bidding_conventions/inverted_minors/convention.toml": {
-   "sha256": "a411e4b9ddf376d30954323d49be1f19a32e1e725c7ffdc901155323a6cf6285",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "f137da5e40967ef6639e5f10fe0da351c8c6868ecc28c44200ff1f4158067350",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/inverted_minors/inverted-minors.bid": {
    "sha256": "64fc16f66379cf58c458c1622e0f714039de5c84c9dce8d0a642c43f74499b2d",
@@ -301,16 +301,16 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "conventions/bidding_conventions/jacoby_2nt/convention.toml": {
-   "sha256": "f014f0c335332234d936303c41037bdaabe9bd4e3471153016f45acc37e43020",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "8f5827c47949f3ef687ec1c954bfdd01e216da225670a7eede4cef2bf95b0a79",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/jacoby_2nt_splinters/convention.toml": {
    "sha256": "a33cfd46e5f243315e884179c852360437d8abd82a202f1d4d75a9701f3ba503",
    "changed": "2026-09-30T13:35:03-07:00"
   },
   "conventions/bidding_conventions/jacoby_transfers/convention.toml": {
-   "sha256": "d10ac3d7dc546d9befb0432bea2cace80fb08e913af0137573aac71e300c0c26",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "110dd3c3932301fa43a214d82fe5af406348f8dee0ab51b62b28dd689839f8e1",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/jacoby_transfers/jacoby-transfers.bid": {
    "sha256": "d27ba04a025e592ec1153d9eef50ebf44042d3165944b1459959bbf8db76fca0",
@@ -325,12 +325,12 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "conventions/bidding_conventions/kickback/convention.toml": {
-   "sha256": "f0048a16811973e9424b3b50c575e466bf47a04833531364a6f7722695107ff2",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "73877bfb6280620f219fcadc0c0e075f81f5cecc6659decb55f7824bb42325b2",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/kokish/convention.toml": {
-   "sha256": "a7257c9c57610cf2164f630bbd1e1a983d85daab45b3adfce743084116613cb5",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "344e42d653082bf8b076eff7758d107a39312962f097ad0ebfea503973d623da",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/kokish/kokish.bid": {
    "sha256": "238ddec2aa38b47a445675f6ad346131debd08b4c822200c8f1ff2599caefdb9",
@@ -357,8 +357,8 @@
    "changed": "2026-11-14T12:36:57-08:00"
   },
   "conventions/bidding_conventions/mccabe/convention.toml": {
-   "sha256": "5b36ff900744c1d438cc4a9ceddc65bcb26af2cda8415ad4a51c01cb7d2b9e5b",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "0f6d98b3e366c2bf7fbcff58b7254fd525246741c6e3e13089984e756c7c99a3",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/mccabe/mccabe.bid": {
    "sha256": "0b18d36e7f45b1e68435a67d53f9029f11a7293465ae0bff5e744e60283bb3e3",
@@ -373,8 +373,8 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "conventions/bidding_conventions/mini_roman_2d/convention.toml": {
-   "sha256": "3d227d88718cdc12098653497d2dce8407fd5093359db0e62bc97babf5931f6d",
-   "changed": "2026-11-14T12:48:14-08:00"
+   "sha256": "79d04b84029c5735c4ebf4cc81a9d904b1f65489ab559fdcb937ff382f3f33f4",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/mini_roman_2d/mini-roman.bid": {
    "sha256": "725b3b6a8aae913276cfb10e45675d7a3edec620091c58e70c03811596c755ad",
@@ -413,12 +413,12 @@
    "changed": "2026-11-14T15:00:04-08:00"
   },
   "conventions/bidding_conventions/minorwood/convention.toml": {
-   "sha256": "7062d4a4baeb2f893592cc27b282d902cd9f7bad50551c30d5261357da449944",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "0fb5b67eb16c3a73609f01d3fce6ae1330c2369c713a044af6eb13620865f364",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/modified_jacoby_2nt/convention.toml": {
-   "sha256": "b296a85c862e279d25cf343684598ef208834de25a33e0897e5b052ae903463e",
-   "changed": "2026-11-14T12:09:25-08:00"
+   "sha256": "cc280bd588cfe9983f3ffbdf5d073a88c03bb0b06b488aa7e938e285ae0282da",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/modified_jacoby_2nt/modified-jacoby-2nt.bid": {
    "sha256": "aecc4e89405698c876c5fe5a7181d3a5ef9c924508f3bb6f1d2594d7fbdaf25c",
@@ -437,8 +437,8 @@
    "changed": "2026-11-14T10:40:01-08:00"
   },
   "conventions/bidding_conventions/multi_2d/convention.toml": {
-   "sha256": "dc082c194a9785ee3c0b43ed7d56cec4db992ab67f80f0f19cbdb7e467d3aaa4",
-   "changed": "2026-11-14T12:15:53-08:00"
+   "sha256": "dd1644e7515e993d3778f547d428a3e146c278f0693388bd4f4a9045bd39d047",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/multi_2d/multi.bid": {
    "sha256": "ec46614a37c2bc5923de9a337e9b60f76332df88f3c26c1e463ea17f228448d1",
@@ -469,8 +469,8 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "conventions/bidding_conventions/new_minor_forcing/convention.toml": {
-   "sha256": "33b7b02f591610592bc358b7c2fd812a6a46d5701af9451a4659f1ca8291fc63",
-   "changed": "2026-11-14T15:00:04-08:00"
+   "sha256": "bbee53011a57447e116a531c7ed818f5a20090af617a99bc9d27cacd1f61f694",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/new_minor_forcing/new-minor-forcing.bid": {
    "sha256": "cf1ad4e54d55eca7dff34f30a54971a5520caf1792ac1d26a7a1b005d6946c31",
@@ -485,8 +485,8 @@
    "changed": "2026-11-13T23:15:09-08:00"
   },
   "conventions/bidding_conventions/ogust/convention.toml": {
-   "sha256": "8713a03d171a3eaabc030737edbdf85962a626382758982c0945ea6fa4c06de8",
-   "changed": "2026-11-13T23:15:09-08:00"
+   "sha256": "b0b785eae7f5d834dcecafa94c878b7ae63a77069a8bc04fb6be2efe03b35adf",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/over_splinters/convention.toml": {
    "sha256": "831581e33ca07743c9522c57168a16405d817be2788335f967907aea53ac8dba",
@@ -497,8 +497,8 @@
    "changed": "2026-11-14T12:09:25-08:00"
   },
   "conventions/bidding_conventions/pick_a_slam_5nt/convention.toml": {
-   "sha256": "a20961a06d6f393c3203314fc79047f4bd255b35c1c0a60e2787b58d2573a843",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "fcd50240cdc26bc3201ea2d76f9db3e1a1ff21626102f1a52eba8efa1c849ac1",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/pick_a_slam_5nt/pick-a-slam.bid": {
    "sha256": "e609f9a6607c97060231c3520beeeab8db0dff26ce17e3b7da2683a72bdaa5e0",
@@ -557,8 +557,8 @@
    "changed": "2026-09-30T13:35:03-07:00"
   },
   "conventions/bidding_conventions/puppet_stayman/convention.toml": {
-   "sha256": "580440b36d3564972fa9a5f610fbc5d869f53ea639a6f5b1e9f22b3c064e77e4",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "bc3bd45c7f0119ec9886a6adf92db8ba50b2a51107679d044a92bccc1ee37978",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/quantitative_4nt/convention.toml": {
    "sha256": "8474dc911ba829abcb1c446fc1ce18ef004ccdba1ca619ec1a7441cd89c3860f",
@@ -613,16 +613,16 @@
    "changed": "2026-11-14T12:36:57-08:00"
   },
   "conventions/bidding_conventions/serious_3nt/convention.toml": {
-   "sha256": "fe625aca8982956efa197d134bce221e063213338cd99f9bfa05f962266783c5",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "81c52cde1aaf89587a18a02371ba51be09646b38541e41abda4d8745c749ec6d",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/six_key_rkcb/convention.toml": {
    "sha256": "deb740cf144b66bd908729a2be97d973b4315c62c50dd8b8ae0ed4d42bb09dc9",
    "changed": "2026-09-30T13:35:03-07:00"
   },
   "conventions/bidding_conventions/smolen/convention.toml": {
-   "sha256": "110375b9a9a09c8ae3e8d3423acf517bcdf525ac39fac064a2aecd14622e59e6",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "2b9784a4d4410ce9d44221b912f5e400b12ded19a382a4a280e64aca06c13f49",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/smolen/smolen.bid": {
    "sha256": "49062cd9697904aa6af482f8ee75e02a0c6ba52c819b7979b64acdcf35ed9a1b",
@@ -641,12 +641,12 @@
    "changed": "2026-11-13T23:15:09-08:00"
   },
   "conventions/bidding_conventions/spiral/convention.toml": {
-   "sha256": "02171e0dff120b3be3349e24f1c731ed8bf258993167719f7be5b10a4f790f57",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "1dec2d9e042b3ac2746bfeeb58a6b315777bdcc2a3ce17c06a13fe6d4ebd2a0c",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/splinters/convention.toml": {
-   "sha256": "ed9148165cd9ae492ce3016113de9b345dcba47d46c6f17bf003dc027c071d94",
-   "changed": "2026-11-14T12:48:14-08:00"
+   "sha256": "44eff56543ee1ea5e3d3943b2dd0cfbfb03dcf3d035af4c912f3891d59e79c92",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/splinters/splinters.bid": {
    "sha256": "ad7d4dc9d6b727c07522663d058d919b0b4fc3eb845d8f2a6f3aa61f3f9b5ab5",
@@ -693,8 +693,8 @@
    "changed": "2026-11-14T12:36:57-08:00"
   },
   "conventions/bidding_conventions/texas/convention.toml": {
-   "sha256": "53d59c1dfbccd4e00ac42b56d66bbb780c5ab5abb5f78b6fa8a011b6ea93b055",
-   "changed": "2026-11-14T15:00:04-08:00"
+   "sha256": "413bf56dc313b879fc20c6088aabdc79470eeb306b954771307d62367425ba9c",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/texas/texas-transfers.bid": {
    "sha256": "ebc8e80d3791ebb2fdd4e85fcad458bfde09518b141a2e654ccdde328aca941d",
@@ -725,12 +725,12 @@
    "changed": "2026-11-14T12:36:57-08:00"
   },
   "conventions/bidding_conventions/two_heart_bust/convention.toml": {
-   "sha256": "76abe45de1d65b77744cd5d5d726e3824974c723d500385a8beac22a4162f0d7",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "ba1bba5715d66799eea76b7e2d730428719b3f6d571f4632c19656d0bee9959a",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/two_over_one/convention.toml": {
-   "sha256": "2854d8a608e48afe9e6224101af299b4e52e5250ca320cd07205c9924e54e074",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "14a440a16c1ad3a105429da10d84415edbcf34882dda9a9174868bafa7d1f5d5",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/two_way_drury/convention.toml": {
    "sha256": "5338fd4e9ab57dfedd67dd9ed390b42ccf7b2f3735f46e6966c2dd4232081769",
@@ -745,8 +745,8 @@
    "changed": "2026-11-14T12:36:57-08:00"
   },
   "conventions/bidding_conventions/walsh/convention.toml": {
-   "sha256": "0c2a8ccbfa0429c6cb0c926fbd253bc247a62c4647bbca5c113796cc9ece5548",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "df628a9111b730e6ffdba7777664e3412fac9be799b29f5c2a68e603237dd40a",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/weak_2s/convention.toml": {
    "sha256": "a372bfd3d688d94fce62a30d4512a5fea38b9a89f0cddc4e8a66314375de38d7",
@@ -757,8 +757,8 @@
    "changed": "2026-11-14T13:36:00-08:00"
   },
   "conventions/bidding_conventions/western_cuebid/convention.toml": {
-   "sha256": "a51de864cda72c12848e007eea9842361356aaef8ff64de10395731719edb927",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "6c40e3f256a251979dbfafc1af841ebdcd494d8ba77c72ef86663e198295b934",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/bidding_conventions/wilkosz/convention.toml": {
    "sha256": "e6af3808d00ff671cbdf5f4840e1fb0ddcaa380c3979f38506076512e57dc9e8",
@@ -837,8 +837,8 @@
    "changed": "2026-09-30T13:35:03-07:00"
   },
   "conventions/competitive_bidding/dont/convention.toml": {
-   "sha256": "e9ec914fe4b89a79e2df5c7eabf160443d3b1a6ff1b1f3846f41529e8b473cb9",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "f09b0109b7879ee61a7a4240c7cdcc0b915e7ae212c329d39358e247dbcaabd0",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/competitive_bidding/dont/dont.bid": {
    "sha256": "bddfa0c34070773113e70b3155ce5c5f615f931b8f2187e34cdfff2be621db34",
@@ -913,8 +913,8 @@
    "changed": "2026-09-30T13:35:03-07:00"
   },
   "conventions/competitive_bidding/lead_directing_doubles/convention.toml": {
-   "sha256": "b8082c8f55e27ef3ab5df4bc5fa67fd2ddc8f16c23dba9ee74041caa7c6af6be",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "6626e9636a28df20b3cdb16899f6193ef354551df7f49f1dcd73af083c838073",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/competitive_bidding/lead_directing_doubles/lead-directing-doubles.bid": {
    "sha256": "a84ad8830308a31b987869712f35fe1a522865e4d0bf8804d973e2f2e0506789",
@@ -929,12 +929,12 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "conventions/competitive_bidding/leaping_michaels/convention.toml": {
-   "sha256": "43ace1cba640295392cf00fbb4110bdbbf5deb41f53ee31c0851ff20359d63bf",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "8f1e696c5d4d689c6583aedb5ca6134b0d96dc54d4949076954a6005b03e51eb",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/competitive_bidding/lebensohl/convention.toml": {
-   "sha256": "bcdc2449e1c4422948debff4029a139c6725111c3bf60bcd55919d5ac93746d1",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "78b09389b8e81ac67ebee2803bbfea1e44f2ee1da3c4b73a7f5ef268bab6a98b",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/competitive_bidding/lebensohl/lebensohl.bid": {
    "sha256": "57cdc42ae3aec87c0b6260ce048da1fa42fd5e56b73048df4688b1263193a489",
@@ -973,8 +973,8 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "conventions/competitive_bidding/michaels/convention.toml": {
-   "sha256": "92d7164a51e17c9e25fdcf516936d58ae5a9f5bb7642bcb0800e9bff9fcf065e",
-   "changed": "2026-11-14T12:15:53-08:00"
+   "sha256": "2062332975d1ea62e48c9ee9aa99c78a7e96b62b714dc4eec523161fdd3971ea",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/competitive_bidding/michaels_unusual/convention.toml": {
    "sha256": "a74c993ab049aabd8cccc495cd7fe7e679da466654c1379d974116470d11b725",
@@ -997,8 +997,8 @@
    "changed": "2026-11-14T12:36:57-08:00"
   },
   "conventions/competitive_bidding/negative_doubles/convention.toml": {
-   "sha256": "272f4d8fadd80a42a447964e4ba8a486db4365a588479760d4cce03a063ef4b2",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "af4a41e2662e3ef5a78bfcfe1b9eba570d575e938611aa5bc5d986702c218046",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/competitive_bidding/non_leaping_michaels/convention.toml": {
    "sha256": "89555dd87f30acd7d552f32cb46a2eb48741bd108406816c063957b50f56c8dd",
@@ -1025,8 +1025,8 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "conventions/competitive_bidding/responsive_doubles/convention.toml": {
-   "sha256": "64cfc3ae397fe2c9cd8d20e1cb10480db1e34d55a928b8746b403f0bcff0465f",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "9e6766691d86c15af9c6a5f90cd42bde3198ae944455f1153d655a2c6c80e63c",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/competitive_bidding/responsive_doubles/responsive-doubles.bid": {
    "sha256": "3405b8ed29129a4a2953e65ae3a43cb9b1fe8af6d0c12ce544258c19a42b450f",
@@ -1053,8 +1053,8 @@
    "changed": "2026-11-14T12:36:57-08:00"
   },
   "conventions/competitive_bidding/sandwich_nt/convention.toml": {
-   "sha256": "99d8829d0ec77a412ee5895f2699d578d2d9ad44ad6537faecef5d6844f78d2a",
-   "changed": "2026-11-14T12:48:14-08:00"
+   "sha256": "180935b9ce4100b804131912c3008c882de073bbcc33a7efdc010f8a153a0a47",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/competitive_bidding/sandwich_nt/sandwich-nt.bid": {
    "sha256": "65ea5c1d80f032b983e537aaacea920c15d4646863e62533f824523cc4e84760",
@@ -1085,8 +1085,8 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "conventions/competitive_bidding/snapdragon/convention.toml": {
-   "sha256": "f6cb44b85a6c62a1378cfee553d3b6962dc61e3d121cb3702dcf20ea40a87724",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "d7d0a446c8822816560642c9a55c1c800e5fb284def1fafa7e33eb2c0a5861bc",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/competitive_bidding/snapdragon/snapdragon.bid": {
    "sha256": "8f7e2b3d2d4cf9c222dc4e117b965e85c960777a7d567c35b6f9d5a0ff5810b5",
@@ -1101,8 +1101,8 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "conventions/competitive_bidding/sos_redouble/convention.toml": {
-   "sha256": "bd11b2dffbe4344d28ef8f5a89bf8326e01a9b7cb12661f680f28d7a7d15ed0a",
-   "changed": "2026-11-13T23:15:09-08:00"
+   "sha256": "fa3778780ed1ac97cb8e3918b3daf8545632cc35a29132eafcb55439dc3b995d",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/competitive_bidding/sos_redouble/sos-redouble.bid": {
    "sha256": "7c4d0923af30510dfc6acf53d74c49ac383129e75796e5eca0ad6e9f0a17cb5c",
@@ -1137,12 +1137,12 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "conventions/competitive_bidding/support_cuebids/convention.toml": {
-   "sha256": "0dd73101c72f7bf72e2aae6cac1075e4d9c9ff017e087208276da6483104bce9",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "c0f7087cd6acdeefb7e57a89170a328555a7ee092fdcd22787ddcb6316afd850",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/competitive_bidding/support_doubles/convention.toml": {
-   "sha256": "00d6fb71735db0cb2da1137bdf9cb28a153fc5ad56d59c4bb0543abd367b526f",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "6fef43d8fb3b178b87199924474cb3e4f70a7801cfab8a1d1cfe84fbfc29f83d",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/competitive_bidding/support_doubles/support-doubles.bid": {
    "sha256": "1b42102cf325f6c37843bfcefb5a4faacc088f157b294e03ade59d16876ac76f",
@@ -1169,12 +1169,12 @@
    "changed": "2026-11-14T12:36:57-08:00"
   },
   "conventions/competitive_bidding/unusual_notrump/convention.toml": {
-   "sha256": "8ee9564e2e5b15faa054d77562b45366d7d7ee452582b89accfd6fc65ffd8f4f",
-   "changed": "2026-11-14T12:15:53-08:00"
+   "sha256": "57ed0cc94391593a894a97b9795c5024ad689ff9db35d3535e8222f67e6a2e79",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/competitive_bidding/unusual_vs_unusual/convention.toml": {
-   "sha256": "77d5ae2eb363e3065c90734d187ced760f4802b46d0813632566051d5e1027eb",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "d5f77c5f5848401254144e9cbeccc92ed403067a73918ab19f8aaf6ce50f05a6",
+   "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/declarer_play/elimination_plays/convention.toml": {
    "sha256": "1aa32a66513cafe4d577c406b7d558d2f70e1fdaedcfb786c63d08755a535c5c",
@@ -1349,8 +1349,8 @@
    "changed": "2026-10-30T15:06:24-07:00"
   },
   "migrations/2-to-3.toml": {
-   "sha256": "44143911c055aee8c928f7c5064625bb6667e240848a3af436b73f42b64cc778",
-   "changed": "2026-11-14T12:09:25-08:00"
+   "sha256": "e9d9f85910081348d26521eb36d7c8867342328188d8151b0f0e625b6b32dd1a",
+   "changed": "2026-11-14T15:17:35-08:00"
   },
   "rules/base/base.bid": {
    "sha256": "0b4f33492853854c0f73dc92b77a9094c04153c97061ea2cc99f21dc235c2350",
@@ -2125,8 +2125,8 @@
    "changed": "2026-11-13T23:15:09-08:00"
   },
   "settings/slam.toml": {
-   "sha256": "8817a133cf2eac8d9f28903a3ab2ece7e4923d11236ffe9ffd7bf87ac250eb98",
-   "changed": "2026-11-13T23:15:09-08:00"
+   "sha256": "9a234244a4de606f360db519ce6d19baeaa3a8981763f765eec35b8e6ff17e0b",
+   "changed": "2026-11-14T15:17:35-08:00"
   },
   "settings/two_level.toml": {
    "sha256": "3f589307168f481af27ebdfef2ebdd7416c151276b6b67d943fdee76988d674a",
@@ -2141,5 +2141,5 @@
    "changed": "2026-11-13T23:15:09-08:00"
   }
  },
- "pack_sha256": "5ce2dd1cb8c30960217520292c0c4a2f0f7408afe41f2308a6dbbebe1a746afa"
+ "pack_sha256": "1277fbd67c02022bda94f59ce820e29082eb100ed4ebf52adfb7de63a8e7fe78"
 }
