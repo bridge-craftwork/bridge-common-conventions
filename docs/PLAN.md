@@ -486,11 +486,11 @@ reviewed, as in phase 5.
    script refreshes that copy at each engine release, not at each rule
    change.
 2. **Where the engine's own tests get rules.** Its Rust tests use the real
-   rule files as fixtures. Recommended: they read the compiled-in snapshot;
+   rule files as fixtures. Agreed (Rick, 2026-11-15): they read the compiled-in snapshot;
    the rule tests (`.test`) run only here, in this repo's CI, as they do
    now.
 3. **Whether the card library must load a pack at run time for the
-   cut-over** (#22 in full). Recommended: no. Cut over on the bundled
+   cut-over** (#22 in full). Agreed (Rick, 2026-11-15): no. Cut over on the bundled
    snapshot, which is one loader and works offline; a host-supplied pack is
    an addition afterwards (#52 needs it).
 4. **Which rules number a host shows.** The one in the snapshot it
@@ -498,7 +498,7 @@ reviewed, as in phase 5.
    names may be older than the fetched rules. That is safe because names
    are additive-only: an older library does not show a newer setting, and
    the rules read it at its default.
-5. **When the skills and lesson sets leave** (below). Recommended: in the
+5. **When the skills and lesson sets leave** (below). Agreed (Rick, 2026-11-15): in the
    same cut-over, since the editor's lesson links move with them; if that
    proves large, straight after, with the pack unchanged meanwhile.
 
