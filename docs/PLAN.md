@@ -467,7 +467,7 @@ reviewed, as in phase 5.
 | Repo | On `main` today | Ready on a branch | Still to do before the cut-over |
 |---|---|---|---|
 | This one | Phases 0 to 6, published (rules number 21) | | Nothing blocks. `engine.env` names an engine commit; it names the release tag once there is one |
-| `convention-card` | v0.44.0: its own `spec/conventions/` and field list | Draft #120 (the crate reads a pack and schema 3 cards) and #121 (the JavaScript library reads the bundled snapshot; exported card files are schema 3; the crate reads `pack.json`) | The editor's save to its host, the card embedded in a PDF and the hand-off link write schema 3. `spec/conventions/`, `spec/fields.toml` and their generated JSON removed (#41). The format maps and the rest of the editor catalogue may keep schema 2's paths: the library reads both |
+| `convention-card` | v0.44.0: its own `spec/conventions/` and field list | Draft #120 (the crate reads a pack and schema 3 cards) and #121 (the JavaScript library reads the bundled snapshot; every card it writes is schema 3: exported files, the editor's saves to its host, the card in a PDF, the hand-off link; the crate reads `pack.json`) | `spec/conventions/`, `spec/fields.toml` and their generated JSON removed (#41). The format maps and the rest of the editor catalogue may keep schema 2's paths: the library reads both |
 | `rusty-bidding-bot` | v0.15.3: its own `conventions/`, compiled in | Draft #90 (rule language 2, a pack read from its source tree) and #91 (a pack read from `pack.json`, by `--rules` and by the WASM API's `pack`) | The compiled-in rules are still its own `conventions/`. Replace them with the snapshot and remove the folder (#41): 80 references in 20 source files, the reference site, `docs/SKILLS.md`, the CI path filters. `rbb bid check` and `rbb bid test` take a snapshot |
 | Bridge Classroom | Pins the card tools by tag and the engine's WASM by release and hash | | Bump both pins (#38). Fetch the snapshot at build and hand it to Rusty (#39). Show the rules number (#28). Receive the skills taxonomy |
 | Better BBO Convention Card | Pins the card tools by tag | | Bump the pin (#38) |
@@ -505,8 +505,7 @@ pin is one small pull request.
 
 1. **Freeze the pack** at a rules number. Capture the 22 public cards and
    the hand-made cards with the branch tools: this is the reference.
-2. **`convention-card`:** finish the three writers of schema 3; remove the
-   moved content; merge #120 and #121; tag (v0.45.0). Check: its tests, and
+2. **`convention-card`:** remove the moved content; merge #120 and #121; tag (v0.45.0). Check: its tests, and
    the exports of every captured card equal the reference.
 3. **`rusty-bidding-bot`:** merge #90 and #91; vendor the snapshot and
    remove `conventions/`; pin `bridge-card` to the new tag; tag (v0.16.0),
