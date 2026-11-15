@@ -13,8 +13,3 @@ or four, 5♦ one, 5♥ two, 5♠ three. 5NT then asks for kings the same way.
 see = [
   { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 1 },
 ]
-
-[treatments.notes]
-kind = "text"
-label = "4NT notes"
-skill = false

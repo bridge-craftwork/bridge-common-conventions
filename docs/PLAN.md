@@ -383,6 +383,12 @@ Flannery's leftovers (#69), Multi and the majors (#70), tools reading fields
 by an older spelling (#71), the Bridgodex 4NT line (#72), and Stayman unset
 over 2NT against 1NT (#73).
 
+Done 2026-11-14, from the tracked list: tools read a field under any of its
+spellings (#71, in `convention-card`; the Gerber box, "Majors Limit+" and
+the Lebensohl response now print on the public cards that play them), and
+the card's 4NT notes line is a setting, not a treatment of Blackwood (#72),
+so it switches nothing on.
+
 **Done when** every difference from phase 2 is on a reviewed list.
 
 ### Phase 6: place the 72
