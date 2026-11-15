@@ -1,5 +1,6 @@
 id = "competitive_bidding/takeout_doubles"
 name = "Takeout Doubles"
+kind = "skill"
 source = "taxonomy"
 level = 2
 contexts = ["doubles"]

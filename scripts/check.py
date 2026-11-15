@@ -88,6 +88,12 @@ class Pack:
             for f in d.get("implements", []):
                 if not self.function_ok(f):
                     self.bad(where, f"unknown function {f!r}")
+            # Not an agreement: a bridge skill, or a set of lessons. Both are
+            # due to leave the pack for the skills taxonomy (docs/PLAN.md).
+            if d.get("kind", "convention") not in ("convention", "skill", "lesson"):
+                self.bad(where, f"kind is {d['kind']!r}: convention (the default), skill or lesson")
+            if d.get("kind") in ("skill", "lesson") and (d.get("treatments") or d.get("implements")):
+                self.bad(where, "a skill or lesson has no treatments and fills no function")
             # A definition that is a style of another names the treatments
             # that are it, and has no card entry of its own.
             for t in d.get("style_of", []):

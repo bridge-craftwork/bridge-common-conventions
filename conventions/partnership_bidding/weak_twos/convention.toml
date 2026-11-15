@@ -1,5 +1,6 @@
 id = "partnership_bidding/weak_twos"
 name = "Weak Twos (Partnership)"
+kind = "lesson"
 source = "taxonomy"
 level = 3
 contexts = ["preemptive_openings"]

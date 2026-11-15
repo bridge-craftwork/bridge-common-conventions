@@ -1,4 +1,5 @@
 id = "partnership_bidding/advanced_forcing"
 name = "Advanced Forcing (Partnership)"
+kind = "lesson"
 source = "taxonomy"
 level = 6

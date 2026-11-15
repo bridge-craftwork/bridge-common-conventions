@@ -1,5 +1,6 @@
 id = "competitive_bidding/defense_vs_preempts"
 name = "Defending against Preempts"
+kind = "skill"
 source = "proposed"
 level = 4
 contexts = ["vs_openings"]

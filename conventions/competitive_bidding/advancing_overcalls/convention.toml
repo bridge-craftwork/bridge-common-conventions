@@ -1,5 +1,6 @@
 id = "competitive_bidding/advancing_overcalls"
 name = "Responding to Overcalls"
+kind = "skill"
 source = "lessons"
 level = 3
 contexts = ["overcalls"]

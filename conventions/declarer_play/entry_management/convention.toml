@@ -1,4 +1,5 @@
 id = "declarer_play/entry_management"
 name = "Entry Management"
+kind = "skill"
 source = "taxonomy"
 level = 4

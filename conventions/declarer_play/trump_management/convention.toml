@@ -1,4 +1,5 @@
 id = "declarer_play/trump_management"
 name = "Trump Management"
+kind = "skill"
 source = "taxonomy"
 level = 3

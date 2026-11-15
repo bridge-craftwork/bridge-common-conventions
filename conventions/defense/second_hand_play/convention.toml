@@ -1,4 +1,5 @@
 id = "defense/second_hand_play"
 name = "Second Hand Play"
+kind = "skill"
 source = "taxonomy"
 level = 4

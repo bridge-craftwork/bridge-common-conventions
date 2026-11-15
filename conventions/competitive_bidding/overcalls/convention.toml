@@ -1,5 +1,6 @@
 id = "competitive_bidding/overcalls"
 name = "Overcalls"
+kind = "skill"
 source = "taxonomy"
 level = 2
 contexts = ["overcalls"]

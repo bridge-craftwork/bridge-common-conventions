@@ -1,4 +1,5 @@
 id = "declarer_play/squeeze_plays"
 name = "Squeeze Plays"
+kind = "skill"
 source = "taxonomy"
 level = 7

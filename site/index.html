@@ -104,6 +104,14 @@ dialog::backdrop { background: rgba(0, 0, 0, .45); }
   <section class="panel" aria-label="Filters and legend">
     <div class="tools">
       <label>Search <input id="q" type="search" placeholder="Drury, 1NT, Lebensohl…" autocomplete="off" spellcheck="false"></label>
+      <label>List
+        <select id="what">
+          <option value="convention">conventions</option>
+          <option value="skill">skills</option>
+          <option value="lesson">lesson sets</option>
+          <option value="">everything</option>
+        </select>
+      </label>
       <label>Show
         <select id="kind">
           <option value="">everything</option>
@@ -155,7 +163,7 @@ const el = (tag, attrs = {}, ...kids) => {
 const list = v => (v === undefined || v === null ? [] : Array.isArray(v) ? v : [v])
 
 let model = null
-const state = { q: '', kind: '', cat: '', recent: false, onlyRecent: false, days: 30, has: new Set() }
+const state = { q: '', what: 'convention', kind: '', cat: '', recent: false, onlyRecent: false, days: 30, has: new Set() }
 
 async function load() {
   const [pack, manifest] = await Promise.all(['pack.json', 'manifest.json'].map(async f => {
@@ -212,6 +220,7 @@ function build(pack, manifest) {
     const paths = [`${dir}convention.toml`, ...own]
     return {
       id: d.id, cat, short, def: d, name: d.name, level: d.level ?? null,
+      kind: d.kind || 'convention',
       card: list(d.contexts).length > 0, contexts: list(d.contexts),
       heldBy: list(d.contexts).length > 0 ? [] : heldBy.get(d.id) || [],
       rules, tests: allTests.reduce((n, p) => n + cases(files[p]), 0), testFiles: allTests,
@@ -228,6 +237,7 @@ function build(pack, manifest) {
 
 function matches(c) {
   if (state.q && !c.search.includes(state.q)) return false
+  if (state.what && c.kind !== state.what) return false
   if (state.kind === 'card' && !c.card) return false
   if (state.kind === 'part' && !c.heldBy.length) return false
   if (state.kind === 'skill' && (c.card || c.heldBy.length)) return false
@@ -253,7 +263,9 @@ function draw() {
   const count = (f, of = conventions) => of.filter(f).length
   const sum = $('summary')
   sum.replaceChildren(
-    el('div', {}, el('b', { text: conventions.length }), 'definitions'),
+    el('div', {}, el('b', { text: count(c => c.kind === 'convention') }), 'conventions'),
+    el('div', {}, el('b', { text: count(c => c.kind === 'skill') }), 'skills'),
+    el('div', {}, el('b', { text: count(c => c.kind === 'lesson') }), 'lesson sets'),
     el('div', {}, el('b', { text: count(c => c.card) }), 'with a context'),
     el('div', {}, el('b', { text: count(c => c.heldBy.length) }), 'part of another'),
     el('div', {}, el('b', { text: conventions.reduce((n, c) => n + c.treatments.length, 0) }), 'treatments'),
@@ -362,6 +374,7 @@ function wire() {
   for (const c of [...new Set(model.conventions.map(c => c.cat))]) cat.append(el('option', { value: c, text: catName(c) }))
   $('q').oninput = e => { state.q = e.target.value.trim().toLowerCase(); draw() }
   $('kind').onchange = e => { state.kind = e.target.value; draw() }
+  $('what').onchange = e => { state.what = e.target.value; draw() }
   cat.onchange = e => { state.cat = e.target.value; draw() }
   $('group').onchange = e => { state.group = e.target.value; draw() }
   $('recent').onchange = e => { state.recent = e.target.checked; draw() }

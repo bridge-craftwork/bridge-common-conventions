@@ -1,5 +1,6 @@
 id = "competitive_bidding/defense_vs_1nt"
 name = "Defending against 1NT"
+kind = "skill"
 source = "proposed"
 level = 5
 contexts = ["vs_notrump"]

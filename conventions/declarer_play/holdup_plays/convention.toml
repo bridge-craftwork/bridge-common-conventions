@@ -1,4 +1,5 @@
 id = "declarer_play/holdup_plays"
 name = "Holdup Plays"
+kind = "skill"
 source = "taxonomy"
 level = 3
