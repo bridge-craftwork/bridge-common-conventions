@@ -3,7 +3,6 @@
 
 "new_suit_forcing_1lvl"    = { kind = "bool", label = "Vs takeout double: new suit forcing at the 1-level", level = 4 }
 "new_suit_forcing_2lvl"    = { kind = "bool", label = "Vs takeout double: new suit forcing at the 2-level", level = 4 }
-"new_suit_forcing_tfr"     = { kind = "bool", label = "Vs takeout double: transfer responses", skill = "bidding_conventions/transfers_after_double", level = 9 }
 "new_suit_notes"           = { kind = "text", label = "Vs takeout double: new suit notes", desc = "Where transfers start, or other new-suit agreements (\"Neg free bid\")" }
 "jump_shift"               = { kind = "enum", label = "Vs takeout double: jump shift", options = ["weak", "mixed", "inv", "forcing", "fit"] }
 "redouble.ten_plus"        = { kind = "bool", label = "Vs takeout double: redouble shows 10+", level = 2 }

@@ -1,5 +1,5 @@
 # XYZ: 21GF-DEFAULT with NMF swapped for XYZ.
-card    21GF-DEFAULT bidding_conventions/new_minor_forcing=false other_conventions.xyz=true
+card    21GF-DEFAULT bidding_conventions/new_minor_forcing=false bidding_conventions/xyz=true
 dealer  S
 
 # seat hand             | auction                   | expect | why

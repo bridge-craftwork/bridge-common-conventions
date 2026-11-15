@@ -12,7 +12,7 @@
 
 module xyz "XYZ: 2♣ relay and 2♦ game force after three one-level bids"
   kind   convention
-  card   other_conventions.xyz
+  card   bidding_conventions/xyz
   needs  two-way-nmf
   skill  bidding_conventions/xyz
 

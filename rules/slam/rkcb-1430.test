@@ -88,7 +88,7 @@ S KJ3.KQ964.K.KT94      | 1H P 2C P 3C P 3NT P 4NT P 5D P      | 6C     | "0 or 
 
 # Specific kings (`slam.king_ask.specific`, Rick 2026-10-28): the cheapest
 # side king below six of trumps; a new suit below trumps asks for that one.
-card    21GF-DEFAULT slam.king_ask.specific=true
+card    21GF-DEFAULT bidding_conventions/roman_keycard:king_ask_specific=true
 dealer  S
 
 # seat hand             | auction                                       | expect | why

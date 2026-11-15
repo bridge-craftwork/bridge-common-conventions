@@ -405,6 +405,35 @@ so it switches nothing on.
 With the new arrangement visible, each lone yes/no field becomes a
 convention, a treatment of an existing one, or stays a setting.
 
+Placed 2026-11-14 (Rick's rulings the same day). Four had already gone to the
+jump-shift conventions in Phase 5; of the other 68:
+
+- **27 are a convention of their own, or its treatments** (13 conventions):
+  XYZ; Two-way NMF (with `by_passed_hand`); Transfer Walsh; Transfers after
+  a double; Mixed raise; Maximal doubles; DEPO; DOPI/ROPI (one convention,
+  a place for each); Smith echo (`vs_nt`, `vs_suits`, `reverse`, of which
+  Reverse Smith echo is a style); Trump suit preference; Lavinthal and
+  Odd-even discards (`vs_nt`, `vs_suits`); Upside-down signals (attitude
+  and count, against notrump and suits, and the first discard).
+- **12 join a convention a card already held:** four places Michaels is
+  played; the four single-raise strength boxes of Inverted minors, any of
+  which means the card plays them; the specific-kings answer of Roman
+  Keycard. Three boxes were the same agreement as a convention's own box and are now a
+  second spelling of it: the 4♣/4♦ transfer (Namyats), the support cuebid
+  (the cue-bid raise) and the jump 2NT for the two lowest unbid (Unusual
+  2NT).
+- **29 stay settings:** standard signals and which signal comes first (11),
+  opening-lead agreements (10), BBA's four suit-preference situations
+  ("Lavinthal on ace", "to void", "from void", "on trump"), reverses
+  forcing, the double of a preempt being for takeout, and the forcing and
+  semi-forcing 1NT response. Those two are settings of the 2/1 system
+  (Rick), but as treatments of it a card that ticked "forcing 1NT" and was
+  silent on 2/1 would be read as playing 2/1 (505 auctions on one hand-made
+  card), so they stay settings until a treatment can belong to a convention
+  without implying it. Signals and leads
+  are a choice among methods spread over boxes; one choice setting each
+  belongs with the refresh of the names (Later).
+
 - The two "2NT raise over a takeout double" box groups, which stay settings
   until here: a function for 2NT over their takeout double (major, minor)
   that Jordan implements; the limit boxes become a Jordan entry; the point

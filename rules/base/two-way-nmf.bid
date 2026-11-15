@@ -12,8 +12,8 @@ module two-way-nmf "Two-way New Minor Forcing (xyNT)"
   skill  bidding_conventions/two_way_nmf
   # On with its own switch, or with XYZ (xyz.bid), which plays the same
   # structure after every one-level rebid, 1NT included.
-  param  twoway = other_conventions.two_way_nmf default false
-  param  xyz    = other_conventions.xyz default false
+  param  twoway = bidding_conventions/two_way_nmf default false
+  param  xyz    = bidding_conventions/xyz default false
 
 after 1x (P) 1y (P) 1N (P) when twoway | xyz, !tw(x)
   2C  "xyNT: relay to 2♦, invitational or a diamond sign-off"   alert

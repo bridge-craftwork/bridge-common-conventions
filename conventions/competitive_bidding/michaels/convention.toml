@@ -26,3 +26,23 @@ desc = "After a Michaels cue bid of a major (the other major and a minor). ask_2
 options = ["ask_2nt", "pass_or_correct"]
 default = "ask_2nt"
 level = 5
+
+[treatments.over_minor]
+kind = "bool"
+label = "Cue of a natural 1♣/1♦: Michaels (both majors)"
+level = 4
+
+[treatments.over_major]
+kind = "bool"
+label = "Cue of 1♥/1♠: Michaels (the other major and a minor)"
+level = 4
+
+[treatments.over_short_minor]
+kind = "bool"
+label = "Cue of a possibly short 1♣/1♦: Michaels"
+level = 4
+
+[treatments.over_artificial_minor]
+kind = "bool"
+label = "Cue of an artificial 1♣/1♦: Michaels"
+level = 4

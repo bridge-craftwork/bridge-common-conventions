@@ -32,7 +32,7 @@ module responses "Responses to one-level suit openings"
   param  drury_rev   = bidding_conventions/drury:reverse default false
   param  gf21        = bidding_conventions/two_over_one default false
   param  f1n         = major_openings.one_nt_response.forcing default false
-  param  twalsh      = minor_openings.one_club.transfer_resp default false
+  param  twalsh      = bidding_conventions/transfer_walsh default false
   param  semi        = major_openings.one_nt_response.semi_forcing default false   # opener's pass: rebids.bid
 
 # The invitational 1M-3M, unless Bergen raises (majors/bergen.bid) take

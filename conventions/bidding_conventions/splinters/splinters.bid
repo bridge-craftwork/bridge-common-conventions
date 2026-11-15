@@ -34,7 +34,7 @@ module splinters "Splinters over 1♥ / 1♠"
   param  rkcb   = bidding_conventions/roman_keycard default false
   # Under Transfer Walsh 1C-1D/1H are transfers: opener's splinters
   # read them as natural and agreed the wrong major (self A/B, 2026-10-05).
-  param  twalsh  = minor_openings.one_club.transfer_resp default false
+  param  twalsh  = bidding_conventions/transfer_walsh default false
 
 # ── Responder ────────────────────────────────────────────────────────
 # 12-15 HCP with a small singleton, 11 with a void (BBA, both probes);

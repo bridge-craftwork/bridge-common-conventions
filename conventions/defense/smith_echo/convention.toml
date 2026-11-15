@@ -1,7 +1,9 @@
 id = "defense/smith_echo"
 name = "Smith echo"
+label = "Smith echo"
 source = "proposed"
 level = 8
+contexts = ["signals"]
 names = ["Smith echo", "Smith signal", "Reverse Smith"]
 summary = """
 On declarer's first suit, a defender's high-low says whether they liked
@@ -10,3 +12,19 @@ partner's opening lead, rather than giving count.
 see = [
   { title = "Defensive Carding: Smith Echo (Reverse)", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/475" },
 ]
+
+[treatments.vs_nt]
+kind = "bool"
+label = "Smith echo vs NT"
+level = 8
+
+[treatments.vs_suits]
+kind = "bool"
+label = "Smith echo vs suits"
+level = 8
+
+[treatments.reverse]
+kind = "bool"
+label = "Reverse Smith echo"
+skill = "defense/reverse_smith_echo"
+level = 8

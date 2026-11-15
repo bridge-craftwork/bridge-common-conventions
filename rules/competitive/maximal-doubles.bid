@@ -14,7 +14,7 @@
 
 module maximal-doubles "Maximal doubles"
   kind   convention
-  card   doubles.maximal
+  card   competitive_bidding/maximal_doubles
   needs  base
   needs  overcalls
   skill  competitive_bidding/maximal_doubles

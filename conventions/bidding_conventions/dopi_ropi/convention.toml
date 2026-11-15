@@ -2,6 +2,7 @@ id = "bidding_conventions/dopi_ropi"
 name = "DOPI and ROPI"
 source = "proposed"
 level = 7
+contexts = ["slam"]
 names = ["DOPI", "ROPI", "DOPI/ROPI", "D0P1", "R0P1"]
 summary = """
 When the opponents interfere over a keycard ask, double shows no keycards
@@ -13,3 +14,13 @@ see = [
   { title = "DOPI and ROPI", site = "ACBL Unit 390", url = "https://www.acblunit390.org/Simon/dopi-ropi.htm" },
   { title = "Slam Bidding: Dealing with Interference Over Ace-Asking Bids", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/536" },
 ]
+
+[treatments.dopi]
+kind = "bool"
+label = "DOPI"
+level = 7
+
+[treatments.ropi]
+kind = "bool"
+label = "ROPI"
+level = 7

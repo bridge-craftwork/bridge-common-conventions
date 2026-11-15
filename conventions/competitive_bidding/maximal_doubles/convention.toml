@@ -1,7 +1,9 @@
 id = "competitive_bidding/maximal_doubles"
 name = "Maximal doubles"
+label = "Maximal doubles"
 source = "proposed"
 level = 6
+contexts = ["doubles"]
 names = ["Maximal double", "Maximal doubles"]
 summary = """
 When the opponents have competed to the three level just below your suit, a

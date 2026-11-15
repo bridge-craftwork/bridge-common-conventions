@@ -27,8 +27,8 @@ module responder-rebids "Responder's second call"
   # two-way-nmf.bid) switch off the natural calls they take.
   param  checkback = bidding_conventions/checkback default false
   param  roudi = bidding_conventions/roudi default false
-  param  twoway_sw = other_conventions.two_way_nmf default false
-  param  xyz = other_conventions.xyz default false   # xyz.bid: two-way NMF after 1NT too
+  param  twoway_sw = bidding_conventions/two_way_nmf default false
+  param  xyz = bidding_conventions/xyz default false   # xyz.bid: two-way NMF after 1NT too
   param  imp2s = bidding_conventions/impossible_2s default false
   param  rkcb = bidding_conventions/roman_keycard default false
 

@@ -14,8 +14,8 @@ module exclusion "Exclusion Blackwood: a jump to five in a void asks for keycard
   needs  base
   skill  bidding_conventions/exclusion_blackwood
   param  gstyle = general.style
-  param  dopi   = slam.dopi default false
-  param  ropi   = slam.ropi default false
+  param  dopi   = bidding_conventions/dopi_ropi:dopi default false
+  param  ropi   = bidding_conventions/dopi_ropi:ropi default false
 
 # ── The ask ───────────────────────────────────────────────────────────
 #

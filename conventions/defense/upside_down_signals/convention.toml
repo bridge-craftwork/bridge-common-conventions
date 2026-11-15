@@ -2,6 +2,7 @@ id = "defense/upside_down_signals"
 name = "Upside-down signals"
 source = "proposed"
 level = 6
+contexts = ["signals"]
 names = ["UDCA", "Upside-down count and attitude", "Upside-down signals", "Upside down count", "Low encourages"]
 summary = """
 Played instead of standard signals: a low card encourages and a high one
@@ -11,3 +12,38 @@ high cards.
 see = [
   { title = "Defensive Carding: Upside-Down Count and Attitude (UDCA)", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/474" },
 ]
+
+[treatments.attitude_suits]
+kind = "bool"
+label = "Upside-down attitude vs suits"
+level = 6
+choice = "carding.suits.attitude"
+
+[treatments.count_suits]
+kind = "bool"
+label = "Upside-down count vs suits"
+level = 6
+choice = "carding.suits.count"
+
+[treatments.attitude_nt]
+kind = "bool"
+label = "Upside-down attitude vs NT"
+level = 6
+choice = "carding.nt.attitude"
+
+[treatments.count_nt]
+kind = "bool"
+label = "Upside-down count vs NT"
+level = 6
+choice = "carding.nt.count"
+
+[treatments.first_discard]
+kind = "bool"
+label = "First discard: upside-down"
+level = 6
+choice = "carding.first_discard"
+
+[treatments.count]
+kind = "bool"
+label = "Inverted (upside-down) count"
+level = 6
