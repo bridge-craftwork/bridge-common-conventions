@@ -1,5 +1,6 @@
 id = "competitive_bidding/michaels_unusual"
 name = "Michaels & Unusual 2NT"
+kind = "lesson"
 source = "taxonomy"
 level = 4
 contexts = ["overcalls"]

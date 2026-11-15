@@ -1,5 +1,6 @@
 id = "declarer_play/finessing"
 name = "Finessing"
+kind = "skill"
 source = "taxonomy"
 level = 2
 confirm = true

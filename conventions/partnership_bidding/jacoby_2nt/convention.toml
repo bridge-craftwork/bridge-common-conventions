@@ -1,5 +1,6 @@
 id = "partnership_bidding/jacoby_2nt"
 name = "Jacoby 2NT (Partnership)"
+kind = "lesson"
 source = "taxonomy"
 level = 4
 contexts = ["major_openings"]

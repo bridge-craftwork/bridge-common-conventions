@@ -1,5 +1,6 @@
 id = "partnership_bidding/basic_bidding"
 name = "Basic Bidding (Partnership)"
+kind = "lesson"
 source = "taxonomy"
 level = 1
 contexts = ["general"]

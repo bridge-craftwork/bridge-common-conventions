@@ -1,4 +1,5 @@
 id = "declarer_play/elimination_plays"
 name = "Elimination Plays"
+kind = "skill"
 source = "taxonomy"
 level = 7

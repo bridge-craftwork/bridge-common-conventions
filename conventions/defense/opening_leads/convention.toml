@@ -1,5 +1,6 @@
 id = "defense/opening_leads"
 name = "Opening Leads"
+kind = "skill"
 source = "taxonomy"
 level = 2
 contexts = ["leads"]

@@ -1,4 +1,5 @@
 id = "precision/1c_mixed"
 name = "Precision 1♣ (Mixed)"
+kind = "lesson"
 source = "lessons"
 level = 7

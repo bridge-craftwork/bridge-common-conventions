@@ -1,5 +1,6 @@
 id = "bidding_conventions/reverse_bids"
 name = "Reverse Bids"
+kind = "skill"
 source = "taxonomy"
 level = 4
 contexts = ["responses_rebids"]

@@ -1,4 +1,5 @@
 id = "declarer_play/suit_establishment"
 name = "Suit Establishment"
+kind = "skill"
 source = "taxonomy"
 level = 2

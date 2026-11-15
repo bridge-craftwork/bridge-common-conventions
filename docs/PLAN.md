@@ -477,6 +477,25 @@ reviewed, as in phase 5.
   `conventions/` removed from `rusty-bidding-bot`.
 - Docs corrected: `convention-card`'s CLAUDE.md pins, Rusty's DESIGN.md
   links to `conventions/card/`.
+- **Skills and lessons leave the pack** (Rick, 2026-11-14). The skill
+  naming scheme is wider than the convention one: every convention is a
+  skill, but declarer play, hand evaluation and the like are skills that
+  are not conventions, and a set of lessons or deals is neither. They came
+  in with `convention-card`'s `spec/conventions/`, which held the whole
+  lesson taxonomy. Until the move, a definition says which it is
+  (`kind = "skill"` on 24, `kind = "lesson"` on 24; the other 139 are
+  conventions).
+  - The skills taxonomy goes to Bridge Classroom for now. Later it is to
+    come back here as a separate bridge-skills entity, with a conventions
+    part that refers to this list. It holds skills such as declarer play,
+    and no lesson or deal sets ("100 Miscellaneous Deals").
+  - Lesson sets go with the lessons. Each lesson repo maps its lessons
+    onto conventions and skills; the pack names no lesson.
+  - The links turn round: `taught_under` and a setting's lesson `skill`
+    (43 of them) come out of the pack, and the taxonomy says which
+    conventions a skill or lesson covers. The editor takes a row's lesson
+    and level from there.
+  - Removing published IDs needs a migration that says where each went.
 
 **Done when** no other repo holds a copy of the names or the rules.
 

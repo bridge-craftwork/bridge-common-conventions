@@ -1,5 +1,6 @@
 id = "basic_bidding/major_suit_openings"
 name = "Major Suit Openings"
+kind = "skill"
 source = "taxonomy"
 level = 1
 contexts = ["major_openings"]

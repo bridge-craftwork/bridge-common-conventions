@@ -1,4 +1,5 @@
 id = "precision/1c_opener"
 name = "Precision 1♣ (Opener)"
+kind = "lesson"
 source = "lessons"
 level = 7

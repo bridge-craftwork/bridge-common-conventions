@@ -1,5 +1,6 @@
 id = "defense/defensive_signals"
 name = "Defensive Signals"
+kind = "skill"
 source = "taxonomy"
 level = 2
 contexts = ["signals"]
