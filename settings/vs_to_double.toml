@@ -20,7 +20,6 @@
 "two_nt_raise_majors.range_max_minus" = { kind = "bool", label = "Vs takeout double: 2NT over a major, maximum has a minus", choice = "vs_to_double.two_nt_raise_majors.range_max_qualifier", desc = "A poor hand at that end: the range written with a minus (\"15-17-\" is 15 to a poor 17)" }
 "two_nt_natural_majors"    = { kind = "bool", label = "Vs takeout double: 2NT over a major is natural" }
 "two_nt_raise_minors.play" = { kind = "bool", label = "Vs takeout double: 2NT raise of a minor", skill = "competitive_bidding/jordan_2nt", level = 6 }
-"two_nt_raise_minors.limit_plus" = { kind = "bool", label = "Vs takeout double: 2NT raise of a minor, limit or better", skill = "competitive_bidding/jordan_2nt", level = 6, choice = "vs_to_double.two_nt_raise_minors" }
 "two_nt_raise_minors.limit" = { kind = "bool", label = "Vs takeout double: 2NT raise of a minor, limit", skill = "competitive_bidding/jordan_2nt", level = 6, choice = "vs_to_double.two_nt_raise_minors" }
 "two_nt_raise_minors.weak" = { kind = "bool", label = "Vs takeout double: 2NT raise of a minor, weak", skill = "competitive_bidding/jordan_2nt", level = 7, choice = "vs_to_double.two_nt_raise_minors" }
 "two_nt_raise_minors.range_min" = { kind = "int", label = "Vs takeout double: 2NT over a minor, minimum", min = 0, max = 25 }

@@ -443,10 +443,14 @@ plays it only there. On printed cards and exports, a box that is now a
 second spelling shows wherever its twin does (the "jump to 2NT, two lowest"
 box on 18 public cards, the 4♣/4♦ transfer box on 7).
 
-- The two "2NT raise over a takeout double" box groups, which stay settings
-  until here: a function for 2NT over their takeout double (major, minor)
-  that Jordan implements; the limit boxes become a Jordan entry; the point
-  ranges stay settings (Rick, 2026-11-13).
+- ~~The two "2NT raise over a takeout double" box groups.~~ Done
+  2026-11-14: `two_nt_over_takeout_double` (major, minor) is filled by
+  Jordan 2NT in the place the card plays it. Jordan's own box and the
+  majors' "limit or better" box are its `over_major` place; the minors'
+  "limit or better" box is `over_minor`. The "limit" and "weak" boxes, the
+  bare "2NT raise" boxes and the point ranges name no convention and stay
+  settings (Rick, 2026-11-13, for the ranges). No rule reads Jordan over a
+  minor yet.
 
 - ~~Five treatments that stand on their own (`independent`) become
   places.~~ Done 2026-11-14 (#91): New Minor Forcing is played after a 1NT

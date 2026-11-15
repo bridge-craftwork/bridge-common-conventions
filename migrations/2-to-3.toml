@@ -738,7 +738,6 @@ order = [
 "competitive.dont.play" = "competitive_bidding/dont"
 "competitive.fit_showing_jumps.play" = "competitive_bidding/fit_showing_jumps"
 "competitive.ghestem.play" = "competitive_bidding/ghestem"
-"competitive.jordan_2nt.play" = "competitive_bidding/jordan_2nt"
 "competitive.lead_directing_double.play" = "competitive_bidding/lead_directing_doubles"
 "competitive.leaping_michaels.play" = "competitive_bidding/leaping_michaels"
 "competitive.michaels.play" = "competitive_bidding/michaels"
@@ -934,6 +933,12 @@ switches = { "notrump.minor_suit_stayman.play" = "over_1nt", "notrump.minor_suit
 convention = "bidding_conventions/minor_suit_transfers"
 switches = { "notrump.minor_transfers.play" = "over_1nt", "notrump.minor_transfers.two_s_clubs" = "two_s_clubs", "notrump.minor_transfers.over_2nt" = "over_2nt" }
 
+# Jordan 2NT is played over a doubled major and over a doubled minor: its
+# own box, and the card's "2NT raise, limit or better" boxes.
+[[place]]
+convention = "competitive_bidding/jordan_2nt"
+switches = { "competitive.jordan_2nt.play" = "over_major", "vs_to_double.two_nt_raise_minors.limit_plus" = "over_minor" }
+
 # Phase 6: boxes that had no convention of their own.
 [[place]]
 convention = "bidding_conventions/dopi_ropi"
@@ -1011,4 +1016,4 @@ no_entry = ["conventional"]
 "other_conventions.gerber.play" = "bidding_conventions/gerber"
 "other_conventions.kickback.play" = "bidding_conventions/kickback"
 "vs_preempts.lebensohl_response" = "competitive_bidding/lebensohl:after_weak_two_double"
-"vs_to_double.two_nt_raise_majors.limit_plus" = "competitive_bidding/jordan_2nt"
+"vs_to_double.two_nt_raise_majors.limit_plus" = "competitive_bidding/jordan_2nt:over_major"
