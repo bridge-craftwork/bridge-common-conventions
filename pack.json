@@ -21,7 +21,7 @@
   "basic_bidding/hand_evaluation": {
    "id": "basic_bidding/hand_evaluation",
    "name": "Hand Evaluation",
-   "kind": "skill",
+   "kind": "judgement",
    "source": "lessons",
    "level": 1,
    "contexts": [
@@ -3502,7 +3502,7 @@
   "competitive_bidding/law_of_total_tricks": {
    "id": "competitive_bidding/law_of_total_tricks",
    "name": "The Law of Total Tricks",
-   "kind": "skill",
+   "kind": "judgement",
    "source": "proposed",
    "level": 4,
    "contexts": [

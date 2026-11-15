@@ -1,7 +1,7 @@
 {
  "schema": "pack-manifest/v1",
- "source_commit": "5aa5e962d30837d409c3c59029f4864da9992b26",
- "rules_number": 20,
+ "source_commit": "fff139d102e4496dc79bc43e746b2fa613fa1713",
+ "rules_number": 21,
  "name": "bridge-common-conventions",
  "pack_format_version": 1,
  "card_schema_version": 3,
@@ -21,8 +21,8 @@
    "changed": "2026-11-13T23:15:09-08:00"
   },
   "conventions/basic_bidding/hand_evaluation/convention.toml": {
-   "sha256": "e855e2b7d20e20b641a032b2aebf4b21f100d7b8518ff4f17d05d500c8406bab",
-   "changed": "2026-11-14T21:44:34-08:00"
+   "sha256": "9c1e14ada3749863380211e84c41e331b814181ec55f12994d97797f2e4bfd22",
+   "changed": "2026-11-14T22:03:30-08:00"
   },
   "conventions/basic_bidding/major_suit_openings/convention.toml": {
    "sha256": "b0d06463fe3cc24174e7d935174f178221c51a9454723e5d41f74f863de2d4ed",
@@ -909,8 +909,8 @@
    "changed": "2026-11-13T23:15:09-08:00"
   },
   "conventions/competitive_bidding/law_of_total_tricks/convention.toml": {
-   "sha256": "8ee874b52f8aa24bba84a35c23974c76803b57ef716ff4631db065bce01d9a3f",
-   "changed": "2026-11-14T21:44:34-08:00"
+   "sha256": "d186040692f6dbc90b642a81e4083b0aab934411ddd94150f5a3207f25cf261c",
+   "changed": "2026-11-14T22:03:30-08:00"
   },
   "conventions/competitive_bidding/lead_directing_doubles/convention.toml": {
    "sha256": "6626e9636a28df20b3cdb16899f6193ef354551df7f49f1dcd73af083c838073",
@@ -2141,5 +2141,5 @@
    "changed": "2026-11-14T20:28:38-08:00"
   }
  },
- "pack_sha256": "9b7b772f668acf209b1a9d0b8099c89e2748a0522b1c8b5c4da2b57057d92089"
+ "pack_sha256": "74a583d26278a44eb1c4f244adc16f1f087b54185743638e655e5488cd5a8ed7"
 }
