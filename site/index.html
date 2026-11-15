@@ -51,6 +51,9 @@ main { max-width: 1200px; margin: 0 auto; padding: 0 16px 48px; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mark:not(.off):not(.p) { color: #10141a; } }
 h2.cat { font-size: 16px; margin: 22px 0 4px; display: flex; align-items: baseline; gap: 10px; }
 h2.cat small { color: var(--muted); font-weight: 400; font-size: 13px; }
+h3.ctx { font-size: 14px; margin: 14px 0 4px; display: flex; align-items: baseline; gap: 8px; }
+h4.kind { font-size: 12px; margin: 8px 0 3px 2px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; display: flex; gap: 8px; }
+h3.ctx small, h4.kind small { color: var(--muted); font-weight: 400; }
 .rows { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
 .row { display: grid; grid-template-columns: 34px minmax(150px, 250px) 184px 1fr; gap: 4px 10px; align-items: start; padding: 5px 10px; border-top: 1px solid var(--line); cursor: pointer; }
 .row:first-child { border-top: 0; }
@@ -106,8 +109,8 @@ dialog::backdrop { background: rgba(0, 0, 0, .45); }
       <label>Search <input id="q" type="search" placeholder="Drury, 1NT, Lebensohl…" autocomplete="off" spellcheck="false"></label>
       <label>List
         <select id="what">
-          <option value="convention">conventions</option>
-          <option value="skill">skills</option>
+          <option value="bidding">natural methods and conventions</option>
+          <option value="skill">other skills</option>
           <option value="lesson">lesson sets</option>
           <option value="">everything</option>
         </select>
@@ -121,7 +124,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .45); }
         </select>
       </label>
       <label>Category <select id="cat"><option value="">every category</option></select></label>
-      <label>Group by <select id="group"><option value="cat">category</option><option value="context">context</option></select></label>
+      <label>Group by <select id="group"><option value="context">context</option><option value="cat">category</option></select></label>
       <label><input type="checkbox" id="recent"> Highlight changes in the last</label>
       <label><select id="days"><option>7</option><option selected>30</option><option>90</option></select> days</label>
       <label><input type="checkbox" id="only-recent"> show only those</label>
@@ -163,7 +166,7 @@ const el = (tag, attrs = {}, ...kids) => {
 const list = v => (v === undefined || v === null ? [] : Array.isArray(v) ? v : [v])
 
 let model = null
-const state = { q: '', what: 'convention', kind: '', cat: '', recent: false, onlyRecent: false, days: 30, has: new Set() }
+const state = { q: '', what: 'bidding', kind: '', cat: '', recent: false, onlyRecent: false, days: 30, has: new Set() }
 
 async function load() {
   const [pack, manifest] = await Promise.all(['pack.json', 'manifest.json'].map(async f => {
@@ -221,6 +224,8 @@ function build(pack, manifest) {
     return {
       id: d.id, cat, short, def: d, name: d.name, level: d.level ?? null,
       kind: d.kind || 'convention',
+      natural: d.kind === 'skill' && list(d.contexts).length > 0,
+      list: d.kind === 'lesson' ? 'lesson' : d.kind === 'skill' && !list(d.contexts).length ? 'skill' : 'bidding',
       card: list(d.contexts).length > 0, contexts: list(d.contexts),
       heldBy: list(d.contexts).length > 0 ? [] : heldBy.get(d.id) || [],
       rules, tests: allTests.reduce((n, p) => n + cases(files[p]), 0), testFiles: allTests,
@@ -235,9 +240,17 @@ function build(pack, manifest) {
   return { pack, manifest, conventions, categories: pack.categories || {}, files, allCases }
 }
 
+// The contexts on each side of the auction, in the pack's order.
+const SIDES = [
+  ['Constructive bidding', ['notrump_openings', 'major_openings', 'minor_openings', 'preemptive_openings', 'responses_rebids', 'slam']],
+  ['Competitive bidding', ['overcalls', 'doubles', 'after_interference', 'vs_notrump', 'vs_openings']],
+  ['Defence', ['leads', 'signals']],
+  ['General approach', ['general']],
+]
+
 function matches(c) {
   if (state.q && !c.search.includes(state.q)) return false
-  if (state.what && c.kind !== state.what) return false
+  if (state.what && c.list !== state.what) return false
   if (state.kind === 'card' && !c.card) return false
   if (state.kind === 'part' && !c.heldBy.length) return false
   if (state.kind === 'skill' && (c.card || c.heldBy.length)) return false
@@ -264,7 +277,8 @@ function draw() {
   const sum = $('summary')
   sum.replaceChildren(
     el('div', {}, el('b', { text: count(c => c.kind === 'convention') }), 'conventions'),
-    el('div', {}, el('b', { text: count(c => c.kind === 'skill') }), 'skills'),
+    el('div', {}, el('b', { text: count(c => c.natural) }), 'natural methods'),
+    el('div', {}, el('b', { text: count(c => c.list === 'skill') }), 'other skills'),
     el('div', {}, el('b', { text: count(c => c.kind === 'lesson') }), 'lesson sets'),
     el('div', {}, el('b', { text: count(c => c.card) }), 'with a context'),
     el('div', {}, el('b', { text: count(c => c.heldBy.length) }), 'part of another'),
@@ -289,18 +303,43 @@ function draw() {
 
   const grid = $('grid')
   grid.replaceChildren()
-  // Grouped by category, or by the context each applies in (its first).
-  const byContext = state.group === 'context'
-  const keyOf = c => (byContext ? c.contexts[0] || (c.heldBy.length ? '(part)' : '(none)') : c.cat)
-  const cats = byContext ? [...Object.keys(model.pack.contexts || {}), '(part)', '(none)'] : [...new Set(conventions.map(c => c.cat))]
-  const title = k => (!byContext ? catName(k) : k === '(part)' ? 'Part of another convention or setting' : k === '(none)' ? 'No context' : model.pack.contexts[k]?.name || k)
-  for (const cat of cats) {
-    const rows = shown.filter(c => keyOf(c) === cat).sort((a, b) => (a.level ?? 99) - (b.level ?? 99) || a.name.localeCompare(b.name))
-    if (!rows.length) continue
-    grid.append(el('h2', { class: 'cat' }, title(cat), el('small', { text: `${rows.length} shown` })))
+  // Natural methods first, then conventions; by name inside each.
+  const byName = (a, b) => a.name.localeCompare(b.name)
+  const block = rows => {
     const box = el('div', { class: 'rows' })
     for (const c of rows) box.append(row(c))
-    grid.append(box)
+    return box
+  }
+  const split = rows => {
+    const out = []
+    for (const [label, part] of [['Natural', rows.filter(c => c.natural)], ['Conventions', rows.filter(c => !c.natural)]]) {
+      if (part.length) out.push(el('h4', { class: 'kind' }, label, el('small', { text: String(part.length) })), block(part.sort(byName)))
+    }
+    return out
+  }
+  if (state.group === 'cat') {
+    for (const cat of [...new Set(conventions.map(c => c.cat))]) {
+      const rows = shown.filter(c => c.cat === cat)
+      if (!rows.length) continue
+      grid.append(el('h2', { class: 'cat' }, catName(cat), el('small', { text: `${rows.length} shown` })), ...split(rows))
+    }
+  } else {
+    // Constructive or competitive follows from the context a definition
+    // applies in (its first); within a context, natural then conventions.
+    const contexts = model.pack.contexts || {}
+    const left = new Set(shown)
+    for (const [side, keys] of SIDES) {
+      const groups = keys.map(k => [k, shown.filter(c => c.contexts[0] === k)]).filter(([, rows]) => rows.length)
+      if (!groups.length) continue
+      grid.append(el('h2', { class: 'cat' }, side, el('small', { text: `${groups.reduce((n, [, r]) => n + r.length, 0)} shown` })))
+      for (const [k, rows] of groups) {
+        rows.forEach(c => left.delete(c))
+        grid.append(el('h3', { class: 'ctx' }, contexts[k]?.name || k, el('small', { text: String(rows.length) })), ...split(rows))
+      }
+    }
+    const part = [...left].filter(c => c.heldBy.length), none = [...left].filter(c => !c.heldBy.length)
+    if (part.length) grid.append(el('h2', { class: 'cat' }, 'Part of another convention or setting', el('small', { text: `${part.length} shown` })), block(part.sort(byName)))
+    if (none.length) grid.append(el('h2', { class: 'cat' }, 'No context', el('small', { text: `${none.length} shown` })), block(none.sort(byName)))
   }
   if (!shown.length) grid.append(el('p', { class: 'none', text: 'Nothing matches.' }))
 }
