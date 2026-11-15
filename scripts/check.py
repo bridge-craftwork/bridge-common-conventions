@@ -153,6 +153,10 @@ class Pack:
             if mig.get("to") != "3.0":
                 continue
             targets = list(mig.get("convention", {}).values()) + list(mig.get("treatment", {}).values())
+            for sf in mig.get("stood_for", []):
+                ids = {a.partition(":")[0] for a in [sf["treatment"], *sf["means"]]}
+                if len(ids) != 1 or not all(self.resolves(a) and ":" in a for a in [sf["treatment"], *sf["means"]]):
+                    self.bad(str(f.name), f"stood_for {sf['treatment']!r}: treatments of one convention")
             targets += [t for t in mig.get("alias", {}).values()]
             for p in mig.get("place", []):
                 targets += [f"{p['convention']}:{t}" for t in p["switches"].values()]

@@ -106,9 +106,9 @@ after 1m (P)
   3N  "16-17, balanced, no 4-card major"        shows balanced, points=16..17, H<=3, S<=3
       when  nt2 is game_forcing
       priority -1
-  2H  "Strong jump shift: 15+, 5+ hearts"       shows H>=5, hcp>=15  when strong_js, !wjs_on, !soloway, !passed_hand
+  2H  "Strong jump shift: 15+, 5+ hearts"       shows H>=5, hcp>=15  when strong_js, !wjs_on, !soloway, !passed_hand, !rf_2h_on
       sets forcing=game
-  2S  "Strong jump shift: 15+, 5+ spades"       shows S>=5, hcp>=15  when strong_js, !wjs_on, !soloway, !passed_hand
+  2S  "Strong jump shift: 15+, 5+ spades"       shows S>=5, hcp>=15  when strong_js, !wjs_on, !soloway, !passed_hand, !rf_2s_on
       sets forcing=game
 
 # 2/1 cards: 2C over 1D is game forcing (13+), so 11-12 with clubs and

@@ -353,7 +353,10 @@ Each produces a small, expected difference against phase 2.
   (#68, done 2026-11-14), each convention filling the function only while
   its two-level treatment is on. Its `two_d` treatment, left from the
   opening, is retired and its three alert rules for a 2♦ opening are gone
-  (#69, done 2026-11-14). Still to do: its card fields sit in the two-level
+  (#69, done 2026-11-14). A card that ticked the old 2♦ box plays both
+  jumps on upgrade, and a jump Reverse Flannery takes is no longer also bid
+  as a strong jump shift (48 boards on one stock card, 100 on one hand-made
+  card). Still to do: its card fields sit in the two-level
   openings section of schema 2, which the editor's layout decides (#34).
 - ~~Found with #68: eight hand-made cards tick "weak jump shifts, not in
   competition" (the Bridgodex and BBO box) and bid none, because the rules

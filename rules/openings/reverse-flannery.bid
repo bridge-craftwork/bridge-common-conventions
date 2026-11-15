@@ -19,6 +19,11 @@ module reverse-flannery "Reverse Flannery"
   param  rf_2h = bidding_conventions/reverse_flannery:two_h default false
   param  rf_2s = bidding_conventions/reverse_flannery:two_s default false
 
+# Read by responses.bid: a jump Reverse Flannery takes is not a strong jump
+# shift, which is only what the jump means when nothing else claims it.
+define rf_2h_on = rf_2h
+define rf_2s_on = rf_2s
+
 # ── Responder ────────────────────────────────────────────────────────
 after 1m (P)
   2H  "Reverse Flannery: five spades, four or five hearts, 5-8 HCP"   alert

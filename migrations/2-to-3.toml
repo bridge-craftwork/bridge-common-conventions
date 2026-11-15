@@ -31,6 +31,8 @@
 #               while the part's setting was unset or `other`. Schema 2's
 #               precedence, kept: with another defence or `natural` chosen,
 #               the switch did nothing and leaves no entry.
+# [[stood_for]] A yes/no treatment that, on, turns on the treatments in
+#               `means` that the card left unset (same convention).
 # [alias]       "older path" = "address": spellings schema 2 still read.
 # Everything else moves to `settings` at the same path.
 
@@ -899,6 +901,14 @@ switches = { "general.jump_shifts.weak_2" = "two_level", "general.jump_shifts.we
 convention = "bidding_conventions/puppet_stayman"
 switches = { "notrump.stayman.puppet_1nt" = "over_1nt", "notrump.stayman.puppet_2nt" = "over_2nt" }
 also_plays = "bidding_conventions/stayman"
+
+# A box that stood for more than it said. Where `treatment` is on, each of
+# `means` the card is silent on is on too. Reverse Flannery's 2♦ box was the
+# only one an editor offered, and a card that ticked it plays both jumps
+# over one of a minor (Rick Wilson, 2026-11-14).
+[[stood_for]]
+treatment = "bidding_conventions/reverse_flannery:two_d"
+means = ["bidding_conventions/reverse_flannery:two_h", "bidding_conventions/reverse_flannery:two_s"]
 
 # A convention that gives way: where both are played and `to` fills a part
 # of the function, `convention`'s entry is written `for` the parts that are

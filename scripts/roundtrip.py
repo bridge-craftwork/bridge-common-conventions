@@ -53,7 +53,9 @@ CORRECTED_RULES = {
     "weak-jump-shifts.test": "#74: cases added", "soloway.bid": "#74",
     "bergen.test": "#33: the Reverse Bergen card switches Bergen on",
     "reverse-flannery.notes.md": "#69: its open question is answered",
-    "stayman.bid": "#73: on for a silent card", "jacoby-transfers.bid": "#73: on for a silent card", "responses.bid": "#74", "rebids.bid": "#74", "responder-rebids.bid": "#74",
+    "reverse-flannery.bid": "#69: a jump it takes is not also a strong jump shift",
+    "reverse-flannery.test": "#69: case added",
+    "stayman.bid": "#73: on for a silent card", "jacoby-transfers.bid": "#73: on for a silent card", "responses.bid": "#74, #69", "rebids.bid": "#74", "responder-rebids.bid": "#74",
 }
 
 # Files that did not stay in the pack, and where they went.
