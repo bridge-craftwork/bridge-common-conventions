@@ -109,7 +109,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .45); }
       <label>Search <input id="q" type="search" placeholder="Drury, 1NT, Lebensohl…" autocomplete="off" spellcheck="false"></label>
       <label>List
         <select id="what">
-          <option value="bidding">natural methods and conventions</option>
+          <option value="bidding">natural, conventions and judgement</option>
           <option value="skill">other skills</option>
           <option value="lesson">lesson sets</option>
           <option value="">everything</option>
@@ -225,6 +225,7 @@ function build(pack, manifest) {
       id: d.id, cat, short, def: d, name: d.name, level: d.level ?? null,
       kind: d.kind || 'convention',
       natural: d.kind === 'skill' && list(d.contexts).length > 0,
+      judgement: d.kind === 'judgement',
       list: d.kind === 'lesson' ? 'lesson' : d.kind === 'skill' && !list(d.contexts).length ? 'skill' : 'bidding',
       card: list(d.contexts).length > 0, contexts: list(d.contexts),
       heldBy: list(d.contexts).length > 0 ? [] : heldBy.get(d.id) || [],
@@ -236,6 +237,29 @@ function build(pack, manifest) {
       search: [d.id, d.name, ...list(d.names), ...treatments.map(t => `${t.name} ${t.label || ''}`)].join(' ').toLowerCase(),
     }
   })
+  // A rule module of the bidder's own judgement (`kind judgement`) is listed
+  // in its own right, unless a judgement definition already carries it. Its
+  // context is that of the skill it names, else its folder's.
+  const FOLDER = { slam: 'slam', competitive: 'after_interference', notrump: 'notrump_openings', base: 'general' }
+  const carried = new Set(conventions.filter(c => c.judgement).flatMap(c => c.rules))
+  for (const [path, text] of Object.entries(files)) {
+    if (!path.endsWith('.bid') || !/^\s+kind\s+judgement\s*$/m.test(text) || carried.has(path)) continue
+    const title = (text.match(/^module\s+\S+\s+"(.*)"/m) || [])[1] || path
+    const skill = (text.match(/^\s+skill\s+([a-z_]+\/[a-z0-9_]+)/m) || [])[1]
+    const context = list(pack.conventions[skill]?.contexts)[0] || FOLDER[path.split('/')[1]] || 'general'
+    const test = path.replace(/\.bid$/, '.test'), notes = path.replace(/\.bid$/, '.notes.md')
+    const short = path.split('/').pop().replace(/\.bid$/, '')
+    conventions.push({
+      id: path, cat: 'rules', short, module: path, name: title, level: null,
+      def: { summary: "A rule module of the bidder's own judgement. It records no agreement: another bidder may decide differently on the same card." },
+      kind: 'judgement', natural: false, judgement: true, list: 'bidding',
+      card: true, contexts: [context], heldBy: [],
+      rules: [path], tests: files[test] ? cases(files[test]) : 0, testFiles: files[test] ? [test] : [],
+      notes: files[notes] ? [notes] : [], refs: 0, deals: 0, functions: [], treatments: [],
+      changed: Math.max(0, ...[path, test, notes].map(p => changed[p] || 0)),
+      search: `${path} ${title} judgement`.toLowerCase(),
+    })
+  }
   const allCases = Object.entries(files).filter(([p]) => p.endsWith('.test')).reduce((n, [, text]) => n + cases(text), 0)
   return { pack, manifest, conventions, categories: pack.categories || {}, files, allCases }
 }
@@ -278,6 +302,7 @@ function draw() {
   sum.replaceChildren(
     el('div', {}, el('b', { text: count(c => c.kind === 'convention') }), 'conventions'),
     el('div', {}, el('b', { text: count(c => c.natural) }), 'natural methods'),
+    el('div', {}, el('b', { text: count(c => c.judgement) }), 'judgement'),
     el('div', {}, el('b', { text: count(c => c.list === 'skill') }), 'other skills'),
     el('div', {}, el('b', { text: count(c => c.kind === 'lesson') }), 'lesson sets'),
     el('div', {}, el('b', { text: count(c => c.card) }), 'with a context'),
@@ -312,7 +337,7 @@ function draw() {
   }
   const split = rows => {
     const out = []
-    for (const [label, part] of [['Natural', rows.filter(c => c.natural)], ['Conventions', rows.filter(c => !c.natural)]]) {
+    for (const [label, part] of [['Natural', rows.filter(c => c.natural)], ['Conventions', rows.filter(c => !c.natural && !c.judgement)], ['Judgement', rows.filter(c => c.judgement)]]) {
       if (part.length) out.push(el('h4', { class: 'kind' }, label, el('small', { text: String(part.length) })), block(part.sort(byName)))
     }
     return out
@@ -355,7 +380,7 @@ function row(c) {
   for (const t of c.treatments) treats.append(el('span', { class: 'chip', title: t.label || t.name, text: t.name }))
   for (const h of c.heldBy.slice(0, 3)) treats.append(el('span', { class: 'chip held', title: 'Part of this, with no context of its own', text: `in ${h}` }))
   if (c.heldBy.length > 3) treats.append(el('span', { class: 'none', text: `+${c.heldBy.length - 3} more` }))
-  if (!c.functions.length && !c.treatments.length && !c.heldBy.length) treats.append(el('span', { class: 'none', text: c.card ? 'no treatments' : '' }))
+  if (!c.functions.length && !c.treatments.length && !c.heldBy.length) treats.append(el('span', { class: 'none', text: c.judgement ? "the bidder's own judgement, not an agreement" : c.card ? 'no treatments' : '' }))
   const r = el('div', { class: `row${recent ? ' recent' : ''}`, tabindex: '0', role: 'button' },
     el('span', { class: 'lvl', title: 'Level, 1 to 10', text: c.level ?? '–' }),
     el('div', { class: 'name' }, c.name, el('small', { text: c.short + (recent ? ` · changed ${new Date(c.changed).toISOString().slice(0, 10)}` : '') })),
@@ -404,7 +429,7 @@ function detail(c) {
       s.url ? el('a', { href: s.url, text: s.title || s.url, rel: 'noopener' }) : (s.title || ''),
       [s.by && ` by ${s.by}`, s.site && `, ${s.site}`, s.kind === 'book' && s.chapter && `, chapter ${s.chapter}`].filter(Boolean).join('')))))
   }
-  section('Definition', el('p', {}, link(`conventions/${c.cat}/${c.short}/convention.toml`)))
+  if (!c.module) section('Definition', el('p', {}, link(`conventions/${c.cat}/${c.short}/convention.toml`)))
   $('detail').showModal()
 }
 

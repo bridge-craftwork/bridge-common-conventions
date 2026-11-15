@@ -1,6 +1,6 @@
 id = "competitive_bidding/law_of_total_tricks"
 name = "The Law of Total Tricks"
-kind = "skill"
+kind = "judgement"
 source = "proposed"
 level = 4
 contexts = ["general"]
