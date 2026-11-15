@@ -469,7 +469,7 @@ reviewed, as in phase 5.
 | This one | Phases 0 to 6, published (rules number 21) | | Nothing blocks. `engine.env` names an engine commit; it names the release tag once there is one |
 | `convention-card` | v0.44.0: its own `spec/conventions/` and field list | Draft #120 (the crate reads a pack and schema 3 cards), #121 (the JavaScript library reads the bundled snapshot; every card it writes is schema 3: exported files, the editor's saves to its host, the card in a PDF, the hand-off link; the crate reads `pack.json`) and #123 (`spec/conventions/`, the field list, levels, alerts, migrations and their generated JSON removed; the crate's standard vocabulary is the bundled pack; schema 2's field list kept only as a frozen test fixture) | Its README and docs still describe the removed files. The format maps and the rest of the editor catalogue keep schema 2's paths: the library reads both |
 | `rusty-bidding-bot` | v0.15.3: its own `conventions/`, compiled in | Draft #90 (rule language 2, a pack read from its source tree), #91 (a pack read from `pack.json`, by `--rules` and by the WASM API's `pack`) and #92 (a copy of the snapshot compiled in and used by default, `conventions/` and `docs/SKILLS.md` removed, tests reading the copy, the rule checker page checking against the pack, pinned to the card tools without their field list) | Its README and other docs still describe `conventions/`. `rbb bid check` and `rbb bid test` need a folder, so a pack checkout |
-| Bridge Classroom | Pins the card tools by tag and the engine's WASM by release and hash | | Bump both pins (#38). Fetch the snapshot at build and hand it to Rusty (#39). Show the rules number (#28). Receive the skills taxonomy |
+| Bridge Classroom | Pins the card tools by tag (v0.43.2) and the engine's WASM by release and hash (v0.15.2). Its server stores a card as it is given and reads only the partners' names in it; it has its own skills taxonomy | | Bump both pins (#38). Fetch the snapshot when it runs and hand it to Rusty (#39). Show the rules number (#28). Compare coverage through the library, which reads an address or a path. The service that renders its print links is upgraded first |
 | Better BBO Convention Card | Pins the card tools by tag | | Bump the pin (#38) |
 | Practice-Bidding-Scenarios, lesson-studio | Check IDs against nothing, or a stopgap copy | | Validate against the snapshot (#40) |
 
@@ -493,11 +493,19 @@ reviewed, as in phase 5.
    cut-over** (#22 in full). Agreed (Rick, 2026-11-15): no. Cut over on the bundled
    snapshot, which is one loader and works offline; a host-supplied pack is
    an addition afterwards (#52 needs it).
-4. **Which rules number a host shows.** The one in the snapshot it
-   fetched; the fallback's when it fell back. The card library's bundled
-   names may be older than the fetched rules. That is safe because names
-   are additive-only: an older library does not show a newer setting, and
-   the rules read it at its default.
+4. **Which rules a host follows, and the number it shows.** The newest
+   published (Rick, 2026-11-15), so a rule change needs no new build and
+   the solo practice table bids as Rusty does today. The host reads
+   `manifest.json` (the rules number, the rule language, the snapshot's
+   hash), then `pack.json`, checks the hash, and hands the snapshot to the
+   engine when the engine reads that rule language; otherwise, or when the
+   fetch fails, the engine bids with its compiled-in rules. It shows the
+   rules number it is bidding with and logs it with every result. A bad
+   publish reaches users at once: the fallback covers a failed fetch, not
+   bad rules. The card library's bundled names may be older than the
+   fetched rules. That is safe because names are additive-only: an older
+   library does not show a newer setting, and the rules read it at its
+   default.
 5. **When the skills and lesson sets leave** (below). Agreed (Rick, 2026-11-15): in the
    same cut-over, since the editor's lesson links move with them; if that
    proves large, straight after, with the pack unchanged meanwhile.
@@ -551,18 +559,20 @@ pin is one small pull request.
    rules bid every captured card as the reference does.
 4. **This repo:** `engine.env` names the engine's release tag, so publish
    downloads the binary instead of building it.
-5. **Bridge Classroom:** bump the card tools and the WASM pin; fetch the
+5. **The service that renders print links** from the card data Bridge
+   Classroom stores: bump the card tools pin and deploy, before any
+   stored card is in schema 3. It reads both shapes afterwards.
+6. **Bridge Classroom:** bump the card tools and the WASM pin; fetch the
    published snapshot when it runs and hand it to Rusty; show the rules number beside the engine
    version. Stored cards upgrade on load, by the migration. Check on a
    staging build before the live one.
-6. **Better BBO Convention Card** and any service that renders cards: bump
-   the card tools pin.
-7. **Practice-Bidding-Scenarios and lesson-studio** validate their IDs
+7. **Better BBO Convention Card:** bump the card tools pin.
+8. **Practice-Bidding-Scenarios and lesson-studio** validate their IDs
    against the snapshot.
-8. **Docs** (#42), and close #22, #23, #24, #37 to #42.
+9. **Docs** (#42), and close #22, #23, #24, #37 to #42.
 
 **Going back.** Every pin can return to its old tag. What cannot go back
-is a card saved in schema 3: the old library does not read it. So step 5's
+is a card saved in schema 3: the old library does not read it. So step 6's
 live build is the point of no return for stored cards; take a copy of them
 first.
 
