@@ -506,13 +506,25 @@ reviewed, as in phase 5.
    comparisons: the same cards and deals bid before and after, and our
    auctions against another bidder's. Today the conclusions are in each
    module's `.notes.md` (here) and in pull request text; the runs
-   themselves are kept nowhere. Recommended: a `measurements/` folder
-   here, one small file per rules number, written by publish: the bidder
-   and its version, the rules numbers compared, the cards and the deal set
-   by name and hash, the auctions changed per card, and the score against
-   each reference bidder before and after. Every record names its bidder,
-   so another engine's runs sit beside Rusty's. The full auction lists
-   are a build artefact, not in git. Only public cards are named.
+   themselves are kept nowhere. Settled in outline (Rick, 2026-11-15):
+   the measurement belongs to the change, not to CI. Whoever makes the
+   change runs it and commits the record with it; publish runs nothing
+   extra. How much is run is graded by the change:
+
+   | The change | What is measured |
+   |---|---|
+   | Text only: a name, a brief, notes, references | Nothing |
+   | One convention's rules | Its `.test` lines, and targeted deals bid before and after on cards that play it |
+   | Rules many auctions pass through (system, judgement, base), a migration, or a default | Every public card bid before and after |
+   | A convention another bidder also plays, when the question is which is right | The same deals bid by that bidder (BBA, from the Practice-Bidding-Scenarios corpora or run from the command line) |
+
+   Recommended form: a `measurements/` folder here, one small file per
+   change: the bidder and its version, what was compared (rules before
+   and after, the cards, the deal set by name and hash), the auctions
+   changed per card, and the score against each reference bidder before
+   and after. Every record names its bidder, so another engine's runs sit
+   beside Rusty's. The full auction lists stay out of git. Only public
+   cards are named. CI checks a record's form, nothing more.
 
 Not built, and not needed for the cut-over:
 
