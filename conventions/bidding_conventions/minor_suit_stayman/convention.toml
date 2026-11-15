@@ -16,5 +16,6 @@ see = [
 
 [treatments.over_2nt]
 kind = "bool"
+independent = true
 label = "Minor Suit Stayman over 2NT"
 level = 6

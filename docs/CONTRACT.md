@@ -435,6 +435,10 @@ module texas-transfers "Texas Transfers"
 - **`convention <id>`** says the file is the rules for that definition, and
   the module is on when the card's entry plays the convention. At most one
   per module. It replaces `card <path>.play`.
+  Written `convention <id> default true`, the module is also on for a card
+  that is silent on the convention, and off only when the card says it does
+  not play it: the bidder's own choice for a silent card (Stayman and
+  Jacoby transfers), as a parameter's default is.
 - **`card <address>`** stays, for a module switched by a treatment or a
   setting. Several must all hold.
 - **`param <name> = <address> [default v]`** reads any address. A bare ID
@@ -601,6 +605,9 @@ None changes a decision.
 | 6 | Puppet Stayman is a convention of its own, with places `over_1nt` and `over_2nt`; `major_ask_over_notrump` (1nt, 2nt) is filled by Stayman, and over 2NT by Puppet. Modified Jacoby 2NT is a convention of its own; `two_nt_response_to_major` is filled by it or by Jacoby 2NT (Rick, 2026-11-14) | Each replaces what its parent does with that bid, and is named and taught as a convention |
 | 11 | `also_plays` on a `[[place]]` and `[[yields]]` in `2-to-3.toml`. A card that showed Puppet Stayman was read as playing Stayman; where both are played the general convention's entry is written `for` the parts the specific one leaves (`for = []` when it leaves none) | Otherwise nearly every card with Puppet over 2NT would show a conflict with its own Stayman, and one with Modified Jacoby a conflict with Jacoby. The rules already let the specific one win |
 | 11 | A place the card is silent on is written as off only where its definition has a default | Writing every place invented an answer the card had not given (a card with Puppet over 2NT gained "Puppet over 1NT: no") |
+| 8 | A treatment reads as unset while the card says it does not play its convention (`play = false`). The value is kept. A place is exempt: it is the switch itself | The plan's Phase 5 rule, "treatments mean nothing while their convention is off", enforced in one place (the crate's `effective`). Silent on the convention, a set treatment still reads, since the upgrade then takes the card to play it |
+| 4 | `independent = true` on a treatment: it reads whatever the convention's switch says, as a place does | Enforcing the rule above showed five treatments that are a separate line in BBA and are on while the convention's own line is off (New Minor Forcing after a 2NT rebid; the over-2NT forms of Texas, minor-suit Stayman and minor transfers). They are places in all but name, and become proper places later |
+| 9 | `convention <id> default true` | With Stayman unset the 1NT rules took it as off and the 2NT rules as on (#73). A silent card now plays Stayman and Jacoby transfers in both places |
 | 10 | The rules number is a count of first-parent commits on `main` that changed a source file other than a notes or test file (Rick, 2026-11-14); the manifest gains `rules_number` and `checked_with`, and each file's entry is `{ sha256, changed }` | Settled in Phase 4, as the section promised. A count is readable beside an engine version and cannot go backwards while `main` is not rewritten |
 | 10 | `pack.json` has the keys `schema`, `pack`, `categories`, `conventions`, `settings`, `contexts`, `functions`, `levels`, `alerts`, `migrations` and `files` | The section said "one JSON document" without naming its parts. `scripts/build_snapshot.py` builds it; the manifest's rules number and per-file dates wait for Phase 4 |
 | 8, 11 | A setting that named a convention keeps the card's own wording: as `text` on the entry it becomes ("Hamilton" on Cappelletti's), or, where it names no convention (`natural`, a name no option covers) or a second part is worded differently, as the setting at its old path | The card tools print that wording. Without it a card that says "Strong - Suction" would print the bare option word after the upgrade |

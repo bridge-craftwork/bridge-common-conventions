@@ -22,3 +22,17 @@ S A.AK2.KQ852.A983      | 1D P 2S P 3C P 3S P      | P      | 21 and a misfit: n
 card    21GF-DEFAULT
 N AT752.Q3.AK.A932      | 1H P                     | 2S     | 17 with five spades: strong jump shift
 N QJT642.Q962.8.64      | 1D P                     | P      | 5 HCP: pass
+
+# The follow-ups need a jump: a two-level response that is not one is an
+# ordinary two-over-one, and 2NT is not the weak jump shift's ask
+# (2026-11-14; these answered "maximum, a feature" before).
+N Q9.A87.K432.AJ72      | 1S P 2C P 2N P           | 3N     | 14 opposite 1♠–2♣–2NT: game, not a feature
+N AQ5.JT6.A87.A852      | 1D P 2C P 2N P           | 3N     | 2♣ over 1♦ is no jump
+
+# The "not in competition" box other card formats have (Bridgodex, BBO)
+# is the same agreement as the two-level box (#74).
+card    21GF-DEFAULT bidding_conventions/weak_jump_shifts:not_in_comp=true
+dealer  S
+N T5.A98754.653.94      | 1C P                     | 2H     | 4 HCP, six hearts: weak jump shift
+N QJT9542.7.QT75.8      | 1C P                     | 2S     | 5 HCP, seven spades
+N AKQ85.KJ.J7.AKJ9      | 1D P                     | 1S     | 23 with five spades: no strong jump shift on this card
