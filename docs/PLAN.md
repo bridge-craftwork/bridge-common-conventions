@@ -407,6 +407,12 @@ convention, a treatment of an existing one, or stays a setting.
   that Jordan implements; the limit boxes become a Jordan entry; the point
   ranges stay settings (Rick, 2026-11-13).
 
+- Five treatments that stand on their own (`independent`) become places:
+  New Minor Forcing after a 1NT rebid and after a 2NT rebid, and the
+  over-2NT forms of Texas, minor-suit Stayman and minor transfers. With a
+  function for responder's 2♣/2♦ after a 1NT rebid, which New Minor Forcing,
+  two-way NMF, Checkback, Roudi and XYZ fill (Rick, 2026-11-14; #91).
+
 **Done when** the inventory has no unplaced rows and the differences are
 reviewed, as in phase 5.
 
@@ -476,6 +482,9 @@ second pack beside ours.
   opponent's card against yours, and what their alerts mean.
 - Storing a range end as one value ("14+"), which removes 56 marker fields.
 - A refresh of the common names, under decision 5.
+- Syntax colouring for `.bid` files: a grammar for VS Code, and the same
+  grammar colouring a rule file on the overview page, in a viewer there
+  rather than GitHub's raw text (Rick, 2026-11-14; #92).
 
 ## Risks
 
