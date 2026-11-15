@@ -462,13 +462,13 @@ reviewed, as in phase 5.
 
 ### Phase 7: cut over
 
-#### Where each repo stands (2026-11-14)
+#### Where each repo stands (2026-11-15)
 
 | Repo | On `main` today | Ready on a branch | Still to do before the cut-over |
 |---|---|---|---|
 | This one | Phases 0 to 6, published (rules number 21) | | Nothing blocks. `engine.env` names an engine commit; it names the release tag once there is one |
-| `convention-card` | v0.44.0: its own `spec/conventions/` and field list | Draft #120 (the crate reads a pack and schema 3 cards) and #121 (the JavaScript library reads the bundled snapshot; every card it writes is schema 3: exported files, the editor's saves to its host, the card in a PDF, the hand-off link; the crate reads `pack.json`) | `spec/conventions/`, `spec/fields.toml` and their generated JSON removed (#41). The format maps and the rest of the editor catalogue may keep schema 2's paths: the library reads both |
-| `rusty-bidding-bot` | v0.15.3: its own `conventions/`, compiled in | Draft #90 (rule language 2, a pack read from its source tree) and #91 (a pack read from `pack.json`, by `--rules` and by the WASM API's `pack`) | The compiled-in rules are still its own `conventions/`. Replace them with the snapshot and remove the folder (#41): 80 references in 20 source files, the reference site, `docs/SKILLS.md`, the CI path filters. `rbb bid check` and `rbb bid test` take a snapshot |
+| `convention-card` | v0.44.0: its own `spec/conventions/` and field list | Draft #120 (the crate reads a pack and schema 3 cards), #121 (the JavaScript library reads the bundled snapshot; every card it writes is schema 3: exported files, the editor's saves to its host, the card in a PDF, the hand-off link; the crate reads `pack.json`) and #123 (`spec/conventions/`, the field list, levels, alerts, migrations and their generated JSON removed; the crate's standard vocabulary is the bundled pack; schema 2's field list kept only as a frozen test fixture) | Its README and docs still describe the removed files. The format maps and the rest of the editor catalogue keep schema 2's paths: the library reads both |
+| `rusty-bidding-bot` | v0.15.3: its own `conventions/`, compiled in | Draft #90 (rule language 2, a pack read from its source tree), #91 (a pack read from `pack.json`, by `--rules` and by the WASM API's `pack`) and #92 (a copy of the snapshot compiled in and used by default, `conventions/` and `docs/SKILLS.md` removed, tests reading the copy, the rule checker page checking against the pack, pinned to the card tools without their field list) | Its README and other docs still describe `conventions/`. `rbb bid check` and `rbb bid test` need a folder, so a pack checkout |
 | Bridge Classroom | Pins the card tools by tag and the engine's WASM by release and hash | | Bump both pins (#38). Fetch the snapshot at build and hand it to Rusty (#39). Show the rules number (#28). Receive the skills taxonomy |
 | Better BBO Convention Card | Pins the card tools by tag | | Bump the pin (#38) |
 | Practice-Bidding-Scenarios, lesson-studio | Check IDs against nothing, or a stopgap copy | | Validate against the snapshot (#40) |
