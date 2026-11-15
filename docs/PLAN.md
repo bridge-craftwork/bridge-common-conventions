@@ -462,6 +462,111 @@ reviewed, as in phase 5.
 
 ### Phase 7: cut over
 
+#### Where each repo stands (2026-11-14)
+
+| Repo | On `main` today | Ready on a branch | Still to do before the cut-over |
+|---|---|---|---|
+| This one | Phases 0 to 6, published (rules number 21) | | Nothing blocks. `engine.env` names an engine commit; it names the release tag once there is one |
+| `convention-card` | v0.44.0: its own `spec/conventions/` and field list | Draft #120 (the crate reads a pack and schema 3 cards) and #121 (the JavaScript library reads the bundled snapshot; every card it writes is schema 3: exported files, the editor's saves to its host, the card in a PDF, the hand-off link; the crate reads `pack.json`) | `spec/conventions/`, `spec/fields.toml` and their generated JSON removed (#41). The format maps and the rest of the editor catalogue may keep schema 2's paths: the library reads both |
+| `rusty-bidding-bot` | v0.15.3: its own `conventions/`, compiled in | Draft #90 (rule language 2, a pack read from its source tree) and #91 (a pack read from `pack.json`, by `--rules` and by the WASM API's `pack`) | The compiled-in rules are still its own `conventions/`. Replace them with the snapshot and remove the folder (#41): 80 references in 20 source files, the reference site, `docs/SKILLS.md`, the CI path filters. `rbb bid check` and `rbb bid test` take a snapshot |
+| Bridge Classroom | Pins the card tools by tag and the engine's WASM by release and hash | | Bump both pins (#38). Fetch the snapshot at build and hand it to Rusty (#39). Show the rules number (#28). Receive the skills taxonomy |
+| Better BBO Convention Card | Pins the card tools by tag | | Bump the pin (#38) |
+| Practice-Bidding-Scenarios, lesson-studio | Check IDs against nothing, or a stopgap copy | | Validate against the snapshot (#40) |
+
+#### Decisions the cut-over needs
+
+1. **How the engine carries its rules once `conventions/` is gone.**
+   Settled in outline (Rick, 2026-11-15): rules evolve without a new
+   build of the engine or of its hosts. A host fetches the published
+   snapshot when it runs and hands it to the engine (the WASM API's
+   `pack`, `--rules pack.json`). The engine also keeps a copy of
+   `pack.json`, compiled in: the fallback when the snapshot cannot be
+   fetched or is in a rule language the engine does not read, the default
+   for `rbb` with no `--rules`, and the fixture for its own tests. A
+   script refreshes that copy at each engine release, not at each rule
+   change.
+2. **Where the engine's own tests get rules.** Its Rust tests use the real
+   rule files as fixtures. Agreed (Rick, 2026-11-15): they read the compiled-in snapshot;
+   the rule tests (`.test`) run only here, in this repo's CI, as they do
+   now.
+3. **Whether the card library must load a pack at run time for the
+   cut-over** (#22 in full). Agreed (Rick, 2026-11-15): no. Cut over on the bundled
+   snapshot, which is one loader and works offline; a host-supplied pack is
+   an addition afterwards (#52 needs it).
+4. **Which rules number a host shows.** The one in the snapshot it
+   fetched; the fallback's when it fell back. The card library's bundled
+   names may be older than the fetched rules. That is safe because names
+   are additive-only: an older library does not show a newer setting, and
+   the rules read it at its default.
+5. **When the skills and lesson sets leave** (below). Agreed (Rick, 2026-11-15): in the
+   same cut-over, since the editor's lesson links move with them; if that
+   proves large, straight after, with the pack unchanged meanwhile.
+
+6. **Where measurements are kept.** A rule change is judged by
+   comparisons: the same cards and deals bid before and after, and our
+   auctions against another bidder's. Today the conclusions are in each
+   module's `.notes.md` (here) and in pull request text; the runs
+   themselves are kept nowhere. Settled in outline (Rick, 2026-11-15):
+   the measurement belongs to the change, not to CI. Whoever makes the
+   change runs it and commits the record with it; publish runs nothing
+   extra. How much is run is graded by the change:
+
+   | The change | What is measured |
+   |---|---|
+   | Text only: a name, a brief, notes, references | Nothing |
+   | One convention's rules | Its `.test` lines, and targeted deals bid before and after on cards that play it |
+   | Rules many auctions pass through (system, judgement, base), a migration, or a default | Every public card bid before and after |
+   | A convention another bidder also plays, when the question is which is right | The same deals bid by that bidder (BBA, from the Practice-Bidding-Scenarios corpora or run from the command line) |
+
+   Recommended form: a `measurements/` folder here, one small file per
+   change: the bidder and its version, what was compared (rules before
+   and after, the cards, the deal set by name and hash), the auctions
+   changed per card, and the score against each reference bidder before
+   and after. Every record names its bidder, so another engine's runs sit
+   beside Rusty's. The full auction lists stay out of git. Only public
+   cards are named. CI checks a record's form, nothing more.
+
+Not built, and not needed for the cut-over:
+
+- **A snapshot per rule language.** There is one published snapshot. After
+  a language change an older engine refuses it and falls back to its
+  compiled-in rules; publishing the last snapshot of each language would
+  let it keep following.
+- **A user's own rules beside ours** (#48). It arrives the way the fetched
+  snapshot does; how a second pack is laid over this one is in the
+  contract's open list.
+
+#### Order
+
+Nothing below is done until the step before it is checked. Each tag and
+pin is one small pull request.
+
+1. **Freeze the pack** at a rules number. Capture the 22 public cards and
+   the hand-made cards with the branch tools: this is the reference.
+2. **`convention-card`:** remove the moved content; merge #120 and #121; tag (v0.45.0). Check: its tests, and
+   the exports of every captured card equal the reference.
+3. **`rusty-bidding-bot`:** merge #90 and #91; compile in a copy of the
+   snapshot and remove `conventions/`; pin `bridge-card` to the new tag; tag (v0.16.0),
+   which builds the release binary and the WASM. Check: the compiled-in
+   rules bid every captured card as the reference does.
+4. **This repo:** `engine.env` names the engine's release tag, so publish
+   downloads the binary instead of building it.
+5. **Bridge Classroom:** bump the card tools and the WASM pin; fetch the
+   published snapshot when it runs and hand it to Rusty; show the rules number beside the engine
+   version. Stored cards upgrade on load, by the migration. Check on a
+   staging build before the live one.
+6. **Better BBO Convention Card** and any service that renders cards: bump
+   the card tools pin.
+7. **Practice-Bidding-Scenarios and lesson-studio** validate their IDs
+   against the snapshot.
+8. **Docs** (#42), and close #22, #23, #24, #37 to #42.
+
+**Going back.** Every pin can return to its old tag. What cannot go back
+is a card saved in schema 3: the old library does not read it. So step 5's
+live build is the point of no return for stored cards; take a copy of them
+first.
+
+
 - New tags in `convention-card` and `rusty-bidding-bot`.
 - Pin bumps in Bridge Classroom and Better BBO Convention Card.
 - Cards converted from BBA files are converted again from their source,
