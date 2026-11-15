@@ -1,7 +1,7 @@
 {
  "schema": "pack-manifest/v1",
- "source_commit": "a5d55c07076c9c02dea73a973499c9fde1a1dc06",
- "rules_number": 17,
+ "source_commit": "38c95672aa6e3a2da33b063b39fbbec9d23fc38b",
+ "rules_number": 18,
  "name": "bridge-common-conventions",
  "pack_format_version": 1,
  "card_schema_version": 3,
@@ -901,8 +901,8 @@
    "changed": "2026-11-14T12:36:57-08:00"
   },
   "conventions/competitive_bidding/jordan_2nt/convention.toml": {
-   "sha256": "b2cb9694383c6c6c44364ddfcb635d5876087fc95a823bc82e1f7f9e595d811a",
-   "changed": "2026-11-13T23:15:09-08:00"
+   "sha256": "bcee32f2914d48a005a7b18b3ed2f74ac444fda2e7ac855dbdfe58a14c5bee8e",
+   "changed": "2026-11-14T20:28:38-08:00"
   },
   "conventions/competitive_bidding/landy/convention.toml": {
    "sha256": "4ba23bf8187a3cd1153d0d8779f7b488784a136add6828473eda1638f2b8a72c",
@@ -1337,8 +1337,8 @@
    "changed": "2026-09-30T13:35:03-07:00"
   },
   "functions.toml": {
-   "sha256": "f8f8072ed116745c3a2a3c3a7cfb2f682e29756ba8f833731cce44c126b22228",
-   "changed": "2026-11-14T19:46:10-08:00"
+   "sha256": "5c380476ac578f699b86551149eabe0dbe40407c2ed0407a36701f8e4d3aeba0",
+   "changed": "2026-11-14T20:28:38-08:00"
   },
   "levels.toml": {
    "sha256": "8c11f47bd6f32059bb291ee79762e9281cc547150cb942b00c0c7c9b070e7e18",
@@ -1349,8 +1349,8 @@
    "changed": "2026-10-30T15:06:24-07:00"
   },
   "migrations/2-to-3.toml": {
-   "sha256": "c6d1bc9fcc3cd90f9e6ae7657736b05d0e5010d776d7b1d1f9a87901868e64ea",
-   "changed": "2026-11-14T19:46:10-08:00"
+   "sha256": "6628a54f7eda3380b6afd866a8ce52fc311d02226c8a300eb5358bd375e5d712",
+   "changed": "2026-11-14T20:28:38-08:00"
   },
   "rules/base/base.bid": {
    "sha256": "0b4f33492853854c0f73dc92b77a9094c04153c97061ea2cc99f21dc235c2350",
@@ -1737,16 +1737,16 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "rules/competitive/vs-takeout-double.bid": {
-   "sha256": "5711c7af245221c89dae2e26dc445725c21f788855fa1ef7509c4a9227075010",
-   "changed": "2026-11-14T18:37:56-08:00"
+   "sha256": "6b992ff4b9226cb41e376d5629dd74849e9a597d56f9d97a3056ab00883af6eb",
+   "changed": "2026-11-14T20:28:38-08:00"
   },
   "rules/competitive/vs-takeout-double.notes.md": {
    "sha256": "bd7309da87bb1cd8d5c20c615a8307aa394aff615455a83b94eb64e6e149d686",
    "changed": "2026-10-15T21:34:58-07:00"
   },
   "rules/competitive/vs-takeout-double.test": {
-   "sha256": "65734d0d5294808e2116051690c49dd7bd76f5524d406ef8c119fa1228465aae",
-   "changed": "2026-11-14T09:17:45-08:00"
+   "sha256": "263578d9531590f531d82c3ffaa6d5e1627affd246cf9dfb9aff8bd11919e62a",
+   "changed": "2026-11-14T20:28:38-08:00"
   },
   "rules/competitive/western-cue.bid": {
    "sha256": "28ff95c3f079a065b21b7cabfdcb7f4a3ca2bf3e3b527373cf062d613c698de0",
@@ -2137,9 +2137,9 @@
    "changed": "2026-11-13T23:15:09-08:00"
   },
   "settings/vs_to_double.toml": {
-   "sha256": "f1c408d954b3d76074d95bd9beaf915eb4c600468bde63ed0b4b3c9b324d62ff",
-   "changed": "2026-11-14T18:37:56-08:00"
+   "sha256": "0575bbe397ec2d0964b0c92b3b17c3713d3524794433c1497c9a1d599ded8a4b",
+   "changed": "2026-11-14T20:28:38-08:00"
   }
  },
- "pack_sha256": "51fc55d3dbb3a342c7a143e0c5cd8128fa165c103c5765b2b61e1cd5c148c157"
+ "pack_sha256": "fe7208c919124efc025083a75b221538ba163fcb26fc21978c80f148c1572349"
 }
