@@ -4,25 +4,16 @@ How this repo gets from empty to being the one place bridge-craftwork's tools
 read conventions from. Written 2026-11-13 from a design review of
 `convention-card` and `rusty-bidding-bot` (Rick Wilson with Claude).
 
-Status: **Phase 0 done (contract accepted 2026-11-13). Phases 1 to 3 are
-drafted and await Rick's review: the inventory (PR #59), the "before"
-capture (#60), and the content moved, restructured and converted to rule
-language 2 (#61). On the 22 public cards the engine bids from this pack
-with no difference over 122,430 auctions. On 25 hand-made cards (Rick's own,
-captured outside this repo, 2026-11-14) 5,772 of 139,125 auctions change, all
-where the card fills in a convention's treatments without ticking it and the
-upgrade now plays it (Stayman on 24 cards, Texas and support doubles on
-one each). `convention-card`'s JavaScript library reads its vocabulary from
-the pack's snapshot (`scripts/build_snapshot.py`) and reads every card into
-what it means in schema 3, by the same rules as the crate (18 shared cases;
-identical output on those 47 cards). Its exported card files are schema 3.
-Inside, it still works in schema 2's paths. The other exports are
-byte-identical for the 22 public cards; on the 25 hand-made ones the only
-changes are boxes for conventions the upgrade now plays (3NT raise on ten
-cards; Drury, Texas and support doubles on one each). Not yet: the editor's
-save to its host, the card embedded in a PDF and the hand-off link still
-carry the working form, and the editor's catalogue and the format maps still
-name things by path.**
+Status: **Phases 0 to 6 are done and merged (2026-11-14). The pack is
+published from `main` to the `published` branch (rules number 19) and the
+overview page is live. Phase 5's corrections and Phase 6's placements are
+each recorded below with what they measured on the 22 public cards (122,430
+auctions) and on 25 hand-made cards captured outside this repo (139,125).
+Next is Phase 7, the cut-over: `convention-card` (draft PRs #120 and #121)
+and `rusty-bidding-bot` (draft PR #90) read the pack on branches and stay
+unmerged until everything moves at once. Still open from Phase 5: the
+editor's remaining rows (#34), weak jump shift ranges (#86), four sources
+not found (#47).**
 
 Rulings on the upgrade (Rick, 2026-11-14): a convention shown only in a note
 is played, since some cards have no box for it; where two conventions want
