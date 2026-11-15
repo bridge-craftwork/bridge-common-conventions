@@ -241,12 +241,15 @@ function build(pack, manifest) {
   // in its own right, unless a judgement definition already carries it. Its
   // context is that of the skill it names, else its folder's.
   const FOLDER = { slam: 'slam', competitive: 'after_interference', notrump: 'notrump_openings', base: 'general' }
+  // Either side may have started the competition, so a penalty double is
+  // one of our doubles, not only something after they interfere.
+  const PLACE = { 'rules/competitive/penalty-doubles.bid': 'doubles' }
   const carried = new Set(conventions.filter(c => c.judgement).flatMap(c => c.rules))
   for (const [path, text] of Object.entries(files)) {
     if (!path.endsWith('.bid') || !/^\s+kind\s+judgement\s*$/m.test(text) || carried.has(path)) continue
     const title = (text.match(/^module\s+\S+\s+"(.*)"/m) || [])[1] || path
     const skill = (text.match(/^\s+skill\s+([a-z_]+\/[a-z0-9_]+)/m) || [])[1]
-    const context = list(pack.conventions[skill]?.contexts)[0] || FOLDER[path.split('/')[1]] || 'general'
+    const context = PLACE[path] || list(pack.conventions[skill]?.contexts)[0] || FOLDER[path.split('/')[1]] || 'general'
     const test = path.replace(/\.bid$/, '.test'), notes = path.replace(/\.bid$/, '.notes.md')
     const short = path.split('/').pop().replace(/\.bid$/, '')
     conventions.push({
