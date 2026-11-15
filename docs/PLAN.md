@@ -483,8 +483,8 @@ reviewed, as in phase 5.
   are not conventions, and a set of lessons or deals is neither. They came
   in with `convention-card`'s `spec/conventions/`, which held the whole
   lesson taxonomy. Until the move, a definition says which it is
-  (`kind = "skill"` on 24, `kind = "lesson"` on 24; the other 139 are
-  conventions).
+  (`kind = "skill"` on 22, `kind = "judgement"` on 2, `kind = "lesson"` on
+  24; the other 139 are conventions).
   - The skills taxonomy goes to Bridge Classroom for now. Later it is to
     come back here as a separate bridge-skills entity, with a conventions
     part that refers to this list. It holds skills such as declarer play,
@@ -496,6 +496,20 @@ reviewed, as in phase 5.
     conventions a skill or lesson covers. The editor takes a row's lesson
     and level from there.
   - Removing published IDs needs a migration that says where each went.
+  - **Judgement is a third branch** of bridge-skills, beside natural
+    methods and conventions: hand evaluation, fit and level decisions,
+    total tricks, penalty doubles, slam decisions. It is how a bidder
+    decides, and no card records it. The engine's rule language already
+    says so: a module is `convention`, `defence`, `system` (the natural
+    system) or `judgement`, and the last two are "every robot's own".
+  - **The judgement rules stay in this repo**, since the engine reads one
+    pack and they lean on the conventions around them, but they are
+    labelled as one bidder's judgement and not a standard, as generated
+    examples name their bidder. Six modules today (`rules/base/fit.bid`,
+    `rules/competitive/total-tricks.bid` and `penalty-doubles.bid`,
+    `rules/slam/slam-entry.bid`, `slam-catch.bid` and `over-3nt.bid`).
+    Three of them name a lesson set as their skill; when the lesson links
+    turn round they name a judgement skill instead.
 
 **Done when** no other repo holds a copy of the names or the rules.
 
