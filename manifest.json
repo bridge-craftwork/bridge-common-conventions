@@ -1,7 +1,7 @@
 {
  "schema": "pack-manifest/v1",
- "source_commit": "aaca1ce723eceb00ea1263b7531ea0d80033c62a",
- "rules_number": 14,
+ "source_commit": "2f313c7619aca21d5bd46a04eb16cf70ab8eb5bd",
+ "rules_number": 15,
  "name": "bridge-common-conventions",
  "pack_format_version": 1,
  "card_schema_version": 3,
@@ -9,8 +9,8 @@
  "checked_with": "rbb 0.15.3 (rule language 2)",
  "files": {
   "alerts.toml": {
-   "sha256": "d6336d6b5058d35d74304402af0a34a2f74f582c1114c6709b0e0a3fdd12a19a",
-   "changed": "2026-11-14T12:09:25-08:00"
+   "sha256": "40f8b4b4edd2f840834842060390f5e861991d77bfb77f1bdad093412dffdc82",
+   "changed": "2026-11-14T16:51:21-08:00"
   },
   "bridge-pack.toml": {
    "sha256": "a753a452262d79cacf77f58e510ab113aaf1675cc56dcad703159e32ad5284e8",
@@ -581,8 +581,8 @@
    "changed": "2026-11-14T12:36:57-08:00"
   },
   "conventions/bidding_conventions/reverse_flannery/convention.toml": {
-   "sha256": "b40acac1ad926f4c90804595acbb0aa65cd53725a09b6adcdfa486c6232df63f",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "239884db1e850b47584b289efec224a6c3d43815695acf3d833c40a8cc26fb08",
+   "changed": "2026-11-14T16:51:21-08:00"
   },
   "conventions/bidding_conventions/roman_keycard/convention.toml": {
    "sha256": "6647908653ede9121fe4f71ccd39a34848fe6c2a54163876992c9f06574ff32a",
@@ -1349,8 +1349,8 @@
    "changed": "2026-10-30T15:06:24-07:00"
   },
   "migrations/2-to-3.toml": {
-   "sha256": "e9d9f85910081348d26521eb36d7c8867342328188d8151b0f0e625b6b32dd1a",
-   "changed": "2026-11-14T15:17:35-08:00"
+   "sha256": "700b061b0a7d8883c14584a3f169b62b75e869926dae2e1116b6f49e8afce73c",
+   "changed": "2026-11-14T17:23:33-08:00"
   },
   "rules/base/base.bid": {
    "sha256": "0b4f33492853854c0f73dc92b77a9094c04153c97061ea2cc99f21dc235c2350",
@@ -1449,8 +1449,8 @@
    "changed": "2026-11-14T12:09:25-08:00"
   },
   "rules/base/responses.bid": {
-   "sha256": "d0e6ba9c036169c96442374680e03ad026c2b1b576b847b4898c839ba3c5bd46",
-   "changed": "2026-11-14T13:36:00-08:00"
+   "sha256": "5c01794536768de9c4baf52533767f93769af3c6da9bd2eab7828fe2cc0af034",
+   "changed": "2026-11-14T17:23:33-08:00"
   },
   "rules/base/responses.notes.md": {
    "sha256": "11787a49769ebae9e8013246ff6ed58af491a9bc6c5fe057e705b89935b6aa00",
@@ -1937,16 +1937,16 @@
    "changed": "2026-11-14T12:09:25-08:00"
   },
   "rules/openings/reverse-flannery.bid": {
-   "sha256": "e8e2b2abeedea8828db82c058ccff5ee19821b04e6c1d6f1a36718645eebbbb9",
-   "changed": "2026-11-13T23:37:41-08:00"
+   "sha256": "3907bd8514c6f657344a7acb5f9f98a80a16725a63e8a3686eefa153306c8325",
+   "changed": "2026-11-14T17:23:33-08:00"
   },
   "rules/openings/reverse-flannery.notes.md": {
-   "sha256": "63a6c6776413955359612e5cc60c6f7f679c370c8237086fd9a149d95457c04f",
-   "changed": "2026-10-05T15:24:13-07:00"
+   "sha256": "ba30570a4ab0d564029e5d91e5ce0493311924826aba3badeb5739879386bdad",
+   "changed": "2026-11-14T16:51:21-08:00"
   },
   "rules/openings/reverse-flannery.test": {
-   "sha256": "8c0a0521791db16885aaa6456a5ab47fd51e54f8972247d17ab4fdae348e63d4",
-   "changed": "2026-10-05T15:24:13-07:00"
+   "sha256": "dba773f7bed767c18a23adf586460904fc7f466481394c2ead0d06c7370d533b",
+   "changed": "2026-11-14T17:23:33-08:00"
   },
   "rules/openings/vs-multi.bid": {
    "sha256": "a3fde4053a438d8def5b578f17ff7ba463e9539257250ee761017737b5ad1e2b",
@@ -2141,5 +2141,5 @@
    "changed": "2026-11-13T23:15:09-08:00"
   }
  },
- "pack_sha256": "1277fbd67c02022bda94f59ce820e29082eb100ed4ebf52adfb7de63a8e7fe78"
+ "pack_sha256": "2b9a258062cacea5e892f7db75b79e4cd7964942c1836aed521734d586a1d1cf"
 }
