@@ -430,7 +430,16 @@ jump-shift conventions in Phase 5; of the other 68:
   (Rick), but as treatments of it a card that ticked "forcing 1NT" and was
   silent on 2/1 would be read as playing 2/1 (505 auctions on one hand-made
   card), so they stay settings until a treatment can belong to a convention
-  without implying it. Signals and leads
+  without implying it.
+
+Measured on the 22 public cards (122,430 auctions) and 25 hand-made ones
+(139,125): no auction changes on the public cards. On seven hand-made cards
+844 change, all because they tick a single-raise strength box and so now
+play Inverted minors (1♣ – 2♣ where they bid 3♣ or 2NT). The Michaels box
+alone still means Michaels over every opening; a card that also says where
+plays it only there. On printed cards and exports, a box that is now a
+second spelling shows wherever its twin does (the "jump to 2NT, two lowest"
+box on 18 public cards, the 4♣/4♦ transfer box on 7). Signals and leads
   are a choice among methods spread over boxes; one choice setting each
   belongs with the refresh of the names (Later).
 
