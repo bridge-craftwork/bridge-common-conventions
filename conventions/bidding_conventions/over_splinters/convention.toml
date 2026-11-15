@@ -2,6 +2,7 @@ id = "bidding_conventions/over_splinters"
 name = "Over-splinters"
 source = "proposed"
 level = 9
+contexts = ["major_openings"]
 names = ["Over-splinter", "Over-splinters"]
 summary = """
 A jump one level beyond a normal splinter, used when the normal splinter bid

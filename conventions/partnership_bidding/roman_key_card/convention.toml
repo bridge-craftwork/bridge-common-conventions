@@ -2,3 +2,4 @@ id = "partnership_bidding/roman_key_card"
 name = "Roman Key Card (Partnership)"
 source = "taxonomy"
 level = 4
+contexts = ["slam"]

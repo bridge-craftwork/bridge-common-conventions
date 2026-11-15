@@ -2,6 +2,7 @@ id = "competitive_bidding/transfer_advances"
 name = "Transfer advances"
 source = "proposed"
 level = 9
+contexts = ["overcalls"]
 names = ["Transfer advances", "Transfer advances of overcalls", "Transfers after partner's overcall"]
 summary = """
 After partner's overcall, advancer's bids are transfers to the next suit, so

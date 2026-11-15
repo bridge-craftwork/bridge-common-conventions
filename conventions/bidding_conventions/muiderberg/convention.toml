@@ -2,6 +2,7 @@ id = "bidding_conventions/muiderberg"
 name = "Muiderberg twos"
 source = "proposed"
 level = 8
+contexts = ["preemptive_openings"]
 implements = ["opening.2h", "opening.2s"]
 names = ["Muiderberg", "Muiderberg twos", "Muiderberg 2♥/2♠"]
 summary = """

@@ -2,6 +2,7 @@ id = "competitive_bidding/anti_lead_directing_doubles"
 name = "Anti-lead-directing doubles"
 source = "proposed"
 level = 9
+contexts = ["doubles"]
 names = ["Anti-lead-directing double", "Anti lead directing"]
 summary = """
 When a lead-directing double of an artificial bid is expected, a double asks

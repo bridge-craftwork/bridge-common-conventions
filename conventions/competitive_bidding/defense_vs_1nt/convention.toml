@@ -2,6 +2,7 @@ id = "competitive_bidding/defense_vs_1nt"
 name = "Defending against 1NT"
 source = "proposed"
 level = 5
+contexts = ["vs_notrump"]
 names = ["Defense to 1NT", "Defence to 1NT", "Conventional defense to 1NT"]
 summary = """
 An agreement on what overcalls and doubles of the opponents' 1NT mean,

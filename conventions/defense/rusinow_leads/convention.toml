@@ -2,6 +2,7 @@ id = "defense/rusinow_leads"
 name = "Rusinow leads"
 source = "proposed"
 level = 8
+contexts = ["leads"]
 names = ["Rusinow", "Rusinow leads"]
 summary = """
 Played instead of standard honour leads: from touching honours lead the

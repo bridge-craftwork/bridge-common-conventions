@@ -104,9 +104,9 @@ rule_language_version = 2
 - **An ID is permanent.** It is never renamed, reused for something else, or
   removed. A definition that is superseded stays, with a migration that says
   what replaced it.
-- A convention and a skill share one namespace. A skill that never appears
-  on a card (`declarer_play/holdup`) has a definition with no context and no
-  treatments.
+- A convention and a skill share one namespace. A skill no context fits
+  (`declarer_play/holdup_plays`: card play, not an agreement) has a
+  definition with no context and no treatments.
 
 ### 4. The definition
 
@@ -117,7 +117,7 @@ rule_language_version = 2
 | `id` | The ID; must match the path |
 | `name` | Display name |
 | `label`, `desc` | The caption and one-line description a card editor shows, where they differ from `name` and `summary`. Carried from the card's switch; Phase 5 folds them in |
-| `contexts` | One or more context keys. The first is the main one. Left out for a skill that never appears on a card |
+| `contexts` | One or more context keys: where it applies. The first is the main one. Left out only where no context fits (card play), or for a style of another convention, which applies where its parent does |
 | `level` | 1 to 10: the lowest level at which it is taught. Bands are derived from `levels.toml`, never stored |
 | `names` | The ways people write it, for finding it in free text |
 | `confirm`, `confirm_names` | Names that are ordinary words or could mean another convention; a match on one is offered to a person, not applied |
@@ -544,8 +544,9 @@ the card and the name of the bidder that produced the auction.
   gave each auction and when.
 - **Name the bidder on every generated example.** It shows what one bidder
   does. What a person has asserted goes in a `.test` file.
-- **Give every definition a context, a level and a summary** when it can
-  appear on a card.
+- **Give every definition a context, a level and a summary** wherever a
+  context fits. A context says where the convention applies; whether a
+  card has a place for it is each card model's business, not the pack's.
 - **Mark generic names.** A name that is an ordinary word, or that could
   mean another convention, goes in `confirm_names`.
 - **Make one rule file one convention where the bridge allows it**, with the
@@ -610,6 +611,7 @@ None changes a decision.
 | 4, 12 | `retired = "<date>"` on a treatment: the name stays and a card that holds it still loads and keeps it, but no tool shows it, no rule reads it and no alert names it | Reverse Flannery's `two_d` was left from when the convention was described as a 2♦ opening; it has nothing to do with one (Rick, 2026-11-14, #69). Retiring keeps the additive-only promise without a migration that throws a card's value away |
 | 11 | `[[stood_for]]` in the 2-to-3 migration: a yes/no treatment that, on, turns on the treatments in `means` the card left unset | Reverse Flannery's 2♦ box was the only one an editor offered, so a card that ticked it plays both jumps over one of a minor (Rick, 2026-11-14, #69) |
 | 6 | `checkback_after_1nt_rebid`: New Minor Forcing (its `after_1nt_rebid` place), two-way NMF, Checkback, Roudi and XYZ fill it | They are alternatives for responder's 2♣/2♦ after a 1NT rebid. The five `independent` treatments became places (#91), so none is left; the key stays readable |
+| 3, 4 | A context is where a definition applies, not a sign that a card holds it. 62 definitions that had none now have one (lesson topics such as Major Suit Openings, conventions no card has a box for such as Muiderberg). Left without: card play, practice-deal sets, and styles of another convention | The pack names no card, so "not on a card" was not its to say (Rick, 2026-11-14). A card may list any ID, as before |
 | 4 | `brief` on a definition, and on a treatment that is a place: one line for a row in a list of conventions ("2♦ → 2♥, 2♥ → 2♠" for Jacoby transfers) | The card editor's hand-written catalogue held a caption for each row. The row is now drawn from the definition (the plan's Phase 5 item), so the caption lives with it |
 | 5 | The card's 4NT notes line (`slam.blackwood.notes`) is a setting; it was a treatment of Blackwood | It is the free line beside the 4NT boxes and is about whatever ace ask the card plays. As a Blackwood treatment, a card holding only that line was taken to play Blackwood (#72) |
 | 9 | `convention <id> default true` | With Stayman unset the 1NT rules took it as off and the 2NT rules as on (#73). A silent card now plays Stayman and Jacoby transfers in both places |

@@ -2,6 +2,7 @@ id = "defense/opening_leads"
 name = "Opening Leads"
 source = "taxonomy"
 level = 2
+contexts = ["leads"]
 names = ["Opening leads", "Fourth best", "Top of a sequence"]
 summary = """
 The partnership's choice of card from each kind of holding on opening lead,

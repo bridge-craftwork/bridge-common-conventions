@@ -107,12 +107,13 @@ dialog::backdrop { background: rgba(0, 0, 0, .45); }
       <label>Show
         <select id="kind">
           <option value="">everything</option>
-          <option value="card">a card entry of its own</option>
-          <option value="part">held as part of another convention or setting</option>
-          <option value="skill">skills: nothing on a card</option>
+          <option value="card">has a context</option>
+          <option value="part">part of another convention or setting</option>
+          <option value="skill">no context</option>
         </select>
       </label>
       <label>Category <select id="cat"><option value="">every category</option></select></label>
+      <label>Group by <select id="group"><option value="cat">category</option><option value="context">context</option></select></label>
       <label><input type="checkbox" id="recent"> Highlight changes in the last</label>
       <label><select id="days"><option>7</option><option selected>30</option><option>90</option></select> days</label>
       <label><input type="checkbox" id="only-recent"> show only those</label>
@@ -136,8 +137,8 @@ const MARKS = [
   ['n', 'N', 'Notes', c => c.notes.length],
   ['s', 'S', 'Sources cited', c => c.refs],
   ['f', 'F', 'Fills a function', c => c.functions.length],
-  ['c', 'C', 'A card entry of its own', c => (c.card ? 1 : 0)],
-  ['p', 'P', 'Held as part of another convention or setting', c => c.heldBy.length],
+  ['c', 'C', 'Has a context: where it applies', c => (c.card ? 1 : 0)],
+  ['p', 'P', 'Part of another convention or setting', c => c.heldBy.length],
   ['d', 'D', 'Deals or a dealer script', c => c.deals],
 ]
 const $ = id => document.getElementById(id)
@@ -178,14 +179,16 @@ function build(pack, manifest) {
     for (const id of ids) named.set(id, [...(named.get(id) || []), path])
   }
   const cases = text => (text.match(/^[NESW] .*\|/gm) || []).length
-  // A convention with no entry of its own may still be on a card: as a
-  // treatment of another convention, or as a setting or one of its options.
+  // A definition with no context of its own may be part of another: a
+  // treatment of a convention, a style of one, or a setting or its option.
   const heldBy = new Map()
   const hold = (id, what) => heldBy.set(id, [...new Set([...(heldBy.get(id) || []), what])])
   for (const d of Object.values(pack.conventions)) {
     for (const [t, a] of Object.entries(d.treatments || {})) {
       for (const id of list(a.skill === false ? [] : a.skill)) if (id !== d.id) hold(id, `${d.name}: ${t}`)
+      for (const [option, id] of Object.entries(a.plays || {})) hold(id, `${d.name}: ${t} = ${option}`)
     }
+    for (const of of list(d.style_of)) hold(d.id, `${pack.conventions[of.split(':')[0]]?.name ?? of}: ${of.split(':')[1]}`)
   }
   for (const [section, fields] of Object.entries(pack.settings || {})) {
     for (const [key, a] of Object.entries(fields)) {
@@ -251,8 +254,8 @@ function draw() {
   const sum = $('summary')
   sum.replaceChildren(
     el('div', {}, el('b', { text: conventions.length }), 'definitions'),
-    el('div', {}, el('b', { text: count(c => c.card) }), 'with a card entry'),
-    el('div', {}, el('b', { text: count(c => c.heldBy.length) }), 'held another way'),
+    el('div', {}, el('b', { text: count(c => c.card) }), 'with a context'),
+    el('div', {}, el('b', { text: count(c => c.heldBy.length) }), 'part of another'),
     el('div', {}, el('b', { text: conventions.reduce((n, c) => n + c.treatments.length, 0) }), 'treatments'),
     el('div', {}, el('b', { text: count(c => c.rules.length) }), 'with bidding rules'),
     el('div', {}, el('b', { text: model.allCases }), 'rule test cases'),
@@ -274,11 +277,15 @@ function draw() {
 
   const grid = $('grid')
   grid.replaceChildren()
-  const cats = [...new Set(conventions.map(c => c.cat))]
+  // Grouped by category, or by the context each applies in (its first).
+  const byContext = state.group === 'context'
+  const keyOf = c => (byContext ? c.contexts[0] || (c.heldBy.length ? '(part)' : '(none)') : c.cat)
+  const cats = byContext ? [...Object.keys(model.pack.contexts || {}), '(part)', '(none)'] : [...new Set(conventions.map(c => c.cat))]
+  const title = k => (!byContext ? catName(k) : k === '(part)' ? 'Part of another convention or setting' : k === '(none)' ? 'No context' : model.pack.contexts[k]?.name || k)
   for (const cat of cats) {
-    const rows = shown.filter(c => c.cat === cat).sort((a, b) => (a.level ?? 99) - (b.level ?? 99) || a.name.localeCompare(b.name))
+    const rows = shown.filter(c => keyOf(c) === cat).sort((a, b) => (a.level ?? 99) - (b.level ?? 99) || a.name.localeCompare(b.name))
     if (!rows.length) continue
-    grid.append(el('h2', { class: 'cat' }, catName(cat), el('small', { text: `${rows.length} shown` })))
+    grid.append(el('h2', { class: 'cat' }, title(cat), el('small', { text: `${rows.length} shown` })))
     const box = el('div', { class: 'rows' })
     for (const c of rows) box.append(row(c))
     grid.append(box)
@@ -295,7 +302,7 @@ function row(c) {
   const treats = el('div', { class: 'treats' })
   for (const f of c.functions) treats.append(el('span', { class: 'chip fn', title: 'Fills this function', text: `→ ${f}` }))
   for (const t of c.treatments) treats.append(el('span', { class: 'chip', title: t.label || t.name, text: t.name }))
-  for (const h of c.heldBy.slice(0, 3)) treats.append(el('span', { class: 'chip held', title: 'On a card as this, not as an entry of its own', text: `in ${h}` }))
+  for (const h of c.heldBy.slice(0, 3)) treats.append(el('span', { class: 'chip held', title: 'Part of this, with no context of its own', text: `in ${h}` }))
   if (c.heldBy.length > 3) treats.append(el('span', { class: 'none', text: `+${c.heldBy.length - 3} more` }))
   if (!c.functions.length && !c.treatments.length && !c.heldBy.length) treats.append(el('span', { class: 'none', text: c.card ? 'no treatments' : '' }))
   const r = el('div', { class: `row${recent ? ' recent' : ''}`, tabindex: '0', role: 'button' },
@@ -322,8 +329,8 @@ function detail(c) {
   if (c.contexts.length || c.functions.length) {
     section('Where it applies', el('p', {},
       c.contexts.length ? `Context: ${c.contexts.join(', ')}. `
-        : c.heldBy.length ? `No card entry of its own. On a card as: ${c.heldBy.join('; ')}. `
-        : 'Nothing on a card. ',
+        : c.heldBy.length ? `No context of its own. Part of: ${c.heldBy.join('; ')}. `
+        : 'No context. ',
       c.functions.length ? `Fills: ${c.functions.join(', ')}.` : ''))
   }
   if (c.treatments.length) {
@@ -356,6 +363,7 @@ function wire() {
   $('q').oninput = e => { state.q = e.target.value.trim().toLowerCase(); draw() }
   $('kind').onchange = e => { state.kind = e.target.value; draw() }
   cat.onchange = e => { state.cat = e.target.value; draw() }
+  $('group').onchange = e => { state.group = e.target.value; draw() }
   $('recent').onchange = e => { state.recent = e.target.checked; draw() }
   $('only-recent').onchange = e => { state.onlyRecent = e.target.checked; if (e.target.checked) { state.recent = true; $('recent').checked = true } draw() }
   $('days').onchange = e => { state.days = Number(e.target.value); draw() }

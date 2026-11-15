@@ -2,6 +2,7 @@ id = "bidding_conventions/kokish_game_tries"
 name = "Kokish game tries"
 source = "proposed"
 level = 9
+contexts = ["major_openings"]
 names = ["Kokish game tries"]
 summary = """
 A structure of game tries after a major-suit raise that uses the next step

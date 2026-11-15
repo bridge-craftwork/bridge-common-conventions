@@ -2,6 +2,7 @@ id = "competitive_bidding/good_bad_2nt"
 name = "Good/bad 2NT"
 source = "proposed"
 level = 9
+contexts = ["after_interference"]
 names = ["Good/bad 2NT", "Good-bad 2NT", "Good bad 2NT"]
 summary = """
 In a competitive auction where the opponents have just bid at the two level,

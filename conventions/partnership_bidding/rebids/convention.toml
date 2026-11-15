@@ -2,3 +2,4 @@ id = "partnership_bidding/rebids"
 name = "Rebids by Opener or Responder"
 source = "lessons"
 level = 3
+contexts = ["responses_rebids"]

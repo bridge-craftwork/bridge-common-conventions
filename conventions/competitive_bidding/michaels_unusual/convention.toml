@@ -2,6 +2,7 @@ id = "competitive_bidding/michaels_unusual"
 name = "Michaels & Unusual 2NT"
 source = "taxonomy"
 level = 4
+contexts = ["overcalls"]
 names = ["Michaels", "Michaels cue bid", "Michaels cuebid", "Unusual 2NT", "Unusual notrump", "Unusual NT"]
 summary = """
 Two-suited overcalls. A cue bid of their suit shows five-five in two other

@@ -2,6 +2,7 @@ id = "bidding_conventions/bart"
 name = "BART"
 source = "proposed"
 level = 8
+contexts = ["major_openings"]
 names = ["BART"]
 summary = """
 After 1♥ or 1♠, a forcing 1NT and opener's 2♣, responder's 2♦ is artificial,

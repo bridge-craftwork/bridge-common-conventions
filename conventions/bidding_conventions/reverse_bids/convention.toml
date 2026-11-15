@@ -2,6 +2,7 @@ id = "bidding_conventions/reverse_bids"
 name = "Reverse Bids"
 source = "taxonomy"
 level = 4
+contexts = ["responses_rebids"]
 names = ["Reverse", "Reverses", "Reverse bid"]
 confirm_names = ["Reverse"]
 summary = """

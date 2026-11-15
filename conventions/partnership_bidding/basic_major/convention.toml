@@ -2,3 +2,4 @@ id = "partnership_bidding/basic_major"
 name = "Basic Major (Partnership)"
 source = "taxonomy"
 level = 1
+contexts = ["major_openings"]

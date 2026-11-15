@@ -2,6 +2,7 @@ id = "competitive_bidding/thrump_double"
 name = "Thrump double"
 source = "proposed"
 level = 8
+contexts = ["after_interference"]
 names = ["Thrump double", "Thrump X", "Bergen Thrump"]
 summary = """
 After partner opens and the opponents preempt at the three level,

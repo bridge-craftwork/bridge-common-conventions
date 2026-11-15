@@ -2,6 +2,7 @@ id = "competitive_bidding/mitchell_stayman"
 name = "Mitchell Stayman"
 source = "proposed"
 level = 8
+contexts = ["after_interference"]
 names = ["Mitchell Stayman"]
 summary = """
 After partner's minor opening and their 1NT overcall, responder's 2♣ shows

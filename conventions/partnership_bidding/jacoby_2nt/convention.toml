@@ -2,3 +2,4 @@ id = "partnership_bidding/jacoby_2nt"
 name = "Jacoby 2NT (Partnership)"
 source = "taxonomy"
 level = 4
+contexts = ["major_openings"]
