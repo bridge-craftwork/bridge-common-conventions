@@ -2,9 +2,6 @@
 # The attributes are described in settings/README.md.
 
 "reverse_bids.forcing"     = { kind = "bool", label = "Reverses forcing", skill = "bidding_conventions/reverse_bids", level = 4 }
-"two_way_nmf"              = { kind = "bool", label = "Two-way new minor forcing", skill = "bidding_conventions/two_way_nmf", level = 8 }
-"two_way_nmf_by_passed_hand" = { kind = "bool", label = "Two-way NMF by a passed hand", skill = "bidding_conventions/two_way_nmf", level = 8 }
-"xyz"                      = { kind = "bool", label = "XYZ", skill = "bidding_conventions/xyz", level = 9 }
 "jump_shift_response"      = { kind = "text", label = "Jump shift responses (as written)", desc = "The card's jump-shift line as an importer wrote it (\"Weak\")" }
 "notes"                    = { kind = "text", label = "Other conventions notes", note = true }
 "vs_strong_open"           = { kind = "text", label = "Defense vs strong openings" }

@@ -1,5 +1,5 @@
 # Transfer Walsh: Basic-Bridge with transfer responses to 1C.
-card    Basic-Bridge minor_openings.one_club.transfer_resp=true
+card    Basic-Bridge bidding_conventions/transfer_walsh=true
 dealer  S
 
 # seat hand             | auction             | expect | why

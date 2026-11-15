@@ -712,6 +712,8 @@ order = [
 # and a treatment that required its own convention's switch. A reader that
 # still shows schema 2 paths needs them; schema 3 does not.
 [was]
+"carding.first_discard.lavinthal" = { choice = "carding.first_discard" }
+"carding.first_discard.odd_even" = { choice = "carding.first_discard" }
 "major_openings.bergen_raises.play" = { choice = "major_openings.bergen" }
 "slam.blackwood.play" = { choice = "slam.ace_ask" }
 "slam.rkcb.play" = { choice = "slam.ace_ask" }
@@ -720,6 +722,17 @@ order = [
 "two_level.parrish_bust.relay" = { requires = "two_level.parrish_bust.play" }
 
 [convention]
+"other_conventions.xyz" = "bidding_conventions/xyz"
+"other_conventions.two_way_nmf" = "bidding_conventions/two_way_nmf"
+"minor_openings.one_club.transfer_resp" = "bidding_conventions/transfer_walsh"
+"vs_to_double.new_suit_forcing_tfr" = "bidding_conventions/transfers_after_double"
+"overcalls.responses.jump_cuebid_mixed" = "competitive_bidding/mixed_raise"
+"doubles.maximal" = "competitive_bidding/maximal_doubles"
+"slam.depo" = "bidding_conventions/depo"
+"carding.smith_echo" = "defense/smith_echo"
+"carding.trump_suit_preference" = "defense/trump_suit_preference"
+"carding.first_discard.lavinthal" = "defense/lavinthal"
+"carding.first_discard.odd_even" = "defense/odd_even_discards"
 "competitive.bromad.play" = "competitive_bidding/bromad"
 "competitive.cue_bid_raise.play" = "competitive_bidding/support_cuebids"
 "competitive.dont.play" = "competitive_bidding/dont"
@@ -796,6 +809,23 @@ order = [
 "two_level.wilkosz.play" = "bidding_conventions/wilkosz"
 
 [treatment]
+"other_conventions.two_way_nmf_by_passed_hand" = "bidding_conventions/two_way_nmf:by_passed_hand"
+"carding.smith_echo_nt" = "defense/smith_echo:vs_nt"
+"carding.smith_echo_suits" = "defense/smith_echo:vs_suits"
+"carding.smith_echo_reverse" = "defense/smith_echo:reverse"
+"carding.first_discard.lavinthal_nt" = "defense/lavinthal:vs_nt"
+"carding.first_discard.lavinthal_suits" = "defense/lavinthal:vs_suits"
+"carding.first_discard.odd_even_nt" = "defense/odd_even_discards:vs_nt"
+"carding.first_discard.odd_even_suits" = "defense/odd_even_discards:vs_suits"
+"direct_cuebids.nat_minors_michaels" = "competitive_bidding/michaels:over_minor"
+"direct_cuebids.nat_majors_michaels" = "competitive_bidding/michaels:over_major"
+"direct_cuebids.quasi_michaels" = "competitive_bidding/michaels:over_short_minor"
+"direct_cuebids.art_michaels" = "competitive_bidding/michaels:over_artificial_minor"
+"minor_openings.one_club.single_raise.gf" = "bidding_conventions/inverted_minors:club_raise_gf"
+"minor_openings.one_club.single_raise.inv" = "bidding_conventions/inverted_minors:club_raise_inv"
+"minor_openings.one_diamond.single_raise.gf" = "bidding_conventions/inverted_minors:diamond_raise_gf"
+"minor_openings.one_diamond.single_raise.inv" = "bidding_conventions/inverted_minors:diamond_raise_inv"
+"slam.king_ask.specific" = "bidding_conventions/roman_keycard:king_ask_specific"
 "competitive.michaels.minor_advance" = "competitive_bidding/michaels:minor_advance"
 "competitive.michaels.strength" = "competitive_bidding/michaels:strength"
 "competitive.unusual_2nt.shows" = "competitive_bidding/unusual_notrump:shows"
@@ -895,6 +925,15 @@ switches = { "general.jump_shifts.strong_2" = "two_level", "general.jump_shifts.
 convention = "bidding_conventions/weak_jump_shifts"
 switches = { "general.jump_shifts.weak_2" = "two_level", "general.jump_shifts.weak_3" = "three_level" }
 
+# Phase 6: boxes that had no convention of their own.
+[[place]]
+convention = "bidding_conventions/dopi_ropi"
+switches = { "slam.dopi" = "dopi", "slam.ropi" = "ropi" }
+
+[[place]]
+convention = "defense/upside_down_signals"
+switches = { "carding.suits.upside_down_attitude" = "attitude_suits", "carding.suits.upside_down_count" = "count_suits", "carding.nt.upside_down_attitude" = "attitude_nt", "carding.nt.upside_down_count" = "count_nt", "carding.first_discard.upside_down" = "first_discard", "carding.inverted_count" = "count" }
+
 # Puppet Stayman's two boxes sat under Stayman, and a card that showed
 # either was read as playing Stayman.
 [[place]]
@@ -937,6 +976,9 @@ options = { weak = "bidding_conventions/weak_2s", intermediate = "bidding_conven
 no_entry = ["conventional"]
 
 [alias]
+"preempts.transfer_4_minor" = "bidding_conventions/namyats"
+"overcalls.responses.support_cuebid" = "competitive_bidding/support_cuebids"
+"nt_overcalls.jump_2nt_lowest_unbid" = "competitive_bidding/unusual_notrump:at_2nt"
 "competitive.defense_vs_strong_nt.convention" = "defence_to_1nt.strong"
 "competitive.negative_doubles.through" = "competitive_bidding/negative_doubles:through"
 "major_openings.drury.two_way" = "bidding_conventions/drury:two_d"

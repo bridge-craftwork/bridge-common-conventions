@@ -1,7 +1,10 @@
 id = "defense/trump_suit_preference"
 name = "Trump suit preference"
+label = "Trump suit preference"
+desc = "A defender's spot cards in trumps show suit preference (high for the higher side suit), not count"
 source = "proposed"
 level = 6
+contexts = ["signals"]
 names = ["Trump suit preference", "Trump suit-preference", "Trump suit pref", "Trump SP", "Suit preference in trumps", "Suit preference in trump"]
 summary = """
 A defender's spot cards in the trump suit show suit preference, not count:

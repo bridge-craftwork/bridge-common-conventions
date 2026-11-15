@@ -22,11 +22,11 @@ N 8.AQ9732.K94.AKJ      | 1NT P 4D P 4H P 4NT X XX P           | 5H     | ROPI "
 N 8.AQ9732.AK4.AKJ      | 1NT P 4D P 4H P 4NT 5C X P           | 6H     | three of mine and one: slam
 
 # Off the card: the uncontested answers, regardless of the interference.
-card    21GF-DEFAULT slam.dopi=false slam.ropi=false
+card    21GF-DEFAULT bidding_conventions/dopi_ropi:dopi=false bidding_conventions/dopi_ropi:ropi=false
 S AK5.K74.KQ82.A93      | 1NT P 4D P 4H P 4NT 5C               | 5D     | no DOPI: "0 or 3" by the step over the ask
 
 # Standard Blackwood: double 0 or 4 aces, pass 1, then 2 and 3.
-card    Basic-Bridge slam.dopi=true slam.ropi=true
+card    Basic-Bridge bidding_conventions/dopi_ropi:dopi=true bidding_conventions/dopi_ropi:ropi=true
 N K532.J83.QJ43.Q3      | 1S P 3S P 4NT 5C                     | X      | no aces: "0 or 4"
 N A532.J83.QJ43.Q3      | 1S P 3S P 4NT 5C                     | P      | one ace
 N A532.A83.QJ43.Q3      | 1S P 3S P 4NT 5C                     | 5D     | two aces: the first step
@@ -35,7 +35,7 @@ S AK932.KQ4.KQ5.K2      | 1S P 3S P 4NT 5C P P                 | X      | one an
 S AK932.KQ4.KQ5.K2      | 1S P 3S P 4NT 5C 5D P                | 6S     | one and two: one missing, slam
 
 # DEPO (slam.depo): double even, pass odd, instead of DOPI.
-card    21GF-DEFAULT slam.depo=true
+card    21GF-DEFAULT bidding_conventions/depo=true
 dealer  S
 S KJ5.Q74.KQ82.Q93      | 1NT P 4D P 4H P 4NT 5C               | X      | none: even
 S AK5.KQ4.Q982.Q93      | 1NT P 4D P 4H P 4NT 5C               | X      | two: even (no DOPI step)

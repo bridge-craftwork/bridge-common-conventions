@@ -15,7 +15,7 @@ module rkcb-1430 "Roman Keycard Blackwood (1430 or 0314, as the card says)"
   param  gstyle = general.style
   param  style = bidding_conventions/control_bids:style default first_or_second_round
   param  kstyle = slam.king_ask.style default five_nt   # five_nt | next_step | none (convention-card 0.28); a card that is silent plays 5NT (2026-10-29)
-  param  kspec  = slam.king_ask.specific default false
+  param  kspec  = bidding_conventions/roman_keycard:king_ask_specific default false
 
 # ── The ask ───────────────────────────────────────────────────────────
 #

@@ -34,7 +34,7 @@ module advances "Advancing partner's overcall"
   skill  competitive_bidding/support_cuebids
   skill  competitive_bidding/mixed_raise
   param  jump_raise = overcalls.responses.jump_raise default weak
-  param  mixed      = overcalls.responses.jump_cuebid_mixed default false
+  param  mixed      = competitive_bidding/mixed_raise default false
 
 after (1x) 1y (P)
   2{y} "Raise: 8-11 with three {y}, up to 11 with four"

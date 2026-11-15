@@ -1,5 +1,6 @@
 id = "defense/reverse_smith_echo"
 name = "Reverse Smith echo"
+style_of = ["defense/smith_echo:reverse"]
 source = "proposed"
 level = 8
 names = ["Reverse Smith", "Reverse Smith echo"]

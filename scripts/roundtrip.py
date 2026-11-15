@@ -44,6 +44,16 @@ CORRECTED = {
         "#69: left from the 2♦ opening Reverse Flannery never was (Rick, 2026-11-14)",
 }
 
+# Phase 6: a box that was the same agreement as a convention's own switch is
+# now a second spelling of it (Rick, 2026-11-14).
+SAME_BOX = {
+    "preempts.transfer_4_minor": "the Namyats box",
+    "overcalls.responses.support_cuebid": "the cue-bid raise box",
+    "nt_overcalls.jump_2nt_lowest_unbid": "the Unusual 2NT box",
+}
+for _path in ("preempts.namyats.play", "competitive.cue_bid_raise.play", "competitive.unusual_2nt.play"):
+    CORRECTED[(_path, "aliases")] = "Phase 6: a second box for the same agreement is now a spelling of this one"
+
 # Rule files whose bidding was corrected on purpose (Phase 5), and why.
 # Their text is no longer the tag's; the rule tests and the reviewed
 # differences are what hold them.
@@ -53,6 +63,7 @@ CORRECTED_RULES = {
     "weak-jump-shifts.test": "#74: cases added", "soloway.bid": "#74",
     "bergen.test": "#33: the Reverse Bergen card switches Bergen on",
     "reverse-flannery.notes.md": "#69: its open question is answered",
+    "two-suited-overcalls.bid": "Phase 6: a card that says where it plays Michaels plays it only there",
     "reverse-flannery.bid": "#69: a jump it takes is not also a strong jump shift",
     "reverse-flannery.test": "#69: case added",
     "stayman.bid": "#73: on for a silent card", "jacoby-transfers.bid": "#73: on for a silent card", "responses.bid": "#74, #69", "rebids.bid": "#74", "responder-rebids.bid": "#74",
@@ -176,7 +187,10 @@ def main():
     problems, expected, corrected = [], [], []
     for path in sorted(set(want) | set(got)):
         if path not in got:
-            problems.append(f"{path}: not in the pack")
+            if path in SAME_BOX:
+                corrected.append(f"{path}: {SAME_BOX[path]}")
+            else:
+                problems.append(f"{path}: not in the pack")
             continue
         if path not in want:
             problems.append(f"{path}: in the pack, not at {cc_tag}")

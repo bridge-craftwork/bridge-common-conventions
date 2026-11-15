@@ -17,7 +17,7 @@
 
 module transfer-walsh "Transfer Walsh responses to 1♣"
   kind   convention
-  card   minor_openings.one_club.transfer_resp
+  card   bidding_conventions/transfer_walsh
   needs  responder-rebids
   skill  bidding_conventions/transfer_walsh
   param  q4n = bidding_conventions/quantitative_4nt default true

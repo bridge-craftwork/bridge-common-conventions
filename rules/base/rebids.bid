@@ -26,7 +26,7 @@ module rebids "Opener's rebid"
   param  gf21 = bidding_conventions/two_over_one default false
   param  style21 = bidding_conventions/two_over_one:rebid_style default bergen
   param  semi = major_openings.one_nt_response.semi_forcing default false
-  param  twalsh = minor_openings.one_club.transfer_resp default false
+  param  twalsh = bidding_conventions/transfer_walsh default false
   param  rkcb = bidding_conventions/roman_keycard default false
 
 # A notrump jump reaches 3NT at most: the last bid is below 2NT, so the

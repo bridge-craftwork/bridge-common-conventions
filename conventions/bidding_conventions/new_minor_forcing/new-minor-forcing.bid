@@ -12,8 +12,8 @@ module new-minor-forcing "New Minor Forcing"
   skill  bidding_conventions/new_minor_forcing
   param  checkback = bidding_conventions/checkback default false
   param  roudi = bidding_conventions/roudi default false
-  param  twoway = other_conventions.two_way_nmf default false
-  param  xyz = other_conventions.xyz default false
+  param  twoway = bidding_conventions/two_way_nmf default false
+  param  xyz = bidding_conventions/xyz default false
 
 # Checkback, Roudi and two-way NMF each replace NMF when the card has
 # both (no PBS card does).

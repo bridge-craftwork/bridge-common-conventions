@@ -11,7 +11,6 @@
 "one_diamond.nf0"          = { kind = "bool", label = "1♦ NF0" }
 "one_club.one_diamond_response" = { kind = "text", label = "1♣–1♦ response", desc = "What a 1♦ response to 1♣ shows (the New card's 1♦ line under 1♣)" }
 "one_club.art_forcing"     = { kind = "bool", label = "1♣ artificial forcing" }
-"one_club.transfer_resp"   = { kind = "bool", label = "Transfer responses to 1♣", skill = "bidding_conventions/transfer_walsh", level = 9 }
 "one_club.one_nt_range_min" = { kind = "int", label = "1♣–1NT range: minimum", min = 0, max = 20 }
 "one_club.one_nt_range_min_plus" = { kind = "bool", label = "1♣–1NT range: minimum has a plus", choice = "minor_openings.one_club.one_nt_range_min_qualifier", desc = "A good hand at that end: the range written with a plus (\"14+-17\" is a good 14 to 17)" }
 "one_club.one_nt_range_min_minus" = { kind = "bool", label = "1♣–1NT range: minimum has a minus", choice = "minor_openings.one_club.one_nt_range_min_qualifier", desc = "A poor hand at that end: the range written with a minus (\"15-17-\" is 15 to a poor 17)" }
@@ -25,8 +24,6 @@
 "one_club.two_nt_range_max_plus" = { kind = "bool", label = "1♣–2NT range: maximum has a plus", choice = "minor_openings.one_club.two_nt_range_max_qualifier", desc = "A good hand at that end: the range written with a plus (\"14+-17\" is a good 14 to 17)" }
 "one_club.two_nt_range_max_minus" = { kind = "bool", label = "1♣–2NT range: maximum has a minus", choice = "minor_openings.one_club.two_nt_range_max_qualifier", desc = "A poor hand at that end: the range written with a minus (\"15-17-\" is 15 to a poor 17)" }
 "one_club.single_raise.nf" = { kind = "bool", label = "1♣ single raise: non-forcing", level = 2 }
-"one_club.single_raise.inv" = { kind = "bool", label = "1♣ single raise: invitational+", skill = "bidding_conventions/inverted_minors", level = 5 }
-"one_club.single_raise.gf" = { kind = "bool", label = "1♣ single raise: game forcing", skill = "bidding_conventions/inverted_minors", level = 5 }
 "one_club.jump_raise.weak" = { kind = "bool", label = "1♣ jump raise: weak", level = 4, choice = "minor_openings.jump_raise" }
 "one_club.jump_raise.mixed" = { kind = "bool", label = "1♣ jump raise: mixed", level = 6, choice = "minor_openings.jump_raise" }
 "one_club.jump_raise.inv"  = { kind = "bool", label = "1♣ jump raise: invitational", level = 3, choice = "minor_openings.jump_raise" }
@@ -61,8 +58,6 @@
 "one_diamond.two_nt_range_max_plus" = { kind = "bool", label = "1♦–2NT range: maximum has a plus", choice = "minor_openings.one_diamond.two_nt_range_max_qualifier", desc = "A good hand at that end: the range written with a plus (\"14+-17\" is a good 14 to 17)" }
 "one_diamond.two_nt_range_max_minus" = { kind = "bool", label = "1♦–2NT range: maximum has a minus", choice = "minor_openings.one_diamond.two_nt_range_max_qualifier", desc = "A poor hand at that end: the range written with a minus (\"15-17-\" is 15 to a poor 17)" }
 "one_diamond.single_raise.nf" = { kind = "bool", label = "1♦ single raise: non-forcing", level = 2 }
-"one_diamond.single_raise.inv" = { kind = "bool", label = "1♦ single raise: invitational+", skill = "bidding_conventions/inverted_minors", level = 5 }
-"one_diamond.single_raise.gf" = { kind = "bool", label = "1♦ single raise: game forcing", skill = "bidding_conventions/inverted_minors", level = 5 }
 "one_diamond.jump_raise.weak" = { kind = "bool", label = "1♦ jump raise: weak", level = 4, choice = "minor_openings.one_diamond.jump_raise" }
 "one_diamond.jump_raise.mixed" = { kind = "bool", label = "1♦ jump raise: mixed", level = 6, choice = "minor_openings.one_diamond.jump_raise" }
 "one_diamond.jump_raise.inv" = { kind = "bool", label = "1♦ jump raise: invitational", level = 3, choice = "minor_openings.one_diamond.jump_raise" }

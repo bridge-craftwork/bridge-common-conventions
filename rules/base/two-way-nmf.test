@@ -1,5 +1,5 @@
 # Two-way New Minor Forcing (xyNT): 21GF-DEFAULT with NMF swapped for it.
-card    21GF-DEFAULT bidding_conventions/new_minor_forcing=false other_conventions.two_way_nmf=true
+card    21GF-DEFAULT bidding_conventions/new_minor_forcing=false bidding_conventions/two_way_nmf=true
 dealer  S
 
 # seat hand             | auction                  | expect | why

@@ -1,7 +1,9 @@
 id = "bidding_conventions/two_way_nmf"
 name = "Two-way new minor forcing"
+label = "Two-way new minor forcing"
 source = "proposed"
 level = 8
+contexts = ["responses_rebids"]
 names = ["Two-way NMF", "Two-way new minor forcing", "xyNT"]
 summary = """
 Played instead of NMF: after opener's 1NT rebid, responder's 2♣ relays to 2♦
@@ -11,3 +13,8 @@ see = [
   { title = "Two-Way New Minor Forcing aka xyNT", site = "Bridge Winners", url = "https://bridgewinners.com/article/view/two-way-new-minor-forcing-aka-xynt" },
   { title = "2-Way New Minor Forcing and Wolff Signoff", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/586" },
 ]
+
+[treatments.by_passed_hand]
+kind = "bool"
+label = "Two-way NMF by a passed hand"
+level = 8

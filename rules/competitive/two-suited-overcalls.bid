@@ -69,13 +69,13 @@ module two-suited-overcalls "Michaels cue bids and the Unusual 2NT"
   skill  competitive_bidding/leaping_michaels
   skill  competitive_bidding/non_leaping_michaels
   param  mich_play   = competitive_bidding/michaels default false
-  param  mich_minors = direct_cuebids.nat_minors_michaels default false
-  param  mich_quasi  = direct_cuebids.quasi_michaels default false
-  param  mich_majors = direct_cuebids.nat_majors_michaels default false
+  param  mich_minors = competitive_bidding/michaels:over_minor default false
+  param  mich_quasi  = competitive_bidding/michaels:over_short_minor default false
+  param  mich_majors = competitive_bidding/michaels:over_major default false
   param  strength    = competitive_bidding/michaels:strength default wide_range
   param  mich_adv    = competitive_bidding/michaels:minor_advance default ask_2nt
   param  u2n_play    = competitive_bidding/unusual_notrump:at_2nt default false
-  param  u2n_jump    = nt_overcalls.jump_2nt_lowest_unbid default false
+  param  u2n_jump    = competitive_bidding/unusual_notrump:at_2nt default false
   param  uvu         = competitive_bidding/unusual_vs_unusual default false
   param  u1n_play    = competitive_bidding/unusual_notrump:at_1nt default false
   param  u4n_play    = competitive_bidding/unusual_notrump:at_4nt default false
@@ -95,7 +95,11 @@ module two-suited-overcalls "Michaels cue bids and the Unusual 2NT"
 # (takeout-double.bid).
 # Ghestem (ghestem.bid) replaces the one-level cue bids; its 2NT is this
 # file's Unusual 2NT.
-after (1m) when mich_minors | mich_quasi | mich_play, !ghestem
+# The Michaels box alone is Michaels over every opening. A card that also
+# says where (over a major, over a minor) plays it only there.
+define mich_all = mich_play, !(mich_minors | mich_quasi | mich_majors)
+
+after (1m) when mich_minors | mich_quasi | mich_all, !ghestem
   2{m} "Michaels: five or more in each major"
       alert  artificial
       shows H>=5, S>=5, hcp+length_points>=9, hcp<=17
@@ -118,7 +122,7 @@ after (1m) when mich_minors | mich_quasi | mich_play, !ghestem
       when  strength is weak_or_strong
 
 # ── Michaels over a major: the other major and a minor ───────────────
-after (1H) when mich_majors | mich_play, !ghestem
+after (1H) when mich_majors | mich_all, !ghestem
   2H  "Michaels: five or more spades and a five-card minor"
       alert  artificial
       shows S>=5, C>=5 | D>=5, hcp+length_points>=9, hcp<=17
@@ -140,7 +144,7 @@ after (1H) when mich_majors | mich_play, !ghestem
       shows S>=5, C>=5 | D>=5, hcp>=16
       when  strength is weak_or_strong
 
-after (1S) when mich_majors | mich_play, !ghestem
+after (1S) when mich_majors | mich_all, !ghestem
   2S  "Michaels: five or more hearts and a five-card minor"
       alert  artificial
       shows H>=5, C>=5 | D>=5, hcp+length_points>=9, hcp<=17
@@ -186,7 +190,7 @@ after (1D) when u2n_play | u2n_jump | ghestem
 # suits, with the wide-range values of the direct cue bid at either
 # card strength (weak_or_strong has no strong rebid this high). The cue
 # of a raised major (the other major and a minor) is not written.
-after (1m) P (2m) when mich_minors | mich_quasi | mich_play, !ghestem
+after (1m) P (2m) when mich_minors | mich_quasi | mich_all, !ghestem
   3{m} "Michaels: five or more in each major"
       alert  artificial
       shows H>=5, S>=5, hcp+length_points>=9, hcp<=17

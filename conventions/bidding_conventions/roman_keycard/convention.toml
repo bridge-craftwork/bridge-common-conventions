@@ -35,3 +35,9 @@ level = 6
 kind = "bool"
 label = "Queen ask"
 level = 6
+
+[treatments.king_ask_specific]
+kind = "bool"
+label = "King ask: specific kings"
+desc = "The king ask is answered by the cheapest side king below six of trumps (six of trumps with none) instead of the number of kings. A new suit below trumps then asks for that king: seven of trumps with it, six of a higher suit below trumps with that king instead, six of trumps with neither. The asker places the grand"
+level = 7

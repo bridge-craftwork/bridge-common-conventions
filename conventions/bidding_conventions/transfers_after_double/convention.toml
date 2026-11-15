@@ -1,7 +1,9 @@
 id = "bidding_conventions/transfers_after_double"
 name = "Transfers after a takeout double"
+label = "Vs takeout double: transfer responses"
 source = "proposed"
 level = 9
+contexts = ["after_interference"]
 names = ["Transfer responses after a double", "Transfers over a double", "Rubin transfers"]
 summary = """
 After partner's opening is doubled for takeout, responder's new-suit bids

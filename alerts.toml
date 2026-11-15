@@ -662,7 +662,7 @@ note = "Natural rebid that may bypass a major."
 
 # Transfer responses to 1♣
 [[alert]]
-fields = ["minor_openings.one_club.transfer_resp"]
+fields = ["bidding_conventions/transfer_walsh"]
 call = "1♦/1♥"
 after = "1♣"
 by = "responder"
@@ -671,7 +671,7 @@ wbf = "alert"
 note = "Transfer: partner names the suit shown (\"Hearts\", \"Spades\"). The WBF alerts it."
 
 [[alert]]
-fields = ["minor_openings.one_club.transfer_resp"]
+fields = ["bidding_conventions/transfer_walsh"]
 call = "1♠"
 after = "1♣"
 by = "responder"
@@ -680,7 +680,7 @@ ebu = "announce"
 note = "Denies a four-card major. Alerted in the ACBL and WBF; the EBU announces \"No major\"."
 
 [[alert]]
-fields = ["minor_openings.one_club.transfer_resp"]
+fields = ["bidding_conventions/transfer_walsh"]
 call = "Completion"
 after = "1♣–1♦/1♥"
 by = "opener"
@@ -1538,7 +1538,7 @@ note = "Shows the fourth suit with tolerance for partner. The ACBL announces the
 
 # Maximal doubles
 [[alert]]
-fields = ["doubles.maximal"]
+fields = ["competitive_bidding/maximal_doubles"]
 call = "X"
 after = "1M–(2x)–2M–(3x)"
 by = "opener"
@@ -1680,7 +1680,7 @@ note = "Natural replies; an artificial reply is alerted."
 
 # 2-Way new minor forcing
 [[alert]]
-fields = ["other_conventions.two_way_nmf"]
+fields = ["bidding_conventions/two_way_nmf"]
 call = "2♣"
 after = "1x–1y–1NT"
 by = "responder"
@@ -1688,7 +1688,7 @@ rule = "alert"
 note = "Relay to 2♦."
 
 [[alert]]
-fields = ["other_conventions.two_way_nmf"]
+fields = ["bidding_conventions/two_way_nmf"]
 call = "2♦"
 after = "1x–1y–1NT"
 by = "responder"
@@ -1696,7 +1696,7 @@ rule = "alert"
 note = "Artificial game force."
 
 [[alert]]
-fields = ["other_conventions.two_way_nmf"]
+fields = ["bidding_conventions/two_way_nmf"]
 call = "2♦ (forced)"
 after = "1x–1y–1NT–2♣"
 by = "opener"
@@ -1705,7 +1705,7 @@ note = "Forced completion of the relay."
 
 # XYZ
 [[alert]]
-fields = ["other_conventions.xyz"]
+fields = ["bidding_conventions/xyz"]
 call = "2♣"
 after = "1x–1y–1z"
 by = "responder"
@@ -1713,7 +1713,7 @@ rule = "alert"
 note = "Relay to 2♦ (also after a 1NT rebid)."
 
 [[alert]]
-fields = ["other_conventions.xyz"]
+fields = ["bidding_conventions/xyz"]
 call = "2♦"
 after = "1x–1y–1z"
 by = "responder"
@@ -1721,7 +1721,7 @@ rule = "alert"
 note = "Artificial game force."
 
 [[alert]]
-fields = ["other_conventions.xyz"]
+fields = ["bidding_conventions/xyz"]
 call = "2♦ (forced)"
 after = "1x–1y–1z–2♣"
 by = "opener"
@@ -1845,7 +1845,7 @@ note = "Based on a long running suit, not a natural notrump. The WBF does not li
 
 # Namyats / 4♣–4♦ transfer preempts
 [[alert]]
-fields = ["bidding_conventions/namyats", "preempts.transfer_4_minor"]
+fields = ["bidding_conventions/namyats"]
 call = "4♣/4♦"
 after = "opening"
 by = "opener"

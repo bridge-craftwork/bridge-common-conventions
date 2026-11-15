@@ -1,7 +1,10 @@
 id = "competitive_bidding/mixed_raise"
 name = "Mixed raise"
+label = "Jump cuebid: mixed raise"
+desc = "Advancer's jump cuebid of their suit shows a mixed raise of partner's overcall: four-card support, between a preemptive jump raise and a limit raise"
 source = "proposed"
 level = 6
+contexts = ["overcalls"]
 names = ["Mixed raise", "Mixed raises", "Mixed-raise"]
 summary = """
 After partner's overcall, advancer's jump cuebid of the opponents' suit

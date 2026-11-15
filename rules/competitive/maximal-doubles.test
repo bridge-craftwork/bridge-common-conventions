@@ -1,6 +1,6 @@
 # Maximal doubles (doubles.maximal): our major bid and raised, they bid
 # three of the suit just below it.
-card    21GF-SPECIALS doubles.maximal=true
+card    21GF-SPECIALS competitive_bidding/maximal_doubles=true
 dealer  N
 vul     None
 

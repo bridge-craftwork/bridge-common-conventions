@@ -1,7 +1,9 @@
 id = "bidding_conventions/transfer_walsh"
 name = "Transfer Walsh"
+label = "Transfer responses to 1♣"
 source = "proposed"
 level = 9
+contexts = ["minor_openings"]
 names = ["Transfer Walsh", "Transfer responses to 1♣", "transfer responses"]
 summary = """
 Over partner's 1♣, responder's 1♦ and 1♥ are transfers to the next suit,
