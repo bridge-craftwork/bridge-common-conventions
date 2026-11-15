@@ -2,3 +2,4 @@ id = "basic_bidding/minor_suit_openings"
 name = "Minor Suit Openings"
 source = "taxonomy"
 level = 1
+contexts = ["minor_openings"]

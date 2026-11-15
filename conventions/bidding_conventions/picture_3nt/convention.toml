@@ -2,6 +2,7 @@ id = "bidding_conventions/picture_3nt"
 name = "1M–3NT picture raise"
 source = "proposed"
 level = 7
+contexts = ["major_openings"]
 names = ["Picture 3NT", "1M-3NT", "3NT picture bid", "Picture bid"]
 summary = """
 Over partner's 1♥ or 1♠, responder's 3NT is a game-forcing raise with a

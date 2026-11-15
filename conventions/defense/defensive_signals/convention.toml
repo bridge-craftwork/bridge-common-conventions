@@ -2,6 +2,7 @@ id = "defense/defensive_signals"
 name = "Defensive Signals"
 source = "taxonomy"
 level = 2
+contexts = ["signals"]
 names = ["Standard signals", "Attitude", "Count", "Suit preference", "High encourages"]
 confirm = true
 summary = """

@@ -2,6 +2,7 @@ id = "competitive_bidding/rodrigue"
 name = "Rodrigue"
 source = "proposed"
 level = 8
+contexts = ["after_interference"]
 names = ["Rodrigue"]
 summary = """
 After partner's minor and their 1♠, a double shows four hearts, and five or

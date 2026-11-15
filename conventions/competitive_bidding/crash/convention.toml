@@ -2,6 +2,7 @@ id = "competitive_bidding/crash"
 name = "CRASH"
 source = "proposed"
 level = 9
+contexts = ["vs_openings"]
 names = ["CRASH"]
 summary = """
 A defence to a strong 1♣ opening: overcalls show two-suited hands by colour,

@@ -2,6 +2,7 @@ id = "competitive_bidding/equal_level_conversion"
 name = "Equal level conversion"
 source = "proposed"
 level = 6
+contexts = ["doubles"]
 names = ["Equal level conversion", "ELC"]
 summary = """
 After a takeout double and partner's forced response, the doubler's bid of

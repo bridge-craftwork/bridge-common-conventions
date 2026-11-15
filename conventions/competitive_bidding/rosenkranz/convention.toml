@@ -2,6 +2,7 @@ id = "competitive_bidding/rosenkranz"
 name = "Rosenkranz double"
 source = "proposed"
 level = 9
+contexts = ["overcalls"]
 names = ["Rosenkranz", "Rosenkranz double", "Rosenkranz redouble"]
 summary = """
 When the opponents overcall partner's opening and advancer raises partner's

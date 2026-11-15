@@ -2,6 +2,7 @@ id = "competitive_bidding/exit_transfers"
 name = "Exit transfers"
 source = "proposed"
 level = 8
+contexts = ["after_interference", "notrump_openings"]
 names = ["Exit transfers", "Runout after 1NT doubled"]
 summary = """
 When the opponents double partner's 1NT, redouble and suit bids are

@@ -2,6 +2,7 @@ id = "bidding_conventions/tislevoll"
 name = "Tislevoll slam try"
 source = "proposed"
 level = 9
+contexts = ["after_interference", "slam"]
 names = ["Tislevoll"]
 summary = """
 After partner opens a major and the opponents preempt, responder's 4♣ and 4♦

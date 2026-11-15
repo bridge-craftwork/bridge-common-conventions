@@ -2,6 +2,7 @@ id = "bidding_conventions/last_train"
 name = "Last Train"
 source = "proposed"
 level = 9
+contexts = ["slam"]
 names = ["Last Train", "Last train to Clarksville"]
 summary = """
 When the only bid left between a fit and game in the agreed major is one

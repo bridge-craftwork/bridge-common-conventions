@@ -2,6 +2,7 @@ id = "bidding_conventions/grand_slam_force"
 name = "Grand slam force"
 source = "proposed"
 level = 6
+contexts = ["slam"]
 names = ["Grand slam force", "GSF", "Josephine", "5NT grand slam force"]
 summary = """
 A jump to 5NT (not after a keycard ask) asks partner to bid the grand slam

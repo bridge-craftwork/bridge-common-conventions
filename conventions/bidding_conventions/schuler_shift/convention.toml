@@ -2,6 +2,7 @@ id = "bidding_conventions/schuler_shift"
 name = "Schuler shift"
 source = "proposed"
 level = 6
+contexts = ["major_openings"]
 names = ["Schuler shift", "Schuler"]
 summary = """
 A style for opener's rebid after a 2/1 game-forcing response, one of the three

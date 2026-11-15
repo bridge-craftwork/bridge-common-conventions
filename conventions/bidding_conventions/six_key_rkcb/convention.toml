@@ -2,6 +2,7 @@ id = "bidding_conventions/six_key_rkcb"
 name = "Six-key Roman Keycard"
 source = "proposed"
 level = 9
+contexts = ["slam"]
 names = ["Six-key RKCB", "6-key RKC", "Six key Blackwood"]
 summary = """
 Roman Keycard with two trump suits: six keycards, the four aces and both
