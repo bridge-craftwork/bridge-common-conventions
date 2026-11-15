@@ -14,8 +14,13 @@ see = [
   { title = "Minor Suit Stayman", site = "Bridge Bum", url = "https://www.bridgebum.com/minor_suit_stayman.php" },
 ]
 
+[treatments.over_1nt]
+kind = "bool"
+label = "Minor Suit Stayman (1NT–2♠)"
+default = true
+level = 6
+
 [treatments.over_2nt]
 kind = "bool"
-independent = true
 label = "Minor Suit Stayman over 2NT"
 level = 6

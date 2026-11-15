@@ -13,7 +13,7 @@ N 5.K73.QJ9542.J83      | 1NT P            | 2NT    | 7 HCP + 2 length = 9: invi
 N 5.K73.QJ9542.K83      | 1NT P            | 3NT    | 9 HCP + 2 length = 11: game
 
 # ── none: no minor-suit route, so a long minor invites with 2NT.
-card    21GF-DEFAULT bidding_conventions/minor_suit_transfers=false
+card    21GF-DEFAULT bidding_conventions/minor_suit_transfers:over_1nt=false
 N 5.K73.QJ9542.J83      | 1NT P            | 2NT    | 7 HCP + 2 length = 9: invite
 N 5.J73.QJ9542.832      | 1NT P            | P      | 6: nothing to say
 

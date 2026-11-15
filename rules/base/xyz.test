@@ -1,5 +1,5 @@
 # XYZ: 21GF-DEFAULT with NMF swapped for XYZ.
-card    21GF-DEFAULT bidding_conventions/new_minor_forcing=false bidding_conventions/xyz=true
+card    21GF-DEFAULT bidding_conventions/new_minor_forcing:after_1nt_rebid=false bidding_conventions/xyz=true
 dealer  S
 
 # seat hand             | auction                   | expect | why
@@ -20,5 +20,5 @@ N 5.KJ832.Q54.9763      | 1C P 1H P 1S P            | 1NT    | weak, no fit: nat
 # 1x-1y-1NT: two-way NMF.
 N KQJ54.A32.54.J76      | 1C P 1S P 1NT P           | 2C     | XYZ after 1NT: the relay
 # The fourth suit after a two-level rebid stays natural (or FSF).
-card    21GF-DEFAULT bidding_conventions/new_minor_forcing=false
+card    21GF-DEFAULT bidding_conventions/new_minor_forcing:after_1nt_rebid=false
 N KQ54.A9832.54.J7      | 1C P 1H P 1S P            | 3S     | without XYZ: the natural invitational raise

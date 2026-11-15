@@ -136,7 +136,7 @@ note = "Alerted only when responder's rebid carries an agreed artificial meaning
 
 # Texas transfers
 [[alert]]
-fields = ["bidding_conventions/texas"]
+fields = ["bidding_conventions/texas:over_1nt"]
 call = "4♦/4♥"
 after = "1NT"
 by = "responder"
@@ -145,7 +145,7 @@ wbf = "alert"
 note = "Four-level transfer to a major, announced by naming the suit even above 3NT. The WBF alerts it as artificial."
 
 [[alert]]
-fields = ["bidding_conventions/texas"]
+fields = ["bidding_conventions/texas:over_1nt"]
 call = "4♥/4♠"
 after = "1NT–4♦/4♥"
 by = "opener"
@@ -1663,7 +1663,7 @@ note = "Natural; the extra strength is standard."
 
 # New minor forcing
 [[alert]]
-fields = ["bidding_conventions/new_minor_forcing"]
+fields = ["bidding_conventions/new_minor_forcing:after_1nt_rebid"]
 call = "2♣/2♦ (other minor)"
 after = "1m–1M–1NT"
 by = "responder"
@@ -1671,7 +1671,7 @@ rule = "alert"
 note = "Artificial forcing enquiry."
 
 [[alert]]
-fields = ["bidding_conventions/new_minor_forcing"]
+fields = ["bidding_conventions/new_minor_forcing:after_1nt_rebid"]
 call = "Opener's replies"
 after = "1m–1M–1NT–2m"
 by = "opener"

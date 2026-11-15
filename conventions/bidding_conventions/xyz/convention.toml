@@ -4,6 +4,7 @@ label = "XYZ"
 source = "proposed"
 level = 9
 contexts = ["responses_rebids"]
+implements = ["checkback_after_1nt_rebid"]
 names = ["XYZ", "xyz"]
 summary = """
 After any three one-level bids, responder's 2♣ relays to 2♦ and 2♦ is game

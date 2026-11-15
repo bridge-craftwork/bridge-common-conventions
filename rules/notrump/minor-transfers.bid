@@ -4,7 +4,7 @@ module minor-transfers "Minor-suit responses to 1NT"
   kind   convention
   needs  notrump-base
   skill  bidding_conventions/minor_suit_transfers
-  param  mtp   = bidding_conventions/minor_suit_transfers default true    # a silent card plays relay, as before the switch (2026-10-30)
+  param  mtp   = bidding_conventions/minor_suit_transfers:over_1nt default true    # a silent card plays relay, as before the switch (2026-10-30)
   param  style = bidding_conventions/minor_suit_transfers:style default relay
   param  systems_on = nt_overcalls.direct.systems_on default true
   param  vs_2c = bidding_conventions/jacoby_transfers:vs_2c default false

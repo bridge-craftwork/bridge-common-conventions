@@ -63,3 +63,8 @@ N AKQ2.A2.AKQ2.KQ2      | 2C P 2D P 3N P 4H P         | P   | natural: opener pa
 S 5.KQJ986.K32.432      | 1N P                        | 4D  | Texas over 1NT stays on
 card    21GF-DEFAULT
 S 5.KQJ986.432.432      | 2C P 2D P 3N P              | 4D  | default on: Texas
+
+# The card says where: Texas over 2NT only (BBO's 2NT box without the 1NT one).
+card    21GF-DEFAULT bidding_conventions/texas:over_1nt=false bidding_conventions/texas:over_2nt=true
+S 82.KQJ974.Q92.53      | 2NT Pass            | 4D     | over 2NT: Texas
+S 82.KQJ974.K92.53      | 1NT Pass            | 2D     | over 1NT: no Texas, a Jacoby transfer

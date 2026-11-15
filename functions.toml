@@ -124,3 +124,11 @@ parts = ["1nt", "2nt"]
 # 2NT with its own answers.
 [two_nt_response_to_major]
 name = "Responder's 2NT over one of a major"
+
+# Responder's artificial 2♣ or 2♦ after opener's 1NT rebid: New Minor
+# Forcing (in its `after_1nt_rebid` place), two-way NMF, Checkback, Roudi
+# and XYZ are alternatives. What a card plays after a 2NT rebid is another
+# matter: XYZ here and New Minor Forcing there is a common pairing (Rick
+# Wilson, 2026-11-14).
+[checkback_after_1nt_rebid]
+name = "Responder's artificial 2♣ or 2♦ after a 1NT rebid"

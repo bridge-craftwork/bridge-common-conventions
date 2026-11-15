@@ -13,6 +13,7 @@
 module minor-suit-stayman "Minor Suit Stayman over 1NT"
   kind   convention
   convention  bidding_conventions/minor_suit_stayman
+  card   over_1nt
   needs  notrump-base
   skill  bidding_conventions/minor_suit_stayman
   param  systems_on = nt_overcalls.direct.systems_on default true
