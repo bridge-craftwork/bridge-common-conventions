@@ -901,31 +901,6 @@ by = "responder"
 rule = "alert"
 note = "Pass-or-correct response. Listed by the EBU; the ACBL and WBF alert a call that does not promise the suit."
 
-# Reverse Flannery 2♦
-[[alert]]
-fields = ["bidding_conventions/reverse_flannery:two_d"]
-call = "2♦"
-after = "opening"
-by = "opener"
-rule = "alert"
-note = "Two-suiter in the majors."
-
-[[alert]]
-fields = ["bidding_conventions/reverse_flannery:two_d"]
-call = "2♥/2♠/3♥/3♠"
-after = "2♦"
-by = "responder"
-rule = "none"
-note = "Natural choice of major."
-
-[[alert]]
-fields = ["bidding_conventions/reverse_flannery:two_d"]
-call = "2NT"
-after = "2♦"
-by = "responder"
-rule = "alert"
-note = "Asking bid; the ACBL 2NT exemption covers only weak preempts."
-
 # Reverse Flannery: responder's jump to 2♥ or 2♠ over one of a minor
 [[alert]]
 fields = ["bidding_conventions/reverse_flannery:two_h"]

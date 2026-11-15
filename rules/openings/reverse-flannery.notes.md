@@ -23,8 +23,8 @@
 
 ## Open questions
 
-- The convention-card summary describes Reverse Flannery as an opening;
-  should it say "response to 1m"? (convention-card PR, not done here.)
+- None. The definition now says it is a response to one of a minor, and
+  the `two_d` treatment left from the opening is retired (2026-11-14).
 
 ## Sources
 

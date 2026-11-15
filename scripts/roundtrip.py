@@ -40,6 +40,8 @@ CORRECTED = {
     ("bidding_conventions/reverse_flannery", "summary"): "the same",
     ("bidding_conventions/reverse_flannery", "desc"): "the same",
     ("bidding_conventions/reverse_flannery", "contexts"): "the same",
+    ("two_level.reverse_flannery.two_d", "retired"):
+        "#69: left from the 2♦ opening Reverse Flannery never was (Rick, 2026-11-14)",
 }
 
 # Rule files whose bidding was corrected on purpose (Phase 5), and why.
@@ -50,6 +52,7 @@ CORRECTED_RULES = {
     "after-interference.bid": "#67: a jump shift after an overcall is weak unless the card says strong",
     "weak-jump-shifts.test": "#74: cases added", "soloway.bid": "#74",
     "bergen.test": "#33: the Reverse Bergen card switches Bergen on",
+    "reverse-flannery.notes.md": "#69: its open question is answered",
     "stayman.bid": "#73: on for a silent card", "jacoby-transfers.bid": "#73: on for a silent card", "responses.bid": "#74", "rebids.bid": "#74", "responder-rebids.bid": "#74",
 }
 

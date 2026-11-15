@@ -112,6 +112,9 @@ class Pack:
                 for f in a.get("implements", []):
                     if not self.function_ok(f):
                         self.bad(tw, f"unknown function {f!r}")
+                # A retired name stays so cards still load; nothing uses it.
+                if "retired" in a and "implements" in a:
+                    self.bad(tw, "a retired treatment fills no function")
         for name, a in self.settings.items():
             self.attrs(f"settings {name}", a)
             for i in a.get("plays", {}).values():
@@ -141,6 +144,9 @@ class Pack:
             for f in a.get("fields", []):
                 if not self.resolves(f):
                     self.bad("alerts.toml", f"alert {i + 1} names {f!r}, which is not defined")
+                cid, _, t = f.partition(":")
+                if "retired" in self.defs.get(cid, {}).get("treatments", {}).get(t, {}):
+                    self.bad("alerts.toml", f"alert {i + 1} names {f!r}, which is retired")
 
         for f in sorted((self.root / "migrations").glob("*.toml")):
             mig = self.load(f.relative_to(self.root))

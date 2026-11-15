@@ -351,9 +351,10 @@ Each produces a small, expected difference against phase 2.
   `jump_to_major_over_minor`, as do Weak jump shifts and the new Strong jump
   shifts. The eight jump-shift boxes are treatments of those two conventions
   (#68, done 2026-11-14), each convention filling the function only while
-  its two-level treatment is on. Still to do: Reverse Flannery's card fields
-  sit in the two-level openings section, and it has a `two_d` treatment with
-  no rule (#69).
+  its two-level treatment is on. Its `two_d` treatment, left from the
+  opening, is retired and its three alert rules for a 2♦ opening are gone
+  (#69, done 2026-11-14). Still to do: its card fields sit in the two-level
+  openings section of schema 2, which the editor's layout decides (#34).
 - ~~Found with #68: eight hand-made cards tick "weak jump shifts, not in
   competition" (the Bridgodex and BBO box) and bid none, because the rules
   read only the two-level box, which those formats do not set (#74).~~ The

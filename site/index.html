@@ -330,7 +330,7 @@ function detail(c) {
     for (const x of c.treatments) {
       t.append(el('tr', {},
         el('td', { class: 'k' }, el('code', { text: x.name })),
-        el('td', { text: [x.label, x.kind === 'enum' ? `(${list(x.options).join(', ')})` : x.kind !== 'bool' ? `(${x.kind})` : '',
+        el('td', { text: [x.label, x.retired ? `retired ${x.retired}` : '', x.kind === 'enum' ? `(${list(x.options).join(', ')})` : x.kind !== 'bool' ? `(${x.kind})` : '',
           x.default !== undefined ? `default ${x.default}` : '', list(x.implements).length ? `fills ${list(x.implements).join(', ')}` : ''].filter(Boolean).join(' ') }),
         el('td', { class: 'k', text: x.level != null ? `level ${x.level}` : '' })))
     }
