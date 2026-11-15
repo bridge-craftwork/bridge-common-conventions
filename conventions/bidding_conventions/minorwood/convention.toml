@@ -1,5 +1,6 @@
 id = "bidding_conventions/minorwood"
 name = "Minorwood"
+brief = "4 of the agreed minor = RKCB"
 source = "proposed"
 level = 7
 contexts = ["slam"]

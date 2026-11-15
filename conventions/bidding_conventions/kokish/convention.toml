@@ -1,5 +1,6 @@
 id = "bidding_conventions/kokish"
 name = "Kokish relay"
+brief = "After 2♣–2♦, 2♥ asks; rebid shows hearts"
 source = "proposed"
 level = 8
 contexts = ["preemptive_openings"]

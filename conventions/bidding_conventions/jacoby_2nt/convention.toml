@@ -1,5 +1,6 @@
 id = "bidding_conventions/jacoby_2nt"
 name = "Jacoby 2NT"
+brief = "GF raise of major"
 source = "proposed"
 level = 4
 contexts = ["major_openings"]

@@ -1,5 +1,6 @@
 id = "bidding_conventions/bergen_raises"
 name = "Bergen raises"
+brief = "3♣ = 7-9 pts, 3♦ = 10-12 pts (or similar)"
 source = "proposed"
 level = 5
 contexts = ["major_openings"]

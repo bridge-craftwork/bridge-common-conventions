@@ -1,5 +1,6 @@
 id = "bidding_conventions/serious_3nt"
 name = "Serious 3NT"
+brief = "In a 2/1 auction, 3NT denies slam interest"
 label = "Non-serious 3NT"
 source = "proposed"
 level = 9

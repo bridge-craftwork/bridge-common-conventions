@@ -1,5 +1,6 @@
 id = "bidding_conventions/control_bids"
 name = "Control (Cue) Bids"
+brief = "With a trump suit agreed, bid a control below game on the way to slam"
 label = "Control (cue) bids"
 desc = "BBA's 'Cue bid'. With a trump suit agreed and slam in the air, bid a control below game instead of asking straight away"
 source = "proposed"

@@ -1,5 +1,6 @@
 id = "bidding_conventions/exclusion_blackwood"
 name = "Exclusion Blackwood"
+brief = "Jump in a void suit asks for keycards excluding that suit"
 source = "proposed"
 level = 7
 contexts = ["slam"]

@@ -1,5 +1,6 @@
 id = "bidding_conventions/splinters"
 name = "Splinters"
+brief = "Double-jump shows shortness"
 source = "proposed"
 level = 5
 contexts = ["major_openings"]

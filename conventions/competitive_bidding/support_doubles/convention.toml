@@ -1,5 +1,6 @@
 id = "competitive_bidding/support_doubles"
 name = "Support Doubles and Redoubles"
+brief = "Double after interference = exactly 3-card support"
 label = "Support doubles"
 source = "proposed"
 level = 5

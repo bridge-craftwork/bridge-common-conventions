@@ -1,5 +1,6 @@
 id = "bidding_conventions/kickback"
 name = "Kickback"
+brief = "Suit-above-trump = keycard ask"
 source = "proposed"
 level = 9
 contexts = ["slam"]

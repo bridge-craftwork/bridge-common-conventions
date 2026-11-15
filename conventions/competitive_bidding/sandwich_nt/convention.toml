@@ -1,5 +1,6 @@
 id = "competitive_bidding/sandwich_nt"
 name = "Sandwich 1NT"
+brief = "1NT in 4th seat after two suits bid = unusual NT"
 label = "Sandwich NT"
 source = "proposed"
 level = 7

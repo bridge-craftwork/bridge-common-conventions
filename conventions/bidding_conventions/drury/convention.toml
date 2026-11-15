@@ -1,5 +1,6 @@
 id = "bidding_conventions/drury"
 name = "Drury"
+brief = "2♣ by passed hand = limit raise"
 source = "proposed"
 level = 5
 contexts = ["major_openings"]

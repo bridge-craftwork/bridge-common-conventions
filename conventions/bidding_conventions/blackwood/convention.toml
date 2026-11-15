@@ -1,5 +1,6 @@
 id = "bidding_conventions/blackwood"
 name = "Blackwood"
+brief = "4NT asks for aces (4 / 5 / 6 / 7 = 0–3 aces)"
 label = "Standard Blackwood"
 source = "taxonomy"
 level = 2

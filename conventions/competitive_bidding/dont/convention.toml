@@ -1,5 +1,6 @@
 id = "competitive_bidding/dont"
 name = "DONT"
+brief = "Disturbing Opponents NT — double = single-suited"
 desc = "Bridge-Classroom's DONT switch: plays DONT when vs_1nt_strong.system is unset or other"
 source = "taxonomy"
 level = 5

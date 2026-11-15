@@ -1,5 +1,6 @@
 id = "bidding_conventions/pick_a_slam_5nt"
 name = "Pick-a-slam 5NT"
+brief = "5NT after a fit suggests slam, lets partner pick the strain"
 source = "proposed"
 level = 7
 contexts = ["slam"]

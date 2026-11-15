@@ -1,5 +1,6 @@
 id = "competitive_bidding/support_cuebids"
 name = "Support Cuebids"
+brief = "Cue of opp's suit = 3+ card limit raise"
 label = "Cue-bid raise"
 source = "taxonomy"
 level = 4

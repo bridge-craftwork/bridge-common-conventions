@@ -1,5 +1,6 @@
 id = "bidding_conventions/western_cuebid"
 name = "Western cue bid"
+brief = "4 of an opponent's suit asks for a stopper for 3NT"
 label = "Western cuebid"
 source = "proposed"
 level = 4

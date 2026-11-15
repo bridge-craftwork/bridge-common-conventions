@@ -1,5 +1,6 @@
 id = "bidding_conventions/spiral"
 name = "Spiral"
+brief = "Step-wise control showing (1st-round controls in order)"
 label = "Spiral cuebids"
 source = "proposed"
 level = 8

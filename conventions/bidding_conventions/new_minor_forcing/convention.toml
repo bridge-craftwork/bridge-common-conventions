@@ -1,5 +1,6 @@
 id = "bidding_conventions/new_minor_forcing"
 name = "New Minor Forcing"
+brief = "After 1m-1M-1NT, 2 of other minor = forcing inquiry"
 label = "New minor forcing"
 source = "taxonomy"
 level = 5
