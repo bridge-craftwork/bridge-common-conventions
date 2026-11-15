@@ -15,19 +15,25 @@ see = [
   { title = "Flannery and Reverse Flannery", site = "Dural Bridge", url = "http://www.duralbridge.com/flannery.ing.htm" },
 ]
 
+# Left from when Reverse Flannery was described as a 2♦ opening. It has
+# nothing to do with one (Rick Wilson, 2026-11-14). The name stays, so a card
+# that holds it still loads; nothing shows it or reads it.
 [treatments.two_d]
 kind = "bool"
+retired = "2026-11-14"
 label = "Reverse Flannery 2♦"
 level = 8
 
 [treatments.two_h]
 kind = "bool"
+brief = "1m-2♥ = 5 ♠ and 4-5 ♥, 5-8 HCP"
 implements = ["jump_to_major_over_minor.2h"]
 label = "Reverse Flannery 2♥"
 level = 8
 
 [treatments.two_s]
 kind = "bool"
+brief = "1m-2♠ = 5 ♠ and 4 ♥, 9-10 HCP"
 implements = ["jump_to_major_over_minor.2s"]
 label = "Reverse Flannery 2♠"
 level = 8

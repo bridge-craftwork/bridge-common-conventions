@@ -112,6 +112,9 @@ class Pack:
                 for f in a.get("implements", []):
                     if not self.function_ok(f):
                         self.bad(tw, f"unknown function {f!r}")
+                # A retired name stays so cards still load; nothing uses it.
+                if "retired" in a and "implements" in a:
+                    self.bad(tw, "a retired treatment fills no function")
         for name, a in self.settings.items():
             self.attrs(f"settings {name}", a)
             for i in a.get("plays", {}).values():
@@ -141,12 +144,19 @@ class Pack:
             for f in a.get("fields", []):
                 if not self.resolves(f):
                     self.bad("alerts.toml", f"alert {i + 1} names {f!r}, which is not defined")
+                cid, _, t = f.partition(":")
+                if "retired" in self.defs.get(cid, {}).get("treatments", {}).get(t, {}):
+                    self.bad("alerts.toml", f"alert {i + 1} names {f!r}, which is retired")
 
         for f in sorted((self.root / "migrations").glob("*.toml")):
             mig = self.load(f.relative_to(self.root))
             if mig.get("to") != "3.0":
                 continue
             targets = list(mig.get("convention", {}).values()) + list(mig.get("treatment", {}).values())
+            for sf in mig.get("stood_for", []):
+                ids = {a.partition(":")[0] for a in [sf["treatment"], *sf["means"]]}
+                if len(ids) != 1 or not all(self.resolves(a) and ":" in a for a in [sf["treatment"], *sf["means"]]):
+                    self.bad(str(f.name), f"stood_for {sf['treatment']!r}: treatments of one convention")
             targets += [t for t in mig.get("alias", {}).values()]
             for p in mig.get("place", []):
                 targets += [f"{p['convention']}:{t}" for t in p["switches"].values()]

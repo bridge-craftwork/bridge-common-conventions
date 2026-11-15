@@ -10,6 +10,7 @@ N KJ874.Q9632.84.7      | 1D P                | 2H     | 5-5 in the majors, 6 HC
 N KJ874.KQ63.84.72      | 1C P                | 2S     | five spades, four hearts, 9 HCP
 N KJ874.AQ63.K4.72      | 1C P                | 1S     | 13 HCP: too strong
 N KJ874.963.84.Q72      | 1C P                | 1S     | three hearts: 1S
+N AK874.AQJ63.84.7      | 1D P                | 1S     | 15 HCP: the jump is Reverse Flannery's, so no strong jump shift
 card    21GF-DEFAULT
 N KJ874.Q963.84.72      | 1C P                | 1S     | Reverse Flannery off
 card    21GF-SPECIALS
