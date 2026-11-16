@@ -1,7 +1,7 @@
 {
  "schema": "pack-manifest/v1",
- "source_commit": "2f145bfefacaf91b920e47a99ead640d0975c446",
- "rules_number": 24,
+ "source_commit": "226a35ed0056558406b3aa41b07768950038d851",
+ "rules_number": 25,
  "name": "bridge-common-conventions",
  "pack_format_version": 1,
  "card_schema_version": 3,
@@ -531,6 +531,10 @@
   "conventions/bidding_conventions/polish_two_suiters/polish-two-suiters.test": {
    "sha256": "5317933f5b60e523e6c8e9d6d84d79df6e5f1b7487e887ac0dde0a3444333e75",
    "changed": "2026-11-14T09:17:45-08:00"
+  },
+  "conventions/bidding_conventions/precision_1c/convention.toml": {
+   "sha256": "e96114b9f2e50c1a419eb00eafcecc095f0a0e5398bfbd0bea5ac32bce734a87",
+   "changed": "2026-11-16T11:28:42-08:00"
   },
   "conventions/bidding_conventions/precision_2d/convention.toml": {
    "sha256": "00dc338841ff9424524ca1880e3d51ed9907c125fa48aa8f5342f2b5d57d96a8",
@@ -2169,5 +2173,5 @@
    "changed": "2026-11-16T09:30:15-08:00"
   }
  },
- "pack_sha256": "7477588e7d40332df1d7b9b8e5cfc413dac91d0a466d3007573a68ad08a609ce"
+ "pack_sha256": "5393e01dc28a8c29efe0a82ef227f35ba9a3db90e17cedd960d183316b2d1c13"
 }
