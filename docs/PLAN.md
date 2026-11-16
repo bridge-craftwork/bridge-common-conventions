@@ -562,13 +562,15 @@ reviewed, as in phase 5.
    already uses every core to bid one card (95 seconds of processor time
    in 10), so the full set is bound by the bidding itself.
 
-   Recommended form: a `measurements/` folder here, one small file per
-   change: the bidder and its version, what was compared (rules before
-   and after, the cards, the deal set by name and hash), the auctions
-   changed per card, and the score against each reference bidder before
-   and after. Every record names its bidder, so another engine's runs sit
-   beside Rusty's. The full auction lists stay out of git. Only public
-   cards are named. CI checks a record's form, nothing more.
+   **Built 2026-11-16:** `measurements/`, one small file a change, written
+   by `scripts/measure.py` from two captures: the bidder and its version,
+   the rules on each side, the cards, the deal set by its hash, the boards
+   bid differently for each card, and by hand the score against a
+   reference bidder. Every record names its bidder, so another engine's
+   runs sit beside Rusty's. The auctions stay out of git. Only the
+   corpus's cards are named; hand-made cards are counted. The checker
+   holds a record to its form, nothing more. The first record is the two
+   exclusions of #125.
 
 Not built, and not needed for the cut-over:
 
