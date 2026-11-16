@@ -1,6 +1,6 @@
 id = "bidding_conventions/preemptive_bids"
 name = "Preemptive Bids"
-kind = "skill"
+kind = "natural"
 source = "taxonomy"
 level = 3
 contexts = ["preemptive_openings"]
