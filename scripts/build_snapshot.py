@@ -38,7 +38,7 @@ HERE = pathlib.Path(__file__).resolve().parent.parent
 TEXT = (".bid", ".test", ".notes.md")
 # What a pack is made of. A commit that touches none of these does not
 # change the snapshot.
-SOURCES = ["bridge-pack.toml", "conventions", "rules", "settings", "contexts.toml",
+SOURCES = ["bridge-pack.toml", "conventions", "skills", "rules", "settings", "contexts.toml",
            "functions.toml", "levels.toml", "alerts.toml", "migrations"]
 # Source files that cannot change a bid. A commit that changes only these
 # changes the snapshot but not the rules number.
@@ -79,6 +79,10 @@ def build(root):
     for f in sorted((root / "conventions").glob("*/*/convention.toml")):
         d = read(f)
         conventions[d["id"]] = d
+    skills = {}
+    for f in sorted((root / "skills").glob("*/*/skill.toml")):
+        d = read(f)
+        skills[d["id"]] = d
     files = {}
     for folder in ("conventions", "rules"):
         for f in sorted((root / folder).rglob("*")):
@@ -90,6 +94,7 @@ def build(root):
         "pack": read(root / "bridge-pack.toml"),
         "categories": read(root / "conventions" / "categories.toml"),
         "conventions": dict(sorted(conventions.items())),
+        "skills": dict(sorted(skills.items())),
         "settings": {f.stem: read(f) for f in sorted((root / "settings").glob("*.toml"))},
         "contexts": read(root / "contexts.toml"),
         "functions": read(root / "functions.toml"),

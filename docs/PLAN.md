@@ -687,10 +687,23 @@ exports schema 3, those files are in people's hands.
       Splinters, Michaels & Unusual 2NT.
   - **What is left to do.**
     1. A `skills/` folder beside `conventions/`, published in the same
-       snapshot under its own key, for the 14 skills and 2 judgement
-       entries. Their IDs do not change. The engine and the card tools
-       must read an ID from either list before the pack publishes this:
-       hosts follow the newest rules.
+       snapshot under its own key, for the 14 skills and 4 judgement
+       entries (two were added on 2026-11-16 with five natural positions:
+       Penalty Doubles, Fit and Level Decisions). Their IDs do not change.
+       *Built 2026-11-16 on a branch.* Who is touched, measured:
+       - The engine at v0.16.0, as Bridge Classroom runs it, bids and
+         reports coverage the same from a snapshot with the split (the
+         2/1 sample card: same opening, 59 fields read, none ignored),
+         and passes the pack's 3,319 test cases from the folder. So the
+         pack can publish first.
+       - Practice-Bidding-Scenarios' check reads `conventions` only and
+         would call 3 of its IDs undefined: it reads both keys first (its
+         pull request #351).
+       - The card tools and the engine each bundle a copy of the
+         snapshot. Their next sync must come after they read an ID from
+         either key, or the card tools lose levels, lesson links and
+         recognised names for the 18, and the engine's checker warns
+         about them (rusty-bidding-bot #93).
     2. The 20 lesson sets go to Bridge Classroom, whose Baker Bridge
        catalogue already lists lesson content by path, file, deal count
        and level. Each says which conventions and skills it covers: a

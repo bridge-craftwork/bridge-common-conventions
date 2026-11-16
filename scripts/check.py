@@ -34,6 +34,22 @@ class Pack:
             if d.get("id") != want:
                 self.bad(f, f"id is {d.get('id')!r}, but the path says {want!r}")
             self.defs[want] = d
+            if d.get("kind") in ("skill", "judgement"):
+                self.bad(f, f"kind is {d['kind']!r}: a skill or a judgement entry belongs in skills/")
+        # Skills and judgement: techniques, areas of competence and how a
+        # bidder decides. Their own list, in the same namespace of IDs.
+        self.skills = set()
+        for f in sorted((root / "skills").glob("*/*/skill.toml")):
+            d = self.load(f.relative_to(root))
+            want = "/".join(f.relative_to(root / "skills").parts[:2])
+            if d.get("id") != want:
+                self.bad(f, f"id is {d.get('id')!r}, but the path says {want!r}")
+            if want in self.defs:
+                self.bad(f, f"{want!r} is also defined in conventions/")
+            if d.get("kind") not in ("skill", "judgement"):
+                self.bad(f, f"kind is {d.get('kind')!r}: skill or judgement")
+            self.defs[want] = d
+            self.skills.add(want)
         self.settings = {}
         for f in sorted((root / "settings").glob("*.toml")):
             for k, v in self.load(f.relative_to(root)).items():
@@ -75,7 +91,7 @@ class Pack:
             self.bad("bridge-pack.toml", "card_schema_version is required with definitions")
 
         for cid, d in self.defs.items():
-            where = f"conventions/{cid}/convention.toml"
+            where = f"skills/{cid}/skill.toml" if cid in self.skills else f"conventions/{cid}/convention.toml"
             if not d.get("name"):
                 self.bad(where, "name is required")
             if "play" in d:
