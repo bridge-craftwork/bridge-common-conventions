@@ -548,35 +548,51 @@ Not built, and not needed for the cut-over:
 
 #### Order
 
-Nothing below is done until the step before it is checked. Each tag and
-pin is one small pull request.
+Nothing below is done until the step before it is checked.
+
+**Tags come from the branches; the merges to `main` come last** (Rick,
+2026-11-15). Merging the card tools to `main` deploys the standalone
+editor, whose "Save to Bridge Classroom" link and exported files would
+then carry schema 3 cards. The library Bridge Classroom runs today takes
+such a card without an error and finds nothing in it (measured: Stayman
+on the 2/1 sample card reads as unset), so a user would save a blank
+card. So the editor starts writing schema 3 only after Bridge Classroom
+reads it.
 
 1. **Freeze the pack** at a rules number. Capture the 22 public cards and
    the hand-made cards with the branch tools: this is the reference.
-2. **`convention-card`:** remove the moved content; merge #120 and #121; tag (v0.45.0). Check: its tests, and
-   the exports of every captured card equal the reference.
-3. **`rusty-bidding-bot`:** merge #90 and #91; compile in a copy of the
-   snapshot and remove `conventions/`; pin `bridge-card` to the new tag; tag (v0.16.0),
-   which builds the release binary and the WASM. Check: the compiled-in
-   rules bid every captured card as the reference does.
+   *Done 2026-11-15: rules number 21, snapshot hash `74a583d2…`; the
+   bundled copies in both branches equal it; 122,430 boards on the public
+   cards and 139,125 on the hand-made ones, bidding, exports and coverage
+   unchanged from the last capture.*
+2. **`convention-card`:** tag on the tip of the branch stack (#120, #121,
+   #123), not merged. *Done 2026-11-15: v0.45.0, tests and CI green; it
+   differs from the captured commit only in docs and the version.*
+3. **`rusty-bidding-bot`:** pin `bridge-card` to that tag; tag (v0.16.0)
+   on the tip of its stack (#90, #91, #92), not merged. The tag builds
+   the release binary and the WASM. Check: the compiled-in rules bid
+   every captured card as the reference does.
 4. **This repo:** `engine.env` names the engine's release tag, so publish
    downloads the binary instead of building it.
 5. **The service that renders print links** from the card data Bridge
    Classroom stores: bump the card tools pin and deploy, before any
    stored card is in schema 3. It reads both shapes afterwards.
 6. **Bridge Classroom:** bump the card tools and the WASM pin; fetch the
-   published snapshot when it runs and hand it to Rusty; show the rules number beside the engine
-   version. Stored cards upgrade on load, by the migration. Check on a
-   staging build before the live one.
-7. **Better BBO Convention Card:** bump the card tools pin.
-8. **Practice-Bidding-Scenarios and lesson-studio** validate their IDs
+   published snapshot when it runs and hand it to Rusty; show the rules
+   number beside the engine version. Stored cards upgrade on load, by the
+   migration. Check on a staging build before the live one.
+7. **Merge the card tools and the engine to `main`.** The standalone
+   editor and the engine's site deploy from there.
+8. **Better BBO Convention Card:** bump the card tools pin.
+9. **Practice-Bidding-Scenarios and lesson-studio** validate their IDs
    against the snapshot.
-9. **Docs** (#42), and close #22, #23, #24, #37 to #42.
+10. **Docs** (#42), and close #22, #23, #24, #37 to #42.
 
 **Going back.** Every pin can return to its old tag. What cannot go back
 is a card saved in schema 3: the old library does not read it. So step 6's
 live build is the point of no return for stored cards; take a copy of them
-first.
+first. Step 7 is the same for card files: once the standalone editor
+exports schema 3, those files are in people's hands.
 
 
 - New tags in `convention-card` and `rusty-bidding-bot`.
