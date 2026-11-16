@@ -14,8 +14,9 @@ Phase 7, the cut-over, happened on 2026-11-15 and 16 at rules number 21:
 renders print links, Bridge Classroom and the standalone editor all read
 the pack, and no other repo holds a copy of the names or the rules. Left
 in Phase 7: the Better BBO Convention Card pin (its pull request #3), the
-ID checks in Practice-Bidding-Scenarios and lesson-studio (#40), and the
-skills and lesson sets leaving the pack. Still open from Phase 5: the
+ID checks in lesson-studio (#40; Practice-Bidding-Scenarios checks its tags since
+2026-11-16), and the lesson sets leaving the pack while skills become
+their own list here. Still open from Phase 5: the
 editor's remaining rows (#34), weak jump shift ranges (#86), four sources
 not found (#47).**
 
@@ -655,7 +656,38 @@ exports schema 3, those files are in people's hands.
   `conventions/` removed from `rusty-bidding-bot`.
 - Docs corrected: `convention-card`'s CLAUDE.md pins, Rusty's DESIGN.md
   links to `conventions/card/`.
-- **Skills and lessons leave the pack** (Rick, 2026-11-14). The skill
+- **Skills stay; only lesson sets leave** (Rick, 2026-11-16). This
+  replaces what the next item says about where skills go. Bridge skills
+  are generic, so they are this repo's, as their own list beside the
+  conventions; lessons are a collection's, so they are not.
+  - A `skills/` folder beside `conventions/`, published in the same
+    snapshot under its own key: the 22 skills and the 2 judgement
+    entries. Three branches: natural methods, conventions (by reference
+    to the convention list, never copied) and judgement. Their IDs do not
+    change.
+  - The 24 lesson sets go to Bridge Classroom, whose Baker Bridge
+    catalogue already lists lesson content by path, file, deal count and
+    level. Each lesson set there says which conventions and skills it
+    covers. Removing those 24 IDs here needs the migration.
+  - The card tools need no new way to be handed a taxonomy: skills are
+    still in the snapshot they bundle. Of the 35 settings, treatments,
+    functions and `taught_under` lists that name a non-convention, 27
+    name a skill and stay as they are; 8 name a lesson set and are
+    retargeted. Of the 43 `skill` lines in rule modules, 17 name a skill,
+    1 a judgement and 25 a lesson set; the 25 turn round.
+  - Practice-Bidding-Scenarios keeps 12 of its 15 non-convention tags and
+    retags 3. lesson-studio checks conventions and skills against this
+    snapshot, and lesson sets against Bridge Classroom's list.
+  - Not chosen: everything to Bridge Classroom (skills would be one
+    app's), and a separate bridge-skills repo (a second snapshot, publish
+    and fetch for 24 entries).
+  - Before anything moves, the doubtful entries are ruled on one by one:
+    lesson sets that are really generic skills (Slam Bidding, Responder's
+    Rebid), lesson sets that are two conventions taught together (Jacoby
+    2NT & Splinters, Michaels & Unusual 2NT), and skills that are
+    arguably conventions (Takeout Doubles, Reverse Bids).
+- **Skills and lessons leave the pack** (Rick, 2026-11-14; superseded in
+  part by the item above). The skill
   naming scheme is wider than the convention one: every convention is a
   skill, but declarer play, hand evaluation and the like are skills that
   are not conventions, and a set of lessons or deals is neither. They came
