@@ -574,19 +574,27 @@ reads it.
    every captured card as the reference does.
    *Done 2026-11-15: v0.16.0; 122,430 and 139,125 boards bid as the
    reference, exports and coverage unchanged. The release holds the Linux
-   and Windows binaries and the WASM. The two macOS binaries were not
-   built: Apple refused to notarize them until a developer agreement is
-   accepted. Nothing in the cut-over uses them.*
+   and Windows binaries and the WASM; the two macOS binaries were added
+   on 2026-11-16, once a developer agreement Apple's notarization needed
+   was accepted.*
 4. **This repo:** `engine.env` names the engine's release tag, so publish
    downloads the binary instead of building it.
    *Done 2026-11-15.*
 5. **The service that renders print links** from the card data Bridge
    Classroom stores: bump the card tools pin and deploy, before any
    stored card is in schema 3. It reads both shapes afterwards.
+   *Done 2026-11-16: live on v0.45.0. A public sample card posted in
+   schema 2 and in schema 3 gives the same PDF text, and a live print
+   link still renders. Against the pin it had, a printed card gains the
+   ticks the captures already showed (a convention whose treatments are
+   filled in counts as played: Gerber, Drury and three more on the 2/1
+   sample).*
 6. **Bridge Classroom:** bump the card tools and the WASM pin; fetch the
    published snapshot when it runs and hand it to Rusty; show the rules
    number beside the engine version. Stored cards upgrade on load, by the
    migration. Check on a staging build before the live one.
+   *Ready 2026-11-16: the draft is pinned to v0.45.0 and the v0.16.0
+   WASM, and a copy of the stored card tables was taken.*
 7. **Merge the card tools and the engine to `main`.** The standalone
    editor and the engine's site deploy from there.
 8. **Better BBO Convention Card:** bump the card tools pin.
