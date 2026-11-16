@@ -1,6 +1,0 @@
-id = "partnership_bidding/blackwood"
-name = "Blackwood (Partnership)"
-kind = "lesson"
-source = "taxonomy"
-level = 2
-contexts = ["slam"]

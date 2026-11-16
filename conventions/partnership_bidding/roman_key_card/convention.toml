@@ -1,6 +1,0 @@
-id = "partnership_bidding/roman_key_card"
-name = "Roman Key Card (Partnership)"
-kind = "lesson"
-source = "taxonomy"
-level = 4
-contexts = ["slam"]

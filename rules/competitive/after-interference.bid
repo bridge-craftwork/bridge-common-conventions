@@ -25,7 +25,6 @@ module after-interference "Our side once the opponents come in"
   needs  base
   skill  competitive_bidding/after_their_overcall
   skill  competitive_bidding/negative_doubles
-  skill  partnership_bidding/negative_doubles
   skill  competitive_bidding/support_cuebids
   param  neg = competitive_bidding/negative_doubles default true
   param  cue_raise = competitive_bidding/support_cuebids default true

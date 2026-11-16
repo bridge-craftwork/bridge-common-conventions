@@ -4,7 +4,6 @@ brief = "Double-jump shows shortness"
 source = "proposed"
 level = 5
 contexts = ["major_openings"]
-taught_under = ["bidding_conventions/jacoby_2nt_splinters"]
 names = ["Splinters", "Splinter", "Splinter bids", "Splinter raise", "Mini-splinters"]
 confirm = true
 summary = """

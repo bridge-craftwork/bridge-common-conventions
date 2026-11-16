@@ -109,12 +109,12 @@ class Pack:
             # `skill`: a technique or an area of competence (finessing,
             # opening leads, slam bidding), due to become its own list.
             # `judgement`: how a bidder decides (hand evaluation, the Law),
-            # which no card records. `lesson`: a set of lessons or deals,
-            # due to leave the pack (docs/PLAN.md).
-            if d.get("kind", "convention") not in ("convention", "natural", "skill", "judgement", "lesson"):
-                self.bad(where, f"kind is {d['kind']!r}: convention (the default), natural, skill, judgement or lesson")
-            if d.get("kind") in ("skill", "judgement", "lesson") and (d.get("treatments") or d.get("implements")):
-                self.bad(where, "a skill, judgement or lesson has no treatments and fills no function")
+            # which no card records. A set of lessons or deals is not
+            # defined here: it is its collection's (migrations/lesson-sets.toml).
+            if d.get("kind", "convention") not in ("convention", "natural", "skill", "judgement"):
+                self.bad(where, f"kind is {d['kind']!r}: convention (the default), natural, skill or judgement")
+            if d.get("kind") in ("skill", "judgement") and (d.get("treatments") or d.get("implements")):
+                self.bad(where, "a skill or a judgement entry has no treatments and fills no function")
             # A definition that is a style of another names the treatments
             # that are it, and has no card entry of its own.
             for t in d.get("style_of", []):
@@ -177,6 +177,14 @@ class Pack:
 
         for f in sorted((self.root / "migrations").glob("*.toml")):
             mig = self.load(f.relative_to(self.root))
+            # IDs that left: never defined again, and what each covered is
+            # still something this pack defines.
+            for gone, a in mig.get("left", {}).items():
+                if gone in self.defs:
+                    self.bad(f, f"{gone!r} left the pack and is defined again")
+                for i in a.get("covers", []):
+                    if i not in self.defs:
+                        self.bad(f, f"{gone!r} covers {i!r}, which is not defined")
             if mig.get("to") != "3.0":
                 continue
             targets = list(mig.get("convention", {}).values()) + list(mig.get("treatment", {}).values())

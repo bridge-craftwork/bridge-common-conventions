@@ -1,0 +1,38 @@
+# The lesson sets that left the pack (docs/CONTRACT.md, sections 3 and 11).
+#
+# A lesson set is a collection's, not a convention: "Stayman & Transfers
+# (Partnership)" is a set of lessons, and Stayman and Jacoby transfers are
+# what it teaches. These 20 IDs came in with the lesson taxonomy and were
+# defined here until 2026-11-16. Each is recorded with where it went and
+# what it covers, so a tag or a note that still names one can be read.
+#
+# The collection that holds the lessons now says what each covers (its own
+# manifest). Nothing here is ever edited or removed; an ID below is never
+# given to something else.
+#
+# [left]  "ID" = { name, to, lesson, covers }
+#         `to`: the collection that holds it. `lesson`: its name there.
+#         `covers`: the conventions, natural methods and skills it teaches,
+#         as IDs this pack defines.
+
+[left]
+"bidding_conventions/jacoby_2nt_splinters" = { name = "Jacoby 2NT & Splinters", to = "Baker-Bridge", lesson = "Jacoby", covers = ["bidding_conventions/jacoby_2nt", "bidding_conventions/splinters"] }
+"competitive_bidding/michaels_unusual" = { name = "Michaels & Unusual 2NT", to = "Baker-Bridge", lesson = "Michaels", covers = ["competitive_bidding/michaels", "competitive_bidding/unusual_notrump"] }
+"partnership_bidding/advanced_forcing" = { name = "Advanced Forcing (Partnership)", to = "Baker-Bridge", lesson = "Partnership-AdvancedForcing", covers = [] }
+"partnership_bidding/basic_bidding" = { name = "Basic Bidding (Partnership)", to = "Baker-Bridge", lesson = "Partnership-BasicBidding", covers = ["basic_bidding/major_suit_openings", "basic_bidding/minor_suit_openings", "basic_bidding/responses_to_suit_openings"] }
+"partnership_bidding/basic_major" = { name = "Basic Major (Partnership)", to = "Baker-Bridge", lesson = "Partnership-BasicMajor", covers = ["basic_bidding/major_suit_openings", "basic_bidding/responses_to_suit_openings"] }
+"partnership_bidding/basic_notrump" = { name = "Basic Notrump (Partnership)", to = "Baker-Bridge", lesson = "Partnership-BasicNotrump", covers = ["basic_bidding/notrump_openings", "bidding_conventions/stayman", "bidding_conventions/jacoby_transfers"] }
+"partnership_bidding/blackwood" = { name = "Blackwood (Partnership)", to = "Baker-Bridge", lesson = "Partnership-Blackwood", covers = ["bidding_conventions/blackwood"] }
+"partnership_bidding/jacoby_2nt" = { name = "Jacoby 2NT (Partnership)", to = "Baker-Bridge", lesson = "Partnership-Jacoby2NT", covers = ["bidding_conventions/jacoby_2nt"] }
+"partnership_bidding/miscellaneous" = { name = "Miscellaneous Auctions", to = "nowhere: no lesson, scenario or rule used it", covers = [] }
+"partnership_bidding/negative_doubles" = { name = "Negative Doubles (Partnership)", to = "Baker-Bridge", lesson = "Partnership-NegativeDoubles", covers = ["competitive_bidding/negative_doubles", "competitive_bidding/after_their_overcall"] }
+"partnership_bidding/overcalls" = { name = "Overcalls (Partnership)", to = "Baker-Bridge", lesson = "Partnership-Overcalls", covers = ["competitive_bidding/overcalls", "competitive_bidding/notrump_overcalls"] }
+"partnership_bidding/roman_key_card" = { name = "Roman Key Card (Partnership)", to = "Baker-Bridge", lesson = "Partnership-RomanKeyCard", covers = ["bidding_conventions/roman_keycard"] }
+"partnership_bidding/stayman_transfers" = { name = "Stayman & Transfers (Partnership)", to = "Baker-Bridge", lesson = "Partnership-StaymanTransfers", covers = ["bidding_conventions/stayman", "bidding_conventions/jacoby_transfers"] }
+"partnership_bidding/two_club" = { name = "Two Club (Partnership)", to = "Baker-Bridge", lesson = "Partnership-TwoClub", covers = ["bidding_conventions/strong_2c"] }
+"partnership_bidding/weak_twos" = { name = "Weak Twos (Partnership)", to = "Baker-Bridge", lesson = "Partnership-WeakTwos", covers = ["bidding_conventions/weak_2s"] }
+"practice_deals/100_miscellaneous" = { name = "100 Miscellaneous Deals", to = "Baker-Bridge", lesson = "100Deals", covers = [] }
+"practice_deals/100_notrump" = { name = "100 Notrump Deals", to = "Baker-Bridge", lesson = "100NT", covers = [] }
+"precision/1c_mixed" = { name = "Precision 1♣ (Mixed)", to = "a retired lesson collection", covers = ["bidding_conventions/precision_1c"] }
+"precision/1c_opener" = { name = "Precision 1♣ (Opener)", to = "a retired lesson collection", covers = ["bidding_conventions/precision_1c"] }
+"precision/1c_responder" = { name = "Precision 1♣ (Responder)", to = "a retired lesson collection", covers = ["bidding_conventions/precision_1c"] }

@@ -1,6 +1,0 @@
-id = "partnership_bidding/stayman_transfers"
-name = "Stayman & Transfers (Partnership)"
-kind = "lesson"
-source = "taxonomy"
-level = 3
-contexts = ["notrump_openings"]

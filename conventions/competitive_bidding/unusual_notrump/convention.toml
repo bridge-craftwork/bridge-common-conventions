@@ -3,7 +3,14 @@ name = "Unusual notrump"
 source = "proposed"
 level = 4
 contexts = ["overcalls"]
+names = ["Unusual 2NT", "Unusual notrump", "Unusual NT"]
+summary = """
+A jump to 2NT over their opening as a two-suited overcall: five-five in the
+two lowest unbid suits.
+"""
 see = [
+  { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 17 },
+  { title = "Competitive Bidding: Unusual 2NT", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/481" },
   { title = "Unusual 2NT", site = "Bridge Bum", url = "https://www.bridgebum.com/unusual_2nt.php" },
   { title = "Unusual notrump", site = "Wikipedia", url = "https://en.wikipedia.org/wiki/Unusual_notrump" },
 ]
@@ -12,7 +19,6 @@ see = [
 kind = "bool"
 label = "Unusual 1NT"
 level = 6
-skill = "competitive_bidding/michaels_unusual"
 
 [treatments.at_2nt]
 kind = "bool"
@@ -20,7 +26,6 @@ brief = "2NT = two lowest unbid suits"
 label = "Unusual 2NT"
 default = true
 level = 4
-skill = "competitive_bidding/michaels_unusual"
 
 [treatments.shows]
 kind = "text"
@@ -31,10 +36,8 @@ skill = false
 kind = "bool"
 label = "Unusual 3NT"
 level = 6
-skill = "competitive_bidding/michaels_unusual"
 
 [treatments.at_4nt]
 kind = "bool"
 label = "Unusual 4NT"
 level = 5
-skill = "competitive_bidding/michaels_unusual"

@@ -30,7 +30,6 @@
 module two-nt-responses "Responses to a 2NT opening"
   kind   system
   needs  notrump-base
-  skill  partnership_bidding/basic_notrump
   skill  bidding_conventions/stayman
   skill  bidding_conventions/jacoby_transfers
   param  stayman = bidding_conventions/stayman default true
