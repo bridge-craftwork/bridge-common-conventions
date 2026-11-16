@@ -35,11 +35,11 @@ import sys
 import tomllib
 
 HERE = pathlib.Path(__file__).resolve().parent.parent
-TEXT = (".bid", ".test", ".notes.md")
+TEXT = (".bid", ".test", ".notes.md", ".dlr")
 # What a pack is made of. A commit that touches none of these does not
 # change the snapshot.
 SOURCES = ["bridge-pack.toml", "conventions", "skills", "rules", "settings", "contexts.toml",
-           "functions.toml", "levels.toml", "alerts.toml", "migrations"]
+           "functions.toml", "levels.toml", "alerts.toml", "deals.toml", "migrations"]
 # Source files that cannot change a bid. A commit that changes only these
 # changes the snapshot but not the rules number.
 NOT_RULES = [":(exclude,glob)**/*.notes.md", ":(exclude,glob)**/*.test"]
@@ -100,6 +100,7 @@ def build(root):
         "functions": read(root / "functions.toml"),
         "levels": read(root / "levels.toml"),
         "alerts": read(root / "alerts.toml"),
+        "deals": read(root / "deals.toml") if (root / "deals.toml").is_file() else {},
         "migrations": {f.stem: read(f) for f in sorted((root / "migrations").glob("*.toml"))},
         "files": files,
     }

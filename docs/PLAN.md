@@ -833,11 +833,20 @@ exports schema 3, those files are in people's hands.
 Additive, so it follows the cut-over.
 
 - dealer3's parser and run crates built into `rbb`; scripts validated by
-  the same check as rules.
-- `deals` entries on definitions, starting from the PBS scripts (over 300,
-  214 of 343 scenarios already tagged with a convention). The definition
-  is the source for "this is the convention's own scenario"; CI checks
-  PBS's tags agree.
+  the same check as rules. *Done 2026-11-16 (#43): `rbb deal check` and
+  `rbb deal run`, through an entry point added to dealer3's run crate.
+  All 351 Practice-Bidding-Scenarios scripts parse; a script's deals are
+  the same as dealer3's own for a seed. In the engine's `main`, in no
+  release yet.*
+- Dealer scripts for a convention (#44). *Narrowed 2026-11-16 (Rick): the
+  idea of keeping scripts per convention has not been tried, so the pack
+  points at the scripts that exist and writes none. `deals.toml` names
+  Practice-Bidding-Scenarios as a source, whose scenarios are tagged with
+  this pack's IDs (214 of 343) and checked against it there. A definition
+  may still name a script of its own; none does. The publish step runs
+  `rbb deal check` over such scripts once there is one and an engine
+  release that has the command. The rest of this phase waits until rule
+  work on the engine shows whether the scripts earn their place.*
 - Example deals generated at publish, each stamped with script, seed,
   rules, engine, card and bidder; the convention's own calls marked; only
   deals where the convention fired are kept, and the rate is reported.

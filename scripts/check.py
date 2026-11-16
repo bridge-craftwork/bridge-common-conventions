@@ -123,6 +123,22 @@ class Pack:
                     self.bad(where, f"style_of names {t!r}, which is not a treatment")
                 if d.get("contexts") or d.get("implements"):
                     self.bad(where, "a style of another convention has no context or function of its own")
+            # Dealer scripts: one of a file in the definition's own folder
+            # and a link to one its author keeps.
+            for n, e in enumerate(d.get("deals", []), 1):
+                if not e.get("name"):
+                    self.bad(where, f"deals entry {n} has no name")
+                if ("file" in e) == ("url" in e):
+                    self.bad(where, f"deals entry {n}: exactly one of file and url")
+                elif "file" in e:
+                    folder = "skills" if cid in self.skills else "conventions"
+                    f = self.root / folder / cid / e["file"]
+                    if not e["file"].endswith(".dlr") or "/" in e["file"]:
+                        self.bad(where, f"deals entry {n}: {e['file']!r} is not a .dlr file in this folder")
+                    elif not f.is_file():
+                        self.bad(where, f"deals entry {n}: {e['file']!r} is not there")
+                elif not str(e["url"]).startswith("https://"):
+                    self.bad(where, f"deals entry {n}: url is not an https link")
             for i in d.get("taught_under", []):
                 if i not in self.defs:
                     self.bad(where, f"taught_under names {i!r}, which is not defined")
@@ -196,6 +212,15 @@ class Pack:
                 missing = [k for k in ("bidder", "boards", "agree_before", "agree_after") if k not in r]
                 if missing:
                     self.bad(rel, f"reference {n} lacks {', '.join(missing)}")
+        # Where scripts kept elsewhere are found (deals.toml).
+        if (self.root / "deals.toml").is_file():
+            for n, s in enumerate(self.load("deals.toml").get("source", []), 1):
+                missing = [k for k in ("name", "manifest", "scripts", "ids", "script", "base") if not s.get(k)]
+                if missing:
+                    self.bad("deals.toml", f"source {n} lacks {', '.join(missing)}")
+                for k in ("manifest", "base"):
+                    if s.get(k) and not str(s[k]).startswith("https://"):
+                        self.bad("deals.toml", f"source {n}: {k} is not an https link")
 
         for f in sorted((self.root / "migrations").glob("*.toml")):
             mig = self.load(f.relative_to(self.root))
