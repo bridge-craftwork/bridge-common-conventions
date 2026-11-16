@@ -1,0 +1,10 @@
+id = "competitive_bidding/after_their_overcall"
+name = "Bidding after Their Overcall"
+kind = "natural"
+source = "proposed"
+level = 3
+contexts = ["after_interference"]
+summary = """
+Our side's calls once an opponent overcalls partner's opening: raises, new
+suits and notrump bids freely made, and what a pass says.
+"""

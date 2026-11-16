@@ -1,0 +1,11 @@
+id = "competitive_bidding/notrump_overcalls"
+name = "The 1NT Overcall"
+kind = "natural"
+source = "proposed"
+level = 3
+contexts = ["overcalls"]
+summary = """
+A 1NT overcall of their opening, direct or in the balancing seat, shows a
+balanced hand with a stopper in their suit; and the other side's calls
+once 1NT has been overcalled.
+"""

@@ -13,6 +13,7 @@
 module nt-interference "Our 1NT when RHO acts"
   kind   system
   needs  notrump-base
+  skill  competitive_bidding/notrump_interference
   param  vs_double = bidding_conventions/jacoby_transfers:vs_double default false
   param  vs_2c     = bidding_conventions/jacoby_transfers:vs_2c default false
   param  leb       = competitive_bidding/lebensohl:over_1nt_interference default false

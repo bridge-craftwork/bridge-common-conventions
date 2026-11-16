@@ -1,0 +1,10 @@
+id = "competitive_bidding/notrump_interference"
+name = "Our 1NT after Interference"
+kind = "natural"
+source = "proposed"
+level = 4
+contexts = ["notrump_openings"]
+summary = """
+Responder's calls when partner opens 1NT and the next hand doubles or
+bids: which of the usual responses still apply, and what a double shows.
+"""

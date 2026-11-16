@@ -1,0 +1,11 @@
+id = "basic_bidding/responses_to_suit_openings"
+name = "Responses to Suit Openings"
+kind = "natural"
+source = "proposed"
+level = 1
+contexts = ["responses_rebids"]
+summary = """
+Responder's first call when partner opens one of a suit and the next hand
+passes: a raise, a new suit at the one level, 1NT, a new suit at the two
+level, and how strong each is in the system played.
+"""

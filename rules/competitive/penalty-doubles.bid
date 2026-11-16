@@ -5,6 +5,7 @@
 module penalty-doubles "Penalty doubles: they are too high"
   kind   judgement
   needs  base
+  skill  competitive_bidding/penalty_doubles
 
 # The contract is theirs and undoubled: RHO has just bid (direct), or LHO
 # bid and both partner and RHO have passed since (passed round to me).
