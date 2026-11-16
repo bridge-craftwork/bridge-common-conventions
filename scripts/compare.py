@@ -57,6 +57,7 @@ def main():
 
     lines = []
     counts = collections.Counter()
+    sampled = set()
 
     for folder in ("cards", "coverage"):
         fa = {p.relative_to(args.before): p for p in (args.before / folder).rglob("*") if p.is_file()}
@@ -85,13 +86,24 @@ def main():
             shown = 0
             with open(fa / name) as xa, open(fb / name) as xb:
                 rows_a, rows_b = xa.read().split("\n"), xb.read().split("\n")
+            rows_a, rows_b = [r for r in rows_a if r], [r for r in rows_b if r]
             if len(rows_a) != len(rows_b):
-                counts["bidding: cards with a different number of boards"] += 1
-                lines.append(f"full/{name}: {len(rows_a)} boards against {len(rows_b)}")
-                continue
-            for ra, rb in zip(rows_a, rows_b):
-                if not ra and not rb:
+                # One side may be a sample of the other (capture.py
+                # --boards-per-file): its boards keep the full set's numbers,
+                # so the boards both hold are compared. Anything else is two
+                # different deal sets.
+                by_a = {json.loads(r)["board"]: r for r in rows_a}
+                by_b = {json.loads(r)["board"]: r for r in rows_b}
+                small, large = (by_a, by_b) if len(by_a) < len(by_b) else (by_b, by_a)
+                same_deal = all(k in large and json.loads(small[k])["deal"] == json.loads(large[k])["deal"]
+                                for k in small)
+                if not small or not same_deal:
+                    counts["bidding: cards with a different number of boards"] += 1
+                    lines.append(f"full/{name}: {len(rows_a)} boards against {len(rows_b)}")
                     continue
+                sampled.add((len(small), len(large)))
+                rows_a, rows_b = [by_a[k] for k in small], [by_b[k] for k in small]
+            for ra, rb in zip(rows_a, rows_b):
                 counts["bidding: boards compared"] += 1
                 if ra == rb:
                     continue
@@ -127,7 +139,10 @@ def main():
 
     differing = {k: v for k, v in counts.items() if k != "bidding: boards compared"}
     head = [f"Compared {args.before} with {args.after}",
-            f"Boards compared: {counts['bidding: boards compared']}", ""]
+            f"Boards compared: {counts['bidding: boards compared']}"]
+    head += [f"A sample: {s} of {n} boards a card (the boards both captures hold)"
+             for s, n in sorted(sampled)]
+    head += [""]
     head += [f"{v:8}  {k}" for k, v in sorted(differing.items())] or ["No differences."]
     report = "\n".join(head + [""] + lines) + "\n"
     if args.report:
