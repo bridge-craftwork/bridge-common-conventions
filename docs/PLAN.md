@@ -509,6 +509,8 @@ reviewed, as in phase 5.
 5. **When the skills and lesson sets leave** (below). Agreed (Rick, 2026-11-15): in the
    same cut-over, since the editor's lesson links move with them; if that
    proves large, straight after, with the pack unchanged meanwhile.
+   Sized on 2026-11-15, it is large (the list is under "Skills and lessons
+   leave the pack" below), so it follows the cut-over.
 
 6. **Where measurements are kept.** A rule change is judged by
    comparisons: the same cards and deals bid before and after, and our
@@ -625,6 +627,33 @@ first.
     `rules/slam/slam-entry.bid`, `slam-catch.bid` and `over-3nt.bid`).
     Three of them name a lesson set as their skill; when the lesson links
     turn round they name a judgement skill instead.
+  - **What the move touches** (measured 2026-11-15, rules number 21).
+    It is more than deleting 48 files:
+    - 126 lines elsewhere in the pack name a leaving ID: 43 `skill` lines
+      in rule modules, 41 settings and treatments (36 of them as the first
+      skill, which is where the card tools take a row's lesson and its
+      tile in the card report), two functions, three `taught_under`
+      lists and one `implies`.
+    - Eight leaving definitions hold more than a name and a level: a
+      summary, references, and for six of them 23 names the card tools
+      recognise in a card's free text (Takeout Doubles, Reverse Bids,
+      Michaels & Unusual 2NT, Defensive Signals, Opening Leads, Defending
+      against 1NT). That content moves with them; none of it is dropped.
+    - Bridge Classroom's taxonomy is a list of 50 IDs and nothing else. 34
+      of the 48 are in it; 14 are not. It has to grow to hold what a
+      definition holds, and which conventions, settings and rule modules
+      each skill or lesson covers.
+    - The card tools need a way to be given that taxonomy by their host,
+      so that tiles, lesson links, levels and recognised names stay as
+      they are. The engine's check of a module's `skill` lines, and
+      lesson-studio's check of lesson tags, read both lists.
+    - The contract's "an ID is never removed" is reworded: the 48 keep
+      their IDs and meaning, in another list.
+  - **Order, after the cut-over:** the card tools and Bridge Classroom
+    take the taxonomy first; the pack drops the 48 afterwards. Hosts
+    follow the newest rules, so the other order would show tiles for
+    skills the fetched rules no longer name. Nothing new is to depend on
+    the 48 being here in the meantime.
 
 **Done when** no other repo holds a copy of the names or the rules.
 
