@@ -931,10 +931,7 @@
    "names": [
     "Jacoby transfers",
     "Jacoby",
-    "transfers",
-    "Texas",
-    "Texas transfers",
-    "4-level transfers"
+    "transfers"
    ],
    "confirm_names": [
     "Jacoby",
@@ -2506,6 +2503,11 @@
    ],
    "taught_under": [
     "bidding_conventions/jacoby_transfers"
+   ],
+   "names": [
+    "Texas",
+    "Texas transfers",
+    "4-level transfers"
    ],
    "treatments": {
     "over_1nt": {

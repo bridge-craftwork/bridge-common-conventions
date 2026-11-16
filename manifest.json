@@ -1,7 +1,7 @@
 {
  "schema": "pack-manifest/v1",
- "source_commit": "0e13e151e76aa4188062185701c6f20af71fac3a",
- "rules_number": 26,
+ "source_commit": "6c571816c88b54ae043299957f1dc546249bcf3a",
+ "rules_number": 27,
  "name": "bridge-common-conventions",
  "pack_format_version": 1,
  "card_schema_version": 3,
@@ -305,8 +305,8 @@
    "changed": "2026-11-16T11:56:57-08:00"
   },
   "conventions/bidding_conventions/jacoby_transfers/convention.toml": {
-   "sha256": "110dd3c3932301fa43a214d82fe5af406348f8dee0ab51b62b28dd689839f8e1",
-   "changed": "2026-11-14T15:21:15-08:00"
+   "sha256": "80baea67e2b60354db64584905ebc642d1e66f6833bb23bb9ea58a9b9de891ec",
+   "changed": "2026-11-16T12:02:46-08:00"
   },
   "conventions/bidding_conventions/jacoby_transfers/jacoby-transfers.bid": {
    "sha256": "bed8c081623eebe77db2c82f8748a3aa5ef33d7e54c8bfeb6d12e6a2b9ce28f1",
@@ -693,8 +693,8 @@
    "changed": "2026-11-14T12:36:57-08:00"
   },
   "conventions/bidding_conventions/texas/convention.toml": {
-   "sha256": "54fe40bb4f2381ede8587cfbaf0ad6897b83a2355b70f758e92d0c99dd13fb6c",
-   "changed": "2026-11-14T19:46:10-08:00"
+   "sha256": "0173ef08ba09c63daacc22ac762bb9929060ca656997c229608025e487c78049",
+   "changed": "2026-11-16T12:02:46-08:00"
   },
   "conventions/bidding_conventions/texas/texas-transfers.bid": {
    "sha256": "00f25dcd9ac12f0f52116446b83b37bd604fc00534926cff5f679aacf36d4445",
@@ -2097,5 +2097,5 @@
    "changed": "2026-11-16T09:30:15-08:00"
   }
  },
- "pack_sha256": "766a34404fa3c296b2a4248c39fc702631718e4a9967e6ba8648df9af939a3b7"
+ "pack_sha256": "05f69d7557c661b389a24d34057746c234c6e0b28dd87ac2f772e02c97f10b43"
 }
