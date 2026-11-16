@@ -72,6 +72,7 @@ skills/<category>/<name>/skill.toml    a skill or a judgement entry; the
 rules/<folder>/                        every other rule file
 settings/<section>.toml                card settings
 contexts.toml  functions.toml  levels.toml  alerts.toml
+deals.toml                             where dealer scripts kept elsewhere are found
 migrations/<from>-to-<to>.toml         every rename, permanent
 ```
 
@@ -210,7 +211,15 @@ demonstration and practice. Exactly one of `file` and `url`. A reader never
 needs a script to load, check or bid a card.
 
 A script kept elsewhere may be tagged there with this convention's ID or
-with any ID in its `taught_under`.
+with any ID in its `taught_under`. `deals.toml`, at the pack's root, says
+where such collections are: each `[[source]]` names a collection, its
+`manifest` (a JSON file listing its scripts), and the keys in it that hold
+the scripts, the IDs each practises and each script's path. A tool that
+wants the scripts for a convention reads the sources; nothing copies their
+lists into this pack.
+
+A script kept here is checked with the rule files (`rbb deal check`, from
+the engine release after v0.16.2) and published with them as source text.
 
 #### Curated examples
 
@@ -636,6 +645,7 @@ None changes a decision.
 | 10 | `pack.json` has the keys `schema`, `pack`, `categories`, `conventions`, `settings`, `contexts`, `functions`, `levels`, `alerts`, `migrations` and `files` | The section said "one JSON document" without naming its parts. `scripts/build_snapshot.py` builds it; the manifest's rules number and per-file dates wait for Phase 4 |
 | 2, 3, 10 | `skills/<category>/<name>/skill.toml`, and a `skills` key in `pack.json`: the 14 skills and 4 judgement entries, with the keys a definition has. Their IDs are unchanged; they are no longer under `conventions` | Bridge skills are generic, so they are this repo's, but they are not agreements, so they are their own list (Rick, 2026-11-16). A reader that looks an ID up reads both keys; one written before the split finds the 18 missing from `conventions`. The engine at v0.16.0 bids the same from either shape (measured) |
 | 3, 4, 11 | A set of lessons is not defined here. The 20 marked `kind = "lesson"` are removed and recorded in `migrations/lesson-sets.toml`; `lesson` is no longer a kind. A rule module names the convention, natural method or skill it bids, never a lesson set; `taught_under` and a treatment's `skill` no longer name one | A lesson set is a collection's: the collection says what its lessons cover, in its own manifest, with IDs from here (Baker-Bridge does; Practice-Bidding-Scenarios tags its scenarios the same way). Michaels & Unusual 2NT's summary, references and names went to the Michaels and Unusual Notrump definitions (Rick, 2026-11-16) |
+| 2, 4, 10 | `deals.toml`: the collections that keep dealer scripts tagged with this pack's IDs (Practice-Bidding-Scenarios is the one source). The snapshot carries it under `deals`, and a `.dlr` file kept in a definition's folder among its `files`. The checker holds a definition's `[[deals]]` entries to the form section 4 gives | Scripts exist already, 214 of them tagged with a convention, and whether keeping scripts per convention is worth it has not been tried. So the pack points at what is there, allows a script of its own, and writes none (Rick, 2026-11-16) |
 | 8, 11 | A setting that named a convention keeps the card's own wording: as `text` on the entry it becomes ("Hamilton" on Cappelletti's), or, where it names no convention (`natural`, a name no option covers) or a second part is worded differently, as the setting at its old path | The card tools print that wording. Without it a card that says "Strong - Suction" would print the bare option word after the upgrade |
 | 8, 11 | An unset switch whose treatments are all off or empty leaves no entry, so those values are not carried | A treatment cannot exist in schema 3 without its entry, and an entry would say the card plays, or does not play, a convention it was silent on. The rules treat silent and off differently |
 | 8, 11 | On upgrade, a convention shown only by a note or by filled-in treatments is played, unless the card ticks or names another convention for the same function; then the ticked one wins and the note is kept (Rick, 2026-11-14) | Some cards have no box for a convention, so a note is the only way to show it; but a 4NT note filed under Blackwood must not displace a ticked keycard |

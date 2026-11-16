@@ -1,0 +1,27 @@
+# Where dealer scripts for this pack's conventions are kept
+# (docs/CONTRACT.md, section 4, "Deals").
+#
+# A dealer script generates deals where a convention matters. One may sit in
+# a definition's own folder, named by a `[[deals]]` entry there. Most do not:
+# they are kept by a collection that tags each script with the IDs it
+# practises, and this file says where such collections are.
+#
+# Nothing here is needed to load, check or bid a card. Whether scripts kept
+# this way earn their place is still to be seen (Rick, 2026-11-16): this
+# points at what exists, and no script has been written for it.
+#
+# [[source]]
+#   name      the collection
+#   manifest  a JSON file listing its scripts
+#   scripts   the key in it that holds them, by name
+#   ids       the key, on each, that lists the IDs it practises
+#   script    the key, on each, that gives the script's path
+#   base      what that path is relative to
+
+[[source]]
+name = "Practice-Bidding-Scenarios"
+manifest = "https://raw.githubusercontent.com/bridge-craftwork/Practice-Bidding-Scenarios/main/manifest/manifest-release.json"
+scripts = "scenarios"
+ids = "skills"
+script = "dlr"
+base = "https://raw.githubusercontent.com/bridge-craftwork/Practice-Bidding-Scenarios/main/"
