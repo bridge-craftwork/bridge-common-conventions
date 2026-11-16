@@ -30,3 +30,4 @@ label = "Invitational jump shifts"
 level = 5
 choice = "general.jump_shifts_2"
 skill = false
+implements = ["jump_to_major_over_minor"]
