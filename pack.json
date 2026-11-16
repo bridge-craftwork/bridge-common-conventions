@@ -4944,6 +4944,14 @@
    "source": "taxonomy",
    "level": 3
   },
+  "declarer_play/planning_the_play": {
+   "id": "declarer_play/planning_the_play",
+   "name": "Planning the Play",
+   "kind": "skill",
+   "source": "lessons",
+   "level": 1,
+   "summary": "Declarer's plan before playing to the first trick: count winners or losers,\nfind where the missing tricks can come from, and decide the order to play\nthe suits in.\n"
+  },
   "declarer_play/squeeze_plays": {
    "id": "declarer_play/squeeze_plays",
    "name": "Squeeze Plays",

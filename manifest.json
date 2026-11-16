@@ -1,7 +1,7 @@
 {
  "schema": "pack-manifest/v1",
- "source_commit": "6c571816c88b54ae043299957f1dc546249bcf3a",
- "rules_number": 27,
+ "source_commit": "dfd2b73413f176de91b5471b4abe0b8e95806480",
+ "rules_number": 28,
  "name": "bridge-common-conventions",
  "pack_format_version": 1,
  "card_schema_version": 3,
@@ -2064,6 +2064,10 @@
    "sha256": "b3c0076ebe93fa987375c733d650e06033273e3f402193f9e169fff7b50fa183",
    "changed": "2026-11-16T09:30:15-08:00"
   },
+  "skills/declarer_play/planning_the_play/skill.toml": {
+   "sha256": "42232a5e629d088c768eda30180b013f12f685060a9a454fcf9d512f7ed9f390",
+   "changed": "2026-11-16T12:16:43-08:00"
+  },
   "skills/declarer_play/squeeze_plays/skill.toml": {
    "sha256": "e8c39f758d0f76df68f01e7a88c24e7c7db5f7f7a23f76c0828d53374177558d",
    "changed": "2026-11-16T09:30:15-08:00"
@@ -2097,5 +2101,5 @@
    "changed": "2026-11-16T09:30:15-08:00"
   }
  },
- "pack_sha256": "05f69d7557c661b389a24d34057746c234c6e0b28dd87ac2f772e02c97f10b43"
+ "pack_sha256": "18312d2b5caf72bebfced0eb11dbba16c7a1c1ab11d862086ed720e5cca52b7b"
 }
