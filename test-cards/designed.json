@@ -5,8 +5,8 @@
     "competitive.cue_bid_raise.play",
     "competitive.direct_jump_cuebid_major=strong",
     "competitive.direct_jump_cuebid_minor=gambling",
+    "competitive.dont.play",
     "competitive.fit_showing_jumps.play",
-    "competitive.jordan_2nt.play",
     "competitive.jump_shift_after_overcall=strong",
     "competitive.lead_directing_double.play",
     "competitive.leaping_michaels.play",
@@ -17,10 +17,9 @@
     "competitive.raptor_1nt.play",
     "competitive.sandwich_nt.play",
     "competitive.scrambling_2nt.play",
-    "competitive.unusual_1nt.play",
     "competitive.unusual_2nt.play",
     "competitive.unusual_vs_unusual.play",
-    "competitive.vs_1nt_strong.system=modified_cappelletti",
+    "competitive.vs_1nt_strong.system=other",
     "direct_cuebids.nat_majors_michaels",
     "direct_cuebids.quasi_michaels",
     "doubles.maximal",
@@ -28,9 +27,8 @@
     "doubles.support.play",
     "general.forcing_opening_2c",
     "general.jump_shifts.weak_2",
-    "general.jump_shifts.weak_3",
     "general.soloway.play",
-    "general.style=standard",
+    "general.style=bba",
     "major_openings.bergen_raises.reverse",
     "major_openings.drury.play",
     "major_openings.drury.reverse",
@@ -39,6 +37,7 @@
     "major_openings.jacoby_2nt.modified",
     "major_openings.jump_raise.inv",
     "major_openings.one_nt_response.forcing",
+    "major_openings.splinters.play",
     "major_openings.two_over_one.play",
     "major_openings.two_over_one.rebid_style=lawrence",
     "minor_openings.inverted_minors.play",
@@ -48,31 +47,26 @@
     "minor_openings.walsh.play",
     "notrump.jacoby_transfers.over_2c_3nt",
     "notrump.jacoby_transfers.play",
+    "notrump.jacoby_transfers.super_accept",
     "notrump.jacoby_transfers.super_accept_doubleton",
     "notrump.jacoby_transfers.vs_2c",
     "notrump.lebensohl.play",
     "notrump.minor_suit_stayman.over_2nt",
     "notrump.minor_transfers.over_2nt",
     "notrump.minor_transfers.play",
-    "notrump.minor_transfers.style=bba",
+    "notrump.minor_transfers.style=two_nt_three_c",
     "notrump.one_nt.allow_4441",
     "notrump.one_nt.allow_5422",
     "notrump.one_nt.five_card_major=always",
-    "notrump.one_nt.range_max_minus",
-    "notrump.one_nt.range_min_plus",
-    "notrump.one_nt_alt.range_max_minus",
-    "notrump.one_nt_alt.range_min_plus",
-    "notrump.rubensohl.play",
-    "notrump.smolen.play",
     "notrump.stayman.play",
     "notrump.texas.bid_4c",
     "notrump.texas.play",
     "notrump.three_d_response=majors",
     "notrump.three_major_splinter",
-    "nt_overcalls.direct.systems_on",
     "other_conventions.fourth_suit_forcing.one_round",
     "other_conventions.help_suit_game_tries.play",
     "other_conventions.ingberman_2nt.play",
+    "other_conventions.new_minor_forcing.after_2nt_rebid",
     "other_conventions.sos_redouble.play",
     "other_conventions.two_way_game_tries.play",
     "other_conventions.xyz",
@@ -80,8 +74,7 @@
     "overcalls.responses.jump_cuebid_mixed",
     "overcalls.responses.jump_raise=mixed",
     "preempts.namyats.play",
-    "slam.blackwood.play",
-    "slam.cue_bids.style=first_or_second_round",
+    "slam.cue_bids.style=first_round",
     "slam.depo",
     "slam.dopi",
     "slam.four_nt_opening.play",
@@ -92,21 +85,24 @@
     "slam.non_serious_3nt.play",
     "slam.pick_a_slam_5nt.play",
     "slam.rkcb.minor_0314",
+    "slam.rkcb.play",
     "slam.rkcb.style=1430",
     "slam.ropi",
     "slam.western_cuebid.play",
-    "two_level.benjamin.play",
     "two_level.kokish.play",
     "two_level.parrish_bust.play",
+    "two_level.polish_two_suiters.play",
     "two_level.two_clubs.2d_response=negative",
     "two_level.two_clubs.meaning=natural",
-    "two_level.two_diamonds.meaning=conventional",
-    "two_level.two_hearts.meaning=weak",
-    "two_level.two_spades.meaning=intermediate",
     "two_level.weak_two_2nt_response=ogust",
+    "two_level.wilkosz.play",
     "vs_to_double.new_suit_forcing_tfr"
    ],
-   "numbers": "default"
+   "numbers": "default",
+   "text": {
+    "general.system": "brill",
+    "doubles.support.through": "none"
+   }
   },
   "designed-02": {
    "on": [
@@ -126,7 +122,6 @@
     "competitive.rubensohl_after_double.play",
     "competitive.sandwich_nt.play",
     "competitive.snapdragon.play",
-    "competitive.unusual_1nt.play",
     "competitive.unusual_4nt.play",
     "competitive.unusual_vs_unusual.play",
     "competitive.vs_1nt_strong.system=landy",
@@ -144,7 +139,7 @@
     "major_openings.drury.play",
     "major_openings.drury.two_d",
     "major_openings.gazzilli.play",
-    "major_openings.jacoby_2nt.play",
+    "major_openings.jacoby_2nt.modified",
     "major_openings.jump_raise.mixed",
     "major_openings.one_nt_response.semi_forcing",
     "major_openings.splinters.play",
@@ -156,13 +151,14 @@
     "minor_openings.two_nt_response=game_forcing",
     "notrump.gambling_3nt.play",
     "notrump.jacoby_transfers.over_2c_3nt",
+    "notrump.jacoby_transfers.play",
     "notrump.jacoby_transfers.super_accept",
     "notrump.jacoby_transfers.super_accept_doubleton",
     "notrump.jacoby_transfers.vs_double",
     "notrump.lebensohl.play",
     "notrump.minor_suit_stayman.play",
     "notrump.minor_transfers.over_2nt",
-    "notrump.minor_transfers.style=two_nt_three_c",
+    "notrump.minor_transfers.style=bba",
     "notrump.minor_transfers.three_c_diamonds",
     "notrump.one_nt.allow_4441",
     "notrump.one_nt.allow_one_less",
@@ -171,9 +167,9 @@
     "notrump.one_nt.range_min_plus",
     "notrump.one_nt_alt.range_max_minus",
     "notrump.one_nt_alt.range_min_plus",
-    "notrump.rubensohl.play",
+    "notrump.smolen.play",
+    "notrump.stayman.play",
     "notrump.stayman.puppet_1nt",
-    "notrump.stayman.puppet_2nt",
     "notrump.texas.bid_4c",
     "notrump.texas.two_under",
     "notrump.three_d_response=minors",
@@ -185,11 +181,9 @@
     "other_conventions.new_minor_forcing.after_2nt_rebid",
     "other_conventions.sos_redouble.play",
     "other_conventions.weak_jump_shifts_not_in_comp",
-    "other_conventions.wolff_signoff.play",
     "overcalls.jump=intermediate",
     "overcalls.responses.jump_cuebid_mixed",
     "overcalls.responses.jump_raise=invitational",
-    "slam.cue_bids.play",
     "slam.cue_bids.style=first_round",
     "slam.depo",
     "slam.exclusion_blackwood.play",
@@ -299,7 +293,7 @@
     "preempts.namyats.play",
     "slam.blackwood.play",
     "slam.cue_bids.play",
-    "slam.cue_bids.style=first_or_second_round",
+    "slam.cue_bids.style=first_round",
     "slam.dopi",
     "slam.exclusion_blackwood.play",
     "slam.gerber.play",
@@ -433,7 +427,11 @@
     "two_level.weak_two_2nt_response=feature",
     "vs_to_double.new_suit_forcing_tfr"
    ],
-   "numbers": "default"
+   "numbers": "default",
+   "text": {
+    "general.system": "brill",
+    "doubles.support.through": "none"
+   }
   },
   "designed-05": {
    "on": [
@@ -760,7 +758,11 @@
     "two_level.wilkosz.play",
     "vs_to_double.new_suit_forcing_tfr"
    ],
-   "numbers": "default"
+   "numbers": "default",
+   "text": {
+    "general.system": "brill",
+    "doubles.support.through": "none"
+   }
   },
   "designed-08": {
    "on": [
@@ -1083,7 +1085,11 @@
     "two_level.weak_two_2nt_response=feature",
     "vs_to_double.new_suit_forcing_tfr"
    ],
-   "numbers": "default"
+   "numbers": "default",
+   "text": {
+    "general.system": "brill",
+    "doubles.support.through": "none"
+   }
   },
   "designed-11": {
    "on": [
@@ -1145,6 +1151,7 @@
     "slam.rkcb.minor_0314",
     "slam.spiral_cuebids.play",
     "slam.western_cuebid.play",
+    "two_level.benjamin.play",
     "two_level.mccabe.play",
     "two_level.parrish_bust.play",
     "two_level.polish_two_suiters.play"
@@ -1156,6 +1163,12 @@
  "opened_for": [
   "two_level.polish_two_suiters.play=true"
  ],
+ "combinations": {
+  "wanted": 425,
+  "cards_opened": 0,
+  "in_one_card_only": 26,
+  "not_met": []
+ },
  "covers": {
   "yes_no": 137,
   "on_somewhere": 137,
@@ -1164,9 +1177,15 @@
   "options": 76,
   "options_chosen": 76,
   "numbers": 5,
+  "text_values": {
+   "general.system": [
+    "brill"
+   ],
+   "doubles.support.through": [
+    "none"
+   ]
+  },
   "not_varied": [
-   "doubles.support.through",
-   "general.system",
    "notrump.one_nt_alt.range_max",
    "notrump.one_nt_alt.range_min",
    "notrump.one_nt_alt.seat_vul",

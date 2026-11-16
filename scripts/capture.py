@@ -105,6 +105,9 @@ def main():
     ap.add_argument("--boards-per-file", type=int, metavar="N",
                     help="bid a sample: the first N boards of every scenario, not the corpus's "
                          "full set. For a change that cannot alter a bid")
+    ap.add_argument("--only", metavar="NAMES",
+                    help="of the cards, only these: file names without their ending, "
+                         "comma-separated, or @FILE with one a line (test-cards/fast.txt)")
     ap.add_argument("--no-check-tags", action="store_true",
                     help="capture from tools that are not at the corpus's tags (the 'after' side)")
     args = ap.parse_args()
@@ -139,6 +142,16 @@ def main():
                     if target.exists():
                         sys.exit(f"two corpus cards are named {target.name}")
                     target.write_bytes(git(repo, "show", f"{src['ref']}:{name}", text=False))
+        if args.only:
+            only = (pathlib.Path(args.only[1:]).read_text().split("\n") if args.only.startswith("@")
+                    else args.only.split(","))
+            only = {n.strip() for n in only if n.strip() and not n.strip().startswith("#")}
+            for f in list(cards.iterdir()):
+                if f.stem not in only:
+                    f.unlink()
+            missing = only - {f.stem for f in cards.iterdir()}
+            if missing:
+                sys.exit(f"--only names cards that are not there: {', '.join(sorted(missing))}")
         names = sorted(f.name for f in cards.iterdir())
 
         # --- convention-card ---

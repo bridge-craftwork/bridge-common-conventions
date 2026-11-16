@@ -7,9 +7,7 @@
    "partner_names": "A designed test card"
   },
   "conventions": {
-   "bidding_conventions/benjamin_2d": {
-    "play": false
-   },
+   "bidding_conventions/benjamin_2d": {},
    "bidding_conventions/bergen_raises": {
     "play": false,
     "reverse": false

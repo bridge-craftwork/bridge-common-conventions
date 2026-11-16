@@ -7,18 +7,22 @@
    "partner_names": "A designed test card"
   },
   "conventions": {
-   "bidding_conventions/benjamin_2d": {},
+   "bidding_conventions/benjamin_2d": {
+    "play": false
+   },
    "bidding_conventions/bergen_raises": {
     "play": false,
     "reverse": true
    },
-   "bidding_conventions/blackwood": {},
+   "bidding_conventions/blackwood": {
+    "play": false
+   },
    "bidding_conventions/checkback": {
     "play": false
    },
    "bidding_conventions/control_bids": {
     "play": false,
-    "style": "first_or_second_round"
+    "style": "first_round"
    },
    "bidding_conventions/depo": {},
    "bidding_conventions/dopi_ropi": {
@@ -53,18 +57,13 @@
    "bidding_conventions/help_suit_game_try": {},
    "bidding_conventions/impossible_2s": {},
    "bidding_conventions/ingberman": {},
-   "bidding_conventions/intermediate_twos": {
-    "for": [
-     "opening.2s"
-    ]
-   },
    "bidding_conventions/inverted_minors": {},
    "bidding_conventions/jacoby_2nt": {
     "play": false
    },
    "bidding_conventions/jacoby_transfers": {
     "over_2c_3nt": true,
-    "super_accept": false,
+    "super_accept": true,
     "super_accept_doubleton": true,
     "vs_2c": true,
     "vs_double": false
@@ -88,7 +87,7 @@
    "bidding_conventions/minor_suit_transfers": {
     "over_1nt": true,
     "over_2nt": true,
-    "style": "bba",
+    "style": "two_nt_three_c",
     "three_c_diamonds": false
    },
    "bidding_conventions/minorwood": {},
@@ -98,14 +97,11 @@
    },
    "bidding_conventions/namyats": {},
    "bidding_conventions/new_minor_forcing": {
-    "play": false,
     "after_1nt_rebid": false,
-    "after_2nt_rebid": false
+    "after_2nt_rebid": true
    },
    "bidding_conventions/pick_a_slam_5nt": {},
-   "bidding_conventions/polish_two_suiters": {
-    "play": false
-   },
+   "bidding_conventions/polish_two_suiters": {},
    "bidding_conventions/precision_2d": {
     "play": false
    },
@@ -118,7 +114,6 @@
     "play": false
    },
    "bidding_conventions/roman_keycard": {
-    "play": false,
     "king_ask_specific": false,
     "minor_0314": true,
     "style": "1430"
@@ -127,14 +122,14 @@
     "play": false
    },
    "bidding_conventions/serious_3nt": {},
-   "bidding_conventions/smolen": {},
+   "bidding_conventions/smolen": {
+    "play": false
+   },
    "bidding_conventions/soloway": {},
    "bidding_conventions/spiral": {
     "play": false
    },
-   "bidding_conventions/splinters": {
-    "play": false
-   },
+   "bidding_conventions/splinters": {},
    "bidding_conventions/stayman": {},
    "bidding_conventions/strong_jump_shifts": {
     "play": false,
@@ -157,20 +152,13 @@
     "play": false
    },
    "bidding_conventions/walsh": {},
-   "bidding_conventions/weak_2s": {
-    "for": [
-     "opening.2h"
-    ]
-   },
    "bidding_conventions/weak_jump_shifts": {
     "two_level": true,
-    "three_level": true,
+    "three_level": false,
     "not_in_comp": false
    },
    "bidding_conventions/western_cuebid": {},
-   "bidding_conventions/wilkosz": {
-    "play": false
-   },
+   "bidding_conventions/wilkosz": {},
    "bidding_conventions/wolff_signoff": {
     "play": false
    },
@@ -178,15 +166,14 @@
    "competitive_bidding/bromad": {
     "play": false
    },
-   "competitive_bidding/dont": {
-    "play": false
-   },
+   "competitive_bidding/dont": {},
    "competitive_bidding/fit_showing_jumps": {},
    "competitive_bidding/ghestem": {
     "play": false
    },
    "competitive_bidding/jordan_2nt": {
-    "over_major": true
+    "play": false,
+    "over_major": false
    },
    "competitive_bidding/lead_directing_doubles": {},
    "competitive_bidding/leaping_michaels": {},
@@ -204,11 +191,6 @@
     "over_short_minor": true
    },
    "competitive_bidding/mixed_raise": {},
-   "competitive_bidding/modified_cappelletti": {
-    "for": [
-     "defence_to_1nt.strong"
-    ]
-   },
    "competitive_bidding/negative_doubles": {
     "play": false
    },
@@ -218,7 +200,8 @@
    "competitive_bidding/raptor": {},
    "competitive_bidding/responsive_doubles": {},
    "competitive_bidding/rubensohl": {
-    "over_1nt_interference": true,
+    "play": false,
+    "over_1nt_interference": false,
     "after_double": false
    },
    "competitive_bidding/sandwich_nt": {},
@@ -228,10 +211,12 @@
    },
    "competitive_bidding/sos_redouble": {},
    "competitive_bidding/support_cuebids": {},
-   "competitive_bidding/support_doubles": {},
+   "competitive_bidding/support_doubles": {
+    "through": "none"
+   },
    "competitive_bidding/unusual_notrump": {
     "at_2nt": true,
-    "at_1nt": true,
+    "at_1nt": false,
     "at_4nt": false
    },
    "competitive_bidding/unusual_vs_unusual": {}
@@ -241,13 +226,17 @@
     "direct_jump_cuebid_major": "strong",
     "direct_jump_cuebid_minor": "gambling",
     "jump_shift_after_overcall": "strong",
-    "new_suit_after_overcall_forcing": true
+    "new_suit_after_overcall_forcing": true,
+    "vs_1nt_strong": {
+     "system": "other"
+    }
    },
    "general": {
     "forcing_opening_1c": false,
     "forcing_opening_2c": true,
     "min_hcp_open": 12,
-    "style": "standard"
+    "style": "bba",
+    "system": "brill"
    },
    "major_openings": {
     "jump_raise": {
@@ -272,13 +261,13 @@
      "allow_one_less": false,
      "five_card_major": "always",
      "range_max": 17,
-     "range_max_minus": true,
+     "range_max_minus": false,
      "range_min": 15,
-     "range_min_plus": true
+     "range_min_plus": false
     },
     "one_nt_alt": {
-     "range_max_minus": true,
-     "range_min_plus": true
+     "range_max_minus": false,
+     "range_min_plus": false
     },
     "three_d_response": "majors",
     "three_major_splinter": true,
@@ -289,7 +278,7 @@
    },
    "nt_overcalls": {
     "direct": {
-     "systems_on": true
+     "systems_on": false
     }
    },
    "overcalls": {
@@ -307,9 +296,6 @@
     "two_clubs": {
      "2d_response": "negative",
      "meaning": "natural"
-    },
-    "two_diamonds": {
-     "meaning": "conventional"
     },
     "weak_two_2nt_response": "ogust"
    }

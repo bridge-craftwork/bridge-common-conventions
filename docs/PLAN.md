@@ -539,9 +539,9 @@ reviewed, as in phase 5.
    rules fire on 41 or more of the 47) and leave settings untried (19
    yes/no settings the rules read are on in none of them). A designed set
    is generated from the pack instead (`scripts/design-cards.mjs`,
-   `test-cards/`): a draft of 11 cards fires 2,901 of the 4,514 rules
-   against the 47 cards' 2,677, and three of them fire 2,401, for the
-   fast check. Not every combination is tried, and what cannot share a
+   `test-cards/`): 11 cards fire 3,020 of the 4,514 rules against the 47
+   cards' 2,677, in two minutes against ten; three of them fire 2,454 in
+   half a minute, for the fast check (`test-cards/fast.txt`). Not every combination is tried, and what cannot share a
    card grows the set. The captured cards stay as samples of what people
    play: that such a card still loads, exports and bids as it did. The
    same is to be done for deals once each rule has example boards (Phase

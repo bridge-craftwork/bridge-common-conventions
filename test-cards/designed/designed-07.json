@@ -223,7 +223,9 @@
    },
    "competitive_bidding/sos_redouble": {},
    "competitive_bidding/support_cuebids": {},
-   "competitive_bidding/support_doubles": {},
+   "competitive_bidding/support_doubles": {
+    "through": "none"
+   },
    "competitive_bidding/unusual_notrump": {
     "at_2nt": true,
     "at_1nt": true,
@@ -245,7 +247,8 @@
     "forcing_opening_1c": false,
     "forcing_opening_2c": true,
     "min_hcp_open": 12,
-    "style": "standard"
+    "style": "standard",
+    "system": "brill"
    },
    "major_openings": {
     "jump_raise": {

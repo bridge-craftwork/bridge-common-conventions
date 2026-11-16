@@ -17,38 +17,46 @@ convention a module's `convention` line names):
 
 - every yes/no setting is on in at least one card and off in another;
 - every option of every choice is chosen in at least one card;
-- five numbers are at their default, below it and above it.
+- every rule module is on in some card, and on together with each setting
+  it reads, both ways (425 such combinations today, 399 of them in two
+  cards or more);
+- five numbers are at their default, below it and above it, and a setting
+  written as text takes each value a rule tests it for.
 
-It does not try combinations. What cannot be on together comes from the
-pack: the settings of one choice group, and the conventions that fill one
-function. A setting those exclusions leave without a card gets a card
-opened for it, which is the only way the set grows.
+It does not try other combinations: there is no end of them. What cannot
+be on together comes from the pack: the settings of one choice group, and
+the conventions that fill one function. A setting those exclusions leave
+without a card gets a card opened for it, which is the only way the set
+grows. Today that is one card of the eleven.
 
-## A draft (2026-11-16)
+## The fast three
 
-Measured over the 5,565 deals of the capture, by which rules made a call:
+`fast.txt` names the three cards that between them fire the most rules:
 
-| Cards | Rules that fired, of 4,514 |
-|---|---|
-| The 47 captured cards (22 public, 25 hand-made) | 2,677 |
-| The 11 designed cards | 2,901 |
-| Three designed cards (08, 09, 07), for a fast check | 2,401 |
-| The best three of the 47 captured cards | 2,085 |
+    python3 scripts/capture.py --cards test-cards/designed --only @test-cards/fast.txt ...
 
-Not yet right:
+## Measured (2026-11-16)
 
-- **345 rules fire with a captured card and with no designed one.** Some
-  are conventions that are on but silenced by another on the same card,
-  which the pack does not record as an exclusion: Lebensohl with
-  Rubensohl (its rules say "not Rubensohl"), Reverse Flannery with an
-  invitational jump shift. The next step is to require, for each rule
-  module, a card where the module is on with each of its own settings on
-  and another with it off, and to report every module that is on yet
-  silent.
-- Ranges other than the five with a default are not varied, nor is the
-  system name (2/1, Precision, the Brill card), which the rules also read.
-- One card (designed-08) fails the card checker on an other-agreements
-  entry.
-- The three for a fast check are picked by measurement, not recorded.
+Over the 5,565 deals of the capture, by which rules made a call:
+
+| Cards | Rules that fired, of 4,514 | Time |
+|---|---|---|
+| The 47 captured cards (22 public, 25 hand-made) | 2,677 | about 10 min |
+| The 11 designed cards | 3,020 | about 2 min |
+| The fast three (08, 09, 01) | 2,454 | 34 s; 10 s on the sample of deals |
+| The best three of the 47 captured cards | 2,085 | |
+
+Still open:
+
+- **295 rules fire with a captured card and with no designed one.** One
+  cause is known: Reverse Flannery is on in two cards and bids in
+  neither, because both also play invitational jump shifts, which take
+  the same bid, and the pack records no exclusion between them (it does
+  for strong and weak jump shifts). The rest are spread thinly over the
+  natural rule files, where a mixture of settings nobody plays reaches
+  different auctions from a card somebody does.
+- Ranges other than the five with a default are not varied.
+- The fast three are chosen by measurement and written by hand; a rule
+  change can change which three are best.
 
 Rules that still never fire need deals, not cards.

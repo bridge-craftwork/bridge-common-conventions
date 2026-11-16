@@ -19,7 +19,7 @@
     "play": false
    },
    "bidding_conventions/control_bids": {
-    "style": "first_or_second_round"
+    "style": "first_round"
    },
    "bidding_conventions/depo": {
     "play": false

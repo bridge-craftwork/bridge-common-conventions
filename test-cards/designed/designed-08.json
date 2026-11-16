@@ -187,11 +187,7 @@
     "play": false
    },
    "competitive_bidding/bromad": {},
-   "competitive_bidding/dont": {
-    "for": [
-     "defence_to_1nt.strong"
-    ]
-   },
+   "competitive_bidding/dont": {},
    "competitive_bidding/fit_showing_jumps": {
     "play": false
    },
