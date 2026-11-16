@@ -1,0 +1,12 @@
+id = "bidding_conventions/precision_1c"
+name = "Precision 1♣"
+source = "proposed"
+level = 7
+contexts = ["minor_openings"]
+names = ["Precision 1♣", "Precision 1C", "Strong club", "Strong 1♣"]
+confirm_names = ["Strong club"]
+summary = """
+In Precision, an opening 1♣ is artificial and forcing: it shows a strong
+hand, 16 points or more, and says nothing about clubs. Responder's 1♦ is
+the negative, and other responses are positive and forcing to game.
+"""
