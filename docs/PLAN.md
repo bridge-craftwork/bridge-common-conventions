@@ -572,8 +572,14 @@ reads it.
    on the tip of its stack (#90, #91, #92), not merged. The tag builds
    the release binary and the WASM. Check: the compiled-in rules bid
    every captured card as the reference does.
+   *Done 2026-11-15: v0.16.0; 122,430 and 139,125 boards bid as the
+   reference, exports and coverage unchanged. The release holds the Linux
+   and Windows binaries and the WASM. The two macOS binaries were not
+   built: Apple refused to notarize them until a developer agreement is
+   accepted. Nothing in the cut-over uses them.*
 4. **This repo:** `engine.env` names the engine's release tag, so publish
    downloads the binary instead of building it.
+   *Done 2026-11-15.*
 5. **The service that renders print links** from the card data Bridge
    Classroom stores: bump the card tools pin and deploy, before any
    stored card is in schema 3. It reads both shapes afterwards.
