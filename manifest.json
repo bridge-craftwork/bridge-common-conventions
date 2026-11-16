@@ -1,6 +1,6 @@
 {
  "schema": "pack-manifest/v1",
- "source_commit": "73240043bbf4ee11e9a2c8021631cfc27dfe4794",
+ "source_commit": "85ccd55d3a34ba9ef208904f4000b5ad61105b67",
  "rules_number": 21,
  "name": "bridge-common-conventions",
  "pack_format_version": 1,
