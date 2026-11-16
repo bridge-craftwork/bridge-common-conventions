@@ -10339,6 +10339,18 @@
    }
   ]
  },
+ "deals": {
+  "source": [
+   {
+    "name": "Practice-Bidding-Scenarios",
+    "manifest": "https://raw.githubusercontent.com/bridge-craftwork/Practice-Bidding-Scenarios/main/manifest/manifest-release.json",
+    "scripts": "scenarios",
+    "ids": "skills",
+    "script": "dlr",
+    "base": "https://raw.githubusercontent.com/bridge-craftwork/Practice-Bidding-Scenarios/main/"
+   }
+  ]
+ },
  "migrations": {
   "1-to-2": {
    "from": "1",
