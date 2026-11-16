@@ -1,7 +1,7 @@
 {
  "schema": "pack-manifest/v1",
- "source_commit": "c064e2f377148fcd117e4a0238dabcb4aeeae701",
- "rules_number": 22,
+ "source_commit": "d17a250a964fdaca322a473c41126e88d86cfe9f",
+ "rules_number": 23,
  "name": "bridge-common-conventions",
  "pack_format_version": 1,
  "card_schema_version": 3,
@@ -20,6 +20,10 @@
    "sha256": "61c8a486a945751fe85a76ef278b2850cf49566fbcd0af2271d8398ea24dc7df",
    "changed": "2026-11-13T23:15:09-08:00"
   },
+  "conventions/basic_bidding/fit_and_level/convention.toml": {
+   "sha256": "2534d75743437ba04ffe85f0ace0720623986c597843a28972b294bc7ee23a53",
+   "changed": "2026-11-16T09:21:45-08:00"
+  },
   "conventions/basic_bidding/hand_evaluation/convention.toml": {
    "sha256": "9c1e14ada3749863380211e84c41e331b814181ec55f12994d97797f2e4bfd22",
    "changed": "2026-11-14T22:03:30-08:00"
@@ -35,6 +39,10 @@
   "conventions/basic_bidding/notrump_openings/convention.toml": {
    "sha256": "df17fc1666cd57334d8f0a78a0f61fe895f454d452be69fb17cff6720fca2699",
    "changed": "2026-11-16T09:04:10-08:00"
+  },
+  "conventions/basic_bidding/responses_to_suit_openings/convention.toml": {
+   "sha256": "332dddff7c1c1e52d0261a29ddec90ecf2ffde45fb3ca27102eeb837598cc368",
+   "changed": "2026-11-16T09:21:45-08:00"
   },
   "conventions/bidding_conventions/bart/convention.toml": {
    "sha256": "840cdcbd041d31e6d0394bf8ca9b4915f7d93bd6bb53ff8c0f5b10afb5aa100d",
@@ -804,6 +812,10 @@
    "sha256": "a134e7b61c5a4b86b6ee91a0144932726d2c8f1e5c7b765a3680d66238565979",
    "changed": "2026-11-16T09:04:10-08:00"
   },
+  "conventions/competitive_bidding/after_their_overcall/convention.toml": {
+   "sha256": "2dd301995c853f1ab16772bf46928bdf9f5a8524aae3cdcb0f355c8f36072b81",
+   "changed": "2026-11-16T09:21:45-08:00"
+  },
   "conventions/competitive_bidding/anti_lead_directing_doubles/convention.toml": {
    "sha256": "3a6503e6a7b045b8bfe1f61b6935fbb78bc697f282c1ba74f21f1666960feeb3",
    "changed": "2026-11-14T21:21:26-08:00"
@@ -1004,9 +1016,25 @@
    "sha256": "89555dd87f30acd7d552f32cb46a2eb48741bd108406816c063957b50f56c8dd",
    "changed": "2026-11-13T23:15:09-08:00"
   },
+  "conventions/competitive_bidding/notrump_interference/convention.toml": {
+   "sha256": "c6efeb352a1f05f7fa64d964ae80e3d535c205ad5c575654a42e546dbadaed34",
+   "changed": "2026-11-16T09:21:45-08:00"
+  },
+  "conventions/competitive_bidding/notrump_overcalls/convention.toml": {
+   "sha256": "9c5eb0f07976f4c90e4da86c2cbe07493e53437bf2b153f8dea13c93d00fe024",
+   "changed": "2026-11-16T09:21:45-08:00"
+  },
+  "conventions/competitive_bidding/over_their_takeout_double/convention.toml": {
+   "sha256": "6745459aa8838b70701449b75693e57b68a4e39d403c6e52a4075475b9d1e947",
+   "changed": "2026-11-16T09:21:45-08:00"
+  },
   "conventions/competitive_bidding/overcalls/convention.toml": {
    "sha256": "1881dbae5299ce1191310c452ef3037b0a7820da56f9184b01a9790fd30fac87",
    "changed": "2026-11-16T09:04:10-08:00"
+  },
+  "conventions/competitive_bidding/penalty_doubles/convention.toml": {
+   "sha256": "ab1c08e3e1885db4dedc286e9cbe2acf09b3c007534692caf8b17327cf105aad",
+   "changed": "2026-11-16T09:21:45-08:00"
   },
   "conventions/competitive_bidding/raptor/convention.toml": {
    "sha256": "0562ed7b09b9806ff01d23aca2e6b6593362d45de6ae25fe766c7d644bc9cf90",
@@ -1365,8 +1393,8 @@
    "changed": "2026-11-14T12:09:25-08:00"
   },
   "rules/base/fit.bid": {
-   "sha256": "08d390cbcf76570fecdc30bd5b111c5d17cf50a370ff93bd7b44c3dfe6b69ca9",
-   "changed": "2026-11-14T19:46:10-08:00"
+   "sha256": "400e1d0ae4def1a40aa78e54e1d0d983f61986ce6fd59316ed347f018288e747",
+   "changed": "2026-11-16T09:21:45-08:00"
   },
   "rules/base/fit.notes.md": {
    "sha256": "19941b65d50682e4e73a6d6e08c895129eb86b5fe7f402111bcb62647498bc75",
@@ -1449,8 +1477,8 @@
    "changed": "2026-11-14T19:46:10-08:00"
   },
   "rules/base/responses.bid": {
-   "sha256": "20a56e09de35a2745b1d1e38ace1cf981a9e41ff349d361624238c0471568e19",
-   "changed": "2026-11-14T18:37:56-08:00"
+   "sha256": "10c172c9e615423241d67aa99f3a908502b43967f15655bfe6335db8ab8128d7",
+   "changed": "2026-11-16T09:21:45-08:00"
   },
   "rules/base/responses.notes.md": {
    "sha256": "11787a49769ebae9e8013246ff6ed58af491a9bc6c5fe057e705b89935b6aa00",
@@ -1557,8 +1585,8 @@
    "changed": "2026-11-14T18:37:56-08:00"
   },
   "rules/competitive/after-interference.bid": {
-   "sha256": "3dd6c3cfabd54a0849d4185b7a542a0af83421f4ee94c5ceac232033a3e1ecc6",
-   "changed": "2026-11-14T18:37:56-08:00"
+   "sha256": "46e1d803474eee204945e04ad6567f429fa7345b5a1b789b1c1a566a37796bd1",
+   "changed": "2026-11-16T09:21:45-08:00"
   },
   "rules/competitive/after-interference.notes.md": {
    "sha256": "653d5de2251fd1409c73ba5efdfac81073206d8c0afecb48e6a7b0960a22b9a1",
@@ -1617,8 +1645,8 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "rules/competitive/overcalls.bid": {
-   "sha256": "0e5ea7792bb755eaa19f42343119f60661b559e9f480d236549d206e6ab4309d",
-   "changed": "2026-11-14T09:17:45-08:00"
+   "sha256": "b6c1df8c2233229cc04ddee9bfc6ed23ff02b1105625453e4c3ec8fe0ecd61ca",
+   "changed": "2026-11-16T09:21:45-08:00"
   },
   "rules/competitive/overcalls.notes.md": {
    "sha256": "2575ca3630f807bbd50cda9148be08d9db6e110c5b68ac29c454dc13e1a95884",
@@ -1629,8 +1657,8 @@
    "changed": "2026-10-20T23:34:59-07:00"
   },
   "rules/competitive/penalty-doubles.bid": {
-   "sha256": "5755161761f6a5281d528d51628534dfd4810294ab38596720a5ba9ef8b53504",
-   "changed": "2026-10-30T08:41:55-07:00"
+   "sha256": "38f5cd5cba0bb5e8134c850b22d8b797fa43bf91d8dd24085909abd1b166b430",
+   "changed": "2026-11-16T09:21:45-08:00"
   },
   "rules/competitive/penalty-doubles.notes.md": {
    "sha256": "a502fd2b5469aa8f57c2445bfd1158145931797175b02000a31a56e6e75096a7",
@@ -1665,8 +1693,8 @@
    "changed": "2026-10-05T18:27:25-07:00"
   },
   "rules/competitive/their-1nt-overcall.bid": {
-   "sha256": "8177616e60a4a1f516c33a51c8cde287bcf4bcf58fea9ef7e819d1a53098a1eb",
-   "changed": "2026-10-30T08:41:55-07:00"
+   "sha256": "27a97ebeaab79b54a0f76545d3b177548ff646857628eb9da7ea3195b2498a7b",
+   "changed": "2026-11-16T09:21:45-08:00"
   },
   "rules/competitive/their-1nt-overcall.notes.md": {
    "sha256": "1a3f69af8d5919129eb3fa389ad1c4e991aa18c85acefcf6d732bf7fed96389b",
@@ -1737,8 +1765,8 @@
    "changed": "2026-11-14T09:17:45-08:00"
   },
   "rules/competitive/vs-takeout-double.bid": {
-   "sha256": "6b992ff4b9226cb41e376d5629dd74849e9a597d56f9d97a3056ab00883af6eb",
-   "changed": "2026-11-14T20:28:38-08:00"
+   "sha256": "600e898d8bfcb794fe65a2e85dd7a059f12aef8bef98354e1e5df15975fb7912",
+   "changed": "2026-11-16T09:21:45-08:00"
   },
   "rules/competitive/vs-takeout-double.notes.md": {
    "sha256": "bd7309da87bb1cd8d5c20c615a8307aa394aff615455a83b94eb64e6e149d686",
@@ -1845,8 +1873,8 @@
    "changed": "2026-11-14T19:46:10-08:00"
   },
   "rules/notrump/nt-interference.bid": {
-   "sha256": "5e235d095a410227100e51b781a81d8af6cc72a00f86e862a1666f5a90bc2190",
-   "changed": "2026-11-14T19:46:10-08:00"
+   "sha256": "7a99852ef7cf3cc669fb928a2dfd33cf9e23f36408fe0ba8a36364728dfdaf6f",
+   "changed": "2026-11-16T09:21:45-08:00"
   },
   "rules/notrump/nt-interference.notes.md": {
    "sha256": "95bf741dd46a1ac314e3ab20ac6cda5100dea9287740fa18471ea049a80c5abe",
@@ -2141,5 +2169,5 @@
    "changed": "2026-11-14T20:28:38-08:00"
   }
  },
- "pack_sha256": "21e7b0764439aab8763cc2c45308b0bcf885f51de5097ce06483cd9e6f9bff53"
+ "pack_sha256": "ac787cfeb9b41f40a18a0a8cd32709569cc2e30e293d61746d9a19758d153784"
 }
