@@ -534,6 +534,20 @@ reviewed, as in phase 5.
    | Rules many auctions pass through (system, judgement, base), a migration, or a default | Every public card bid before and after |
    | A convention another bidder also plays, when the question is which is right | The same deals bid by that bidder (BBA, from the Practice-Bidding-Scenarios corpora or run from the command line) |
 
+   **Cards and deals made for testing** (Rick, 2026-11-16). The captured
+   cards were never chosen to test anything: they overlap heavily (798
+   rules fire on 41 or more of the 47) and leave settings untried (19
+   yes/no settings the rules read are on in none of them). A designed set
+   is generated from the pack instead (`scripts/design-cards.mjs`,
+   `test-cards/`): 11 cards fire 3,020 of the 4,514 rules against the 47
+   cards' 2,677, in two minutes against ten; three of them fire 2,454 in
+   half a minute, for the fast check (`test-cards/fast.txt`). Not every combination is tried, and what cannot share a
+   card grows the set. The captured cards stay as samples of what people
+   play: that such a card still loads, exports and bids as it did. The
+   same is to be done for deals once each rule has example boards (Phase
+   8): the boards gathered into a set that reaches every rule, in place
+   of 5,565 that were not chosen for it either.
+
    A sample's boards keep the numbers they have in the full set, so a
    sample and a full capture are compared board for board. Measured
    2026-11-16 on the 22 public cards: the sample (279 boards a card) in
