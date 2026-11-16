@@ -5,7 +5,7 @@ label = "Jacoby transfers"
 source = "taxonomy"
 level = 3
 contexts = ["notrump_openings"]
-names = ["Jacoby transfers", "Jacoby", "transfers", "Texas", "Texas transfers", "4-level transfers"]
+names = ["Jacoby transfers", "Jacoby", "transfers"]
 confirm_names = ["Jacoby", "transfers"]
 summary = """
 Over partner's 1NT, 2♦ shows five or more hearts and 2♥ five or more spades;

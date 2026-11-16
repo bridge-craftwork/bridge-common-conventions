@@ -5,6 +5,7 @@ source = "proposed"
 level = 4
 contexts = ["notrump_openings"]
 taught_under = ["bidding_conventions/jacoby_transfers"]
+names = ["Texas", "Texas transfers", "4-level transfers"]
 
 [treatments.over_1nt]
 kind = "bool"
