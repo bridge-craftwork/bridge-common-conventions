@@ -1,7 +1,7 @@
 {
  "schema": "pack-manifest/v1",
- "source_commit": "f8036b6a9060068dd1581602b66eed85bfecc1a5",
- "rules_number": 28,
+ "source_commit": "0a0953bbbfe07eedb06836a8c1bf67bbb8baa3f1",
+ "rules_number": 29,
  "name": "bridge-common-conventions",
  "pack_format_version": 1,
  "card_schema_version": 3,
@@ -681,8 +681,8 @@
    "changed": "2026-11-14T21:21:26-08:00"
   },
   "conventions/bidding_conventions/strong_jump_shifts/convention.toml": {
-   "sha256": "124fa75f9e02a600bad1cbfb12211e534bac620ba5e3b9c681a03ddca36c7898",
-   "changed": "2026-11-14T11:28:48-08:00"
+   "sha256": "d618354b661d43e01b839d451161c74b6bfaa36b5d84402e394e8e7bb5b182a0",
+   "changed": "2026-11-16T14:00:40-08:00"
   },
   "conventions/bidding_conventions/strong_twos/convention.toml": {
    "sha256": "d34862cbdbcaf0964db8ee51b502e72a0fdc23e30bc8f371148e93f95b052e7e",
@@ -925,8 +925,8 @@
    "changed": "2026-11-14T15:21:15-08:00"
   },
   "conventions/competitive_bidding/lebensohl/convention.toml": {
-   "sha256": "78b09389b8e81ac67ebee2803bbfea1e44f2ee1da3c4b73a7f5ef268bab6a98b",
-   "changed": "2026-11-14T15:21:15-08:00"
+   "sha256": "a4dd85361da3b86015ac0e8393162f6876f66f59e1785345b0c7058208367c6b",
+   "changed": "2026-11-16T14:00:40-08:00"
   },
   "conventions/competitive_bidding/lebensohl/lebensohl.bid": {
    "sha256": "57cdc42ae3aec87c0b6260ce048da1fa42fd5e56b73048df4688b1263193a489",
@@ -1049,8 +1049,8 @@
    "changed": "2026-11-14T21:21:26-08:00"
   },
   "conventions/competitive_bidding/rubensohl/convention.toml": {
-   "sha256": "4e4f96ac33eb09a6e69e9cc4b2537f732ae4f349c4fc28993b879f3dc4a4ac71",
-   "changed": "2026-11-14T12:36:57-08:00"
+   "sha256": "4bb9dad3e3ba0257e713b97bf41de1be95ca5b32a5041c4445ae53646d3049e8",
+   "changed": "2026-11-16T14:00:40-08:00"
   },
   "conventions/competitive_bidding/sandwich_nt/convention.toml": {
    "sha256": "180935b9ce4100b804131912c3008c882de073bbcc33a7efdc010f8a153a0a47",
@@ -1217,8 +1217,8 @@
    "changed": "2026-11-16T09:04:10-08:00"
   },
   "functions.toml": {
-   "sha256": "5c380476ac578f699b86551149eabe0dbe40407c2ed0407a36701f8e4d3aeba0",
-   "changed": "2026-11-14T20:28:38-08:00"
+   "sha256": "6ef480d123f3dc4630274243e4089e940cfd416fa3f063eaddb970cfa6b8ac3c",
+   "changed": "2026-11-16T14:00:40-08:00"
   },
   "levels.toml": {
    "sha256": "8c11f47bd6f32059bb291ee79762e9281cc547150cb942b00c0c7c9b070e7e18",
@@ -2101,5 +2101,5 @@
    "changed": "2026-11-16T09:30:15-08:00"
   }
  },
- "pack_sha256": "18312d2b5caf72bebfced0eb11dbba16c7a1c1ab11d862086ed720e5cca52b7b"
+ "pack_sha256": "06f6653f110bee89c146bb2fdada8ba80dbd792b4114f2bb8c2fe2c26cd981e0"
 }

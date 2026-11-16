@@ -2441,7 +2441,10 @@
      "label": "Invitational jump shifts",
      "level": 5,
      "choice": "general.jump_shifts_2",
-     "skill": false
+     "skill": false,
+     "implements": [
+      "jump_to_major_over_minor"
+     ]
     }
    }
   },
@@ -3601,7 +3604,10 @@
      "brief": "2NT relay after interference to 1NT",
      "label": "Lebensohl over interference to 1NT",
      "default": true,
-     "level": 5
+     "level": 5,
+     "implements": [
+      "responses_after_1nt_is_overcalled"
+     ]
     },
     "description": {
      "kind": "text",
@@ -4152,7 +4158,10 @@
      "kind": "bool",
      "label": "Rubensohl over interference to 1NT",
      "default": true,
-     "level": 9
+     "level": 9,
+     "implements": [
+      "responses_after_1nt_is_overcalled"
+     ]
     },
     "after_double": {
      "kind": "bool",
@@ -7989,6 +7998,9 @@
     "2h",
     "2s"
    ]
+  },
+  "responses_after_1nt_is_overcalled": {
+   "name": "Responder's method after an overcall of our 1NT"
   },
   "major_ask_over_notrump": {
    "name": "Responder's ask for a major over a notrump opening",
