@@ -105,7 +105,11 @@ rule_language_version = 2
   the definition repeats it. A mismatch is an error.
 - **An ID is permanent.** It is never renamed, reused for something else, or
   removed. A definition that is superseded stays, with a migration that says
-  what replaced it.
+  what replaced it. One kind of thing has left: a set of lessons or deals
+  ("Stayman & Transfers (Partnership)", "100 Notrump Deals") is its
+  collection's, not a convention or a skill, and the 20 that were defined
+  here are recorded in `migrations/lesson-sets.toml` with where each went
+  and what it covers. Their IDs are never given to anything else.
 - A convention and a skill share one namespace, in two lists.
   `conventions/` holds agreements between partners, conventional or
   natural. `skills/` holds techniques and areas of competence
@@ -504,6 +508,11 @@ committed back to `main`.
 (several switches become one entry with a treatment per place),
 `[[function]]` (a setting's value becomes an entry) and `[alias]`.
 
+- `lesson-sets.toml` is not a card schema step: its `[left]` table lists the
+  IDs of the lesson sets that are no longer defined, each with its `name`,
+  the collection it went `to`, its `lesson` there and what it `covers`. A
+  reader that meets one of those IDs (in a tag, a note, a card's list of
+  other agreements) finds there what it stood for.
 - A reader given a card older than the schema it reads applies the
   migrations in order, once, and writes the card back in the current schema.
 - **A migration is never deleted or edited once published.** It is how cards,
@@ -626,6 +635,7 @@ None changes a decision.
 | 10 | The rules number is a count of first-parent commits on `main` that changed a source file other than a notes or test file (Rick, 2026-11-14); the manifest gains `rules_number` and `checked_with`, and each file's entry is `{ sha256, changed }` | Settled in Phase 4, as the section promised. A count is readable beside an engine version and cannot go backwards while `main` is not rewritten |
 | 10 | `pack.json` has the keys `schema`, `pack`, `categories`, `conventions`, `settings`, `contexts`, `functions`, `levels`, `alerts`, `migrations` and `files` | The section said "one JSON document" without naming its parts. `scripts/build_snapshot.py` builds it; the manifest's rules number and per-file dates wait for Phase 4 |
 | 2, 3, 10 | `skills/<category>/<name>/skill.toml`, and a `skills` key in `pack.json`: the 14 skills and 4 judgement entries, with the keys a definition has. Their IDs are unchanged; they are no longer under `conventions` | Bridge skills are generic, so they are this repo's, but they are not agreements, so they are their own list (Rick, 2026-11-16). A reader that looks an ID up reads both keys; one written before the split finds the 18 missing from `conventions`. The engine at v0.16.0 bids the same from either shape (measured) |
+| 3, 4, 11 | A set of lessons is not defined here. The 20 marked `kind = "lesson"` are removed and recorded in `migrations/lesson-sets.toml`; `lesson` is no longer a kind. A rule module names the convention, natural method or skill it bids, never a lesson set; `taught_under` and a treatment's `skill` no longer name one | A lesson set is a collection's: the collection says what its lessons cover, in its own manifest, with IDs from here (Baker-Bridge does; Practice-Bidding-Scenarios tags its scenarios the same way). Michaels & Unusual 2NT's summary, references and names went to the Michaels and Unusual Notrump definitions (Rick, 2026-11-16) |
 | 8, 11 | A setting that named a convention keeps the card's own wording: as `text` on the entry it becomes ("Hamilton" on Cappelletti's), or, where it names no convention (`natural`, a name no option covers) or a second part is worded differently, as the setting at its old path | The card tools print that wording. Without it a card that says "Strong - Suction" would print the bare option word after the upgrade |
 | 8, 11 | An unset switch whose treatments are all off or empty leaves no entry, so those values are not carried | A treatment cannot exist in schema 3 without its entry, and an entry would say the card plays, or does not play, a convention it was silent on. The rules treat silent and off differently |
 | 8, 11 | On upgrade, a convention shown only by a note or by filled-in treatments is played, unless the card ticks or names another convention for the same function; then the ticked one wins and the note is kept (Rick, 2026-11-14) | Some cards have no box for a convention, so a note is the only way to show it; but a 4NT note filed under Blackwood must not displace a ticked keycard |

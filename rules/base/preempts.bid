@@ -18,7 +18,6 @@ module preempts "Weak two-bids and preempts"
   needs  base
   skill  bidding_conventions/weak_2s
   skill  bidding_conventions/preemptive_bids
-  skill  partnership_bidding/weak_twos
   param  two_d = opening.2d default bidding_conventions/weak_2s
   param  two_h = opening.2h default bidding_conventions/weak_2s
   param  two_s = opening.2s default bidding_conventions/weak_2s

@@ -8,7 +8,6 @@ module blackwood "Blackwood (standard)"
   convention  bidding_conventions/blackwood
   needs  base
   skill  bidding_conventions/blackwood
-  skill  partnership_bidding/blackwood
   param  style = bidding_conventions/control_bids:style default first_or_second_round
   param  kstyle = slam.king_ask.style default five_nt   # five_nt | next_step | none (convention-card 0.28); a card that is silent plays 5NT (2026-10-29)
 

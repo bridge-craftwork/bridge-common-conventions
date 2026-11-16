@@ -11,7 +11,6 @@ module base "Natural opening bids"
   kind   system
   skill  basic_bidding/major_suit_openings
   skill  basic_bidding/minor_suit_openings
-  skill  partnership_bidding/basic_bidding
   param  min_open = general.min_hcp_open default 12
   param  style = general.style
   # 1m with a five-card major and a longer minor (off: open the major)

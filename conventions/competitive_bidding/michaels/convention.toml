@@ -5,8 +5,15 @@ label = "Michaels cuebid"
 source = "proposed"
 level = 4
 contexts = ["overcalls"]
-taught_under = ["competitive_bidding/michaels_unusual"]
+names = ["Michaels", "Michaels cue bid", "Michaels cuebid"]
+summary = """
+A cue bid of their suit as a two-suited overcall: five-five in two other
+suits. Over a minor, the majors; over a major, the other major and a minor.
+"""
 see = [
+  { title = "Michaels Cuebid", site = "Bridge Bum", url = "https://www.bridgebum.com/michaels_cuebid.php" },
+  { title = "25 Bridge Conventions You Should Know", kind = "book", chapter = 17 },
+  { title = "Competitive Bidding: Michaels Cuebid", by = "Robert S. Todd", site = "Adventures in Bridge", url = "https://www.advinbridge.com/this-week-in-bridge/480" },
   { title = "Michaels Cue Bid", by = "Larry Cohen", site = "Larry Cohen", url = "https://www.larryco.com/bridge-articles/michaels-cue-bid" },
   { title = "Michaels cuebid", site = "Wikipedia", url = "https://en.wikipedia.org/wiki/Michaels_cuebid" },
 ]

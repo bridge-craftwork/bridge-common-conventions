@@ -25,7 +25,6 @@ module splinters "Splinters over 1♥ / 1♠"
   kind   convention
   convention  bidding_conventions/splinters
   needs  responses
-  skill  bidding_conventions/jacoby_2nt_splinters
   skill  bidding_conventions/splinters
   param  by_resp = by_responder default true
   param  by_open = by_opener default true

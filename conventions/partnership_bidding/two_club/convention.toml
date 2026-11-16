@@ -1,6 +1,0 @@
-id = "partnership_bidding/two_club"
-name = "Two Club (Partnership)"
-kind = "lesson"
-source = "taxonomy"
-level = 3
-contexts = ["preemptive_openings"]

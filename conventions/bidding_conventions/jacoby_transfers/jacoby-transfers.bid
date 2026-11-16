@@ -5,7 +5,6 @@ module jacoby-transfers "Jacoby Transfers"
   convention  bidding_conventions/jacoby_transfers default true
   needs  notrump-base
   skill  bidding_conventions/jacoby_transfers
-  skill  partnership_bidding/stayman_transfers
   param  systems_on = nt_overcalls.direct.systems_on default true
   param  vs_double = vs_double default false
   param  vs_2c = vs_2c default false
