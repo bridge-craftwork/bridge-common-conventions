@@ -12,6 +12,13 @@ For every card in the corpus (before/corpus.toml):
 
     python3 scripts/capture.py --rbb PATH/TO/rbb --rules PATH/TO/conventions
 
+A change that cannot alter a bid can be checked on a sample,
+--boards-per-file N: the first N boards of every scenario, numbered as in
+the full set, so scripts/compare.py sets a sample beside a full capture
+board for board. Cards are exported and bid side by side (--jobs), which
+shortens a sample; a full run is bound by the bidding itself, which
+already uses every core for one card.
+
 Output goes to before/ (or --out). The card captures and the digests of the
 bidding are small and are committed; the bidding itself goes to <out>/full/,
 which git ignores, and is rebuilt by running this again.
@@ -20,8 +27,10 @@ Cards that are people's own data (saved in Bridge Classroom) never go in
 this repo. Capture them with --cards DIR --out DIR, both outside the repo.
 """
 import argparse
+import concurrent.futures
 import hashlib
 import json
+import os
 import pathlib
 import re
 import shutil
@@ -49,20 +58,30 @@ def sha(data):
     return hashlib.sha256(data).hexdigest()
 
 
-def build_deals(repo, spec):
-    """The first N boards of each PBN file, cut down to the tags a bidder needs."""
+def build_deals(repo, spec, sample=None):
+    """The first N boards of each PBN file, cut down to the tags a bidder needs.
+
+    With `sample`, only the first `sample` of those in each file, each keeping
+    the number it has in the full set.
+    """
     games, index = [], []
+    number = 0
     for name in files_at(repo, spec["ref"], spec["glob"]):
         text = git(repo, "show", f"{spec['ref']}:{name}")
         chunks = re.split(r"(?m)^(?=\[Event )", text)[1:]
+        kept = 0
         for chunk in chunks[: spec["boards_per_file"]]:
             tags = dict(re.findall(r'(?m)^\[(\w+) "(.*)"\]', chunk))
             if "Deal" not in tags:
                 continue
-            tags["Event"] = pathlib.PurePath(name).stem
             # Board numbers repeat from file to file; number the set afresh.
-            index.append(f"{len(games) + 1}\t{tags['Event']}\t{tags.get('Board', '')}")
-            tags["Board"] = str(len(games) + 1)
+            number += 1
+            kept += 1
+            if sample is not None and kept > sample:
+                continue
+            tags["Event"] = pathlib.PurePath(name).stem
+            index.append(f"{number}\t{tags['Event']}\t{tags.get('Board', '')}")
+            tags["Board"] = str(number)
             games.append("".join(f'[{k} "{tags[k]}"]\n' for k in TAGS if k in tags))
     return "\n".join(games), "\n".join(index) + "\n"
 
@@ -79,6 +98,13 @@ def main():
                     help="the convention-card checkout to capture with (default: the sibling)")
     ap.add_argument("--rbb", type=pathlib.Path, help="the rbb binary to bid with")
     ap.add_argument("--rules", type=pathlib.Path, help="the directory of .bid files")
+    ap.add_argument("--jobs", type=int, default=os.cpu_count() or 1,
+                    help="how many cards to export and to bid at once (default: one per "
+                         "processor core). The bidder uses every core for one card's full "
+                         "set, so this shortens a sample and the exports, not a full run")
+    ap.add_argument("--boards-per-file", type=int, metavar="N",
+                    help="bid a sample: the first N boards of every scenario, not the corpus's "
+                         "full set. For a change that cannot alter a bid")
     ap.add_argument("--no-check-tags", action="store_true",
                     help="capture from tools that are not at the corpus's tags (the 'after' side)")
     args = ap.parse_args()
@@ -119,9 +145,22 @@ def main():
         card_out = out / "cards"
         if card_out.exists():
             shutil.rmtree(card_out)
-        listing = subprocess.run(["node", str(HERE / "scripts" / "capture-cards.mjs"), str(cc),
-                                  str(cards), str(card_out)], check=True, text=True,
-                                 stdout=subprocess.PIPE, stderr=subprocess.DEVNULL).stdout
+        # The exports are one thread of work a card file: several node
+        # processes, each with its share of the files, writing to one folder.
+        shares = [names[i::max(1, min(args.jobs, len(names)))]
+                  for i in range(max(1, min(args.jobs, len(names))))]
+
+        def export(n, share):
+            mine = tmp / f"cards-{n}"
+            mine.mkdir()
+            for name in share:
+                shutil.copy(cards / name, mine / name)
+            return subprocess.run(["node", str(HERE / "scripts" / "capture-cards.mjs"), str(cc),
+                                   str(mine), str(card_out)], check=True, text=True,
+                                  stdout=subprocess.PIPE, stderr=subprocess.DEVNULL).stdout
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=len(shares)) as pool:
+            listing = "".join(pool.map(export, range(len(shares)), shares))
         source = dict(line.split("\t") for line in listing.splitlines() if "\t" in line)
         # One capture per card; a file can hold several (a BBO export).
         # `bid_with` is the file the bidder is given: the card as it came,
@@ -153,10 +192,13 @@ def main():
                 want = corpus["tools"]["rusty_bidding_bot"]
                 if not args.no_check_tags and manifest["tools"]["rules"] != want:
                     sys.exit(f"the rules are at {manifest['tools']['rules']}, not {want}")
-            deals, index = build_deals(args.siblings / corpus["deals"]["repo"], corpus["deals"])
+            deals, index = build_deals(args.siblings / corpus["deals"]["repo"], corpus["deals"],
+                                       args.boards_per_file)
             (tmp / "deals.pbn").write_text(deals)
             manifest["deals"] = dict(corpus["deals"], count=deals.count("[Deal "),
                                      sha256=sha(deals.encode()))
+            if args.boards_per_file is not None:
+                manifest["deals"]["sample_boards_per_file"] = args.boards_per_file
             full = out / "full"
             full.mkdir(exist_ok=True)
             (full / "deals.tsv").write_text("board\tscenario\tits board\n" + index)
@@ -165,37 +207,48 @@ def main():
                 shutil.rmtree(cov_out)
             cov_out.mkdir()
             rules = ["--rules", str(args.rules)] if args.rules else []
-            for stem, card in bid_with.items():
+            def bid(stem, card):
+                """One card: its bidding digest (or the error) and its coverage."""
                 target = full / f"{stem}.jsonl"
                 r = subprocess.run([str(args.rbb), "bid-pbn", "-i", str(tmp / "deals.pbn"),
                                     "-o", str(target), "--ns-card", str(card),
                                     "--json", "--all-meanings", *rules],
                                    capture_output=True, text=True)
                 if r.returncode:
-                    manifest["cards"][stem]["bidding_error"] = r.stderr.strip()[-400:]
-                    continue
+                    return {"bidding_error": r.stderr.strip()[-400:]}, None, 0
                 # Rules are named by their path inside the rules directory, so
                 # the capture does not depend on where that directory is.
                 text = target.read_text()
                 if args.rules:
                     text = text.replace(json.dumps(str(args.rules.resolve()) + "/")[1:-1], "")
                     target.write_text(text)
-                lines = text.split("\n")
                 auctions = []
-                for line in lines:
+                for line in text.split("\n"):
                     if line:
                         b = json.loads(line)
                         auctions.append(" ".join(c["call"] if isinstance(c, dict) else str(c)
                                                  for c in b.get("auction", [])))
-                manifest["cards"][stem]["bidding"] = {
+                digest = {"bidding": {
                     "boards": len(auctions),
                     "sha256": sha(target.read_bytes()),
                     "auctions_sha256": sha("\n".join(auctions).encode()),
-                }
+                }}
                 c = subprocess.run([str(args.rbb), "card", "coverage", "-v", *rules,
                                     str(card)], capture_output=True, text=True)
-                (cov_out / f"{stem}.txt").write_text(c.stdout if not c.returncode else c.stderr)
-                print(stem, len(auctions), "boards", flush=True)
+                return digest, (c.stdout if not c.returncode else c.stderr), len(auctions)
+
+            # Each card is its own processes and its own files; the manifest
+            # is filled in here, so its content does not depend on the order
+            # the cards finish in.
+            with concurrent.futures.ThreadPoolExecutor(max_workers=max(1, args.jobs)) as pool:
+                jobs = {pool.submit(bid, stem, card): stem for stem, card in bid_with.items()}
+                for job in concurrent.futures.as_completed(jobs):
+                    stem = jobs[job]
+                    digest, coverage, boards = job.result()
+                    manifest["cards"][stem].update(digest)
+                    if coverage is not None:
+                        (cov_out / f"{stem}.txt").write_text(coverage)
+                        print(stem, boards, "boards", flush=True)
 
     (out / "MANIFEST.json").write_text(json.dumps(manifest, indent=1, sort_keys=True) + "\n")
     print("wrote", out)

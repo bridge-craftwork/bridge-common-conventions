@@ -529,9 +529,19 @@ reviewed, as in phase 5.
    | The change | What is measured |
    |---|---|
    | Text only: a name, a brief, notes, references | Nothing |
+   | Tools or layout, where no rule changes: a new build of the engine or the card tools, definitions moved or relabelled | A sample: every card over the first board of every scenario (`scripts/capture.py --boards-per-file 1`), set beside the last full capture by `scripts/compare.py` |
    | One convention's rules | Its `.test` lines, and targeted deals bid before and after on cards that play it |
    | Rules many auctions pass through (system, judgement, base), a migration, or a default | Every public card bid before and after |
    | A convention another bidder also plays, when the question is which is right | The same deals bid by that bidder (BBA, from the Practice-Bidding-Scenarios corpora or run from the command line) |
+
+   A sample's boards keep the numbers they have in the full set, so a
+   sample and a full capture are compared board for board. Measured
+   2026-11-16 on the 22 public cards: the sample (279 boards a card) in
+   about half a minute, the full set (5,565 a card) in about four
+   minutes. The capture exports and bids cards side by side (`--jobs`),
+   which shortens a sample. It does not shorten a full run: the engine
+   already uses every core to bid one card (95 seconds of processor time
+   in 10), so the full set is bound by the bidding itself.
 
    Recommended form: a `measurements/` folder here, one small file per
    change: the bidder and its version, what was compared (rules before
