@@ -9,9 +9,13 @@ published from `main` to the `published` branch (rules number 19) and the
 overview page is live. Phase 5's corrections and Phase 6's placements are
 each recorded below with what they measured on the 22 public cards (122,430
 auctions) and on 25 hand-made cards captured outside this repo (139,125).
-Next is Phase 7, the cut-over: `convention-card` (draft PRs #120 and #121)
-and `rusty-bidding-bot` (draft PR #90) read the pack on branches and stay
-unmerged until everything moves at once. Still open from Phase 5: the
+Phase 7, the cut-over, happened on 2026-11-15 and 16 at rules number 21:
+`convention-card` v0.45.2, `rusty-bidding-bot` v0.16.0, the service that
+renders print links, Bridge Classroom and the standalone editor all read
+the pack, and no other repo holds a copy of the names or the rules. Left
+in Phase 7: the Better BBO Convention Card pin (its pull request #3), the
+ID checks in Practice-Bidding-Scenarios and lesson-studio (#40), and the
+skills and lesson sets leaving the pack. Still open from Phase 5: the
 editor's remaining rows (#34), weak jump shift ranges (#86), four sources
 not found (#47).**
 
@@ -593,14 +597,41 @@ reads it.
    published snapshot when it runs and hand it to Rusty; show the rules
    number beside the engine version. Stored cards upgrade on load, by the
    migration. Check on a staging build before the live one.
-   *Ready 2026-11-16: the draft is pinned to v0.45.0 and the v0.16.0
-   WASM, and a copy of the stored card tables was taken.*
+   *Done 2026-11-16, after a copy of the stored card tables was taken:
+   live on both domains with the v0.16.0 WASM. Checked there by Rick: an
+   existing card opens as it was, the practice table bids with the
+   published rules (rules number 21), and a card saves and reloads. No
+   staging build: the check was made on the live site, no card having
+   changed in the week before.*
+   *Two faults showed on the live site, both the same mistake: a screen
+   read a saved card as stored, not in its working form, so a schema 3
+   card showed gaps (the compare view's level and other agreements; the
+   card list's three distinguishing columns). The saved cards were
+   complete. Fixed in card tools v0.45.1 and v0.45.2; the second also
+   fixed the BBO and Bridgodex exports, the notes page, the convention
+   suggestions and the text mapping, found by calling every reader with
+   a card in both shapes, and added a test that holds every reader to
+   one answer. The captures had not caught it: they compare bidding,
+   exports and coverage, where the card is already converted.*
 7. **Merge the card tools and the engine to `main`.** The standalone
    editor and the engine's site deploy from there.
+   *Done 2026-11-16: the standalone editor is live on v0.45.2 and writes
+   schema 3; the engine's site serves the compiled-in snapshot.*
 8. **Better BBO Convention Card:** bump the card tools pin.
+   *Open as its pull request #3 (v0.45.2; 91 tests pass). Saving to a
+   real BBO account is still to be tried by hand before it is released.*
 9. **Practice-Bidding-Scenarios and lesson-studio** validate their IDs
    against the snapshot.
+   *Not done; measured 2026-11-16 (#40). Practice-Bidding-Scenarios tags
+   218 scenarios with 105 IDs, all in the snapshot (90 conventions, 15
+   skills, judgement and lesson sets). lesson-studio's stopgap list has
+   49 IDs: 48 in the snapshot, 32 of them skills and lesson sets. Those
+   are due to leave the pack, so lesson-studio's check goes with that
+   move: the taxonomy for skills and lessons, this snapshot for
+   conventions.*
 10. **Docs** (#42), and close #22, #23, #24, #37 to #42.
+   *Done 2026-11-16, except #38 (open until step 8 is released) and #40
+   (step 9).*
 
 **Going back.** Every pin can return to its old tag. What cannot go back
 is a card saved in schema 3: the old library does not read it. So step 6's
