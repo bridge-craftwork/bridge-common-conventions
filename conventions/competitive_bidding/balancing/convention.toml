@@ -1,6 +1,6 @@
 id = "competitive_bidding/balancing"
 name = "Balancing"
-kind = "skill"
+kind = "natural"
 source = "lessons"
 level = 4
 contexts = ["overcalls"]

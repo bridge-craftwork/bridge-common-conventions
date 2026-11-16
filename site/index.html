@@ -110,7 +110,7 @@ dialog::backdrop { background: rgba(0, 0, 0, .45); }
       <label>List
         <select id="what">
           <option value="bidding">natural, conventions and judgement</option>
-          <option value="skill">other skills</option>
+          <option value="skill">skills</option>
           <option value="lesson">lesson sets</option>
           <option value="">everything</option>
         </select>
@@ -224,9 +224,9 @@ function build(pack, manifest) {
     return {
       id: d.id, cat, short, def: d, name: d.name, level: d.level ?? null,
       kind: d.kind || 'convention',
-      natural: d.kind === 'skill' && list(d.contexts).length > 0,
+      natural: d.kind === 'natural',
       judgement: d.kind === 'judgement',
-      list: d.kind === 'lesson' ? 'lesson' : d.kind === 'skill' && !list(d.contexts).length ? 'skill' : 'bidding',
+      list: d.kind === 'lesson' ? 'lesson' : d.kind === 'skill' ? 'skill' : 'bidding',
       card: list(d.contexts).length > 0, contexts: list(d.contexts),
       heldBy: list(d.contexts).length > 0 ? [] : heldBy.get(d.id) || [],
       rules, tests: allTests.reduce((n, p) => n + cases(files[p]), 0), testFiles: allTests,
@@ -306,7 +306,7 @@ function draw() {
     el('div', {}, el('b', { text: count(c => c.kind === 'convention') }), 'conventions'),
     el('div', {}, el('b', { text: count(c => c.natural) }), 'natural methods'),
     el('div', {}, el('b', { text: count(c => c.judgement) }), 'judgement'),
-    el('div', {}, el('b', { text: count(c => c.list === 'skill') }), 'other skills'),
+    el('div', {}, el('b', { text: count(c => c.list === 'skill') }), 'skills'),
     el('div', {}, el('b', { text: count(c => c.kind === 'lesson') }), 'lesson sets'),
     el('div', {}, el('b', { text: count(c => c.card) }), 'with a context'),
     el('div', {}, el('b', { text: count(c => c.heldBy.length) }), 'part of another'),

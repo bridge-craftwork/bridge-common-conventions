@@ -88,12 +88,15 @@ class Pack:
             for f in d.get("implements", []):
                 if not self.function_ok(f):
                     self.bad(where, f"unknown function {f!r}")
-            # Not an agreement: a bridge skill, or a set of lessons. Both are
-            # due to leave the pack for the skills taxonomy (docs/PLAN.md).
+            # `natural`: an agreement that is not a convention (opening
+            # bids, overcalls, the takeout double). It stays in this list.
+            # `skill`: a technique or an area of competence (finessing,
+            # opening leads, slam bidding), due to become its own list.
             # `judgement`: how a bidder decides (hand evaluation, the Law),
-            # which no card records.
-            if d.get("kind", "convention") not in ("convention", "skill", "judgement", "lesson"):
-                self.bad(where, f"kind is {d['kind']!r}: convention (the default), skill, judgement or lesson")
+            # which no card records. `lesson`: a set of lessons or deals,
+            # due to leave the pack (docs/PLAN.md).
+            if d.get("kind", "convention") not in ("convention", "natural", "skill", "judgement", "lesson"):
+                self.bad(where, f"kind is {d['kind']!r}: convention (the default), natural, skill, judgement or lesson")
             if d.get("kind") in ("skill", "judgement", "lesson") and (d.get("treatments") or d.get("implements")):
                 self.bad(where, "a skill, judgement or lesson has no treatments and fills no function")
             # A definition that is a style of another names the treatments

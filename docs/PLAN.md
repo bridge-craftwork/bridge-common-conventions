@@ -14,8 +14,9 @@ Phase 7, the cut-over, happened on 2026-11-15 and 16 at rules number 21:
 renders print links, Bridge Classroom and the standalone editor all read
 the pack, and no other repo holds a copy of the names or the rules. Left
 in Phase 7: the Better BBO Convention Card pin (its pull request #3), the
-ID checks in Practice-Bidding-Scenarios and lesson-studio (#40), and the
-skills and lesson sets leaving the pack. Still open from Phase 5: the
+ID checks in lesson-studio (#40; Practice-Bidding-Scenarios checks its tags since
+2026-11-16), and the lesson sets leaving the pack while skills become
+their own list here. Still open from Phase 5: the
 editor's remaining rows (#34), weak jump shift ranges (#86), four sources
 not found (#47).**
 
@@ -655,7 +656,60 @@ exports schema 3, those files are in people's hands.
   `conventions/` removed from `rusty-bidding-bot`.
 - Docs corrected: `convention-card`'s CLAUDE.md pins, Rusty's DESIGN.md
   links to `conventions/card/`.
-- **Skills and lessons leave the pack** (Rick, 2026-11-14). The skill
+- **Natural bidding stays with the conventions, skills become their own
+  list, and only lesson sets leave** (Rick, 2026-11-16). This replaces
+  what the next item says about where skills go.
+  - **The test.** The definitions list holds agreements between
+    partners, conventional or natural. Natural bidding has rule files and
+    differs by system as conventions do (a 1♥ opening is 12 to 21 in 2/1
+    and 11 to 15 in Precision), so it stays in `conventions/`, marked
+    `kind = "natural"`. A skill is a technique or an area of competence,
+    something a player gets better at: finessing, choosing a lead, slam
+    bidding. Judgement is how a bidder decides. A lesson set is a
+    collection's.
+  - **Both at once.** Opening leads, signals and defending against
+    preempts are a skill (which suit to lead, whether to encourage) and
+    an agreement (which card says so). The skill is the definition; the
+    agreement is the card's settings, which name the skill. Nothing is
+    split in two.
+  - **How the 48 fall** (marked 2026-11-16; nothing has moved):
+    - 12 natural: Major, Minor and Notrump Openings, Preemptive Bids,
+      Reverse Bids, Overcalls, Responding to Overcalls, Balancing,
+      Takeout Doubles, Responder's Rebid, Rebids by Opener or Responder,
+      Passed Hand Bidding. The last three were marked as lesson sets and
+      keep their `partnership_bidding/` IDs.
+    - 14 skills: the seven of declarer play, Defensive Signals, Opening
+      Leads, Second and Third Hand Play, Slam Bidding (was a lesson set),
+      Defending against 1NT, Defending against Preempts.
+    - 2 judgement: Hand Evaluation, the Law of Total Tricks.
+    - 20 lesson sets: the "(Partnership)" sets, the practice-deal sets,
+      the Precision 1♣ sets, Miscellaneous Auctions, Jacoby 2NT &
+      Splinters, Michaels & Unusual 2NT.
+  - **What is left to do.**
+    1. A `skills/` folder beside `conventions/`, published in the same
+       snapshot under its own key, for the 14 skills and 2 judgement
+       entries. Their IDs do not change. The engine and the card tools
+       must read an ID from either list before the pack publishes this:
+       hosts follow the newest rules.
+    2. The 20 lesson sets go to Bridge Classroom, whose Baker Bridge
+       catalogue already lists lesson content by path, file, deal count
+       and level. Each says which conventions and skills it covers: a
+       lesson on defending against 1NT covers that skill and the
+       convention it teaches. Their content moves with them (Michaels &
+       Unusual 2NT's summary, references and recognised names go onto the
+       Michaels and Unusual Notrump definitions). Removing the 20 IDs
+       here needs the migration, and the contract's "an ID is never
+       removed" is reworded for lesson sets.
+    3. Rule modules and settings that name a lesson set name the
+       convention, natural method or skill instead.
+    4. Practice-Bidding-Scenarios retags the scenarios that name a lesson
+       set. lesson-studio checks conventions and skills against this
+       snapshot and lesson sets against Bridge Classroom's list.
+  - Not chosen: everything to Bridge Classroom (skills would be one
+    app's), and a separate bridge-skills repo (a second snapshot, publish
+    and fetch for 16 entries).
+- **Skills and lessons leave the pack** (Rick, 2026-11-14; superseded in
+  part by the item above). The skill
   naming scheme is wider than the convention one: every convention is a
   skill, but declarer play, hand evaluation and the like are skills that
   are not conventions, and a set of lessons or deals is neither. They came

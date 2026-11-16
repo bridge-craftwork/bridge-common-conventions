@@ -1,6 +1,6 @@
 id = "basic_bidding/notrump_openings"
 name = "Notrump Openings"
-kind = "skill"
+kind = "natural"
 source = "taxonomy"
 level = 1
 contexts = ["notrump_openings"]
