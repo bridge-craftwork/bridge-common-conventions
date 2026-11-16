@@ -1,0 +1,10 @@
+id = "basic_bidding/fit_and_level"
+name = "Fit and Level Decisions"
+kind = "judgement"
+source = "proposed"
+level = 3
+contexts = ["general"]
+summary = """
+Recognising that the partnership has a trump fit, and deciding between a
+part score, game and a slam try once it has.
+"""

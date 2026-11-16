@@ -1,0 +1,10 @@
+id = "competitive_bidding/penalty_doubles"
+name = "Penalty Doubles"
+kind = "judgement"
+source = "proposed"
+level = 4
+contexts = ["doubles"]
+summary = """
+Deciding that the opponents have bid too high and doubling to say so:
+what the hand, the auction and the vulnerability must show.
+"""

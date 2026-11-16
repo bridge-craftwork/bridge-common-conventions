@@ -25,6 +25,7 @@ module vs-takeout-double "Raises over their takeout double: Jordan 2NT and BROMA
   kind   system
   needs  base
   needs  after-interference
+  skill  competitive_bidding/over_their_takeout_double
   skill  competitive_bidding/jordan_2nt
   skill  competitive_bidding/bromad
   param  jordan = competitive_bidding/jordan_2nt:over_major default false

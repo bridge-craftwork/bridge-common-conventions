@@ -10,6 +10,7 @@
 module fit "A major-suit fit: agreed, or seen by one hand"
   kind   judgement
   needs  base
+  skill  basic_bidding/fit_and_level
   param  tu    = bidding_conventions/texas:two_under default false
 
 # ── The two concepts ──────────────────────────────────────────────────

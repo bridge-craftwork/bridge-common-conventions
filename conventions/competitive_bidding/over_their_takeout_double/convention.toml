@@ -1,0 +1,10 @@
+id = "competitive_bidding/over_their_takeout_double"
+name = "Bidding over Their Takeout Double"
+kind = "natural"
+source = "proposed"
+level = 3
+contexts = ["after_interference"]
+summary = """
+Responder's calls when partner's opening is doubled for takeout: the
+redouble, raises, and what a new suit shows.
+"""

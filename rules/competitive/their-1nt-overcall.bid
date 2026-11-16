@@ -21,6 +21,7 @@
 module their-1nt-overcall "Responder over their 1NT overcall"
   kind   system
   needs  base
+  skill  competitive_bidding/notrump_overcalls
 
 after 1x (1N)
   X   "Penalty: 10+ total points, no long suit of our own"
