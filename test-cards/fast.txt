@@ -1,7 +1,7 @@
 # The three designed cards that between them fire the most rules, for a fast
-# check (measured 2026-11-16 over the capture's 5,565 deals: 2,454 of the
-# 3,020 rules the eleven fire). scripts/capture.py --cards test-cards/designed
+# check (measured 2026-11-16 over the capture's 5,565 deals: 2,458 of the
+# 3,028 rules the eleven fire). scripts/capture.py --cards test-cards/designed
 # --only @test-cards/fast.txt
-designed-08
-designed-09
-designed-01
+designed-06
+designed-07
+designed-05

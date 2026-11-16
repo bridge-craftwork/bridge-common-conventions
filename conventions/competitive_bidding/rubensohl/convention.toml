@@ -20,6 +20,7 @@ kind = "bool"
 label = "Rubensohl over interference to 1NT"
 default = true
 level = 9
+implements = ["responses_after_1nt_is_overcalled"]
 
 [treatments.after_double]
 kind = "bool"

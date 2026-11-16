@@ -22,6 +22,7 @@ brief = "2NT relay after interference to 1NT"
 label = "Lebensohl over interference to 1NT"
 default = true
 level = 5
+implements = ["responses_after_1nt_is_overcalled"]
 
 [treatments.description]
 kind = "text"

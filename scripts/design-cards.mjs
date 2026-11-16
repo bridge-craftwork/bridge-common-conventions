@@ -1,7 +1,11 @@
 // Design a set of test cards from the pack: cards made to exercise the
 // rules, not cards anybody plays.
 //
-//   node scripts/design-cards.mjs <convention-card checkout> <out dir> [--pack DIR]
+//   node scripts/design-cards.mjs <convention-card checkout> <out dir> [--pack DIR] [--snapshot pack.json]
+//
+// --snapshot: read the functions and definitions (what cannot share a card)
+// from this snapshot, not from the copy the convention-card checkout
+// bundles: for a pack change the card tools have not synced yet.
 //
 // What a designed set promises, of the card settings the rule files read:
 //   - every yes/no setting is on in at least one card and off in another;
@@ -30,6 +34,8 @@ import { fileURLToPath } from 'node:url'
 const args = process.argv.slice(2)
 const packFlag = args.indexOf('--pack')
 const packDir = packFlag >= 0 ? args.splice(packFlag, 2)[1] : path.join(path.dirname(fileURLToPath(import.meta.url)), '..')
+const snapFlag = args.indexOf('--snapshot')
+const snapshot = snapFlag >= 0 ? args.splice(snapFlag, 2)[1] : null
 const [ccArg, outDir] = args
 if (!ccArg || !outDir) {
   console.error('usage: design-cards.mjs <convention-card checkout> <out dir> [--pack DIR]')
@@ -40,7 +46,7 @@ const { FIELDS, field } = await import(path.join(cc, 'js/spec.js'))
 const { writePath } = await import(path.join(cc, 'js/paths.js'))
 const { toSchema3 } = await import(path.join(cc, 'js/schema3.js'))
 const { checkCard } = await import(path.join(cc, 'js/checkCard.js'))
-const PACK = JSON.parse(fs.readFileSync(path.join(cc, 'spec/pack.json'), 'utf8'))
+const PACK = JSON.parse(fs.readFileSync(snapshot || path.join(cc, 'spec/pack.json'), 'utf8'))
 
 // --- the settings the rules read ---------------------------------------
 // A module reads a setting in a `param` or `card` line, and is switched on
@@ -145,9 +151,16 @@ for (const it of all) {
   put(card, it)
 }
 // Yes/no settings in no group: on in two cards of every three, so each is
-// on somewhere and off somewhere, in a different pattern from its neighbour.
+// on somewhere and off somewhere. Which cards is decided by the setting's
+// own name, not its place in the list, so adding a setting or a group
+// leaves every other setting where it was.
+// The starting value was picked by trying a few and keeping the one whose
+// cards fired the most rules (test-cards/README.md); any value keeps the
+// promises above.
+const SEED = Number(process.env.DESIGN_SEED ?? 13)
+const hash = s => [...s].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, SEED)
 const free = paths.filter(p => kind(p) === 'bool' && !groupsOf.has(item(p, true)))
-free.forEach((p, n) => cards.forEach((card, i) => { if ((i + n) % 3 !== 0) put(card, item(p, true)) }))
+free.forEach(p => cards.forEach((card, i) => { if ((i + hash(p)) % 3 !== 0) put(card, item(p, true)) }))
 // A setting that needs another has it.
 for (const card of cards) for (const it of [...card.keys()]) {
   const need = FIELDS[pathOf(it)].requires
