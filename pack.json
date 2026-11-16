@@ -31,7 +31,7 @@
   "basic_bidding/major_suit_openings": {
    "id": "basic_bidding/major_suit_openings",
    "name": "Major Suit Openings",
-   "kind": "skill",
+   "kind": "natural",
    "source": "taxonomy",
    "level": 1,
    "contexts": [
@@ -41,7 +41,7 @@
   "basic_bidding/minor_suit_openings": {
    "id": "basic_bidding/minor_suit_openings",
    "name": "Minor Suit Openings",
-   "kind": "skill",
+   "kind": "natural",
    "source": "taxonomy",
    "level": 1,
    "contexts": [
@@ -51,7 +51,7 @@
   "basic_bidding/notrump_openings": {
    "id": "basic_bidding/notrump_openings",
    "name": "Notrump Openings",
-   "kind": "skill",
+   "kind": "natural",
    "source": "taxonomy",
    "level": 1,
    "contexts": [
@@ -1775,7 +1775,7 @@
   "bidding_conventions/preemptive_bids": {
    "id": "bidding_conventions/preemptive_bids",
    "name": "Preemptive Bids",
-   "kind": "skill",
+   "kind": "natural",
    "source": "taxonomy",
    "level": 3,
    "contexts": [
@@ -1893,7 +1893,7 @@
   "bidding_conventions/reverse_bids": {
    "id": "bidding_conventions/reverse_bids",
    "name": "Reverse Bids",
-   "kind": "skill",
+   "kind": "natural",
    "source": "taxonomy",
    "level": 4,
    "contexts": [
@@ -3096,7 +3096,7 @@
   "competitive_bidding/advancing_overcalls": {
    "id": "competitive_bidding/advancing_overcalls",
    "name": "Responding to Overcalls",
-   "kind": "skill",
+   "kind": "natural",
    "source": "lessons",
    "level": 3,
    "contexts": [
@@ -3128,7 +3128,7 @@
   "competitive_bidding/balancing": {
    "id": "competitive_bidding/balancing",
    "name": "Balancing",
-   "kind": "skill",
+   "kind": "natural",
    "source": "lessons",
    "level": 4,
    "contexts": [
@@ -4018,7 +4018,7 @@
   "competitive_bidding/overcalls": {
    "id": "competitive_bidding/overcalls",
    "name": "Overcalls",
-   "kind": "skill",
+   "kind": "natural",
    "source": "taxonomy",
    "level": 2,
    "contexts": [
@@ -4425,7 +4425,7 @@
   "competitive_bidding/takeout_doubles": {
    "id": "competitive_bidding/takeout_doubles",
    "name": "Takeout Doubles",
-   "kind": "skill",
+   "kind": "natural",
    "source": "taxonomy",
    "level": 2,
    "contexts": [
@@ -5040,14 +5040,14 @@
   "partnership_bidding/passed_hand_bidding": {
    "id": "partnership_bidding/passed_hand_bidding",
    "name": "Passed Hand Bidding",
-   "kind": "lesson",
+   "kind": "natural",
    "source": "lessons",
    "level": 6
   },
   "partnership_bidding/rebids": {
    "id": "partnership_bidding/rebids",
    "name": "Rebids by Opener or Responder",
-   "kind": "lesson",
+   "kind": "natural",
    "source": "lessons",
    "level": 3,
    "contexts": [
@@ -5057,7 +5057,7 @@
   "partnership_bidding/responders_rebid": {
    "id": "partnership_bidding/responders_rebid",
    "name": "Responder's Rebid",
-   "kind": "lesson",
+   "kind": "natural",
    "source": "lessons",
    "level": 5,
    "contexts": [
@@ -5077,7 +5077,7 @@
   "partnership_bidding/slam_bidding": {
    "id": "partnership_bidding/slam_bidding",
    "name": "Slam Bidding",
-   "kind": "lesson",
+   "kind": "skill",
    "source": "lessons",
    "level": 5,
    "contexts": [
