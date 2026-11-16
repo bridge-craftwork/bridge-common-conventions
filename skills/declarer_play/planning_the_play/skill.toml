@@ -1,0 +1,10 @@
+id = "declarer_play/planning_the_play"
+name = "Planning the Play"
+kind = "skill"
+source = "lessons"
+level = 1
+summary = """
+Declarer's plan before playing to the first trick: count winners or losers,
+find where the missing tricks can come from, and decide the order to play
+the suits in.
+"""
