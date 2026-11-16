@@ -14,9 +14,14 @@ Phase 7, the cut-over, happened on 2026-11-15 and 16 at rules number 21:
 renders print links, Bridge Classroom and the standalone editor all read
 the pack, and no other repo holds a copy of the names or the rules. Left
 in Phase 7: the Better BBO Convention Card pin (its pull request #3), the
-ID checks in lesson-studio (#40; Practice-Bidding-Scenarios checks its tags since
-2026-11-16), and the lesson sets leaving the pack while skills become
-their own list here. Still open from Phase 5: the
+ID checks (its merged pull request #3; a save to a real BBO account is still to be
+tried before it is released). The rest was finished on 2026-11-16, at
+rules number 28: skills and judgement are their own list (`skills/`),
+natural bidding is a kind of its own among the conventions, and the pack
+defines no lesson set (`migrations/lesson-sets.toml` records the 20).
+Baker-Bridge's manifest says what each lesson covers; Bridge Classroom
+finds lessons by it; Practice-Bidding-Scenarios and lesson-studio check
+their IDs against the published snapshot (#40). Still open from Phase 5: the
 editor's remaining rows (#34), weak jump shift ranges (#86), four sources
 not found (#47).**
 
@@ -709,7 +714,19 @@ exports schema 3, those files are in people's hands.
     - 20 lesson sets: the "(Partnership)" sets, the practice-deal sets,
       the Precision 1♣ sets, Miscellaneous Auctions, Jacoby 2NT &
       Splinters, Michaels & Unusual 2NT.
-  - **What is left to do.**
+  - **Done 2026-11-16**, in this order: Precision 1♣ defined, for the
+    scenarios that had only a lesson set to name; Baker-Bridge's manifest
+    given `covers`; Practice-Bidding-Scenarios tagged with the
+    conventions; Bridge Classroom matching a lesson to a row by what it
+    covers; the 20 definitions removed here; card tools v0.47.0, engine
+    v0.16.2 and Bridge Classroom's pins; the old tags dropped;
+    lesson-studio's list of valid IDs built from this snapshot and
+    Baker-Bridge's lesson sets. Two things it turned up: the card tools
+    had been hiding the ten IDs the pack added for schema 2's bare
+    switches (Texas, Michaels, Quantitative 4NT) "until cards are stored
+    in schema 3", and now show them, so each has its own row in a report;
+    and Planning the Play, which a lesson teaches, is a skill here.
+  - **What was to do.**
     1. A `skills/` folder beside `conventions/`, published in the same
        snapshot under its own key, for the 14 skills and 4 judgement
        entries (two were added on 2026-11-16 with five natural positions:
