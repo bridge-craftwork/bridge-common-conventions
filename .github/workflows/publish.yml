@@ -60,6 +60,8 @@ jobs:
         run: |
           mkdir -p _engine/bin _engine/src
           gh release download "$RBB_RELEASE" --repo "$RBB_REPO" --pattern rbb-linux-x86_64.tar.gz --output - | tar -xz -C _engine/bin
+          # The archive holds the binary under its platform's name.
+          mv _engine/bin/rbb-linux-x86_64 _engine/bin/rbb && chmod +x _engine/bin/rbb
           gh api "repos/$RBB_REPO/tarball/$RBB_RELEASE" | tar -xz -C _engine/src --strip-components=1
           mv _engine/src/cards _engine/cards && rm -rf _engine/src
 
