@@ -1,12 +1,12 @@
 {
  "schema": "pack-manifest/v1",
- "source_commit": "b81b1667e60ab61c264fdac9eeffdb691f4aeb99",
+ "source_commit": "2c435df2306dc90dd3bfa187362f7cf4e2add306",
  "rules_number": 24,
  "name": "bridge-common-conventions",
  "pack_format_version": 1,
  "card_schema_version": 3,
  "rule_language_version": 2,
- "checked_with": "rbb 0.16.0 (rule language 2)",
+ "checked_with": "rbb 0.16.1 (rule language 2)",
  "files": {
   "alerts.toml": {
    "sha256": "135f40934ab916468b1acc1fda2b97acfa19420d3868748142fa4ebece67d40a",
