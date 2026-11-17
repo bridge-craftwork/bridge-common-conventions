@@ -1,7 +1,7 @@
 {
  "schema": "pack-manifest/v1",
- "source_commit": "e6fc37c5c045ac63c3432947bab976a642d73448",
- "rules_number": 30,
+ "source_commit": "dd1510e60970787b74e8d1fc9afc0ad67fe4d9f3",
+ "rules_number": 31,
  "name": "bridge-common-conventions",
  "pack_format_version": 1,
  "card_schema_version": 3,
@@ -417,16 +417,16 @@
    "changed": "2026-11-16T11:56:57-08:00"
   },
   "conventions/bidding_conventions/modified_jacoby_2nt/modified-jacoby-2nt.bid": {
-   "sha256": "aecc4e89405698c876c5fe5a7181d3a5ef9c924508f3bb6f1d2594d7fbdaf25c",
-   "changed": "2026-11-14T12:09:25-08:00"
+   "sha256": "3a3ce1c02f9bfb258474b3ecf7902402a6a473b34b4239f2a9c83ed170075e4d",
+   "changed": "2026-11-16T19:20:12-08:00"
   },
   "conventions/bidding_conventions/modified_jacoby_2nt/modified-jacoby-2nt.notes.md": {
-   "sha256": "5dfcf2b3dc15e144d6a43596bc9a793d1ace601f0a40783cb8e78d3064769724",
-   "changed": "2026-11-14T12:09:25-08:00"
+   "sha256": "cd26ab2bbd9d9f23ab36298047e6a7724a458225e12e82e7c845c4d54a8d188b",
+   "changed": "2026-11-16T19:20:12-08:00"
   },
   "conventions/bidding_conventions/modified_jacoby_2nt/modified-jacoby-2nt.test": {
-   "sha256": "ec143f43299ee6ec8bd08a150cd6cc7c0a9e4115312def88a4359f4729f0ec01",
-   "changed": "2026-11-14T12:09:25-08:00"
+   "sha256": "d811f2a1539c9e8f92b39095142f9fc2cece4679c7e7ae27436b87aea696eb37",
+   "changed": "2026-11-16T19:20:12-08:00"
   },
   "conventions/bidding_conventions/muiderberg/convention.toml": {
    "sha256": "a87d6b1b8d9a72d50b6db487520aa58e76ac1829d02c0a5c89420e0a07294ee8",
@@ -1933,8 +1933,8 @@
    "changed": "2026-09-23T11:18:19-07:00"
   },
   "rules/slam/slam-entry.bid": {
-   "sha256": "496c934614cc2822c57a4b06be3b5c64b60f7a78862c8b3597ffffb4dd7f080c",
-   "changed": "2026-11-13T23:37:41-08:00"
+   "sha256": "35f665120e68ffd52e6198667b5f401104a6a78849acbb36cdff31b287940fb8",
+   "changed": "2026-11-16T19:20:12-08:00"
   },
   "rules/slam/slam-entry.notes.md": {
    "sha256": "ad18f9147842565708d5900084f3980c80eca0d4e9d97067c776895f9bd2fd3a",
@@ -2105,5 +2105,5 @@
    "changed": "2026-11-16T09:30:15-08:00"
   }
  },
- "pack_sha256": "a17901f8d8f194d07936052766f4887060b21b466fd9c26d0add7cfd028d7951"
+ "pack_sha256": "d0430416928b4163e23d9bd2d336e5875fa28fe816a275e7f9699f716c2f0459"
 }
