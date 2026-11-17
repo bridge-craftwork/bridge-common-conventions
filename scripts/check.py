@@ -191,6 +191,27 @@ class Pack:
                 if "retired" in self.defs.get(cid, {}).get("treatments", {}).get(t, {}):
                     self.bad("alerts.toml", f"alert {i + 1} names {f!r}, which is retired")
 
+        # Measurement records: their form, nothing more. What they report is
+        # the author's to stand behind.
+        for f in sorted((self.root / "measurements").glob("*.toml")):
+            m = self.load(f.relative_to(self.root))
+            rel = f"measurements/{f.name}"
+            if not re.match(r"\d{4}-\d{2}-\d{2}-[a-z0-9-]+\.toml$", f.name):
+                self.bad(rel, "the file is named <date>-<a-few-words>.toml")
+            for k in ("date", "change", "boards_compared", "boards_bid_differently"):
+                if k not in m:
+                    self.bad(rel, f"lacks {k}")
+            if not m.get("set"):
+                self.bad(rel, "has no [[set]]")
+            for n, s in enumerate(m.get("set", []), 1):
+                missing = [k for k in ("cards", "bidder", "rules_before", "rules_after", "deals_sha256",
+                                       "boards_compared", "boards_bid_differently") if k not in s]
+                if missing:
+                    self.bad(rel, f"set {n} lacks {', '.join(missing)}")
+            for n, r in enumerate(m.get("reference", []), 1):
+                missing = [k for k in ("bidder", "boards", "agree_before", "agree_after") if k not in r]
+                if missing:
+                    self.bad(rel, f"reference {n} lacks {', '.join(missing)}")
         # Where scripts kept elsewhere are found (deals.toml).
         if (self.root / "deals.toml").is_file():
             for n, s in enumerate(self.load("deals.toml").get("source", []), 1):

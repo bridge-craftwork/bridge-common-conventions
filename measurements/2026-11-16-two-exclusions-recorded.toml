@@ -1,0 +1,43 @@
+# A measurement: what one change did to the bidding (measurements/README.md).
+# Written by scripts/measure.py; the summary line is the author's.
+
+date = 2026-11-16
+change = "Invitational jump shifts fill responder's jump to a major over a minor; Lebensohl and Rubensohl fill one new function"
+pull_request = 125
+boards_compared = 13113
+boards_bid_differently = 0
+note = "No rule file changed. The before side is the last full capture, made with an earlier engine release and the rules compiled into it; the after side was bid from the pack checkout. So this also shows that those engine releases and the rule files' label changes between them altered no auction."
+
+[[set]]
+cards = "the corpus (before/corpus.toml)"
+card_count = 22
+bidder = "rbb 0.16.2 (rule language 2)"
+bidder_before = "rbb 0.16.0 (rule language 2)"
+rules_before = "the rules compiled into the bidder"
+rules_after = "f8036b6-dirty"
+card_tools_before = "v0.45.2-4-gc535c84"
+card_tools_after = "v0.47.0"
+deals = "Practice-Bidding-Scenarios pbn/*.pbn at 385ea89fd9ed"
+deals_sha256 = "4595f3768b7c7059859a9b577cb5cff6fab31201fdec13b057d500c45166a137"
+boards_a_card = 279
+sample = true
+boards_compared = 6138
+boards_bid_differently = 0
+cards_with_a_difference = 0
+
+[[set]]
+cards = "hand-made cards kept outside this repo, counted and not named"
+card_count = 25
+bidder = "rbb 0.16.2 (rule language 2)"
+bidder_before = "rbb 0.16.0 (rule language 2)"
+rules_before = "the rules compiled into the bidder"
+rules_after = "f8036b6-dirty"
+card_tools_before = "v0.45.2-4-gc535c84"
+card_tools_after = "v0.47.0"
+deals = "Practice-Bidding-Scenarios pbn/*.pbn at 385ea89fd9ed"
+deals_sha256 = "4595f3768b7c7059859a9b577cb5cff6fab31201fdec13b057d500c45166a137"
+boards_a_card = 279
+sample = true
+boards_compared = 6975
+boards_bid_differently = 0
+cards_with_a_difference = 0
