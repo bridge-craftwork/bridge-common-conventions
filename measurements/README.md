@@ -50,3 +50,14 @@ set beside a full capture board for board.
   hash identifies.
 - **A record is never edited to match a later run.** A new measurement is a
   new file.
+
+## Studies
+
+A measurement that answers a question, not one that belongs to a change, is
+kept in `studies/<date>-<name>/`: a report in words, and its numbers beside
+it. A study names its bidder, rules and deals as a record does, and says
+what it cannot show.
+
+| Study | The question |
+|---|---|
+| [2026-11-16 scripts against general deals](studies/2026-11-16-scripts-against-general-deals/report.md) | Do the dealer scripts that exist reach a convention's rules better than the general deal set? It also records the natural rate at which each script's condition is met, from the plain scripts with no levelling. |
