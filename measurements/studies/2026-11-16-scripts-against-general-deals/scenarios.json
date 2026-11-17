@@ -1,0 +1,4281 @@
+{
+ "measured": "2026-11-16",
+ "note": "One row a scenario. `rate` is the natural rate of the script's condition: produced / generated, from the plain script with no levelling. The lists of rules each side fired are not kept; the report has the totals.",
+ "cards": [
+  "21GF-DEFAULT",
+  "21GF-Flannery",
+  "21GF-GIB",
+  "21GF-GIB-Bergen",
+  "21GF-Gazzilli",
+  "21GF-MSS",
+  "21GF-MSTandMSS",
+  "21GF-Multi",
+  "21GF-NoInvertedMinor",
+  "21GF-Ogust",
+  "21GF-PolishTwoSuiters",
+  "21GF-Puppet",
+  "21GF-SPECIALS",
+  "21GF-SPECIALS2",
+  "21GF-WJS-MSS",
+  "Basic-Bridge",
+  "Precision",
+  "Precision-14-16"
+ ],
+ "failed": [
+  [
+   "Bust_Over_Strong_2C",
+   "no deal in 20000000 dealt"
+  ]
+ ],
+ "skipped": [
+  [
+   "Jacoby_2N_4x_void_Leveled",
+   "a levelled script"
+  ],
+  [
+   "Jacoby_2N_Leveled",
+   "a levelled script"
+  ],
+  [
+   "Ned_Weak_Two_Leveled",
+   "a levelled script"
+  ],
+  [
+   "Weak_2_Bids_Lax_Leveled",
+   "a levelled script"
+  ],
+  [
+   "Weak_2_Bids_Leveled",
+   "a levelled script"
+  ]
+ ],
+ "totals": {
+  "rules_fired_scripted": 2361,
+  "rules_fired_general": 2226,
+  "own_rules_scripted": 1213,
+  "own_rules_general": 1582
+ },
+ "scenarios": [
+  {
+   "scenario": "1C_WalshStyle",
+   "ids": [
+    "bidding_conventions/walsh"
+   ],
+   "card": "21GF-SPECIALS2",
+   "own_files": [
+    "rules/base/responses.bid"
+   ],
+   "produced": 200,
+   "generated": 148861,
+   "rate": 0.001344,
+   "boards": 200,
+   "hit_script": 0.995,
+   "hit_general": 0.326864,
+   "own_rules_script": 3,
+   "own_rules_general": 28,
+   "only_script": 0,
+   "only_general": 25
+  },
+  {
+   "scenario": "1M-3N_Picture_Bid",
+   "ids": [
+    "bidding_conventions/picture_3nt"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 1544375,
+   "rate": 0.00013,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "1N",
+   "ids": [
+    "basic_bidding/notrump_openings"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/notrump/one-nt.bid"
+   ],
+   "produced": 200,
+   "generated": 3311,
+   "rate": 0.060405,
+   "boards": 200,
+   "hit_script": 0.825,
+   "hit_general": 0.224079,
+   "own_rules_script": 13,
+   "own_rules_general": 20,
+   "only_script": 0,
+   "only_general": 7
+  },
+  {
+   "scenario": "2N",
+   "ids": [
+    "basic_bidding/notrump_openings"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/notrump/one-nt.bid"
+   ],
+   "produced": 200,
+   "generated": 428799,
+   "rate": 0.000466,
+   "boards": 200,
+   "hit_script": 0.02,
+   "hit_general": 0.224079,
+   "own_rules_script": 1,
+   "own_rules_general": 20,
+   "only_script": 0,
+   "only_general": 19
+  },
+  {
+   "scenario": "2N_and_MSS",
+   "ids": [
+    "bidding_conventions/minor_suit_stayman"
+   ],
+   "card": "21GF-MSS",
+   "own_files": [
+    "conventions/bidding_conventions/minor_suit_stayman/minor-suit-stayman.bid",
+    "rules/notrump/two-nt-minors.bid"
+   ],
+   "produced": 200,
+   "generated": 4554939,
+   "rate": 4.4e-05,
+   "boards": 200,
+   "hit_script": 0.25,
+   "hit_general": 0.016532,
+   "own_rules_script": 6,
+   "own_rules_general": 25,
+   "only_script": 1,
+   "only_general": 20
+  },
+  {
+   "scenario": "2N_and_Transfers",
+   "ids": [
+    "bidding_conventions/jacoby_transfers"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/jacoby_transfers/jacoby-transfers.bid",
+    "conventions/bidding_conventions/texas/texas-transfers.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 123361,
+   "rate": 0.001621,
+   "boards": 200,
+   "hit_script": 0.8,
+   "hit_general": 0.077987,
+   "own_rules_script": 19,
+   "own_rules_general": 55,
+   "only_script": 1,
+   "only_general": 37
+  },
+  {
+   "scenario": "3N",
+   "ids": [
+    "basic_bidding/notrump_openings"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "rules/notrump/one-nt.bid"
+   ],
+   "produced": 200,
+   "generated": 1654243,
+   "rate": 0.000121,
+   "boards": 200,
+   "hit_script": 0.24,
+   "hit_general": 0.225517,
+   "own_rules_script": 1,
+   "own_rules_general": 13,
+   "only_script": 0,
+   "only_general": 12
+  },
+  {
+   "scenario": "After_Partner_Overcalls",
+   "ids": [
+    "competitive_bidding/advancing_overcalls"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/advances.bid"
+   ],
+   "produced": 200,
+   "generated": 766021,
+   "rate": 0.000261,
+   "boards": 200,
+   "hit_script": 0.99,
+   "hit_general": 0.915184,
+   "own_rules_script": 29,
+   "own_rules_general": 63,
+   "only_script": 1,
+   "only_general": 35
+  },
+  {
+   "scenario": "After_Partner_Takeout_Double",
+   "ids": [
+    "competitive_bidding/takeout_doubles"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/takeout-double.bid",
+    "rules/competitive/vs-preempts.bid"
+   ],
+   "produced": 200,
+   "generated": 2452968,
+   "rate": 8.2e-05,
+   "boards": 200,
+   "hit_script": 0.895,
+   "hit_general": 0.138904,
+   "own_rules_script": 34,
+   "own_rules_general": 141,
+   "only_script": 9,
+   "only_general": 116
+  },
+  {
+   "scenario": "BART",
+   "ids": [
+    "bidding_conventions/bart"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 4611870,
+   "rate": 4.3e-05,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Balancing",
+   "ids": [
+    "competitive_bidding/balancing"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/balancing.bid"
+   ],
+   "produced": 200,
+   "generated": 339903,
+   "rate": 0.000588,
+   "boards": 200,
+   "hit_script": 0.995,
+   "hit_general": 0.020845,
+   "own_rules_script": 10,
+   "own_rules_general": 10,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Basic_Major",
+   "ids": [
+    "basic_bidding/major_suit_openings"
+   ],
+   "card": "Basic-Bridge",
+   "own_files": [
+    "rules/base/base.bid"
+   ],
+   "produced": 200,
+   "generated": 6005,
+   "rate": 0.033306,
+   "boards": 200,
+   "hit_script": 0.99,
+   "hit_general": 0.85858,
+   "own_rules_script": 7,
+   "own_rules_general": 14,
+   "only_script": 0,
+   "only_general": 7
+  },
+  {
+   "scenario": "Basic_Minor",
+   "ids": [
+    "basic_bidding/minor_suit_openings"
+   ],
+   "card": "Basic-Bridge",
+   "own_files": [
+    "rules/base/base.bid"
+   ],
+   "produced": 200,
+   "generated": 4124,
+   "rate": 0.048497,
+   "boards": 200,
+   "hit_script": 0.99,
+   "hit_general": 0.85858,
+   "own_rules_script": 6,
+   "own_rules_general": 14,
+   "only_script": 0,
+   "only_general": 8
+  },
+  {
+   "scenario": "Basic_NT",
+   "ids": [
+    "basic_bidding/notrump_openings"
+   ],
+   "card": "Basic-Bridge",
+   "own_files": [
+    "rules/notrump/one-nt.bid"
+   ],
+   "produced": 200,
+   "generated": 103211,
+   "rate": 0.001938,
+   "boards": 200,
+   "hit_script": 1.0,
+   "hit_general": 0.233603,
+   "own_rules_script": 9,
+   "own_rules_general": 25,
+   "only_script": 0,
+   "only_general": 16
+  },
+  {
+   "scenario": "Basic_Overcall",
+   "ids": [
+    "competitive_bidding/overcalls"
+   ],
+   "card": "Basic-Bridge",
+   "own_files": [
+    "rules/competitive/overcalls.bid"
+   ],
+   "produced": 200,
+   "generated": 2134,
+   "rate": 0.093721,
+   "boards": 200,
+   "hit_script": 0.935,
+   "hit_general": 0.65301,
+   "own_rules_script": 20,
+   "own_rules_general": 54,
+   "only_script": 0,
+   "only_general": 34
+  },
+  {
+   "scenario": "Basic_Takeout_Double",
+   "ids": [
+    "competitive_bidding/takeout_doubles"
+   ],
+   "card": "Basic-Bridge",
+   "own_files": [
+    "rules/competitive/takeout-double.bid",
+    "rules/competitive/vs-preempts.bid"
+   ],
+   "produced": 200,
+   "generated": 34568,
+   "rate": 0.005786,
+   "boards": 200,
+   "hit_script": 0.85,
+   "hit_general": 0.145013,
+   "own_rules_script": 43,
+   "own_rules_general": 135,
+   "only_script": 5,
+   "only_general": 97
+  },
+  {
+   "scenario": "Basic_Weak_2",
+   "ids": [
+    "bidding_conventions/weak_2s"
+   ],
+   "card": "Basic-Bridge",
+   "own_files": [
+    "rules/base/preempts.bid",
+    "rules/base/weak-two-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 75692,
+   "rate": 0.002642,
+   "boards": 200,
+   "hit_script": 0.79,
+   "hit_general": 0.078527,
+   "own_rules_script": 33,
+   "own_rules_general": 39,
+   "only_script": 10,
+   "only_general": 16
+  },
+  {
+   "scenario": "Benjamin_2D",
+   "ids": [
+    "bidding_conventions/benjamin_2d"
+   ],
+   "card": "21GF-PolishTwoSuiters",
+   "own_files": [
+    "conventions/bidding_conventions/benjamin_2d/benjamin.bid"
+   ],
+   "produced": 200,
+   "generated": 52899,
+   "rate": 0.003781,
+   "boards": 200,
+   "hit_script": 0.94,
+   "hit_general": 0.031087,
+   "own_rules_script": 30,
+   "own_rules_general": 19,
+   "only_script": 11,
+   "only_general": 0
+  },
+  {
+   "scenario": "Bergen_Raises",
+   "ids": [
+    "bidding_conventions/bergen_raises"
+   ],
+   "card": "21GF-GIB-Bergen",
+   "own_files": [
+    "rules/majors/bergen.bid"
+   ],
+   "produced": 200,
+   "generated": 55851,
+   "rate": 0.003581,
+   "boards": 200,
+   "hit_script": 0.705,
+   "hit_general": 0.024438,
+   "own_rules_script": 12,
+   "own_rules_general": 12,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Bergen_Thrump_X_after_Preempt",
+   "ids": [
+    "competitive_bidding/thrump_double"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 1797363,
+   "rate": 0.000111,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Better_Minor_Lebensohl",
+   "ids": [
+    "competitive_bidding/lebensohl"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/competitive_bidding/lebensohl/lebensohl.bid",
+    "rules/competitive/vs-preempts.bid"
+   ],
+   "produced": 200,
+   "generated": 3746634,
+   "rate": 5.3e-05,
+   "boards": 200,
+   "hit_script": 1.0,
+   "hit_general": 0.073675,
+   "own_rules_script": 34,
+   "own_rules_general": 87,
+   "only_script": 1,
+   "only_general": 54
+  },
+  {
+   "scenario": "CRASH",
+   "ids": [
+    "competitive_bidding/crash"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 204629,
+   "rate": 0.000977,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Cappelletti",
+   "ids": [
+    "competitive_bidding/cappelletti"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "rules/competitive/cappelletti.bid"
+   ],
+   "produced": 200,
+   "generated": 43665,
+   "rate": 0.00458,
+   "boards": 200,
+   "hit_script": 0.77,
+   "hit_general": 0.033783,
+   "own_rules_script": 14,
+   "own_rules_general": 14,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Cappelletti_in_4th",
+   "ids": [
+    "competitive_bidding/cappelletti"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "rules/competitive/cappelletti.bid"
+   ],
+   "produced": 200,
+   "generated": 130126,
+   "rate": 0.001537,
+   "boards": 200,
+   "hit_script": 0.71,
+   "hit_general": 0.033783,
+   "own_rules_script": 14,
+   "own_rules_general": 14,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "DONT",
+   "ids": [
+    "competitive_bidding/dont"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "conventions/competitive_bidding/dont/dont.bid"
+   ],
+   "produced": 200,
+   "generated": 365186,
+   "rate": 0.000548,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "DOPI_ROPI",
+   "ids": [
+    "bidding_conventions/dopi_ropi"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/slam/dopi-ropi.bid"
+   ],
+   "produced": 30,
+   "generated": 20000000,
+   "rate": 2e-06,
+   "boards": 30,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Drury",
+   "ids": [
+    "bidding_conventions/drury"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/majors/drury.bid"
+   ],
+   "produced": 200,
+   "generated": 739145,
+   "rate": 0.000271,
+   "boards": 200,
+   "hit_script": 0.97,
+   "hit_general": 0.002336,
+   "own_rules_script": 6,
+   "own_rules_general": 6,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Equal_Level_Conversion",
+   "ids": [
+    "competitive_bidding/equal_level_conversion"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 4426357,
+   "rate": 4.5e-05,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Exclusion_After_1M",
+   "ids": [
+    "bidding_conventions/exclusion_blackwood"
+   ],
+   "card": "21GF-SPECIALS2",
+   "own_files": [
+    "conventions/bidding_conventions/exclusion_blackwood/exclusion.bid"
+   ],
+   "produced": 200,
+   "generated": 4171522,
+   "rate": 4.8e-05,
+   "boards": 200,
+   "hit_script": 0.145,
+   "hit_general": 0.004852,
+   "own_rules_script": 15,
+   "own_rules_general": 17,
+   "only_script": 1,
+   "only_general": 3
+  },
+  {
+   "scenario": "Exclusion_After_Sta_Jac",
+   "ids": [
+    "bidding_conventions/exclusion_blackwood"
+   ],
+   "card": "21GF-SPECIALS2",
+   "own_files": [
+    "conventions/bidding_conventions/exclusion_blackwood/exclusion.bid"
+   ],
+   "produced": 200,
+   "generated": 4806291,
+   "rate": 4.2e-05,
+   "boards": 200,
+   "hit_script": 0.175,
+   "hit_general": 0.004852,
+   "own_rules_script": 17,
+   "own_rules_general": 17,
+   "only_script": 2,
+   "only_general": 2
+  },
+  {
+   "scenario": "Exit_Transfers",
+   "ids": [
+    "competitive_bidding/exit_transfers"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 2539972,
+   "rate": 7.9e-05,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Fit_Jumps_after_1M_Double",
+   "ids": [
+    "competitive_bidding/fit_showing_jumps"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "conventions/competitive_bidding/fit_showing_jumps/fit-showing-jumps.bid"
+   ],
+   "produced": 200,
+   "generated": 15944894,
+   "rate": 1.3e-05,
+   "boards": 200,
+   "hit_script": 0.91,
+   "hit_general": 0.010422,
+   "own_rules_script": 7,
+   "own_rules_general": 17,
+   "only_script": 0,
+   "only_general": 10
+  },
+  {
+   "scenario": "Fit_Showing_Jumps",
+   "ids": [
+    "competitive_bidding/fit_showing_jumps"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "conventions/competitive_bidding/fit_showing_jumps/fit-showing-jumps.bid"
+   ],
+   "produced": 200,
+   "generated": 4566391,
+   "rate": 4.4e-05,
+   "boards": 200,
+   "hit_script": 0.785,
+   "hit_general": 0.010422,
+   "own_rules_script": 9,
+   "own_rules_general": 17,
+   "only_script": 0,
+   "only_general": 8
+  },
+  {
+   "scenario": "Flannery",
+   "ids": [
+    "bidding_conventions/flannery"
+   ],
+   "card": "21GF-Flannery",
+   "own_files": [
+    "conventions/bidding_conventions/flannery/flannery.bid"
+   ],
+   "produced": 200,
+   "generated": 29080,
+   "rate": 0.006878,
+   "boards": 200,
+   "hit_script": 1.0,
+   "hit_general": 0.016891,
+   "own_rules_script": 28,
+   "own_rules_general": 27,
+   "only_script": 3,
+   "only_general": 2
+  },
+  {
+   "scenario": "Forcing_NT",
+   "ids": [
+    "bidding_conventions/forcing_1nt"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/base/responses.bid"
+   ],
+   "produced": 200,
+   "generated": 1169242,
+   "rate": 0.000171,
+   "boards": 200,
+   "hit_script": 0.975,
+   "hit_general": 0.355795,
+   "own_rules_script": 15,
+   "own_rules_general": 33,
+   "only_script": 0,
+   "only_general": 18
+  },
+  {
+   "scenario": "Forcing_Pass",
+   "ids": [
+    "competitive_bidding/forcing_pass"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 147,
+   "generated": 20000000,
+   "rate": 7e-06,
+   "boards": 147,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Fourth_Suit_Forcing",
+   "ids": [
+    "bidding_conventions/fourth_suit_forcing"
+   ],
+   "card": "21GF-SPECIALS",
+   "own_files": [
+    "rules/base/fourth-suit-forcing.bid",
+    "rules/base/responder-rebids.bid"
+   ],
+   "produced": 200,
+   "generated": 489747,
+   "rate": 0.000408,
+   "boards": 200,
+   "hit_script": 0.88,
+   "hit_general": 0.2708,
+   "own_rules_script": 17,
+   "own_rules_general": 166,
+   "only_script": 3,
+   "only_general": 152
+  },
+  {
+   "scenario": "GIB_1N-P-2C",
+   "ids": [
+    "bidding_conventions/stayman"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "conventions/bidding_conventions/stayman/stayman.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 59981,
+   "rate": 0.003334,
+   "boards": 200,
+   "hit_script": 0.78,
+   "hit_general": 0.066667,
+   "own_rules_script": 15,
+   "own_rules_general": 31,
+   "only_script": 2,
+   "only_general": 18
+  },
+  {
+   "scenario": "GIB_1N-P-2C-BID",
+   "ids": [
+    "bidding_conventions/stayman"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "conventions/bidding_conventions/stayman/stayman.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 1977748,
+   "rate": 0.000101,
+   "boards": 200,
+   "hit_script": 0.86,
+   "hit_general": 0.066667,
+   "own_rules_script": 14,
+   "own_rules_general": 31,
+   "only_script": 1,
+   "only_general": 18
+  },
+  {
+   "scenario": "GIB_Sandwich_NT_BPH",
+   "ids": [
+    "competitive_bidding/sandwich_nt"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "conventions/competitive_bidding/sandwich_nt/sandwich-nt.bid"
+   ],
+   "produced": 200,
+   "generated": 1989582,
+   "rate": 0.000101,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "GSF_after_Preempt",
+   "ids": [
+    "bidding_conventions/grand_slam_force"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 4761253,
+   "rate": 4.2e-05,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Gambling_3N",
+   "ids": [
+    "bidding_conventions/gambling_3nt"
+   ],
+   "card": "21GF-SPECIALS",
+   "own_files": [
+    "conventions/bidding_conventions/gambling_3nt/gambling-3nt.bid"
+   ],
+   "produced": 200,
+   "generated": 426384,
+   "rate": 0.000469,
+   "boards": 200,
+   "hit_script": 1.0,
+   "hit_general": 0.007547,
+   "own_rules_script": 11,
+   "own_rules_general": 7,
+   "only_script": 4,
+   "only_general": 0
+  },
+  {
+   "scenario": "Game_Forcing_2C",
+   "ids": [
+    "bidding_conventions/strong_2c"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/base/strong-openings.bid"
+   ],
+   "produced": 200,
+   "generated": 38066,
+   "rate": 0.005254,
+   "boards": 200,
+   "hit_script": 0.96,
+   "hit_general": 0.041689,
+   "own_rules_script": 38,
+   "own_rules_general": 34,
+   "only_script": 5,
+   "only_general": 1
+  },
+  {
+   "scenario": "Gavin_Mixed_Raise",
+   "ids": [
+    "competitive_bidding/mixed_raise"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/advances.bid"
+   ],
+   "produced": 200,
+   "generated": 53622,
+   "rate": 0.00373,
+   "boards": 200,
+   "hit_script": 0.94,
+   "hit_general": 0.915184,
+   "own_rules_script": 16,
+   "own_rules_general": 63,
+   "only_script": 1,
+   "only_general": 48
+  },
+  {
+   "scenario": "Gavin_Semi-Forcing_NT_with_Fit",
+   "ids": [
+    "bidding_conventions/semi_forcing_1nt"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/base/responses.bid"
+   ],
+   "produced": 200,
+   "generated": 33826,
+   "rate": 0.005913,
+   "boards": 200,
+   "hit_script": 0.595,
+   "hit_general": 0.355795,
+   "own_rules_script": 5,
+   "own_rules_general": 33,
+   "only_script": 0,
+   "only_general": 28
+  },
+  {
+   "scenario": "Gavin_Strong_Splinter",
+   "ids": [
+    "bidding_conventions/splinters"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/splinters/splinters.bid"
+   ],
+   "produced": 200,
+   "generated": 2510208,
+   "rate": 8e-05,
+   "boards": 200,
+   "hit_script": 0.585,
+   "hit_general": 0.009164,
+   "own_rules_script": 10,
+   "own_rules_general": 15,
+   "only_script": 3,
+   "only_general": 8
+  },
+  {
+   "scenario": "Gavin_Weak_Splinter",
+   "ids": [
+    "bidding_conventions/splinters"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/splinters/splinters.bid"
+   ],
+   "produced": 200,
+   "generated": 4211015,
+   "rate": 4.7e-05,
+   "boards": 200,
+   "hit_script": 0.04,
+   "hit_general": 0.009164,
+   "own_rules_script": 4,
+   "own_rules_general": 15,
+   "only_script": 0,
+   "only_general": 11
+  },
+  {
+   "scenario": "Gazzilli",
+   "ids": [
+    "bidding_conventions/gazzilli"
+   ],
+   "card": "21GF-Gazzilli",
+   "own_files": [
+    "conventions/bidding_conventions/gazzilli/gazzilli.bid"
+   ],
+   "produced": 200,
+   "generated": 111257,
+   "rate": 0.001798,
+   "boards": 200,
+   "hit_script": 0.43,
+   "hit_general": 0.020485,
+   "own_rules_script": 37,
+   "own_rules_general": 42,
+   "only_script": 4,
+   "only_general": 9
+  },
+  {
+   "scenario": "Gerber",
+   "ids": [
+    "bidding_conventions/gerber"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/gerber/gerber.bid"
+   ],
+   "produced": 200,
+   "generated": 3690647,
+   "rate": 5.4e-05,
+   "boards": 200,
+   "hit_script": 0.99,
+   "hit_general": 0.01204,
+   "own_rules_script": 14,
+   "own_rules_general": 18,
+   "only_script": 0,
+   "only_general": 4
+  },
+  {
+   "scenario": "Gerber_By_Opener",
+   "ids": [
+    "bidding_conventions/gerber"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "conventions/bidding_conventions/gerber/gerber.bid"
+   ],
+   "produced": 155,
+   "generated": 20000000,
+   "rate": 8e-06,
+   "boards": 155,
+   "hit_script": 0.006452,
+   "hit_general": 0.0115,
+   "own_rules_script": 5,
+   "own_rules_general": 18,
+   "only_script": 0,
+   "only_general": 13
+  },
+  {
+   "scenario": "Gerber_By_Responder",
+   "ids": [
+    "bidding_conventions/gerber"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "conventions/bidding_conventions/gerber/gerber.bid"
+   ],
+   "produced": 200,
+   "generated": 1195139,
+   "rate": 0.000167,
+   "boards": 200,
+   "hit_script": 0.575,
+   "hit_general": 0.0115,
+   "own_rules_script": 17,
+   "own_rules_general": 18,
+   "only_script": 0,
+   "only_general": 1
+  },
+  {
+   "scenario": "Good_Bad_2N",
+   "ids": [
+    "competitive_bidding/good_bad_2nt"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 1435365,
+   "rate": 0.000139,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Grand_Slam_Force",
+   "ids": [
+    "bidding_conventions/grand_slam_force"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 657264,
+   "rate": 0.000304,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Grand_Slam_Force_2",
+   "ids": [
+    "bidding_conventions/grand_slam_force"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 593442,
+   "rate": 0.000337,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Help_Suit_Game_Try",
+   "ids": [
+    "bidding_conventions/help_suit_game_try"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "rules/majors/game-tries.bid"
+   ],
+   "produced": 200,
+   "generated": 2222782,
+   "rate": 9e-05,
+   "boards": 200,
+   "hit_script": 0.27,
+   "hit_general": 0.006828,
+   "own_rules_script": 17,
+   "own_rules_general": 18,
+   "only_script": 0,
+   "only_general": 1
+  },
+  {
+   "scenario": "Impossible_2S",
+   "ids": [
+    "bidding_conventions/impossible_2s"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/impossible_2s/impossible-2s.bid"
+   ],
+   "produced": 114,
+   "generated": 20000000,
+   "rate": 6e-06,
+   "boards": 114,
+   "hit_script": 0.350877,
+   "hit_general": 0.003235,
+   "own_rules_script": 12,
+   "own_rules_general": 9,
+   "only_script": 4,
+   "only_general": 1
+  },
+  {
+   "scenario": "Inverted_Minors",
+   "ids": [
+    "bidding_conventions/inverted_minors"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/inverted_minors/inverted-minors.bid"
+   ],
+   "produced": 200,
+   "generated": 762091,
+   "rate": 0.000262,
+   "boards": 200,
+   "hit_script": 0.885,
+   "hit_general": 0.020845,
+   "own_rules_script": 34,
+   "own_rules_general": 30,
+   "only_script": 9,
+   "only_general": 5
+  },
+  {
+   "scenario": "Jacoby_2N",
+   "ids": [
+    "bidding_conventions/jacoby_2nt"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/majors/jacoby-2nt.bid"
+   ],
+   "produced": 200,
+   "generated": 400371,
+   "rate": 0.0005,
+   "boards": 200,
+   "hit_script": 0.845,
+   "hit_general": 0.024978,
+   "own_rules_script": 9,
+   "own_rules_general": 9,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Jacoby_2N_4x_void",
+   "ids": [
+    "bidding_conventions/jacoby_2nt"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/majors/jacoby-2nt.bid"
+   ],
+   "produced": 200,
+   "generated": 142403,
+   "rate": 0.001404,
+   "boards": 200,
+   "hit_script": 0.83,
+   "hit_general": 0.024978,
+   "own_rules_script": 9,
+   "own_rules_general": 9,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Jacoby_Super-Accept",
+   "ids": [
+    "bidding_conventions/jacoby_transfers",
+    "bidding_conventions/super_accept"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/jacoby_transfers/jacoby-transfers.bid",
+    "conventions/bidding_conventions/texas/texas-transfers.bid",
+    "rules/notrump/super-accept.bid",
+    "rules/notrump/superaccept-doubleton.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 546273,
+   "rate": 0.000366,
+   "boards": 200,
+   "hit_script": 0.985,
+   "hit_general": 0.077987,
+   "own_rules_script": 16,
+   "own_rules_general": 60,
+   "only_script": 0,
+   "only_general": 44
+  },
+  {
+   "scenario": "Jacoby_Transfer",
+   "ids": [
+    "bidding_conventions/jacoby_transfers"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/jacoby_transfers/jacoby-transfers.bid",
+    "conventions/bidding_conventions/texas/texas-transfers.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 83448,
+   "rate": 0.002397,
+   "boards": 200,
+   "hit_script": 0.96,
+   "hit_general": 0.077987,
+   "own_rules_script": 19,
+   "own_rules_general": 55,
+   "only_script": 0,
+   "only_general": 36
+  },
+  {
+   "scenario": "Jordan_2N",
+   "ids": [
+    "competitive_bidding/jordan_2nt"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/vs-takeout-double.bid"
+   ],
+   "produced": 200,
+   "generated": 1498591,
+   "rate": 0.000133,
+   "boards": 200,
+   "hit_script": 0.6,
+   "hit_general": 0.01186,
+   "own_rules_script": 3,
+   "own_rules_general": 3,
+   "only_script": 1,
+   "only_general": 1
+  },
+  {
+   "scenario": "Jump_Overcalls",
+   "ids": [
+    "competitive_bidding/overcalls"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/overcalls.bid"
+   ],
+   "produced": 200,
+   "generated": 65641,
+   "rate": 0.003047,
+   "boards": 200,
+   "hit_script": 0.985,
+   "hit_general": 0.586882,
+   "own_rules_script": 16,
+   "own_rules_general": 47,
+   "only_script": 0,
+   "only_general": 31
+  },
+  {
+   "scenario": "Kokish_Relay",
+   "ids": [
+    "bidding_conventions/kokish"
+   ],
+   "card": "21GF-SPECIALS",
+   "own_files": [
+    "conventions/bidding_conventions/kokish/kokish.bid"
+   ],
+   "produced": 200,
+   "generated": 367980,
+   "rate": 0.000544,
+   "boards": 200,
+   "hit_script": 0.745,
+   "hit_general": 0.006289,
+   "own_rules_script": 10,
+   "own_rules_general": 10,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Lars_Multi_2D",
+   "ids": [
+    "bidding_conventions/lars_multi"
+   ],
+   "card": "21GF-Multi",
+   "own_files": [],
+   "produced": 200,
+   "generated": 13514,
+   "rate": 0.014799,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Last_Train_GT2",
+   "ids": [
+    "bidding_conventions/last_train"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 9435025,
+   "rate": 2.1e-05,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Last_Train_Game_Try",
+   "ids": [
+    "bidding_conventions/last_train"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 14757790,
+   "rate": 1.4e-05,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Lead_Directing_Double",
+   "ids": [
+    "competitive_bidding/lead_directing_doubles"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "conventions/competitive_bidding/lead_directing_doubles/lead-directing-doubles.bid"
+   ],
+   "produced": 200,
+   "generated": 144259,
+   "rate": 0.001386,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Leaping_Michaels",
+   "ids": [
+    "competitive_bidding/leaping_michaels"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/two-suited-overcalls.bid"
+   ],
+   "produced": 200,
+   "generated": 4526464,
+   "rate": 4.4e-05,
+   "boards": 200,
+   "hit_script": 0.935,
+   "hit_general": 0.059838,
+   "own_rules_script": 16,
+   "own_rules_general": 135,
+   "only_script": 1,
+   "only_general": 120
+  },
+  {
+   "scenario": "Lebensohl",
+   "ids": [
+    "competitive_bidding/lebensohl"
+   ],
+   "card": "21GF-SPECIALS",
+   "own_files": [
+    "conventions/competitive_bidding/lebensohl/lebensohl.bid",
+    "rules/competitive/vs-preempts.bid"
+   ],
+   "produced": 200,
+   "generated": 1826241,
+   "rate": 0.00011,
+   "boards": 200,
+   "hit_script": 0.095,
+   "hit_general": 0.073675,
+   "own_rules_script": 18,
+   "own_rules_general": 87,
+   "only_script": 5,
+   "only_general": 74
+  },
+  {
+   "scenario": "Lebensohl2",
+   "ids": [
+    "competitive_bidding/lebensohl"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/competitive_bidding/lebensohl/lebensohl.bid",
+    "rules/competitive/vs-preempts.bid"
+   ],
+   "produced": 200,
+   "generated": 8853224,
+   "rate": 2.3e-05,
+   "boards": 200,
+   "hit_script": 0.165,
+   "hit_general": 0.073675,
+   "own_rules_script": 16,
+   "own_rules_general": 87,
+   "only_script": 3,
+   "only_general": 74
+  },
+  {
+   "scenario": "Lebensohl_vs_Opps_W2_Bal",
+   "ids": [
+    "competitive_bidding/lebensohl"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/competitive_bidding/lebensohl/lebensohl.bid",
+    "rules/competitive/vs-preempts.bid"
+   ],
+   "produced": 200,
+   "generated": 8075910,
+   "rate": 2.5e-05,
+   "boards": 200,
+   "hit_script": 1.0,
+   "hit_general": 0.073675,
+   "own_rules_script": 38,
+   "own_rules_general": 87,
+   "only_script": 1,
+   "only_general": 50
+  },
+  {
+   "scenario": "Lebensohl_vs_Opps_W2_Bal_or_Dir",
+   "ids": [
+    "competitive_bidding/lebensohl"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/competitive_bidding/lebensohl/lebensohl.bid",
+    "rules/competitive/vs-preempts.bid"
+   ],
+   "produced": 200,
+   "generated": 3584689,
+   "rate": 5.6e-05,
+   "boards": 200,
+   "hit_script": 1.0,
+   "hit_general": 0.073675,
+   "own_rules_script": 40,
+   "own_rules_general": 87,
+   "only_script": 1,
+   "only_general": 48
+  },
+  {
+   "scenario": "Lebensohl_vs_Opps_W2_Dir",
+   "ids": [
+    "competitive_bidding/lebensohl"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/competitive_bidding/lebensohl/lebensohl.bid",
+    "rules/competitive/vs-preempts.bid"
+   ],
+   "produced": 200,
+   "generated": 3302413,
+   "rate": 6.1e-05,
+   "boards": 200,
+   "hit_script": 1.0,
+   "hit_general": 0.073675,
+   "own_rules_script": 42,
+   "own_rules_general": 87,
+   "only_script": 1,
+   "only_general": 46
+  },
+  {
+   "scenario": "Losing_Trick_Count",
+   "ids": [
+    "basic_bidding/hand_evaluation"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 2535,
+   "rate": 0.078895,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "MST_or_MSS",
+   "ids": [
+    "bidding_conventions/minor_suit_stayman",
+    "bidding_conventions/minor_suit_transfers"
+   ],
+   "card": "21GF-MSTandMSS",
+   "own_files": [
+    "conventions/bidding_conventions/minor_suit_stayman/minor-suit-stayman.bid",
+    "rules/notrump/minor-transfers.bid",
+    "rules/notrump/two-nt-minors.bid"
+   ],
+   "produced": 200,
+   "generated": 9457512,
+   "rate": 2.1e-05,
+   "boards": 200,
+   "hit_script": 0.905,
+   "hit_general": 0.02929,
+   "own_rules_script": 16,
+   "own_rules_general": 26,
+   "only_script": 0,
+   "only_general": 10
+  },
+  {
+   "scenario": "Major_Opener",
+   "ids": [
+    "basic_bidding/major_suit_openings"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/base/base.bid"
+   ],
+   "produced": 200,
+   "generated": 1769,
+   "rate": 0.113058,
+   "boards": 200,
+   "hit_script": 1.0,
+   "hit_general": 0.8469,
+   "own_rules_script": 4,
+   "own_rules_general": 14,
+   "only_script": 0,
+   "only_general": 10
+  },
+  {
+   "scenario": "Mathe",
+   "ids": [
+    "competitive_bidding/mathe"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 4810,
+   "rate": 0.04158,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Maximal_After_Overcall",
+   "ids": [
+    "competitive_bidding/maximal_doubles"
+   ],
+   "card": "21GF-SPECIALS",
+   "own_files": [
+    "rules/competitive/maximal-doubles.bid"
+   ],
+   "produced": 200,
+   "generated": 4509063,
+   "rate": 4.4e-05,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Maximal_Double",
+   "ids": [
+    "competitive_bidding/maximal_doubles"
+   ],
+   "card": "21GF-SPECIALS",
+   "own_files": [
+    "rules/competitive/maximal-doubles.bid"
+   ],
+   "produced": 200,
+   "generated": 16022407,
+   "rate": 1.2e-05,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "McCabe_After_Weak_2",
+   "ids": [
+    "bidding_conventions/mccabe"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/mccabe/mccabe.bid"
+   ],
+   "produced": 200,
+   "generated": 1430781,
+   "rate": 0.00014,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "McCabe_after_WJO",
+   "ids": [
+    "bidding_conventions/mccabe"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/mccabe/mccabe.bid"
+   ],
+   "produced": 70,
+   "generated": 20000000,
+   "rate": 3e-06,
+   "boards": 70,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Meckwell",
+   "ids": [
+    "competitive_bidding/meckwell"
+   ],
+   "card": "21GF-SPECIALS2",
+   "own_files": [
+    "conventions/competitive_bidding/meckwell/meckwell.bid"
+   ],
+   "produced": 200,
+   "generated": 176064,
+   "rate": 0.001136,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Michaels_Cuebid",
+   "ids": [
+    "competitive_bidding/michaels"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 1937299,
+   "rate": 0.000103,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Michaels_after_1m",
+   "ids": [
+    "competitive_bidding/michaels"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 806833,
+   "rate": 0.000248,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Michaels_and_Unusual",
+   "ids": [
+    "competitive_bidding/michaels",
+    "competitive_bidding/unusual_notrump"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 2060921,
+   "rate": 9.7e-05,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Mini-Maxi_Roman_2D",
+   "ids": [
+    "bidding_conventions/mini_roman_2d"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/mini_roman_2d/mini-roman.bid"
+   ],
+   "produced": 200,
+   "generated": 27624,
+   "rate": 0.00724,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Minor_Suit_Opener",
+   "ids": [
+    "basic_bidding/minor_suit_openings"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/base/base.bid"
+   ],
+   "produced": 200,
+   "generated": 1179,
+   "rate": 0.169635,
+   "boards": 200,
+   "hit_script": 1.0,
+   "hit_general": 0.8469,
+   "own_rules_script": 6,
+   "own_rules_general": 14,
+   "only_script": 0,
+   "only_general": 8
+  },
+  {
+   "scenario": "Minor_Suit_Opener_Mixed_Raise",
+   "ids": [
+    "competitive_bidding/mixed_raise"
+   ],
+   "card": "21GF-NoInvertedMinor",
+   "own_files": [
+    "rules/competitive/advances.bid"
+   ],
+   "produced": 200,
+   "generated": 4791219,
+   "rate": 4.2e-05,
+   "boards": 200,
+   "hit_script": 0.89,
+   "hit_general": 0.915544,
+   "own_rules_script": 2,
+   "own_rules_general": 63,
+   "only_script": 0,
+   "only_general": 61
+  },
+  {
+   "scenario": "Minor_Suit_Stayman",
+   "ids": [
+    "bidding_conventions/minor_suit_stayman"
+   ],
+   "card": "21GF-MSTandMSS",
+   "own_files": [
+    "conventions/bidding_conventions/minor_suit_stayman/minor-suit-stayman.bid",
+    "rules/notrump/two-nt-minors.bid"
+   ],
+   "produced": 200,
+   "generated": 324570,
+   "rate": 0.000616,
+   "boards": 200,
+   "hit_script": 0.785,
+   "hit_general": 0.016352,
+   "own_rules_script": 20,
+   "own_rules_general": 20,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Minor_Suit_Transfer",
+   "ids": [
+    "bidding_conventions/minor_suit_transfers"
+   ],
+   "card": "21GF-MSTandMSS",
+   "own_files": [
+    "rules/notrump/minor-transfers.bid",
+    "rules/notrump/two-nt-minors.bid"
+   ],
+   "produced": 95,
+   "generated": 20000000,
+   "rate": 5e-06,
+   "boards": 95,
+   "hit_script": 1.0,
+   "hit_general": 0.012938,
+   "own_rules_script": 6,
+   "own_rules_general": 6,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Mitchell_Stayman",
+   "ids": [
+    "competitive_bidding/mitchell_stayman"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 3740737,
+   "rate": 5.3e-05,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Mixed_Raise_In_Comp",
+   "ids": [
+    "competitive_bidding/mixed_raise"
+   ],
+   "card": "21GF-SPECIALS",
+   "own_files": [
+    "rules/competitive/advances.bid"
+   ],
+   "produced": 200,
+   "generated": 3411847,
+   "rate": 5.9e-05,
+   "boards": 200,
+   "hit_script": 0.975,
+   "hit_general": 0.916442,
+   "own_rules_script": 17,
+   "own_rules_general": 65,
+   "only_script": 1,
+   "only_general": 49
+  },
+  {
+   "scenario": "Muiderberg_Two_Bids",
+   "ids": [
+    "bidding_conventions/muiderberg"
+   ],
+   "card": "21GF-PolishTwoSuiters",
+   "own_files": [],
+   "produced": 200,
+   "generated": 10705,
+   "rate": 0.018683,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Multi_2D",
+   "ids": [
+    "bidding_conventions/multi_2d"
+   ],
+   "card": "21GF-Multi",
+   "own_files": [
+    "conventions/bidding_conventions/multi_2d/multi.bid",
+    "rules/openings/vs-multi.bid"
+   ],
+   "produced": 200,
+   "generated": 19854,
+   "rate": 0.010074,
+   "boards": 200,
+   "hit_script": 0.7,
+   "hit_general": 0.038455,
+   "own_rules_script": 48,
+   "own_rules_general": 50,
+   "only_script": 3,
+   "only_general": 5
+  },
+  {
+   "scenario": "Multi_Landy",
+   "ids": [
+    "competitive_bidding/multi_landy"
+   ],
+   "card": "21GF-SPECIALS2",
+   "own_files": [
+    "rules/competitive/multi-landy.bid"
+   ],
+   "produced": 200,
+   "generated": 30358,
+   "rate": 0.006588,
+   "boards": 200,
+   "hit_script": 0.615,
+   "hit_general": 0.022642,
+   "own_rules_script": 12,
+   "own_rules_general": 12,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "NT_Splinter",
+   "ids": [
+    "bidding_conventions/splinters"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "conventions/bidding_conventions/splinters/splinters.bid"
+   ],
+   "produced": 200,
+   "generated": 1887916,
+   "rate": 0.000106,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.009164,
+   "own_rules_script": 0,
+   "own_rules_general": 15,
+   "only_script": 0,
+   "only_general": 15
+  },
+  {
+   "scenario": "Namyats",
+   "ids": [
+    "bidding_conventions/namyats"
+   ],
+   "card": "21GF-SPECIALS",
+   "own_files": [
+    "conventions/bidding_conventions/namyats/namyats.bid"
+   ],
+   "produced": 200,
+   "generated": 403527,
+   "rate": 0.000496,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Ned_Weak_Two",
+   "ids": [
+    "bidding_conventions/weak_2s"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/base/preempts.bid",
+    "rules/base/weak-two-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 16415,
+   "rate": 0.012184,
+   "boards": 200,
+   "hit_script": 0.37,
+   "hit_general": 0.075831,
+   "own_rules_script": 24,
+   "own_rules_general": 37,
+   "only_script": 5,
+   "only_general": 18
+  },
+  {
+   "scenario": "Negative_Double",
+   "ids": [
+    "competitive_bidding/negative_doubles"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/after-interference.bid"
+   ],
+   "produced": 200,
+   "generated": 13376,
+   "rate": 0.014952,
+   "boards": 200,
+   "hit_script": 0.345,
+   "hit_general": 0.290386,
+   "own_rules_script": 36,
+   "own_rules_general": 76,
+   "only_script": 1,
+   "only_general": 41
+  },
+  {
+   "scenario": "New_Minor_Forcing",
+   "ids": [
+    "bidding_conventions/new_minor_forcing"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/new_minor_forcing/new-minor-forcing.bid",
+    "rules/base/nmf-after-2nt.bid"
+   ],
+   "produced": 200,
+   "generated": 1238714,
+   "rate": 0.000161,
+   "boards": 200,
+   "hit_script": 0.83,
+   "hit_general": 0.021923,
+   "own_rules_script": 13,
+   "own_rules_general": 25,
+   "only_script": 0,
+   "only_general": 12
+  },
+  {
+   "scenario": "Non_Leaping_Michaels_After_2-Bid",
+   "ids": [
+    "competitive_bidding/non_leaping_michaels"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/two-suited-overcalls.bid"
+   ],
+   "produced": 200,
+   "generated": 4774145,
+   "rate": 4.2e-05,
+   "boards": 200,
+   "hit_script": 0.585,
+   "hit_general": 0.059838,
+   "own_rules_script": 10,
+   "own_rules_general": 135,
+   "only_script": 0,
+   "only_general": 125
+  },
+  {
+   "scenario": "Non_Leaping_Michaels_After_3-Bid",
+   "ids": [
+    "competitive_bidding/non_leaping_michaels"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/two-suited-overcalls.bid"
+   ],
+   "produced": 200,
+   "generated": 13622299,
+   "rate": 1.5e-05,
+   "boards": 200,
+   "hit_script": 0.225,
+   "hit_general": 0.059838,
+   "own_rules_script": 9,
+   "own_rules_general": 135,
+   "only_script": 1,
+   "only_general": 127
+  },
+  {
+   "scenario": "Ogust",
+   "ids": [
+    "bidding_conventions/ogust"
+   ],
+   "card": "21GF-Ogust",
+   "own_files": [
+    "rules/base/weak-two-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 4987223,
+   "rate": 4e-05,
+   "boards": 200,
+   "hit_script": 0.985,
+   "hit_general": 0.025337,
+   "own_rules_script": 30,
+   "own_rules_general": 18,
+   "only_script": 15,
+   "only_general": 3
+  },
+  {
+   "scenario": "Opps_2-Suited_Overcalls",
+   "ids": [
+    "competitive_bidding/unusual_vs_unusual"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/two-suited-overcalls.bid"
+   ],
+   "produced": 200,
+   "generated": 1385446,
+   "rate": 0.000144,
+   "boards": 200,
+   "hit_script": 0.745,
+   "hit_general": 0.059838,
+   "own_rules_script": 87,
+   "own_rules_general": 135,
+   "only_script": 13,
+   "only_general": 61
+  },
+  {
+   "scenario": "Opps_Double_Jacoby",
+   "ids": [
+    "bidding_conventions/jacoby_transfers"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/jacoby_transfers/jacoby-transfers.bid",
+    "conventions/bidding_conventions/texas/texas-transfers.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 11828914,
+   "rate": 1.7e-05,
+   "boards": 200,
+   "hit_script": 0.855,
+   "hit_general": 0.077987,
+   "own_rules_script": 20,
+   "own_rules_general": 55,
+   "only_script": 0,
+   "only_general": 35
+  },
+  {
+   "scenario": "Opps_Double_Stayman",
+   "ids": [
+    "bidding_conventions/stayman"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/stayman/stayman.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 3030025,
+   "rate": 6.6e-05,
+   "boards": 200,
+   "hit_script": 0.895,
+   "hit_general": 0.070261,
+   "own_rules_script": 9,
+   "own_rules_general": 28,
+   "only_script": 0,
+   "only_general": 19
+  },
+  {
+   "scenario": "Opps_Michaels_Cuebid",
+   "ids": [
+    "competitive_bidding/unusual_vs_unusual"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/two-suited-overcalls.bid"
+   ],
+   "produced": 200,
+   "generated": 1324369,
+   "rate": 0.000151,
+   "boards": 200,
+   "hit_script": 1.0,
+   "hit_general": 0.059838,
+   "own_rules_script": 58,
+   "own_rules_general": 135,
+   "only_script": 6,
+   "only_general": 83
+  },
+  {
+   "scenario": "Opps_Michaels_and_Unusual",
+   "ids": [
+    "competitive_bidding/unusual_vs_unusual"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/two-suited-overcalls.bid"
+   ],
+   "produced": 200,
+   "generated": 2034290,
+   "rate": 9.8e-05,
+   "boards": 200,
+   "hit_script": 0.95,
+   "hit_general": 0.059838,
+   "own_rules_script": 82,
+   "own_rules_general": 135,
+   "only_script": 13,
+   "only_general": 66
+  },
+  {
+   "scenario": "Opps_Open_1N_15-17",
+   "ids": [
+    "competitive_bidding/defense_vs_1nt"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/competitive_bidding/dont/dont.bid",
+    "conventions/competitive_bidding/meckwell/meckwell.bid",
+    "conventions/competitive_bidding/suction/suction.bid",
+    "rules/competitive/cappelletti.bid",
+    "rules/competitive/multi-landy.bid",
+    "rules/competitive/vs-1nt.bid"
+   ],
+   "produced": 200,
+   "generated": 4364,
+   "rate": 0.04583,
+   "boards": 200,
+   "hit_script": 0.89,
+   "hit_general": 0.186164,
+   "own_rules_script": 26,
+   "own_rules_general": 42,
+   "only_script": 1,
+   "only_general": 17
+  },
+  {
+   "scenario": "Opps_Overcall_Stayman_or_Jacoby",
+   "ids": [
+    "bidding_conventions/stayman",
+    "bidding_conventions/jacoby_transfers"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/jacoby_transfers/jacoby-transfers.bid",
+    "conventions/bidding_conventions/stayman/stayman.bid",
+    "conventions/bidding_conventions/texas/texas-transfers.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 733924,
+   "rate": 0.000273,
+   "boards": 200,
+   "hit_script": 0.9,
+   "hit_general": 0.129739,
+   "own_rules_script": 33,
+   "own_rules_general": 72,
+   "only_script": 1,
+   "only_general": 40
+  },
+  {
+   "scenario": "Opps_Preempt",
+   "ids": [
+    "competitive_bidding/defense_vs_preempts"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/vs-preempts.bid"
+   ],
+   "produced": 200,
+   "generated": 10544,
+   "rate": 0.018968,
+   "boards": 200,
+   "hit_script": 0.585,
+   "hit_general": 0.072058,
+   "own_rules_script": 42,
+   "own_rules_general": 73,
+   "only_script": 13,
+   "only_general": 44
+  },
+  {
+   "scenario": "Opps_Preempt_4M",
+   "ids": [
+    "competitive_bidding/defense_vs_preempts"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/vs-preempts.bid"
+   ],
+   "produced": 200,
+   "generated": 741523,
+   "rate": 0.00027,
+   "boards": 200,
+   "hit_script": 0.97,
+   "hit_general": 0.072058,
+   "own_rules_script": 18,
+   "own_rules_general": 73,
+   "only_script": 7,
+   "only_general": 62
+  },
+  {
+   "scenario": "Opps_Weak_Two",
+   "ids": [
+    "competitive_bidding/defense_vs_preempts"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/vs-preempts.bid"
+   ],
+   "produced": 200,
+   "generated": 11090,
+   "rate": 0.018034,
+   "boards": 200,
+   "hit_script": 0.935,
+   "hit_general": 0.072058,
+   "own_rules_script": 44,
+   "own_rules_general": 73,
+   "only_script": 6,
+   "only_general": 35
+  },
+  {
+   "scenario": "Power_Double_Balanced",
+   "ids": [
+    "competitive_bidding/takeout_doubles"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/takeout-double.bid",
+    "rules/competitive/vs-preempts.bid"
+   ],
+   "produced": 200,
+   "generated": 1170309,
+   "rate": 0.000171,
+   "boards": 200,
+   "hit_script": 1.0,
+   "hit_general": 0.138904,
+   "own_rules_script": 32,
+   "own_rules_general": 141,
+   "only_script": 0,
+   "only_general": 109
+  },
+  {
+   "scenario": "Power_Double_Unbalanced",
+   "ids": [
+    "competitive_bidding/takeout_doubles"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/takeout-double.bid",
+    "rules/competitive/vs-preempts.bid"
+   ],
+   "produced": 200,
+   "generated": 128099,
+   "rate": 0.001561,
+   "boards": 200,
+   "hit_script": 0.975,
+   "hit_general": 0.138904,
+   "own_rules_script": 49,
+   "own_rules_general": 141,
+   "only_script": 3,
+   "only_general": 95
+  },
+  {
+   "scenario": "Preempt_Keycard",
+   "ids": [
+    "bidding_conventions/preempt_keycard"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 1142595,
+   "rate": 0.000175,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Preempts",
+   "ids": [
+    "bidding_conventions/preemptive_bids"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/base/preempts.bid"
+   ],
+   "produced": 200,
+   "generated": 11500,
+   "rate": 0.017391,
+   "boards": 200,
+   "hit_script": 0.62,
+   "hit_general": 0.075831,
+   "own_rules_script": 21,
+   "own_rules_general": 20,
+   "only_script": 8,
+   "only_general": 7
+  },
+  {
+   "scenario": "Puppet_Stayman_1N",
+   "ids": [
+    "bidding_conventions/puppet_stayman"
+   ],
+   "card": "21GF-Puppet",
+   "own_files": [
+    "rules/notrump/puppet-1nt.bid"
+   ],
+   "produced": 200,
+   "generated": 33409,
+   "rate": 0.005986,
+   "boards": 200,
+   "hit_script": 0.96,
+   "hit_general": 0.062713,
+   "own_rules_script": 2,
+   "own_rules_general": 2,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Puppet_Stayman_2N",
+   "ids": [
+    "bidding_conventions/puppet_stayman"
+   ],
+   "card": "21GF-MSTandMSS",
+   "own_files": [
+    "rules/notrump/puppet-1nt.bid"
+   ],
+   "produced": 200,
+   "generated": 133515,
+   "rate": 0.001498,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Responsive_Double",
+   "ids": [
+    "competitive_bidding/responsive_doubles"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "conventions/competitive_bidding/responsive_doubles/responsive-doubles.bid"
+   ],
+   "produced": 133,
+   "generated": 20000000,
+   "rate": 7e-06,
+   "boards": 133,
+   "hit_script": 0.270677,
+   "hit_general": 0.003414,
+   "own_rules_script": 6,
+   "own_rules_general": 8,
+   "only_script": 0,
+   "only_general": 2
+  },
+  {
+   "scenario": "Responsive_Double_after_Overcall",
+   "ids": [
+    "competitive_bidding/responsive_doubles"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "conventions/competitive_bidding/responsive_doubles/responsive-doubles.bid"
+   ],
+   "produced": 39,
+   "generated": 20000000,
+   "rate": 2e-06,
+   "boards": 39,
+   "hit_script": 0.025641,
+   "hit_general": 0.003414,
+   "own_rules_script": 2,
+   "own_rules_general": 8,
+   "only_script": 0,
+   "only_general": 6
+  },
+  {
+   "scenario": "Reverse_After_Two_Over_One",
+   "ids": [
+    "bidding_conventions/reverse_bids",
+    "bidding_conventions/two_over_one"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/base/game-force.bid",
+    "rules/base/rebids.bid"
+   ],
+   "produced": 200,
+   "generated": 4193201,
+   "rate": 4.8e-05,
+   "boards": 200,
+   "hit_script": 0.995,
+   "hit_general": 0.54699,
+   "own_rules_script": 8,
+   "own_rules_general": 178,
+   "only_script": 0,
+   "only_general": 170
+  },
+  {
+   "scenario": "Reverse_By_Opener",
+   "ids": [
+    "bidding_conventions/reverse_bids"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/base/rebids.bid"
+   ],
+   "produced": 200,
+   "generated": 768287,
+   "rate": 0.00026,
+   "boards": 200,
+   "hit_script": 0.975,
+   "hit_general": 0.54699,
+   "own_rules_script": 27,
+   "own_rules_general": 178,
+   "only_script": 0,
+   "only_general": 151
+  },
+  {
+   "scenario": "Reverse_By_Responder",
+   "ids": [
+    "bidding_conventions/reverse_bids"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/base/rebids.bid"
+   ],
+   "produced": 200,
+   "generated": 1198096,
+   "rate": 0.000167,
+   "boards": 200,
+   "hit_script": 0.82,
+   "hit_general": 0.54699,
+   "own_rules_script": 8,
+   "own_rules_general": 178,
+   "only_script": 0,
+   "only_general": 170
+  },
+  {
+   "scenario": "Reverse_Flannery",
+   "ids": [
+    "bidding_conventions/reverse_flannery"
+   ],
+   "card": "21GF-SPECIALS",
+   "own_files": [
+    "rules/openings/reverse-flannery.bid"
+   ],
+   "produced": 200,
+   "generated": 3515430,
+   "rate": 5.7e-05,
+   "boards": 200,
+   "hit_script": 0.985,
+   "hit_general": 0.003953,
+   "own_rules_script": 20,
+   "own_rules_general": 15,
+   "only_script": 7,
+   "only_general": 2
+  },
+  {
+   "scenario": "Reversed_Splinters_By_Opener",
+   "ids": [
+    "bidding_conventions/splinters"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/splinters/splinters.bid"
+   ],
+   "produced": 200,
+   "generated": 991973,
+   "rate": 0.000202,
+   "boards": 200,
+   "hit_script": 0.19,
+   "hit_general": 0.009164,
+   "own_rules_script": 9,
+   "own_rules_general": 15,
+   "only_script": 3,
+   "only_general": 9
+  },
+  {
+   "scenario": "Rosenkranz_Double",
+   "ids": [
+    "competitive_bidding/rosenkranz"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [],
+   "produced": 200,
+   "generated": 27504,
+   "rate": 0.007272,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS16_1C_1SuitedOpnr",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 79673,
+   "rate": 0.00251,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS16_1C_1SuitedResp",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 77617,
+   "rate": 0.002577,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS16_1C_3-Suit_Resp",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 89841,
+   "rate": 0.002226,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS16_1C_3-Suit_Resp_5-7",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 142468,
+   "rate": 0.001404,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS16_1C_54_Resp",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 12592,
+   "rate": 0.015883,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS16_1C_55_Resp",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 73682,
+   "rate": 0.002714,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS16_1C_any_0-4_Resp",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 9419,
+   "rate": 0.021234,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS16_1C_any_5-7_Resp",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 6297,
+   "rate": 0.031761,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS16_1C_any_8plus_Resp",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 6266,
+   "rate": 0.031918,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS16_1or2C",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 8498,
+   "rate": 0.023535,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS_1C_3-Suit_Resp",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 58746,
+   "rate": 0.003404,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS_1C_3-Suit_Resp_5-7",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 100247,
+   "rate": 0.001995,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS_1C_54_Resp",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 8976,
+   "rate": 0.022282,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS_1C_55_Resp",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 51162,
+   "rate": 0.003909,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS_1C_any_0-4_Resp",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 7576,
+   "rate": 0.026399,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS_1C_any_5-7_Resp",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 4261,
+   "rate": 0.046937,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS_1C_any_8plus_Resp",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 3567,
+   "rate": 0.05607,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SCS_Impossible_Negative",
+   "ids": [
+    "bidding_conventions/precision_1c"
+   ],
+   "card": "Precision",
+   "own_files": [],
+   "produced": 200,
+   "generated": 187375,
+   "rate": 0.001067,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Scrambling_2NT",
+   "ids": [
+    "competitive_bidding/scrambling_2nt"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/competitive_bidding/scrambling_2nt/scrambling-2nt.bid"
+   ],
+   "produced": 200,
+   "generated": 2151887,
+   "rate": 9.3e-05,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Serious",
+   "ids": [
+    "bidding_conventions/serious_3nt"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/slam/serious-3nt.bid"
+   ],
+   "produced": 200,
+   "generated": 1860361,
+   "rate": 0.000108,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Six_Key_RKC",
+   "ids": [
+    "bidding_conventions/six_key_rkcb"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 134,
+   "generated": 20000000,
+   "rate": 7e-06,
+   "boards": 134,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Size_Asking_Minor_Suit_Stayman",
+   "ids": [
+    "bidding_conventions/minor_suit_stayman"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/minor_suit_stayman/minor-suit-stayman.bid",
+    "rules/notrump/two-nt-minors.bid"
+   ],
+   "produced": 200,
+   "generated": 32841,
+   "rate": 0.00609,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Slam_after_Stayman",
+   "ids": [
+    "bidding_conventions/stayman"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/stayman/stayman.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 965864,
+   "rate": 0.000207,
+   "boards": 200,
+   "hit_script": 0.445,
+   "hit_general": 0.070261,
+   "own_rules_script": 10,
+   "own_rules_general": 28,
+   "only_script": 0,
+   "only_general": 18
+  },
+  {
+   "scenario": "Slam_after_Stayman_or_Jacoby_w30plus",
+   "ids": [
+    "bidding_conventions/stayman",
+    "bidding_conventions/jacoby_transfers"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/jacoby_transfers/jacoby-transfers.bid",
+    "conventions/bidding_conventions/stayman/stayman.bid",
+    "conventions/bidding_conventions/texas/texas-transfers.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 427159,
+   "rate": 0.000468,
+   "boards": 200,
+   "hit_script": 0.72,
+   "hit_general": 0.129739,
+   "own_rules_script": 38,
+   "own_rules_general": 72,
+   "only_script": 0,
+   "only_general": 34
+  },
+  {
+   "scenario": "Slam_after_Stayman_or_Jacoby_w31plus",
+   "ids": [
+    "bidding_conventions/stayman",
+    "bidding_conventions/jacoby_transfers"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/jacoby_transfers/jacoby-transfers.bid",
+    "conventions/bidding_conventions/stayman/stayman.bid",
+    "conventions/bidding_conventions/texas/texas-transfers.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 826259,
+   "rate": 0.000242,
+   "boards": 200,
+   "hit_script": 0.675,
+   "hit_general": 0.129739,
+   "own_rules_script": 33,
+   "own_rules_general": 72,
+   "only_script": 0,
+   "only_general": 39
+  },
+  {
+   "scenario": "Slam_after_Transfer",
+   "ids": [
+    "bidding_conventions/jacoby_transfers"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/jacoby_transfers/jacoby-transfers.bid",
+    "conventions/bidding_conventions/texas/texas-transfers.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 650425,
+   "rate": 0.000307,
+   "boards": 200,
+   "hit_script": 0.895,
+   "hit_general": 0.077987,
+   "own_rules_script": 27,
+   "own_rules_general": 55,
+   "only_script": 0,
+   "only_general": 28
+  },
+  {
+   "scenario": "Smolen",
+   "ids": [
+    "bidding_conventions/smolen"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "conventions/bidding_conventions/smolen/smolen.bid"
+   ],
+   "produced": 200,
+   "generated": 927270,
+   "rate": 0.000216,
+   "boards": 200,
+   "hit_script": 1.0,
+   "hit_general": 0.014555,
+   "own_rules_script": 7,
+   "own_rules_general": 7,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Smolen_Invitational",
+   "ids": [
+    "bidding_conventions/smolen"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/smolen/smolen.bid"
+   ],
+   "produced": 200,
+   "generated": 1971638,
+   "rate": 0.000101,
+   "boards": 200,
+   "hit_script": 0.68,
+   "hit_general": 0.014555,
+   "own_rules_script": 6,
+   "own_rules_general": 7,
+   "only_script": 0,
+   "only_general": 1
+  },
+  {
+   "scenario": "Smolen_after_2N",
+   "ids": [
+    "bidding_conventions/smolen"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/smolen/smolen.bid"
+   ],
+   "produced": 200,
+   "generated": 4049911,
+   "rate": 4.9e-05,
+   "boards": 200,
+   "hit_script": 1.0,
+   "hit_general": 0.014555,
+   "own_rules_script": 7,
+   "own_rules_general": 7,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Snapdragon_Double",
+   "ids": [
+    "competitive_bidding/snapdragon"
+   ],
+   "card": "21GF-SPECIALS",
+   "own_files": [
+    "conventions/competitive_bidding/snapdragon/snapdragon.bid"
+   ],
+   "produced": 56,
+   "generated": 20000000,
+   "rate": 3e-06,
+   "boards": 56,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Soloway_Jump_Shift",
+   "ids": [
+    "bidding_conventions/soloway"
+   ],
+   "card": "21GF-SPECIALS2",
+   "own_files": [
+    "rules/base/soloway.bid"
+   ],
+   "produced": 200,
+   "generated": 2077610,
+   "rate": 9.6e-05,
+   "boards": 200,
+   "hit_script": 0.92,
+   "hit_general": 0.015993,
+   "own_rules_script": 8,
+   "own_rules_general": 8,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Soloway_Jump_Shift_Type-1",
+   "ids": [
+    "bidding_conventions/soloway"
+   ],
+   "card": "21GF-SPECIALS2",
+   "own_files": [
+    "rules/base/soloway.bid"
+   ],
+   "produced": 200,
+   "generated": 2035543,
+   "rate": 9.8e-05,
+   "boards": 200,
+   "hit_script": 0.87,
+   "hit_general": 0.015993,
+   "own_rules_script": 7,
+   "own_rules_general": 8,
+   "only_script": 0,
+   "only_general": 1
+  },
+  {
+   "scenario": "Soloway_Jump_Shift_Type-2",
+   "ids": [
+    "bidding_conventions/soloway"
+   ],
+   "card": "21GF-SPECIALS2",
+   "own_files": [
+    "rules/base/soloway.bid"
+   ],
+   "produced": 200,
+   "generated": 3218123,
+   "rate": 6.2e-05,
+   "boards": 200,
+   "hit_script": 0.915,
+   "hit_general": 0.015993,
+   "own_rules_script": 8,
+   "own_rules_general": 8,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Soloway_Jump_Shift_Type-3",
+   "ids": [
+    "bidding_conventions/soloway"
+   ],
+   "card": "21GF-SPECIALS2",
+   "own_files": [
+    "rules/base/soloway.bid"
+   ],
+   "produced": 200,
+   "generated": 2055415,
+   "rate": 9.7e-05,
+   "boards": 200,
+   "hit_script": 0.8,
+   "hit_general": 0.015993,
+   "own_rules_script": 7,
+   "own_rules_general": 8,
+   "only_script": 0,
+   "only_general": 1
+  },
+  {
+   "scenario": "Soloway_Jump_Shift_Type-4",
+   "ids": [
+    "bidding_conventions/soloway"
+   ],
+   "card": "21GF-SPECIALS2",
+   "own_files": [
+    "rules/base/soloway.bid"
+   ],
+   "produced": 200,
+   "generated": 1228906,
+   "rate": 0.000163,
+   "boards": 200,
+   "hit_script": 0.42,
+   "hit_general": 0.015993,
+   "own_rules_script": 7,
+   "own_rules_general": 8,
+   "only_script": 0,
+   "only_general": 1
+  },
+  {
+   "scenario": "Spear",
+   "ids": [
+    "competitive_bidding/spear"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 3285077,
+   "rate": 6.1e-05,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Spiral_Raises_Weinstein",
+   "ids": [
+    "bidding_conventions/spiral"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/slam/spiral.bid"
+   ],
+   "produced": 200,
+   "generated": 898749,
+   "rate": 0.000223,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Spiral_Raises_Wolpert",
+   "ids": [
+    "bidding_conventions/spiral"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/slam/spiral.bid"
+   ],
+   "produced": 200,
+   "generated": 2061600,
+   "rate": 9.7e-05,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Splinters",
+   "ids": [
+    "bidding_conventions/splinters"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/splinters/splinters.bid"
+   ],
+   "produced": 200,
+   "generated": 525023,
+   "rate": 0.000381,
+   "boards": 200,
+   "hit_script": 0.475,
+   "hit_general": 0.009164,
+   "own_rules_script": 10,
+   "own_rules_general": 15,
+   "only_script": 3,
+   "only_general": 8
+  },
+  {
+   "scenario": "Splinters_By_Opener",
+   "ids": [
+    "bidding_conventions/splinters"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/splinters/splinters.bid"
+   ],
+   "produced": 200,
+   "generated": 1132171,
+   "rate": 0.000177,
+   "boards": 200,
+   "hit_script": 0.195,
+   "hit_general": 0.009164,
+   "own_rules_script": 9,
+   "own_rules_general": 15,
+   "only_script": 3,
+   "only_general": 9
+  },
+  {
+   "scenario": "Splinters_after_Minor",
+   "ids": [
+    "bidding_conventions/splinters"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/splinters/splinters.bid"
+   ],
+   "produced": 200,
+   "generated": 2543284,
+   "rate": 7.9e-05,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.009164,
+   "own_rules_script": 0,
+   "own_rules_general": 15,
+   "only_script": 0,
+   "only_general": 15
+  },
+  {
+   "scenario": "Stayman",
+   "ids": [
+    "bidding_conventions/stayman"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/stayman/stayman.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 105940,
+   "rate": 0.001888,
+   "boards": 200,
+   "hit_script": 0.68,
+   "hit_general": 0.070261,
+   "own_rules_script": 10,
+   "own_rules_general": 28,
+   "only_script": 0,
+   "only_general": 18
+  },
+  {
+   "scenario": "Suction",
+   "ids": [
+    "competitive_bidding/suction"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/competitive_bidding/suction/suction.bid"
+   ],
+   "produced": 200,
+   "generated": 180075,
+   "rate": 0.001111,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "SupportX_by_Advancer",
+   "ids": [
+    "competitive_bidding/support_doubles"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/competitive_bidding/support_doubles/support-doubles.bid"
+   ],
+   "produced": 200,
+   "generated": 4747349,
+   "rate": 4.2e-05,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.007727,
+   "own_rules_script": 0,
+   "own_rules_general": 10,
+   "only_script": 0,
+   "only_general": 10
+  },
+  {
+   "scenario": "Support_Double",
+   "ids": [
+    "competitive_bidding/support_doubles"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/competitive_bidding/support_doubles/support-doubles.bid"
+   ],
+   "produced": 200,
+   "generated": 214194,
+   "rate": 0.000934,
+   "boards": 200,
+   "hit_script": 0.97,
+   "hit_general": 0.007727,
+   "own_rules_script": 12,
+   "own_rules_general": 10,
+   "only_script": 3,
+   "only_general": 1
+  },
+  {
+   "scenario": "Takeout_Double",
+   "ids": [
+    "competitive_bidding/takeout_doubles"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/takeout-double.bid",
+    "rules/competitive/vs-preempts.bid"
+   ],
+   "produced": 200,
+   "generated": 21695,
+   "rate": 0.009219,
+   "boards": 200,
+   "hit_script": 0.58,
+   "hit_general": 0.138904,
+   "own_rules_script": 44,
+   "own_rules_general": 141,
+   "only_script": 6,
+   "only_general": 103
+  },
+  {
+   "scenario": "Texas_Transfer",
+   "ids": [
+    "bidding_conventions/jacoby_transfers"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/jacoby_transfers/jacoby-transfers.bid",
+    "conventions/bidding_conventions/texas/texas-transfers.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 411739,
+   "rate": 0.000486,
+   "boards": 200,
+   "hit_script": 0.925,
+   "hit_general": 0.077987,
+   "own_rules_script": 13,
+   "own_rules_general": 55,
+   "only_script": 1,
+   "only_general": 43
+  },
+  {
+   "scenario": "Texas_or_Jacoby",
+   "ids": [
+    "bidding_conventions/jacoby_transfers"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/jacoby_transfers/jacoby-transfers.bid",
+    "conventions/bidding_conventions/texas/texas-transfers.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 42262,
+   "rate": 0.004732,
+   "boards": 200,
+   "hit_script": 0.94,
+   "hit_general": 0.077987,
+   "own_rules_script": 25,
+   "own_rules_general": 55,
+   "only_script": 1,
+   "only_general": 31
+  },
+  {
+   "scenario": "Tislevoll_after_Opps_Preempt",
+   "ids": [
+    "bidding_conventions/tislevoll"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 3391659,
+   "rate": 5.9e-05,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Transfer_Advances",
+   "ids": [
+    "competitive_bidding/transfer_advances"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 91270,
+   "rate": 0.002191,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Transfer_Walsh",
+   "ids": [
+    "bidding_conventions/transfer_walsh"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/base/transfer-walsh.bid"
+   ],
+   "produced": 200,
+   "generated": 3673,
+   "rate": 0.054451,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Transfers_after_1M_X",
+   "ids": [
+    "bidding_conventions/transfers_after_double"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/transfers-after-double.bid"
+   ],
+   "produced": 200,
+   "generated": 193969,
+   "rate": 0.001031,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Two-Suited_Overcalls",
+   "ids": [
+    "competitive_bidding/michaels",
+    "competitive_bidding/unusual_notrump"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [],
+   "produced": 200,
+   "generated": 1584716,
+   "rate": 0.000126,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Two-Way_Game_Try",
+   "ids": [
+    "bidding_conventions/two_way_game_tries"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "rules/majors/game-tries.bid"
+   ],
+   "produced": 200,
+   "generated": 8613526,
+   "rate": 2.3e-05,
+   "boards": 200,
+   "hit_script": 0.485,
+   "hit_general": 0.006828,
+   "own_rules_script": 17,
+   "own_rules_general": 18,
+   "only_script": 0,
+   "only_general": 1
+  },
+  {
+   "scenario": "Two-Way_New_Minor_Forcing_aka_xyNT",
+   "ids": [
+    "bidding_conventions/two_way_nmf"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/base/two-way-nmf.bid"
+   ],
+   "produced": 200,
+   "generated": 34167,
+   "rate": 0.005854,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Two_Over_One",
+   "ids": [
+    "bidding_conventions/two_over_one"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/base/game-force.bid"
+   ],
+   "produced": 200,
+   "generated": 81353,
+   "rate": 0.002458,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Unusual_2N",
+   "ids": [
+    "competitive_bidding/unusual_notrump"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [],
+   "produced": 200,
+   "generated": 81709,
+   "rate": 0.002448,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "WB5_Collante",
+   "ids": [
+    "competitive_bidding/collante"
+   ],
+   "card": "21GF-SPECIALS2",
+   "own_files": [],
+   "produced": 200,
+   "generated": 805196,
+   "rate": 0.000248,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "WB5_Rodrigue",
+   "ids": [
+    "competitive_bidding/rodrigue"
+   ],
+   "card": "21GF-SPECIALS2",
+   "own_files": [],
+   "produced": 200,
+   "generated": 1385006,
+   "rate": 0.000144,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "WB5_Roudi",
+   "ids": [
+    "bidding_conventions/roudi"
+   ],
+   "card": "21GF-SPECIALS2",
+   "own_files": [
+    "conventions/bidding_conventions/roudi/roudi.bid"
+   ],
+   "produced": 200,
+   "generated": 296558,
+   "rate": 0.000674,
+   "boards": 200,
+   "hit_script": 0.39,
+   "hit_general": 0.013477,
+   "own_rules_script": 17,
+   "own_rules_general": 17,
+   "only_script": 1,
+   "only_general": 1
+  },
+  {
+   "scenario": "We_Overcall",
+   "ids": [
+    "competitive_bidding/overcalls"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/overcalls.bid"
+   ],
+   "produced": 200,
+   "generated": 6969,
+   "rate": 0.028699,
+   "boards": 200,
+   "hit_script": 0.835,
+   "hit_general": 0.586882,
+   "own_rules_script": 17,
+   "own_rules_general": 47,
+   "only_script": 0,
+   "only_general": 30
+  },
+  {
+   "scenario": "We_Overcall_1N",
+   "ids": [
+    "competitive_bidding/overcalls"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/overcalls.bid"
+   ],
+   "produced": 200,
+   "generated": 56974,
+   "rate": 0.00351,
+   "boards": 200,
+   "hit_script": 0.98,
+   "hit_general": 0.586882,
+   "own_rules_script": 5,
+   "own_rules_general": 47,
+   "only_script": 0,
+   "only_general": 42
+  },
+  {
+   "scenario": "We_Overcall_1N_then_Gerber",
+   "ids": [
+    "bidding_conventions/gerber"
+   ],
+   "card": "21GF-SPECIALS",
+   "own_files": [
+    "conventions/bidding_conventions/gerber/gerber.bid"
+   ],
+   "produced": 200,
+   "generated": 6009449,
+   "rate": 3.3e-05,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.013836,
+   "own_rules_script": 0,
+   "own_rules_general": 18,
+   "only_script": 0,
+   "only_general": 18
+  },
+  {
+   "scenario": "We_Overcall_NT_then_Jacoby",
+   "ids": [
+    "bidding_conventions/jacoby_transfers"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/jacoby_transfers/jacoby-transfers.bid",
+    "conventions/bidding_conventions/texas/texas-transfers.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 310352,
+   "rate": 0.000644,
+   "boards": 200,
+   "hit_script": 0.775,
+   "hit_general": 0.077987,
+   "own_rules_script": 19,
+   "own_rules_general": 55,
+   "only_script": 0,
+   "only_general": 36
+  },
+  {
+   "scenario": "We_Overcall_NT_then_MSS",
+   "ids": [
+    "bidding_conventions/minor_suit_stayman"
+   ],
+   "card": "21GF-MSTandMSS",
+   "own_files": [
+    "conventions/bidding_conventions/minor_suit_stayman/minor-suit-stayman.bid",
+    "rules/notrump/two-nt-minors.bid"
+   ],
+   "produced": 200,
+   "generated": 5123288,
+   "rate": 3.9e-05,
+   "boards": 200,
+   "hit_script": 0.65,
+   "hit_general": 0.016352,
+   "own_rules_script": 17,
+   "own_rules_general": 20,
+   "only_script": 0,
+   "only_general": 3
+  },
+  {
+   "scenario": "We_Overcall_NT_then_MST",
+   "ids": [
+    "bidding_conventions/minor_suit_transfers"
+   ],
+   "card": "21GF-MSTandMSS",
+   "own_files": [
+    "rules/notrump/minor-transfers.bid",
+    "rules/notrump/two-nt-minors.bid"
+   ],
+   "produced": 200,
+   "generated": 2433984,
+   "rate": 8.2e-05,
+   "boards": 200,
+   "hit_script": 0.465,
+   "hit_general": 0.012938,
+   "own_rules_script": 5,
+   "own_rules_general": 6,
+   "only_script": 0,
+   "only_general": 1
+  },
+  {
+   "scenario": "We_Overcall_NT_then_Smolen",
+   "ids": [
+    "bidding_conventions/smolen"
+   ],
+   "card": "21GF-GIB",
+   "own_files": [
+    "conventions/bidding_conventions/smolen/smolen.bid"
+   ],
+   "produced": 192,
+   "generated": 20000000,
+   "rate": 1e-05,
+   "boards": 192,
+   "hit_script": 0.885417,
+   "hit_general": 0.014555,
+   "own_rules_script": 5,
+   "own_rules_general": 7,
+   "only_script": 0,
+   "only_general": 2
+  },
+  {
+   "scenario": "We_Overcall_NT_then_Stayman",
+   "ids": [
+    "bidding_conventions/stayman"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/stayman/stayman.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 563201,
+   "rate": 0.000355,
+   "boards": 200,
+   "hit_script": 0.425,
+   "hit_general": 0.070261,
+   "own_rules_script": 10,
+   "own_rules_general": 28,
+   "only_script": 0,
+   "only_general": 18
+  },
+  {
+   "scenario": "We_Overcall_NT_then_Texas",
+   "ids": [
+    "bidding_conventions/jacoby_transfers"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "conventions/bidding_conventions/jacoby_transfers/jacoby-transfers.bid",
+    "conventions/bidding_conventions/texas/texas-transfers.bid",
+    "rules/notrump/two-nt-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 2017889,
+   "rate": 9.9e-05,
+   "boards": 200,
+   "hit_script": 0.775,
+   "hit_general": 0.077987,
+   "own_rules_script": 14,
+   "own_rules_general": 55,
+   "only_script": 0,
+   "only_general": 41
+  },
+  {
+   "scenario": "We_X_Opps_Preempt",
+   "ids": [
+    "competitive_bidding/takeout_doubles",
+    "competitive_bidding/defense_vs_preempts"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/takeout-double.bid",
+    "rules/competitive/vs-preempts.bid"
+   ],
+   "produced": 200,
+   "generated": 8574854,
+   "rate": 2.3e-05,
+   "boards": 200,
+   "hit_script": 0.865,
+   "hit_general": 0.138904,
+   "own_rules_script": 36,
+   "own_rules_general": 141,
+   "only_script": 3,
+   "only_general": 108
+  },
+  {
+   "scenario": "We_X_Opps_Weak_2",
+   "ids": [
+    "competitive_bidding/takeout_doubles",
+    "competitive_bidding/defense_vs_preempts"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/takeout-double.bid",
+    "rules/competitive/vs-preempts.bid"
+   ],
+   "produced": 200,
+   "generated": 4913756,
+   "rate": 4.1e-05,
+   "boards": 200,
+   "hit_script": 1.0,
+   "hit_general": 0.138904,
+   "own_rules_script": 41,
+   "own_rules_general": 141,
+   "only_script": 2,
+   "only_general": 102
+  },
+  {
+   "scenario": "Weak_2_Bids",
+   "ids": [
+    "bidding_conventions/weak_2s"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/base/preempts.bid",
+    "rules/base/weak-two-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 14343,
+   "rate": 0.013944,
+   "boards": 200,
+   "hit_script": 0.935,
+   "hit_general": 0.075831,
+   "own_rules_script": 29,
+   "own_rules_general": 37,
+   "only_script": 7,
+   "only_general": 15
+  },
+  {
+   "scenario": "Weak_2_Bids_Lax",
+   "ids": [
+    "bidding_conventions/weak_2s"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/base/preempts.bid",
+    "rules/base/weak-two-responses.bid"
+   ],
+   "produced": 200,
+   "generated": 12080,
+   "rate": 0.016556,
+   "boards": 200,
+   "hit_script": 0.9,
+   "hit_general": 0.075831,
+   "own_rules_script": 28,
+   "own_rules_general": 37,
+   "only_script": 6,
+   "only_general": 15
+  },
+  {
+   "scenario": "Weak_Jump_Shift",
+   "ids": [
+    "bidding_conventions/weak_jump_shifts"
+   ],
+   "card": "21GF-WJS-MSS",
+   "own_files": [
+    "rules/base/weak-jump-shifts.bid"
+   ],
+   "produced": 200,
+   "generated": 409052,
+   "rate": 0.000489,
+   "boards": 200,
+   "hit_script": 0.795,
+   "hit_general": 0.001438,
+   "own_rules_script": 18,
+   "own_rules_general": 3,
+   "only_script": 15,
+   "only_general": 0
+  },
+  {
+   "scenario": "Weak_NT_09-12",
+   "ids": [
+    "basic_bidding/notrump_openings"
+   ],
+   "card": "Precision",
+   "own_files": [
+    "rules/notrump/one-nt.bid"
+   ],
+   "produced": 200,
+   "generated": 938,
+   "rate": 0.21322,
+   "boards": 200,
+   "hit_script": 0.16,
+   "hit_general": 0.216712,
+   "own_rules_script": 6,
+   "own_rules_general": 14,
+   "only_script": 0,
+   "only_general": 8
+  },
+  {
+   "scenario": "Weak_NT_09-15",
+   "ids": [
+    "basic_bidding/notrump_openings"
+   ],
+   "card": "Precision",
+   "own_files": [
+    "rules/notrump/one-nt.bid"
+   ],
+   "produced": 200,
+   "generated": 650,
+   "rate": 0.307692,
+   "boards": 200,
+   "hit_script": 0.33,
+   "hit_general": 0.216712,
+   "own_rules_script": 8,
+   "own_rules_general": 14,
+   "only_script": 0,
+   "only_general": 6
+  },
+  {
+   "scenario": "Weak_NT_10-12",
+   "ids": [
+    "basic_bidding/notrump_openings"
+   ],
+   "card": "Precision",
+   "own_files": [
+    "rules/notrump/one-nt.bid"
+   ],
+   "produced": 200,
+   "generated": 1313,
+   "rate": 0.152323,
+   "boards": 200,
+   "hit_script": 0.14,
+   "hit_general": 0.216712,
+   "own_rules_script": 7,
+   "own_rules_general": 14,
+   "only_script": 0,
+   "only_general": 7
+  },
+  {
+   "scenario": "Weak_NT_10-13",
+   "ids": [
+    "basic_bidding/notrump_openings"
+   ],
+   "card": "Precision",
+   "own_files": [
+    "rules/notrump/one-nt.bid"
+   ],
+   "produced": 200,
+   "generated": 1065,
+   "rate": 0.187793,
+   "boards": 200,
+   "hit_script": 0.255,
+   "hit_general": 0.216712,
+   "own_rules_script": 8,
+   "own_rules_general": 14,
+   "only_script": 0,
+   "only_general": 6
+  },
+  {
+   "scenario": "Weak_NT_11-16",
+   "ids": [
+    "basic_bidding/notrump_openings"
+   ],
+   "card": "Precision",
+   "own_files": [
+    "rules/notrump/one-nt.bid"
+   ],
+   "produced": 200,
+   "generated": 931,
+   "rate": 0.214823,
+   "boards": 200,
+   "hit_script": 0.43,
+   "hit_general": 0.216712,
+   "own_rules_script": 8,
+   "own_rules_general": 14,
+   "only_script": 0,
+   "only_general": 6
+  },
+  {
+   "scenario": "Weak_NT_13-15",
+   "ids": [
+    "basic_bidding/notrump_openings"
+   ],
+   "card": "Precision",
+   "own_files": [
+    "rules/notrump/one-nt.bid"
+   ],
+   "produced": 200,
+   "generated": 200494,
+   "rate": 0.000998,
+   "boards": 200,
+   "hit_script": 1.0,
+   "hit_general": 0.216712,
+   "own_rules_script": 8,
+   "own_rules_general": 14,
+   "only_script": 0,
+   "only_general": 6
+  },
+  {
+   "scenario": "Weak_NT_14-15",
+   "ids": [
+    "basic_bidding/notrump_openings"
+   ],
+   "card": "Precision-14-16",
+   "own_files": [
+    "rules/notrump/one-nt.bid"
+   ],
+   "produced": 200,
+   "generated": 3785,
+   "rate": 0.05284,
+   "boards": 200,
+   "hit_script": 0.855,
+   "hit_general": 0.236837,
+   "own_rules_script": 10,
+   "own_rules_general": 19,
+   "only_script": 0,
+   "only_general": 9
+  },
+  {
+   "scenario": "Western_Cue_Bid",
+   "ids": [
+    "bidding_conventions/western_cuebid"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/western-cue.bid"
+   ],
+   "produced": 200,
+   "generated": 25898,
+   "rate": 0.007723,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "XYZ",
+   "ids": [
+    "bidding_conventions/xyz"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/base/xyz.bid"
+   ],
+   "produced": 200,
+   "generated": 146161,
+   "rate": 0.001368,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  },
+  {
+   "scenario": "Xfer_after_1M_X",
+   "ids": [
+    "bidding_conventions/transfers_after_double"
+   ],
+   "card": "21GF-DEFAULT",
+   "own_files": [
+    "rules/competitive/transfers-after-double.bid"
+   ],
+   "produced": 200,
+   "generated": 266469,
+   "rate": 0.000751,
+   "boards": 200,
+   "hit_script": 0.0,
+   "hit_general": 0.0,
+   "own_rules_script": 0,
+   "own_rules_general": 0,
+   "only_script": 0,
+   "only_general": 0
+  }
+ ]
+}

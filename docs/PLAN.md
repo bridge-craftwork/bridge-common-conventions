@@ -847,6 +847,14 @@ Additive, so it follows the cut-over.
   `rbb deal check` over such scripts once there is one and an engine
   release that has the command. The rest of this phase waits until rule
   work on the engine shows whether the scripts earn their place.*
+  *Measured the same day, without waiting
+  (`measurements/studies/2026-11-16-scripts-against-general-deals/`): a
+  scripted board reaches its convention's rules 77.5% of the time against
+  3.4% for the general deals (median over 163 scenarios), and scripted
+  deals fire 359 rules the general set never does, while the general set
+  fires 224 the scripts miss. So scripts earn their place as targeted
+  tests, beside the general set and not in place of it. Leads from it are
+  #128 and Practice-Bidding-Scenarios#354.*
 - Example deals generated at publish, each stamped with script, seed,
   rules, engine, card and bidder; the convention's own calls marked; only
   deals where the convention fired are kept, and the rate is reported.
