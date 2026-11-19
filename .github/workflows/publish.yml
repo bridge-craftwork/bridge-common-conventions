@@ -94,6 +94,19 @@ jobs:
           tail -1 test.log
           exit ${status:-0}
 
+      # Report only (bridge-common-conventions#132): each rule's alert flag
+      # against alerts.toml. It never fails the job, and is skipped with a
+      # message until the pinned engine has `rbb bid alerts`.
+      - name: Alert flags against alerts.toml (report only)
+        continue-on-error: true
+        run: |
+          if ! _engine/bin/rbb bid alerts --help >/dev/null 2>&1; then
+            echo "::notice::rbb $(_engine/bin/rbb --version 2>/dev/null) has no 'bid alerts'; skipped until the engine pin moves"
+            exit 0
+          fi
+          _engine/bin/rbb bid alerts --rules . 2>&1 | tee alerts.log || true
+          echo "::notice::alerts.toml vs rule flags: $(sed -n 2p alerts.log | sed 's/^ *//')"
+
       - name: Build the snapshot
         run: python3 scripts/build_snapshot.py --no-check --out _snapshot --engine "$(_engine/bin/rbb --version)"
 
