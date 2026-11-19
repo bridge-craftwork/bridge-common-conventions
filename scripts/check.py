@@ -16,6 +16,26 @@ RESERVED = {"play", "text", "from", "for"}
 NAME = re.compile(r"[a-z0-9_]+\Z")
 
 
+# A call in announced-names.toml: a bid (a level and a strain, or a pattern
+# letter such as m, M, x), a pass, a double or a redouble.
+ANNOUNCED_CALL = re.compile(r"([1-7]([CDHSN]|NT|[a-zM])|P|X|XX)\Z")
+
+
+def announced_key(name):
+    """A name as the engine matches it: case, punctuation, spacing and
+    CamelCase ignored, suit symbols as letters, notrump as NT."""
+    s = re.sub(r"([a-z])([A-Z])", r"\1 \2", name)
+    s = re.sub(r"([A-Za-z])([0-9])", r"\1 \2", s)
+    s = s.lower()
+    for sym, letter in (("♠", "s"), ("♥", "h"), ("♦", "d"), ("♣", "c")):
+        s = s.replace(sym, letter)
+    s = re.sub(r"no[ -]?trumps?", "nt", s)
+    s = re.sub(r"[^a-z0-9]+", " ", s)
+    s = re.sub(r"\b([1-7]) ?n\b", r"\1nt", s)
+    s = re.sub(r"\b([1-7]) ([cdhs]|nt)\b", r"\1\2", s)
+    return " ".join(s.split())
+
+
 def as_list(v):
     return [] if v is None or v is False else (v if isinstance(v, list) else [v])
 
@@ -81,6 +101,53 @@ class Pack:
         if "/" in address:
             return address in self.defs
         return address in self.settings or self.function_ok(address)
+
+    def check_announced_names(self):
+        """announced-names.toml: each name's fields are defined here, and a
+        name is not given twice for the same place."""
+        if not (self.root / "announced-names.toml").is_file():
+            return
+        where = "announced-names.toml"
+        doc = self.load(where)
+        for k in doc:
+            if k != "name":
+                self.bad(where, f"unknown table {k!r}: entries are [[name]]")
+        seen = {}
+        for i, e in enumerate(doc.get("name", []), 1):
+            at = f"{where} entry {i}"
+            for k in e:
+                if k not in ("names", "set", "call", "after", "note"):
+                    self.bad(at, f"unknown key {k!r}")
+            names = e.get("names")
+            if not names or not isinstance(names, list) or not all(isinstance(n, str) and n.strip() for n in names):
+                self.bad(at, "names is a list of names")
+                names = []
+            sets = e.get("set")
+            if not sets or not isinstance(sets, list):
+                self.bad(at, "set is a list of card fields")
+                sets = []
+            for s in sets:
+                address, _, value = str(s).partition("=")
+                if not self.resolves(address):
+                    self.bad(at, f"sets {address!r}, which is not defined")
+                    continue
+                cid, _, t = address.partition(":")
+                if "retired" in self.defs.get(cid, {}).get("treatments", {}).get(t, {}):
+                    self.bad(at, f"sets {address!r}, which is retired")
+                if "=" in str(s) and not value:
+                    self.bad(at, f"{s!r}: no value after `=`")
+            calls = as_list(e.get("call"))
+            for c in calls:
+                if not isinstance(c, str) or not ANNOUNCED_CALL.match(c):
+                    self.bad(at, f"call {c!r} is not a call (`2D`, `2NT`, `2m`, `X`)")
+            if "after" in e and not (isinstance(e["after"], str) and e["after"].strip()):
+                self.bad(at, "after is an auction pattern")
+            place = (tuple(sorted(calls)), e.get("after", "").strip())
+            for n in names:
+                key = (announced_key(n), place)
+                if key in seen:
+                    self.bad(at, f"{n!r} is also entry {seen[key]}'s, in the same place")
+                seen.setdefault(key, i)
 
     def check(self):
         m = self.manifest
@@ -190,6 +257,8 @@ class Pack:
                 cid, _, t = f.partition(":")
                 if "retired" in self.defs.get(cid, {}).get("treatments", {}).get(t, {}):
                     self.bad("alerts.toml", f"alert {i + 1} names {f!r}, which is retired")
+
+        self.check_announced_names()
 
         # Measurement records: their form, nothing more. What they report is
         # the author's to stand behind.
