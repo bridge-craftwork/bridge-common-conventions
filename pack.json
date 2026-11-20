@@ -10339,6 +10339,1513 @@
    }
   ]
  },
+ "announced_names": {
+  "name": [
+   {
+    "names": [
+     "BART"
+    ],
+    "set": [
+     "bidding_conventions/bart"
+    ]
+   },
+   {
+    "names": [
+     "Benjamin 2♦",
+     "Benjamin",
+     "Benjamin twos"
+    ],
+    "set": [
+     "bidding_conventions/benjamin_2d",
+     "opening.2c=bidding_conventions/benjamin_2d",
+     "opening.2d=bidding_conventions/benjamin_2d"
+    ]
+   },
+   {
+    "names": [
+     "Bergen raises",
+     "Bergen",
+     "Bergen raise"
+    ],
+    "set": [
+     "bidding_conventions/bergen_raises"
+    ]
+   },
+   {
+    "names": [
+     "Blackwood",
+     "Standard Blackwood",
+     "Easley Blackwood",
+     "Plain Blackwood",
+     "4NT ace ask"
+    ],
+    "set": [
+     "bidding_conventions/blackwood"
+    ]
+   },
+   {
+    "names": [
+     "Checkback",
+     "Checkback Stayman"
+    ],
+    "set": [
+     "bidding_conventions/checkback"
+    ]
+   },
+   {
+    "names": [
+     "Control bids",
+     "Control-showing bids",
+     "Italian cuebids",
+     "Italian cue bids",
+     "Ace-and-king cuebids"
+    ],
+    "set": [
+     "bidding_conventions/control_bids"
+    ]
+   },
+   {
+    "names": [
+     "DEPO",
+     "Double even, pass odd"
+    ],
+    "set": [
+     "bidding_conventions/depo"
+    ]
+   },
+   {
+    "names": [
+     "DOPI and ROPI",
+     "DOPI",
+     "ROPI",
+     "DOPI/ROPI",
+     "D0P1",
+     "R0P1"
+    ],
+    "set": [
+     "bidding_conventions/dopi_ropi",
+     "bidding_conventions/dopi_ropi:dopi",
+     "bidding_conventions/dopi_ropi:ropi"
+    ]
+   },
+   {
+    "names": [
+     "Drury",
+     "Reverse Drury"
+    ],
+    "set": [
+     "bidding_conventions/drury",
+     "bidding_conventions/drury:reverse"
+    ]
+   },
+   {
+    "names": [
+     "Original Drury",
+     "Standard Drury"
+    ],
+    "set": [
+     "bidding_conventions/drury",
+     "bidding_conventions/drury:reverse=false"
+    ]
+   },
+   {
+    "names": [
+     "Exclusion Blackwood",
+     "Exclusion",
+     "Exclusion RKC",
+     "Voidwood",
+     "Exclusion keycard"
+    ],
+    "set": [
+     "bidding_conventions/exclusion_blackwood"
+    ]
+   },
+   {
+    "names": [
+     "Flannery 2♦",
+     "Flannery"
+    ],
+    "set": [
+     "bidding_conventions/flannery",
+     "opening.2d=bidding_conventions/flannery"
+    ]
+   },
+   {
+    "names": [
+     "Forcing 1NT",
+     "Forcing NT",
+     "1NT forcing",
+     "1NT forcing response"
+    ],
+    "set": [
+     "bidding_conventions/forcing_1nt",
+     "major_openings.one_nt_response.forcing=true"
+    ]
+   },
+   {
+    "names": [
+     "4NT opening"
+    ],
+    "set": [
+     "bidding_conventions/four_nt_opening"
+    ]
+   },
+   {
+    "names": [
+     "Fourth Suit Forcing",
+     "4th suit forcing",
+     "FSF",
+     "Fourth suit game force",
+     "4SF"
+    ],
+    "set": [
+     "bidding_conventions/fourth_suit_forcing"
+    ]
+   },
+   {
+    "names": [
+     "French 2♦"
+    ],
+    "set": [
+     "bidding_conventions/french_2d",
+     "opening.2d=bidding_conventions/french_2d"
+    ]
+   },
+   {
+    "names": [
+     "Gambling 3NT",
+     "Acol 3NT"
+    ],
+    "set": [
+     "bidding_conventions/gambling_3nt"
+    ]
+   },
+   {
+    "names": [
+     "Gazzilli"
+    ],
+    "set": [
+     "bidding_conventions/gazzilli"
+    ]
+   },
+   {
+    "names": [
+     "Gerber",
+     "4♣ Gerber",
+     "1430 Gerber"
+    ],
+    "set": [
+     "bidding_conventions/gerber"
+    ]
+   },
+   {
+    "names": [
+     "Grand slam force",
+     "GSF",
+     "Josephine",
+     "5NT grand slam force"
+    ],
+    "set": [
+     "bidding_conventions/grand_slam_force"
+    ]
+   },
+   {
+    "names": [
+     "Help Suit Game Try",
+     "Help suit"
+    ],
+    "set": [
+     "bidding_conventions/help_suit_game_try"
+    ]
+   },
+   {
+    "names": [
+     "Impossible 2♠",
+     "Impossible Spade"
+    ],
+    "set": [
+     "bidding_conventions/impossible_2s"
+    ]
+   },
+   {
+    "names": [
+     "Ingberman 2NT",
+     "Ingberman",
+     "Lebensohl after a reverse"
+    ],
+    "set": [
+     "bidding_conventions/ingberman"
+    ]
+   },
+   {
+    "names": [
+     "Intermediate two-bids",
+     "Intermediate twos",
+     "Intermediate two"
+    ],
+    "set": [
+     "opening.2d=bidding_conventions/intermediate_twos",
+     "opening.2h=bidding_conventions/intermediate_twos",
+     "opening.2s=bidding_conventions/intermediate_twos"
+    ]
+   },
+   {
+    "names": [
+     "Inverted Minor Raises",
+     "Inverted minors",
+     "Inverted raises",
+     "Inverted minor"
+    ],
+    "set": [
+     "bidding_conventions/inverted_minors"
+    ]
+   },
+   {
+    "names": [
+     "Jacoby 2NT"
+    ],
+    "set": [
+     "bidding_conventions/jacoby_2nt"
+    ]
+   },
+   {
+    "names": [
+     "Jacoby Transfers",
+     "Jacoby transfer"
+    ],
+    "set": [
+     "bidding_conventions/jacoby_transfers"
+    ]
+   },
+   {
+    "names": [
+     "Kickback",
+     "Kickback keycard",
+     "Redwood"
+    ],
+    "set": [
+     "bidding_conventions/kickback"
+    ]
+   },
+   {
+    "names": [
+     "Kokish relay",
+     "Kokish"
+    ],
+    "set": [
+     "bidding_conventions/kokish"
+    ]
+   },
+   {
+    "names": [
+     "Kokish game tries"
+    ],
+    "set": [
+     "bidding_conventions/kokish_game_tries"
+    ]
+   },
+   {
+    "names": [
+     "Lars Multi 2♦",
+     "Lars Multi"
+    ],
+    "set": [
+     "bidding_conventions/lars_multi"
+    ]
+   },
+   {
+    "names": [
+     "Last Train",
+     "Last train to Clarksville"
+    ],
+    "set": [
+     "bidding_conventions/last_train"
+    ]
+   },
+   {
+    "names": [
+     "McCabe adjunct",
+     "McCabe"
+    ],
+    "set": [
+     "bidding_conventions/mccabe"
+    ]
+   },
+   {
+    "names": [
+     "Mini-Roman 2♦",
+     "Mini-Roman",
+     "Roman 2♦",
+     "Mini-Maxi Roman"
+    ],
+    "set": [
+     "bidding_conventions/mini_roman_2d",
+     "opening.2d=bidding_conventions/mini_roman_2d"
+    ]
+   },
+   {
+    "names": [
+     "Mini-splinters"
+    ],
+    "set": [
+     "bidding_conventions/mini_splinters"
+    ]
+   },
+   {
+    "names": [
+     "Minor Suit Stayman",
+     "MSS",
+     "2♠ Minor Suit Stayman",
+     "Minor Stayman"
+    ],
+    "set": [
+     "bidding_conventions/minor_suit_stayman"
+    ]
+   },
+   {
+    "names": [
+     "Minor-Suit Transfers over 1NT",
+     "minor suit transfers",
+     "four-suit transfers",
+     "4-way transfers",
+     "four way transfers",
+     "2♠ relay",
+     "Minor transfer",
+     "Minor transfers"
+    ],
+    "set": [
+     "bidding_conventions/minor_suit_transfers",
+     "bidding_conventions/minor_suit_transfers:over_1nt"
+    ]
+   },
+   {
+    "names": [
+     "Minorwood",
+     "4m keycard",
+     "Crosswood"
+    ],
+    "set": [
+     "bidding_conventions/minorwood"
+    ]
+   },
+   {
+    "names": [
+     "Modified Jacoby 2NT",
+     "Modified Jacoby"
+    ],
+    "set": [
+     "bidding_conventions/modified_jacoby_2nt"
+    ]
+   },
+   {
+    "names": [
+     "Muiderberg twos",
+     "Muiderberg",
+     "Muiderberg 2♥/2♠"
+    ],
+    "set": [
+     "bidding_conventions/muiderberg",
+     "opening.2h=bidding_conventions/muiderberg",
+     "opening.2s=bidding_conventions/muiderberg"
+    ]
+   },
+   {
+    "names": [
+     "Multi 2♦",
+     "Multi",
+     "Multi-colored 2♦"
+    ],
+    "set": [
+     "bidding_conventions/multi_2d",
+     "opening.2d=bidding_conventions/multi_2d"
+    ]
+   },
+   {
+    "names": [
+     "Namyats",
+     "South African Texas"
+    ],
+    "set": [
+     "bidding_conventions/namyats"
+    ]
+   },
+   {
+    "names": [
+     "New Minor Forcing",
+     "NMF"
+    ],
+    "set": [
+     "bidding_conventions/new_minor_forcing"
+    ]
+   },
+   {
+    "names": [
+     "Ogust",
+     "Ogust 2NT"
+    ],
+    "set": [
+     "bidding_conventions/ogust",
+     "two_level.weak_two_2nt_response=ogust"
+    ]
+   },
+   {
+    "names": [
+     "Over-splinters",
+     "Over-splinter"
+    ],
+    "set": [
+     "bidding_conventions/over_splinters"
+    ]
+   },
+   {
+    "names": [
+     "Parrish relay"
+    ],
+    "set": [
+     "bidding_conventions/two_heart_bust",
+     "bidding_conventions/two_heart_bust:relay"
+    ]
+   },
+   {
+    "names": [
+     "Pick-a-slam 5NT",
+     "Pick-a-slam",
+     "5NT pick a slam",
+     "5NT choice of slams"
+    ],
+    "set": [
+     "bidding_conventions/pick_a_slam_5nt"
+    ]
+   },
+   {
+    "names": [
+     "Picture 3NT",
+     "3NT picture bid",
+     "Picture bid"
+    ],
+    "set": [
+     "bidding_conventions/picture_3nt"
+    ]
+   },
+   {
+    "names": [
+     "Polish two-suiters",
+     "Polish 2♥/2♠"
+    ],
+    "set": [
+     "bidding_conventions/polish_two_suiters",
+     "opening.2h=bidding_conventions/polish_two_suiters",
+     "opening.2s=bidding_conventions/polish_two_suiters"
+    ]
+   },
+   {
+    "names": [
+     "Precision 1♣",
+     "Strong club",
+     "Strong 1♣"
+    ],
+    "set": [
+     "bidding_conventions/precision_1c"
+    ]
+   },
+   {
+    "names": [
+     "Precision 2♦"
+    ],
+    "set": [
+     "bidding_conventions/precision_2d",
+     "opening.2d=bidding_conventions/precision_2d"
+    ]
+   },
+   {
+    "names": [
+     "Keycard over preempts",
+     "Preempt keycard",
+     "4♣ keycard over a weak two"
+    ],
+    "set": [
+     "bidding_conventions/preempt_keycard"
+    ]
+   },
+   {
+    "names": [
+     "Puppet Stayman",
+     "Puppet",
+     "5-card Stayman",
+     "five-card Stayman"
+    ],
+    "set": [
+     "bidding_conventions/puppet_stayman"
+    ]
+   },
+   {
+    "names": [
+     "Quantitative 4NT",
+     "Quantitative"
+    ],
+    "set": [
+     "bidding_conventions/quantitative_4nt"
+    ]
+   },
+   {
+    "names": [
+     "Range Stayman",
+     "Size ask",
+     "2♠ size ask"
+    ],
+    "set": [
+     "bidding_conventions/range_stayman"
+    ]
+   },
+   {
+    "names": [
+     "Reverse Bergen raises",
+     "Reverse Bergen"
+    ],
+    "set": [
+     "bidding_conventions/bergen_raises",
+     "bidding_conventions/bergen_raises:reverse"
+    ]
+   },
+   {
+    "names": [
+     "Reverse Flannery"
+    ],
+    "set": [
+     "bidding_conventions/reverse_flannery",
+     "bidding_conventions/reverse_flannery:two_h",
+     "bidding_conventions/reverse_flannery:two_s"
+    ]
+   },
+   {
+    "names": [
+     "Roman Keycard",
+     "RKCB",
+     "Roman Key Card Blackwood",
+     "Keycard",
+     "1430",
+     "0314",
+     "RKC",
+     "Roman Keycard Blackwood",
+     "Keycard Blackwood"
+    ],
+    "set": [
+     "bidding_conventions/roman_keycard"
+    ]
+   },
+   {
+    "names": [
+     "Roudi"
+    ],
+    "set": [
+     "bidding_conventions/roudi"
+    ]
+   },
+   {
+    "names": [
+     "Schuler shift",
+     "Schuler"
+    ],
+    "set": [
+     "bidding_conventions/schuler_shift"
+    ]
+   },
+   {
+    "names": [
+     "Semi-forcing 1NT",
+     "Semi-forcing NT",
+     "1NT semi-forcing"
+    ],
+    "set": [
+     "bidding_conventions/semi_forcing_1nt",
+     "major_openings.one_nt_response.semi_forcing=true"
+    ]
+   },
+   {
+    "names": [
+     "Serious 3NT",
+     "Non-serious 3NT",
+     "Frivolous 3NT",
+     "Nonserious 3NT"
+    ],
+    "set": [
+     "bidding_conventions/serious_3nt"
+    ]
+   },
+   {
+    "names": [
+     "Six-key Roman Keycard",
+     "Six-key RKCB",
+     "6-key RKC",
+     "Six key Blackwood"
+    ],
+    "set": [
+     "bidding_conventions/six_key_rkcb"
+    ]
+   },
+   {
+    "names": [
+     "Smolen"
+    ],
+    "set": [
+     "bidding_conventions/smolen"
+    ]
+   },
+   {
+    "names": [
+     "Soloway jump shifts",
+     "Soloway"
+    ],
+    "set": [
+     "bidding_conventions/soloway"
+    ]
+   },
+   {
+    "names": [
+     "Spiral",
+     "Spiral cue bids",
+     "Spiral 2NT"
+    ],
+    "set": [
+     "bidding_conventions/spiral"
+    ]
+   },
+   {
+    "names": [
+     "Splinters",
+     "Splinter",
+     "Splinter bids",
+     "Splinter raise",
+     "Splinter bid"
+    ],
+    "set": [
+     "bidding_conventions/splinters",
+     "bidding_conventions/splinters:by_responder",
+     "bidding_conventions/splinters:by_opener"
+    ]
+   },
+   {
+    "names": [
+     "Stayman",
+     "Regular Stayman",
+     "Non-forcing Stayman",
+     "Forcing Stayman",
+     "Garbage Stayman",
+     "Crawling Stayman"
+    ],
+    "set": [
+     "bidding_conventions/stayman"
+    ]
+   },
+   {
+    "names": [
+     "Strong 2♣",
+     "2♣ strong",
+     "Strong artificial 2♣",
+     "2♣ forcing"
+    ],
+    "set": [
+     "bidding_conventions/strong_2c",
+     "opening.2c=bidding_conventions/strong_2c"
+    ]
+   },
+   {
+    "names": [
+     "Strong jump shifts",
+     "Strong jump shift",
+     "SJS"
+    ],
+    "set": [
+     "bidding_conventions/strong_jump_shifts",
+     "bidding_conventions/strong_jump_shifts:two_level"
+    ]
+   },
+   {
+    "names": [
+     "Strong two-bids",
+     "Strong twos",
+     "Strong two",
+     "Acol twos",
+     "Acol two-bids"
+    ],
+    "set": [
+     "opening.2d=bidding_conventions/strong_twos",
+     "opening.2h=bidding_conventions/strong_twos",
+     "opening.2s=bidding_conventions/strong_twos"
+    ]
+   },
+   {
+    "names": [
+     "Super-Accepting a Transfer",
+     "super-accept",
+     "superaccept",
+     "super-acceptance"
+    ],
+    "set": [
+     "bidding_conventions/jacoby_transfers",
+     "bidding_conventions/jacoby_transfers:super_accept",
+     "bidding_conventions/jacoby_transfers:super_accept_doubleton"
+    ]
+   },
+   {
+    "names": [
+     "Texas transfers",
+     "Texas",
+     "4-level transfers",
+     "Texas transfer"
+    ],
+    "set": [
+     "bidding_conventions/texas",
+     "bidding_conventions/texas:over_1nt"
+    ]
+   },
+   {
+    "names": [
+     "3NT raise of a major"
+    ],
+    "set": [
+     "bidding_conventions/three_nt_raise"
+    ]
+   },
+   {
+    "names": [
+     "Tislevoll slam try",
+     "Tislevoll"
+    ],
+    "set": [
+     "bidding_conventions/tislevoll"
+    ]
+   },
+   {
+    "names": [
+     "Transfer Walsh",
+     "Transfer responses to 1♣",
+     "transfer responses"
+    ],
+    "set": [
+     "bidding_conventions/transfer_walsh"
+    ]
+   },
+   {
+    "names": [
+     "Transfers after a takeout double",
+     "Transfer responses after a double",
+     "Transfers over a double",
+     "Rubin transfers"
+    ],
+    "set": [
+     "bidding_conventions/transfers_after_double"
+    ]
+   },
+   {
+    "names": [
+     "2♥ bust over 2♣",
+     "Parrish",
+     "2♥ bust",
+     "Parrish 2♥ bust",
+     "Double negative",
+     "Second negative"
+    ],
+    "set": [
+     "bidding_conventions/two_heart_bust"
+    ]
+   },
+   {
+    "names": [
+     "2/1 Game Force",
+     "2/1 GF"
+    ],
+    "set": [
+     "bidding_conventions/two_over_one"
+    ]
+   },
+   {
+    "names": [
+     "Two-way Drury",
+     "2-way Drury",
+     "Two-way Reverse Drury"
+    ],
+    "set": [
+     "bidding_conventions/drury",
+     "bidding_conventions/drury:reverse",
+     "bidding_conventions/drury:two_d"
+    ]
+   },
+   {
+    "names": [
+     "Two-way game tries",
+     "Two-way game try"
+    ],
+    "set": [
+     "bidding_conventions/two_way_game_tries"
+    ]
+   },
+   {
+    "names": [
+     "Two-way new minor forcing",
+     "Two-way NMF",
+     "xyNT"
+    ],
+    "set": [
+     "bidding_conventions/two_way_nmf"
+    ]
+   },
+   {
+    "names": [
+     "Walsh",
+     "Walsh style",
+     "Walsh responses"
+    ],
+    "set": [
+     "bidding_conventions/walsh"
+    ]
+   },
+   {
+    "names": [
+     "Weak jump shifts",
+     "Weak jump shift",
+     "WJS"
+    ],
+    "set": [
+     "bidding_conventions/weak_jump_shifts",
+     "bidding_conventions/weak_jump_shifts:two_level"
+    ]
+   },
+   {
+    "names": [
+     "Western cue bid",
+     "Western cuebid"
+    ],
+    "set": [
+     "bidding_conventions/western_cuebid"
+    ]
+   },
+   {
+    "names": [
+     "Wilkosz 2♦",
+     "Wilkosz"
+    ],
+    "set": [
+     "bidding_conventions/wilkosz",
+     "opening.2d=bidding_conventions/wilkosz"
+    ]
+   },
+   {
+    "names": [
+     "Wolff signoff",
+     "Wolff",
+     "Transfer Wolff"
+    ],
+    "set": [
+     "bidding_conventions/wolff_signoff"
+    ]
+   },
+   {
+    "names": [
+     "XYZ"
+    ],
+    "set": [
+     "bidding_conventions/xyz"
+    ]
+   },
+   {
+    "names": [
+     "Anti-lead-directing doubles",
+     "Anti-lead-directing double",
+     "Anti lead directing"
+    ],
+    "set": [
+     "competitive_bidding/anti_lead_directing_doubles"
+    ]
+   },
+   {
+    "names": [
+     "BROMAD",
+     "Bergen raises over a double"
+    ],
+    "set": [
+     "competitive_bidding/bromad"
+    ]
+   },
+   {
+    "names": [
+     "Cappelletti over 1NT",
+     "Cappelletti",
+     "Hamilton",
+     "Pottage"
+    ],
+    "set": [
+     "defence_to_1nt.strong=competitive_bidding/cappelletti",
+     "defence_to_1nt.weak=competitive_bidding/cappelletti"
+    ]
+   },
+   {
+    "names": [
+     "Collante"
+    ],
+    "set": [
+     "competitive_bidding/collante"
+    ]
+   },
+   {
+    "names": [
+     "CRASH"
+    ],
+    "set": [
+     "competitive_bidding/crash"
+    ]
+   },
+   {
+    "names": [
+     "DONT",
+     "D.O.N.T.",
+     "Disturb Opponents' No Trump",
+     "Disturbing Opponents NT"
+    ],
+    "set": [
+     "defence_to_1nt.strong=competitive_bidding/dont",
+     "defence_to_1nt.weak=competitive_bidding/dont"
+    ]
+   },
+   {
+    "names": [
+     "Equal level conversion",
+     "ELC"
+    ],
+    "set": [
+     "competitive_bidding/equal_level_conversion"
+    ]
+   },
+   {
+    "names": [
+     "Exit transfers",
+     "Runout after 1NT doubled"
+    ],
+    "set": [
+     "competitive_bidding/exit_transfers"
+    ]
+   },
+   {
+    "names": [
+     "Fit-showing jumps",
+     "Fit jumps",
+     "Fit showing jump"
+    ],
+    "set": [
+     "competitive_bidding/fit_showing_jumps"
+    ]
+   },
+   {
+    "names": [
+     "Forcing pass"
+    ],
+    "set": [
+     "competitive_bidding/forcing_pass"
+    ]
+   },
+   {
+    "names": [
+     "Ghestem"
+    ],
+    "set": [
+     "competitive_bidding/ghestem"
+    ]
+   },
+   {
+    "names": [
+     "Good/bad 2NT"
+    ],
+    "set": [
+     "competitive_bidding/good_bad_2nt"
+    ]
+   },
+   {
+    "names": [
+     "Jordan 2NT",
+     "Jordan",
+     "Truscott",
+     "Jordan Truscott 2NT",
+     "Dormer",
+     "Truscott 2NT"
+    ],
+    "set": [
+     "competitive_bidding/jordan_2nt",
+     "competitive_bidding/jordan_2nt:over_major",
+     "competitive_bidding/jordan_2nt:over_minor"
+    ]
+   },
+   {
+    "names": [
+     "Landy"
+    ],
+    "set": [
+     "defence_to_1nt.strong=competitive_bidding/landy",
+     "defence_to_1nt.weak=competitive_bidding/landy"
+    ]
+   },
+   {
+    "names": [
+     "Lead-directing doubles",
+     "Lead-directing double",
+     "Lightner"
+    ],
+    "set": [
+     "competitive_bidding/lead_directing_doubles"
+    ]
+   },
+   {
+    "names": [
+     "Leaping Michaels",
+     "Leaping Mich",
+     "Leap Mich"
+    ],
+    "set": [
+     "competitive_bidding/leaping_michaels"
+    ]
+   },
+   {
+    "names": [
+     "Lebensohl",
+     "Lebensohl over interference"
+    ],
+    "set": [
+     "competitive_bidding/lebensohl",
+     "competitive_bidding/lebensohl:over_1nt_interference",
+     "competitive_bidding/lebensohl:after_weak_two_double"
+    ]
+   },
+   {
+    "names": [
+     "Mathe",
+     "Mathe over 1♣"
+    ],
+    "set": [
+     "competitive_bidding/mathe"
+    ]
+   },
+   {
+    "names": [
+     "Maximal doubles",
+     "Maximal double"
+    ],
+    "set": [
+     "competitive_bidding/maximal_doubles"
+    ]
+   },
+   {
+    "names": [
+     "Meckwell over 1NT",
+     "Meckwell",
+     "Meckwell defense"
+    ],
+    "set": [
+     "defence_to_1nt.strong=competitive_bidding/meckwell",
+     "defence_to_1nt.weak=competitive_bidding/meckwell"
+    ]
+   },
+   {
+    "names": [
+     "Michaels cue bid",
+     "Michaels",
+     "Michaels cuebid"
+    ],
+    "set": [
+     "competitive_bidding/michaels"
+    ]
+   },
+   {
+    "names": [
+     "Mitchell Stayman"
+    ],
+    "set": [
+     "competitive_bidding/mitchell_stayman"
+    ]
+   },
+   {
+    "names": [
+     "Mixed raise",
+     "Mixed raises"
+    ],
+    "set": [
+     "competitive_bidding/mixed_raise"
+    ]
+   },
+   {
+    "names": [
+     "Modified Cappelletti"
+    ],
+    "set": [
+     "defence_to_1nt.strong=competitive_bidding/modified_cappelletti",
+     "defence_to_1nt.weak=competitive_bidding/modified_cappelletti"
+    ]
+   },
+   {
+    "names": [
+     "Landy and Multi-Landy over 1NT",
+     "Multi-Landy",
+     "Woolsey"
+    ],
+    "set": [
+     "defence_to_1nt.strong=competitive_bidding/multi_landy",
+     "defence_to_1nt.weak=competitive_bidding/multi_landy"
+    ]
+   },
+   {
+    "names": [
+     "Negative Doubles",
+     "Negative double",
+     "Sputnik"
+    ],
+    "set": [
+     "competitive_bidding/negative_doubles"
+    ]
+   },
+   {
+    "names": [
+     "Non-leaping Michaels"
+    ],
+    "set": [
+     "competitive_bidding/non_leaping_michaels"
+    ]
+   },
+   {
+    "names": [
+     "Raptor 1NT",
+     "Raptor"
+    ],
+    "set": [
+     "competitive_bidding/raptor"
+    ]
+   },
+   {
+    "names": [
+     "Responsive Doubles",
+     "Responsive double"
+    ],
+    "set": [
+     "competitive_bidding/responsive_doubles"
+    ]
+   },
+   {
+    "names": [
+     "Rodrigue"
+    ],
+    "set": [
+     "competitive_bidding/rodrigue"
+    ]
+   },
+   {
+    "names": [
+     "Rosenkranz double",
+     "Rosenkranz",
+     "Rosenkranz redouble"
+    ],
+    "set": [
+     "competitive_bidding/rosenkranz"
+    ]
+   },
+   {
+    "names": [
+     "Rubensohl",
+     "Transfer Lebensohl"
+    ],
+    "set": [
+     "competitive_bidding/rubensohl",
+     "competitive_bidding/rubensohl:over_1nt_interference",
+     "competitive_bidding/rubensohl:after_double"
+    ]
+   },
+   {
+    "names": [
+     "Sandwich 1NT",
+     "Sandwich NT"
+    ],
+    "set": [
+     "competitive_bidding/sandwich_nt"
+    ]
+   },
+   {
+    "names": [
+     "Scrambling 2NT",
+     "Scrambling"
+    ],
+    "set": [
+     "competitive_bidding/scrambling_2nt"
+    ]
+   },
+   {
+    "names": [
+     "Snapdragon doubles",
+     "Snapdragon",
+     "Snapdragon double"
+    ],
+    "set": [
+     "competitive_bidding/snapdragon"
+    ]
+   },
+   {
+    "names": [
+     "SOS redouble",
+     "SOS",
+     "Rescue redouble"
+    ],
+    "set": [
+     "competitive_bidding/sos_redouble"
+    ]
+   },
+   {
+    "names": [
+     "Spear"
+    ],
+    "set": [
+     "competitive_bidding/spear"
+    ]
+   },
+   {
+    "names": [
+     "Suction"
+    ],
+    "set": [
+     "defence_to_1nt.strong=competitive_bidding/suction",
+     "defence_to_1nt.weak=competitive_bidding/suction"
+    ]
+   },
+   {
+    "names": [
+     "Support Cuebids",
+     "Cue-bid raise",
+     "Cuebid raise",
+     "Support cue bid"
+    ],
+    "set": [
+     "competitive_bidding/support_cuebids"
+    ]
+   },
+   {
+    "names": [
+     "Support Doubles and Redoubles",
+     "Support double",
+     "Support doubles",
+     "Support redouble",
+     "Support redoubles"
+    ],
+    "set": [
+     "competitive_bidding/support_doubles"
+    ]
+   },
+   {
+    "names": [
+     "Thrump double",
+     "Thrump X",
+     "Bergen Thrump"
+    ],
+    "set": [
+     "competitive_bidding/thrump_double"
+    ]
+   },
+   {
+    "names": [
+     "Transfer advances",
+     "Transfer advances of overcalls",
+     "Transfers after partner's overcall"
+    ],
+    "set": [
+     "competitive_bidding/transfer_advances"
+    ]
+   },
+   {
+    "names": [
+     "Unusual notrump",
+     "Unusual 2NT"
+    ],
+    "set": [
+     "competitive_bidding/unusual_notrump",
+     "competitive_bidding/unusual_notrump:at_2nt"
+    ]
+   },
+   {
+    "names": [
+     "Unusual vs Unusual",
+     "Unusual over Unusual",
+     "UvU",
+     "UvsU"
+    ],
+    "set": [
+     "competitive_bidding/unusual_vs_unusual"
+    ]
+   },
+   {
+    "names": [
+     "Feature ask",
+     "Feature"
+    ],
+    "set": [
+     "two_level.weak_two_2nt_response=feature"
+    ]
+   },
+   {
+    "names": [
+     "Two under"
+    ],
+    "set": [
+     "bidding_conventions/texas",
+     "bidding_conventions/texas:two_under"
+    ]
+   },
+   {
+    "names": [
+     "Competitive WJS",
+     "Competitive weak jump shift"
+    ],
+    "set": [
+     "competitive.jump_shift_after_overcall=weak"
+    ]
+   },
+   {
+    "names": [
+     "WJS over overcall",
+     "Weak jump shift in competition"
+    ],
+    "set": [
+     "bidding_conventions/weak_jump_shifts",
+     "bidding_conventions/weak_jump_shifts:in_comp"
+    ]
+   },
+   {
+    "names": [
+     "Unusual 1NT"
+    ],
+    "set": [
+     "competitive_bidding/unusual_notrump",
+     "competitive_bidding/unusual_notrump:at_1nt"
+    ]
+   },
+   {
+    "names": [
+     "Unusual 4NT"
+    ],
+    "set": [
+     "competitive_bidding/unusual_notrump",
+     "competitive_bidding/unusual_notrump:at_4nt"
+    ]
+   },
+   {
+    "names": [
+     "Multi",
+     "Multi 2♦"
+    ],
+    "call": "2D",
+    "after": "(1N) | (1N) P (P)",
+    "set": [
+     "defence_to_1nt.strong=competitive_bidding/multi_landy",
+     "defence_to_1nt.weak=competitive_bidding/multi_landy"
+    ]
+   },
+   {
+    "names": [
+     "Jacoby"
+    ],
+    "call": [
+     "2D",
+     "2H"
+    ],
+    "after": "1N (P)",
+    "set": [
+     "bidding_conventions/jacoby_transfers"
+    ]
+   },
+   {
+    "names": [
+     "Jacoby"
+    ],
+    "call": "2N",
+    "after": "1M (P)",
+    "set": [
+     "bidding_conventions/jacoby_2nt"
+    ]
+   },
+   {
+    "names": [
+     "Puppet Stayman",
+     "Puppet",
+     "5-card Stayman",
+     "five-card Stayman"
+    ],
+    "call": "2C",
+    "after": "1N (P)",
+    "set": [
+     "bidding_conventions/puppet_stayman",
+     "bidding_conventions/puppet_stayman:over_1nt"
+    ]
+   },
+   {
+    "names": [
+     "Puppet Stayman",
+     "Puppet",
+     "5-card Stayman",
+     "five-card Stayman"
+    ],
+    "call": "3C",
+    "after": "2N (P)",
+    "set": [
+     "bidding_conventions/puppet_stayman",
+     "bidding_conventions/puppet_stayman:over_2nt"
+    ]
+   },
+   {
+    "names": [
+     "Minor Suit Stayman",
+     "MSS",
+     "Minor Stayman"
+    ],
+    "call": "2S",
+    "after": "1N (P)",
+    "set": [
+     "bidding_conventions/minor_suit_stayman",
+     "bidding_conventions/minor_suit_stayman:over_1nt"
+    ]
+   },
+   {
+    "names": [
+     "Minor Suit Stayman",
+     "MSS",
+     "Minor Stayman"
+    ],
+    "call": "3S",
+    "after": "2N (P)",
+    "set": [
+     "bidding_conventions/minor_suit_stayman",
+     "bidding_conventions/minor_suit_stayman:over_2nt"
+    ]
+   },
+   {
+    "names": [
+     "Michaels cue bid",
+     "Michaels",
+     "Michaels cuebid"
+    ],
+    "call": "2m",
+    "after": "(1m) | (1m) P (P)",
+    "set": [
+     "competitive_bidding/michaels",
+     "competitive_bidding/michaels:over_minor"
+    ]
+   },
+   {
+    "names": [
+     "Michaels cue bid",
+     "Michaels",
+     "Michaels cuebid"
+    ],
+    "call": "2M",
+    "after": "(1M) | (1M) P (P)",
+    "set": [
+     "competitive_bidding/michaels",
+     "competitive_bidding/michaels:over_major"
+    ]
+   }
+  ]
+ },
  "deals": {
   "source": [
    {

@@ -1,7 +1,7 @@
 {
  "schema": "pack-manifest/v1",
- "source_commit": "568fa3398ba2c9ad527d8c14a556a7e8fd8404b2",
- "rules_number": 31,
+ "source_commit": "e30309a3aa60f8c011ef71057e46aa1a0685721d",
+ "rules_number": 32,
  "name": "bridge-common-conventions",
  "pack_format_version": 1,
  "card_schema_version": 3,
@@ -11,6 +11,10 @@
   "alerts.toml": {
    "sha256": "135f40934ab916468b1acc1fda2b97acfa19420d3868748142fa4ebece67d40a",
    "changed": "2026-11-14T19:46:10-08:00"
+  },
+  "announced-names.toml": {
+   "sha256": "4158dca6a4f48a4096cf72980476e48b516c660f6332395dad7404bd64679093",
+   "changed": "2026-11-20T13:29:06-08:00"
   },
   "bridge-pack.toml": {
    "sha256": "a753a452262d79cacf77f58e510ab113aaf1675cc56dcad703159e32ad5284e8",
@@ -2105,5 +2109,5 @@
    "changed": "2026-11-16T09:30:15-08:00"
   }
  },
- "pack_sha256": "d0430416928b4163e23d9bd2d336e5875fa28fe816a275e7f9699f716c2f0459"
+ "pack_sha256": "7a9614d7b6610c70cb9fd5caec2ec10e3d7d99444f8ad7cdb97b6e9112540784"
 }
