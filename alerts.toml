@@ -43,7 +43,7 @@ source = { title = "WBF Alerting Policy", version = "Adopted July 1997, revised 
 
 # Stayman
 [[alert]]
-fields = ["bidding_conventions/stayman:forcing"]
+fields = ["bidding_conventions/stayman"]
 call = "2♣"
 after = "1NT"
 by = "responder"
@@ -53,7 +53,7 @@ wbf = "alert"
 note = "Asks for a four-card major. Exempt from alerting in the ACBL; the EBU announces it as \"Stayman\" and the WBF alerts it as artificial."
 
 [[alert]]
-fields = ["bidding_conventions/stayman:forcing"]
+fields = ["bidding_conventions/stayman"]
 call = "3♣"
 after = "2NT"
 by = "responder"
@@ -63,7 +63,7 @@ wbf = "alert"
 note = "Stayman over 2NT, treated like 2♣ over 1NT: exempt in the ACBL, announced in the EBU. The WBF does not list it; it alerts every artificial call."
 
 [[alert]]
-fields = ["bidding_conventions/stayman:forcing"]
+fields = ["bidding_conventions/stayman"]
 call = "2♦"
 after = "1NT–2♣"
 by = "opener"
@@ -72,7 +72,7 @@ wbf = "alert"
 note = "Denies a four-card major. Exempt in the ACBL and EBU; the WBF alerts it as artificial."
 
 [[alert]]
-fields = ["bidding_conventions/stayman:forcing"]
+fields = ["bidding_conventions/stayman"]
 call = "2♥/2♠"
 after = "1NT–2♣"
 by = "opener"
@@ -80,7 +80,7 @@ rule = "none"
 note = "Natural major reply. The EBU alerts a 2♠ that does not deny four hearts."
 
 [[alert]]
-fields = ["bidding_conventions/stayman:forcing"]
+fields = ["bidding_conventions/stayman"]
 call = "2NT/3NT"
 after = "1NT–2♣–reply"
 by = "responder"
