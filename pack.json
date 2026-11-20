@@ -8080,7 +8080,7 @@
   "alert": [
    {
     "fields": [
-     "bidding_conventions/stayman:forcing"
+     "bidding_conventions/stayman"
     ],
     "call": "2♣",
     "after": "1NT",
@@ -8092,7 +8092,7 @@
    },
    {
     "fields": [
-     "bidding_conventions/stayman:forcing"
+     "bidding_conventions/stayman"
     ],
     "call": "3♣",
     "after": "2NT",
@@ -8104,7 +8104,7 @@
    },
    {
     "fields": [
-     "bidding_conventions/stayman:forcing"
+     "bidding_conventions/stayman"
     ],
     "call": "2♦",
     "after": "1NT–2♣",
@@ -8115,7 +8115,7 @@
    },
    {
     "fields": [
-     "bidding_conventions/stayman:forcing"
+     "bidding_conventions/stayman"
     ],
     "call": "2♥/2♠",
     "after": "1NT–2♣",
@@ -8125,7 +8125,7 @@
    },
    {
     "fields": [
-     "bidding_conventions/stayman:forcing"
+     "bidding_conventions/stayman"
     ],
     "call": "2NT/3NT",
     "after": "1NT–2♣–reply",
