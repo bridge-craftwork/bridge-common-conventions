@@ -64,8 +64,14 @@ names = ["DOPI and ROPI", "DOPI", "ROPI", "DOPI/ROPI", "D0P1", "R0P1"]
 set = ["bidding_conventions/dopi_ropi", "bidding_conventions/dopi_ropi:dopi", "bidding_conventions/dopi_ropi:ropi"]
 
 [[name]]
-names = ["Drury", "Original Drury"]
-set = ["bidding_conventions/drury"]
+# Rick, 2026-11-20: a plain "Drury" is Reverse Drury, as most who
+# announce it play it; "Original" or "Standard" Drury is the old form.
+names = ["Drury", "Reverse Drury"]
+set = ["bidding_conventions/drury", "bidding_conventions/drury:reverse"]
+
+[[name]]
+names = ["Original Drury", "Standard Drury"]
+set = ["bidding_conventions/drury", "bidding_conventions/drury:reverse=false"]
 
 [[name]]
 names = ["Exclusion Blackwood", "Exclusion", "Exclusion RKC", "Voidwood", "Exclusion keycard"]
@@ -252,10 +258,6 @@ names = ["Reverse Bergen raises", "Reverse Bergen"]
 set = ["bidding_conventions/bergen_raises", "bidding_conventions/bergen_raises:reverse"]
 
 [[name]]
-names = ["Reverse Drury"]
-set = ["bidding_conventions/drury", "bidding_conventions/drury:reverse"]
-
-[[name]]
 names = ["Reverse Flannery"]
 set = ["bidding_conventions/reverse_flannery", "bidding_conventions/reverse_flannery:two_h", "bidding_conventions/reverse_flannery:two_s"]
 
@@ -349,7 +351,7 @@ set = ["bidding_conventions/two_over_one"]
 
 [[name]]
 names = ["Two-way Drury", "2-way Drury", "Two-way Reverse Drury"]
-set = ["bidding_conventions/drury", "bidding_conventions/drury:two_d"]
+set = ["bidding_conventions/drury", "bidding_conventions/drury:reverse", "bidding_conventions/drury:two_d"]
 
 [[name]]
 names = ["Two-way game tries", "Two-way game try"]
