@@ -72,6 +72,7 @@ skills/<category>/<name>/skill.toml    a skill or a judgement entry; the
 rules/<folder>/                        every other rule file
 settings/<section>.toml                card settings
 contexts.toml  functions.toml  levels.toml  alerts.toml
+announced-names.toml                   what an opponent's announced name sets on their card
 deals.toml                             where dealer scripts kept elsewhere are found
 migrations/<from>-to-<to>.toml         every rename, permanent
 ```
@@ -364,6 +365,15 @@ calls need an alert or an announcement, by regulator. Both keep
 `convention-card`'s present format, with a convention or treatment named by
 its [address](#7-addresses) where a card field is named today.
 
+`announced-names.toml` maps the convention names an opponent announces
+("Cappelletti", "DONT", "Multi") to the card fields that play them, each an
+address or `address=value`, with the call and auction it applies to where
+one name means different things in different places. An engine that reads
+the opponents' announcements switches those fields on in their card; the
+file's header gives the entry format and how names are matched. It is
+optional data: the snapshot carries it under `announced_names`, and a reader
+that does not know the key ignores it.
+
 ### 7. Addresses
 
 One string names anything a card can hold. Rule files and card models' maps
@@ -642,6 +652,7 @@ None changes a decision.
 | 5 | The card's 4NT notes line (`slam.blackwood.notes`) is a setting; it was a treatment of Blackwood | It is the free line beside the 4NT boxes and is about whatever ace ask the card plays. As a Blackwood treatment, a card holding only that line was taken to play Blackwood (#72) |
 | 9 | `convention <id> default true` | With Stayman unset the 1NT rules took it as off and the 2NT rules as on (#73). A silent card now plays Stayman and Jacoby transfers in both places |
 | 10 | The rules number is a count of first-parent commits on `main` that changed a source file other than a notes or test file (Rick, 2026-11-14); the manifest gains `rules_number` and `checked_with`, and each file's entry is `{ sha256, changed }` | Settled in Phase 4, as the section promised. A count is readable beside an engine version and cannot go backwards while `main` is not rewritten |
+| 6, 10 | `announced-names.toml`, carried in `pack.json` as `announced_names`: announced convention names to card fields (#133) | In the Brill robot events the opponents' methods reach us as their announcements, mostly a convention's name. Seeded from the definitions' names and Brill's convention files; optional, so an older engine loads a snapshot that has it (2026-11-19) |
 | 10 | `pack.json` has the keys `schema`, `pack`, `categories`, `conventions`, `settings`, `contexts`, `functions`, `levels`, `alerts`, `migrations` and `files` | The section said "one JSON document" without naming its parts. `scripts/build_snapshot.py` builds it; the manifest's rules number and per-file dates wait for Phase 4 |
 | 2, 3, 10 | `skills/<category>/<name>/skill.toml`, and a `skills` key in `pack.json`: the 14 skills and 4 judgement entries, with the keys a definition has. Their IDs are unchanged; they are no longer under `conventions` | Bridge skills are generic, so they are this repo's, but they are not agreements, so they are their own list (Rick, 2026-11-16). A reader that looks an ID up reads both keys; one written before the split finds the 18 missing from `conventions`. The engine at v0.16.0 bids the same from either shape (measured) |
 | 3, 4, 11 | A set of lessons is not defined here. The 20 marked `kind = "lesson"` are removed and recorded in `migrations/lesson-sets.toml`; `lesson` is no longer a kind. A rule module names the convention, natural method or skill it bids, never a lesson set; `taught_under` and a treatment's `skill` no longer name one | A lesson set is a collection's: the collection says what its lessons cover, in its own manifest, with IDs from here (Baker-Bridge does; Practice-Bidding-Scenarios tags its scenarios the same way). Michaels & Unusual 2NT's summary, references and names went to the Michaels and Unusual Notrump definitions (Rick, 2026-11-16) |

@@ -39,7 +39,8 @@ TEXT = (".bid", ".test", ".notes.md", ".dlr")
 # What a pack is made of. A commit that touches none of these does not
 # change the snapshot.
 SOURCES = ["bridge-pack.toml", "conventions", "skills", "rules", "settings", "contexts.toml",
-           "functions.toml", "levels.toml", "alerts.toml", "deals.toml", "migrations"]
+           "functions.toml", "levels.toml", "alerts.toml", "announced-names.toml", "deals.toml",
+           "migrations"]
 # Source files that cannot change a bid. A commit that changes only these
 # changes the snapshot but not the rules number.
 NOT_RULES = [":(exclude,glob)**/*.notes.md", ":(exclude,glob)**/*.test"]
@@ -100,6 +101,8 @@ def build(root):
         "functions": read(root / "functions.toml"),
         "levels": read(root / "levels.toml"),
         "alerts": read(root / "alerts.toml"),
+        # Optional: an engine that does not read it ignores the key.
+        "announced_names": read(root / "announced-names.toml") if (root / "announced-names.toml").is_file() else {},
         "deals": read(root / "deals.toml") if (root / "deals.toml").is_file() else {},
         "migrations": {f.stem: read(f) for f in sorted((root / "migrations").glob("*.toml"))},
         "files": files,
