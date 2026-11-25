@@ -14,9 +14,11 @@ S J765.93.A.AJT543      | 1D P 2C P 2S P 3C P 3N P             | 4S     | four s
 S K3.AQJ973.K52.84      | 1C P 1H P 1N P                       | 4H     | six hearts, 13+: game in the fit
 S K3.QJ9873.K52.84      | 1C P 1H P 1N P                       | 3H     | six hearts, 11-12: invitation in the fit
 S K3.QJ9873.952.84      | 1C P 1H P 1N P                       | 2H     | six hearts, weak: sign off in the fit
-# Four cards in the other major, which partner may hold: look for that
-# fit first.
-S KQ84.AJ9873.A2.4      | 1C P 1H P 1N P                       | 2S     | four spades opposite a 1NT that may hold four: the reverse first
+# Four cards in the other major, which partner may hold: with slam in
+# view, look for that fit first (a 4-4 fit ruffs in either hand). After
+# the 1NT rebid slam is unlikely: game in the known heart fit (Rick
+# 2026-11-25). 1NT shows 2-5 in every suit, so the 6-2 fit is known.
+S KQ84.AJ9873.A2.4      | 1C P 1H P 1N P                       | 4H     | no slam in view: game in the known 6-2 heart fit, not the 4-4 search
 
 # After new minor forcing and Stayman (21GF).
 card    21GF-DEFAULT
