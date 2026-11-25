@@ -7,7 +7,7 @@ dealer  S
 # seat hand             | auction              | expect | why
 # ── Responder's splinter ──────────────────────────────────────────────
 N KQ74.A852.7.K863      | 1S P                 | 4D     | 12 HCP, four spades, a small singleton diamond
-N 7.KJ85.AQ63.K852      | 1H P                 | 3S     | 13 HCP, four hearts, a small singleton spade
+N 7.KJ85.AQ63.K852      | 1H P                 | 2NT    | 13 HCP: too strong for the limited splinter (10-12), Jacoby 2NT
 N KQ74.A852.K863.7      | 1S P                 | 4C     | 12 HCP, singleton club
 N KQ74.7.A852.K863      | 1S P                 | 4H     | 12 HCP, singleton heart: 4H is a splinter over 1S
 N KQ74.A852.K.Q863      | 1S P                 | 2NT    | the singleton is the king: Jacoby 2NT, not a splinter
