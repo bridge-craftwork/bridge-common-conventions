@@ -60,8 +60,8 @@ define count_equal_max(t) = tp(t) + partner.tp(t).max
 # support points; the long hand, which no longer counts its shortness,
 # needs two less, the short hand one less (calibrated 2026-10-01 on the
 # corpus and the 21GF random set: slam-entry.notes.md).
-define slam_count_interest(t) = (longer(t), count_long(t) >= 29) | (longer(t), count_long_p(t) >= 29) | (shorter(t), count_short(t) >= 31) | (shorter(t), count_short_l(t) >= 31) | (!longer(t), !shorter(t), count_equal(t) >= 31) | (!longer(t), !shorter(t), count_equal_p(t) >= 31)
-define slam_count(t) = (longer(t), count_long(t) >= 30) | (longer(t), count_long_p(t) >= 30) | (shorter(t), count_short(t) >= 31) | (shorter(t), count_short_l(t) >= 31) | (!longer(t), !shorter(t), count_equal(t) >= 32) | (!longer(t), !shorter(t), count_equal_p(t) >= 32)
+define slam_count_interest(t) = (longer(t), count_long(t) >= 30) | (longer(t), count_long_p(t) >= 30) | (shorter(t), count_short(t) >= 31) | (shorter(t), count_short_l(t) >= 31) | (!longer(t), !shorter(t), count_equal(t) >= 31) | (!longer(t), !shorter(t), count_equal_p(t) >= 31)
+define slam_count(t) = (longer(t), count_long(t) >= 32) | (longer(t), count_long_p(t) >= 32) | (shorter(t), count_short(t) >= 31) | (shorter(t), count_short_l(t) >= 31) | (!longer(t), !shorter(t), count_equal(t) >= 32) | (!longer(t), !shorter(t), count_equal_p(t) >= 32)
 define slam_count_max(t) = (longer(t), count_long_max(t) >= 31) | (shorter(t), count_short_max(t) >= 32) | (!longer(t), !shorter(t), count_equal_max(t) >= 33)
 
 # ── Values ────────────────────────────────────────────────────────────

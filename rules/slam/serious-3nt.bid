@@ -28,7 +28,7 @@ define ns_position = partner.last = 3{trump}, !our_notrump
 # non-serious 3NT about 14-15 opposite a 2/1, the serious control bid
 # 16+. Priority 12, level with the control bids: the two never hold on
 # the same hand. Partner control-bids over it with a good hand.
-define ns_count(t) = (longer(t), count_long(t) >= 28) | (longer(t), count_long_p(t) >= 28) | (shorter(t), count_short(t) >= 29) | (shorter(t), count_short_l(t) >= 29) | (!longer(t), !shorter(t), count_equal(t) >= 30) | (!longer(t), !shorter(t), count_equal_p(t) >= 30)
+define ns_count(t) = (longer(t), count_long(t) >= 30) | (longer(t), count_long_p(t) >= 30) | (shorter(t), count_short(t) >= 29) | (shorter(t), count_short_l(t) >= 29) | (!longer(t), !shorter(t), count_equal(t) >= 30) | (!longer(t), !shorter(t), count_equal_p(t) >= 30)
 
 when nsplay, cue, we.trump is suit, trump is H | trump is S, we.forcing = game, !asked, !answered control
   3N  "Non-serious 3NT: mild slam interest"  alert
