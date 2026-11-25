@@ -36,14 +36,15 @@ module splinters "Splinters over 1♥ / 1♠"
   param  twalsh  = bidding_conventions/transfer_walsh default false
 
 # ── Responder ────────────────────────────────────────────────────────
-# 12-15 HCP with a small singleton, 11 with a void (BBA, both probes);
-# above that, Jacoby 2NT. A singleton honour, the ace included, is not
+# 10-12 HCP, 13-15 support points: a limited raise (Rick 2026-11-25;
+# it was BBA's 12-15, 11 with a void). With more, Jacoby 2NT, or
+# without it a 2/1 and support at the three level (no fast arrival). A singleton honour, the ace included, is not
 # shortness to show: those hands bid Jacoby 2NT too (BBA). A passed hand
 # splinters with a maximum, 10-11 and four trumps.
 after 1H (P) when by_resp
   3S  "Splinter: 4+ hearts, game values, at most one spade"  alert
-      shows H>=4, S<=1, !has(A,S), !has(K,S), !has(Q,S), !has(J,S), tp(H)>=15
-      shows hcp=12..15 | (hcp=11, S=0)
+      shows H>=4, S<=1, !has(A,S), !has(K,S), !has(Q,S), !has(J,S), tp(H)>=13
+      shows hcp=10..12
       when  !passed_hand
       sets  trump=H, forcing=game
       artificial
@@ -57,8 +58,8 @@ after 1H (P) when by_resp
 
 after 1M (P) when by_resp
   4x  "Splinter: 4+ {M}, game values, at most one {x}"  alert
-      shows M>=4, x<=1, !has(A,x), !has(K,x), !has(Q,x), !has(J,x), tp(M)>=15
-      shows hcp=12..15 | (hcp=11, x=0)
+      shows M>=4, x<=1, !has(A,x), !has(K,x), !has(Q,x), !has(J,x), tp(M)>=13
+      shows hcp=10..12
       when  x is not M, M is S | x is not S, !passed_hand
       sets  trump=M, forcing=game
       artificial

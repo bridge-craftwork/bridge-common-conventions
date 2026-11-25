@@ -33,30 +33,35 @@ module base "Natural opening bids"
 # major with the ace-king, or a side four-card major with an honour), and
 # then, with the side major, only with two aces or kings among its honours
 # (controls 3+, or two kings). Six clubs and ten HCP pass.
+# A one-level opening tops out at 21 HCP and 22 declarer points: with
+# more the hand opens 2♣ (strong-openings.bid; Rick 2026-11-25: five
+# spades and 25 declarer points would almost always open 2♣; GIB's 1♠ is
+# 12-22 total points). `hcp<=18` keeps the freak hands that reach 23 on
+# length alone at the one level.
 when opening
   1S  "Major opening: 5+ spades"
-      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), S>=5, S>=H, (S>=D, S>=C) | !may5
+      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), hcp+length_points<=22 | hcp<=18 | (!forcing_2c, !forcing_1c), S>=5, S>=H, (S>=D, S>=C) | !may5
       when  style is standard
   1H  "Major opening: 5+ hearts"
-      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), H>=5, H>S, (H>=D, H>=C) | !may5
+      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), hcp+length_points<=22 | hcp<=18 | (!forcing_2c, !forcing_1c), H>=5, H>S, (H>=D, H>=C) | !may5
       when  style is standard
   1D  "3+ diamonds"
-      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), D>=3, D>C | D>=4, D>=C, H<=4 | (H<D, may5), S<=4 | (S<D, may5)
+      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), hcp+length_points<=22 | hcp<=18 | (!forcing_2c, !forcing_1c), D>=3, D>C | D>=4, D>=C, H<=4 | (H<D, may5), S<=4 | (S<D, may5)
       when  style is standard
   1C  "3+ clubs"
-      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), C>D | (C=3, D=3), H<=4 | (H<C, may5), S<=4 | (S<C, may5)
+      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), hcp+length_points<=22 | hcp<=18 | (!forcing_2c, !forcing_1c), C>D | (C=3, D=3), H<=4 | (H<C, may5), S<=4 | (S<C, may5)
       when  style is standard
   1S  "Major opening: 5+ spades"
-      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), S>=5, S>=H, (S>=D, S>=C) | !may5, hcp>=11 | S<=5 | H<=3 | controls>=3 | (controls=2, !has(A,S), !has(A,H), !has(A,D), !has(A,C))
+      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), hcp+length_points<=22 | hcp<=18 | (!forcing_2c, !forcing_1c), S>=5, S>=H, (S>=D, S>=C) | !may5, hcp>=11 | S<=5 | H<=3 | controls>=3 | (controls=2, !has(A,S), !has(A,H), !has(A,D), !has(A,C))
       when  style is not standard
   1H  "Major opening: 5+ hearts"
-      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), H>=5, H>S, (H>=D, H>=C) | !may5, hcp>=11 | H<=5 | S<=3 | controls>=3 | (controls=2, !has(A,S), !has(A,H), !has(A,D), !has(A,C))
+      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), hcp+length_points<=22 | hcp<=18 | (!forcing_2c, !forcing_1c), H>=5, H>S, (H>=D, H>=C) | !may5, hcp>=11 | H<=5 | S<=3 | controls>=3 | (controls=2, !has(A,S), !has(A,H), !has(A,D), !has(A,C))
       when  style is not standard
   1D  "3+ diamonds"
-      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), D>=3, D>C | D>=4, D>=C, H<=4 | (H<D, may5), S<=4 | (S<D, may5), hcp>=11 | D<=5 | (H<=3, S<=3) | controls>=3 | (controls=2, !has(A,S), !has(A,H), !has(A,D), !has(A,C))
+      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), hcp+length_points<=22 | hcp<=18 | (!forcing_2c, !forcing_1c), D>=3, D>C | D>=4, D>=C, H<=4 | (H<D, may5), S<=4 | (S<D, may5), hcp>=11 | D<=5 | (H<=3, S<=3) | controls>=3 | (controls=2, !has(A,S), !has(A,H), !has(A,D), !has(A,C))
       when  style is not standard
   1C  "3+ clubs"
-      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), C>D | (C=3, D=3), H<=4 | (H<C, may5), S<=4 | (S<C, may5), hcp>=11 | C<=5
+      shows hcp>=10, hcp+length_points>=min_open, hcp<=21 | (!forcing_2c, !forcing_1c), hcp+length_points<=22 | hcp<=18 | (!forcing_2c, !forcing_1c), C>D | (C=3, D=3), H<=4 | (H<C, may5), S<=4 | (S<C, may5), hcp>=11 | C<=5
       when  style is not standard
   P   "No opening bid"
       shows hcp<=min_open-1, hcp+length_points<=min_open-1 | hcp<=9

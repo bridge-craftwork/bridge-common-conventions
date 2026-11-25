@@ -83,9 +83,16 @@ when asked drury(M), rho.last=P, partner.last=2C
       shows tp(M)=13..14
       when  !reverse
       priority 3                       # the answer, ahead of opener's natural rebids
-  4M  "Game: 15+ support points"
-      shows tp(M)>=15
+  4M  "Game: 15-18 support points"
+      shows tp(M)=15..18
       priority 3                       # the answer, ahead of opener's natural rebids
+  # With more, opener (the captain: responder's pass and Drury limited
+  # him) tries for slam. Rick 2026-11-25: 4M does not go up to 28; GIB's
+  # 4M is 14-18 total points, its 3M 19-22 and forcing.
+  3M  "Slam try: 19+ support points"
+      shows tp(M)>=19
+      sets  forcing=game
+      priority 3
 
 # After two-way Drury's 2♦ (four trumps) the ninth trump is worth a
 # point: 13 bids game.

@@ -80,6 +80,16 @@ when opening
       sets  forcing=game, ask=strong_2c
       artificial
       priority 1
+  # The one-level openings top out at 22 declarer points (base.bid):
+  # an unbalanced 19-21 with 23 or more opens 2♣ even without the
+  # tricks above (Rick 2026-11-25).
+  2C  "Strong 2♣: 23+ declarer points"  alert
+      shows hcp>=19, hcp+length_points>=23, !balanced
+      when  two_c is strong | two_c is very_strong, forcing_2c | forcing_1c, !benjamin   # Benjamin: openings/benjamin.bid
+      shows !french | hcp<=23
+      sets  forcing=game, ask=strong_2c
+      artificial
+      priority 1
 
 # ── Responder ────────────────────────────────────────────────────────
 after 2C (P)
