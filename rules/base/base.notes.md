@@ -39,6 +39,28 @@ have their own continuations in rkcb-1430.bid.
   minor? The field's description suggests the major unless strong enough
   to reverse. Not changed.
 
+## The openings against GIB's tree (2026-11-25)
+
+The points tops of the WIP commit (`hcp+length_points<=22 | hcp<=18`
+on the one-level openings, BIDDING-MODEL 3.4) close every "points open
+top" row of the GIB comparison for 1♣, 1♦, 1♥ and 1♠ (70,041
+call-boards on 21GF-GIB, now none): partner reads 12-22 declarer
+points, GIB 12-22 total points.
+
+Left: third seat, P P 1♠ / 1♥ (2,854 and 2,568 call-boards). Ours reads
+4+ from 10 HCP, GIB 5+ from 11: GIB opens five-card majors in every
+seat, and our light four-card major in third seat is Rick's guidance of
+2026-09-22 (preempts.notes.md). A treatment difference, left. Open
+question for Rick: the rule ignores the card's
+`major_openings.min_length_3rd_4th` (default "5", which 21GF-GIB and
+every stock card leave unset); should the light four-card opening
+follow that field (and `general.third_fourth_light`)?
+
+Left as well: the pass after game (`game_reached`, "No further bid",
+3,603 call-boards; 1♠ P 2♣ P 2♠ P 4♠ P P: GIB 12-17). Its top comes
+from the slam tries opener did not make, which is the higher-level
+rebalancing (BIDDING-MODEL 3.2), not this pass.
+
 ## Sources
 
 - **Card fields:** convention-card `spec/fields.toml`
@@ -52,3 +74,4 @@ have their own continuations in rkcb-1430.bid.
   (bridge-classroom-bug-artifacts #94); 6NT as the reading of the answer
   is standard practice (a five-level suit accepts and offers a strain),
   not yet cited.
+- GIB's bidding tree (BBO's `gibrest`, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), agreed-path comparison on 21GF-GIB, Rick 2026-11-25: "The openings against GIB's tree".
