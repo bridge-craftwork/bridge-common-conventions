@@ -525,7 +525,7 @@ chose them".
   in a minor (14-15 HCP without their suit stopped also signs off); GIB
   12-14. An unread signoff below takes the rest.
 
-MEASURE_G5
+Measured (top 20,000): the one-level negative double (1,117 call-boards) left the top 40; the signoff's points top closed (588 -> 0), its suit lengths remain (minimum 3-card minor, GIB 4+).
 
 ## The long hand counts its own points (Rick, 2026-11-25)
 

@@ -388,7 +388,7 @@ chose them".
   need the balancing judgment, not a cap.
 - (1x) 1y (P) P, the plain advance (2026-11-26, the top 20,000
   positions): 11, the raise's and 1NT's top (GIB 10- at 1♦ 1♠ P P);
-  it read 0-23. 12+ cue-raises, bids 2NT or a suit. MEASURE_G5A
+  it read 0-23. 12+ cue-raises, bids 2NT or a suit. Measured (top 20,000): the one-level negative double (1,117 call-boards) left the top 40; the signoff's points top closed (588 -> 0), its suit lengths remain (minimum 3-card minor, GIB 4+).A
 
 ## Sources
 

@@ -1774,11 +1774,11 @@ chose them".
   declarer points: opener's stronger hands have the reopening double
   (16+ short in their suit), 2NT 18-19, a five-card suit from 14 and
   the six-card rebid to 18; an 18+ hand with none of those passes by
-  the unread fallback. MEASURE_G1A
+  the unread fallback. Measured (top 20,000, 2026-11-26): the open top (1,429 call-boards) closed; the first run also capped the pass over a balancing double (1x P P (X) P), 7,295 call-boards narrower than GIB's 12-22, so that pass is left uncapped.
 - Opener declining responder's minor invitation (`asked invite(m)`,
   1S 1N 2C 3C P): at most 17 declarer points (GIB 12-16). 18 HCP bids
   5m, a balanced 14+ 3NT; an unbalanced hand short of 18 HCP still
-  declines, by the unread pass. MEASURE_G1B
+  declines, by the unread pass. Measured: 857 call-boards with an open top -> 0.
 - Left (2026-11-26), with the calls they need: GIB reads 8- total
   points for a defender's pass in the pass-out seat after their part
   score (1S P 2S P P P, 1N P 2D P 2H P P P; about 11,500 call-boards of
@@ -1800,7 +1800,7 @@ the gap was in the rule: the 1♠ rebid's "four hearts: raise first" was
 a `when`, which partner does not read (docs/CONTRACT.md: `when` only
 for what is not promised). It is now a `shows`; no hand bids
 differently. After 1♦ 1♥ 1♠ 1N P opener reads ♠4 ♥0-3 ♦4-5 ♣1-4.
-MEASURE_G4
+Measured (top 20,000): the 1S rebid's diamond and heart limits (1,208 call-boards each on 1D-1H-1S) -> 0; the later pass's diamond floor 1,240 -> 903. The spade top (ours 4-5, GIB 4+) is a licence difference.
 
 Left as the licence: GIB's two or more clubs there (GIB rebids 2♦ with
 4=3=5=1; we pass 1NT with it) and the four-card diamond floor of

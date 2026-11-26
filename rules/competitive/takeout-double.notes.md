@@ -281,7 +281,7 @@ and 12-14 still doubles, and partner plans on the normal shape (3.6).
 The reopening double (balancing.bid) was checked too: ours reads 3-4 in
 an unbid major and 3-5 in a minor where GIB says 3+, narrower, and its
 6-7 HCP floor against GIB's 9 is the licence's 8 total points (Rick,
-2026-09-22), so it is left. MEASURE_G2
+2026-09-22), so it is left. Measured (top 20,000): 6,214 call-boards wide in their suit -> 6.
 
 ## The power double converts (Rick, 2026-11-25)
 

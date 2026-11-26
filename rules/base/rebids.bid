@@ -1274,8 +1274,11 @@ after 1x (*) P (*) when they.bid
   # 2026-11-25). Opener's stronger hands reopen (the double with 16+
   # short in their suit, 2NT 18-19, a five-card suit from 14, a six-card
   # rebid to 18); one with none of those still passes, by the fallback
-  # below, which partner does not read (BIDDING-MODEL 3.6).
+  # below, which partner does not read (BIDDING-MODEL 3.6). Not over a
+  # double (1x P P (X) P): opener passes it with any strength, waiting for
+  # partner's answer (GIB 12-22).
   P   "No further bid"  shows hcp+length_points<=17  priority -10
+      when  !rho.last=X
   P   "No further bid"  priority -11
 
 # ── They bought it and partner passed: opener reopens ────────────────

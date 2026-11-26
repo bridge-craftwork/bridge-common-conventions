@@ -180,7 +180,7 @@ raise read 0+ points (GIB's tree: 3-8 total points for 2H X 3H, 4-17
 for the Law raise of a weak two over an overcall, 4+ for the Law's
 game). Both are now `shows`: at least 5 HCP and at most 24 less
 partner's floor, 12 opposite an opening, 20 opposite a weak two. No
-hand bids differently; partner reads the range. MEASURE_G3
+hand bids differently; partner reads the range. Measured (top 20,000): floors 1,229 call-boards wide -> 363; the top opposite a weak two stays open (909 -> 880) until responder has a game raise over interference.
 
 Left: opposite a weak two over their interference responder has no
 constructive call (weak-two-responses.bid is written for 2x (P) only),
