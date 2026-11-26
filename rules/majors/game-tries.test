@@ -39,3 +39,13 @@ S AQJ74.AK5.983.K2      | 1S P 2S P                    | 4S     | 18: game
 S AQJ74.KQ5.K83.J2      | 1S P 2S P                    | 3D     | 16 HCP, 17; diamonds K83 need help, hearts KQ5 do not
 S AQJ74.AK5.983.Q2      | 1S P 2S P                    | 3D     | 17 with three small diamonds: the try
 N T84.976.AQ43.K82      | 1S P 2S P 3D P               | 4S     | diamond A-Q: help
+# Rick 2026-11-26: needing help in two suits, try in the cheaper one;
+# responder without help there shows help in a higher suit below 3M.
+S AQJ74.AK.983.J42      | 1S P 2S P                    | 3C     | clubs and diamonds need help: the cheaper, clubs
+S Q42.AKJ74.A5.J43      | 1H P 2H P                    | 2S     | spades and clubs need help: 2S is the cheaper try
+S AJ974.KQ.KQ3.432      | 1S P 2S P                    | 3C     | only clubs need help
+N T84.AJ6.A953.986      | 1S P 2S P 3C P               | 3D     | no club help, 9 support points, diamond A-x-x-x: shows the diamond help
+S AQJ74.AK.983.J42      | 1S P 2S P 3C P 3D P          | 4S     | diamonds needed help too: game
+S AJ974.KQ.KQ3.432      | 1S P 2S P 3C P 3D P          | 3S     | only clubs needed help, 16: sign off
+N T84.AJ6.A953.986      | 1S P 2S P 3C P 3D P 3S P     | P      | opener signed off
+N T842.A976.Q953.6      | 1S P 2S P 3C P               | 4S     | a singleton club is help (2026-11-26: `helps` read only four-card holdings)

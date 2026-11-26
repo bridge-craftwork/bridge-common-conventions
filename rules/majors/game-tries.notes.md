@@ -62,6 +62,34 @@ long-suit tries qualify and the count change moved a descriptiveness tie
 between them (open question: should the cheaper or the weaker suit be
 preferred explicitly?).
 
+## The cheapest try first; responder shows help higher (Rick, 2026-11-26)
+
+Rick (2026-11-26): when opener needs help in more than one suit, he
+tries in the lowest-ranking one, since a responder with no help there
+can still show help in a higher suit by bidding it, as long as it is
+below three of the trump suit.
+
+- Opener: a help-suit try (`first_help`) or a two-way long-suit try
+  (`first_long`) in x shows that no cheaper suit qualifies: over 1♥, 2♠
+  before 3♣ before 3♦; over 1♠, 3♣ before 3♦ before 3♥. This settles
+  the open question above (KQJ96.Q62.AT95.K tries 3♦, the cheaper,
+  whatever descriptiveness says).
+- Responder, after a long- or help-suit try in x, with no help there
+  (three or more cards without the ace or king), the middle of the raise
+  (8-9 support points) and help in a higher suit y below 3M: 3y (`sets
+  ask=help_shown(y)`). With 10+ he still accepts, with 7- declines.
+- Opener after 3y: 4M when y needed help too, or with 17 (the top of
+  the try); else 3M, which responder passes.
+- `helps(x)` was misparenthesised (`,` binds looser than `|`): it read
+  "four cards with an honour" only, so a singleton, A-K-x or K-Q-x in
+  the try suit was not help. Fixed to what its comment says: at most one
+  loser (a singleton or void, Ax/Kx, two of the top three), or four
+  cards with an honour. Responder now accepts more tries.
+- GIB's tree (1♠-2♠-3♣, 1♥-2♥-3♣) has only 3M and 4M for responder; the
+  counter-try is ours.
+
+Cases: the 2026-11-26 block at the end of game-tries.test.
+
 ## Sources
 
 - BBO, "GIB system notes", Two-way Game Try,
@@ -72,4 +100,7 @@ preferred explicitly?).
   https://www.bridgebum.com/help_suit_game_try.php.
 - Responder's thresholds (6 / 10, wasted K-Q-J): standard practice, not
   yet cited.
+- **Rick, 2026-11-26**: the cheapest help-suit try first, responder
+  showing help in a higher suit below 3M. The counter-try's 8-9 band
+  and opener's answer are ours (standard practice, not yet cited).
 - **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.

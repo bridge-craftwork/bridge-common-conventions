@@ -52,3 +52,11 @@ card    21GF-DEFAULT
 dealer  N
 vul     None
 S K73.AQT43.J94.A2      | 1N P 2D P 2H P 4N P 5C P   | 6NT  | an unread 5C over quantitative 4NT: slam, not pass
+
+# The gib style (general.style=gib; settings/styles.md): no light
+# four-card major in third seat.
+card    21GF-GIB
+dealer  N
+S AQJ4.K73.9432.82      | P P     | 1S     | default: third seat, four good spades, 10 HCP
+card    21GF-GIB general.style=gib
+S AQJ4.K73.9432.82      | P P     | P      | gib: 1S promises five in every seat

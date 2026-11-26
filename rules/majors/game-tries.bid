@@ -38,8 +38,18 @@ define short_side(M) = (M is not C, small_short(C)) | (M is not D, small_short(D
 define needs_help(x) = x>=3, !(has(A,x), has(K,x)), !(has(A,x), has(Q,x)), !(has(K,x), has(Q,x))
 # A two-way long-suit try (GIB): three or more cards with some honours.
 define long_try(x) = x>=3, has(A,x) | has(K,x) | has(Q,x)
-# Partner's help in my try suit: at most one loser there, or four cards.
-define helps(x) = x>=4, has(A,x) | has(K,x) | has(Q,x) | x<=1 | (x=2, has(A,x) | has(K,x)) | (has(A,x), has(K,x)) | (has(A,x), has(Q,x)) | (has(K,x), has(Q,x))
+# The cheapest suit first (Rick, 2026-11-26): needing help in more than
+# one suit, opener tries in the cheapest, since responder without help
+# there can still show help in a higher suit below 3M (below). So a try
+# in x denies a try suit in any cheaper one: spades over 1H (2S), then
+# clubs, then diamonds.
+define first_help(M,x) = x is C | !needs_help(C), x is C | x is D | !needs_help(D), M is S | x is S | !needs_help(S)
+define first_long(x) = x is C | !long_try(C), x is C | x is D | !long_try(D)
+# Partner's help in my try suit: at most one loser there, or four cards
+# with an honour. (Until 2026-11-26 this read "four cards, and one of
+# the rest": `,` binds looser than `|`, so only four cards with an honour
+# helped; a singleton or A-K-x did not.)
+define helps(x) = x<=1 | (x=2, has(A,x) | has(K,x)) | (has(A,x), has(K,x)) | (has(A,x), has(Q,x)) | (has(K,x), has(Q,x)) | (x>=4, has(A,x) | has(K,x) | has(Q,x))
 # Partner's honours wasted opposite my shortness.
 define wasted(x) = has(K,x) | has(Q,x) | has(J,x)
 
@@ -75,14 +85,14 @@ after 1H (P) 2H (P) when help, !two_way
       priority 13
 after 1M (P) 2M (P) when two_way
   3x  "Long-suit game try: 3+ {x} with honours, 16-17"
-      shows try_values(M), long_try(x)
+      shows try_values(M), long_try(x), first_long(x)
       when  x is not M, M is S | x is not S
       sets  ask=help_try(x), forcing=round
       prefer x
       priority 13
 after 1M (P) 2M (P) when help, !two_way
   3x  "Help-suit game try: help wanted in {x}, 16-17"
-      shows try_values(M), needs_help(x)
+      shows try_values(M), needs_help(x), first_help(M,x)
       when  x is not M, M is S | x is not S
       sets  ask=help_try(x), forcing=round
       prefer x
@@ -149,11 +159,32 @@ when asked help_try(x), rho.last=P
       priority 3
   3{trump} "Declines the help-suit try"
       priority 2
+  # No help in the try suit but help in a higher one below 3M, and the
+  # middle of the raise (Rick, 2026-11-26): show it. Opener tried in his
+  # cheapest suit that needs help, so he may need it here too.
+  3y  "No help in {x}, help in {y}: game if that is the suit"
+      shows tp(trump)=8..9, !helps(x), !has(A,x), !has(K,x), x>=3, helps(y)
+      when  y is not trump, y is not x, y is not S           # below 3M
+      sets  ask=help_shown(y), forcing=round
+      prefer 0 - cheapest_rank(y)
+      priority 3
+
+# Opener after responder's help in a higher suit: game when that suit
+# needed help too, or at the top of the try.
+when asked help_shown(y), rho.last=P
+  4{trump} "Partner's help in {y} is what I need: game"
+      shows needs_help(y) | hcp+length_points>=17
+      priority 3
+  3{trump} "No help where I need it: sign off"
+      priority 2
 
 # Opener after a sign-off: the try was all opener had. Priority above
 # the control bids (12), which would otherwise read a limited hand's
 # slam values into it.
 when answered help_try(x), rho.last=P, partner.last=3{trump}
+  P   "No further bid"
+      priority 13
+when answered help_shown(y), rho.last=P, partner.last=3{trump}
   P   "No further bid"
       priority 13
 when answered short_try(M), rho.last=P, partner.last=3{M}

@@ -407,6 +407,15 @@ rule that bids. Partner reads the call by the higher rule alone
 changes (BIDDING-MODEL 3.6; the idiom of rkcb-1430.bid). The cost: these
 calls count in compare's "calls read as a higher rule than chose them".
 
+## The gib style (Rick, 2026-11-26)
+
+`general.style=gib` plays GIB's weak two in first and second seat: no
+side four-card suit but clubs (2♦: ♥ and ♠ 1-3; 2♥: ♦ and ♠ 1-3; 2♠: ♦
+and ♥ 1-3; clubs 1-4), read with that shape. The rest is the default's
+(the top at 10, the ace clause, a good suit vulnerable). GIB's tree at
+the opening and after one pass, 2026-11-25. Third seat is unchanged
+(not seen in the comparison). settings/styles.md lists every style item.
+
 ## Sources
 
 - Brill /explain, 2026-10-15 (Thorvald Aagaard's public Brill service, answers cached in `.rbb-cache/brill-service/explain/`): the rule text quoted in the `brill` section and in the `.bid` comments. Applies to the Brill card only (`general.system = brill`, cards/README.md "Brill").
