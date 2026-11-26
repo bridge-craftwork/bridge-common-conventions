@@ -31,7 +31,9 @@ N KQ5.Q84.T54.T932          | 1D X 1H | P      | no suit and no stopper: pass
 N K32.QJ54.A97.KT7          | 1D X 1H | 2D     | 15 HCP: the cue bid
 N QJT2.75.JT62.932          | 1D X XX | 1S     | partner still wants a suit
 N 76532.Q84.T54.32          | 1D X 2D | P      | their raise ends the force: 3 HCP passes (2026-09-27)
-N QJ32.K84.T54.932          | 1H X 2H | P      | four spades and 6 HCP: not a free bid at the two level
+# The double is read as three or more spades now (Rick 2026-11-25, BIDDING-MODEL
+# 3.6), so four spades opposite compete at two; GIB's tree: 2S here is 4+ spades, 6-12.
+N QJ32.K84.T54.932          | 1H X 2H | 2S     | four spades and 6 HCP opposite three or more: competes (GIB)
 
 # ── The doubler after their responder bid and opener rebid (2026-09-25)
 card    Basic-Bridge

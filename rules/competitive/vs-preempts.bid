@@ -37,6 +37,18 @@ after (2x) when x is not N, rho.hcp.max <= 12
   X   "Takeout: the unbid suits and 12+, or any 17+"
       shows hcp+length_points>=12
       shows ((S>=3 | x is S), (H>=3 | x is H), (D>=3 | x is D), (C>=3 | x is C), x<=2) | (hcp>=17, x<=3)
+  # What partner reads: the unbid suits, two or fewer of theirs, 12+
+  # (Rick 2026-11-25, BIDDING-MODEL 3.6; GIB's tree: 3+ in each unbid
+  # suit, 2- in theirs). The power double borrows the call and shows
+  # itself by bidding again. Never chosen (`bare(C), !bare(C)` holds for
+  # no hand, and a reader cannot judge it), and above the double, so the
+  # call is read by this alone (rkcb-1430.bid's idiom).
+  X   "Takeout: the unbid suits and 12+"
+      shows hcp+length_points>=12
+      shows (S>=3 | x is S), (H>=3 | x is H), (D>=3 | x is D), (C>=3 | x is C), x<=2
+      shows (S<=4 | x is S), (H<=4 | x is H), (D<=5 | x is D), (C<=5 | x is C)   # a five-card major or six-card minor overcalls
+      when  bare(C), !bare(C)            # never chosen: described only
+      priority 1
   cheapest(S) "Overcall: five or more spades, 12-16"
       shows S>=5, S>=H, S>=D, S>=C, hcp+length_points>=12, hcp<=16
       when  x is not S
@@ -89,6 +101,13 @@ after (2x) P (P) when x is not N, lho.hcp.max <= 12
   X   "Reopening double: 12+, short in {x}, the unbid suits"
       shows hcp+length_points>=12
       shows ((S>=3 | x is S), (H>=3 | x is H), (D>=3 | x is D), (C>=3 | x is C), x<=2) | (hcp>=17, x<=3)
+  # Read as the unbid suits, as over the weak two (above).
+  X   "Reopening double: 12+, short in {x}, the unbid suits"
+      shows hcp+length_points>=12
+      shows (S>=3 | x is S), (H>=3 | x is H), (D>=3 | x is D), (C>=3 | x is C), x<=2
+      shows (S<=4 | x is S), (H<=4 | x is H), (D<=5 | x is D), (C<=5 | x is C)   # a five-card major or six-card minor overcalls
+      when  bare(C), !bare(C)            # never chosen: described only
+      priority 1
   cheapest(S) "Balancing: five or more spades"
       shows S>=5, S>=H, S>=D, S>=C, hcp+length_points>=9, hcp<=16
       when  x is not S
@@ -125,6 +144,13 @@ after (3x) when x is not N, rho.hcp.max <= 12
   X   "Takeout: 12+, short in {x}, the unbid suits, or 17+"
       shows hcp+length_points>=12
       shows ((S>=3 | x is S), (H>=3 | x is H), (D>=3 | x is D), (C>=3 | x is C), x<=2) | (hcp>=17, x<=3)
+  # Read as the unbid suits, as over the weak two (above).
+  X   "Takeout: 12+, short in {x}, the unbid suits"
+      shows hcp+length_points>=12
+      shows (S>=3 | x is S), (H>=3 | x is H), (D>=3 | x is D), (C>=3 | x is C), x<=2
+      shows (S<=4 | x is S), (H<=4 | x is H), (D<=5 | x is D), (C<=5 | x is C)   # a five-card major or six-card minor overcalls
+      when  bare(C), !bare(C)            # never chosen: described only
+      priority 1
   cheapest(S) "Overcall: five or more spades"
       shows S>=5, S>=H, S>=D, S>=C, hcp+length_points>=12, hcp<=17
       when  x is not S
@@ -520,6 +546,11 @@ after (2x) 2N (P) when x is not C
 # overcall the responder competes with a fit (total-tricks.bid) or
 # passes; the opener has described his hand.
 after 2x (X) | 2x (2y) | 2x (3y) | 2x (2N) | 3x (X) | 3x (3y) | 3x (4y) | 3x (3N) | 4x (X) | 4x (4y) | 4x (5y) when x is not N
-  P   "No further bid"                 priority -10
+  # Responder's pass over their interference, read as at most 13 total
+  # points (GIB's tree: 13- after 2♥ (3♣), 2♦ (2♥) and the like; Rick
+  # 2026-11-25). A stronger hand with nothing written passes by the
+  # fallback, which is not read.
+  P   "No further bid"                 shows hcp+length_points<=13  priority -10
+  P   "No further bid"                 priority -20
 after 2x (X) P (*) | 2x (2y) P (*) | 2x (3y) P (*) | 2x (2N) P (*) | 3x (X) P (*) | 3x (3y) P (*) | 3x (4y) P (*) | 4x (X) P (*) | 4x (4y) P (*) | 4x (5y) P (*) when x is not N
   P   "No further bid"      priority -10

@@ -65,6 +65,21 @@ the 46 scenarios that moved: calls +29.8, contracts +11.0, auctions -6.8
   one; those advance rules still use the direct-seat ranges (the suit
   overcall no longer does).
 
+## The reopening double is read as the unbid suits (Rick, GIB tree, 2026-11-25)
+
+As the direct double (takeout-double.notes.md): read as 3+ in each
+unbid suit (majors 3-4, minors 3-5) and 8+ total points (GIB: 3+ in
+each, 9+ HCP). Lengths min-wide: 1,527 call-boards, now none; GIB's
+9 HCP against our 5 is left (our 8 total points is Rick's and BBA's).
+
+How it is written: a second rule for the same call, never chosen
+(`when bare(C), !bare(C)`: no hand meets it, and a reader cannot judge
+it, so it stays possible when the call is read), one priority above the
+rule that bids. Partner reads the call by the higher rule alone
+(docs/LANGUAGE.md section 8), so the description narrows and no call
+changes (BIDDING-MODEL 3.6; the idiom of rkcb-1430.bid). The cost: these
+calls count in compare's "calls read as a higher rule than chose them".
+
 ## Sources
 
 - **Rick's rulings:** follow BBA's meanings, which are the usual lighter
@@ -79,3 +94,4 @@ the 46 scenarios that moved: calls +29.8, contracts +11.0, auctions -6.8
   moved (2026-09-23).
 - **Where we differ:** advancer still reads a reopening double with the
   direct-seat ranges (Gaps).
+- GIB's bidding tree (BBO's `gibrest`, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), agreed-path comparison on 21GF-GIB (top 5,000 positions of 100,000 random deals), Rick 2026-11-25 (BIDDING-MODEL 3.6 and 4.3): the description rules and floors in the section of that date above.

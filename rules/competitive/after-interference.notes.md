@@ -497,6 +497,16 @@ chose them".
 - 1x (X) P: 9 total points: 10+ redoubles or bids a five-card major
   (GIB: 9-). 1,245 -> 0.
 
+## Floors on the negative double and the redouble (Rick, GIB tree, 2026-11-25)
+
+- The one-level negative double shows `hcp>=5` besides 6 total points
+  (GIB 5+ HCP; ours read from 2: a long minor and almost nothing).
+  2,080 call-boards with the HCP floor wide, now none. A 4-HCP hand with
+  a six-card suit passes or bids it.
+- The redouble shows `hcp>=8` besides 10 total points (GIB 10+ HCP;
+  ours read from 6). 6-7 HCP with a long suit bids the suit (6-9, or
+  10-11 with five).
+
 ## Sources
 
 - **Jump shifts in competition** (2026-10-05): the ACBL convention card's
@@ -531,3 +541,4 @@ chose them".
   or more in any context, a five-card one the least lie; no stopper, no
   3NT; the known fit bids 4M.
 - GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.
+- GIB's bidding tree (BBO's `gibrest`, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), agreed-path comparison on 21GF-GIB (top 5,000 positions of 100,000 random deals), Rick 2026-11-25 (BIDDING-MODEL 3.6 and 4.3): the description rules and floors in the section of that date above.

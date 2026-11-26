@@ -246,6 +246,33 @@ board 343). Found by the Raptor self A/B (raptor.notes.md), where the
 strong balanced hands double instead of overcalling 1NT; before, the
 doubler passed.
 
+## The double is read as the unbid suits (Rick, GIB tree, 2026-11-25)
+
+The takeout double of a one-level opening ("the unbid suits and 12+,
+or any 17+") narrowed no length: a range cannot hold the "or". It is
+now read as the normal double, 3-4 in an unbid major, 3-5 in an unbid
+minor, 12+ total points (GIB's tree: 3-4 / 3-5, 2- in theirs). The
+power double still makes the call and shows itself by bidding again;
+until then partner counts on the unbid suits (Rick's 3.6: freaks and
+strong hands borrow a normal call). Lengths min-wide on agreed paths:
+6,214 call-boards, now none (the maxima were added after that run).
+
+Test changed: QJ32.K84.T54.932 after 1♥ X 2♥ now competes 2♠
+(total-tricks.bid, eight trumps known), where the test said pass. GIB's
+tree bids it: 2♠ there is 4+ spades, 6-12 total points.
+
+Open for Rick: the power doubler's next bid is read on top of the
+double (after 1♦ X P 1♠ P 2♣ the doubler reads ♠3-5, ♥3-4), which is
+wrong when the power hand is short in a suit.
+
+How it is written: a second rule for the same call, never chosen
+(`when bare(C), !bare(C)`: no hand meets it, and a reader cannot judge
+it, so it stays possible when the call is read), one priority above the
+rule that bids. Partner reads the call by the higher rule alone
+(docs/LANGUAGE.md section 8), so the description narrows and no call
+changes (BIDDING-MODEL 3.6; the idiom of rkcb-1430.bid). The cost: these
+calls count in compare's "calls read as a higher rule than chose them".
+
 ## Sources
 
 - **Rick's rulings:** the double (12 total points and three cards in
@@ -268,3 +295,4 @@ doubler passed.
   boundary doubles; three cards in every unbid suit ("Accepted
   differences from BBA"). The overcall ceiling moved from 17 to 16 HCP,
   pending Rick.
+- GIB's bidding tree (BBO's `gibrest`, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), agreed-path comparison on 21GF-GIB (top 5,000 positions of 100,000 random deals), Rick 2026-11-25 (BIDDING-MODEL 3.6 and 4.3): the description rules and floors in the section of that date above.

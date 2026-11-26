@@ -30,6 +30,16 @@ after (1x) P (P)
   X   "Reopening double: 8+ total points and the unbid suits"
       shows hcp+length_points>=8
       shows ((S>=3 | x is S), (H>=3 | x is H), (D>=3 | x is D), (C>=3 | x is C)) | hcp+length_points>=oc_max+1
+  # Read as the unbid suits and 8+ (Rick 2026-11-25, BIDDING-MODEL 3.6;
+  # GIB's tree: 3+ in each unbid suit, 9+ HCP): the strong hand borrows
+  # the call. Never chosen, and it outranks the double above, so the
+  # call is read by it alone (rkcb-1430.bid's idiom).
+  X   "Reopening double: 8+ total points and the unbid suits"
+      shows hcp+length_points>=8
+      shows (S>=3 | x is S), (H>=3 | x is H), (D>=3 | x is D), (C>=3 | x is C)
+      shows (S<=4 | x is S), (H<=4 | x is H), (D<=5 | x is D), (C<=5 | x is C)   # a five-card major or six-card minor overcalls
+      when  bare(C), !bare(C)
+      priority 1
   1S  "Reopening: five spades, 8-15 total points"
       shows S>=5, S>=H, S>=D, S>=C, hcp+length_points>=one_min, hcp+length_points<=15
       when  x is not S

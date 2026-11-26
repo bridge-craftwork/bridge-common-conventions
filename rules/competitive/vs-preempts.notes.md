@@ -226,6 +226,26 @@ chose them".
 - (2x) P: 18 total points (GIB 18-), 2,955 call-boards -> 0.
 - (3x) P: 20 (GIB 20-); not in the top 5,000 positions' list.
 
+## The doubles of their preempts are read as the unbid suits (Rick, GIB tree, 2026-11-25)
+
+The takeout doubles of (2x), (2x) P (P) and (3x) ("or any 17+") are
+read as the unbid suits, 2- in theirs, 12+ (GIB: 3+ in each unbid
+suit, 2- in theirs, 13+). (2x) X: 963 call-boards with lengths
+min-wide, now none.
+
+Responder's pass after their interference over our preempt
+(2x (X), 2x (2y), ...): read as at most 13 total points (GIB 13-;
+900 call-boards), the pass with a fallback as in "Tops on the
+passes".
+
+How it is written: a second rule for the same call, never chosen
+(`when bare(C), !bare(C)`: no hand meets it, and a reader cannot judge
+it, so it stays possible when the call is read), one priority above the
+rule that bids. Partner reads the call by the higher rule alone
+(docs/LANGUAGE.md section 8), so the description narrows and no call
+changes (BIDDING-MODEL 3.6; the idiom of rkcb-1430.bid). The cost: these
+calls count in compare's "calls read as a higher rule than chose them".
+
 ## Sources
 
 - **Rick's rulings:** start on the defence against preempts (2026-09-27).
@@ -259,3 +279,4 @@ chose them".
   16 / 18 total points) are ours, a level up from the three-level
   block, not quoted. Motive: the Brill dailies named above.
 - GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.
+- GIB's bidding tree (BBO's `gibrest`, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), agreed-path comparison on 21GF-GIB (top 5,000 positions of 100,000 random deals), Rick 2026-11-25 (BIDDING-MODEL 3.6 and 4.3): the description rules and floors in the section of that date above.
