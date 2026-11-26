@@ -231,3 +231,13 @@ N AKJ85.7.KQJ842.8      | 3C P 4H            | 4N  | over 3C P 4H: diamonds and 
 S 8.7.AKJ85.KQJ984      | 3H P 4H P P        | 4N  | balancing after their raise to game
 S QJ7.Q732.93.QJ63      | 4H P P 4N P        | 5C  | four clubs: the preference
 S Q743.Q732.93.Q63      | 3C P 4H 4N P       | 5S  | four spades, two diamonds: spades
+
+# The cue bid and 2NT after their 1NT response (2026-11-26): fourth
+# hand after (1x) P (1N), dealer East.
+card    21GF-DEFAULT
+dealer  E
+vul     None
+N 4.AKJ94.3.QJ9765      | 1S P 1N        | 2S     | hearts and clubs, five-six: Michaels over 1S P 1NT
+N KQJ86.AQ975.4.63      | 1C P 1N        | 2C     | both majors, five-five: Michaels over 1C P 1NT
+N 5.K3.AQJ84.KJ985      | 1S P 1N        | 2N     | both minors, five-five: the Unusual 2NT
+S 873.K95.Q62.8743      | 1S P 1N 2S P   | 3H     | advancer: the preference for partner's hearts

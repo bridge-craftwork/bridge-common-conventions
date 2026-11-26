@@ -76,3 +76,18 @@ N 83.AQJ952.K4.Q97      | 1S P 2S    | 3H     | 12 HCP, six good hearts: three-l
 N 9873.Q42.J65.K83      | 1H P 2H    | P      | nothing to say over their raise
 N A3.K42.KQJ875.83      | 1C P 3C    | 3D     | 13 HCP, six good diamonds over the jump raise
 N 8.Q3.KQT94.AJ852      | 1S P 3S    | P      | five-five minors over the jump raise: no rule above 3S, pass
+
+# After their 1NT response (2026-11-26): the fourth seat after
+# (1x) P (1N). North is fourth hand with dealer East.
+card    21GF-DEFAULT
+dealer  E
+vul     None
+N 83.AQJ95.K4.Q972      | 1S P 1N    | 2H     | 12 HCP, AQJ95: the natural two-level overcall
+N 83.AJ952.K4.Q973      | 1S P 1N    | P      | 10 HCP, five hearts: the two level needs 12 (11 with six)
+N AKT98.73.A4.J852      | 1D P 1N    | 2S     | 12 HCP, five good spades over 1D P 1NT
+N 5.KJ84.AQ93.K962      | 1S P 1N    | X      | 13 HCP, four hearts and both minors, short spades: takeout
+N KQ93.4.AJ82.Q974      | 1H P 1N    | X      | 12 HCP, four spades and both minors: takeout
+N AQ84.KJ93.73.K82      | 1C P 1N    | X      | 13 HCP, four-four in the majors: takeout of the minor
+N KQ3.A82.K9.J8642      | 1S P 1N    | P      | 13 HCP, a ragged five-card minor and three hearts: nothing to bid
+N 7.KQJ9762.J4.983      | 1S P 1N    | 3H     | 7 HCP, seven good hearts: the weak jump
+N Q8743.K62.J5.Q83      | 1H P 1N    | P      | 8 HCP, poor spades: no overcall

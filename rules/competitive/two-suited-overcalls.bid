@@ -85,6 +85,17 @@ module two-suited-overcalls "Michaels cue bids and the Unusual 2NT"
   param  ghestem     = competitive_bidding/ghestem default false
   param  sandwich    = competitive_bidding/sandwich_nt default false
 
+# Their opening, or their opening and 1NT response: the cue of opener's
+# suit over (1x) P (1N) is the same Michaels two-suiter as the direct
+# cue bid (2026-11-26), so advancer and the cue bidder go on as after
+# the direct cue bid. `michaels_1m 2m` is the cue bid. GIB's tree
+# (1S-P-1N and the others): "Michaels -- 5+ !H; 9+ total points".
+define auction michaels_1m = (1m) | (1m) P (1N)
+define auction michaels_1h = (1H) | (1H) P (1N)
+define auction michaels_1s = (1S) | (1S) P (1N)
+define auction michaels_1maj = (1M) | (1M) P (1N)
+define auction michaels_1x = (1x) | (1x) P (1N)
+
 # ── Michaels over a minor: both majors ───────────────────────────────
 # Wide range (BBA, probes/michaels-1C.toml and -1D): not vulnerable from
 # 9 total points with our count (7 HCP five-five), vulnerable from 11
@@ -98,7 +109,7 @@ module two-suited-overcalls "Michaels cue bids and the Unusual 2NT"
 # says where (over a major, over a minor) plays it only there.
 define mich_all = mich_play, !(mich_minors | mich_quasi | mich_majors)
 
-after (1m) when mich_minors | mich_quasi | mich_all, !ghestem
+after michaels_1m when mich_minors | mich_quasi | mich_all, !ghestem
   2{m} "Michaels: five or more in each major"
       alert  artificial
       shows H>=5, S>=5, hcp+length_points>=9, hcp<=17
@@ -121,7 +132,7 @@ after (1m) when mich_minors | mich_quasi | mich_all, !ghestem
       when  strength is weak_or_strong
 
 # ── Michaels over a major: the other major and a minor ───────────────
-after (1H) when mich_majors | mich_all, !ghestem
+after michaels_1h when mich_majors | mich_all, !ghestem
   2H  "Michaels: five or more spades and a five-card minor"
       alert  artificial
       shows S>=5, C>=5 | D>=5, hcp+length_points>=9, hcp<=17
@@ -143,7 +154,7 @@ after (1H) when mich_majors | mich_all, !ghestem
       shows S>=5, C>=5 | D>=5, hcp>=16
       when  strength is weak_or_strong
 
-after (1S) when mich_majors | mich_all, !ghestem
+after michaels_1s when mich_majors | mich_all, !ghestem
   2S  "Michaels: five or more hearts and a five-card minor"
       alert  artificial
       shows H>=5, C>=5 | D>=5, hcp+length_points>=9, hcp<=17
@@ -376,7 +387,7 @@ after u2n_two_bid 3z (*) when u2n_play | u2n_jump, shown.z>=5
 # michaels-adv-1C.toml). With equal length it prefers spades, as BBA
 # does. The simple preference promises nothing: it is the fallback for
 # every hand that has no better call.
-after (1m) 2m (P) | (1m) 2m (X) when partner.H>=5, partner.S>=5
+after michaels_1m 2m (P) | michaels_1m 2m (X) when partner.H>=5, partner.S>=5
   2H  "Preference: more hearts than spades"
       shows H>S
       priority -1
@@ -404,7 +415,7 @@ after (1m) 2m (P) | (1m) 2m (X) when partner.H>=5, partner.S>=5
       when  m is C
 
 # RHO has bid: preference only with a fit worth competing with.
-after (1m) 2m (*) when partner.H>=5, partner.S>=5
+after michaels_1m 2m (*) when partner.H>=5, partner.S>=5
   cheapest(H) "Competes: three or more hearts, more than spades"
       shows H>=3, H>S, hcp<=12
       priority -2
@@ -438,7 +449,7 @@ after (1m) 2m (*) when partner.H>=5, partner.S>=5
 # - pass_or_correct (`competitive.michaels.minor_advance`; Larry Cohen,
 #   "Michaels Cue Bid"): 3♣ is pass or correct, up to 9 HCP; 2NT asks
 #   with 10+; 3♦ stays natural; there is no natural 3♣.
-after (1H) 2H (P) | (1H) 2H (X) when partner.S>=5
+after michaels_1h 2H (P) | michaels_1h 2H (X) when partner.S>=5
   2S  "Preference: three or more spades"
       shows S>=3
       priority -1
@@ -479,7 +490,7 @@ after (1H) 2H (P) | (1H) 2H (X) when partner.S>=5
 # Over 1S (2S) partner's hearts can only be shown at the three level, so
 # there is no invitational jump: 3H is any preference, and the cue bid
 # is the raise with 12+ (game interest).
-after (1S) 2S (P) | (1S) 2S (X) when partner.H>=5
+after michaels_1s 2S (P) | michaels_1s 2S (X) when partner.H>=5
   3H  "Preference: three or more hearts"
       shows H>=3
       priority -1
@@ -515,7 +526,7 @@ after (1S) 2S (P) | (1S) 2S (X) when partner.H>=5
       shows hcp>=13, H<=2, stop(S)
       when  C<=2 | D<=2
 
-after (1M) 2M (*) when partner.S>=5 | partner.H>=5
+after michaels_1maj 2M (*) when partner.S>=5 | partner.H>=5
   cheapest(S) "Competes: three or more spades"
       shows S>=3, hcp<=12
       when  M is H
@@ -528,24 +539,24 @@ after (1M) 2M (*) when partner.S>=5 | partner.H>=5
 
 # The Michaels bidder passes advancer's own suit (with pass_or_correct
 # only 3♦ is advancer's own).
-after (1M) 2M (*) 3m (*) when mich_adv is ask_2nt | m is D
+after michaels_1maj 2M (*) 3m (*) when mich_adv is ask_2nt | m is D
   P   "Partner's own suit: to play"  priority -1
 
 # pass_or_correct (Larry Cohen, "Michaels Cue Bid"): 3♣ asks the
 # Michaels bidder to pass with clubs and correct to 3♦ with diamonds.
 # Over a double the same; when RHO bids, the force is off as over the
 # 2NT ask: the minor at the four level with 13+ or a six-card minor.
-after (1M) 2M (*) 3C (P) | (1M) 2M (*) 3C (X) when mich_adv is pass_or_correct
+after michaels_1maj 2M (*) 3C (P) | michaels_1maj 2M (*) 3C (X) when mich_adv is pass_or_correct
   P   "My minor is clubs: to play"   shows C>=5, C>=D
   3D  "My minor is diamonds"         shows D>=5, D>C
-after (1M) 2M (*) 3C (*) when mich_adv is pass_or_correct, they.bid
+after michaels_1maj 2M (*) 3C (*) when mich_adv is pass_or_correct, they.bid
   cheapest(C)  "Competes: my minor is clubs, 13+ or six"
       shows C>=5, C>=D, hcp>=13 | C>=6
   cheapest(D)  "Competes: my minor is diamonds, 13+ or six"
       shows D>=5, D>C, hcp>=13 | D>=6
   P   "A minimum over their bid"   priority -1
 # Advancer chose a partscore: he passes the correction.
-after (1M) 2M (*) 3C (*) 3D (*) when mich_adv is pass_or_correct
+after michaels_1maj 2M (*) 3C (*) 3D (*) when mich_adv is pass_or_correct
   P   "To play in partner's minor"   priority -1
 
 # The Michaels bidder names the minor, also when they double the ask
@@ -554,10 +565,10 @@ after (1M) 2M (*) 3C (*) 3D (*) when mich_adv is pass_or_correct
 # the ask the force is off: he names the minor at the four level with
 # 13+ or a six-card minor, else passes (the corpus: the free four-level
 # answer with a minimum lost 23 IMPs on 14 boards).
-after (1M) 2M (*) 2N (P) | (1M) 2M (*) 2N (X)
+after michaels_1maj 2M (*) 2N (P) | michaels_1maj 2M (*) 2N (X)
   3C  "My minor is clubs"      shows C>=5, C>=D
   3D  "My minor is diamonds"   shows D>=5, D>C
-after (1M) 2M (*) 2N (*) when they.bid
+after michaels_1maj 2M (*) 2N (*) when they.bid
   cheapest(C)  "Competes: my minor is clubs, 13+ or six"
       shows C>=5, C>=D, hcp>=13 | C>=6
   cheapest(D)  "Competes: my minor is diamonds, 13+ or six"
@@ -571,7 +582,7 @@ after (1M) 2M (*) 2N (*) when they.bid
 # support points: shortness in partner's major is no value (the corpus:
 # a void in it made two 4m invitations go down). Over a bid by RHO the
 # same calls compete; a pass is the weak hand's.
-after (1M) 2M (*) 2N (*) 3m (*) | (1M) 2M (*) 2N (*) 4m (*)
+after michaels_1maj 2M (*) 2N (*) 3m (*) | michaels_1maj 2M (*) 2N (*) 4m (*)
   P    "To play in partner's minor"                        priority -1
   4{m} "Invites game in partner's minor: 10-12, three-card support"
       shows hcp>=10, hcp<=12, m>=3
@@ -587,10 +598,10 @@ after (1M) 2M (*) 2N (*) 3m (*) | (1M) 2M (*) 2N (*) 4m (*)
 # The Michaels bidder answers: accepts the invitation with 14+ (or 12+
 # and a sixth card in the minor); over the slam try, six with 13+, else
 # five.
-after (1M) 2M (*) 2N (*) 3m (*) 4m (*)
+after michaels_1maj 2M (*) 2N (*) 3m (*) 4m (*)
   5{m} "Accepts: 14+, or 12+ with six of the minor"   shows hcp>=14 | (hcp>=12, m>=6)
   P    "Declines: a minimum"                priority -5
-after (1M) 2M (*) 2N (*) 3m (*) 4M (*)
+after michaels_1maj 2M (*) 2N (*) 3m (*) 4M (*)
   6{m} "Accepts the slam try: 13+"          shows hcp>=13
   5{m} "Declines: a minimum"                priority -1
 
@@ -650,12 +661,12 @@ after (1x) 2N (*) when partner.longest>=5, partner.second_longest>=5
 # so a minimum passes. The top of the range bids again: 15-16 invites,
 # 17+ bids the game (with weak_or_strong the strong variety is 16+, and
 # it bids again the same way).
-after (1x) 2x (P) 2y (P) | (1x) 2x (P) 3y (P) when y is not x, y is H | y is S, !partner.jumped
+after michaels_1x 2x (P) 2y (P) | michaels_1x 2x (P) 3y (P) when y is not x, y is H | y is S, !partner.jumped
   P    "Minimum: no further bid"       priority -5
   3{y} "Strong two-suiter: invites game"   shows hcp>=15, hcp<=16
   4{y} "Strong two-suiter: game"           shows hcp>=17
 # After the jump preference (10-12): accept with 11+.
-after (1x) 2x (P) 3y (P) when y is not x, y is H | y is S, partner.jumped
+after michaels_1x 2x (P) 3y (P) when y is not x, y is H | y is S, partner.jumped
   4{y} "Accepts the invitation"            shows hcp>=11
   P    "Declines: a minimum"               priority -5
 # After the cue bid (forcing, 16+): a minimum names its longer (or only
@@ -664,7 +675,7 @@ after (1x) 2x (P) 3y (P) when y is not x, y is H | y is S, partner.jumped
 # describes: a pass would leave partner in their suit (Brill round robin
 # 2026-10-09, board 90000102: 1S 2S X 3S X P P P, -1,700). Only when RHO
 # bids over the cue is the force off.
-after (1m) 2m (*) 3m (P) | (1m) 2m (*) 3m (X)
+after michaels_1m 2m (*) 3m (P) | michaels_1m 2m (*) 3m (X)
   cheapest(S) "Minimum: spades"   shows S>=H, hcp<=12
   cheapest(H) "Minimum: hearts"   shows H>S, hcp<=12
   4S  "Maximum: game in spades"   shows S>=H, hcp>=13
@@ -676,20 +687,20 @@ after (1m) 2m (*) 3m (P) | (1m) 2m (*) 3m (X)
 # minor at the four level, below 4S (a slam try), or bids 4S with six.
 # Over 1S (2S) 3S (12+) a minimum bids the game, 4H; a maximum names the
 # minor at the four level, still below 4H.
-after (1H) 2H (*) 3H (P) | (1H) 2H (*) 3H (X)
+after michaels_1h 2H (*) 3H (P) | michaels_1h 2H (*) 3H (X)
   3S  "Minimum: spades"                     shows hcp<=12
   4C  "Maximum: my minor is clubs"          shows C>=5, C>=D, hcp>=13
   4D  "Maximum: my minor is diamonds"       shows D>=5, D>C, hcp>=13
   4S  "Maximum: six or more spades"         shows S>=6, hcp>=13
       priority 1
-after (1S) 2S (*) 3S (P) | (1S) 2S (*) 3S (X)
+after michaels_1s 2S (*) 3S (P) | michaels_1s 2S (*) 3S (X)
   4H  "Minimum: game in hearts"             shows hcp<=12
   4C  "Maximum: my minor is clubs"          shows C>=5, C>=D, hcp>=13
   4D  "Maximum: my minor is diamonds"       shows D>=5, D>C, hcp>=13
 
 # The cue bidder, with the fit in partner's major, bids its game once
 # partner has named the minor (slam is a gap: notes).
-after (1M) 2M (*) 3M (*) 4m (P) | (1M) 2M (*) 3M (*) 4m (X)
+after michaels_1maj 2M (*) 3M (*) 4m (P) | michaels_1maj 2M (*) 3M (*) 4m (X)
   4H   "Game in hearts: the fit the cue bid showed"
       when  M is S
       priority 1
@@ -698,7 +709,7 @@ after (1M) 2M (*) 3M (*) 4m (P) | (1M) 2M (*) 3M (*) 4m (X)
       priority 1
 # After the minimum at the three level: the cue bidder (16+) bids the
 # game, in the major with three or more, else 3NT with their suit held.
-after (1x) 2x (*) 3x (*) 3y (*) when y is H | y is S, y is not x
+after michaels_1x 2x (*) 3x (*) 3y (*) when y is H | y is S, y is not x
   4{y} "Game: three or more {y}"   shows y>=3
   3N   "Game: {x} held, no {y} fit"                     shows stop(x)
       priority -1

@@ -154,6 +154,49 @@ are weak (CLAUDE.md: our engine plays both sides). Worst context
 gain and look at the opener's side's penalty doubles, or tighten the
 one-level overcall here?
 
+## After their 1NT response: (1x) P (1N) (2026-11-26)
+
+Rick, 2026-11-26: "rules for this position should sit high in our
+to-do queue". The fourth hand after (1x) P (1N) had no overcall or
+double, only the Unusual 2NT (two-suited-overcalls.bid), so it passed
+everything else. Responder's 1NT limits their side and denies a fit,
+so the seat competes as the sandwich seat does:
+
+| call | shows |
+|---|---|
+| 2 of a new suit | five or more, a good suit or six; 12+ HCP (11 with six), up to 18 HCP (partner has passed: no power double) |
+| 3 of a new suit | seven cards, 4-10 HCP, a good suit vulnerable (`overcalls.jump = weak`) |
+| X over 1♥/1♠ | four of the other major, three of each minor, at most two of theirs, 12+; or three-three-three with at most three of theirs and 15+ |
+| X over 1♣/1♦ | three or more of each major, eight together (or 15+), 12+ |
+| 2 of their suit | Michaels (two-suited-overcalls.bid) |
+| 2NT | the Unusual 2NT (unchanged) |
+| Pass | read as at most 18 total points; a stronger hand with no call passes unread |
+
+Advancing (advances.bid): the raise of the overcall to three with four
+trumps and 6+ or three and 9+; the answers to the double as from the
+sandwich seat (the longer unbid suit, a jump with four and 9-11, a
+forced three-card answer), and a pass of the double to defend 1NT
+doubled with 9+ balanced and their suit held.
+
+GIB's tree (`gib_tree.py show 1S-P-1N`, 1H-P-1N, 1D-P-1N, 1C-P-1N,
+1S-P-1N-D-P, 1C-P-1N-D-P, 1S-P-1N-2H-P; 21GF-GIB) agrees on every call's
+kind. Differences, kept:
+- the two-level overcall: GIB 13-18 total points ("rebiddable"); ours
+  is 12-18 HCP, read as 13-22 declarer points: the 18 is HCP, and a
+  long suit adds length (no alternative call for 17-18 HCP with six);
+- the double over a major: GIB 4+ in the other major and 2- in theirs;
+  our 15+ variant allows three and three. Over a minor GIB says only
+  13+; ours promises the majors;
+- the pass: GIB 16- over a major, 20- over a minor; ours 18 for both;
+- the weak jumps' floor: ours 7 declarer points (4 HCP), GIB 3;
+- advancer: GIB raises 2♥ to 3♥ with three and 8-10 total points (ours
+  three and 9+, or four and 6+); GIB's 2NT and cue bid of opener's suit
+  after the double are not written here.
+
+Sources: standard practice, not yet cited, for the calls (the
+sandwich seat's treatment one level up); GIB's tree as above for the
+ranges it states.
+
 ## Probed over 1C (2026-09-25, `probes/overcall-1C.toml`)
 
 2,500 hands with a five-card or longer suit and 5-17 HCP over 1C
@@ -422,3 +465,4 @@ under GIB's (Rick's 8, BBA's Basic-Bridge meaning).
   the three-level minimum from the tripwire above.
 - GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.
 - GIB's tree (as above) and Rick 2026-11-25: the HCP floor in "The one-level overcall's HCP floor".
+- The fourth seat after (1x) P (1N) (2026-11-26): standard practice, not yet cited; GIB's tree (`probes/tools/gib_tree.py show 1S-P-1N` and the others named in that section) for its ranges and differences.

@@ -126,3 +126,15 @@ dealer  E
 vul     None
 
 N K852.Q63.9752.J4          | 1C 1S P       | 2S     | four spades: the raise
+
+# Advancing after (1x) P (1N) and partner's overcall or double
+# (2026-11-26). South advances, dealer East.
+card    21GF-DEFAULT
+dealer  E
+vul     None
+S 642.K83.Q9752.J4      | 1S P 1N 2H P   | P      | three hearts and 6 HCP: the raise to three needs 9 or four trumps
+S 642.K832.Q975.J4      | 1S P 1N 2H P   | 3H     | four-card support: compete to three
+S 87.Q943.J854.T62      | 1S P 1N X P    | 2H     | four hearts, weak: the cheapest answer
+S T62.Q87.KQ943.54      | 1S P 1N X P    | 2D     | five diamonds, no four-card major
+S KJ94.Q82.A62.874      | 1S P 1N X P    | P      | 10 HCP balanced with the spades held: defend 1NT doubled
+S T62.87.Q943.J854      | 1C P 1N X P    | 2S     | the double showed the majors: the three-card spade answer

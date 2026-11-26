@@ -587,6 +587,25 @@ Open questions (not written):
   (Brill), a different module (advances), not written.
 - BBA's passed-hand 2NT in the sandwich seat with six-five (above).
 
+## The cue bid after their 1NT response (2026-11-26)
+
+(1x) P (1N) 2x is Michaels, as the direct cue bid: over a minor both
+majors, over a major the other major and a minor, with the card's
+strength (wide range or weak-or-strong). GIB's tree agrees
+("Michaels -- 5+ !H; 9+ total points" over 1♠ P 1NT; both majors over
+1♣/1♦ P 1NT). The named auctions `michaels_1m`, `michaels_1h`,
+`michaels_1s`, `michaels_1maj` and `michaels_1x` (their opening, or
+their opening and the 1NT response) start the cue bid and every
+advancer and rebid context, so the continuations are the direct cue
+bid's. Responder's 1NT says the opponents have no fit, so the
+two-suiter is safer here than directly; the values stay the same
+(standard practice, not yet cited).
+
+Not written: the opening side's answer to it. Opener's rebids after
+1♠ P 1NT (2♠) are base/rebids.bid's generic rebids over interference;
+the "Our side, when they make a two-suited overcall" rules are for the
+direct cue bid only.
+
 ## The long hand counts its own points (Rick, 2026-11-25)
 
 Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with the shorter trumps, the one raising; the hand with the long trumps counts its own points, HCP plus length (`hcp+length_points`, the engine's "decl"). The long trump hand counting support points "isn't normally done" (engine repo docs/BIDDING-MODEL.md, 3.3).
@@ -681,3 +700,4 @@ plus length; the numbers stayed.
 - **Brill's convention files** (2026-10-30 gap list): where Rusty had no
   rule; hints, not copied.
 - **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.
+- The Michaels cue bid after (1x) P (1N) (2026-11-26): standard practice, not yet cited; GIB's tree (`gib_tree.py show 1S-P-1N`, 1C-P-1N) shows it as Michaels.
