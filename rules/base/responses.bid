@@ -159,6 +159,26 @@ after 1H (P)
       when  gf21, !f1n, !semi             # brill: a three-card limit raise starts here (3H below)
   1N  "Semi-forcing 1NT: 6-12 HCP, no heart fit or a weak three-card raise, no 4 spades"   shows hcp=6..12, H<=2 | (H=3, tp(H)<=7, !passed_hand, style is not bba, system is not brill), S<=3, hcp<=11 | points<=12
       when  gf21, !f1n, semi
+  # What partner reads from the 1NT above: also at most 13 declarer
+  # points (GIB's tree: 12- total points; Rick 2026-11-25). An 11-count
+  # with a six-card suit is 13 and rebids it at three; a longer suit or
+  # 6-5 that still has 1NT borrows the call (BIDDING-MODEL 3.6). Never
+  # chosen (`bare(C), !bare(C)` holds for no hand, and a reader cannot
+  # judge it), and above the rules for the call, so the 1NT is read by
+  # these alone (docs/LANGUAGE.md section 8; rkcb-1430.bid's idiom).
+  1N  "Forcing 1NT: 6-12 HCP, no heart fit or a weak three-card raise, no 4 spades"   shows hcp=6..12, H<=2 | (H=3, tp(H)<=7, !passed_hand, style is not bba, system is not brill), S<=3, hcp<=11 | points<=12, hcp+length_points<=13
+      when  gf21, f1n
+      sets forcing=round
+      when  bare(C), !bare(C)            # never chosen: described only
+      priority 1
+  1N  "6-12 HCP, no heart fit or a weak three-card raise, no 4 spades"   shows hcp=6..12, H<=2 | (system is brill, H=3, tp(H)>=10) | (H=3, tp(H)<=7, !passed_hand, style is not bba, system is not brill), S<=3, hcp<=11 | points<=12, hcp+length_points<=13
+      when  gf21, !f1n, !semi
+      when  bare(C), !bare(C)            # never chosen: described only
+      priority 1
+  1N  "Semi-forcing 1NT: 6-12 HCP, no heart fit or a weak three-card raise, no 4 spades"   shows hcp=6..12, H<=2 | (H=3, tp(H)<=7, !passed_hand, style is not bba, system is not brill), S<=3, hcp<=11 | points<=12, hcp+length_points<=13
+      when  gf21, !f1n, semi
+      when  bare(C), !bare(C)            # never chosen: described only
+      priority 1
   2S  "Strong jump shift: 15+, 5+ spades"  shows S>=5, hcp>=15  when strong_js, !wjs_on, !soloway, !passed_hand
       sets forcing=game
   2C  "11+ points, 4+ clubs"           shows C>=4, points>=11 | C>=6 | (H>=3, tp(H)>=11), suit_points>=10, C>=D, S<=3 | (C>S, hcp>=13 | C>=6)
@@ -207,6 +227,26 @@ after 1S (P)
       when  gf21, !f1n, !semi             # brill: a three-card limit raise starts here (3S below)
   1N  "Semi-forcing 1NT: 6-12 HCP, no spade fit or a weak three-card raise"   shows hcp=6..12, S<=2 | (S=3, tp(S)<=7, !passed_hand, style is not bba, system is not brill), hcp<=11 | points<=12
       when  gf21, !f1n, semi
+  # What partner reads from the 1NT above: also at most 13 declarer
+  # points (GIB's tree: 12- total points; Rick 2026-11-25). An 11-count
+  # with a six-card suit is 13 and rebids it at three; a longer suit or
+  # 6-5 that still has 1NT borrows the call (BIDDING-MODEL 3.6). Never
+  # chosen (`bare(C), !bare(C)` holds for no hand, and a reader cannot
+  # judge it), and above the rules for the call, so the 1NT is read by
+  # these alone (docs/LANGUAGE.md section 8; rkcb-1430.bid's idiom).
+  1N  "Forcing 1NT: 6-12 HCP, no spade fit or a weak three-card raise"   shows hcp=6..12, S<=2 | (S=3, tp(S)<=7, !passed_hand, style is not bba, system is not brill), hcp<=11 | points<=12, hcp+length_points<=13
+      when  gf21, f1n
+      sets forcing=round
+      when  bare(C), !bare(C)            # never chosen: described only
+      priority 1
+  1N  "6-12 HCP, no spade fit or a weak three-card raise"   shows hcp=6..12, S<=2 | (system is brill, S=3, tp(S)>=10) | (S=3, tp(S)<=7, !passed_hand, style is not bba, system is not brill), hcp<=11 | points<=12, hcp+length_points<=13
+      when  gf21, !f1n, !semi
+      when  bare(C), !bare(C)            # never chosen: described only
+      priority 1
+  1N  "Semi-forcing 1NT: 6-12 HCP, no spade fit or a weak three-card raise"   shows hcp=6..12, S<=2 | (S=3, tp(S)<=7, !passed_hand, style is not bba, system is not brill), hcp<=11 | points<=12, hcp+length_points<=13
+      when  gf21, !f1n, semi
+      when  bare(C), !bare(C)            # never chosen: described only
+      priority 1
   2C  "11+ points, 4+ clubs"           shows C>=4, points>=11 | C>=6 | (S>=3, tp(S)>=11), suit_points>=10, C>=D, C>=H
       when  !gf21
       when  !passed_hand | (!drury, !drury_rev)   # Drury (drury.bid) takes a passed hand's 2♣

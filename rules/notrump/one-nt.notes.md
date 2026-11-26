@@ -755,6 +755,23 @@ beside the ranges they read.
 Rick (2026-11-07), on judging "good 14" in total points at both ends:
 **"4: yes"**. The decision above stands.
 
+## 1NT 3NT is read as a notrump hand (Rick, GIB tree, 2026-11-25)
+
+Responder's 3NT over 1NT showed game values and no five-card major, so
+partner read 0-8 in a minor and 0-4 in a major. It is read as 2-4 in
+each major and 2-5 in each minor (GIB: the same; Rick's 1NT example in
+BIDDING-MODEL 3.6). A long minor or a singleton still bids 3NT. Lengths
+min-wide: 1,581 call-boards, now none. Left: the HCP floor, ours 7 by
+the total-points band, GIB 10.
+
+How it is written: a second rule for the same call, never chosen
+(`when bare(C), !bare(C)`: no hand meets it, and a reader cannot judge
+it, so it stays possible when the call is read), one priority above the
+rule that bids. Partner reads the call by the higher rule alone
+(docs/LANGUAGE.md section 8), so the description narrows and no call
+changes (BIDDING-MODEL 3.6; the idiom of rkcb-1430.bid). The cost: these
+calls count in compare's "calls read as a higher rule than chose them".
+
 ## Sources
 
 - **The system:** a 15-17 1NT opening and natural responses (2NT
@@ -807,3 +824,4 @@ Rick (2026-11-07), on judging "good 14" in total points at both ends:
   export, 2026-11-07). No corpus card sets a qualifier or an alternate
   range, so no BBA evidence; measurements in "Range qualifiers and the
   alternate range".
+- GIB's bidding tree (BBO's `gibrest`, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), agreed-path comparison on 21GF-GIB (top 5,000 positions of 100,000 random deals), Rick 2026-11-25 (BIDDING-MODEL 3.6 and 4.3): the description rules in the section of that date above.

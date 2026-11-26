@@ -466,6 +466,22 @@ responder-rebids.notes.md ("Support points, not HCP").
 
 **Measured:** see responder-rebids.notes.md, the #87 section.
 
+## The 1NT response to a major is read to 13 declarer points (Rick, GIB tree, 2026-11-25)
+
+The forcing (and non-forcing, semi-forcing) 1NT over 1♥/1♠ showed 6-12
+HCP, so partner read up to 15 declarer points; GIB's tree says 12-
+total points. It is read as at most 13 now: an 11-count with a
+six-card suit is 13 and rebids the suit at three. 3,256 call-boards,
+now none.
+
+How it is written: a second rule for the same call, never chosen
+(`when bare(C), !bare(C)`: no hand meets it, and a reader cannot judge
+it, so it stays possible when the call is read), one priority above the
+rule that bids. Partner reads the call by the higher rule alone
+(docs/LANGUAGE.md section 8), so the description narrows and no call
+changes (BIDDING-MODEL 3.6; the idiom of rkcb-1430.bid). The cost: these
+calls count in compare's "calls read as a higher rule than chose them".
+
 ## Sources
 
 - Brill /explain, 2026-10-15 (Thorvald Aagaard's public Brill service, answers cached in `.rbb-cache/brill-service/explain/`): the rule text quoted in the `brill` section and in the `.bid` comments. Applies to the Brill card only (`general.system = brill`, cards/README.md "Brill").
@@ -500,3 +516,4 @@ responder-rebids.notes.md ("Support points, not HCP").
   support points, the direct raise constructive ("with 9 support points
   a direct, constructive raise is correct"). Standard 2/1 practice,
   not yet cited.
+- GIB's bidding tree (BBO's `gibrest`, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), agreed-path comparison on 21GF-GIB (top 5,000 positions of 100,000 random deals), Rick 2026-11-25 (BIDDING-MODEL 3.6 and 4.3): the description rules in the section of that date above.

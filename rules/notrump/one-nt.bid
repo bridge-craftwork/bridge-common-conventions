@@ -149,6 +149,17 @@ after nt1 when !they.bid | systems_on
   3N  "To play: {game} total points"
       shows strength=game, H<=4, S<=4                   # with five, transfer first
       when  style is not bba
+  # What partner reads: a notrump hand, two to five cards in every suit
+  # (GIB's tree: 2-5 minors, 2-4 majors, 10-15 HCP; Rick 2026-11-25,
+  # BIDDING-MODEL 3.6). A long minor or a singleton that bids 3NT
+  # borrows the call. Never chosen (`bare(C), !bare(C)` holds for no
+  # hand, and a reader cannot judge it), and above the rule for the
+  # call, so the 3NT is read by this alone (rkcb-1430.bid's idiom).
+  3N  "To play: {game} total points"
+      shows strength=game, H=2..4, S=2..4, D=2..5, C=2..5
+      when  style is not bba
+      when  bare(C), !bare(C)            # never chosen: described only
+      priority 1
   2N  "Invitational: {invite} total points"
       shows strength=invite, H<=4, S<=4, C<=5, D<=5     # a long suit has its own route
       when  !(mtp, minors is four_way), !(mtp, minors is four_way_reversed), style is not bba   # 2NT is a transfer
