@@ -1791,6 +1791,21 @@ chose them".
   raise of partner's double (1S X 2S/2NT/3S) has no four-card major or
   game bid: tops there need those calls first.
 
+## Shape after a pass of a known auction (GIB tree, 2026-11-26)
+
+At 1♦ 1♥ 1♠ 1N P (and 1♣ 1♥ 1♠ 1N P) we read opener with ♥0-4 and
+♣0-4 where GIB says ♥2-3, ♣2-6 (2,054 call-boards on the pass, 2,019
+on the 1♠ rebid itself). The engine carries the earlier calls' shape;
+the gap was in the rule: the 1♠ rebid's "four hearts: raise first" was
+a `when`, which partner does not read (docs/CONTRACT.md: `when` only
+for what is not promised). It is now a `shows`; no hand bids
+differently. After 1♦ 1♥ 1♠ 1N P opener reads ♠4 ♥0-3 ♦4-5 ♣1-4.
+MEASURE_G4
+
+Left as the licence: GIB's two or more clubs there (GIB rebids 2♦ with
+4=3=5=1; we pass 1NT with it) and the four-card diamond floor of
+1♦ 1♥ 2♣ 2♦ P (we open 1♦ with four-four in the minors).
+
 ## The long hand counts its own points (Rick, 2026-11-25)
 
 Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with the shorter trumps, the one raising; the hand with the long trumps counts its own points, HCP plus length (`hcp+length_points`, the engine's "decl"). The long trump hand counting support points "isn't normally done" (engine repo docs/BIDDING-MODEL.md, 3.3).

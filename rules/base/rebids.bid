@@ -161,7 +161,7 @@ after 1C (P) 1D (P) when !tw(C)
       when  style is bba
 after 1C (P) 1H (P) when !tw(C)
   1S  "4+ spades, up to 18"                shows S>=4, suit_points<=18
-      when  H<=3                           # four hearts: raise first
+      shows H<=3                           # four hearts: raise first (shown: GIB 3- hearts, Rick 2026-11-25)
       priority 2                           # four spades: 1S before 1NT
   2D  "Reverse: 4+ diamonds, longer clubs, 17+"  shows D>=4, C>D, suit_points>=17  sets forcing=round
       priority 1
@@ -176,7 +176,7 @@ after 1C (P) 1S (P) when !tw(C)
   3H  "Jump shift: 4+ hearts, 19+"         shows H>=4, suit_points>=19   sets forcing=game, ask=js(H, C, S)
 after 1D (P) 1H (P)
   1S  "4+ spades, up to 18"                shows S>=4, suit_points<=18
-      when  H<=3                           # four hearts: raise first
+      shows H<=3                           # four hearts: raise first (shown: GIB 3- hearts, Rick 2026-11-25)
       priority 2                           # four spades: 1S before 1NT
   1N  "12-14 HCP, balanced"                shows balanced, hcp=12..14, H<=3
       when  style is not bba, !weak_nt     # Rick: balanced rebids 1NT, not 2C
