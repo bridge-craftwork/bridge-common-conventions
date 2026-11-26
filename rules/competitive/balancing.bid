@@ -1,18 +1,32 @@
 # Syntax: docs/LANGUAGE.md. Check with `rbb bid check`.
 #
-# The balancing seat: they opened, partner passed, and RHO passed too.
-# Partner is marked with values, so everything is lighter than in the
-# direct seat (Rick, 2026-09-22, following BBA's Basic-Bridge meanings):
+# The balancing seat: they opened, partner passed, and RHO passed too;
+# or they found a fit and stopped at the two level, and the pass would
+# end the auction. Partner is marked with values, so everything is
+# lighter than in the direct seat: the balancer "borrows a king" (Rick,
+# 2026-09-22, following BBA's Basic-Bridge meanings; Rick, 2026-11-26,
+# BIDDING-MODEL 3.8):
 #
 # - the reopening double is 8+ total points with three or more cards in
-#   every unbid suit, or 18+ with any shape;
+#   every unbid suit, or 16+ with any shape;
 # - a suit at the one level is 8-15 total points with five cards, at the
 #   two level 10-15;
-# - 1NT is 12-15 balanced with a stopper, not the 15-18 of the direct
-#   seat, and 2NT is 19-21.
+# - 1NT is 12-15 balanced with a stopper, three below the direct seat's
+#   15-18, and 2NT is 19-21.
 #
-# Systems are on over the balancing 1NT: the notrump modules carry the
-# `(1x) P (P) 1N (P)` spelling of their patterns.
+# Partner gives the king back: answering a balancing call, every
+# threshold is about three points higher than over the direct call
+# (Rick, 2026-11-26). Over the balancing 1NT that comes free: systems
+# are on (the notrump modules' `systems 1N` entry), and their strength
+# bands count against the 12-15 the call showed. Over the reopening
+# double and the doubler's rebid, the ranges are written below; over the
+# balancing suit, in advances.bid.
+#
+# Over their fit, (1x) P (2x) P (P) and (1x) P (1y) P (2y) P (P), the
+# balancer has already passed once, so the hands left are the ones
+# without a direct call: a takeout double short in their suit, a
+# five-card suit, or 2NT for two places to play (notes, "Over their
+# fit").
 
 module balancing "The balancing seat"
   kind   system
@@ -23,13 +37,14 @@ module balancing "The balancing seat"
   param  two_min = overcalls.two_level_min default 12
   param  nt_min  = nt_overcalls.balance.range_min default 12
   param  nt_max  = nt_overcalls.balance.range_max default 15
-  param  oc_max  = overcalls.one_level_max default 17
 
 # ── Reopening ────────────────────────────────────────────────────────
 after (1x) P (P)
   X   "Reopening double: 8+ total points and the unbid suits"
       shows hcp+length_points>=8
-      shows ((S>=3 | x is S), (H>=3 | x is H), (D>=3 | x is D), (C>=3 | x is C)) | hcp+length_points>=oc_max+1
+      # Any shape from 16: above the balancing suit bids' 15 (2026-11-26;
+      # was the direct seat's 18, which left 16-17 with a long suit no call).
+      shows ((S>=3 | x is S), (H>=3 | x is H), (D>=3 | x is D), (C>=3 | x is C)) | hcp+length_points>=16
   # Read as the unbid suits and 8+ (Rick 2026-11-25, BIDDING-MODEL 3.6;
   # GIB's tree: 3+ in each unbid suit, 9+ HCP): the strong hand borrows
   # the call. Never chosen, and it outranks the double above, so the
@@ -65,3 +80,272 @@ after (1x) P (P)
       shows balanced, hcp=19..21
       when  stop(x)
   P   "Nothing to reopen with"  priority -10
+
+# ── Advancing the reopening double ───────────────────────────────────
+# The ladder of takeout-double.bid, every threshold three points higher
+# (Rick, 2026-11-26): partner borrowed a king, so advancer subtracts one.
+# Advancer passed the opening, often with values and length in their
+# suit (the trap pass that the reopening protects).
+after (1x) P (P) X (P)
+  1H  "0-11 total points, four or more hearts"   shows H>=4, H>=S | x is S, hcp+length_points<=11 | (H=4, hcp<=12)
+      when  x is not H, x is not S
+  1S  "0-11 total points, four or more spades"   shows S>=4, S>H | x is H, hcp+length_points<=11 | (S=4, hcp<=12)
+      when  x is not S
+  1D  "0-11 total points, four or more diamonds" shows D>=4, D>C, S<=3 | x is S, H<=3 | x is H, hcp+length_points<=11 | (D=4, hcp<=12)
+      when  x is not D, x is not H, x is not S
+  2C  "0-11 total points, four or more clubs"    shows C>=4, C>=D, S<=3 | x is S, H<=3 | x is H, hcp+length_points<=11 | (C=4, hcp<=12)
+      when  x is not C
+  2D  "0-11 total points, four or more diamonds" shows D>=4, D>C, S<=3 | x is S, H<=3 | x is H, hcp+length_points<=11 | (D=4, hcp<=12)
+      when  x is not D, x is not C
+  2H  "0-11 total points, four or more hearts"   shows H>=4, H>=S | x is S, hcp+length_points<=11 | (H=4, hcp<=12)
+      when  x is not H, x is not D, x is not C
+  # Above a four-card minor (the cheapest suit is 0-11, and this says
+  # more); a four-card unbid major is shown first.
+  1N  "10-13 HCP, balanced, a stopper in {x}"
+      shows balanced, hcp>=10, hcp<=13, H<=3 | x is H, S<=3 | x is S
+      when  stop(x)
+      priority 1
+
+# Jumps invite: 12-14 total points.
+after (1x) P (P) X (P)
+  2H  "12-14 total points, four or more hearts"   shows H>=4, H>=S | x is S, hcp+length_points=12..14, H>=5 | hcp>=13
+      when  x is not H, x is not S
+  2S  "12-14 total points, four or more spades"   shows S>=4, S>H | x is H, hcp+length_points=12..14, S>=5 | hcp>=13
+      when  x is not S
+  3C  "12-14 total points, four or more clubs"    shows C>=4, C>=D, S<=3 | x is S, H<=3 | x is H, hcp+length_points=12..14, C>=5 | hcp>=13
+      when  x is not C
+  3D  "12-14 total points, four or more diamonds" shows D>=4, D>C, S<=3 | x is S, H<=3 | x is H, hcp+length_points=12..14, D>=5 | hcp>=13
+      when  x is not D, x is not C
+  3H  "12-14 total points, four or more hearts"   shows H>=4, H>=S | x is S, hcp+length_points=12..14, H>=5 | hcp>=13
+      when  x is not H, x is not D, x is not C
+  2N  "14-15 total points, balanced, a stopper in {x}"
+      shows balanced, hcp+length_points=14..15
+      when  stop(x)
+
+after (1x) P (P) X (P)
+  3N  "Game: 15+, a stopper in {x}"  shows hcp>=15, stop(x), (H<=3 | x is H), (S<=3 | x is S)
+      priority 2
+  1D  "0-11, no four-card suit to show: three diamonds"  shows D>=3, H<=3, S<=3, hcp<=11
+      when  x is C
+      priority -2
+  1H  "0-11, no four-card suit to show: three hearts"   shows H>=3, S<=3, hcp<=11
+      when  x is not H, x is not S
+      priority -3
+  2C  "0-11, no four-card suit to show: three clubs"    shows C>=3, H<=3, S<=3, hcp<=11
+      when  x is not C
+      priority -2
+  2D  "0-11, no four-card suit to show: three diamonds" shows D>=3, H<=3, S<=3, hcp<=11
+      when  x is not D, x is not C
+      priority -3
+  2{x} "Cue bid: 15+ total points, asks for a description"
+      alert  artificial
+      shows  hcp+length_points>=15
+      sets   forcing=game
+      priority 1
+
+# ── The reopening doubler's rebid ────────────────────────────────────
+# Three below the direct doubler's (takeout-double.bid): the strong
+# hands that doubled first because they were too strong to balance
+# with a suit (8-15) or 1NT (12-15) show themselves now.
+after (1x) P (P) X (P) 1y (P)
+  P   "Minimum reopening double"
+      shows hcp<=13
+      priority -5
+  2{y} "14-16 total points, four-card support"
+      shows y>=4, hcp+length_points=14..16
+  3{y} "17-18 total points, four-card support"
+      shows y>=4, hcp+length_points=17..18
+  4{y} "19+ total points, four-card support for partner's major"
+      shows y>=4, hcp+length_points>=19
+      when  y is H | y is S
+  1N  "Reopening double, then 1NT: balanced, above the balancing notrump, a stopper in {x}"
+      converts X
+      shows balanced, hcp>nt_max, hcp<=nt_max+3
+      when  stop(x)
+  cheapest(S) "16+ total points and a five-card spade suit"
+      converts X
+      shows S>=5, hcp+length_points>=16 | hcp>=15
+      when  x is not S, y is not S
+  cheapest(H) "16+ total points and a five-card heart suit"
+      converts X
+      shows H>=5, hcp+length_points>=16 | hcp>=15
+      when  x is not H, y is not H
+  cheapest(D) "16+ total points and a five-card diamond suit"
+      converts X
+      shows D>=5, hcp+length_points>=16 | hcp>=15
+      when  x is not D, y is not D
+  cheapest(C) "16+ total points and a five-card club suit"
+      converts X
+      shows C>=5, hcp+length_points>=16 | hcp>=15
+      when  x is not C, y is not C
+
+after (1x) P (P) X (P) 2y (P)
+  P   "Minimum reopening double"
+      shows hcp<=13
+      priority -5
+  3{y} "Strong raise: four-card support, 15+"
+      shows y>=4, hcp+length_points>=15 | hcp>=14
+  3{y} "Strong raise: three-card support, 17+"
+      shows y=3, hcp>=17
+  cheapest(S) "16+ total points and a five-card spade suit"
+      converts X
+      shows S>=5, hcp+length_points>=16 | hcp>=15
+      when  x is not S, y is not S
+  cheapest(H) "16+ total points and a five-card heart suit"
+      converts X
+      shows H>=5, hcp+length_points>=16 | hcp>=15
+      when  x is not H, y is not H
+  cheapest(D) "16+ total points and a five-card diamond suit"
+      converts X
+      shows D>=5, hcp+length_points>=16 | hcp>=15
+      when  x is not D, y is not D
+  cheapest(C) "16+ total points and a five-card club suit"
+      converts X
+      shows C>=5, hcp+length_points>=16 | hcp>=15
+      when  x is not C, y is not C
+  2N  "Reopening double, then 2NT: balanced, above the balancing notrump, a stopper in {x}"
+      converts X
+      shows balanced, hcp>nt_max, hcp<=nt_max+3
+      when  stop(x)
+
+# ── Over their fit: they raised and stopped at the two level ─────────
+# (1x) P (2x) P (P): I passed the opening, so I have no direct call:
+# short in their suit with the others, a five-card suit too weak to
+# overcall, or both minors. When they have a fit, so do we (the Law of
+# Total Tricks), and their 2x is no place to defend: the balance pushes
+# them to the three level or finds our partscore (notes). Partner passed
+# over the raise with up to about 11; the balancer counts on that.
+after (1x) P (2x) P (P)
+  X   "Balancing double: a singleton or void in {x}, the unbid suits, 8+ HCP"
+      shows x<=1 | ((x is C | x is D), x<=3, H>=4, S>=4), hcp>=8
+      shows ((S>=3 | x is S), (H>=3 | x is H), (D>=3 | x is D), (C>=3 | x is C)) | ((x is C | x is D), H>=4, S>=4)
+  2N  "Balancing 2NT: both minors, two places to play"
+      alert  artificial
+      shows C>=4, D>=4, C+D>=9, S<=3 | x is S, H<=3 | x is H, hcp+length_points>=9
+      when  x is H | x is S
+      priority 1                        # the two suits at once, above a natural three-level bid
+  2N  "Balancing 2NT: diamonds and hearts, two places to play"
+      alert  artificial
+      shows D>=4, H>=4, D+H>=9, S<=3, hcp+length_points>=9
+      when  x is C
+      priority 1                        # the two suits at once, above a natural three-level bid
+  2N  "Balancing 2NT: clubs and hearts, two places to play"
+      alert  artificial
+      shows C>=4, H>=4, C+H>=9, S<=3, hcp+length_points>=9
+      when  x is D
+      priority 1                        # the two suits at once, above a natural three-level bid
+
+# (1x) P (1y) P (2y) P (P): opener raised responder. I passed over the
+# response; the two unbid suits are ours.
+after (1x) P (1y) P (2y) P (P) when y is not x
+  X   "Balancing double: a singleton or void in {y}, the two unbid suits, 8+ HCP"
+      shows y<=1, hcp>=8
+      shows (S>=4 | x is S | y is S), (H>=4 | x is H | y is H), (D>=3 | x is D | y is D), (C>=3 | x is C | y is C)
+  2N  "Balancing 2NT: the two unbid suits, two places to play"
+      alert  artificial
+      shows (C>=4 | x is C | y is C), (D>=4 | x is D | y is D), (H>=4 | x is H | y is H), (S>=4 | x is S | y is S)
+      shows x+y<=4, hcp+length_points>=9
+      priority 1                        # the two suits at once, above a natural three-level bid
+
+# A five-card suit of my own, in either: at the two level 8+ total
+# points (7 HCP and the fifth card: with more, and a good suit, I would
+# have overcalled at once), at the three level 11+ (a six-card suit with
+# 9 HCP, or a five-card suit with 10) and a singleton or void in their
+# suit. The longest unbid suit; an unbid major at the two level comes
+# before the double.
+#
+# Shortness in their suit, for the double and the three-level suit
+# (2026-11-26, 100k random deals, the balancer's contract errors): with
+# a singleton or void the balance gained, with a doubleton it lost about
+# 2.5 IMPs a board, at every strength (notes). That is the Law's own
+# reason to balance: their fit and our shortness mean more total tricks.
+after (1x) P (2x) P (P) | (1x) P (1y) P (2y) P (P)
+  cheapest(S) "Balancing: five or more spades, 8+ total points"
+      shows S>=5, S>=H | lho.named(H) | rho.named(H), S>=D | lho.named(D) | rho.named(D), S>=C | lho.named(C) | rho.named(C)
+      shows hcp+length_points>=8
+      when  !lho.named(S), !rho.named(S), cheapest_rank(S)<=13
+      priority 1
+  cheapest(H) "Balancing: five or more hearts, 8+ total points"
+      shows H>=5, H>S | lho.named(S) | rho.named(S), H>=D | lho.named(D) | rho.named(D), H>=C | lho.named(C) | rho.named(C)
+      shows hcp+length_points>=8
+      when  !lho.named(H), !rho.named(H), cheapest_rank(H)<=13
+      priority 1
+  cheapest(D) "Balancing: five or more diamonds, 8+ total points"
+      shows D>=5, D>S | lho.named(S) | rho.named(S), D>H | lho.named(H) | rho.named(H), D>C | lho.named(C) | rho.named(C)
+      shows hcp+length_points>=8
+      when  !lho.named(D), !rho.named(D), cheapest_rank(D)<=13
+  cheapest(S) "Balancing: five or more spades, 11+ total points"
+      shows S>=5, S>=H | lho.named(H) | rho.named(H), S>=D | lho.named(D) | rho.named(D), S>=C | lho.named(C) | rho.named(C)
+      shows hcp+length_points>=11, S>=6 | hcp>=10
+      shows they.strain<=1
+      when  !lho.named(S), !rho.named(S), cheapest_rank(S)>=15
+  cheapest(H) "Balancing: five or more hearts, 11+ total points"
+      shows H>=5, H>S | lho.named(S) | rho.named(S), H>=D | lho.named(D) | rho.named(D), H>=C | lho.named(C) | rho.named(C)
+      shows hcp+length_points>=11, H>=6 | hcp>=10
+      shows they.strain<=1
+      when  !lho.named(H), !rho.named(H), cheapest_rank(H)>=15
+  cheapest(D) "Balancing: five or more diamonds, 11+ total points"
+      shows D>=5, D>S | lho.named(S) | rho.named(S), D>H | lho.named(H) | rho.named(H), D>C | lho.named(C) | rho.named(C)
+      shows hcp+length_points>=11, D>=6 | hcp>=10
+      shows they.strain<=1
+      when  !lho.named(D), !rho.named(D), cheapest_rank(D)>=15
+  cheapest(C) "Balancing: five or more clubs, 11+ total points"
+      shows C>=5, C>S | lho.named(S) | rho.named(S), C>H | lho.named(H) | rho.named(H), C>=D | lho.named(D) | rho.named(D)
+      shows hcp+length_points>=11, C>=6 | hcp>=10
+      shows they.strain<=1
+      when  !lho.named(C), !rho.named(C), cheapest_rank(C)>=15
+
+# ── Advancing the balance over their fit ─────────────────────────────
+# I passed their raise, so I hold at most about 11 and partner's
+# balance was made on my values: no jumps to game on what he showed,
+# only the cheapest suit, and an invitation with a real fit and 12+.
+after (1x) P (2x) P (P) X (P)
+  # The suit: a four-card major first, then a four-card minor, then
+  # the longest three-card suit; the longer within each, hearts and
+  # clubs on equal length (the cheaper). Selection only (`when`), so
+  # `prefer` decides between them, not descriptiveness.
+  cheapest(S) "Answers the balancing double: four or more spades"   when x is not S, S>=4   prefer S + S      priority 1
+  cheapest(H) "Answers the balancing double: four or more hearts"   when x is not H, H>=4   prefer H + H + 1  priority 1
+  cheapest(D) "Answers the balancing double: four or more diamonds" when x is not D, D>=4   prefer D + D
+  cheapest(C) "Answers the balancing double: four or more clubs"    when x is not C, C>=4   prefer C + C + 1
+  cheapest(S) "Answers the balancing double: spades"   when x is not S   prefer S + S      priority -1
+  cheapest(H) "Answers the balancing double: hearts"   when x is not H   prefer H + H + 1  priority -1
+  cheapest(D) "Answers the balancing double: diamonds" when x is not D   prefer D + D + 2  priority -1
+  cheapest(C) "Answers the balancing double: clubs"    when x is not C   prefer C + C + 3  priority -1
+  jump(S) "Invites game: four or more spades, 12+ total points"
+      shows S>=4, hcp+length_points>=12
+      when  x is not S
+      priority 2
+  jump(H) "Invites game: four or more hearts, 12+ total points"
+      shows H>=4, H>S, hcp+length_points>=12
+      when  x is C | x is D
+      priority 2
+  3N  "Game: 14+ balanced, {x} stopped"
+      shows balanced, hcp>=14, stop(x), S<=3 | x is S, H<=3 | x is H
+      priority 2
+  # Five of their trumps behind the opener's raise: defend 2x doubled
+  # (GIB's tree reads this pass as 5+ in their suit).
+  P   "Penalty pass: five or more {x}"
+      shows x>=5
+      priority 3
+
+after (1x) P (1y) P (2y) P (P) X (P) when y is not x
+  cheapest(S) "Answers the balancing double: four or more spades"   when x is not S, y is not S, S>=4   prefer S + S      priority 1
+  cheapest(H) "Answers the balancing double: four or more hearts"   when x is not H, y is not H, H>=4   prefer H + H + 1  priority 1
+  cheapest(D) "Answers the balancing double: four or more diamonds" when x is not D, y is not D, D>=4   prefer D + D
+  cheapest(C) "Answers the balancing double: four or more clubs"    when x is not C, y is not C, C>=4   prefer C + C + 1
+  cheapest(S) "Answers the balancing double: spades"   when x is not S, y is not S   prefer S + S      priority -1
+  cheapest(H) "Answers the balancing double: hearts"   when x is not H, y is not H   prefer H + H + 1  priority -1
+  cheapest(D) "Answers the balancing double: diamonds" when x is not D, y is not D   prefer D + D + 2  priority -1
+  cheapest(C) "Answers the balancing double: clubs"    when x is not C, y is not C   prefer C + C + 3  priority -1
+  P   "Penalty pass: five or more {y}"
+      shows y>=5
+      priority 3
+
+# Over 2NT: the longer of partner's two suits, the cheaper with equal
+# length.
+after (1x) P (2x) P (P) 2N (P) | (1x) P (1y) P (2y) P (P) 2N (P)
+  cheapest(C) "Preference: clubs"     when partner.C>=4   prefer C + C + 3
+  cheapest(D) "Preference: diamonds"  when partner.D>=4   prefer D + D + 2
+  cheapest(H) "Preference: hearts"    when partner.H>=4   prefer H + H + 1
+  cheapest(S) "Preference: spades"    when partner.S>=4   prefer S + S + 0

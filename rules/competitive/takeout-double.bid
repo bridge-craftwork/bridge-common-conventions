@@ -17,6 +17,10 @@
 #
 # Not written yet: responsive doubles (off on this card), advancer over
 # RHO's bid, and doubles of anything but a one-level suit opening.
+#
+# The reopening double, (1x) P (P) X, has its own advances and rebids
+# in balancing.bid (Rick, 2026-11-26: advancer subtracts the king the
+# balancer borrowed, so every range there is about three points higher).
 
 module takeout-double "Takeout doubles"
   kind   system
@@ -57,7 +61,7 @@ after (1x)
 # ── Advancer, when RHO passes ────────────────────────────────────────
 # The double is forcing: advancer names his suit however weak he is.
 # A suit at the cheapest level says nothing beyond 0-8 total points.
-after (1x) X (P) | (1x) P (P) X (P)
+after (1x) X (P)
   1H  "0-8 total points, four or more hearts"   shows H>=4, H>=S | x is S, hcp+length_points<=8 | (H=4, hcp<=9)
       when  x is not H, x is not S
   1S  "0-8 total points, four or more spades"   shows S>=4, S>H | x is H, hcp+length_points<=8 | (S=4, hcp<=9)
@@ -75,7 +79,7 @@ after (1x) X (P) | (1x) P (P) X (P)
       when  stop(x)
 
 # Jumps invite: 9-11 total points with the same suits.
-after (1x) X (P) | (1x) P (P) X (P)
+after (1x) X (P)
   2H  "9-11 total points, four or more hearts"   shows H>=4, H>=S | x is S, hcp+length_points=9..11, H>=5 | hcp>=10
       when  x is not H, x is not S
   2S  "9-11 total points, four or more spades"   shows S>=4, S>H | x is H, hcp+length_points=9..11, S>=5 | hcp>=10
@@ -93,7 +97,7 @@ after (1x) X (P) | (1x) P (P) X (P)
 # BBA (probes/advance-1S-X.toml, 2026-09-25): 12+ with their suit held
 # and no four-card unbid major bids 3NT; with no four-card suit to name,
 # the cheapest three-card suit.
-after (1x) X (P) | (1x) P (P) X (P)
+after (1x) X (P)
   3N  "Game: 12+, a stopper in {x}"  shows hcp>=12, stop(x), (H<=3 | x is H), (S<=3 | x is S)
       priority 2
   1D  "0-8, no four-card suit to show: three diamonds"  shows D>=3, H<=3, S<=3, hcp<=8
@@ -110,7 +114,7 @@ after (1x) X (P) | (1x) P (P) X (P)
       priority -3
 
 # The cue bid is the only game force: 12+ with no clear suit to jump in.
-after (1x) X (P) | (1x) P (P) X (P)
+after (1x) X (P)
   2{x} "Cue bid: 12+ total points, asks for a description"
       alert  artificial
       shows  hcp+length_points>=12
@@ -122,7 +126,7 @@ after (1x) X (P) | (1x) P (P) X (P)
 # hands too strong to overcall show themselves now: 18+ total points
 # bids its own suit, raises with support, or bids notrump with a
 # stopper. This is the second half of "double first, then bid the suit".
-after (1x) X (P) 1y (P) | (1x) P (P) X (P) 1y (P)
+after (1x) X (P) 1y (P)
   P   "Minimum takeout double"
       shows hcp<=16
       priority -5
@@ -154,7 +158,7 @@ after (1x) X (P) 1y (P) | (1x) P (P) X (P) 1y (P)
       shows C>=5, hcp+length_points>=18 | hcp>=17
       when  x is not C, y is not C
 
-after (1x) X (P) 2y (P) | (1x) P (P) X (P) 2y (P)
+after (1x) X (P) 2y (P)
   P   "Minimum takeout double"
       shows hcp<=16
       priority -5

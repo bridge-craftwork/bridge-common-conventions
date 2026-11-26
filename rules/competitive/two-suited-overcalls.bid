@@ -331,9 +331,10 @@ after (1x) P (2x) 2N (*) 3y (*) when y is not x
 # five-five, 8-15) the one-level sandwich seat is that module's, and
 # 2NT is not bid there; so for a passed hand with the Unusual 1NT on
 # (GIB_Sandwich_NT_BPH: 2NT took 30 of its 1NT boards).
-# Balancing after their raise, (1x) P (2x) P (P) 2NT, is the same
-# two-suiter as the direct 2NT over the raise (standard practice, not
-# yet cited: notes).
+# Balancing after their raise, (1x) P (2x) P (P) 2NT, is the balancing
+# seat's own two-suiter (balancing.bid, 2026-11-26): five-four or
+# better, since the balancer passed the opening, where a five-five
+# would have bid 2NT.
 after (1x) P (1y) when u2n_play | u2n_jump, y is not x, !sandwich, !passed_hand | !u1n_play
   2N  "Unusual 2NT: five-five in the two suits they have not bid"
       alert  artificial
@@ -348,7 +349,7 @@ after (1x) P (2y) when u2n_play | u2n_jump, y is not x, !rho.jumped
       shows H>=5 | x is H | y is H, S>=5 | x is S | y is S
       shows hcp+length_points>=12
       priority 2
-after (1x) P (1N) | (1x) P (2x) P (P) when u2n_play | u2n_jump, x is not N
+after (1x) P (1N) when u2n_play | u2n_jump, x is not N
   2N  "Unusual 2NT: five or more in each minor"
       alert  artificial
       shows C>=5, D>=5, hcp+length_points>=11
@@ -370,7 +371,7 @@ after (1x) P (1N) | (1x) P (2x) P (P) when u2n_play | u2n_jump, x is not N
 # and 10+ HCP, five of a minor with four and 13+. When RHO bids, the
 # cheapest preference with four-card support, else pass.
 define auction u2n_two_bid = (1x) P (1y) 2N (*) | (1x) P (2y) 2N (*)   when y is not x
-  (1x) P (1N) 2N (*) | (1x) P (2x) P (P) 2N (*)
+  (1x) P (1N) 2N (*)
 
 after u2n_two_bid when u2n_play | u2n_jump, partner.longest>=5, partner.second_longest>=5, rho.last=P | rho.last=X
   cheapest(C) "Preference: clubs"

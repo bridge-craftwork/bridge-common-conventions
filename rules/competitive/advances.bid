@@ -14,8 +14,8 @@
 # forced bid here as there is after a takeout double.
 #
 # The file then covers, in order: advancer when RHO does not pass, the
-# balancing overcall (partner is 8-15 there, so everything costs about
-# two points more), the two-level overcall — simple or a weak jump, and
+# balancing overcall (partner borrowed a king there, so everything costs
+# about three points more), the two-level overcall — simple or a weak jump, and
 # they need different answers — advancer over RHO's 1NT, and the
 # overcaller's reply to the cue-bid raise.
 #
@@ -86,39 +86,42 @@ after (1x) 1y (P)
   P   "Not enough to advance"  priority -11
 
 # ── Advancing a balancing overcall ───────────────────────────────────
-# Partner reopened, so he is 8-15 rather than 8-17 and some of his values
-# are borrowed from us: everything costs about two points more than in
-# the direct seat. BBA's Balancing meanings: the raise 9-11, 1NT 10-11,
-# a new suit at the one level 7-9, the cue bid 13+.
+# Partner reopened, so some of his values are borrowed from us: advancer
+# subtracts the king he borrowed, and every threshold is about three
+# points above the direct seat's (Rick, 2026-11-26; BIDDING-MODEL 3.8):
+# the raise 11-13 (direct 8-11), 1NT 11-13 (8-11), a new suit 11+ at
+# the one level (8+) and 12+ at the two (9+), 2NT 14-16 (12-15), the cue
+# bid 14+ (12+). GIB's tree after (1♣) P (P) 1♥ (P): raise 8-11, 1NT
+# 11-13, new suit 11-15, 2NT 14+, cue 12-16 (notes).
 after (1x) P (P) 1y (P)
-  2{y} "Raise: 9-11 total points, three-card support"
-      shows y>=3, hcp+length_points>=9, hcp+length_points<=11
-  3{y} "Preemptive raise: four-card support, under 9 points"
-      shows y>=4, hcp+length_points<=8
+  2{y} "Raise: 11-13 total points, three-card support"
+      shows y>=3, hcp+length_points>=11, hcp+length_points<=13
+  3{y} "Preemptive raise: four-card support, under 11 points"
+      shows y>=4, hcp+length_points<=10
       when  jump_raise is weak
-  1S  "7+ total points, four or more spades"
-      shows S>=4, hcp+length_points>=7
+  1S  "11+ total points, four or more spades"
+      shows S>=4, hcp+length_points>=11
       when  x is not S, y is not S
-  1N  "10-11 total points, balanced, a stopper in {x}"
-      shows balanced, hcp+length_points>=10, hcp+length_points<=11
+  1N  "11-13 total points, balanced, a stopper in {x}"
+      shows balanced, hcp+length_points>=11, hcp+length_points<=13
       when  stop(x)
       when  (S<=3 | x is S | y is S), (H<=3 | x is H | y is H)
       when  y<=2 | y is C | y is D
-  cheapest(C) "11+ total points, five or more clubs"
-      shows C>=5, hcp+length_points>=11
+  cheapest(C) "12+ total points, five or more clubs"
+      shows C>=5, hcp+length_points>=12
       when  x is not C, y is not C
-  cheapest(D) "11+ total points, five or more diamonds"
-      shows D>=5, hcp+length_points>=11
+  cheapest(D) "12+ total points, five or more diamonds"
+      shows D>=5, hcp+length_points>=12
       when  x is not D, y is not D
-  cheapest(H) "11+ total points, five or more hearts"
-      shows H>=5, hcp+length_points>=11
+  cheapest(H) "12+ total points, five or more hearts"
+      shows H>=5, hcp+length_points>=12
       when  x is not H, y is not H
   2{x} "Cue bid: limit raise or better in {y}"
       alert  artificial
-      shows  y>=3, hcp+length_points>=13
+      shows  y>=3, hcp+length_points>=14
       sets   forcing=round, ask=cue_raise(y)
-  2N  "13-15 total points, balanced, a stopper in {x}"
-      shows balanced, hcp+length_points>=13, hcp+length_points<=15
+  2N  "14-16 total points, balanced, a stopper in {x}"
+      shows balanced, hcp+length_points>=14, hcp+length_points<=16
       when  stop(x), y<=2
   P   "Not enough to advance a reopening bid"  priority -10
 
