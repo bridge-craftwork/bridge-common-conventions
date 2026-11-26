@@ -307,8 +307,10 @@ when answered choose_game(M), partner.last=3N
   P   "No fit: play 3NT"                     shows M<=5, strength<=slam_invite
 when answered choose_game(M), partner.last=4{M}
   6M  "Slam in the fit"                      shows strength>=slam
-  # The same slam, counting shortness (support points).
-  6M  "Slam in the fit"  shows tp(M)>=33-partner.points.min
+  # The same slam on responder's own count: he holds the long trumps
+  # (five or more opposite opener's three), so HCP plus length, not
+  # support points (Rick, 2026-11-25; 33 either way for a 5-3-3-2 hand).
+  6M  "Slam in the fit"  shows hcp+length_points>=33-partner.points.min
   P   "Game in the fit"                      shows strength<=slam_invite
       priority -1
 

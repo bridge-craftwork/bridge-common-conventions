@@ -59,38 +59,40 @@ after 1M (X) | 1M (1x) when passed_hand, in_comp, drury | reverse
       priority 1
 
 # ── Opener: is game possible? ────────────────────────────────────────
-# Facing 10-12 support points, game wants about 25 between us: 15+
-# support points bid it, 13-14 show a full opening and leave it to
-# responder, 12 or fewer (the light third-seat openings) stop in 2M.
-# BBA draws the line one point lower (its sub-minimum 2♥ is 11-12 total
-# points, drury-opener-21GF-DEFAULT); we count shortness, it does not.
+# Facing 10-12 support points, game wants about 25 between us. Opener
+# holds the long trumps and counts his own points, HCP plus length, not
+# support points (Rick, 2026-11-25): 15+ bid game, 13-14 show a full
+# opening and leave it to responder, 12 or fewer (the light third-seat
+# openings) stop in 2M. The numbers stayed when the count changed:
+# GIB's tree has 2♠ 12-13, 2♦ 13-14, 4♠ 14-18 and 3♠ 19-22 total points,
+# BBA's sub-minimum 2♥ is 11-12 total points (drury-opener-21GF-DEFAULT).
 when asked drury(M), rho.last=P, partner.last=2C
   2M  "Sub-minimum: no game opposite a limit raise"
-      shows tp(M)<=12
+      shows hcp+length_points<=12
       when  reverse
       priority 3                       # the answer, ahead of opener's natural rebids
-  2D  "Reverse Drury: a full opening, 13-14 support points"  alert
-      shows tp(M)=13..14
+  2D  "Reverse Drury: a full opening, 13-14 points"  alert
+      shows hcp+length_points=13..14
       when  reverse
       artificial
       priority 3                       # the answer, ahead of opener's natural rebids
   2D  "Drury: a sub-minimum opening"  alert
-      shows tp(M)<=12
+      shows hcp+length_points<=12
       when  !reverse
       artificial
       priority 3                       # the answer, ahead of opener's natural rebids
-  2M  "A full opening, 13-14 support points"
-      shows tp(M)=13..14
+  2M  "A full opening, 13-14 points"
+      shows hcp+length_points=13..14
       when  !reverse
       priority 3                       # the answer, ahead of opener's natural rebids
-  4M  "Game: 15-18 support points"
-      shows tp(M)=15..18
+  4M  "Game: 15-18 points"
+      shows hcp+length_points=15..18
       priority 3                       # the answer, ahead of opener's natural rebids
   # With more, opener (the captain: responder's pass and Drury limited
   # him) tries for slam. Rick 2026-11-25: 4M does not go up to 28; GIB's
   # 4M is 14-18 total points, its 3M 19-22 and forcing.
-  3M  "Slam try: 19+ support points"
-      shows tp(M)>=19
+  3M  "Slam try: 19+ points"
+      shows hcp+length_points>=19
       sets  forcing=game
       priority 3
 
@@ -98,10 +100,10 @@ when asked drury(M), rho.last=P, partner.last=2C
 # point: 13 bids game.
 when asked drury(M), rho.last=P, partner.last=2D
   2M  "Sub-minimum: no game opposite a four-card limit raise"
-      shows tp(M)<=12
+      shows hcp+length_points<=12
       priority 3                       # the answer, ahead of opener's natural rebids
   4M  "Game opposite a four-card limit raise"
-      shows tp(M)>=13
+      shows hcp+length_points>=13
       priority 3                       # the answer, ahead of opener's natural rebids
 
 # ── Responder: game or not ───────────────────────────────────────────

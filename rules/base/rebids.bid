@@ -361,20 +361,27 @@ after 1M (P) 1N (P)
       when  style is bba
 
 # ── After a raise ────────────────────────────────────────────────────
-# With a fit found, opener counts support points tp(x): BBA bids game over a
-# simple raise with 16-18 and a singleton, but passes 14-15 with doubletons.
-# A raise that can hold 11-12 (a card without the limit raise:
-# responses.bid) is invited from 15 (responses.notes.md, 2026-09-30).
+# Opener raised in a major holds the long trumps, and counts his own
+# points, HCP plus length (`hcp+length_points`), never support points:
+# those are the raiser's (Rick, 2026-11-25; the engine's BIDDING-MODEL.md
+# 3.3). Pass up to 15, invite with 16-17, game with 18 (GIB's tree after
+# 1M-2M: pass 12-15, 3M and the tries 16-17, 4M 18-22 total points; one
+# less than the 19 support points before). A raise that can hold 11-12 (a
+# card without the limit raise: responses.bid) is invited from 15
+# (responses.notes.md, 2026-09-30).
+# After a minor raise opener may hold fewer trumps than responder (1♣ on
+# three), so he counts support points tp(x) there.
 # Not over an inverted raise: inverted-minors.bid has opener's rebids.
 after 1x (P) 2x (P) when !inverted | x is H | x is S
-  P   "Minimum: no game"                   shows tp(x)<=16, tp(x)<=14 | x is C | x is D | partner.tp(x).max<=10
+  P   "Minimum: no game"
+      shows (x is H | x is S, hcp+length_points<=15, hcp+length_points<=14 | partner.tp(x).max<=10) | (x is C | x is D, tp(x)<=16)
       when  style is not bba | x is C | x is D
       priority -5
   3x  "Invitation: game try in {x}"
-      shows tp(x)=17..18 | (tp(x)=15..16, x is H | x is S, partner.tp(x).max>=11)
+      shows (x is H | x is S, hcp+length_points=16..17 | (hcp+length_points=15, partner.tp(x).max>=11)) | (x is C | x is D, tp(x)=17..18)
       when  style is not bba | x is C | x is D
 after 1M (P) 2M (P)
-  4M  "Game: 19+ with the fit"             shows tp(M)>=19
+  4M  "Game: 18+ with the fit"             shows hcp+length_points>=18
       when  style is not bba
   # BBA opposite a raise: pass up to 15 HCP whatever the shape (13 with
   # six trumps), invite with 16 (14-15 with six), bid game with 17, or 16
@@ -382,11 +389,13 @@ after 1M (P) 2M (P)
   P   "Minimum: no game"        shows hcp<=15, M<=5 | hcp<=13
       when  style is bba
       priority -5
+  # "Shape" is a singleton or void (written as tp(M)>=19 with 16 HCP
+  # until 2026-11-25, the same hands without counting support points).
   3M  "Invitation: game try in {M}"
-      shows (hcp=16, M<=5, tp(M)<=18) | (hcp=14..15, M>=6)
+      shows (hcp=16, M<=5, shortest>=2) | (hcp=14..15, M>=6)
       when  style is bba
   4M  "Game: 17+, or 16 with shape"
-      shows hcp>=17 | (hcp=16, M>=6 | tp(M)>=19)
+      shows hcp>=17 | (hcp=16, M>=6 | shortest<=1)
       when  style is bba
 after 1m (P) 2m (P) when !inverted
   2N  "18-19 HCP, balanced"                shows balanced, hcp=18..19
@@ -401,9 +410,12 @@ after 1m (P) 2m (P) when !inverted
   5{m} "Game: 19+ support points, no notrump"   shows tp(m)>=19
       priority -1
 
+# Opener's own points opposite the limit raise (Rick, 2026-11-25): game
+# from 15, as with support points before; GIB's tree bids 4M with 15-20
+# total points (14+ HCP) and passes 12-13.
 after 1M (P) 3M (P)
-  4M  "Accepts the limit raise"            shows tp(M)>=15
-  P   "Declines: minimum"                  shows tp(M)<=14
+  4M  "Accepts the limit raise"            shows hcp+length_points>=15
+  P   "Declines: minimum"                  shows hcp+length_points<=14
 after 1m (P) 3m (P)
   3N  "Accepts, balanced: 14+"             shows hcp>=14, balanced | semibalanced
   5m  "Accepts, unbalanced: game in the minor"   shows hcp>=14
@@ -1097,15 +1109,20 @@ after 1x (X) 2z (P) when z is not x
 # to the uncontested 6-10 that the same ladder applies: pass up to 16
 # support points, invite with 17-18, bid the game with 19. BBA passes
 # these hands about two thirds of the time.
+# In a major opener holds the long trumps and counts HCP plus length
+# (Rick, 2026-11-25): the uncontested ladder, pass up to 15, invite with
+# 16-17, game with 18 (GIB's tree: after 1♠-2♥-2♠ pass 12-15, 3♠ 16-18,
+# 4♠ 17-22 total points; after 1♠-X-2♠ 4♠ from 19). In a minor responder
+# may hold more trumps: support points.
 after 1x (*) 2x (*) when they.bid
   P   "Minimum: no game"
-      shows tp(x)<=16
+      shows (x is H | x is S, hcp+length_points<=15) | (x is C | x is D, tp(x)<=16)
       priority -5
-  cheapest(x) "Invitation: 17-18 with the fit"
-      shows tp(x)=17..18
+  cheapest(x) "Invitation: game try with the fit"
+      shows (x is H | x is S, hcp+length_points=16..17) | (x is C | x is D, tp(x)=17..18)
       sets  trump=x, ask=invite(x)
-  4{x} "Game: 19+ with the fit"
-      shows tp(x)>=19
+  4{x} "Game: 18+ with the fit"
+      shows hcp+length_points>=18
       when  x is H | x is S
       sets  trump=x
   # Their suit stopped (Rick, 2026-10-16: no stopper prohibits 3NT).
@@ -1120,9 +1137,11 @@ after 1x (*) 2x (*) when they.bid
   P   "No further bid"  priority -10
 # A jump raise over their call is preemptive, so opener bids the game or
 # lets it alone.
+# In a major, opener's own points (Rick, 2026-11-25): 18 HCP plus length
+# where 19 support points stood.
 after 1x (*) 3x (*) when they.bid
-  4{x} "Game: 19+"
-      shows tp(x)>=19
+  4{x} "Game: 18+"
+      shows hcp+length_points>=18
       when  x is H | x is S
       sets  trump=x
   5{x} "Game: 19+"
@@ -1136,7 +1155,9 @@ after 1x (*) 3x (*) when they.bid
 after 1x (2y) 3x (P) when y is not x, !partner.jumped
   3N  "Game: 16+ with a stopper in {y}"   shows hcp>=16, stop(y)
       when  x is C | x is D
-  4{x} "Game: 17+ support points"          shows tp(x)>=17
+  # Opener's own points in the major (Rick, 2026-11-25): HCP plus length,
+  # 17 as with support points.
+  4{x} "Game: 17+"                         shows hcp+length_points>=17
       when  x is H | x is S
   5{x} "Game in the minor: 18+"            shows hcp>=18
       when  x is C | x is D

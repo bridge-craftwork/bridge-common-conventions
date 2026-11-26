@@ -98,6 +98,17 @@ Open_In_Fourth_13/14/16 +49/+33/+40, After_2_Passes −15.
 - Opener's 2♠ over 1♥–2♣ (four spades, which BBA shows with 15+) is not
   a Drury answer here.
 
+## The long hand counts its own points (Rick, 2026-11-25)
+
+Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with the shorter trumps, the one raising; the hand with the long trumps counts its own points, HCP plus length (`hcp+length_points`, the engine's "decl"). The long trump hand counting support points "isn't normally done" (engine repo docs/BIDDING-MODEL.md, 3.3).
+
+Opener's answers to Drury (2♣ and two-way 2♦) count HCP plus length. The
+bands stayed: 12 or less, 13-14, 4M 15-18, 3M 19+ (and 12 / 13 after
+2♦). GIB's tree after P-P-1♠-P-2♣: 2♠ 12-13, 2♦ 13-14, 4♠ 14-18, 3♠
+19-22 total points; BBA's sub-minimum is 11-12 total points. After the
+change the engine reads our 4♠ as 15-18 declarer points (it was 10-27).
+Responder's answers keep support points.
+
 ## Sources
 
 - **Convention descriptions**: Bridgebum, "Drury"
@@ -105,8 +116,8 @@ Open_In_Fourth_13/14/16 +49/+33/+40, After_2_Passes −15.
   original 2♦ sub-minimum, 2M normal; Reverse swaps them; applies over a
   double or overcall when 2♣ is available); Wikipedia, "Drury convention"
   (two-way: 2♣ three trumps, 2♦ four; opener may jump to game with 15+).
-  We differ from both in counting opener's support points (with
-  shortness) for the bands.
+  Opener's bands are HCP plus length (Rick, 2026-11-25); until then we
+  counted his support points (with shortness).
 - **Bridge-Classroom** `conventionCatalog.js`: the fields `drury.play`
   (2♣), `drury.two_d` (2♦), `drury.in_comp`, `drury.reverse`.
 - **BBA probes**: `probes/drury-resp-1H.toml`, `probes/drury-resp-1S.toml`
@@ -118,3 +129,4 @@ Open_In_Fourth_13/14/16 +49/+33/+40, After_2_Passes −15.
   had no answers above 12-14 and no responder follow-ups.
 - **Rick's rulings**: none specific to Drury yet; the support-point
   count is his (responses.notes.md, 2026-09-23).
+- **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.

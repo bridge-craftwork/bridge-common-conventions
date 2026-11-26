@@ -21,20 +21,23 @@ module maximal-doubles "Maximal doubles"
 
 # ── The opener or the overcaller ─────────────────────────────────────
 # The game try is the opener's usual invitation over a single raise,
-# 17-18 support points (rebids.bid); 3M competes with six trumps (five and
-# a shape) and no game interest.
+# 16-17 (rebids.bid); 3M competes with six trumps (five and a shape) and
+# no game interest. The opener or overcaller holds the long trumps and
+# counts HCP plus length, not support points (Rick, 2026-11-25; one less
+# than the 17-18 / 16 / 19 support points these were; GIB's tree after
+# 1♠-P-2♠-3♥ bids 4♠ from 18 total points).
 after 1M (*) 2M (3x) | (1y) 1M (*) 2M (3x) when (M is H, x is D) | (M is S, x is H)
   X   "Maximal double: a game try in {M}"
       alert  artificial
-      shows  tp(M)=17..18
+      shows  hcp+length_points=16..17
       sets   trump=M, ask=maximal(M)
       priority 2
   3{M} "Competitive: no game interest"
-      shows M>=6 | (M>=5, !balanced), tp(M)<=16
+      shows M>=6 | (M>=5, !balanced), hcp+length_points<=15
       sets  trump=M
       priority 1
-  4{M} "Game: 19+"
-      shows tp(M)>=19
+  4{M} "Game: 18+"
+      shows hcp+length_points>=18
       sets  trump=M
       priority 1
   P   "No further bid"  priority -5

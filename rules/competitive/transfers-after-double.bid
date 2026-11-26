@@ -81,17 +81,20 @@ after 1M (X)
       when  M is S
       priority 3
 
-# Opener completes; over the constructive raise he values his hand.
+# Opener completes; over the constructive raise he values his hand. He
+# holds the long trumps and counts HCP plus length, not support points
+# (Rick, 2026-11-25; the numbers stayed: a 5-3-3-2 hand counts the same
+# either way).
 after 1H (X) 2D (P)
-  4H  "Game: 17+"   shows tp(H)>=17
+  4H  "Game: 17+"   shows hcp+length_points>=17
       priority 1
-  3H  "Invites game: 15-16"                        shows tp(H)>=15, tp(H)<=16
+  3H  "Invites game: 15-16"                        shows hcp+length_points>=15, hcp+length_points<=16
       priority 1
   2H  "Minimum: completes the transfer"
 after 1S (X) 2H (P)
-  4S  "Game: 17+"   shows tp(S)>=17
+  4S  "Game: 17+"   shows hcp+length_points>=17
       priority 1
-  3S  "Invites game: 15-16"                        shows tp(S)>=15, tp(S)<=16
+  3S  "Invites game: 15-16"                        shows hcp+length_points>=15, hcp+length_points<=16
       priority 1
   2S  "Minimum: completes the transfer"
 after 1M (X) 1N (P)
@@ -101,10 +104,10 @@ after 1M (X) 2C (P)
 after 1S (X) 2D (P)
   2H  "Completes the transfer"                      artificial
 after 1H (X) 3D (P)
-  4H  "Game: 15+"     shows tp(H)>=15
+  4H  "Game: 15+"     shows hcp+length_points>=15
   3H  "Minimum"                                    priority -1
 after 1S (X) 3H (P)
-  4S  "Game: 15+"     shows tp(S)>=15
+  4S  "Game: 15+"     shows hcp+length_points>=15
   3S  "Minimum"                                    priority -1
 
 # Responder after the completion of a transfer to a new suit: pass when

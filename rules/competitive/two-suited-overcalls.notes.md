@@ -587,6 +587,14 @@ Open questions (not written):
   (Brill), a different module (advances), not written.
 - BBA's passed-hand 2NT in the sandwich seat with six-five (above).
 
+## The long hand counts its own points (Rick, 2026-11-25)
+
+Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with the shorter trumps, the one raising; the hand with the long trumps counts its own points, HCP plus length (`hcp+length_points`, the engine's "decl"). The long trump hand counting support points "isn't normally done" (engine repo docs/BIDDING-MODEL.md, 3.3).
+
+Opener's 4M over the competitive raise (17+) and his accept of the cue-bid
+limit raise (14+; also Jordan's 2NT, which sets the same ask) count HCP
+plus length; the numbers stayed.
+
 ## Sources
 
 - **Rick's rulings** (2026-09-28): the task above, and the jump
@@ -672,3 +680,4 @@ Open questions (not written):
   five-five strength is ours.
 - **Brill's convention files** (2026-10-30 gap list): where Rusty had no
   rule; hints, not copied.
+- **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.

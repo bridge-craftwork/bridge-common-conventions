@@ -93,15 +93,17 @@ after 1M (X) when bromad, !jordan, !tfr
       shows C>=5, D>=5, hcp<=6, M<=2
       priority 2
 
-# Opener after the constructive raises: the game with 17+ support points
-# opposite 2♣ (15+ opposite 3♣), an invitation with 15-16 opposite 2♣,
-# else the cheapest bid in the major.
+# Opener after the constructive raises: the game with 17+ opposite 2♣
+# (15+ opposite 3♣), an invitation with 15-16 opposite 2♣, else the
+# cheapest bid in the major. Opener holds the long trumps and counts HCP
+# plus length, not support points (Rick, 2026-11-25; the numbers stayed:
+# a 5-3-3-2 hand counts the same either way).
 after 1M (X) 2C (P) | 1M (X) 2C (XX) when bromad
-  4{M} "Game: 17+"     shows tp(M)>=17
-  3{M} "Invites game: 15-16"                           shows tp(M)>=15, tp(M)<=16
+  4{M} "Game: 17+"     shows hcp+length_points>=17
+  3{M} "Invites game: 15-16"                           shows hcp+length_points>=15, hcp+length_points<=16
   2{M} "Minimum: nothing more"                         priority -1
 after 1M (X) 3C (P) | 1M (X) 3C (XX) when bromad
-  4{M} "Game: 15+"   shows tp(M)>=15
+  4{M} "Game: 15+"   shows hcp+length_points>=15
   3{M} "Minimum: nothing more"                                  priority -1
 after 1M (X) 2C (P) 3M (P) when bromad
   4{M} "Accepts: the top of the constructive raise"    shows tp(M)>=9

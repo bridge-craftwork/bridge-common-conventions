@@ -66,6 +66,15 @@ neutral. Left: no opener's splinter under Transfer Walsh (natural Walsh
 found two slams by 1♣-1♥-4♦), and the game raise 4M with 19+ that
 responder cannot judge for slam.
 
+## The long hand counts its own points (Rick, 2026-11-25)
+
+Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with the shorter trumps, the one raising; the hand with the long trumps counts its own points, HCP plus length (`hcp+length_points`, the engine's "decl"). The long trump hand counting support points "isn't normally done" (engine repo docs/BIDDING-MODEL.md, 3.3).
+
+Responder's 3M / 4M after opener accepted the transfer (five or more
+opposite three) count HCP plus length, 11-12 and 13+ as before, the
+ladder of his 2M (8-10 points). Opener's raises (four opposite four) keep
+support points.
+
 ## Sources
 
 - **Wikipedia, "Transfer Walsh"** (https://en.wikipedia.org/wiki/Transfer_Walsh):
@@ -75,3 +84,4 @@ responder cannot judge for slam.
 - **Where we differ:** ranges (accept up to 15 support points, 2M 16-18)
   and responder's continuations follow our natural responder rebids
   (standard practice, not yet cited).
+- **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.

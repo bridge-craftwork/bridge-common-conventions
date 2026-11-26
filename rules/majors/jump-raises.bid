@@ -38,10 +38,13 @@ after 1M (P) when !bergen, !reverse, !inv
       sets  trump=M, ask=mixed_raise(M)
       priority 1                       # the four-card raise, ahead of 2M or a new suit
 
+# Opener holds the long trumps and counts HCP plus length, not support
+# points (Rick, 2026-11-25; the numbers stayed: a 5-3-3-2 hand counts the
+# same either way, a shapelier one no longer adds its shortness).
 # Opposite a mixed raise (7-10, nine trumps): game from 16.
 when asked mixed_raise(M), rho.last=P, partner.last=3{M}
   4M  "Game opposite a mixed raise: 16+"
-      shows tp(M)>=16
+      shows hcp+length_points>=16
       priority 3                       # ahead of opener's natural rebids
   P   "No game opposite a mixed raise"
       priority 2
@@ -49,7 +52,7 @@ when asked mixed_raise(M), rho.last=P, partner.last=3{M}
 # Opener after a preemptive 3M, the weak jump raise or Bergen's (bergen.bid).
 when asked preemptive_raise(M), rho.last=P, partner.last=3{M}
   4M  "Game opposite a preemptive raise: 19+"
-      shows tp(M)>=19
+      shows hcp+length_points>=19
       priority 3
   P   "No game opposite a preemptive raise"
       priority 2

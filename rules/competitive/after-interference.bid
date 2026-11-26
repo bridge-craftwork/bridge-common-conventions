@@ -441,8 +441,11 @@ after 1x (1y) X (P) | 1x (2y) X (P) | 1x (3y) X (P)
 after 1x (1y) 2y (P) | 1x (2y) 3y (P) | 1x (3y) 4y (P) when y is not x   # their bid in our suit is a two-suiter (two-suited-overcalls.bid)
   # In support points (2026-09-26): 16 HCP left 14-15 with shortness in
   # a partscore. 14/15/16 support points: +750/+697/+519 by par distance.
+  # Opener holds the long trumps (five opposite three) and counts HCP
+  # plus length, not support points (Rick, 2026-11-25): 14, between the
+  # shifted par line (13) and GIB's tree (1♥-1♠-2♠: 4♥ 15-17 total points).
   4{x} "Accepts: game in {x}"
-      shows tp(x)>=14
+      shows hcp+length_points>=14
       when  x is H | x is S
   # With a minor, 3NT is the game: from 14 with their suit held, any
   # shape, else five of the minor from 16 (2026-09-25: 16-20 counts

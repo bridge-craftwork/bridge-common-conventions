@@ -47,6 +47,21 @@ In Two-Way_Game_Try and Help_Suit_Game_Try (21GF-GIB both sides) BBA
 always asks after the short-suit try, and invites only from 16 HCP. It
 tries less often than we do with 17-18 support points and a singleton.
 
+## The long hand counts its own points (Rick, 2026-11-25)
+
+Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with the shorter trumps, the one raising; the hand with the long trumps counts its own points, HCP plus length (`hcp+length_points`, the engine's "decl"). The long trump hand counting support points "isn't normally done" (engine repo docs/BIDDING-MODEL.md, 3.3).
+
+`try_values` is now 16-17 HCP plus length (was 17-18 support points),
+the invitational band of rebids.bid's ladder after 1M-2M (GIB: 16-17
+for 3M and the tries, 17-18 for its shortness try). Tests moved: AK62.
+KJT42.KT4.2 (14 HCP, a singleton) passes 1♥-2♥ instead of 2NT;
+AQT65.KQ76.K.Q72 tries 3♣ instead of bidding 4♠; AQJ74.KQ5.K83.Q2 and
+AQJ74.AK5.983.K2 (17 HCP, 18) bid 4♠, and 16-HCP versions of them keep
+testing the help-suit try. KQJ96.Q62.AT95.K now tries 3♦, not 3♥: both
+long-suit tries qualify and the count change moved a descriptiveness tie
+between them (open question: should the cheaper or the weaker suit be
+preferred explicitly?).
+
 ## Sources
 
 - BBO, "GIB system notes", Two-way Game Try,
@@ -57,3 +72,4 @@ tries less often than we do with 17-18 support points and a singleton.
   https://www.bridgebum.com/help_suit_game_try.php.
 - Responder's thresholds (6 / 10, wasted K-Q-J): standard practice, not
   yet cited.
+- **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.

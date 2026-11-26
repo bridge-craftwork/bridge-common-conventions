@@ -6,11 +6,17 @@ dealer  S
 # seat hand             | auction                      | expect | why
 # ── Opener: two-way tries ─────────────────────────────────────────────
 S QJ86.AK965.KQ9.2      | 1H P 2H P                    | 2S     | small singleton club, 17-18: short-suit try (BBA too)
-S AK62.KJT42.KT4.2      | 1H P 2H P                    | 2N     | four spades with the A-K: the spade try first (BBA too)
+# Rick 2026-11-25: opener counts HCP plus length, not the singleton: 15,
+# a minimum (was 2N on 17 support points, as BBA).
+S AK62.KJT42.KT4.2      | 1H P 2H P                    | P      | 14 HCP, 15 with length: no try
 S AQJ98.Q542.5.AQ4      | 1S P 2S P                    | 2N     | small singleton diamond: short-suit try (BBA too)
-S KQJ96.Q62.AT95.K      | 1S P 2S P                    | 3H     | the singleton is the king: no short-suit try; 3H, a long-suit try: three hearts with an honour
+# 3D since 2026-11-25 (the count change moved a descriptiveness tie
+# between the two long-suit tries; 3H before).
+S KQJ96.Q62.AT95.K      | 1S P 2S P                    | 3D     | the singleton is the king: no short-suit try; 3D, a long-suit try: four diamonds with the ace
 S AQJ74.K5.983.Q42      | 1S P 2S P                    | P      | 13 support points: no game
-S AQT65.KQ76.K.Q72      | 1S P 2S P                    | 4S     | 19 support points: game
+# Rick 2026-11-25: opener does not count the singleton: 16 HCP plus one
+# for length is 17, the try (was 4S on 19 support points).
+S AQT65.KQ76.K.Q72      | 1S P 2S P                    | 3C     | 17 with length: a long-suit try
 # ── Responder after a short-suit try ──────────────────────────────────
 N 9.QT32.542.AT873      | 1H P 2H P 2S P               | 2N     | 7 HCP and a singleton: ask where
 N 9.QT32.542.AT873      | 1H P 2H P 2S P 2N P 3C P     | 4H     | clubs AT873: no wasted K, Q or J
@@ -26,6 +32,10 @@ S KQJ96.Q62.AT95.K      | 1S P 2S P 3H P 3S P          | P      | responder decl
 
 # ── Help-suit tries without two-way ───────────────────────────────────
 card    21GF-DEFAULT bidding_conventions/help_suit_game_try=true
-S AQJ74.KQ5.K83.Q2      | 1S P 2S P                    | 3D     | 17 HCP; diamonds K83 need help, hearts KQ5 do not
-S AQJ74.AK5.983.K2      | 1S P 2S P                    | 3D     | three small diamonds: the try
+# Rick 2026-11-25: opener counts HCP plus length, game from 18 (GIB's
+# tree); these two were 3D on 18 support points.
+S AQJ74.KQ5.K83.Q2      | 1S P 2S P                    | 4S     | 17 HCP + 1 for length = 18: game
+S AQJ74.AK5.983.K2      | 1S P 2S P                    | 4S     | 18: game
+S AQJ74.KQ5.K83.J2      | 1S P 2S P                    | 3D     | 16 HCP, 17; diamonds K83 need help, hearts KQ5 do not
+S AQJ74.AK5.983.Q2      | 1S P 2S P                    | 3D     | 17 with three small diamonds: the try
 N T84.976.AQ43.K82      | 1S P 2S P 3D P               | 4S     | diamond A-Q: help

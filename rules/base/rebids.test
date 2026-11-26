@@ -44,7 +44,9 @@ S K.KQ87.AKQT65.92      | 1D P 1NT P   | 2H     | reverse: 17+, diamonds longer
 S KJ972.AT.A863.QT      | 1S P 2S P    | P      | 14 with two doubletons: no game
 S KJT65.Q3.AQ72.A8      | 1S P 2S P    | 3S     | invitation
 S AQ632.AQ62.8.AQ2      | 1S P 2S P    | 4S     | 18 with a singleton: game
-S AK432.J.T62.AJ42      | 1S P 3S P    | 4S     | accepts the limit raise: a singleton
+# Rick 2026-11-25: opener holds the long trumps and does not count the
+# singleton; 13 HCP plus one for length is 14 (was 4S on support points).
+S AK432.J.T62.AJ42      | 1S P 3S P    | P      | 14 with a singleton: declines (GIB's 4S is 14+ HCP, 15+ points)
 S AK952.A3.Q54.952      | 1S P 3S P    | P      | 13, flat: declines
 
 # ── After a two-over-one
