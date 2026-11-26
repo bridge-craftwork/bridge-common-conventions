@@ -79,6 +79,39 @@ when opening, seat<=2
   2S  "Weak two: six spades, 4-10, a good suit"     shows S=6, hcp=4..10, quality(S)>=good | top5(S)>=3, H<=3 | (!has(A,H), !has(K,H), !has(Q,H), !has(J,H)), hcp<=9 | !has(A,S) | (!has(K,S), !has(A,H), !has(A,D), !has(A,C))
       when two_s is bidding_conventions/weak_2s, weak_2s_open, style is not standard, system is not brill, vul
 
+# What partner reads from the weak twos above: the normal shape, one to
+# four cards in each side suit (Rick 2026-11-25, BIDDING-MODEL 3.6: the
+# description is narrower than the licence; GIB's tree: 1-3 or 1-4 in
+# each side suit). The rules above still open a hand with a side void;
+# these are never chosen (`bare(C), !bare(C)` holds for no hand, and
+# a reader cannot judge it) and outrank them, so the call is read by these
+# alone (docs/LANGUAGE.md, section 8; the idiom of rkcb-1430.bid).
+when opening, seat<=2
+  2D  "Weak two: six diamonds, 4-10"   shows D=6, hcp=4..10, C=1..4, H=1..4, S=1..4
+      when two_d is bidding_conventions/weak_2s, weak_2d_open, style is not standard, system is not brill, !vul
+      when bare(C), !bare(C)             # never chosen: described only
+      priority 1
+  2D  "Weak two: six diamonds, 4-10, a good suit"   shows D=6, hcp=4..10, quality(D)>=good | top5(D)>=3, C=1..4, H=1..4, S=1..4
+      when two_d is bidding_conventions/weak_2s, weak_2d_open, style is not standard, system is not brill, vul
+      when bare(C), !bare(C)             # never chosen: described only
+      priority 1
+  2H  "Weak two: six hearts, 4-10"     shows H=6, hcp=4..10, C=1..4, D=1..4, S=1..4
+      when two_h is bidding_conventions/weak_2s, weak_2h_open, style is not standard, system is not brill, !vul
+      when bare(C), !bare(C)             # never chosen: described only
+      priority 1
+  2H  "Weak two: six hearts, 4-10, a good suit"     shows H=6, hcp=4..10, quality(H)>=good | top5(H)>=3, C=1..4, D=1..4, S=1..4
+      when two_h is bidding_conventions/weak_2s, weak_2h_open, style is not standard, system is not brill, vul
+      when bare(C), !bare(C)             # never chosen: described only
+      priority 1
+  2S  "Weak two: six spades, 4-10"     shows S=6, hcp=4..10, C=1..4, D=1..4, H=1..4
+      when two_s is bidding_conventions/weak_2s, weak_2s_open, style is not standard, system is not brill, !vul
+      when bare(C), !bare(C)             # never chosen: described only
+      priority 1
+  2S  "Weak two: six spades, 4-10, a good suit"     shows S=6, hcp=4..10, quality(S)>=good | top5(S)>=3, C=1..4, D=1..4, H=1..4
+      when two_s is bidding_conventions/weak_2s, weak_2s_open, style is not standard, system is not brill, vul
+      when bare(C), !bare(C)             # never chosen: described only
+      priority 1
+
 # brill (the Brill card, general.system = brill): Brill's weak two is
 # six cards, 5-11 HCP, with no five-card side major; a four-card one is
 # allowed. Brill /explain, 2026-10-15: "Weak 2 S" requires `hcp<= 11 and
@@ -101,6 +134,20 @@ when opening, seat=3
       when two_h is bidding_conventions/weak_2s, weak_2h_open, H>=6 | quality(H)>=good
   2S  "Weak two: five or six spades, 4-9"  shows S>=5, S<=6, hcp=4..9
       when two_s is bidding_conventions/weak_2s, weak_2s_open, S>=6 | quality(S)>=good
+  # Read with one to four cards in each side suit, as in first and
+  # second seat (above): never chosen, described only.
+  2D  "Weak two: five or six diamonds, 4-9"  shows D>=5, D<=6, hcp=4..9, H=1..3, S=1..3, C=1..4
+      when two_d is bidding_conventions/weak_2s, weak_2d_open
+      when bare(C), !bare(C)             # never chosen: described only
+      priority 1
+  2H  "Weak two: five or six hearts, 4-9"  shows H>=5, H<=6, hcp=4..9, S=1..3, C=1..4, D=1..4
+      when two_h is bidding_conventions/weak_2s, weak_2h_open
+      when bare(C), !bare(C)             # never chosen: described only
+      priority 1
+  2S  "Weak two: five or six spades, 4-9"  shows S>=5, S<=6, hcp=4..9, C=1..4, D=1..4, H=1..4
+      when two_s is bidding_conventions/weak_2s, weak_2s_open
+      when bare(C), !bare(C)             # never chosen: described only
+      priority 1
 
 # ── Fourth seat: no weak two; 2 of a suit is a sound minimum opening ─
 # The hand that would open one and rebid two of the suit: a six-card suit

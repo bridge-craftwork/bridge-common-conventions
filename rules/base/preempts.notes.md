@@ -388,6 +388,25 @@ contract errors improved by 29 IMPs, and the two halves agree
 1♠/1♥→2♠/2♥ on 10-11 HCP 0. The advances.bid 2NT change in the same
 commit moved no corpus board.
 
+## Weak twos are read with no side void (Rick, GIB tree, 2026-11-25)
+
+Rick: the description is normal shape even where the licence is wider
+(BIDDING-MODEL 3.6). The default-style weak twos in first and second
+seat, and the third-seat ones, are read with one to four cards in each
+side suit (third seat: 1-3 in a side major); the rules that bid still
+open a hand with a side void. GIB's tree: 1-3 or 1-4 in each side suit.
+Side-suit minima wide: 5,341 call-boards (2♦ 2♥ 2♠), now none; left
+are the maxima, 4 against GIB's 3, our default style's four small in
+a side major (2026-09-24).
+
+How it is written: a second rule for the same call, never chosen
+(`when bare(C), !bare(C)`: no hand meets it, and a reader cannot judge
+it, so it stays possible when the call is read), one priority above the
+rule that bids. Partner reads the call by the higher rule alone
+(docs/LANGUAGE.md section 8), so the description narrows and no call
+changes (BIDDING-MODEL 3.6; the idiom of rkcb-1430.bid). The cost: these
+calls count in compare's "calls read as a higher rule than chose them".
+
 ## Sources
 
 - Brill /explain, 2026-10-15 (Thorvald Aagaard's public Brill service, answers cached in `.rbb-cache/brill-service/explain/`): the rule text quoted in the `brill` section and in the `.bid` comments. Applies to the Brill card only (`general.system = brill`, cards/README.md "Brill").
@@ -418,3 +437,4 @@ commit moved no corpus board.
   on vulnerability.
 - **Where we differ:** "Accepted differences from BBA", and the default's
   departures listed at the end of "BBA treatment".
+- GIB's bidding tree (BBO's `gibrest`, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), agreed-path comparison on 21GF-GIB (top 5,000 positions of 100,000 random deals), Rick 2026-11-25 (BIDDING-MODEL 3.6 and 4.3): the description rules in the section of that date above.
