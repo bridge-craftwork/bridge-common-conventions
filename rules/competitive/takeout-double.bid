@@ -47,6 +47,10 @@ after (1x)
       shows hcp+length_points>=12
       shows (S>=3 | x is S), (H>=3 | x is H), (D>=3 | x is D), (C>=3 | x is C)
       shows (S<=4 | x is S), (H<=4 | x is H), (D<=5 | x is D), (C<=5 | x is C)   # a five-card major or six-card minor overcalls
+      # Short in their suit, the normal takeout shape (GIB's tree: 2- in
+      # their suit; Rick 2026-11-25, BIDDING-MODEL 3.6). A 4-3-3-3 with
+      # three of theirs still doubles, by the licence above.
+      shows x<=2
       when  bare(C), !bare(C)            # never chosen: described only
       priority 1
 

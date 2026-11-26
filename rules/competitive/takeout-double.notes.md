@@ -273,6 +273,16 @@ rule that bids. Partner reads the call by the higher rule alone
 changes (BIDDING-MODEL 3.6; the idiom of rkcb-1430.bid). The cost: these
 calls count in compare's "calls read as a higher rule than chose them".
 
+**Short in their suit** (2026-11-26, the top 20,000 positions): the
+description now also says two or fewer in their suit (GIB 2-; ours read
+0-4, 6,214 call-boards "max-wide" on the twelve direct doubles of one
+of a suit). The licence is unchanged: a 4-3-3-3 with three of theirs
+and 12-14 still doubles, and partner plans on the normal shape (3.6).
+The reopening double (balancing.bid) was checked too: ours reads 3-4 in
+an unbid major and 3-5 in a minor where GIB says 3+, narrower, and its
+6-7 HCP floor against GIB's 9 is the licence's 8 total points (Rick,
+2026-09-22), so it is left. MEASURE_G2
+
 ## The power double converts (Rick, 2026-11-25)
 
 A double is read as takeout. When the doubler then shows a suit of his
@@ -314,4 +324,5 @@ not convert: the takeout shape still holds.
   differences from BBA"). The overcall ceiling moved from 17 to 16 HCP,
   pending Rick.
 - GIB's bidding tree (BBO's `gibrest`, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), agreed-path comparison on 21GF-GIB (top 5,000 positions of 100,000 random deals), Rick 2026-11-25 (BIDDING-MODEL 3.6 and 4.3): the description rules and floors in the section of that date above.
+- GIB's tree, the top 20,000 positions (2026-11-26; Rick 2026-11-25, BIDDING-MODEL 3.6): the double's description short in their suit.
 - Rick, 2026-11-25: the power double converts when the doubler shows his own suit or notrump; 18+ for a suit (GIB 17+), 19-21 for notrump.
