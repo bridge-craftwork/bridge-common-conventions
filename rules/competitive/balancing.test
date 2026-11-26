@@ -32,14 +32,17 @@ N A4.KQJ6.A3.K8762          | 1D P P X P 1S P | 2C  | five clubs and 17: double,
 # passed the opening once already.
 S KJ74.5.Q954.K843          | 1H P 2H P P | X   | short in hearts, the unbid suits and 9 HCP: balance
 S KT985.63.K84.J72          | 1H P 2H P P | 2S  | five spades and 7 HCP: too weak to overcall, enough to balance
-S K4.63.Q84.KJ9754          | 1H P 2H P P | 3C  | six clubs and 9 HCP, no spades for a double
+S K4.3.Q842.KJ9754          | 1H P 2H P P | 2NT | six clubs and four diamonds: two places to play
+S K4.3.Q84.KJ97542          | 1H P 2H P P | 3C  | seven clubs, 9 HCP and a singleton heart
+S K4.63.Q84.KJ9754          | 1H P 2H P P | P   | six clubs but two hearts: not at the three level
 S 4.632.KJ84.AT975          | 1H P 2H P P | 2NT | five clubs and four diamonds: two places to play
 S J74.Q65.Q954.J43          | 1H P 2H P P | P   | 6 HCP: let them play 2H
 S K74.Q65.A954.J43          | 1H P 2H P P | P   | three hearts and flat: nothing to balance with
 S QJ74.AK54.62.J43          | 1C P 2C P P | X   | both majors over their clubs
 N 7.KJ84.Q4.AT9754          | 1D P 1S P 2S P P | 2NT | the two unbid suits, five-four or better
-N Q6.KJ84.J76.A954          | 1D P 1S P 2S P P | X   | short in spades, four hearts and the clubs
-N Q6.K84.J7.AQ9754          | 1D P 1S P 2S P P | 3C  | six clubs and 10 HCP
+N Q.KJ84.J763.A954          | 1D P 1S P 2S P P | X   | a singleton spade, four hearts and the clubs
+N Q6.KJ84.J76.A954          | 1D P 1S P 2S P P | P   | two spades: the double needs a singleton
+N Q.K84.J72.AQ9754          | 1D P 1S P 2S P P | 3C  | six clubs, 10 HCP and a singleton spade
 
 # Advancer answers the balance: the cheapest call, no jump to game on
 # partner's borrowed values.
