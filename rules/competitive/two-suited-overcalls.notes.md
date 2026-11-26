@@ -587,6 +587,27 @@ Open questions (not written):
   (Brill), a different module (advances), not written.
 - BBA's passed-hand 2NT in the sandwich seat with six-five (above).
 
+## The cue bid after their 1NT response (2026-11-26)
+
+(1x) P (1N) 2x is Michaels, as the direct cue bid: over a minor both
+majors, over a major the other major and a minor, with 12-17 HCP at
+either strength setting. GIB's tree agrees on the meaning
+("Michaels -- 5+ !H; 9+ total points" over 1♠ P 1NT; both majors over
+1♣/1♦ P 1NT), with a floor of 9 total points. On the 100,000 random
+deals (overcalls.notes.md, "After their 1NT response") the cue bids
+under 12 HCP cost the bidding side 43 IMPs of contract errors over 60
+boards and those with 12+ gained 13 over 33, so the floor is 12 HCP
+here. The named auctions `michaels_1m`, `michaels_1h`,
+`michaels_1s`, `michaels_1maj` and `michaels_1x` (their opening, or
+their opening and the 1NT response) start every
+advancer and rebid context, so the continuations are the direct cue
+bid's (standard practice, not yet cited).
+
+Not written: the opening side's answer to it. Opener's rebids after
+1♠ P 1NT (2♠) are base/rebids.bid's generic rebids over interference;
+the "Our side, when they make a two-suited overcall" rules are for the
+direct cue bid only.
+
 ## The long hand counts its own points (Rick, 2026-11-25)
 
 Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with the shorter trumps, the one raising; the hand with the long trumps counts its own points, HCP plus length (`hcp+length_points`, the engine's "decl"). The long trump hand counting support points "isn't normally done" (engine repo docs/BIDDING-MODEL.md, 3.3).
@@ -681,3 +702,4 @@ plus length; the numbers stayed.
 - **Brill's convention files** (2026-10-30 gap list): where Rusty had no
   rule; hints, not copied.
 - **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.
+- The Michaels cue bid after (1x) P (1N) (2026-11-26): standard practice, not yet cited; GIB's tree (`gib_tree.py show 1S-P-1N`, 1C-P-1N) shows it as Michaels.

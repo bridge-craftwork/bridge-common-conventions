@@ -362,6 +362,20 @@ from their 4♥ to our 3♠). Not vulnerable: 147 boards changed, contract
 errors **+4**, doubling −10, distance from par +51, halves differ,
 z −0.2, **neutral**.
 
+## Advancing after their 1NT response (2026-11-26)
+
+Partner came in after (1x) P (1N) (overcalls.notes.md, "After their
+1NT response"). Over his two-level overcall: raise to three with four
+trumps and 6+ total points or three and 9+ (GIB: three and 8-10), else
+pass. Over his takeout double (over a major: the other major and the
+minors; over a minor: the majors): the longer unbid suit at the
+cheapest level up to 8 HCP, a jump with four and 9-11, the pass to
+defend 1NT doubled with 9+ balanced and their suit held, else the
+forced three-card answer. With RHO bidding, a free bid with four (a
+major) or five (a minor) and 7+. Not written: 2NT, 3NT, the cue bid of
+opener's suit (GIB has them). Standard practice, not yet cited; GIB's
+tree (`gib_tree.py show 1S-P-1N-D-P`, 1C-P-1N-D-P, 1S-P-1N-2H-P).
+
 ## Tops on the passes (Rick, GIB tree, 2026-11-25)
 
 How a top on a catch-all pass is written (2026-11-25): the pass
@@ -424,3 +438,4 @@ chose them".
   convention-card summary (`spec/conventions/competitive_bidding/mixed_raise.toml`)
   matches.
 - GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.
+- Advancing after (1x) P (1N) (2026-11-26): standard practice, not yet cited; GIB's tree for the ranges.

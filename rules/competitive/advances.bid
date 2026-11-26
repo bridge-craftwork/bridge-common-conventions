@@ -397,6 +397,83 @@ after (1x) P (1y) X (*) when y is not x, !rho.last=P
       when  x is not C, y is not C, cheapest_rank(C)<=13
   P   "Not enough to advance"  priority -10
 
+# ── Advancing after their 1NT response: (1x) P (1N) ? ────────────────
+# Partner came in after (1x) P (1N) with a two-level overcall
+# (overcalls.bid, 2026-11-26: five cards, 12-18). The raise is to the
+# three level: four-card support and 6+ total points (the competitive
+# raise from the sandwich seat), or three and 9+. Standard practice, not
+# yet cited.
+after (1x) P (1N) 2z (*) when z is not x
+  cheapest(z) "Raise: three-card support and 9+, or four"
+      shows z>=4 | hcp+length_points>=9, z>=3, hcp+length_points>=6
+      when  cheapest_rank(z)<=18
+  P   "Not enough to advance"  priority -10
+
+# Partner's takeout double: over a major the other major and the minors,
+# over a minor the majors. Answer in the longer unbid suit (a major with
+# equal length; over a minor, a major), a jump with 9-11 and four, a
+# pass to defend 1NT doubled with 9+ balanced and their suit held
+# (standard practice: the doubler has 12+, so our side has the balance),
+# else the longer unbid suit however short.
+after (1x) P (1N) X (P)
+  cheapest(S) "Answers the double: four or more spades"
+      shows S>=4, S>=H | x is H, S>=D | x is D | x is C, S>=C | x is C | x is D, hcp<=8
+      when  x is not S
+  cheapest(H) "Answers the double: four or more hearts"
+      shows H>=4, H>S | x is S, H>=D | x is D | x is C, H>=C | x is C | x is D, hcp<=8
+      when  x is not H
+  cheapest(D) "Answers the double: four or more diamonds"
+      shows D>=4, D>S, D>H, D>=C, hcp<=8
+      when  x is H | x is S
+  cheapest(C) "Answers the double: four or more clubs"
+      shows C>=4, C>S, C>H, C>D, hcp<=8
+      when  x is H | x is S
+  jump(S) "Jump answer: four or more spades, 9-11"
+      shows S>=4, S>=H | x is H, hcp>=9, hcp<=11
+      when  x is not S
+  jump(H) "Jump answer: four or more hearts, 9-11"
+      shows H>=4, H>S | x is S, hcp>=9, hcp<=11
+      when  x is not H
+  jump(D) "Jump answer: four or more diamonds, 9-11"
+      shows D>=4, D>S, D>H, D>=C, hcp>=9, hcp<=11
+      when  x is H | x is S
+  jump(C) "Jump answer: four or more clubs, 9-11"
+      shows C>=4, C>S, C>H, C>D, hcp>=9, hcp<=11
+      when  x is H | x is S
+  P   "Defends 1NT doubled: 9+ balanced, {x} held"
+      shows hcp>=9, balanced, stop(x)
+      priority -1
+  # The forced answer without four cards: the longer unbid suit.
+  cheapest(S) "Answers the double: three spades"
+      shows S>=3, S>=H | x is H, S>=D | x is D | x is C, S>=C | x is C | x is D
+      when  x is not S
+      priority -2
+  cheapest(H) "Answers the double: three hearts"
+      shows H>=3, H>=D | x is D | x is C, H>=C | x is C | x is D
+      when  x is not H
+      priority -3
+  cheapest(D) "Answers the double: the longer unbid suit"
+      when  x is not D
+      priority -4
+  cheapest(C) "Answers the double: the longer unbid suit"
+      when  x is not C
+      priority -5
+
+after (1x) P (1N) X (*) when !rho.last=P
+  cheapest(S) "Free bid: four or more spades"
+      shows S>=4, hcp+length_points>=7
+      when  x is not S, cheapest_rank(S)<=13
+  cheapest(H) "Free bid: four or more hearts"
+      shows H>=4, S<=H | x is S, hcp+length_points>=7
+      when  x is not H, cheapest_rank(H)<=13
+  cheapest(D) "Free bid: five or more diamonds"
+      shows D>=5, hcp+length_points>=7
+      when  x is not D, cheapest_rank(D)<=13
+  cheapest(C) "Free bid: five or more clubs"
+      shows C>=5, hcp+length_points>=7
+      when  x is not C, cheapest_rank(C)<=13
+  P   "Not enough to advance"  priority -10
+
 # ── Advancer after partner's overcall of their 1NT ───────────────────
 # The overcall is five cards and 12+ total points (overcalls.bid); RHO
 # has 15-17. Advancer passes (added 2026-09-25: no rule matched).
