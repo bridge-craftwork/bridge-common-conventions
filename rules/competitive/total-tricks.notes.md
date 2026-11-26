@@ -171,6 +171,23 @@ separate probe).
 BBA's balance did worse than our pass (X −142, 3♣ −68, 3♦ −13, 3♥ −27
 IMPs). No balancing rule was written.
 
+## The floor and top are shown (Rick, GIB tree, 2026-11-26)
+
+The three "Competes: to play" rules required 5+ HCP and a combined
+minimum of at most 24 HCP (`we.hcp.min <= 24`, "not clearly our
+hand") in `when`, which partner does not read, so every competitive
+raise read 0+ points (GIB's tree: 3-8 total points for 2H X 3H, 4-17
+for the Law raise of a weak two over an overcall, 4+ for the Law's
+game). Both are now `shows`: at least 5 HCP and at most 24 less
+partner's floor, 12 opposite an opening, 20 opposite a weak two. No
+hand bids differently; partner reads the range. MEASURE_G3
+
+Left: opposite a weak two over their interference responder has no
+constructive call (weak-two-responses.bid is written for 2x (P) only),
+so the Law's 3x with three trumps takes hands up to 20 HCP, where GIB
+tops at 17 and the uncontested 4x game raise starts at 15. A game raise
+(and the 2NT ask) over interference would set the honest top.
+
 ## Tried and not kept (2026-10-02)
 
 Each measured with `probes/tools/errors_diff.py` against the kept
@@ -211,6 +228,7 @@ changes before it.
   overcall on the vanilla SAYC random set (`(1x) 1S (P)`: 2♠ 196 hands
   with three spades from about 9 HCP, pass 198 with 5-8), and the
   measurements in its section.
+- **GIB's bidding tree** (2026-11-26; Rick 2026-11-25, BIDDING-MODEL 4.3): the floor and top shown, in "The floor and top are shown".
 - **The diagnosis** (2026-10-02): `probes/tools/compete_diag.py` on the
   vanilla SAYC compare JSON; par_blame (`probes/tools/par_blame.py`) on
   the same; the variants in "Tried and not kept", by
