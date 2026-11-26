@@ -24,6 +24,7 @@ module takeout-double "Takeout doubles"
   needs  overcalls
   skill  competitive_bidding/takeout_doubles
   param  oc_max = overcalls.one_level_max default 16
+  param  nt_max = nt_overcalls.direct.range_max default 18
 
 # ── The double ───────────────────────────────────────────────────────
 after (1x)
@@ -128,19 +129,24 @@ after (1x) X (P) 1y (P) | (1x) P (P) X (P) 1y (P)
   4{y} "22+ total points, four-card support for partner's major"
       shows y>=4, hcp+length_points>=22
       when  y is H | y is S
-  1N  "18-19 balanced with a stopper in {x}"
-      shows balanced, hcp=17..19
+  1N  "Power double: balanced, above a 1NT overcall, a stopper in {x}"
+      converts X
+      shows balanced, hcp>nt_max, hcp<=nt_max+3
       when  stop(x)
   cheapest(S) "18+ total points and a five-card spade suit"
+      converts X
       shows S>=5, hcp+length_points>=18 | hcp>=17
       when  x is not S, y is not S
   cheapest(H) "18+ total points and a five-card heart suit"
+      converts X
       shows H>=5, hcp+length_points>=18 | hcp>=17
       when  x is not H, y is not H
   cheapest(D) "18+ total points and a five-card diamond suit"
+      converts X
       shows D>=5, hcp+length_points>=18 | hcp>=17
       when  x is not D, y is not D
   cheapest(C) "18+ total points and a five-card club suit"
+      converts X
       shows C>=5, hcp+length_points>=18 | hcp>=17
       when  x is not C, y is not C
 
@@ -153,19 +159,24 @@ after (1x) X (P) 2y (P) | (1x) P (P) X (P) 2y (P)
   3{y} "Strong raise: three-card support, 20+"
       shows y=3, hcp>=20
   cheapest(S) "18+ total points and a five-card spade suit"
+      converts X
       shows S>=5, hcp+length_points>=18 | hcp>=17
       when  x is not S, y is not S
   cheapest(H) "18+ total points and a five-card heart suit"
+      converts X
       shows H>=5, hcp+length_points>=18 | hcp>=17
       when  x is not H, y is not H
   cheapest(D) "18+ total points and a five-card diamond suit"
+      converts X
       shows D>=5, hcp+length_points>=18 | hcp>=17
       when  x is not D, y is not D
   cheapest(C) "18+ total points and a five-card club suit"
+      converts X
       shows C>=5, hcp+length_points>=18 | hcp>=17
       when  x is not C, y is not C
-  2N  "18-19 balanced with a stopper in {x}"
-      shows balanced, hcp=17..19
+  2N  "Power double: balanced, above a 1NT overcall, a stopper in {x}"
+      converts X
+      shows balanced, hcp>nt_max, hcp<=nt_max+3
       when  stop(x)
 
 # The doubler again when they compete (2026-09-25; no rules before). BBA:
@@ -177,9 +188,11 @@ after (1x) X (P) 2y (P) | (1x) P (P) X (P) 2y (P)
 # answers below it gains (2026-09-27, ticket b89, notes).
 after (1x) X (2x) P (P)
   cheapest(S) "16+ and five spades"                 shows S>=5, hcp>=16
+      converts X
       when  x is not S
       priority 1
   cheapest(H) "16+ and five hearts"                 shows H>=5, S<=4, hcp>=16
+      converts X
       when  x is not H
       priority 1
   X   "Takeout again: short in {x}"                 shows x<=1, hcp>=12
@@ -205,12 +218,15 @@ after (1x) X (2x) P (P) X (P)
 after (1x) X (P) 1y (2x) | (1x) X (P) 2y (2x)
   3{y} "16+, four-card support"                     shows y>=4, hcp+length_points>=16
   cheapest(C) "16+ and five clubs"                  shows C>=5, hcp>=16, y<=3
+      converts X
       when  x is not C, y is not C
   cheapest(D) "16+ and five diamonds"               shows D>=5, D>C, hcp>=16, y<=3
+      converts X
       when  x is not D, y is not D
   # The strong balanced double, as without their bid (2026-10-05, the
   # Raptor self A/B: 1♣ X P 1♥ 2♣ passed with 18 HCP; BBA bids 2NT).
-  2N  "18-19 balanced with a stopper in {x}"       shows balanced, hcp=17..19
+  2N  "Power double: balanced, above a 1NT overcall, a stopper in {x}"       shows balanced, hcp>nt_max, hcp<=nt_max+3
+      converts X
       when  stop(x)
   P   "No further bid"                                priority -5
 
@@ -219,15 +235,19 @@ after (1x) X (P) 1y (2x) | (1x) X (P) 2y (2x)
 # long suit passed). The strong double shows its suit now.
 after (1x) X (1y) P (*) | (1x) X (2y) P (*) when y is not x, !rho.last=P
   cheapest(S) "18+ total points and five spades"
+      converts X
       shows S>=5, hcp+length_points>=18 | hcp>=17
       when  x is not S, y is not S
   cheapest(H) "18+ total points and five hearts"
+      converts X
       shows H>=5, S<=4, hcp+length_points>=18 | hcp>=17
       when  x is not H, y is not H
   cheapest(D) "18+ total points and five diamonds"
+      converts X
       shows D>=5, S<=4, H<=4, hcp+length_points>=18 | hcp>=17
       when  x is not D, y is not D
   cheapest(C) "18+ total points and five clubs"
+      converts X
       shows C>=5, D<=4, S<=4, H<=4, hcp+length_points>=18 | hcp>=17
       when  x is not C, y is not C
 

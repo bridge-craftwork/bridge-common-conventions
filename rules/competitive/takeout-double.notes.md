@@ -273,6 +273,24 @@ rule that bids. Partner reads the call by the higher rule alone
 changes (BIDDING-MODEL 3.6; the idiom of rkcb-1430.bid). The cost: these
 calls count in compare's "calls read as a higher rule than chose them".
 
+## The power double converts (Rick, 2026-11-25)
+
+A double is read as takeout. When the doubler then shows a suit of his
+own or bids notrump, it converts to a power double: the takeout double's
+shape and strength no longer hold, and the hand shows what an overcall of
+that suit (or a 1NT overcall) would, with more strength: 18+ for a suit
+(GIB may say 17+), and 19-21 for notrump, since our 1NT overcall is 15-18
+(`hcp>nt_max, hcp<=nt_max+3`, from the card's 1NT overcall range). Every
+suit and notrump rebid of the doubler carries `converts X` (engine
+0.20.0), so partner reads the seat again without the double's meaning;
+what the double denied stays. Raises of advancer's suit and cue bids do
+not convert: the takeout shape still holds.
+
+- `takeout-double.test`: the 2NT case after 1♣ X P 1♥ 2♣ now holds 19
+  (K73.A5.AQ87.AQJ2); with 18 and clubs stopped the hand overcalls 1NT.
+- The reopening double's notrump rebid uses the same range for now; a
+  balancing 1NT's range differs, which may want its own band.
+
 ## Sources
 
 - **Rick's rulings:** the double (12 total points and three cards in
@@ -296,3 +314,4 @@ calls count in compare's "calls read as a higher rule than chose them".
   differences from BBA"). The overcall ceiling moved from 17 to 16 HCP,
   pending Rick.
 - GIB's bidding tree (BBO's `gibrest`, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), agreed-path comparison on 21GF-GIB (top 5,000 positions of 100,000 random deals), Rick 2026-11-25 (BIDDING-MODEL 3.6 and 4.3): the description rules and floors in the section of that date above.
+- Rick, 2026-11-25: the power double converts when the doubler shows his own suit or notrump; 18+ for a suit (GIB 17+), 19-21 for notrump.
