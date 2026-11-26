@@ -37,9 +37,15 @@ Listed, not changed:
 | Weak two strength | 4-10 HCP | 10- HCP, 7+ total points | tree `_` | `preempts.weak_two.hcp_min` / `hcp_max` |
 | One-level opening floor | 10+ HCP with 12 HCP + length | 11-21 HCP, 12-22 total points | tree `_` 1♠ | `general.min_hcp_open` exists (12 total); an HCP floor would be new |
 
-Measured (2026-11-26, the 20k agreed comparison, 21GF-GIB): see
-docs/BIDDING-MODEL.md section 4 in rusty-bidding-bot and the notes of
-base.notes.md / preempts.notes.md.
+Measured (2026-11-26; `gib_tree.py agreed`, the top 20,000 positions of
+the 100,000 random deals, 21GF-GIB, tags `gibstyle-off` and
+`gibstyle-on`): call-boards with any range difference on agreed calls
+fell from 225,477 to 214,315 (-11,162), and differences counted by kind
+from 356,363 to 339,348. The five rules the two items touch (the
+third-seat 1♥/1♠ and the three weak twos, 10,763 call-boards) leave the
+difference list; nothing else moved by more than 110. By kind: "len
+max-wide" 50,698 to 39,904, "len min-wide" 59,195 to 52,505. Our readings
+only: the positions are our default engine's auctions.
 
 ## bba
 
