@@ -163,6 +163,7 @@ when opening, seat<=2, style is gib, system is not brill
 # and H <= 4 and not shapeopenings` (2D: `S <= 4 and H <= 4`). No
 # vulnerability condition. The top stays at 10 and the ace clause stays,
 # so the choice against a one-level opening is the default's.
+when opening, seat<=2
   2D  "Weak two: six diamonds, 5-10, no five-card major"   shows D=6, hcp=5..10, H<=4, S<=4, hcp<=9 | !has(A,D) | (!has(A,S), !has(A,H), !has(A,C))
       when two_d is bidding_conventions/weak_2s, weak_2d_open, system is brill
   2H  "Weak two: six hearts, 5-10, no five spades"         shows H=6, hcp=5..10, S<=4, hcp<=9 | !has(A,H) | (!has(K,H), !has(A,S), !has(A,D), !has(A,C))

@@ -94,3 +94,15 @@ card    21GF-GIB
 N 5.32.KJ.KJT87632      |            | 5C     | default: 4C is Namyats on 21GF-GIB
 N KQT952.85432.4.7      |            | 2S     | default: no honour in the side hearts
 N 5.Q852.4.KQJ9762      |            | P      | default: no four-card major with the queen
+
+# ── The gib style (general.style=gib; settings/styles.md): no side
+# four-card suit but clubs. Each line has a default line beside it.
+dealer  N
+vul     None
+card    21GF-GIB
+N KQT952.8543.4.73      |            | 2S     | default: four small hearts beside the spades
+N 82.KQT952.Q853.4      |            | 2H     | default: four diamonds beside the hearts
+card    21GF-GIB general.style=gib
+N KQT952.8543.4.73      |            | P      | gib: no weak two with a side four-card major
+N 82.KQT952.Q853.4      |            | P      | gib: no weak two with four diamonds
+N 82.KQT952.4.Q853      |            | 2H     | gib: four clubs are fine
