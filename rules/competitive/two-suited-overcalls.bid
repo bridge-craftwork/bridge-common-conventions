@@ -90,6 +90,8 @@ module two-suited-overcalls "Michaels cue bids and the Unusual 2NT"
 # cue bid (2026-11-26), so advancer and the cue bidder go on as after
 # the direct cue bid. `michaels_1m 2m` is the cue bid. GIB's tree
 # (1S-P-1N and the others): "Michaels -- 5+ !H; 9+ total points".
+# The values are not the direct cue bid's: 12-17 HCP at any strength
+# setting (below).
 define auction michaels_1m = (1m) | (1m) P (1N)
 define auction michaels_1h = (1H) | (1H) P (1N)
 define auction michaels_1s = (1S) | (1S) P (1N)
@@ -109,7 +111,7 @@ define auction michaels_1x = (1x) | (1x) P (1N)
 # says where (over a major, over a minor) plays it only there.
 define mich_all = mich_play, !(mich_minors | mich_quasi | mich_majors)
 
-after michaels_1m when mich_minors | mich_quasi | mich_all, !ghestem
+after (1m) when mich_minors | mich_quasi | mich_all, !ghestem
   2{m} "Michaels: five or more in each major"
       alert  artificial
       shows H>=5, S>=5, hcp+length_points>=9, hcp<=17
@@ -132,7 +134,7 @@ after michaels_1m when mich_minors | mich_quasi | mich_all, !ghestem
       when  strength is weak_or_strong
 
 # ── Michaels over a major: the other major and a minor ───────────────
-after michaels_1h when mich_majors | mich_all, !ghestem
+after (1H) when mich_majors | mich_all, !ghestem
   2H  "Michaels: five or more spades and a five-card minor"
       alert  artificial
       shows S>=5, C>=5 | D>=5, hcp+length_points>=9, hcp<=17
@@ -154,7 +156,7 @@ after michaels_1h when mich_majors | mich_all, !ghestem
       shows S>=5, C>=5 | D>=5, hcp>=16
       when  strength is weak_or_strong
 
-after michaels_1s when mich_majors | mich_all, !ghestem
+after (1S) when mich_majors | mich_all, !ghestem
   2S  "Michaels: five or more hearts and a five-card minor"
       alert  artificial
       shows H>=5, C>=5 | D>=5, hcp+length_points>=9, hcp<=17
@@ -175,6 +177,28 @@ after michaels_1s when mich_majors | mich_all, !ghestem
       alert  artificial
       shows H>=5, C>=5 | D>=5, hcp>=16
       when  strength is weak_or_strong
+
+# ── Michaels after their 1NT response: (1x) P (1N) 2x ──────────────
+# The same two-suiters, from 12 HCP (2026-11-26, measured on the 100,000
+# random deals, Random_Pavlicek_21GF: the cue bids under 12 HCP cost the
+# bidding side 43 IMPs of contract errors over 60 boards, those with
+# 12+ gained 13 over 33). Responder's 1NT leaves partner, who passed
+# over the opening, little; the light two-suiter goes down undoubled
+# where they would have stayed in 1NT. Up to 17 HCP, as directly; one
+# range at either card strength (weak_or_strong has no strong rebid
+# here).
+after (1m) P (1N) when mich_minors | mich_quasi | mich_all, !ghestem
+  2{m} "Michaels: five or more in each major, 12-17"
+      alert  artificial
+      shows H>=5, S>=5, hcp>=12, hcp<=17
+after (1H) P (1N) when mich_majors | mich_all, !ghestem
+  2H  "Michaels: five or more spades and a five-card minor, 12-17"
+      alert  artificial
+      shows S>=5, C>=5 | D>=5, hcp>=12, hcp<=17
+after (1S) P (1N) when mich_majors | mich_all, !ghestem
+  2S  "Michaels: five or more hearts and a five-card minor, 12-17"
+      alert  artificial
+      shows H>=5, C>=5 | D>=5, hcp>=12, hcp<=17
 
 # ── The Unusual 2NT: the two lowest unbid suits ──────────────────────
 # BBA (probes/unusual-2n-*.toml): 9+ total points at every

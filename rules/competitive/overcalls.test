@@ -82,12 +82,16 @@ N 8.Q3.KQT94.AJ852      | 1S P 3S    | P      | five-five minors over the jump r
 card    21GF-DEFAULT
 dealer  E
 vul     None
-N 83.AQJ95.K4.Q972      | 1S P 1N    | 2H     | 12 HCP, AQJ95: the natural two-level overcall
+N 83.AQJ95.K4.Q972      | 1S P 1N    | P      | 12 HCP, AQJ95: five cards need 16+ here
+N 83.AQJ952.K4.Q97      | 1S P 1N    | 2H     | 12 HCP, six good hearts: the natural two-level overcall
+N A3.AKJ95.KQ4.J97      | 1S P 1N    | 2H     | 18 HCP and five good hearts: overcall
 N 83.AJ952.K4.Q973      | 1S P 1N    | P      | 10 HCP, five hearts: the two level needs 12 (11 with six)
-N AKT98.73.A4.J852      | 1D P 1N    | 2S     | 12 HCP, five good spades over 1D P 1NT
+N AKT987.73.A4.J85      | 1D P 1N    | 2S     | 12 HCP, six good spades over 1D P 1NT
 N 5.KJ84.AQ93.K962      | 1S P 1N    | X      | 13 HCP, four hearts and both minors, short spades: takeout
-N KQ93.4.AJ82.Q974      | 1H P 1N    | X      | 12 HCP, four spades and both minors: takeout
-N AQ84.KJ93.73.K82      | 1C P 1N    | X      | 13 HCP, four-four in the majors: takeout of the minor
+N KQ93.4.AJ82.Q974      | 1H P 1N    | X      | 12 HCP, four spades and both minors, a singleton heart: takeout
+N KQ93.84.AJ8.Q974      | 1H P 1N    | P      | 12 HCP, balanced with a doubleton heart: defend, no double
+N AQ84.KJ93.K732.8      | 1C P 1N    | X      | 13 HCP, four-four in the majors and a singleton club: takeout
+N AQ84.KJ93.73.K82      | 1C P 1N    | P      | 13 HCP, four-four majors but balanced: defend
 N KQ3.A82.K9.J8642      | 1S P 1N    | P      | 13 HCP, a ragged five-card minor and three hearts: nothing to bid
 N 7.KQJ9762.J4.983      | 1S P 1N    | 3H     | 7 HCP, seven good hearts: the weak jump
 N Q8743.K62.J5.Q83      | 1H P 1N    | P      | 8 HCP, poor spades: no overcall

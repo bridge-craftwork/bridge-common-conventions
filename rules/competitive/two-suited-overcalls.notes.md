@@ -590,16 +590,18 @@ Open questions (not written):
 ## The cue bid after their 1NT response (2026-11-26)
 
 (1x) P (1N) 2x is Michaels, as the direct cue bid: over a minor both
-majors, over a major the other major and a minor, with the card's
-strength (wide range or weak-or-strong). GIB's tree agrees
+majors, over a major the other major and a minor, with 12-17 HCP at
+either strength setting. GIB's tree agrees on the meaning
 ("Michaels -- 5+ !H; 9+ total points" over 1♠ P 1NT; both majors over
-1♣/1♦ P 1NT). The named auctions `michaels_1m`, `michaels_1h`,
+1♣/1♦ P 1NT), with a floor of 9 total points. On the 100,000 random
+deals (overcalls.notes.md, "After their 1NT response") the cue bids
+under 12 HCP cost the bidding side 43 IMPs of contract errors over 60
+boards and those with 12+ gained 13 over 33, so the floor is 12 HCP
+here. The named auctions `michaels_1m`, `michaels_1h`,
 `michaels_1s`, `michaels_1maj` and `michaels_1x` (their opening, or
-their opening and the 1NT response) start the cue bid and every
+their opening and the 1NT response) start every
 advancer and rebid context, so the continuations are the direct cue
-bid's. Responder's 1NT says the opponents have no fit, so the
-two-suiter is safer here than directly; the values stay the same
-(standard practice, not yet cited).
+bid's (standard practice, not yet cited).
 
 Not written: the opening side's answer to it. Opener's rebids after
 1♠ P 1NT (2♠) are base/rebids.bid's generic rebids over interference;

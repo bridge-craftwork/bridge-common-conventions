@@ -305,52 +305,56 @@ after (1x) P (1y) when y is not x, jump is weak
 # queue"). Nothing was written here, so this hand passed everything but
 # the Unusual 2NT (two-suited-overcalls.bid). Responder's 1NT limits
 # their side (6-12 over a major, 6-10 over a minor) and denies a fit,
-# so the fourth seat competes as in the sandwich seat above: a natural
-# five-card suit at the two level with the two-level overcall's values
-# (a good suit or six, 12+ HCP or 11 with six; up to 18 HCP: partner
-# has passed, there is no power double), a jump to three with seven
-# cards and 4-10, and a takeout double of the unbid suits. Over a major
-# the double is GIB's shape (four of the other major, three of each
-# minor, at most two of theirs), 12+; with 15+ three of the other major
-# and at most three of theirs will do. Over a minor it is for the
-# majors: four-four 12+, or three-three 15+, as in the sandwich seat.
+# so the fourth seat competes, but more soundly than in the sandwich
+# seat: the hand behind responder defends well, and partner, who passed
+# over the opening, has little. A natural suit at the two level with six
+# cards (a good suit or six, 11+ HCP) or five and 16-18 HCP (no power
+# double: partner has passed); a jump to three with seven cards and
+# 4-10; a takeout double of the unbid suits only with a singleton or
+# void in theirs: over a major four of the other major and three of
+# each minor, over a minor four-four in the majors, 12+. Measured on
+# the 100,000 random deals (Random_Pavlicek_21GF, the acting side's
+# contract errors; notes): five-card overcalls with 12-15 HCP cost 204
+# IMPs over 125 boards, six-card ones gained; doubles on balanced hands
+# (a doubleton or three in their suit) cost 168 over 99, those with a
+# singleton or void gained 18 over 38.
 # The cue bid of their suit is Michaels, the 2NT the Unusual 2NT
 # (two-suited-overcalls.bid). Standard practice, not yet cited; GIB's
 # tree (probes/tools/gib_tree.py show 1S-P-1N, 1H-P-1N, 1D-P-1N,
 # 1C-P-1N): two-level suits 13-18 total points, the double 13+, jumps
 # to three seven-card preempts, the pass 16- (over a minor 20-).
 after (1x) P (1N)
-  2S  "Overcall: five spades, {two_min}-18"
+  2S  "Overcall: six spades (11+), or five with 16-18"
       shows S>=5, S>=H | x is H, S>=D | x is D, S>=C | x is C
-      shows hcp>=two_min | (S>=6, hcp>=two_min-1), hcp<=18
+      shows (S>=6, hcp>=two_min-1) | hcp>=16, hcp<=18
       when  x is not S
       when  S>=6 | quality(S)>=good | top5(S)>=4
-  2H  "Overcall: five hearts, {two_min}-18"
+  2H  "Overcall: six hearts (11+), or five with 16-18"
       shows H>=5, H>S | x is S, H>=D | x is D, H>=C | x is C
-      shows hcp>=two_min | (H>=6, hcp>=two_min-1), hcp<=18
+      shows (H>=6, hcp>=two_min-1) | hcp>=16, hcp<=18
       when  x is not H
       when  H>=6 | quality(H)>=good | top5(H)>=4
-  2D  "Overcall: five diamonds, {two_min}-18"
+  2D  "Overcall: six diamonds (11+), or five with 16-18"
       shows D>=5, D>S | x is S, D>H | x is H, D>=C | x is C
-      shows hcp>=two_min | (D>=6, hcp>=two_min-1), hcp<=18
+      shows (D>=6, hcp>=two_min-1) | hcp>=16, hcp<=18
       when  x is not D
       when  D>=6 | quality(D)>=good | top5(D)>=4
-  2C  "Overcall: five clubs, {two_min}-18"
+  2C  "Overcall: six clubs (11+), or five with 16-18"
       shows C>=5, C>S | x is S, C>H | x is H, C>D | x is D
-      shows hcp>=two_min | (C>=6, hcp>=two_min-1), hcp<=18
+      shows (C>=6, hcp>=two_min-1) | hcp>=16, hcp<=18
       when  x is not C
       when  C>=6 | quality(C)>=good | top5(C)>=4
   # The takeout double of the unbid suits.
-  X   "Takeout: hearts and the minors, 12+"
-      shows C>=3, D>=3, (H>=4, S<=2, hcp>=12) | (H>=3, S<=3, hcp>=15)
+  X   "Takeout: hearts and the minors, 12+, short in spades"
+      shows H>=4, C>=3, D>=3, S<=1, hcp>=12
       when  x is S
       priority -1
-  X   "Takeout: spades and the minors, 12+"
-      shows C>=3, D>=3, (S>=4, H<=2, hcp>=12) | (S>=3, H<=3, hcp>=15)
+  X   "Takeout: spades and the minors, 12+, short in hearts"
+      shows S>=4, C>=3, D>=3, H<=1, hcp>=12
       when  x is H
       priority -1
-  X   "Takeout: the majors, 12+"
-      shows H>=3, S>=3, H+S>=8 | hcp>=15, hcp>=12
+  X   "Takeout: the majors, 12+, short in {x}"
+      shows H>=4, S>=4, x<=1, hcp>=12
       when  x is C | x is D
       priority -1
   # GIB: 16- total points over a major, 20- over a minor; ours is read

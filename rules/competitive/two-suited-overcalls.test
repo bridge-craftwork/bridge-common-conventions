@@ -237,7 +237,8 @@ S Q743.Q732.93.Q63      | 3C P 4H 4N P       | 5S  | four spades, two diamonds: 
 card    21GF-DEFAULT
 dealer  E
 vul     None
-N 4.AKJ94.3.QJ9765      | 1S P 1N        | 2S     | hearts and clubs, five-six: Michaels over 1S P 1NT
+N 4.AKJ94.3.AQJ976      | 1S P 1N        | 2S     | hearts and clubs, 15 HCP: Michaels over 1S P 1NT
+N 4.KJ984.3.QJ9765      | 1S P 1N        | P      | 7 HCP: too light for Michaels here (12+), and for 2C
 N KQJ86.AQ975.4.63      | 1C P 1N        | 2C     | both majors, five-five: Michaels over 1C P 1NT
 N 5.K3.AQJ84.KJ985      | 1S P 1N        | 2N     | both minors, five-five: the Unusual 2NT
 S 873.K95.Q62.8743      | 1S P 1N 2S P   | 3H     | advancer: the preference for partner's hearts
