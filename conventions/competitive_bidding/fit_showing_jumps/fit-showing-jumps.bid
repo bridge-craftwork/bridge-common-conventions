@@ -136,7 +136,10 @@ after (1x) 1y (P) | (1x) 1y (X) | (1x) P (P) 1y (P)
 # opener accepts it as he accepts Jordan's 2NT (14+ total points), and
 # with 12+ when the side suit fits (2026-10-09: with HCP alone opener
 # signed off on 5-5 hands opposite the over-double jump, where the off
-# auction 1M (X) 2NT reached a making game; notes).
+# auction 1M (X) 2NT reached a making game; notes). Opener holds the long
+# trumps and his 14 is HCP plus length, not support points (Rick,
+# 2026-11-25). The minor-suit opener raising the jumper's major (five or
+# more) is the short hand, and counts support points.
 # In a minor a passed hand's 10-12 needs more: four of the side suit
 # when it is a major and three cards there make the major the game;
 # 3NT needs 16+ with the side suit covered (a balanced 1m opener is
@@ -144,7 +147,7 @@ after (1x) 1y (P) | (1x) 1y (X) | (1x) P (P) 1y (P)
 # any shape (2026-10-09: 14 balanced bid 3NT opposite 8-11 HCP).
 after 1x (P) 2z (P) | 1x (P) 3z (P) | 1x (X) 2z (P) | 1x (X) 3z (P) | 1x (1y) 2z (P) | 1x (1y) 3z (P) | 1x (2y) 2z (P) | 1x (2y) 3z (P) | (1y) 1x (P) 2z (P) | (1y) 1x (P) 3z (P) | (1y) 1x (X) 2z (P) | (1y) 1x (X) 3z (P) | (1y) P (P) 1x (P) 2z (P) | (1y) P (P) 1x (P) 3z (P) when asked fit_jump(t), z is not t
   4{t} "Game: 14+ total points, or 12+ with a fit in {z}"
-      shows tp(t)>=14 | (hcp>=12, z>=3 | quality(z)>=fair, z>=2)
+      shows hcp+length_points>=14 | (hcp>=12, z>=3 | quality(z)>=fair, z>=2)
       when  t is H | t is S
       priority 2
   4{z} "Game in {z}: three or more, 14+ total points"

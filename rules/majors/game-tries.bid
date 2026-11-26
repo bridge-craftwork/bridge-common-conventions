@@ -25,10 +25,12 @@ module game-tries "Help-suit and two-way game tries after 1M-2M"
   param  two_way = bidding_conventions/two_way_game_tries default false
   param  help    = bidding_conventions/help_suit_game_try default false
 
-# The invitational range of rebids.bid's 3M (17-18 support points), with
-# 14 HCP at least: BBA passes 15 HCP and a singleton opposite a raise
-# (Two-Way_Game_Try), and a singleton honour counts twice in tp.
-define try_values(M) = tp(M)=17..18, hcp>=14
+# The invitational range of rebids.bid's 3M, with 14 HCP at least: BBA
+# passes 15 HCP and a singleton opposite a raise (Two-Way_Game_Try).
+# Opener holds the long trumps and counts HCP plus length, not support
+# points (Rick, 2026-11-25): 16-17, where 17-18 support points stood
+# (GIB's tree after 1M-2M: the tries 16-18 total points).
+define try_values(M) = hcp+length_points=16..17, hcp>=14
 # Shortness worth showing: a void, or a singleton other than the K, Q, J.
 define small_short(x) = x=0 | (x=1, !has(K,x), !has(Q,x), !has(J,x))
 define short_side(M) = (M is not C, small_short(C)) | (M is not D, small_short(D)) | (M is not H, small_short(H)) | (M is not S, small_short(S))
@@ -45,9 +47,9 @@ define wasted(x) = has(K,x) | has(Q,x) | has(J,x)
 # Priorities above the control bids (slam/control-bids.bid, 12): over a
 # single raise a new suit is a game try, and partner must read it so.
 # A control bid there needs 23+ (33 opposite a raise to 10), which the
-# tries' 17-18 never reach.
+# tries' 16-17 never reach.
 after 1H (P) 2H (P) when two_way
-  2S  "Short-suit game try: a singleton or void somewhere, 17-18"  alert
+  2S  "Short-suit game try: a singleton or void somewhere, 16-17"  alert
       shows try_values(H), short_side(H), H>=5
       sets  ask=short_try(H), forcing=round
       artificial
@@ -55,31 +57,31 @@ after 1H (P) 2H (P) when two_way
   # Four spades with the ace or KQ: BBA tries 2NT ahead of the
   # short-suit try (Two-Way_Game_Try: every 2NT holds four such spades,
   # singleton or not; QJ86 and KT32 make the short-suit try).
-  2N  "Long-suit game try in spades: four good spades, 17-18"  alert
+  2N  "Long-suit game try in spades: four good spades, 16-17"  alert
       shows try_values(H), S>=4, has(A,S) | (has(K,S), has(Q,S))
       sets  ask=help_try(S), forcing=round
       artificial
       priority 15                      # ahead of the short-suit try
 after 1S (P) 2S (P) when two_way
-  2N  "Short-suit game try: a singleton or void somewhere, 17-18"  alert
+  2N  "Short-suit game try: a singleton or void somewhere, 16-17"  alert
       shows try_values(S), short_side(S), S>=5
       sets  ask=short_try(S), forcing=round
       artificial
       priority 14
 after 1H (P) 2H (P) when help, !two_way
-  2S  "Help-suit game try: help wanted in spades, 17-18"
+  2S  "Help-suit game try: help wanted in spades, 16-17"
       shows try_values(H), needs_help(S)
       sets  ask=help_try(S), forcing=round
       priority 13
 after 1M (P) 2M (P) when two_way
-  3x  "Long-suit game try: 3+ {x} with honours, 17-18"
+  3x  "Long-suit game try: 3+ {x} with honours, 16-17"
       shows try_values(M), long_try(x)
       when  x is not M, M is S | x is not S
       sets  ask=help_try(x), forcing=round
       prefer x
       priority 13
 after 1M (P) 2M (P) when help, !two_way
-  3x  "Help-suit game try: help wanted in {x}, 17-18"
+  3x  "Help-suit game try: help wanted in {x}, 16-17"
       shows try_values(M), needs_help(x)
       when  x is not M, M is S | x is not S
       sets  ask=help_try(x), forcing=round

@@ -28,10 +28,13 @@ Basic_* deals), with the hands that made them:
 | After a 2/1: rebid the major | 10-14, 5+ (the default) |
 
 Measures: notrump rebids in HCP, suit rebids in suit points (HCP + ½ per
-card beyond four), raises in support points tp(y). Once a fit is found
-(responder raised), opener counts support points too: BBA bids game over
-2M with 16-18 and a singleton, and passes 14-15 with doubletons. Bands:
-pass up to 16, invite 17-18, game 19+; after a limit raise accept at 15+.
+card beyond four), raises in support points tp(y). Once responder has
+raised opener's major, opener holds the long trumps and counts HCP plus
+length, not support points (Rick, 2026-11-25; "The long hand counts its
+own points" below). Bands: pass up to 15, invite 16-17, game 18+ (GIB);
+after a limit raise accept at 15+. Until then opener counted support
+points too (BBA bids game over 2M with 16-18 and a singleton, and passes
+14-15 with doubletons): pass up to 16, invite 17-18, game 19+.
 
 Other choices, from BBA: a new suit before rebidding a six-card suit
 (6-4 shows the four; Rick, 2026-11-09, over a 1NT response: show four
@@ -1765,6 +1768,31 @@ chose them".
 - Opener after 1x (*) P (*): the one-level openings' new points top
   (base.bid) already closes it (4,630 -> 891, lengths only).
 
+## The long hand counts its own points (Rick, 2026-11-25)
+
+Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with the shorter trumps, the one raising; the hand with the long trumps counts its own points, HCP plus length (`hcp+length_points`, the engine's "decl"). The long trump hand counting support points "isn't normally done" (engine repo docs/BIDDING-MODEL.md, 3.3).
+
+- After 1M-2M opener's ladder is GIB's: pass up to 15, invite (3M, the
+  tries) with 16-17, game with 18 (GIB's tree after 1♠-2♠ and 1♥-2♥: pass
+  12-15, 3M and the tries 16-17, 4M 18-22 total points). Before, 16 / 17-18
+  / 19 support points. Opposite a raise that can hold 11-12 (no limit
+  raise on the card) the invitation still starts at 15.
+- After 1M-3M: accept with 15, decline with 14 or less (GIB: 4M 15-20,
+  pass 12-13). The number stayed.
+- Over interference (1x (*) 2x): the uncontested ladder, 15 / 16-17 / 18
+  (GIB: after 1♠-2♥-2♠ 3♠ 16-18 and 4♠ 17-22; after 1♠-X-2♠ 4♠ from 19).
+  After the preemptive 1x (*) 3x game from 18 (GIB after 1♠-2♥-3♠: 4♠
+  18-22); after the cheap 1x (2y) 3x game from 17, as before.
+- BBA style's "16 with shape" (4M) and "16, no shape" (3M) were written
+  with tp(M); they are `shortest<=1` and `shortest>=2`, the same hands.
+- Left in support points: the minor raises (1♣ may be three cards
+  opposite five), opener raising responder's suit (four opposite four),
+  the major invitation answered after a raise (`partner.tp(M).min>=10`,
+  four-four), the keycard ask after responder raised opener's strong
+  suit.
+- Tests moved: `1S P 3S P` with AK432.J.T62.AJ42 (13 HCP and a
+  singleton, 14 with length) now declines.
+
 ## Sources
 
 - **Rick's rulings**, dated in the sections above; 6-4 over 1NT shows
@@ -1861,3 +1889,4 @@ chose them".
   from the card's range in force (top + 1 to 17), the competitive
   rebids and the 2NT-then-3NT quantitative follow-up are our decisions.
 - GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.
+- **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.

@@ -46,6 +46,15 @@ changed; actor contract +10, doubling +39; other side contract +42,
 doubling -54; double-dummy +63 to the actor; halves +4/+45 (z +1.3):
 leans gain.
 
+## The long hand counts its own points (Rick, 2026-11-25)
+
+Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with the shorter trumps, the one raising; the hand with the long trumps counts its own points, HCP plus length (`hcp+length_points`, the engine's "decl"). The long trump hand counting support points "isn't normally done" (engine repo docs/BIDDING-MODEL.md, 3.3).
+
+The opener or overcaller counts HCP plus length, on rebids.bid's ladder:
+the maximal double 16-17, 3M up to 15, 4M 18+ (were 17-18 / 16 / 19
+support points; GIB's tree after 1♠-P-2♠-3♥ bids 4♠ with 18-22, after
+1♠-2♥-2♠-3♥ with 19-22). Partner's accept keeps support points.
+
 ## Sources
 
 - Bridge Bum, "Maximal Double" (https://www.bridgebum.com/maximal_double.php):
@@ -59,3 +68,4 @@ leans gain.
   not read here).
 - Practice-Bidding-Scenarios `btn/Maximal_Double.btn`,
   `btn/Maximal_After_Overcall.btn`.
+- **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.

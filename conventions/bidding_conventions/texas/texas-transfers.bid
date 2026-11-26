@@ -53,6 +53,10 @@ define auction texas_entry = systems 1N (*)   when tex1
   systems 2N (*)   when tex1 | tex2
   2C (*) 2D (*) 3N (P)   when o23, tex1 | tex2
 
+# The transferer holds the long trumps (six or more opposite two) and
+# counts his own points, HCP plus length, never support points (Rick,
+# 2026-11-25): slam values from 33 with opener's points, as with support
+# points (a 6-3-2-2 hand counts the same either way).
 after texas_entry
   4D  "Texas: 6+ ♥, game only or slam values"  announce "Transfer"
       shows H>=6, points>=25-partner.points.min, suit_points<=30-partner.points.max
@@ -65,7 +69,7 @@ after texas_entry
       sets  ask=texas(H)
       artificial
   4D  "Texas: 6+ ♥, game only or slam values"  announce "Transfer"
-      shows H>=6, tp(H)>=33-partner.points.min
+      shows H>=6, hcp+length_points>=33-partner.points.min
       when  texas_room_d
       sets  ask=texas(H)
       artificial
@@ -80,7 +84,7 @@ after texas_entry
       sets  ask=texas(S)
       artificial
   4H  "Texas: 6+ ♠, game only or slam values"  announce "Transfer"
-      shows S>=6, tp(S)>=33-partner.points.min
+      shows S>=6, hcp+length_points>=33-partner.points.min
       when  texas_room_h
       sets  ask=texas(S)
       artificial
@@ -110,7 +114,7 @@ after texas_entry
       sets  ask=texas2(H)
       artificial
   4C  "2-under Texas: 6+ ♥, game only or slam values"  announce "Transfer"
-      shows H>=6, tp(H)>=33-partner.points.min
+      shows H>=6, hcp+length_points>=33-partner.points.min
       when  texas2_room_c
       sets  ask=texas2(H)
       artificial
@@ -125,7 +129,7 @@ after texas_entry
       sets  ask=texas2(S)
       artificial
   4D  "2-under Texas: 6+ ♠, game only or slam values"  announce "Transfer"
-      shows S>=6, tp(S)>=33-partner.points.min
+      shows S>=6, hcp+length_points>=33-partner.points.min
       when  texas2_room_d
       sets  ask=texas2(S)
       artificial
@@ -178,7 +182,7 @@ when asked texas(S)
 
 when answered texas(M)
   4N  "Keycard ask in {M}"   shows suit_points>=33-partner.points.min   sets ask=keycards(M)  artificial
-  4N  "Keycard ask in {M}"   shows tp(M)>=33-partner.points.min   sets ask=keycards(M)  artificial
+  4N  "Keycard ask in {M}"   shows hcp+length_points>=33-partner.points.min   sets ask=keycards(M)  artificial
   P   "No slam interest"
 
 # 2-under Texas: opener super-accepts with the suit in between, else
@@ -196,7 +200,7 @@ when asked texas2(S)
 
 when answered texas2(M)
   4N  "Keycard ask in {M}"   shows suit_points>=33-partner.points.min   sets ask=keycards(M)  artificial
-  4N  "Keycard ask in {M}"   shows tp(M)>=33-partner.points.min   sets ask=keycards(M)  artificial
+  4N  "Keycard ask in {M}"   shows hcp+length_points>=33-partner.points.min   sets ask=keycards(M)  artificial
   4{M} "Signoff"
       when  !(partner.last=4{M})
   P   "No slam interest"

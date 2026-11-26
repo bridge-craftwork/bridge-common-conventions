@@ -51,9 +51,18 @@ doubling -194; double-dummy -15; halves -47/-11 (z -0.8): neutral. The
 2NT fit raise taking hands that redoubled before (-34 on 27) is the main
 contract cost; opener's answer to it is vs-takeout-double.bid's.
 
+## The long hand counts its own points (Rick, 2026-11-25)
+
+Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with the shorter trumps, the one raising; the hand with the long trumps counts its own points, HCP plus length (`hcp+length_points`, the engine's "decl"). The long trump hand counting support points "isn't normally done" (engine repo docs/BIDDING-MODEL.md, 3.3).
+
+Opener after the transfer raises counts HCP plus length (17 / 15-16, 15
+opposite four trumps); the numbers stayed. Responder's raises keep
+support points.
+
 ## Sources
 
 - PBS `btn/Transfers_after_1M_X.btn` (citing the ACBL Bulletin, June
   2025, p. 66): the whole scheme.
 - Robert S. Todd, "1-Major (X) Transfers", Adventures in Bridge 598
   (cited by convention-card; not read).
+- **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.

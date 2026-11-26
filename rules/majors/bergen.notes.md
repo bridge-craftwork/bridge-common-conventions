@@ -82,6 +82,16 @@ Bergen.
 - The ambiguous splinter 3oM (Bergen's 1♥-3♠ / 1♠-3♥ add-on) is not
   played; normal splinters stay.
 
+## The long hand counts its own points (Rick, 2026-11-25)
+
+Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with the shorter trumps, the one raising; the hand with the long trumps counts its own points, HCP plus length (`hcp+length_points`, the engine's "decl"). The long trump hand counting support points "isn't normally done" (engine repo docs/BIDDING-MODEL.md, 3.3).
+
+Opener's rebids after 3♣/3♦ (game, game try, sign-off, and after the
+declined try) count HCP plus length. The numbers stayed (17-20, 16-20,
+15-16, 14; 14-18, 13; 16/17): with five trumps a 5-3-3-2 hand counts
+the same either way, and a shapelier hand no longer adds its shortness.
+Responder's accept of the try is the raiser's and keeps support points.
+
 ## Sources
 
 - Bridge Bum, "Bergen Raises", https://www.bridgebum.com/bergen_raises.php
@@ -90,5 +100,7 @@ Bergen.
   TP, 3♦ 11-12, 3M 3-6. We take 11-12 for 3♦, as there.
 - Convention-card `bidding_conventions/bergen_raises` and
   `reverse_bergen_raises`.
-- Opener's game thresholds (17, 14, 19): standard practice (25 support
-  points between the hands with a nine-card fit), not yet cited.
+- Opener's game thresholds (17, 14, 19): standard practice (25 points
+  between the hands with a nine-card fit), not yet cited; opener's in HCP
+  plus length since Rick, 2026-11-25.
+- **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.

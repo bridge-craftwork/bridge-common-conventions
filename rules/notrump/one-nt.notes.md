@@ -772,6 +772,13 @@ rule that bids. Partner reads the call by the higher rule alone
 changes (BIDDING-MODEL 3.6; the idiom of rkcb-1430.bid). The cost: these
 calls count in compare's "calls read as a higher rule than chose them".
 
+## The long hand counts its own points (Rick, 2026-11-25)
+
+Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with the shorter trumps, the one raising; the hand with the long trumps counts its own points, HCP plus length (`hcp+length_points`, the engine's "decl"). The long trump hand counting support points "isn't normally done" (engine repo docs/BIDDING-MODEL.md, 3.3).
+
+After 1NT-3M-4M responder (five or more opposite three) bids the slam on
+HCP plus length, `hcp+length_points>=33-partner.points.min` (was tp).
+
 ## Sources
 
 - **The system:** a 15-17 1NT opening and natural responses (2NT
@@ -825,3 +832,4 @@ calls count in compare's "calls read as a higher rule than chose them".
   range, so no BBA evidence; measurements in "Range qualifiers and the
   alternate range".
 - GIB's bidding tree (BBO's `gibrest`, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), agreed-path comparison on 21GF-GIB (top 5,000 positions of 100,000 random deals), Rick 2026-11-25 (BIDDING-MODEL 3.6 and 4.3): the description rules in the section of that date above.
+- **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.

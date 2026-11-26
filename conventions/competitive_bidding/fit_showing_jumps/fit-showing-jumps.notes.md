@@ -97,6 +97,14 @@ Left: opener's 3NT over P P 1C P 2D and P P 1D P 3C still loses a
 little (-10 and +3 against BBA's +7, +19); the over-double jump is still
 a little worse than our Jordan auction on the same hands.
 
+## The long hand counts its own points (Rick, 2026-11-25)
+
+Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with the shorter trumps, the one raising; the hand with the long trumps counts its own points, HCP plus length (`hcp+length_points`, the engine's "decl"). The long trump hand counting support points "isn't normally done" (engine repo docs/BIDDING-MODEL.md, 3.3).
+
+Opener's 4M opposite a fit jump in his major counts HCP plus length
+(14+, as the description says). The minor opener raising the jumper's
+five-card major is the short hand and keeps support points.
+
 ## Sources
 
 - Robert S. Todd, "Fit-Showing Jumps", Adventures in Bridge 574
@@ -117,3 +125,4 @@ a little worse than our Jordan auction on the same hands.
   10-card fit made game on the corpus deals (convention score above).
   Question for Rick: keep it, or discount the side-suit shortness (and
   give back some of the gain)?
+- **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.

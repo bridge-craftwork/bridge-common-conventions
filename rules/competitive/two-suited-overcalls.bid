@@ -858,10 +858,11 @@ after 1D (2N) when rho.C>=5, rho.H>=5
   3N  "13+, clubs and hearts held"   shows hcp>=13, stop(C), stop(H)
   P   "Nothing to say over their 2NT"  priority -10
 
-# Opener after responder's competitive raise: game in a major with 17+
-# support points, else let it go.
+# Opener after responder's competitive raise: game in a major with 17+,
+# else let it go. Opener holds the long trumps and counts HCP plus length,
+# not support points (Rick, 2026-11-25; the number stayed).
 after 1m (2m) 3m (P) | 1M (2M) 3M (P) | 1M (2N) 3M (P) when they.bid
-  4{M}  "Game: 17+ opposite the competitive raise"   shows tp(M)>=17
+  4{M}  "Game: 17+ opposite the competitive raise"   shows hcp+length_points>=17
   P     "No game"          priority -5
 # Opener after responder's natural notrump (11-12): 3NT with 14+.
 after 1x (2x) 2N (P) when they.bid
@@ -882,11 +883,13 @@ after 1x (2x) 3x (*) | 1x (2x) 4x (*) | 1x (2N) 3x (*) | 1x (2N) 4x (*) | 1x (2x
 after 1x (2x) 3x (*) X (P) | 1x (2x) 4x (*) X (P) | 1x (2N) 3x (*) X (P) | 1x (2N) 4x (*) X (P) | 1x (2x) 2N (*) X (P) | 1x (2x) 3N (*) X (P) | 1x (2N) 3N (*) X (P) when they.bid
   P   "Leaves the double in"  priority -20
 
-# Opener answers the limit raise: game in a major with 14+ support
-# points; in a minor 3NT with 14+ (their suits are shown, so no stopper
-# test), five of the minor with 16+; else sign off in the suit.
+# Opener answers the limit raise: game in a major with 14+ (opener holds
+# the long trumps and counts HCP plus length, not support points: Rick,
+# 2026-11-25; the number stayed); in a minor 3NT with 14+ (their
+# suits are shown, so no stopper test), five of the minor with 16+; else
+# sign off in the suit.
 when asked limit_raise(t)
-  4{t} "Accepts: game in {t}"            shows tp(t)>=14
+  4{t} "Accepts: game in {t}"            shows hcp+length_points>=14
       when  t is H | t is S
   3N   "Accepts: 14+, game in notrump"   shows hcp>=14
       when  t is C | t is D

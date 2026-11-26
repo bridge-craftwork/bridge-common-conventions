@@ -97,17 +97,20 @@ after 1C (P) 1D (P) 1H (P) | 1C (P) 1H (P) 1S (P)
   2N  "Invitational: 11-12"                   shows points=11..12
       sets  ask=nt_invite
       priority -1
+# Responder with five or more opposite opener's three-card acceptance
+# holds the long trumps and counts HCP plus length, not support points
+# (Rick, 2026-11-25), on the same ladder as the competitive 8-10.
 after 1C (P) 1D (P) 1H (P)
   2H  "Five or more hearts, 8-10: competitive"   shows H>=5, points=8..10   sets trump=H, ask=signoff
-  3H  "Invitational: five or more hearts, 11-12"  shows H>=5, tp(H)=11..12   sets trump=H, ask=invite(H)
-  4H  "Game: five or more hearts, 13+"         shows H>=5, tp(H)>=13   sets trump=H
+  3H  "Invitational: five or more hearts, 11-12"  shows H>=5, hcp+length_points=11..12   sets trump=H, ask=invite(H)
+  4H  "Game: five or more hearts, 13+"         shows H>=5, hcp+length_points>=13   sets trump=H
   1S  "Four spades as well, 6+"                 shows S>=4, H=4
       sets  forcing=round
       priority 1
 after 1C (P) 1H (P) 1S (P)
   2S  "Five or more spades, 8-10: competitive"   shows S>=5, points=8..10   sets trump=S, ask=signoff
-  3S  "Invitational: five or more spades, 11-12"  shows S>=5, tp(S)=11..12   sets trump=S, ask=invite(S)
-  4S  "Game: five or more spades, 13+"         shows S>=5, tp(S)>=13   sets trump=S
+  3S  "Invitational: five or more spades, 11-12"  shows S>=5, hcp+length_points=11..12   sets trump=S, ask=invite(S)
+  4S  "Game: five or more spades, 13+"         shows S>=5, hcp+length_points>=13   sets trump=S
   2H  "Four or more hearts as well, 8-10"      shows H>=4, S>=5, points=8..10   sets ask=signoff
 
 # Opener raised to two (four, 16-18): game from 8.

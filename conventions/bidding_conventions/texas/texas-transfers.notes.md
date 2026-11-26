@@ -218,6 +218,16 @@ field). A card with Texas off and the field on gets the same natural
 game bids: we read the field as a refinement of Texas, not as a second
 way to switch it on (decision, 2026-11-07; open for Rick).
 
+## The long hand counts its own points (Rick, 2026-11-25)
+
+Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with the shorter trumps, the one raising; the hand with the long trumps counts its own points, HCP plus length (`hcp+length_points`, the engine's "decl"). The long trump hand counting support points "isn't normally done" (engine repo docs/BIDDING-MODEL.md, 3.3).
+
+The transferer (six or more) counts HCP plus length for the slam
+variants of Texas and for the keycard ask after the completion: `hcp+
+length_points>=33-partner.points.min`, the number unchanged (a 6-3-2-2
+hand counts the same either way). Test moved: 8.AQ9732.K94.AQ8 (15 HCP, a
+singleton: 17) transfers with 2♦ instead of Texas.
+
 ## Sources
 
 - **The convention:** Texas transfers (4♦/4♥ over 1NT). Standard
@@ -238,3 +248,4 @@ way to switch it on (decision, 2026-11-07; open for Rick).
   +985 IMPs).
 - **Where we differ:** with 8 HCP, 10-12 HCP and 13-17 HCP, and after a
   5♦ answer ("Accepted differences from BBA").
+- **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.

@@ -214,6 +214,17 @@ call are now the engine's term, `tp(M) - wasted_hcp`
 rewrite: compare on the matching set (5,000 boards, standard card)
 changed 0 boards from it.
 
+## The long hand counts its own points (Rick, 2026-11-25)
+
+Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with the shorter trumps, the one raising; the hand with the long trumps counts its own points, HCP plus length (`hcp+length_points`, the engine's "decl"). The long trump hand counting support points "isn't normally done" (engine repo docs/BIDDING-MODEL.md, 3.3).
+
+Opener after responder's splinter (1♥-3♠, 1M-4x) and responder after
+opener's 1♠-2♥-4♣/4♦ hold the long trumps (five or more opposite four)
+and count `hcp + length_points - wasted_hcp`. The thresholds stayed (14,
+16): a 5-3-3-2 hand counts the same either way, and 14 is BBA's line of
+13 HCP less waste plus the fifth trump. The four-four splinters (opener's
+1m-1H-3S, responder's after opener's raise) keep support points.
+
 ## Sources
 
 - **Convention description**: Wikipedia, "Splinter bid" (double jump in
@@ -247,3 +258,4 @@ changed 0 boards from it.
   cited; the Brill daily 2026-10-11 board 1 for the motive.
 - **Working HCP** (Rick, 2026-11-07, quoted above): the wasted-honour
   count is the engine's `wasted_hcp` since then.
+- **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.

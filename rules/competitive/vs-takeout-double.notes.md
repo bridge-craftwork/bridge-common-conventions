@@ -61,6 +61,14 @@ redouble, as ours does.
 
 Measured with `probes/tools/brill_probe.py report --card Brill` over the top 2000 corpus auctions (calls of this group, board-weighted, our reading against Brill's): 0% -> 100% of 703 boards.
 
+## The long hand counts its own points (Rick, 2026-11-25)
+
+Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with the shorter trumps, the one raising; the hand with the long trumps counts its own points, HCP plus length (`hcp+length_points`, the engine's "decl"). The long trump hand counting support points "isn't normally done" (engine repo docs/BIDDING-MODEL.md, 3.3).
+
+Opener after BROMAD's constructive raises counts HCP plus length (17 / 15-16
+opposite 2♣, 15 opposite 3♣); the numbers stayed. Responder's calls keep
+support points.
+
 ## Sources
 
 - Brill /explain, 2026-10-15 (Thorvald Aagaard's public Brill service, answers cached in `.rbb-cache/brill-service/explain/`): the rule text quoted in the `brill` section and in the `.bid` comments. Applies to the Brill card only (`general.system = brill`, cards/README.md "Brill").
@@ -75,3 +83,4 @@ Measured with `probes/tools/brill_probe.py report --card Brill` over the top 200
   shows 4+ card support and 10+ TP".
 - **BBA corpus** (2026-10-05): responder's calls after 1M (X) by trump
   length and HCP, all scenarios; "Jordan Truscott 2NT" notes.
+- **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.
