@@ -119,6 +119,22 @@ next, so opener passes. Measured together with systems on over the
 doubled 1NT overcall (advances): +149 par, +654 side IMPs (98 boards);
 no-rule positions 3,265 → 3,060.
 
+## Tops on the passes (Rick, GIB tree, 2026-11-25)
+
+How a top on a catch-all pass is written (2026-11-25): the pass
+that partner reads carries the top in its `shows`, and a second pass
+for the same call, one priority lower and with no top, takes any hand
+over it that has no other call. Partner reads only the higher rule (a
+lower-priority rule for the same call is a fallback and does not widen
+the meaning, docs/LANGUAGE.md section 8), so no hand is left without a
+call and no call changes; only the reading does. This is the
+description narrower than the licence (BIDDING-MODEL 3.6). The cost:
+such a pass shows up in compare's "calls read as a higher rule than
+chose them".
+
+- 1x (1N) P: 9 total points: 10+ doubles or bids a long suit (GIB: 8-
+  HCP). 1,395 call-boards -> 0.
+
 ## Sources
 
 - **The approach:** penalty double with 10+ once they overcall 1NT over
@@ -135,3 +151,4 @@ no-rule positions 3,265 → 3,060.
 - **Where we differ:** BBA's stated 7-12 for a new suit against the 9
   floor it actually bids; no preemptive jump raise ("Accepted differences
   from BBA").
+- GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.

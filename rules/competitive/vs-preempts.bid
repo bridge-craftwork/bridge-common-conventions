@@ -72,8 +72,13 @@ after (2x) when x is not N, rho.hcp.max <= 12
   4H  "Seven or more hearts: game"
       shows H>=7, H>S, hcp+length_points>=13
       when  x is not H
-  P   "No overcall"
+  # GIB: 18- total points over a weak two (Rick 2026-11-25). Partner
+  # reads the top; a stronger hand with no call passes by the fallback,
+  # which is not read (BIDDING-MODEL 3.6).
+  P   "No overcall"  shows hcp+length_points<=18
       priority -10
+  P   "No overcall"
+      priority -20
 
 # ── Balancing over their weak two: (2x) P (P) ───────────────────────
 # BBA (probes/vs-w2-2H-bal.toml): lighter than direct. A reopening double
@@ -149,8 +154,12 @@ after (3x) when x is not N, rho.hcp.max <= 12
   4H  "Seven or more hearts: game"
       shows H>=7, H>S, hcp+length_points>=13
       when  x is not H
-  P   "No overcall"
+  # GIB: 20- total points over a three-level preempt (Rick 2026-11-25);
+  # read only, as over the weak two.
+  P   "No overcall"  shows hcp+length_points<=20
       priority -10
+  P   "No overcall"
+      priority -20
 
 # ── Balancing over their three-level preempt: (3x) P (P) ─────────────
 # BBA (probes/vs-p3-3H-bal.toml): a reopening double with 12+ and at most

@@ -362,6 +362,31 @@ from their 4♥ to our 3♠). Not vulnerable: 147 boards changed, contract
 errors **+4**, doubling −10, distance from par +51, halves differ,
 z −0.2, **neutral**.
 
+## Tops on the passes (Rick, GIB tree, 2026-11-25)
+
+How a top on a catch-all pass is written (2026-11-25): the pass
+that partner reads carries the top in its `shows`, and a second pass
+for the same call, one priority lower and with no top, takes any hand
+over it that has no other call. Partner reads only the higher rule (a
+lower-priority rule for the same call is a fallback and does not widen
+the meaning, docs/LANGUAGE.md section 8), so no hand is left without a
+call and no call changes; only the reading does. This is the
+description narrower than the licence (BIDDING-MODEL 3.6). The cost:
+such a pass shows up in compare's "calls read as a higher rule than
+chose them".
+
+- (1x) 1y (X) P and (1x) 1y (2z) P: 11, the raises' top (GIB 10- and
+  11-), 1,189 and 1,714 call-boards -> 0.
+- (1x) 2y (*) P: 10 (GIB 10-), 2,300 -> 310 (what is left: ours
+  narrower, from a pass earlier).
+- A defender's first call, when it is the catch-all "No further bid"
+  (`!passed_hand, !has_bid`, not after his own double or redouble):
+  20 (GIB 20- at 1N P, 2N P, 1♦ P 1N P, 1N P 2♣ P and most such
+  positions). The catch-all's points open tops fell from 21,026 to
+  11,066 call-boards; GIB's 16- after 1M P 1N is left (1,544 + 536),
+  and so are later passes (balancing after 1♠ P 2♠ P P: GIB 8-), which
+  need the balancing judgment, not a cap.
+
 ## Sources
 
 - **The ranges:** BBA's Basic-Bridge meanings, which are the usual ones,
@@ -395,3 +420,4 @@ z −0.2, **neutral**.
   convention (Bridge World Standard and others) are not yet cited; the
   convention-card summary (`spec/conventions/competitive_bidding/mixed_raise.toml`)
   matches.
+- GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.

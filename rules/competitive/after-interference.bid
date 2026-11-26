@@ -326,7 +326,11 @@ after 1x (X)
       when  (S<=3 | x is S), (H<=3 | x is H)
       when  x<=2 | x is C | x is D
       when  !tfr | x is C | x is D          # a transfer to clubs (transfers-after-double.bid)
-  P   "No suitable bid"  priority -10
+  # Read as at most 9 total points: 10+ redoubles or bids a five-card
+  # major (GIB: 9- total points; Rick 2026-11-25). The fallback, not read,
+  # takes any hand the rules above leave out.
+  P   "No suitable bid"  shows hcp+length_points<=9  priority -10
+  P   "No suitable bid"  priority -20
 
 # ── Opener answers a negative double ─────────────────────────────────
 # Partner has shown four or more cards in each unbid major and 6+ total

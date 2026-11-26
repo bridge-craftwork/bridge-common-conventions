@@ -84,8 +84,13 @@ after 2x (P) when weak_two_suit(x), x is not N, x is not C | two_c is natural, s
   2S  "Natural, forcing: 5+ spades, 13+"   shows S>=5, hcp>=13, H<=1
       when  x is H
       sets  forcing=round
-  P   "No interest"                            shows hcp<=19
+  # Read as at most 14 total points (GIB's tree: 14- total points;
+  # Rick 2026-11-25): 15+ asks or bids game. A stronger hand with
+  # nothing to say still passes, by the fallback, which is not read.
+  P   "No interest"                            shows hcp<=19, hcp+length_points<=14
       priority -5
+  P   "No interest"                            shows hcp<=19
+      priority -6
 
 # Opener after a new suit (default and bba). Raise with three, else rebid the suit.
 after 2x (P) 2y (P) when weak_two_suit(x), x is not C | two_c is natural, style is not standard

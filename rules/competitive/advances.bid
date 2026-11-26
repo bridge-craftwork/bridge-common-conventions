@@ -127,7 +127,10 @@ after (1x) 1y (X) | (1x) P (P) 1y (X)
       shows y>=4, hcp+length_points<=7
       shows weak_jump_raise(y)          # one trump more than the Law for a weak hand (total-tricks.bid)
       priority 1                        # before the raise to two, which a weak four-card hand also fits
-  P   "Not enough to advance"  priority -10
+  # GIB: 10- total points (Rick 2026-11-25); ours up to the raise's 11.
+  # Read only: a stronger hand with no call passes by the fallback.
+  P   "Not enough to advance"  shows hcp+length_points<=11  priority -10
+  P   "Not enough to advance"  priority -20
 
 after (1x) 1y (1z) | (1x) P (P) 1y (1z)
   2{y} "Raise: 8-11 with three {y}, up to 11 with four"
@@ -166,7 +169,9 @@ after (1x) 1y (2z) | (1x) P (P) 1y (2z)
       shows y>=3, hcp+length_points>=7, hcp+length_points<=11
   3{y} "Raise: four-card support, 8-11 total points"
       shows y>=4, hcp+length_points>=8, hcp+length_points<=11
-  P   "Not enough to advance"  priority -10
+  # GIB: 11- total points (Rick 2026-11-25), the raises' top. Read only.
+  P   "Not enough to advance"  shows hcp+length_points<=11  priority -10
+  P   "Not enough to advance"  priority -20
 
 # ── Advancing a two-level overcall ───────────────────────────────────
 # `(*)` is any call by RHO, so this covers the seat however he has
@@ -175,7 +180,11 @@ after (1x) 1y (2z) | (1x) P (P) 1y (2z)
 # `y is not x` throughout: their opening bid repeated by partner would
 # be a cue bid (Michaels), not an overcall.
 after (1x) 2y (*) | (1x) P (P) 2y (*) when y is not x
-  P   "Not enough to advance"  priority -10
+  # GIB: 10- total points (Rick 2026-11-25). Read only: advancer's bids
+  # here are written only over some of RHO's calls, so a stronger hand
+  # may still pass, by the unread fallback.
+  P   "Not enough to advance"  shows hcp+length_points<=10  priority -10
+  P   "Not enough to advance"  priority -20
 
 # Advancer bids only while RHO has left him room: his pass, his double,
 # or his simple raise of their own suit. Once RHO has bid a suit of his
@@ -402,3 +411,13 @@ when lho.opened | rho.opened
   P   "No further bid"
       when  !passes_out_artificial   # never pass out our own artificial bid (base.bid)
       priority -20
+# A defender's first call, when it is this pass, is read as at most 20
+# total points (GIB's tree, Rick 2026-11-25: "20- total points" at 1N P,
+# 2N P, 1♦ P 1N P, 1N P 2♣ P and most such positions). It outranks the
+# pass above, which still takes a stronger hand that gets here and is
+# not read (a lower-priority rule does not widen the call's meaning).
+when lho.opened | rho.opened, !passed_hand, !has_bid, !(me.last=X), !(me.last=XX)
+  P   "No further bid"
+      shows hcp+length_points<=20
+      when  !passes_out_artificial
+      priority -19

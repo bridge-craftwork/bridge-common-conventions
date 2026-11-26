@@ -269,7 +269,9 @@ after (1x) P (1y) when y is not x
   X   "Takeout: both minors, 15+"           shows C>=4, D>=4, hcp>=15, !balanced
       when  x is H, y is S
       priority 1
-  P   "No overcall"  priority -10
+  # GIB: 20- total points (Rick 2026-11-25); read only, as in the direct seat.
+  P   "No overcall"  shows hcp+length_points<=20  priority -10
+  P   "No overcall"  priority -20
 
 after (1x) P (1y) when y is not x, jump is weak
   2S  "Weak jump overcall: six spades, 4-10"   shows S=6, hcp=4..10
@@ -336,7 +338,10 @@ after (1x) P (2x)
       shows (C>=6, hcp>=two_min-2) | (hcp>=14, !balanced), hcp<=one_max
       when  x is not C
       when  C>=6 | quality(C)>=good | top5(C)>=4
-  P   "No overcall over their raise"  priority -10
+  # GIB: 16- total points (Rick 2026-11-25); the pass is read so, and a
+  # stronger hand with no call passes by the unread fallback.
+  P   "No overcall over their raise"  shows hcp+length_points<=one_max  priority -10
+  P   "No overcall over their raise"  priority -20
 
 after (1x) P (2x) when jump is weak
   3S  "Weak jump over their raise: six spades, 4-10"   shows S=6, hcp=4..10
@@ -368,7 +373,9 @@ after (1x) P (3x)
       shows (D>=6, hcp>=two_min-2) | (hcp>=14, !balanced), hcp<=one_max
       when  x is C
       when  D>=6 | quality(D)>=good | top5(D)>=4
-  P   "No overcall over their jump raise"  priority -10
+  # GIB: 20- total points (Rick 2026-11-25); read only, as above.
+  P   "No overcall over their jump raise"  shows hcp+length_points<=20  priority -10
+  P   "No overcall over their jump raise"  priority -20
 
 # ── Nothing to say ───────────────────────────────────────────────────
 # An explicit pass, so that the seat is covered and partner can draw the
@@ -377,5 +384,12 @@ after (1x) P (3x)
 # hand at the one-level overcall maximum. A trap pass is not assumed until
 # it shows (Rick, ticket b400, 2026-10-02): BBA's direct-seat passers
 # over a one-level opening, vanilla set, 99% at most 14-16 HCP.
+# Read as at most the overcall's maximum in declarer points too (GIB:
+# 16- total points, Rick 2026-11-25); the HCP cap alone left 0-20.
 after (1x)
-  P   "No overcall"  shows hcp<=one_max  priority -10
+  # The pass's top is what partner reads (GIB's tree, Rick 2026-11-25:
+  # lower levels first). A hand over it with no other call still passes,
+  # by the fallback below, which partner does not read (a lower-priority
+  # rule for the same call does not widen its meaning; BIDDING-MODEL 3.6).
+  P   "No overcall"  shows hcp<=one_max, hcp+length_points<=one_max  priority -10
+  P   "No overcall"  shows hcp<=one_max  priority -20

@@ -481,6 +481,22 @@ where it's the 'least lie' and there isn't a 6th card in the suit."
 The rest (rebids.bid's other major rebids, measurements): rebids.notes.md,
 "A major rebid is six or more".
 
+## Tops on the passes (Rick, GIB tree, 2026-11-25)
+
+How a top on a catch-all pass is written (2026-11-25): the pass
+that partner reads carries the top in its `shows`, and a second pass
+for the same call, one priority lower and with no top, takes any hand
+over it that has no other call. Partner reads only the higher rule (a
+lower-priority rule for the same call is a fallback and does not widen
+the meaning, docs/LANGUAGE.md section 8), so no hand is left without a
+call and no call changes; only the reading does. This is the
+description narrower than the licence (BIDDING-MODEL 3.6). The cost:
+such a pass shows up in compare's "calls read as a higher rule than
+chose them".
+
+- 1x (X) P: 9 total points: 10+ redoubles or bids a five-card major
+  (GIB: 9-). 1,245 -> 0.
+
 ## Sources
 
 - **Jump shifts in competition** (2026-10-05): the ACBL convention card's
@@ -514,3 +530,4 @@ The rest (rebids.bid's other major rebids, measurements): rebids.notes.md,
 - **Rick, 2026-10-16** (Brill daily board 8): opener's major rebid is six
   or more in any context, a five-card one the least lie; no stopper, no
   3NT; the known fit bids 4M.
+- GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.

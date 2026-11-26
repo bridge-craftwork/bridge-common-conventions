@@ -688,8 +688,15 @@ after 1x (P) 1y (P) 1z (P) 1M (P) when !tw(x)
 # than as the dozen eight-call patterns it would otherwise take: pass
 # with a minimum, one more try with 16-18, game with 19+.
 when asked signoff, !partner.opened
+  # Read as a minimum, at most the 15 suit points of the tries' floor
+  # (GIB: 12-15 total points after 1♠ 1N 2♦ 2♠, 11-14 HCP after
+  # 1♦ 1♥ 1♠ 1N; Rick 2026-11-25). A 16-18 hand the tries do not fit
+  # still passes, by the fallback, which partner does not read.
   P   "No further bid"
+      shows suit_points<=15
       priority -5
+  P   "No further bid"
+      priority -6
   2x  "Six or more {x}: to play"        shows x>=6, suit_points<=15
       when  maybe partner.x<=2
       sets  ask=signoff
@@ -833,7 +840,11 @@ after 1x (*) 1z (*) when they.bid, z is not x
   4{x} "Game: six or more {x}, 19+"
       shows x>=6, suit_points>=19
       when  x is H | x is S
-  P   "No further bid"  priority -10
+  # Read as a minimum, the minimum rebids' 15 (GIB: 12-14 total points
+  # after 1♣ P 1♦ 1♠ and 1♦ P 1♥ 1N; Rick 2026-11-25). A stronger hand
+  # with nothing to say still passes, by the fallback, which is not read.
+  P   "No further bid"  shows hcp+length_points<=15  priority -10
+  P   "No further bid"  priority -20
 # Their pass leaves partner's free bid unanswered, and it is not a call
 # opener may leave: with nothing else, he repeats his own suit.
 after 1x (*) 1z (P) when they.bid, z is not x

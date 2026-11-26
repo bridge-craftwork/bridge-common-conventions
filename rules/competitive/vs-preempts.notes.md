@@ -210,6 +210,22 @@ Fine for the Brill board; say if the double there should be "cards"
 The weak-two side's own continuations over our double (redouble, new
 suits).
 
+## Tops on the passes (Rick, GIB tree, 2026-11-25)
+
+How a top on a catch-all pass is written (2026-11-25): the pass
+that partner reads carries the top in its `shows`, and a second pass
+for the same call, one priority lower and with no top, takes any hand
+over it that has no other call. Partner reads only the higher rule (a
+lower-priority rule for the same call is a fallback and does not widen
+the meaning, docs/LANGUAGE.md section 8), so no hand is left without a
+call and no call changes; only the reading does. This is the
+description narrower than the licence (BIDDING-MODEL 3.6). The cost:
+such a pass shows up in compare's "calls read as a higher rule than
+chose them".
+
+- (2x) P: 18 total points (GIB 18-), 2,955 call-boards -> 0.
+- (3x) P: 20 (GIB 20-); not in the top 5,000 positions' list.
+
 ## Sources
 
 - **Rick's rulings:** start on the defence against preempts (2026-09-27).
@@ -242,3 +258,4 @@ suits).
   preempts; not checked against the text here). The thresholds (14 /
   16 / 18 total points) are ours, a level up from the three-level
   block, not quoted. Motive: the Brill dailies named above.
+- GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.

@@ -65,7 +65,11 @@ after 1x (1N)
   # count, not a weak five-card raise, and jumping to game on a raise
   # this side of their 15-18 loses contracts.
 
-  P   "No suitable bid"  priority -10
+  # Read as at most 9 total points: 10+ doubles or bids a long suit
+  # (GIB: 8- HCP; Rick 2026-11-25). The fallback, not read, takes any
+  # hand the rules above leave out.
+  P   "No suitable bid"  shows hcp+length_points<=9  priority -10
+  P   "No suitable bid"  priority -20
 
 # Opener after partner's penalty double of their 1NT (2026-09-27, ticket
 # b160: no rule). With 10+ opposite and an opening here, the double is

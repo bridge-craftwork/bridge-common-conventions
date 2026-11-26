@@ -435,6 +435,22 @@ down, -14: 15 HCP and a doubleton facing 3♥, two quick club losers),
 changed, all in the weak-two scenarios and Preempt_Keycard (Weak_2_Bids
 32 and Preempt_Keycard 49 to 6♥, Lax_Leveled 39 to 6♦, Ogust 10 and 13).
 
+## Tops on the passes (Rick, GIB tree, 2026-11-25)
+
+How a top on a catch-all pass is written (2026-11-25): the pass
+that partner reads carries the top in its `shows`, and a second pass
+for the same call, one priority lower and with no top, takes any hand
+over it that has no other call. Partner reads only the higher rule (a
+lower-priority rule for the same call is a fallback and does not widen
+the meaning, docs/LANGUAGE.md section 8), so no hand is left without a
+call and no call changes; only the reading does. This is the
+description narrower than the licence (BIDDING-MODEL 3.6). The cost:
+such a pass shows up in compare's "calls read as a higher rule than
+chose them".
+
+- 2x P P ("No interest"): 14 total points (GIB: 14-; ours read 0-19
+  HCP). 550 call-boards (not measured in the run above).
+
 ## Sources
 
 - **The conventions:** the 2NT feature ask, standard practice, not yet
@@ -469,3 +485,4 @@ changed, all in the weak-two scenarios and Preempt_Keycard (Weak_2_Bids
   source), a good one for BBA's; we pass 2x-2NT-3y-3x, where BBA sometimes bids on
   (par decides); game opposite a feature from 13 where BBA wants about 14;
   the vulnerability split for asking is a question for Rick.
+- GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.

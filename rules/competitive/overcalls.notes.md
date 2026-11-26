@@ -383,9 +383,30 @@ Not written: four of a suit over the raise, the cue of a raised major
 6-6 hand after 2NT-3NT (the board's second pass; once it bids 3C at its
 first turn that pass does not arise).
 
+## Tops on the passes (Rick, GIB tree, 2026-11-25)
+
+How a top on a catch-all pass is written (2026-11-25): the pass
+that partner reads carries the top in its `shows`, and a second pass
+for the same call, one priority lower and with no top, takes any hand
+over it that has no other call. Partner reads only the higher rule (a
+lower-priority rule for the same call is a fallback and does not widen
+the meaning, docs/LANGUAGE.md section 8), so no hand is left without a
+call and no call changes; only the reading does. This is the
+description narrower than the licence (BIDDING-MODEL 3.6). The cost:
+such a pass shows up in compare's "calls read as a higher rule than
+chose them".
+
+- Direct seat (1x) P: `hcp<=one_max` and now `hcp+length_points<=one_max`
+  (GIB: 16- total points; ours read 0-20 declarer points). 43,991
+  call-boards with a points difference, now none.
+- Sandwich seat (1x) P (1y) P: 20 (GIB 20-), 7,981 -> 0.
+- Over their raise, (1x) P (2x) P: one_max, 16 (GIB 16-), 1,203 -> 0;
+  over the jump raise 20 (GIB 20-), 993 -> 0.
+
 ## Sources
 
 - Brill /explain, 2026-10-15 (Thorvald Aagaard's public Brill service, answers cached in `.rbb-cache/brill-service/explain/`): the rule text quoted in the `brill` section and in the `.bid` comments. Applies to the Brill card only (`general.system = brill`, cards/README.md "Brill").
 - Brill daily 2026-10-20, board 4 (the field's calls over 1C P 2C);
   the overcalls over a raise: standard practice, not yet cited;
   the three-level minimum from the tripwire above.
+- GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.

@@ -1741,6 +1741,30 @@ thresholds (neither is on Rick's card); inverted minors' 2NT 12-14 /
 a vulnerable 1♦–2♣ with a hand judged out of 14+-17 (a 17 worth 18) still
 has no rule, as before.
 
+## Tops on the passes (Rick, GIB tree, 2026-11-25)
+
+How a top on a catch-all pass is written (2026-11-25): the pass
+that partner reads carries the top in its `shows`, and a second pass
+for the same call, one priority lower and with no top, takes any hand
+over it that has no other call. Partner reads only the higher rule (a
+lower-priority rule for the same call is a fallback and does not widen
+the meaning, docs/LANGUAGE.md section 8), so no hand is left without a
+call and no call changes; only the reading does. This is the
+description narrower than the licence (BIDDING-MODEL 3.6). The cost:
+such a pass shows up in compare's "calls read as a higher rule than
+chose them".
+
+- Opener after partner's signoff (`asked signoff`): `suit_points<=15`,
+  the tries' floor (GIB 12-15 total after 1♠ 1N 2♦ 2♠; 11-14 HCP after
+  1♦ 1♥ 1♠ 1N). Points and HCP open tops 1,061 + 792 call-boards -> 0;
+  GIB's length inferences there (no three-card heart preference, etc.)
+  are left.
+- Opener after partner's free bid and RHO's call, 1x (*) 1z (*): 15
+  declarer points, the minimum rebids' top (GIB 12-14). 1,447 -> 0 in
+  points; length differences left.
+- Opener after 1x (*) P (*): the one-level openings' new points top
+  (base.bid) already closes it (4,630 -> 891, lengths only).
+
 ## Sources
 
 - **Rick's rulings**, dated in the sections above; 6-4 over 1NT shows
@@ -1836,3 +1860,4 @@ has no rule, as before.
   (Acol-style) practice, not yet cited to a book; deriving its range
   from the card's range in force (top + 1 to 17), the competitive
   rebids and the 2NT-then-3NT quantitative follow-up are our decisions.
+- GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.
