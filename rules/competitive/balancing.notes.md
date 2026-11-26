@@ -137,29 +137,32 @@ commonest stops:
   Unusual 2NT) is already gone. What is left is short in their suit with
   the unbid suits but under 12, a five-card suit too weak to overcall, a
   six-card minor below a two-level overcall, a five-four two-suiter.
-  - **X**: two or fewer in their suit, three or more in each unbid suit
-    (over a minor, four-four in the majors with three of theirs), 8+
-    HCP. Partner reads 8-11 (his earlier pass caps it).
+  - **X**: a singleton or void in their suit, three or more in each
+    unbid suit (over a minor, four-four in the majors with up to three
+    of theirs), 8+ HCP. Partner reads 8-11 (his earlier pass caps it).
+    A doubleton was allowed first and lost (Measurements).
   - **2S/2H/2D** (an unbid suit still at the two level): five cards,
     8+ total points, the longest unbid suit, above the double for a major.
-  - **3C/3D/3H**: five cards, 11+ total points, six cards or 10 HCP.
+  - **3C/3D/3H**: five cards, 11+ total points, six cards or 10 HCP,
+    and a singleton or void in their suit.
   - **2NT**: two places to play, the two lowest unbid suits (the minors
     over a major, diamonds and hearts over clubs, clubs and hearts over
     diamonds), five-four or better, 9+ total points, no four cards in
-    the unbid major. Moved here from two-suited-overcalls.bid, where it
-    was the Unusual 2NT (five-five, 11+) and only with the convention on.
+    the unbid major; above the natural three-level suit. Moved here from
+    two-suited-overcalls.bid, where it was the Unusual 2NT (five-five,
+    11+) and only with the convention on.
 - **(1x) P (1y) P (2y) P (P)**: opener raised responder. The balancer
   passed over the response; partner passed the opening.
-  - **X**: two or fewer in their suit, four or more in an unbid major,
-    three or more in an unbid minor, 8+ HCP.
+  - **X**: a singleton or void in their suit, four or more in an unbid
+    major, three or more in an unbid minor, 8+ HCP.
   - **2NT**: both unbid suits, four or more each and nine or more
     between them (`x+y<=4`), 9+ total points.
   - A natural suit as above, at the two or the three level.
 - **Advancer** passed over the raise or the opening, so he has at most
   about 11 and partner's balance was made on his values. He answers the
-  double with the longest suit at the cheapest level (a four-card major
-  before a five-card minor: `prefer` two points a card, three for a
-  major; with equal majors hearts, with equal minors clubs), jumps in a
+  double at the cheapest level: a four-card major first, then a
+  four-card minor, then the longest three-card suit (by priority; within
+  each the longer, hearts and clubs on equal length), jumps in a
   major only with four and 12+, bids 3NT with 14+ balanced and their
   suit held, and passes the double with five of their trumps (GIB's
   tree reads that pass the same way). Over 2NT the longer of partner's
@@ -170,15 +173,15 @@ commonest stops:
 
 | position | call | GIB | ours | why we differ |
 |---|---|---|---|---|
-| 1♥ P 2♥ P P | X | 2- ♥, 3+ others, 14-16 total | 2- ♥, 3+ others, 8-11 HCP | GIB counts shortness in its total; our floor is Rick's borrowed king (8 HCP), and the earlier pass caps the top |
+| 1♥ P 2♥ P P | X | 2- ♥, 3+ others, 14-16 total | 1- ♥, 3+ others, 8-11 HCP | GIB counts shortness in its total; our floor is Rick's borrowed king (8 HCP), the earlier pass caps the top; the singleton is measured |
 | 1♥ P 2♥ P P | 2♠ | 5+, 10-16 total | 5+, 8+ total (4-13 HCP) | the borrowed king: a sound 10 would usually have overcalled 1♠ |
 | 1♥ P 2♥ P P | 3♣/3♦ | 5+, 10-16 total | 5+, 11+ total, six or 10 HCP | close |
 | 1♥ P 2♥ P P | 2NT | Unusual, 5-5 minors, 14-16 | 5-4+ minors, 9+ | the five-five would have bid 2NT over 1♥ |
-| 1♣ P 2♣ P P | X | 2- ♣, 3+ others, 14-16 | 2- ♣ (or 4-4 majors), 8+ HCP | as above |
+| 1♣ P 2♣ P P | X | 2- ♣, 3+ others, 14-16 | 1- ♣ (or 4-4 majors), 8+ HCP | as above |
 | 1♣ P 2♣ P P | 2NT | Unusual, 5-5 ♦♥ | 5-4+ ♦♥ | as above |
-| 1♦ P 1♠ P 2♠ P P | X | 4+ ♣, 4+ ♥, 14-20 | 4+ ♥, 3+ ♣, 8+ HCP | ours allows a three-card minor |
+| 1♦ P 1♠ P 2♠ P P | X | 4+ ♣, 4+ ♥, 14-20 | 1- ♠, 4+ ♥, 3+ ♣, 8+ HCP | ours allows a three-card minor |
 | 1♦ P 1♠ P 2♠ P P | 2NT | Unusual 5-5 ♣♥ | 4+ each, nine cards | as above |
-| 1♥ P 2♥ P P X P | 2♠/3♣/3♦ | 4+ in the suit | the longest, nothing shown | partner expects the longest; the rule shows no length (prefer only) |
+| 1♥ P 2♥ P P X P | 2♠/3♣/3♦ | 4+ in the suit | four-card major, four-card minor, else the longest; nothing shown | selection by `when`, so partner reads no length |
 | 1♥ P 2♥ P P X P | 3♠ | 5+ ♠, 10+ HCP, forcing | 4+ ♠, 12+, invitational | Rick's three points |
 | 1♥ P 2♥ P P X P | P | 5+ ♥ | 5+ ♥ | agreed (added after the check) |
 | 1♥ P 2♥ P P 2NT P | 3♣/3♦ | 3+, 3- total points | the longer | GIB's 3- is an artefact of its other calls |
@@ -186,6 +189,47 @@ commonest stops:
 
 GIB has calls we do not (3♥ cue bids, 3NT, game jumps over the double);
 left out, and so are jumps in the balancing seat over their fit.
+
+## Measurements (2026-11-26)
+
+Engine `freak-patterns` 070f438, card 21GF-DEFAULT (NS) / 21GF-GIB
+(EW) as the corpus files say; base: pack `bottom-review` (5e0ce45),
+variant this branch; `rbb compare` with `--rules-at`, scored by
+`probes/tools/errors_diff.py` (the actor's contract errors, an overbid
+going down undoubled taken as doubled; Rick 2026-10-31).
+
+**100,000 random deals** (`.rbb-cache/random`, Random_Pavlicek_21GF),
+final version (e44e095): 1,682 boards changed; the actor's contract
+errors **+1,170 IMPs (+0.70 a board; halves +689 / +481)**, all errors
++2,076, distance from par +666, IMPs to the actor +2,245. By first
+differing call:
+
+- the reopening double's advances three points up gained most: P X P
+  3NT→1NT +153 (34 boards), 3C→2C +146 (60), 3C→1NT +85, 2H→1H +81,
+  2S→1S +79, 3D→1NT +61;
+- the any-shape reopening double from 16 (was 18): (1♣) P (P) X −56 on 94
+  boards, (1♦) P (P) X −33 on 114, by contract errors; by all errors
+  +222 and +329 (advancer's penalty pass of the double, and the
+  defence, gain). A bidding-or-doubling call: reported both ways, kept;
+- over their fit (239 boards): X +26 (61 boards), 2NT +27 (105), 2♠ −12
+  (40), the three-level suits +8 (31); over hearts +61, over spades −18.
+
+**The singleton.** The first version let the balancer double, or bid a
+three-level suit, with a doubleton in their suit. On the same deals
+that version (fb555cb) lost on every such call: the double with a
+doubleton −2.5 a board (129 boards under 11 HCP, −322 IMPs; −0.7 with
+11+), the three-level suit −1.5 to −1.7; with a singleton or void both
+gained (+0.25 to +3). So both now need shortness; 2NT (five-four) gained
+with either and keeps no such condition, and the two-level suit with a
+doubleton (−0.6 on 30 boards) is left allowed. The advancer bug found
+on the way: `prefer` once let a three-card major outrank a four-card
+minor (3♥ on a 6-card fit at the three level, 12 corpus boards).
+
+**Corpus tripwire** (`compare --limit 50`, all 344 scenarios): 137
+boards changed, the actor's contract errors +6 (halves −3 / +9), all
+errors −24, distance from par −18: no calls outside the balancing seat
+moved beyond noise. `bid test`: 3,359 cases, 5 failures, the known five
+in serious-3nt.test.
 
 ## Sources
 
