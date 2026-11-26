@@ -284,22 +284,27 @@ after (1x) P (2x) P (P) | (1x) P (1y) P (2y) P (P)
 # I passed their raise, so I hold at most about 11 and partner's
 # balance was made on my values: no jumps to game on what he showed,
 # only the cheapest suit, and an invitation with a real fit and 12+.
-# The suit: the longest, a four-card major before a five-card minor
-# (`prefer` two a card, three more for a four-card major; never a
-# three-card major over a four-card minor).
 after (1x) P (2x) P (P) X (P)
-  cheapest(S) "Answers the balancing double: spades"   when x is not S   prefer S + S + (S>=4) + (S>=4) + (S>=4) + 1
-  cheapest(H) "Answers the balancing double: hearts"   when x is not H   prefer H + H + (H>=4) + (H>=4) + (H>=4) + 2
-  cheapest(D) "Answers the balancing double: diamonds" when x is not D   prefer D + D + 0
-  cheapest(C) "Answers the balancing double: clubs"    when x is not C   prefer C + C + 1
+  # The suit: a four-card major first, then a four-card minor, then
+  # the longest three-card suit; the longer within each, hearts and
+  # clubs on equal length (the cheaper). Selection only (`when`), so
+  # `prefer` decides between them, not descriptiveness.
+  cheapest(S) "Answers the balancing double: four or more spades"   when x is not S, S>=4   prefer S + S      priority 1
+  cheapest(H) "Answers the balancing double: four or more hearts"   when x is not H, H>=4   prefer H + H + 1  priority 1
+  cheapest(D) "Answers the balancing double: four or more diamonds" when x is not D, D>=4   prefer D + D
+  cheapest(C) "Answers the balancing double: four or more clubs"    when x is not C, C>=4   prefer C + C + 1
+  cheapest(S) "Answers the balancing double: spades"   when x is not S   prefer S + S      priority -1
+  cheapest(H) "Answers the balancing double: hearts"   when x is not H   prefer H + H + 1  priority -1
+  cheapest(D) "Answers the balancing double: diamonds" when x is not D   prefer D + D + 2  priority -1
+  cheapest(C) "Answers the balancing double: clubs"    when x is not C   prefer C + C + 3  priority -1
   jump(S) "Invites game: four or more spades, 12+ total points"
       shows S>=4, hcp+length_points>=12
       when  x is not S
-      priority 1
+      priority 2
   jump(H) "Invites game: four or more hearts, 12+ total points"
       shows H>=4, H>S, hcp+length_points>=12
       when  x is C | x is D
-      priority 1
+      priority 2
   3N  "Game: 14+ balanced, {x} stopped"
       shows balanced, hcp>=14, stop(x), S<=3 | x is S, H<=3 | x is H
       priority 2
@@ -310,10 +315,14 @@ after (1x) P (2x) P (P) X (P)
       priority 3
 
 after (1x) P (1y) P (2y) P (P) X (P) when y is not x
-  cheapest(S) "Answers the balancing double: spades"   when x is not S, y is not S   prefer S + S + (S>=4) + (S>=4) + (S>=4) + 1
-  cheapest(H) "Answers the balancing double: hearts"   when x is not H, y is not H   prefer H + H + (H>=4) + (H>=4) + (H>=4) + 2
-  cheapest(D) "Answers the balancing double: diamonds" when x is not D, y is not D   prefer D + D + 0
-  cheapest(C) "Answers the balancing double: clubs"    when x is not C, y is not C   prefer C + C + 1
+  cheapest(S) "Answers the balancing double: four or more spades"   when x is not S, y is not S, S>=4   prefer S + S      priority 1
+  cheapest(H) "Answers the balancing double: four or more hearts"   when x is not H, y is not H, H>=4   prefer H + H + 1  priority 1
+  cheapest(D) "Answers the balancing double: four or more diamonds" when x is not D, y is not D, D>=4   prefer D + D
+  cheapest(C) "Answers the balancing double: four or more clubs"    when x is not C, y is not C, C>=4   prefer C + C + 1
+  cheapest(S) "Answers the balancing double: spades"   when x is not S, y is not S   prefer S + S      priority -1
+  cheapest(H) "Answers the balancing double: hearts"   when x is not H, y is not H   prefer H + H + 1  priority -1
+  cheapest(D) "Answers the balancing double: diamonds" when x is not D, y is not D   prefer D + D + 2  priority -1
+  cheapest(C) "Answers the balancing double: clubs"    when x is not C, y is not C   prefer C + C + 3  priority -1
   P   "Penalty pass: five or more {y}"
       shows y>=5
       priority 3
