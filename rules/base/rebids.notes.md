@@ -1767,6 +1767,29 @@ chose them".
   points; length differences left.
 - Opener after 1x (*) P (*): the one-level openings' new points top
   (base.bid) already closes it (4,630 -> 891, lengths only).
+- Opener after 1x (*) P (*), second pass (2026-11-26, the top 20,000
+  positions): the 22 of the opening was still GIB's 12-17 by five
+  ("pts open-top" at 1D (2C) P (P), 1D (1H) P (2D), and carried on to
+  1D P P (1H) P (1S) P (P)). The pass is now read as at most 17
+  declarer points: opener's stronger hands have the reopening double
+  (16+ short in their suit), 2NT 18-19, a five-card suit from 14 and
+  the six-card rebid to 18; an 18+ hand with none of those passes by
+  the unread fallback. MEASURE_G1A
+- Opener declining responder's minor invitation (`asked invite(m)`,
+  1S 1N 2C 3C P): at most 17 declarer points (GIB 12-16). 18 HCP bids
+  5m, a balanced 14+ 3NT; an unbalanced hand short of 18 HCP still
+  declines, by the unread pass. MEASURE_G1B
+- Left (2026-11-26), with the calls they need: GIB reads 8- total
+  points for a defender's pass in the pass-out seat after their part
+  score (1S P 2S P P P, 1N P 2D P 2H P P P; about 11,500 call-boards of
+  competitive/advances.bid "No further bid"). That pass ends the
+  auction, nobody reads it, and we have no balancing rule over their
+  fit (total-tricks.notes.md: BBA's balancing there lost on the errors
+  yardstick, 2026-10-02), so our top is the earlier pass's (16 or 20).
+  The fourth seat after 1M P 1NT (2,080) has no overcall or double at
+  all (overcalls.bid covers 1x P 1y only), and advancer over their
+  raise of partner's double (1S X 2S/2NT/3S) has no four-card major or
+  game bid: tops there need those calls first.
 
 ## The long hand counts its own points (Rick, 2026-11-25)
 

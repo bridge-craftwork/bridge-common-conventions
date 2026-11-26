@@ -773,8 +773,15 @@ when answered invite(M), partner.last=3{M}
 # minor: 3NT with the values and a shape for it, 5 of the minor with
 # real extras, otherwise pass.
 when asked invite(m)
+  # Read as at most 17 declarer points (GIB's tree: 12-16 total points
+  # after 1S 1N 2C 3C and 1D 1S 2C 3D; Rick 2026-11-25): 18 HCP goes on
+  # with 5m, a balanced 14+ with 3NT. An unbalanced 18-19 declarer
+  # points short of 18 HCP still declines, by the unread pass below.
   P   "Declines: minimum"
+      shows hcp+length_points<=17
       priority -5
+  P   "Declines: minimum"
+      priority -6
   3N  "Accepts, in notrump: 14+"
       shows hcp>=14, balanced | semibalanced
   5m  "Accepts in {m}: 18+ with the fit"      shows hcp>=18, m>=5
@@ -1262,7 +1269,14 @@ after 1x (*) P (*) when they.bid, maybe lho.hcp<=14, maybe rho.hcp<=14
       shows x>=6, suit_points=13..18
       priority -1
 after 1x (*) P (*) when they.bid
-  P   "No further bid"  priority -10
+  # Read as at most 17 declarer points (GIB's tree: 12-17 total points
+  # at 1D (2C) P (P), 1D (1H) P (2D), 1D P P (1H) P (1S) P (P); Rick
+  # 2026-11-25). Opener's stronger hands reopen (the double with 16+
+  # short in their suit, 2NT 18-19, a five-card suit from 14, a six-card
+  # rebid to 18); one with none of those still passes, by the fallback
+  # below, which partner does not read (BIDDING-MODEL 3.6).
+  P   "No further bid"  shows hcp+length_points<=17  priority -10
+  P   "No further bid"  priority -11
 
 # ── They bought it and partner passed: opener reopens ────────────────
 # `1x (1y) P (P)` and `1x (2y) P (P)` were 2,725 dead boards in the
