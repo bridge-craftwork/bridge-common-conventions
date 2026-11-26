@@ -284,9 +284,12 @@ after (1x) P (2x) P (P) | (1x) P (1y) P (2y) P (P)
 # I passed their raise, so I hold at most about 11 and partner's
 # balance was made on my values: no jumps to game on what he showed,
 # only the cheapest suit, and an invitation with a real fit and 12+.
+# The suit: the longest, a four-card major before a five-card minor
+# (`prefer` two a card, three more for a four-card major; never a
+# three-card major over a four-card minor).
 after (1x) P (2x) P (P) X (P)
-  cheapest(S) "Answers the balancing double: spades"   when x is not S   prefer S + S + 4
-  cheapest(H) "Answers the balancing double: hearts"   when x is not H   prefer H + H + 5
+  cheapest(S) "Answers the balancing double: spades"   when x is not S   prefer S + S + (S>=4) + (S>=4) + (S>=4) + 1
+  cheapest(H) "Answers the balancing double: hearts"   when x is not H   prefer H + H + (H>=4) + (H>=4) + (H>=4) + 2
   cheapest(D) "Answers the balancing double: diamonds" when x is not D   prefer D + D + 0
   cheapest(C) "Answers the balancing double: clubs"    when x is not C   prefer C + C + 1
   jump(S) "Invites game: four or more spades, 12+ total points"
@@ -307,8 +310,8 @@ after (1x) P (2x) P (P) X (P)
       priority 3
 
 after (1x) P (1y) P (2y) P (P) X (P) when y is not x
-  cheapest(S) "Answers the balancing double: spades"   when x is not S, y is not S   prefer S + S + 4
-  cheapest(H) "Answers the balancing double: hearts"   when x is not H, y is not H   prefer H + H + 5
+  cheapest(S) "Answers the balancing double: spades"   when x is not S, y is not S   prefer S + S + (S>=4) + (S>=4) + (S>=4) + 1
+  cheapest(H) "Answers the balancing double: hearts"   when x is not H, y is not H   prefer H + H + (H>=4) + (H>=4) + (H>=4) + 2
   cheapest(D) "Answers the balancing double: diamonds" when x is not D, y is not D   prefer D + D + 0
   cheapest(C) "Answers the balancing double: clubs"    when x is not C, y is not C   prefer C + C + 1
   P   "Penalty pass: five or more {y}"
