@@ -73,7 +73,9 @@ when opening
 
 # Third seat may open light with a good four-card major; fourth seat opens
 # by the rule of 15 (HCP plus spade length), and passes otherwise.
-when opening, seat=3
+# gib: GIB's 1M is 5+ in every seat (its tree at P-P: 5+, 11-21 HCP), so
+# the light four-card major is off (settings/styles.md).
+when opening, seat=3, style is not gib
   1S  "Major opening: 4+ good spades, 10-11 HCP"
       shows S>=4, hcp=10..11, quality(S)>=good
   1H  "Major opening: 4+ good hearts, 10-11 HCP"

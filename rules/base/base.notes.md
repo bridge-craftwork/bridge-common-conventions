@@ -61,6 +61,14 @@ Left as well: the pass after game (`game_reached`, "No further bid",
 from the slam tries opener did not make, which is the higher-level
 rebalancing (BIDDING-MODEL 3.2), not this pass.
 
+## The gib style (Rick, 2026-11-26)
+
+`general.style=gib` turns off the third-seat light four-card major:
+GIB's 1M is 5+ in every seat. Our default keeps it (Rick 2026-11-25:
+third-seat four-card majors are normal). The list of what each style
+changes, with the setting each item would later get, is
+settings/styles.md.
+
 ## Sources
 
 - **Card fields:** convention-card `spec/fields.toml`
