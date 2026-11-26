@@ -403,6 +403,17 @@ chose them".
 - Over their raise, (1x) P (2x) P: one_max, 16 (GIB 16-), 1,203 -> 0;
   over the jump raise 20 (GIB 20-), 993 -> 0.
 
+## The one-level overcall's HCP floor (Rick, GIB tree, 2026-11-25)
+
+The one-level overcalls (direct and sandwich seat) show `hcp>=one_min-1`
+(7) besides the 8 total points. Before, 8 total points let partner read
+the overcall from 4 HCP (a long suit and nothing else), where GIB's
+tree says 8-17 HCP, 9-19 total points (10,509 call-boards on agreed
+paths, 21GF-GIB). A five-card overcall needs 7 HCP anyway; the
+six-card suit with 6 HCP now makes a weak jump overcall
+(KQJ954.32.432.32 over 1♦: 2♠). Our total-points floor stays a point
+under GIB's (Rick's 8, BBA's Basic-Bridge meaning).
+
 ## Sources
 
 - Brill /explain, 2026-10-15 (Thorvald Aagaard's public Brill service, answers cached in `.rbb-cache/brill-service/explain/`): the rule text quoted in the `brill` section and in the `.bid` comments. Applies to the Brill card only (`general.system = brill`, cards/README.md "Brill").
@@ -410,3 +421,4 @@ chose them".
   the overcalls over a raise: standard practice, not yet cited;
   the three-level minimum from the tripwire above.
 - GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.
+- GIB's tree (as above) and Rick 2026-11-25: the HCP floor in "The one-level overcall's HCP floor".

@@ -45,20 +45,26 @@ module overcalls "Suit and notrump overcalls"
 # it takes 12 total points to overcall on a ten-high suit. Without that
 # we overcalled 1♠ on J8753 with 10 HCP and pushed the auction up for
 # the opponents.
+#
+# And an HCP floor a point under the total-points floor, 7 (Rick
+# 2026-11-25, the GIB comparison: GIB 8-17 HCP, ours read from 4 HCP,
+# since 8 total points allowed a long suit with almost nothing). A
+# five-card overcall needs 7 HCP anyway; the six-card hand with 6
+# makes a weak jump overcall instead.
 after (1x)
   1S  "Overcall: five spades, {one_min}-{one_max} total points"
       shows S>=5, S>=H, S>=D, S>=C
-      shows hcp+length_points>=one_min, hcp<=one_max
+      shows hcp+length_points>=one_min, hcp>=one_min-1, hcp<=one_max
       when  x is not S
       when  quality(S)>=good | top5(S)>=3 | hcp+length_points>=12
   1H  "Overcall: five hearts, {one_min}-{one_max} total points"
       shows H>=5, H>S, H>=D, H>=C
-      shows hcp+length_points>=one_min, hcp<=one_max
+      shows hcp+length_points>=one_min, hcp>=one_min-1, hcp<=one_max
       when  x is not H
       when  quality(H)>=good | top5(H)>=3 | hcp+length_points>=12
   1D  "Overcall: five diamonds, {one_min}-{one_max} total points"
       shows D>=5, D>S, D>H, D>=C
-      shows hcp+length_points>=one_min, hcp<=one_max
+      shows hcp+length_points>=one_min, hcp>=one_min-1, hcp<=one_max
       when  x is not D
       when  quality(D)>=good | top5(D)>=3 | hcp+length_points>=12
 
@@ -204,12 +210,12 @@ after (1x) when jump is weak
 after (1x) P (1y) when y is not x
   1S  "Overcall: five spades, {one_min}-18 total points"
       shows S>=5, S>=H | x is H | y is H, S>=D | x is D | y is D, S>=C | x is C | y is C
-      shows hcp+length_points>=one_min, hcp<=18
+      shows hcp+length_points>=one_min, hcp>=one_min-1, hcp<=18
       when  x is not S, y is not S
       when  quality(S)>=good | top5(S)>=3 | hcp+length_points>=12
   1H  "Overcall: five hearts, {one_min}-18 total points"
       shows H>=5, H>S | x is S | y is S, H>=D | x is D | y is D, H>=C | x is C | y is C
-      shows hcp+length_points>=one_min, hcp<=18
+      shows hcp+length_points>=one_min, hcp>=one_min-1, hcp<=18
       when  x is not H, y is not H, y is not S
       when  quality(H)>=good | top5(H)>=3 | hcp+length_points>=12
   2C  "Overcall: five clubs, {two_min}-18 total points"
