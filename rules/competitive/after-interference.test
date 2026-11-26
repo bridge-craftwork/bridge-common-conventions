@@ -74,7 +74,11 @@ dealer  S
 N KQT9.K3.Q843.K98      | 1H 1S             | P  | four good spades and 12: trap pass
 S 7.AQJ64.KJ5.A762      | 1H 1S P P         | X  | opener reopens, short in spades
 N KQT9.K3.Q843.K98      | 1H 1S P P X P     | P  | converts for penalty
-N 8753.K3.Q843.K98      | 1H 1S             | !P | four small spades: not a trap
+# Over 1H (1S) the double shows the minors (Rick, 2026-09-22; GIB's
+# tree: 4+ in each). Until 2026-11-26 their spades counted as the
+# "unbid major", so four small spades doubled with 4-3 in the minors.
+N 8753.K3.Q843.K98      | 1H 1S             | P  | four small spades, 4-3 in the minors: no double, not a trap
+N 8753.K.Q843.K982      | 1H 1S             | X  | four small spades and both minors: the negative double
 
 # ── Opener's answer to the negative double in support points (2026-09-25)
 S AQ73.K964.AJ42.Q      | 1D 1H X P        | 4S | 16 HCP, a singleton, four spades: 19 support points

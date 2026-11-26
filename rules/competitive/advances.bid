@@ -78,7 +78,12 @@ after (1x) 1y (P)
       when   mixed, !vul
       sets   ask=mixed_raise(y)
       priority 2                        # ahead of the raise to two and the preemptive raise, which these hands also fit
-  P   "Not enough to advance"  priority -10
+  # Read as at most 11 total points, the raise's and 1NT's top (GIB's
+  # tree, Rick 2026-11-25: 10- at 1D 1S P P, 1C 1S P P); 12+ cue-raises,
+  # bids 2NT or a suit. A strong hand with none of those passes by the
+  # unread rule below (BIDDING-MODEL 3.6).
+  P   "Not enough to advance"  shows hcp+length_points<=11  priority -10
+  P   "Not enough to advance"  priority -11
 
 # ── Advancing a balancing overcall ───────────────────────────────────
 # Partner reopened, so he is 8-15 rather than 8-17 and some of his values

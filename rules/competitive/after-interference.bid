@@ -42,9 +42,14 @@ after 1x (1y) when neg
       alert  artificial
       shows  hcp+length_points>=6, hcp>=5
       shows  (S>=4 | x is S | y is S), (H>=4 | x is H | y is H)
-      shows  ((D>=4 | x is D | y is D), (C>=4 | x is C | y is C)) | S>=4 | H>=4
-      when   (S<=4 | x is S | y is S), (H<=4 | x is H | y is H | (y is S, hcp<=7))
-      when   x<=2 | x is C | x is D     # support for a major: raise first (2026-09-25)
+      # Both minors, or four of an unbid major (2026-11-26: their own
+      # major counted here, so 1H (1S) X read no minor; GIB 4+ in each).
+      shows  ((D>=4 | x is D | y is D), (C>=4 | x is C | y is C)) | (S>=4, x is not S, y is not S) | (H>=4, x is not H, y is not H)
+      # A five-card major bids it, and support for partner's major raises
+      # first (2026-09-25): shown, not only required, so partner reads
+      # them (GIB's tree, Rick 2026-11-25: 1D (1H) X is exactly four spades).
+      shows  (S<=4 | x is S | y is S), (H<=4 | x is H | y is H | (y is S, hcp<=7))
+      shows  x<=2 | x is C | x is D
       priority 1
   # (the y-is-S clause) Five hearts over 1S and too weak for 2H: BBA
   # doubles (probes/free-bid-1D-1S.toml: 12 of 12 with 6 HCP).
@@ -215,8 +220,8 @@ after 1x (2y) | 1x (3y) when y is not x
       alert  artificial
       shows  hcp+length_points>=8
       shows  (S>=4 | x is S | y is S), (H>=4 | x is H | y is H)
-      shows  ((D>=4 | x is D | y is D), (C>=4 | x is C | y is C)) | S>=4 | H>=4
-      when   (S<=4 | x is S | y is S), (H<=4 | x is H | y is H)
+      shows  ((D>=4 | x is D | y is D), (C>=4 | x is C | y is C)) | (S>=4, x is not S, y is not S) | (H>=4, x is not H, y is not H)
+      shows  (S<=4 | x is S | y is S), (H<=4 | x is H | y is H)   # a five-card major bids it (shown, 2026-11-26)
       when   neg
       priority 1
   cheapest(y) "Cue bid: limit raise or better in {x}"
@@ -457,8 +462,16 @@ after 1x (1y) 2y (P) | 1x (2y) 3y (P) | 1x (3y) 4y (P) when y is not x   # their
       shows hcp>=16
       when  x is C | x is D
       priority -1
+  # Read as a minimum (GIB's tree, Rick 2026-11-25: 12-14 total points
+  # at 1C (1D) 2D (P) 3C): in a major under the 14 of the game, in a
+  # minor at most 16 (14-15 HCP without their suit stopped also sign
+  # off). A stronger hand the accepts do not fit signs off by the unread
+  # rule below.
   cheapest(x) "Minimum: signs off"
+      shows hcp+length_points<=13 | x is C | x is D, hcp+length_points<=16
       priority -2
+  cheapest(x) "Minimum: signs off"
+      priority -3
 
 # Responder after opener's sign-off: the cue bid was 11+ with no upper
 # limit, so with 13+ responder bids the game himself.

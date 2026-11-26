@@ -507,6 +507,26 @@ chose them".
   ours read from 6). 6-7 HCP with a long suit bids the suit (6-9, or
   10-11 with five).
 
+## The negative double's shape, and the cue raise's signoff (GIB tree, 2026-11-26)
+
+- The negative double's "a five-card major bids it" (`S<=4`, `H<=4`)
+  and "support for partner's major raises first" (`x<=2`) were `when`,
+  which partner does not read: 1♦ (1♥) X read ♠4-8 (GIB exactly four).
+  They are `shows` now, at one and two levels; no hand bids differently.
+- The minors clause, `... | S>=4 | H>=4`, let a four-card holding in
+  *their* major stand for "an unbid major": over 1♥ (1♠) the double read
+  no minor (GIB 4+ in each; Rick 2026-09-22: "where both majors have
+  been bid it shows the minors"). Now only an unbid major counts. This
+  changes calls: four small spades with 4-3 in the minors over 1♥ (1♠)
+  pass instead of doubling (after-interference.test, the "not a trap"
+  case, now P; a 4-1-4-4 case doubles).
+- Opener's minimum signoff over the cue-bid raise (1♣ (1♦) 2♦ (P) 3♣)
+  is read as at most 13 declarer points in a major (4M takes 14) and 16
+  in a minor (14-15 HCP without their suit stopped also signs off); GIB
+  12-14. An unread signoff below takes the rest.
+
+MEASURE_G5
+
 ## The long hand counts its own points (Rick, 2026-11-25)
 
 Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with the shorter trumps, the one raising; the hand with the long trumps counts its own points, HCP plus length (`hcp+length_points`, the engine's "decl"). The long trump hand counting support points "isn't normally done" (engine repo docs/BIDDING-MODEL.md, 3.3).
@@ -550,4 +570,5 @@ after 1♥-1♠-2♠ bids 4♥ with 15-17).
   3NT; the known fit bids 4M.
 - GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.
 - GIB's bidding tree (BBO's `gibrest`, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), agreed-path comparison on 21GF-GIB (top 5,000 positions of 100,000 random deals), Rick 2026-11-25 (BIDDING-MODEL 3.6 and 4.3): the description rules and floors in the section of that date above.
+- GIB's tree, the top 20,000 positions (2026-11-26; Rick 2026-11-25, BIDDING-MODEL 3.6): the negative double's shape shown and its minors clause, the cue raise's signoff top; Rick 2026-09-22 for "the minors".
 - **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.
