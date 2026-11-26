@@ -532,10 +532,11 @@ definitions were hints only: the rules follow the sources below.
   +2 everywhere +93 IMPs on 107 boards (halves +45/+48), +2 only
   vulnerable +72 on 58 (halves +24/+48); the non-vulnerable step
   between them +21 (halves +21/0). Distance from par +166 beside it.
-  Balancing after their raise, (1x) P (2x) P (P) 2NT, the same as the
-  direct 2NT over the raise (standard practice, not yet cited: Bridge
-  Bum's "not Unusual" balancing 2NT is over a weak two, not over a
-  raise). Above the takeout double with 15+ (overcalls.bid): the
+  Balancing after their raise, (1x) P (2x) P (P) 2NT, was the same as
+  the direct 2NT over the raise; since 2026-11-26 it is the balancing
+  seat's own (balancing.bid, "Over their fit"): five-four or better,
+  9+ total points, on every card, since the balancer passed the opening
+  where a five-five would have bid 2NT. Above the takeout double with 15+ (overcalls.bid): the
   five-five is the exact description, and the Unusual 2NT has no upper
   limit (BBA).
 - **Sandwich seat with a 1NT two-suiter on**: with the Sandwich 1NT

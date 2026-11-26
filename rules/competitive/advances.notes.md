@@ -114,6 +114,29 @@ Effect on the three balancing scenarios (Balancing,
 Too_Strong_for_Overcall4th, Trap_Pass_Opener): calls +5, contracts
 11.7% → 12.1%, par +98 IMPs, identical auctions 8.7% → 8.1%.
 
+## Advancer subtracts the king (Rick, 2026-11-26)
+
+Rick: a balancing call is about three points lighter than the same call
+in the direct seat ("borrowing a king"), and partner subtracts the king
+when he answers it, so it is not counted twice: advancer's thresholds
+after a balancing call are about three points above the direct seat's
+(BIDDING-MODEL 3.8). The balancing block now reads: the raise 11-13
+(direct 8-11), 1NT 11-13 (8-11), a new suit at the one level 11+ (8+)
+and at the two level 12+ (9+), 2NT 14-16 (12-15), the cue bid 14+
+(12+), the preemptive jump raise under 11 (under 8). The 2026-09-23
+block above was BBA's (about one point up, and the one-level new suit
+one point *down*, 7+).
+
+GIB's tree after (1♣) P (P) 1♥ (P) (archived): raise 8-11, 1NT 11-13,
+a new suit 11-15, 2NT 14+, the cue bid 12-16. GIB shifts its notrump
+and new suits by about three, its raise and cue by about two. Ours
+follows Rick's three throughout; the raise is the one to watch (a
+10-count with three trumps now passes 1♥).
+
+The balancing suit itself is still 8-15 (Rick, 2026-09-22, BBA's),
+which is only two points below the direct 8-17 at the top and the same
+at the floor: open question for Rick whether its floor should drop too.
+
 ## Measured effect of the whole slice (2026-09-23)
 
 Basic-Bridge subset (`compare --min-coverage 50`, 24 scenarios, 11,656

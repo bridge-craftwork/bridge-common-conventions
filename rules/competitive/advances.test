@@ -41,14 +41,17 @@ N 86.Q92.86.AQJT75          | 1D 1H 1N | 2H  | three hearts and 11 total points
 N 963.J83.K4.98763          | 1D 1H 1N | P   | 4 HCP: pass
 
 # ── Advancing a balancing overcall ───────────────────────────────────
-# Partner is 8-15 there, so everything costs about two points more.
+# Partner borrowed a king, so advancer subtracts one: every threshold is
+# about three points above the direct seat's (Rick, 2026-11-26).
 # `Balancing` hands, dealer E, advancer is South.
-S K92.6432.KJ5.QJ7          | 1C P P 1S P | 2S  | three spades and 10 HCP: the raise
-S 732.J632.KQT.AT8          | 1H P P 1S P | 2S  | three spades and 10 HCP
+S K92.6432.KJ5.QJ7          | 1C P P 1S P | P   | three spades and 10 HCP: below the 11-13 raise
+S K92.6432.KJ5.AJ7          | 1C P P 1S P | 2S  | three spades and 12 HCP: the raise
+S 732.J632.KQT.AT8          | 1H P P 1S P | P   | three spades and 10 HCP: pass
 S 83.KT32.J62.KQT9          | 1D P P 1S P | P   | 9 total points with a doubleton: not enough
 S 83.K94.Q743.KQJ8          | 1D P P 1S P | 1N  | 11 HCP balanced with a diamond stopper
-S K7532.A852.872.2          | 1C P P 1D P | 1S  | five spades and 8 HCP
-
+S K7532.A852.872.2          | 1C P P 1D P | P   | five spades and 8 HCP: not enough for a new suit here
+S K7532.A852.K72.2          | 1C P P 1D P | 1S  | five spades and 11 HCP
+S A83.K94.AJ43.KJ8          | 1D P P 1S P | 2D  | 16 with three spades: the cue bid
 # ── The defending side after they bid on: pass is the fallback (2026-09-25)
 card    Basic-Bridge
 dealer  S

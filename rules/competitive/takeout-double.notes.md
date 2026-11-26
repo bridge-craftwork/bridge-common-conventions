@@ -301,6 +301,15 @@ not convert: the takeout shape still holds.
 - The reopening double's notrump rebid uses the same range for now; a
   balancing 1NT's range differs, which may want its own band.
 
+## The reopening double has its own advances (Rick, 2026-11-26)
+
+The contexts here no longer carry the balancing spelling `(1x) P (P) X
+(P)` for advancer and the doubler's rebid: partner subtracts the king
+the reopening doubler borrowed, so those ranges are three points up for
+advancer and three down for the doubler, in balancing.bid
+(balancing.notes.md, "Borrowing a king"). The contexts where RHO bids
+or redoubles over the reopening double still carry it.
+
 ## Sources
 
 - **Rick's rulings:** the double (12 total points and three cards in

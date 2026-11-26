@@ -14,6 +14,38 @@ N J54.Q76.A32.8765          | 1D P P  | P      | 7 HCP: pass it out
 N K5.Q7.A932.KQ876          | 1S P P  | 2C     | five clubs and 13 total points
 N J5.KQ76.A932.876          | 1S P P  | X      | 10 HCP and three in each unbid suit
 
-# Advancer answers a reopening double with the same ladder.
+# Advancer answers a reopening double with the ladder three points up:
+# he subtracts the king partner borrowed.
 S 76532.Q84.T54.32          | 1D P P X P | 1S  | forced: the cheapest four-card suit
-S KQ32.AJ54.97.T87          | 1S P P X P | 3H  | four hearts and 11 HCP: jump
+S KQ32.AJ54.97.T87          | 1S P P X P | 2H  | four hearts and 10 HCP: the cheapest suit is 0-11 here
+S KQ32.AJ54.K7.T87          | 1S P P X P | 3H  | four hearts and 13 HCP: the jump is 12-14
+S KJ4.Q65.KJ5.8762          | 1D P P X P | 1NT | 10 balanced with a diamond stopper: 1NT is 10-13
+S KQ2.QJ5.AJ5.Q876          | 1D P P X P | 3NT | 15 balanced, diamonds held, no four-card major: game
+S 9532.QJ54.75.Q87          | 1D P P X P | 1H  | 5 HCP and both majors: hearts first
+
+# The reopening doubler's rebid is three below the direct doubler's.
+N KJ4.QJ6.AQ3.K876          | 1D P P X P 1H P | 1NT | 16 balanced: double, then 1NT shows 16-18
+N KJ4.QJ6.A3.Q8762          | 1D P P X P 1H P | P   | 13 with no fit and nothing to add: pass
+N A4.KQJ6.A3.K8762          | 1D P P X P 1S P | 2C  | five clubs and 17: double, then the suit
+
+# Over their fit: they raised and stopped at the two level. The balancer
+# passed the opening once already.
+S KJ74.5.Q954.K843          | 1H P 2H P P | X   | short in hearts, the unbid suits and 9 HCP: balance
+S KT985.63.K84.J72          | 1H P 2H P P | 2S  | five spades and 7 HCP: too weak to overcall, enough to balance
+S K4.63.Q84.KJ9754          | 1H P 2H P P | 3C  | six clubs and 9 HCP, no spades for a double
+S 4.632.KJ84.AT975          | 1H P 2H P P | 2NT | five clubs and four diamonds: two places to play
+S J74.Q65.Q954.J43          | 1H P 2H P P | P   | 6 HCP: let them play 2H
+S K74.Q65.A954.J43          | 1H P 2H P P | P   | three hearts and flat: nothing to balance with
+S QJ74.AK54.62.J43          | 1C P 2C P P | X   | both majors over their clubs
+N 7.KJ84.Q4.AT9754          | 1D P 1S P 2S P P | 2NT | the two unbid suits, five-four or better
+N Q6.KJ84.J76.A954          | 1D P 1S P 2S P P | X   | short in spades, four hearts and the clubs
+N Q6.K84.J7.AQ9754          | 1D P 1S P 2S P P | 3C  | six clubs and 10 HCP
+
+# Advancer answers the balance: the cheapest call, no jump to game on
+# partner's borrowed values.
+N Q854.J73.K92.T84          | 1H P 2H P P X P | 2S  | four spades: the cheapest answer
+N 763.J73.K9.QT842          | 1H P 2H P P X P | 3C  | five clubs and only three spades
+N 9832.Q7.K962.T84          | 1H P 2H P P 2N P | 3D | the longer minor
+N 9832.Q73.K92.T84          | 1H P 2H P P 2N P | 3C | equal minors: the cheaper
+S J853.Q732.K92.84          | 1D P 1S P 2S P P X P | 3H | four hearts and two clubs: the longer unbid suit
+N Q4.KQT75.K92.T84          | 1H P 2H P P X P | P   | five hearts behind the raise: defend 2H doubled
