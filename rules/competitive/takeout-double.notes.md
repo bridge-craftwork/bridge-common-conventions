@@ -310,6 +310,53 @@ advancer and three down for the doubler, in balancing.bid
 (balancing.notes.md, "Borrowing a king"). The contexts where RHO bids
 or redoubles over the reopening double still carry it.
 
+## The doubler in the pass-out seat after their new suit (Rick, 2026-11-27)
+
+Brill daily 2026-11-26, board 1, dealer North, none vul: P (1♣) X (2♥,
+announced "6+ H, 6-9 hcp") P (P), and Rusty, South, passed with
+QJ86.QJ.AKQJ5.K9 (19 HCP). Rick: "we have 20 total points and don't bid
+again after LHO's weak bid. we should X here to show the other two
+suits." No rule covered the seat: the rebid contexts after their new
+suit were written for opener bidding again (`!rho.last=P`), so the
+doubler passed by advances.bid's catch-all, and a double there was read
+as penalty (penalty-doubles.bid).
+
+Now `(1x) X (1y) P (P)`, `(1x) X (2y) P (P)` and `(1x) X (3y) P (P)`,
+y a new suit:
+
+| call | shows | why |
+|---|---|---|
+| X | 4+ in both unbid suits, 3- of theirs, 17+ total points, or 15+ with a singleton of theirs (5-5 or 6-4) | partner has passed, and the double takes the auction a level up: extras, more than GIB's 17+ only with the shape |
+| cheapest suit | five or more, 18+ (17 HCP), converts X | the power double's suit, as when opener bids again |
+| cheapest NT | balanced, 19-21 (`nt_max`+1..+3), responder's suit stopped, converts X; priority over X | the power double's notrump; the opening lead comes through responder's suit, so that stopper is the one asked |
+| P | 17 or less | the rest |
+
+X ranks first, so 5-4 in the two unbid suits doubles rather than bid the
+five (partner may hold the other). Advancer answers the second double:
+pass with five of responder's suit (penalty), else the longer unbid suit
+(a major on a tie), a jump with 8+ total points.
+
+No cue bid: partner has passed twice, so a huge hand doubles or bids its
+suit, and a cue would need answers we have not written.
+
+GIB's tree (`gib_tree.py show P-1C-D-2H-P-P`, archived): X 4 ♠, 4-5 ♦,
+3-4 ♥, 2- ♣, 17+ total points; P 12-17; 2♠ 5+, 18+; 3♦ 6+, 18-20; 2NT
+21-23 balanced, clubs and hearts stopped. Ours after the change: X ♠4
+♥3 ♦4-5 ♣1-2, 17+ declarer points (the ♥3 is the first double's 3-4
+with the new 3-); P 17 or less; 2♠ 5+ 18+; 3♦ five cards (GIB six);
+2NT 19-21 (GIB 21-23: ours is the power double's range, Rick
+2026-11-25). Our hand has two hearts, so the first double was already
+the least lie (BIDDING-MODEL 3.6); the reading assumes three.
+
+Our own engine never reaches the seat: our responder's jump after a
+double is fit-showing (forcing) and a non-jump new suit is forcing, so
+opener always bids again. BBA reaches it on 7 of the 17,155 tripwire
+boards and 84 of 100,000 random deals; ours on none. To make it arise
+in self-play, `vs_to_double.jump_shift = weak` (after-interference.bid,
+new) gives the opponents weak jump shifts over a double.
+
+MEASUREMENTS
+
 ## Sources
 
 - **Rick's rulings:** the double (12 total points and three cards in
@@ -335,3 +382,4 @@ or redoubles over the reopening double still carry it.
 - GIB's bidding tree (BBO's `gibrest`, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), agreed-path comparison on 21GF-GIB (top 5,000 positions of 100,000 random deals), Rick 2026-11-25 (BIDDING-MODEL 3.6 and 4.3): the description rules and floors in the section of that date above.
 - GIB's tree, the top 20,000 positions (2026-11-26; Rick 2026-11-25, BIDDING-MODEL 3.6): the double's description short in their suit.
 - Rick, 2026-11-25: the power double converts when the doubler shows his own suit or notrump; 18+ for a suit (GIB 17+), 19-21 for notrump.
+- Rick, 2026-11-27 (Brill daily 2026-11-26 board 1): the doubler doubles again in the pass-out seat to show the other two suits. GIB's tree, P-1C-D-2H-P-P (archived), for the ranges. Advancer's answers and the notrump stopper rule: standard practice, not yet cited.

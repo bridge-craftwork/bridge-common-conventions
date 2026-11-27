@@ -280,7 +280,7 @@ after (1x) X (1y) P (*) | (1x) X (2y) P (*) when y is not x, !rho.last=P
 # No cue bid: partner has passed twice, so a huge hand doubles or bids
 # its suit; a cue would need answers we have not written.
 define unbid_four(x, y) = S>=4 | x is S | y is S, H>=4 | x is H | y is H, D>=4 | x is D | y is D, C>=4 | x is C | y is C
-after (1x) X (1y) P (P) | (1x) X (2y) P (P) | (1x) X (3y) P (P) when y is not x
+after (1x) X (1y) P (P) | (1x) X (2y) P (P) when y is not x
   X   "Takeout again: four or more in both unbid suits, 17+ total points"
       shows unbid_four(x, y), y<=3
       shows hcp+length_points>=17 | (hcp+length_points>=15, y<=1)
@@ -308,6 +308,39 @@ after (1x) X (1y) P (P) | (1x) X (2y) P (P) | (1x) X (3y) P (P) when y is not x
       priority 2                       # balanced with their suit stopped: notrump, not the double
   P   "No extras: 17 or less"
       shows hcp+length_points<=17
+      priority -5
+
+# Over their jump to three the double and the suits act at the three
+# level opposite a partner who may hold nothing: two points more (the
+# random-deal check, 2026-11-27: at 17/18 the three-level actions lost).
+after (1x) X (3y) P (P) when y is not x
+  X   "Takeout again: four or more in both unbid suits, 19+ total points"
+      shows unbid_four(x, y), y<=3
+      shows hcp+length_points>=19 | (hcp+length_points>=17, y<=1)
+      priority 1
+  cheapest(S) "20+ total points and five, or 18+ and six spades"
+      converts X
+      shows S>=5, hcp+length_points>=20 | (hcp+length_points>=18, S>=6)
+      when  x is not S, y is not S
+  cheapest(H) "20+ total points and five, or 18+ and six hearts"
+      converts X
+      shows H>=5, S<=4, hcp+length_points>=20 | (hcp+length_points>=18, H>=6)
+      when  x is not H, y is not H
+  cheapest(D) "20+ total points and five, or 18+ and six diamonds"
+      converts X
+      shows D>=5, S<=4, H<=4, hcp+length_points>=20 | (hcp+length_points>=18, D>=6)
+      when  x is not D, y is not D
+  cheapest(C) "20+ total points and five, or 18+ and six clubs"
+      converts X
+      shows C>=5, D<=4, S<=4, H<=4, hcp+length_points>=20 | (hcp+length_points>=18, C>=6)
+      when  x is not C, y is not C
+  cheapest(N) "Power double: balanced, above a 1NT overcall, a stopper in {y}"
+      converts X
+      shows balanced, hcp>nt_max, hcp<=nt_max+3
+      when  stop(y)
+      priority 2                       # balanced with their suit stopped: notrump, not the double
+  P   "No extras: 19 or less"
+      shows hcp+length_points<=19
       priority -5
 
 # Advancer after the second double: takeout of the two unbid suits, so
