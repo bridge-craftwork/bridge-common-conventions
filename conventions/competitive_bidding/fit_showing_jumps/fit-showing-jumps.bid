@@ -25,6 +25,7 @@ module fit-showing-jumps "Fit-showing jumps"
   needs  base
   needs  overcalls
   skill  competitive_bidding/fit_showing_jumps
+  param  xjs = vs_to_double.jump_shift default fit
 
 # ── A passed hand's jump shift ───────────────────────────────────────
 # 10-12 support points (a passed hand), four of partner's suit, five of
@@ -74,8 +75,10 @@ after 1x (1y) | 1x (2y) when passed_hand, y is not x
 
 # ── Responder over their takeout double ──────────────────────────────
 # A limit raise or better with the side suit: it replaces the redouble
-# or the Jordan 2NT for this shape.
-after 1x (X) when !passed_hand
+# or the Jordan 2NT for this shape. A card whose jump shift over a
+# double is weak (`vs_to_double.jump_shift`) plays that instead
+# (after-interference.bid).
+after 1x (X) when !passed_hand, xjs is not weak
   jump(S) "Fit-showing jump: 4+ {x}, 5+ ♠ with an honour, 10+"  alert
       shows x>=4, S>=5, quality(S)>=fair, hcp+length_points>=10
       when  x is not S

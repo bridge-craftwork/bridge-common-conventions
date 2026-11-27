@@ -32,6 +32,7 @@ module after-interference "Our side once the opponents come in"
   param  js = competitive.jump_shift_after_overcall default weak
   param  fsj = competitive_bidding/fit_showing_jumps default false
   param  tfr = bidding_conventions/transfers_after_double default false
+  param  xjs = vs_to_double.jump_shift default fit
 
 # ── They overcalled at the one level ─────────────────────────────────
 after 1x (1y) when neg
@@ -341,6 +342,34 @@ after 1x (X)
   # takes any hand the rules above leave out.
   P   "No suitable bid"  shows hcp+length_points<=9  priority -10
   P   "No suitable bid"  priority -20
+
+# ── Weak jump shifts over their takeout double ───────────────────────
+# `vs_to_double.jump_shift` = weak (ACBL convention card, "Vs takeout
+# double: jump shift"; no stock .bbsa sets it, so this is for cards
+# written by hand and for the opponents in self-play): a jump in a new
+# suit is preemptive, six or more cards and 5-9 HCP (Brill announces
+# its 1♣ (X) 2♥ "6+ H, 6-9 hcp", daily 2026-11-26 board 1). It replaces
+# the fit-showing jump there (fit-showing-jumps.bid gives way). Opener
+# passes unless something else fits better.
+after 1x (X) when xjs is weak, !passed_hand
+  jump(S) "Weak jump shift: six or more spades, 5-9 HCP"
+      shows S>=6, hcp=5..9
+      when  x is not S
+      priority 2
+  jump(H) "Weak jump shift: six or more hearts, 5-9 HCP"
+      shows H>=6, hcp=5..9, S<=3
+      when  x is not H
+      priority 2
+  jump(D) "Weak jump shift: six or more diamonds, 5-9 HCP"
+      shows D>=6, hcp=5..9, S<=3, H<=3
+      when  x is not D
+      priority 2
+  jump(C) "Weak jump shift: six or more clubs, 5-9 HCP"
+      shows C>=6, hcp=5..9, S<=3, H<=3
+      when  x is not C
+      priority 2
+after 1x (X) 2y (P) | 1x (X) 3y (P) when partner.jumped, xjs is weak, y is not x
+  P   "No further bid"             priority -5
 
 # ── Opener answers a negative double ─────────────────────────────────
 # Partner has shown four or more cards in each unbid major and 6+ total
