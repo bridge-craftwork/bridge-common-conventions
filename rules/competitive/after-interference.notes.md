@@ -535,6 +535,22 @@ Opener's 4M over the cue-bid raise counts HCP plus length, 14+ as before
 (the par measurement of 2026-09-26 was in support points; GIB's tree
 after 1♥-1♠-2♠ bids 4♥ with 15-17).
 
+## Weak jump shifts over their takeout double (2026-11-27)
+
+`vs_to_double.jump_shift` was in the card vocabulary but no rule read
+it. With `weak`, responder's jump in a new suit over their takeout
+double is six cards and 5-9 HCP (Brill's announcement of its 1♣ (X) 2♥:
+"6+ H, 6-9 hcp", daily 2026-11-26 board 1), and the fit-showing jump
+over a double gives way. No stock .bbsa sets it (the .bbsa map has no
+key), so it changes nothing on the stock cards; it exists so that the
+opponents in self-play can play what Brill plays, and the doubler's
+rebid in the pass-out seat (takeout-double.notes.md) actually arises.
+On 100,000 random deals with both pairs playing it, against
+fit-showing jumps: 369 boards changed, the acting side's contract errors
+-295 (halves agree); the three-level jumps (1♠ X 3♣, 1♥ X 3♦) lose
+most. Open: seven cards at the three level, as responses.bid's weak
+jump shifts ask.
+
 ## Sources
 
 - **Jump shifts in competition** (2026-10-05): the ACBL convention card's
@@ -572,3 +588,4 @@ after 1♥-1♠-2♠ bids 4♥ with 15-17).
 - GIB's bidding tree (BBO's `gibrest`, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), agreed-path comparison on 21GF-GIB (top 5,000 positions of 100,000 random deals), Rick 2026-11-25 (BIDDING-MODEL 3.6 and 4.3): the description rules and floors in the section of that date above.
 - GIB's tree, the top 20,000 positions (2026-11-26; Rick 2026-11-25, BIDDING-MODEL 3.6): the negative double's shape shown and its minors clause, the cue raise's signoff top; Rick 2026-09-22 for "the minors".
 - **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.
+- Weak jump shifts over a double: the ACBL convention card's "Vs takeout double: jump shift" box; Brill's announcement "6+ H, 6-9 hcp" (Brill daily 2026-11-26 board 1) for the range; otherwise standard practice, not yet cited.

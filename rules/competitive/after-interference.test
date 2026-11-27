@@ -167,3 +167,11 @@ dealer  N
 N AKJT85.Q9.J9.T32          | 1S 3H X P | 3S  | six spades, minimum (the board)
 N AKJ98.Q9.J96.T32          | 1S 3H X P | 3S  | five spades and nothing else: the least lie
 N AKJ98.Q9.K96.Q32          | 1S 2H X P | 2S  | the same at the two level
+# Weak jump shifts over their takeout double (`vs_to_double.jump_shift`
+# = weak): six cards and 5-9 HCP; the fit-showing jump gives way.
+card    Basic-Bridge vs_to_double.jump_shift=weak
+dealer  N
+S 85.KJT972.Q4.J73          | 1C X            | 2H   | six hearts, 7 HCP: preemptive
+card    21GF-GIB vs_to_double.jump_shift=weak
+dealer  N
+S 85.KJT972.Q4.J73          | 1C X            | 2H   | the same where the card also plays fit-showing jumps

@@ -86,3 +86,28 @@ dealer  E
 vul     All
 S AJ9.84.K876.AJ65      | 1H X P 2H 3H                         | 4C     | four-card minors up the line
 N K8752.7.AJ3.K742      | 1H X P 2H 3H 4C P                    | 4S     | five spades opposite the double's three: game in the fit
+
+# ── The doubler in the pass-out seat after their new suit (Rick,
+# 2026-11-27): takeout again with the two unbid suits and extras, a
+# five-card suit or notrump as a power double, else pass.
+card    21GF-GIB
+dealer  N
+vul     None
+S QJ86.QJ.AKQJ5.K9          | P 1C X 2H P P   | X    | the board (Brill daily 2026-11-26, 1): 20 total points, spades and diamonds
+card    Basic-Bridge vs_to_double.jump_shift=weak
+dealer  E
+vul     None
+S QJ86.QJ.AKQJ5.K9          | 1C X 2H P P     | X    | the same over a weak jump shift
+S AQ86.K54.AKJ3.72          | 1C X 1H P P     | X    | 18 HCP, four spades and four diamonds: takeout of the other two
+S AQ86.K5.AKJ32.72          | 1C X 3H P P     | P    | 18 total points over their jump to three: two short of the double there
+S AQ86.K5.AKJ32.72          | 1C X 2H P P     | X    | the same at the two level doubles
+S KQ8.J54.AKJ3.Q72          | 1C X 2H P P     | P    | 16 HCP, three spades: no extras to double again
+S KJ82.Q54.AQ63.72          | 1C X 1H P P     | P    | a minimum double has said its piece
+S AKQJ54.A4.KQ3.98         | 1C X 2H P P     | 2S   | 19 HCP and six spades: the power double's suit
+S KQ8.AJ54.K4.AQJ2          | 1D X 1S P P     | 1N   | 20 balanced, spades stopped: notrump, not the double
+# Advancer answers the second double: the longer unbid suit, a jump with
+# 8+ total points, a pass with five of responder's suit.
+N 9643.85.T872.Q64          | 1C X 2H P P X P | 2S   | four-four: the major
+N 8643.5.KT872.Q64          | 1C X 2H P P X P | 3D   | five diamonds, four spades: the longer
+N K864.52.Q972.K64          | 1C X 2H P P X P | 3S   | 8 HCP and four spades: jump
+N 74.KJT98.T52.J43          | 1C X 2H P P X P | P    | five hearts: penalty
