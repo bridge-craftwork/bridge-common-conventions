@@ -331,6 +331,10 @@ y a new suit:
 | cheapest NT | balanced, 19-21 (`nt_max`+1..+3), responder's suit stopped, converts X; priority over X | the power double's notrump; the opening lead comes through responder's suit, so that stopper is the one asked |
 | P | 17 or less | the rest |
 
+Over their jump to three, `(1x) X (3y) P (P)`, every action is two
+points higher: X 19+ (17+ with the singleton), a suit 20+ with five or
+18+ with six, pass 19 or less; notrump stays 19-21 (it is 3NT).
+
 X ranks first, so 5-4 in the two unbid suits doubles rather than bid the
 five (partner may hold the other). Advancer answers the second double:
 pass with five of responder's suit (penalty), else the longer unbid suit
@@ -355,7 +359,41 @@ boards and 84 of 100,000 random deals; ours on none. To make it arise
 in self-play, `vs_to_double.jump_shift = weak` (after-interference.bid,
 new) gives the opponents weak jump shifts over a double.
 
-MEASUREMENTS
+Open (engine): with Brill's meanings (`--meanings '["","3+ clubs","","6+ H,
+6-9 hcp"]'` on 21GF-GIB) our reading of their 2♥ stays the fit-showing
+jump, narrowed by the text: 6-9 HCP and six hearts, but still four or
+more clubs, `trump ♣` and F1 for their side. The text does not
+contradict the rule arithmetically (the rule's floor is 10 total
+points, which 6-9 HCP with six hearts can reach), so the engine
+narrows instead of replacing, and the club length the text never
+mentions stays. The doubler's call is X either way.
+
+**Measured (2026-11-27, engine `freak-patterns`, 21GF-DEFAULT against
+21GF-GIB):**
+
+- `bid test`, whole pack: 3,413 cases, 3,408 pass; the 5 failures are
+  the known serious-3nt ones.
+- Tripwire, `compare --limit 50` (17,155 boards): no auction of ours
+  changed. In replay one call changed, on Minor_Suit_Opener 1 (1♦ X 2♥
+  P P with Q97.KQ4.AT.AQ754): 3♣ now, as BBA bids.
+- 100,000 random deals as dealt: no board changed (we never reach the
+  seat); in replay 32 more calls agree with BBA (853,378 to 853,410).
+- With `--set vs_to_double.jump_shift=weak` (both pairs), 127 of the
+  100,000 boards reach the seat; against the same run without these
+  rebids (weak jumps on in both), 23 boards changed. The acting side's
+  contract errors: -35 IMPs (halves -40 / +5, they differ: noise);
+  distance from par +31, doubling errors of the acting side +33. The
+  second double over a two-level jump gained (+11 on 3 boards);
+  single-board losses on 3NT, 4♦ and 3♥ over a three-level jump. A
+  first version with the two-level floors at three as well lost -58 on
+  30 boards with the halves agreeing, which is why the three-level
+  block asks for two points more.
+- The weak jump shifts themselves (`vs_to_double.jump_shift=weak` on
+  both pairs, against fit-showing jumps on the same deals): 369 boards
+  changed, the acting side's contract errors -295 (halves agree), the
+  jumps 1♠ X 3♣ / 1♥ X 3♦ / 1♠ X 3♥ losing most. Not a verdict on the
+  convention (its own notes), only on our three-level weak jumps over
+  a double, which want seven cards or a lower top: open question.
 
 ## Sources
 

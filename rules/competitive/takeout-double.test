@@ -99,6 +99,8 @@ dealer  E
 vul     None
 S QJ86.QJ.AKQJ5.K9          | 1C X 2H P P     | X    | the same over a weak jump shift
 S AQ86.K54.AKJ3.72          | 1C X 1H P P     | X    | 18 HCP, four spades and four diamonds: takeout of the other two
+S AQ86.K5.AKJ32.72          | 1C X 3H P P     | P    | 18 total points over their jump to three: two short of the double there
+S AQ86.K5.AKJ32.72          | 1C X 2H P P     | X    | the same at the two level doubles
 S KQ8.J54.AKJ3.Q72          | 1C X 2H P P     | P    | 16 HCP, three spades: no extras to double again
 S KJ82.Q54.AQ63.72          | 1C X 1H P P     | P    | a minimum double has said its piece
 S AKQJ54.A4.KQ3.98         | 1C X 2H P P     | 2S   | 19 HCP and six spades: the power double's suit
