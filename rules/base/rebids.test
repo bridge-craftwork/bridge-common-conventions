@@ -538,3 +538,17 @@ S AQ5.K74.AQ63.K82      | 1D P 1S P    | 2NT    | vulnerable 18: 2NT as before
 S KJ5.Q74.A963.K82      | 1D P 1S P    | 1NT    | vulnerable 13: 1NT 12-14 as before
 S KJ5.Q74.A963.K82      | 1D P 2C P    | 2NT    | vulnerable 13 after the 2/1: 2NT 12-14
 S AQ5.K74.AQ63.K82      | 1D P 2C P    | 3NT    | vulnerable 18 after the 2/1: 3NT 18-19
+
+# ── After 1M-1NT-2NT every bid by responder is game forcing (Rick,
+# 2026-11-27): opener chooses the game. Brill daily 2026-11-24 MP-strong
+# b6 (Thorvald's mail 2026-11-25): Brill's 3H, an artificial three-card
+# raise, is read as natural; we passed it with 19 opposite 10-12.
+card    Brill
+dealer  E
+S AK763.43.K63.AKQ      | P 1S P 1N P 2N P 3H P  | 3NT    | Brill board: game forcing, no heart fit: notrump
+card    21GF-GIB
+S AK763.43.K63.AKQ      | P 1S P 1N P 2N P 3H P  | 3NT    | the same on 21GF-GIB
+dealer  S
+S AK763.Q43.K6.AKQ      | 1S P 1N P 2N P 3H P    | 4H     | three hearts opposite five: the heart game
+S AK763.43.K63.AKQ      | 1S P 1N P 2N P 3C P    | 3NT    | six clubs, no fit: notrump, not a pass
+S AQ763.K4.QJ3.AQ4      | 1S P 1N P 2N P 3S P    | 4S     | three-card support: the 5-3 spade game

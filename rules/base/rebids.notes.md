@@ -1831,6 +1831,13 @@ Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with t
 - Tests moved: `1S P 3S P` with AK432.J.T62.AJ42 (13 HCP and a
   singleton, 14 with length) now declines.
 
+## Opener after 1M-1NT-2NT and responder's three-level bid (Rick, 2026-11-27)
+
+Game forcing (responder-rebids.notes.md). Opener bids 4M over 3M, raises
+a natural three-level major with three, and otherwise bids 3NT, which
+is also the answer to a call no rule reads. Brill 2026-11-24 MP-strong
+b6 (AK763.43.K63.AKQ over Brill's 3H): 3NT, where we passed.
+
 ## Sources
 
 - **Rick's rulings**, dated in the sections above; 6-4 over 1NT shows
@@ -1928,3 +1935,5 @@ Rick (2026-11-25): support points (HCP plus shortness) belong to the hand with t
   rebids and the 2NT-then-3NT quantitative follow-up are our decisions.
 - GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.
 - **Rick, 2026-11-25**: the long-trump hand counts HCP plus length, never support points (engine repo docs/BIDDING-MODEL.md 3.3); GIB's bidding tree (`probes/tools/gib_tree.py show`, engine repo) for the ranges it states.
+- Opener after 1M-1NT-2NT-3x: standard practice, not yet cited; Rick's
+  ruling of 2026-11-27.

@@ -24,3 +24,46 @@ force game when partner.opened, !they.bid, me.bids = 2, call >= 3C, call <= 3S, 
 # After opener's 2NT rebid (18-19), anything but pass forces to game,
 # except Wolff's 3C, which is there to stop in a part score.
 force game after 1x (P) 1y (P) 2N (P) when !call = P, !(wolff, call = 3C)
+
+# After 1M-1NT-2NT too (Rick, 2026-11-27: "after a 1M-1N-2N, any bid
+# should be GF"): the forcing 1NT is 6-12 opposite 18-19. The pattern
+# above is for a one-level suit response.
+force game after 1M (P) 1N (P) 2N (P) when !call = P
+
+# ── In a game force with nothing else to say: bid game ───────────────
+# A game force forbids the pass, but when no rule applies the engine
+# passes anyway (docs/CONTRACT.md, "No rule"). Brill dailies, round 3:
+# 2C P 2D P 3C P 4C P passed (2026-11-24 MP-strong b5), and the passes
+# after 1M-1NT-2NT. These are the last resort below every other rule:
+# the cheapest sensible game, a known fit first, then notrump, then my
+# own long suit. Each is a game, so they end the force: two calls no
+# rule reads cannot carry the auction past game this way (Rick,
+# 2026-11-27: a "never pass an unknown call" rule could run to 7NT).
+when we.gf, !game_reached, rho.last=P
+  4S  "Game in the spade fit"              shows we.fit(S).min >= 8
+      priority -30
+  4H  "Game in the heart fit"              shows we.fit(H).min >= 8, we.fit(S).min <= 7
+      priority -30
+  3N  "Game in notrump"                    shows we.fit(S).min <= 7, we.fit(H).min <= 7
+      priority -31
+  5C  "Game in the club fit"               shows we.fit(C).min >= 8, we.fit(S).min <= 7, we.fit(H).min <= 7
+      priority -31
+  5D  "Game in the diamond fit"            shows we.fit(D).min >= 8, we.fit(S).min <= 7, we.fit(H).min <= 7
+      priority -31
+  4S  "Game: five or more spades"          shows S>=5
+      priority -32
+  4H  "Game: five or more hearts"          shows H>=5
+      priority -32
+  5C  "Game: five or more clubs"           shows C>=5
+      priority -33
+  5D  "Game: five or more diamonds"        shows D>=5
+      priority -33
+  4S  "Game: four spades"                  shows S>=4
+      priority -34
+  4H  "Game: four hearts"                  shows H>=4
+      priority -34
+  3N  "Game"                               priority -35
+  4H  "Game"                               priority -36
+  4S  "Game"                               priority -36
+  5C  "Game"                               priority -37
+  5D  "Game"                               priority -37

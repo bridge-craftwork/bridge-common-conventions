@@ -36,8 +36,31 @@ already forces; the declarations matter for the rules written against
   (responder's third-bid preference to opener's minor at the three
   level) are not carved out; say if they should be.
 
+## Forces from the shape, and game when nothing else applies (2026-11-27)
+
+Ruling: Rick, 2026-11-27 (after Thorvald's mail of 2026-11-25 on Brill daily 2026-11-24 MP-strong b6): "after a 1M-1N-2N, any bid should be GF. so we shouldn't stop in a GF sequence. We could add a rule not to pass after partner's unknown bid, but this could generate an auction to 7NT if both sides take that view."
+
+- `force game after 1M (P) 1N (P) 2N (P) when !call = P`: the existing
+  declaration's `1y` is a suit, so the forcing 1NT was left out. A
+  declaration holds for a call no rule reads (checked: Brill's
+  artificial 3H shows `[GF]` in `explain-auction`), so the force does
+  not depend on understanding the call.
+- The game catch-all (`when we.gf, !game_reached, rho.last=P`, priority
+  -30 to -37): with the force on and no rule left, the engine used to
+  pass anyway (docs/CONTRACT.md, "No rule"). Now: a known fit's game,
+  else 3NT, else game in my own five-card suit, a four-card major, then
+  any game. Each is game, so it ends the force: this is the bounded form
+  of "don't pass partner's unknown call" that Rick's 7NT worry asks
+  for. Brill 2026-11-24 MP-strong b5 (2C P 2D P 3C P 4C P, passed with
+  25 HCP) now bids 5C.
+- Round forces are not caught: a round-forcing call no rule answers
+  still passes. None of the nine Brill boards needed it.
+
 ## Sources
 
 - Rick's rulings, 2026-09-30 (quoted above).
 - Responder's third bid at the three level and the 2NT-rebid game force:
   standard practice, not yet cited.
+- Rick's ruling of 2026-11-27 quoted above; Thorvald Aagaard's mail
+  "Bidding misunderstanding" (2026-11-25); the round-3 "No rule applies"
+  list in rusty-bidding-bot docs/reviews/2026-11-27-brill-gaps.md, (d).

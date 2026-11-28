@@ -533,6 +533,21 @@ changes of that day (nt-interference.bid's answer to 2NT, fit.bid over
 -139 in errors against the engine change alone: small, and not measured
 apart.
 
+## The jump to 4D is game forcing; opener never passes 3m (Rick, 2026-11-27)
+
+Two Brill boards passed below game with "No rule applies": 2026-10-18
+MP-strong b3 (1NT 2C 2S 4D, Brill's splinter, opener with four spades)
+and 2026-11-07 MP-strong b7 (1NT 2C 2D 3C, opener 16 with three clubs).
+- `force game ... when call = 4D`: BBA plays 4D here as a slam try,
+  Brill as a splinter; either way forcing, and the game catch-all
+  (game-force.bid) bids 4S with four spades. 4C is not declared (Gerber
+  on some cards).
+- 3m is not game forcing (BBA passes the raise with 9 HCP, the existing
+  test), so it is not declared; BBA's answers to it (probed 2026-09-24)
+  now apply on every style, so opener never passes it. Our own responder
+  has no 3m rule outside the bba style, so only partners who bid it
+  (Brill) meet the change.
+
 ## Sources
 
 - **The convention:** 2♣ Stayman over 1NT, non-forcing, with the usual
@@ -564,3 +579,5 @@ apart.
   3m.
 - **2026-10-03:** trump set by the raises; standard practice (a
   raise of partner's shown major agrees it), not yet cited.
+- Rick's ruling of 2026-11-27; Brill dailies 2026-10-18 MP-strong b3 and
+  2026-11-07 MP-strong b7.

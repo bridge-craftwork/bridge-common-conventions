@@ -113,3 +113,12 @@ S AJ93.AJ982.J2.T7      | 1NT P            | 2C     | 5-4 in the majors, game va
 S AJ93.AJ982.J2.T7      | 1NT P 2C P 2D P  | 3H     | then the five-card major, forcing
 N K72.Q4.AK54.A632      | 1NT P 2C P 2D P 3H P | 3NT | two hearts: 3NT
 N K72.Q84.AK54.A63      | 1NT P 2C P 2D P 3H P | 4H  | three hearts: game in the fit
+
+# ── Opener never passes three of a minor; the jump to 4D is game
+# forcing (Rick, 2026-11-27). Brill dailies, where both passed.
+card    Brill
+dealer  S
+S K86.J5.KQT83.AQ8      | 1N P 2C P 2D P 3C P    | 4C     | 2026-11-07 MP-strong b7: BBA's answers on every style: three clubs, 16, hearts open
+S KQT8.KQ2.AJ96.Q7      | 1N P 2C P 2S P 4D P    | 4S     | 2026-10-18 MP-strong b3: Brill's splinter; forced, four spades
+card    21GF-GIB
+S K86.J5.KQT83.AQ8      | 1N P 2C P 2D P 3C P    | 4C     | the same on 21GF-GIB

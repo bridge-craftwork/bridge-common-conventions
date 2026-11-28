@@ -56,6 +56,17 @@ after nt1 2C (P)
   2S  "4 spades, not 4 hearts"    shows S>=4, H<=3
   2D  "No 4-card major"           shows H<=3, S<=3
 
+# Responder's jump to 4D after opener's answer is game forcing: a slam
+# try in diamonds (BBA, below) or a splinter (Brill). Brill daily
+# 2026-10-18 MP-strong b3: 1NT 2C 2S 4D, Brill's splinter, passed with
+# four spades. Declared for the auction's shape, so the call is forcing
+# when no rule reads it too; game ends the force (game-force.bid; Rick,
+# 2026-11-27: "we shouldn't stop in a GF sequence"). 4C is left alone: on
+# some cards it is Gerber. Three of a minor is not game forcing (BBA
+# passes the raise with 9, below), but opener never passes it: BBA's
+# answers apply on every style.
+force game after nt1 2C (P) 2x (P) when call = 4D
+
 # Responder's second call. No auction patterns: a fit is whatever opener's
 # answer has shown. Without a fit, 2NT and 3NT imply the other major, and
 # opener corrects with four of it (choice-of-games.bid).
@@ -502,37 +513,37 @@ after 1N (2C) X (P) when vs_2c
 # without four clubs and 4C over 3D with five; after a major, 3D over 3C
 # with four diamonds, and after 2S 3H with a flat 4-3-3-3 (responder has
 # four hearts).
-after 1N (P) 2C (P) 2D (P) 3C (P) when style is bba
+after 1N (P) 2C (P) 2D (P) 3C (P)
   5C  "Fit, a suit open, a maximum"  shows C>=4, !stop(D) | (S=2, !stop(S)) | (H=2, !stop(H)), points>=17   priority 3
   4C  "Fit, a suit open"             shows C>=4 | (C=3, points>=16), !stop(D) | (S=2, !stop(S)) | (H=2, !stop(H))   priority 2
   4C  "Fit, a flat minimum"          shows C>=4, shortest>=3, points<=15   priority 2
   3D  "Minimum, no club fit"         shows C<=3, points<=15   priority 1
   3N  "To play"                      shows hcp>=15
-after 1N (P) 2C (P) 2D (P) 3D (P) when style is bba
+after 1N (P) 2C (P) 2D (P) 3D (P)
   5D  "Fit, a suit open, a maximum"  shows D>=3, !stop(C) | (S=2, !stop(S)) | (H=2, !stop(H)), points>=17   priority 3
   4D  "Fit, a suit open"             shows D>=4 | D=3, !stop(C) | (S=2, !stop(S)) | (H=2, !stop(H))   priority 2
   4D  "Fit, a flat minimum"          shows D>=3, shortest>=3, points<=15   priority 2
   4C  "Minimum, five clubs"          shows D<=2, C>=5, points<=15   priority 1
   3N  "To play"                      shows hcp>=15
-after 1N (P) 2C (P) 2H (P) 3C (P) when style is bba
+after 1N (P) 2C (P) 2H (P) 3C (P)
   5C  "Fit, a suit open, a maximum"  shows C>=4, !stop(D), points>=17   priority 3
   4C  "Fit, a suit open"             shows C>=4 | (C=3, points>=16), !stop(D)   priority 2
   4C  "Fit, a flat minimum"          shows C>=3, shortest>=3, points<=15   priority 2
   3D  "Minimum, four diamonds"       shows D>=4, points<=15   priority 1
   3N  "To play"                      shows hcp>=15
-after 1N (P) 2C (P) 2H (P) 3D (P) when style is bba
+after 1N (P) 2C (P) 2H (P) 3D (P)
   5D  "Fit, a suit open, a maximum"  shows D>=3, !stop(C), points>=17   priority 3
   4D  "Fit, a suit open"             shows D>=4 | D=3, !stop(C)   priority 2
   4D  "Fit, a flat minimum"          shows D>=3, shortest>=3, points<=15   priority 2
   3N  "To play"                      shows hcp>=15
-after 1N (P) 2C (P) 2S (P) 3C (P) when style is bba
+after 1N (P) 2C (P) 2S (P) 3C (P)
   5C  "Fit, a suit open, a maximum"  shows C>=4, !stop(D), points>=17   priority 3
   4C  "Fit, a suit open"             shows C>=4 | (C=3, points>=16), !stop(D)   priority 2
   4C  "Fit, a flat minimum"          shows C>=3, shortest>=3, points<=15   priority 2
   3D  "Minimum, four diamonds"       shows D>=4, points<=15   priority 1
   3H  "Minimum, flat, three hearts"  shows H=3, shortest>=3, points<=15   priority 3
   3N  "To play"                      shows hcp>=15
-after 1N (P) 2C (P) 2S (P) 3D (P) when style is bba
+after 1N (P) 2C (P) 2S (P) 3D (P)
   3H  "Minimum, flat, three hearts"  shows H=3, shortest>=3, points<=15   priority 3
   5D  "Fit, a suit open, a maximum"  shows D>=3, !stop(C), points>=17   priority 3
   4D  "Fit, a suit open"             shows D>=4 | D=3, !stop(C)   priority 2

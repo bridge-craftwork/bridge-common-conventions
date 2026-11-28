@@ -1120,6 +1120,19 @@ own (opener's range 14+ to 17 or more), since their stock ranges (13-16,
 responder counts slam on the minimum, as opener does over responder's
 2NT (#91): 6NT with 33, a quantitative 4NT with 31.
 
+## Responder after 1M-1NT-2NT: every bid forces to game (Rick, 2026-11-27)
+
+Rick, 2026-11-27 (after Thorvald's mail of 2026-11-25 on Brill daily 2026-11-24 MP-strong b6): "after a 1M-1N-2N, any bid should be GF. so we shouldn't stop in a GF sequence. We could add a rule not to pass after partner's unknown bid, but this could generate an auction to 7NT if both sides take that view."
+
+Responder had Pass, 3NT and the major game only. Added (standard 2/1
+practice): 3M three-card support with 10-12 (slam interest opposite
+18-19; with less, 4M as before), a new major at the three level with
+five, a minor with six. All forcing by the declaration in game-force.bid,
+which also covers calls no rule reads, such as Brill's artificial 3H
+(exactly three spades, 10-12). Brill plays 2NT here as 17-18 with five
+spades and 3NT as 19-21 (its `/explain` on the board); not encoded yet,
+an open question for the Brill card.
+
 ## Sources
 
 - **Rick's rulings**, dated in the sections above (ticket b400, 2026-10-02: a major fit before 3NT) (the ranges and
@@ -1199,3 +1212,5 @@ responder counts slam on the minimum, as opener does over responder's
   3NT shows 15-17, 2NT shows 12-14 or 18-19". Counting 25 for game
   against the shown range is the standard point-count ladder, not yet
   cited; writing the counts that way is our decision.
+- 1M-1NT-2NT continuations: standard practice, not yet cited; Rick's
+  ruling of 2026-11-27; Brill daily 2026-11-24 MP-strong b6.

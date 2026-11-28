@@ -5,3 +5,14 @@ dealer  N
 # seat hand             | auction                              | expect | why
 # Responder's 3S after 1x-1y-2NT forced to game: opener may not pass 3S.
 N AK2.K4.AQ62.KJ73      | 1C P 1S P 2N P 3S P                  | !P     | 3S is forcing to game
+
+# ── In a game force with nothing else to say: bid game (Rick, 2026-11-27)
+# Brill dailies; every one passed below game with "No rule applies".
+card    Brill
+dealer  N
+S A4.AKJ7.K3.AKQ84      | P P 2C P 2D P 3C P 4C P  | 5C  | 2026-11-24 MP-strong b5: 2C is game forcing; game in the long clubs
+dealer  E
+S AK763.43.K63.AKQ      | P 1S P 1N P 2N P 3H P    | 3NT | 2026-11-24 MP-strong b6: forced after 1M-1NT-2NT
+card    21GF-GIB
+dealer  N
+S A4.AKJ7.K3.AKQ84      | P P 2C P 2D P 3C P 4C P  | 5C  | the same on 21GF-GIB

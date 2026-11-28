@@ -477,3 +477,11 @@ N AQ4.KJ3.K2.AKJ62      | 1D P 2C P 2NT P | 6NT | 21 opposite 12-14 or 18+: slam
 vul     NS
 N KJ64.Q73.82.Q642      | 1D P 1S P 1NT P | P   | 8 opposite 12-14: no game
 N KJ64.K73.Q2.Q642      | 1D P 1S P 1NT P | 2NT | 11 opposite 12-14: invites
+
+# ── After 1M-1NT-2NT every bid is game forcing (Rick, 2026-11-27)
+card    Brill
+dealer  N
+S J52.K32.A864.Q32      | 1S P 1N P 2N P         | 3S     | three-card support, 10-12: forcing, room for slam
+S 5.KQJ75.Q862.J32      | 1S P 1N P 2N P         | 3H     | five hearts: natural and forcing
+S Q2.K93.AJ8642.Q3      | 1S P 1N P 2N P         | 3D     | six diamonds: natural and forcing
+S 52.KJ3.Q864.T932      | 1S P 1N P 2N P         | P      | six HCP: no game opposite 18-19

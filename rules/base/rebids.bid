@@ -360,6 +360,24 @@ after 1M (P) 1N (P)
       shows M>=6, (M>=7, hcp>=13) | hcp>=19
       when  style is bba
 
+# ── After 1M-1NT-2NT and responder's game-forcing three-level bid ────
+# Every bid by responder here is game forcing (Rick, 2026-11-27;
+# responder-rebids.bid): opener chooses the game and never passes below
+# it. A known fit is played in the major or partner's major; notrump
+# otherwise, also over a call no rule reads (it shows nothing).
+after 1M (P) 1N (P) 2N (P) 3M (P)
+  4M  "Game in the 5-3 fit"                sets trump=M
+after 1M (P) 1N (P) 2N (P) 3z (P) when z is not M
+  4M  "Game in {M}: partner's three-card support"
+      when  partner.M.min >= 3
+      sets  trump=M
+      priority 1
+  4{z} "Game in partner's major: 3+ {z}"   shows z>=3
+      when  z is H | z is S, partner.z.min >= 5
+      sets  trump=z
+  3N  "Game in notrump"
+      priority -5
+
 # ── After a raise ────────────────────────────────────────────────────
 # Opener raised in a major holds the long trumps, and counts his own
 # points, HCP plus length (`hcp+length_points`), never support points:

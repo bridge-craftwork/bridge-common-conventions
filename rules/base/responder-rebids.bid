@@ -302,6 +302,23 @@ after 1x (P) 1N (P) 2N (P)
   P   "No game"                            shows points<=6
       priority -5
   3N  "Game: 7+"                           shows points>=7
+# After 1M-1NT-2NT every bid by responder is game forcing (Rick,
+# 2026-11-27; the force is declared in game-force.bid, so it holds for a
+# call no rule reads too). Brill daily 2026-11-24 MP-strong b6: P 1S P
+# 1NT P 2NT P 3H (Brill's artificial three-card raise) P, and we passed
+# in 3H with 29 HCP.
+after 1M (P) 1N (P) 2N (P)
+  3M  "Three-card support, 10-12: game forcing, slam interest"
+      shows M=3, points>=10
+      sets  trump=M
+      priority 2
+  3z  "Natural: 5+ {z}, game forcing"
+      shows z>=5, points>=7
+      when  z is H | z is S
+      when  z is not M
+  3z  "Natural: 6+ {z}, game forcing"
+      shows z>=6, points>=7
+      when  z is C | z is D
 
 # ── After a two-over-one and opener's rebid ──────────────────────────
 # A 2/1 is 11+ suit points opposite an opening, so the pair is close to
