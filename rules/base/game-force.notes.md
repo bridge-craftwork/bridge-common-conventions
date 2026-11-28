@@ -45,7 +45,7 @@ Ruling: Rick, 2026-11-27 (after Thorvald's mail of 2026-11-25 on Brill daily 202
   declaration holds for a call no rule reads (checked: Brill's
   artificial 3H shows `[GF]` in `explain-auction`), so the force does
   not depend on understanding the call.
-- The game catch-all (`when we.gf, !game_reached, rho.last=P`, priority
+- The game catch-all (`when we.gf, !game_reached, !they.bid`, priority
   -70 to -77, below every other rule): with the force on and no rule left, the engine used to
   pass anyway (docs/CONTRACT.md, "No rule"). Now: a known fit's game,
   else 3NT, else game in my own five-card suit, a four-card major, then

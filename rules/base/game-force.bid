@@ -37,10 +37,12 @@ force game after 1M (P) 1N (P) 2N (P) when !call = P
 # after 1M-1NT-2NT. These are the last resort, below every other rule (priority -70 and
 # lower; the pack's own fallbacks go down to -60):
 # the cheapest sensible game, a known fit first, then notrump, then my
-# own long suit. Each is a game, so they end the force: two calls no
+# own long suit. Uncontested only: over their bid a pass may be a
+# forcing pass, and pulling their 4S or our double lost (random deals).
+# Each is a game, so they end the force: two calls no
 # rule reads cannot carry the auction past game this way (Rick,
 # 2026-11-27: a "never pass an unknown call" rule could run to 7NT).
-when we.gf, !game_reached, rho.last=P
+when we.gf, !game_reached, !they.bid
   4S  "Game in the spade fit"              shows we.fit(S).min >= 8
       priority -70
   4H  "Game in the heart fit"              shows we.fit(H).min >= 8, we.fit(S).min <= 7
