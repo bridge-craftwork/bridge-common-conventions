@@ -141,3 +141,33 @@ S 87.Q943.J854.T62      | 1S P 1N X P    | 2H     | four hearts, weak: the cheap
 S T62.Q87.KQ943.54      | 1S P 1N X P    | 2D     | five diamonds, no four-card major
 S KJ94.Q82.A62.874      | 1S P 1N X P    | P      | 10 HCP balanced with the spades held: defend 1NT doubled
 S T62.87.Q943.J854      | 1C P 1N X P    | 2S     | the double showed the majors: the three-card spade answer
+
+# The overcaller's second call (Brill gaps F2/F3, 2026-11-27)
+card    21GF-GIB
+vul     None
+dealer  W
+S KQ953.Q9.AKJ42.8         | P P 1C 1S 2C P P       | 2D   | 5-5 after their raise: the second suit (2026-11-18 IMP-strong b4)
+dealer  E
+S KQJ32.AQ63.72.Q7         | 1D 1S 2D P P           | 2H   | 5-4 and 14: the second suit (2026-11-08 IMP-strong b2)
+dealer  E
+S KQJ32.Q763.72.Q7         | 1D 1S 2D P P           | P    | 5-4 and 9: not enough
+dealer  W
+S KQJ932.K2.Q4.KJ7         | P P 1C 1S X P 2H       | 2S   | six spades after their negative double (2026-11-19 IMP-strong b4)
+dealer  E
+S T3.AQ.AKQT9754.7         | 1C 1D X P 1H           | 3D   | eight diamonds and 19 total points: jump (2026-11-13 IMP b2)
+dealer  N
+S KJ543.A963.A.KJ7         | P 1C 1S X P 2C         | 2H   | 5-4 and 16: the second suit (2026-10-09 IMP-strong b1)
+dealer  N
+S KJ543.A963.5.KJ7         | P 1C 1S X P 2C         | P    | 5-4 and 12: pass
+dealer  E
+S J7.AKJ65.Q42.976         | 1C 1H 1N 3C P          | 3H   | the mixed raise, a minimum (2026-11-25 MP b2)
+dealer  E
+S A7.AKJ65.KQ2.976         | 1C 1H 1N 3C P          | 4H   | the mixed raise with 16: game
+dealer  E
+S KJ6.3.AKQT87653.         | 1C 1D 3C 3H 4C         | 4D   | nine diamonds, a void in partner's suit (2026-11-04 IMP-strong b2; field 5D)
+dealer  E
+S KJ95.KT8652.74.A         | 1C 1H 1N 2D P          | 2H   | six hearts over partner's 2D (2026-10-22 MP-strong b6)
+dealer  E
+S AQJ974.A3.T.J632         | 1D 1S 2D 2S 3D         | 3S   | nine trumps: the Law, to three (2026-10-16 IMP b2)
+dealer  N
+S AKJ8.J97.A32.KJ9         | P 1C 1N 2H 2S 3H       | 3S   | partner's five spades and my four: the Law (2026-10-30 IMP b5)

@@ -246,6 +246,15 @@ rule that bids. Partner reads the call by the higher rule alone
 changes (BIDDING-MODEL 3.6; the idiom of rkcb-1430.bid). The cost: these
 calls count in compare's "calls read as a higher rule than chose them".
 
+## Second calls after their weak two (Brill gaps, 2026-11-27)
+
+- The overcaller after their raise and partner's pass, `(2x) 2y (3x) P
+  (P)`: a six-card suit with 12+ competes (2♦ 2♠ 3♦ P P with
+  AJ9732.KQ6.9.KT6: 3♠, field 8 of 16).
+- The doubler after they bid on (their raise to three or four, or a new
+  suit raised or not): a six-card major with 18+ total points (2♦ X 2♥ P
+  3♥ with AQJT93.K5.KJ4.AK: 3♠; 2♦ X 4♦ P P with KJ9.AKT532..AQ53: 4♥).
+
 ## Sources
 
 - **Rick's rulings:** start on the defence against preempts (2026-09-27).
@@ -280,3 +289,4 @@ calls count in compare's "calls read as a higher rule than chose them".
   block, not quoted. Motive: the Brill dailies named above.
 - GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.
 - GIB's bidding tree (BBO's `gibrest`, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), agreed-path comparison on 21GF-GIB (top 5,000 positions of 100,000 random deals), Rick 2026-11-25 (BIDDING-MODEL 3.6 and 4.3): the description rules and floors in the section of that date above.
+- Brill daily problem boards, 2026-10-08..11-26 (rusty-bidding-bot `docs/reviews/2026-11-27-brill-gaps.md`, patterns F2/F3/F4): the field's calls at each position, scored at double dummy; GIB's tree at the same positions as a check (`gib_tree.py show`).

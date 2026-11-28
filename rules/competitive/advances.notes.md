@@ -427,6 +427,41 @@ chose them".
   positions): 11, the raise's and 1NT's top (GIB 10- at 1♦ 1♠ P P);
   it read 0-23. 12+ cue-raises, bids 2NT or a suit. Measured (top 20,000): the one-level negative double (1,117 call-boards) left the top 40; the signoff's points top closed (588 -> 0), its suit lengths remain (minimum 3-card minor, GIB 4+).A
 
+## The overcaller's second call (Brill gaps, 2026-11-27)
+
+Rick ("go", 2026-11-27) on the second-calls-in-competition pass. Thorvald's
+flagged Brill boards showed the overcaller passing by the defending side's
+catch-all (`No further bid`) with more to say. Added:
+- `(1x) 1y (2x) P (P)`: a second suit at the two level, five-five from 10
+  HCP, five-four from 12 (1♣ 1♠ 2♣ P P with KQ953.Q9.AKJ42.8: 2♦; 1♦ 1♠ 2♦
+  P P with KQJ32.AQ63.72.Q7: 2♥). GIB: 4+ in the suit, 5+ spades, 10-19
+  total points.
+- `(1x) 1y (X) P (1z/2z)`: after their negative double and opener's rebid,
+  rebid a six-card suit from 14 HCP, jump with six and 18+ total points, a
+  second four-card suit with 15+ (1♣ 1♠ X P 2♥ with KQJ932.K2.Q4.KJ7: 2♠,
+  field 18 of 20; 1♣ 1♦ X P 1♥ with eight diamonds and 15: 3♦).
+- The rebid of a six-card suit after partner's new suit also over their
+  1NT: `(1x) 1y (1N) 2z (P)`.
+- A seven-card suit short in partner's suit after partner's new suit and
+  their competing: `cheapest(y)` (1♣ 1♦ 3♣ 3♥ 4♣ with nine diamonds and a
+  heart void: 4♦; the field bid 5♦).
+- The mixed raise (jump cue) also over RHO's 1NT, with its answers (1♣ 1♥
+  1NT 3♣ from Brill was unread and passed out).
+- Partner's raise and their competing now reaches the Law of Total
+  Tricks (total-tricks.notes.md).
+
+**Measured** (100,000 random deals, `Random_Pavlicek_21GF`, base
+`bottom-review` a3bffe8 against this branch, `errors_diff.py`, the side
+that made the first differing call): 741 boards change, the actor's
+contract errors **+274 IMPs** (+0.37 a board; halves +151 / +123),
+distance from par +384. Two parts lost and were changed: the raise of
+partner's new suit over their 1NT (-232 on 75 boards; left out) and
+the six-card rebid after their negative double from 10 HCP (-65 on 257;
+now 14+, -10 on 60 over the three suits). Largest gains: the Law after
+partner's raise (+289 on 461 boards), game opposite the jump advance
+(+34 on 5). The opponents' doubling errors worsen (-660): they fail to
+double our new competitive calls, which does not judge the call.
+
 ## Sources
 
 - **The ranges:** BBA's Basic-Bridge meanings, which are the usual ones,
@@ -462,3 +497,4 @@ chose them".
   matches.
 - GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.
 - Advancing after (1x) P (1N) (2026-11-26): standard practice, not yet cited; GIB's tree for the ranges.
+- Brill daily problem boards, 2026-10-08..11-26 (rusty-bidding-bot `docs/reviews/2026-11-27-brill-gaps.md`, patterns F2/F3/F4): the field's calls at each position, scored at double dummy; GIB's tree at the same positions as a check (`gib_tree.py show`).

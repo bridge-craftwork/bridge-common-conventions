@@ -129,6 +129,20 @@ after (1x) 1N (2x)
   P   "Not enough to advance"                        shows hcp>=0
       priority -5
 
+# Advancer when responder bids a new suit over our 1NT overcall (Brill
+# gaps F3, 2026-10-30 IMP b5: 1♣ 1NT 2♥ 2♠ from Brill, which we had no
+# rule for, so the overcaller could not compete in spades). As over
+# their raise: a five-card suit at the two level to play, 3NT with 9+
+# and their suits held.
+after (1x) 1N (2y) when y is not x, y is not N
+  cheapest(S) "To play: five or more spades"    shows S>=5, hcp<=8
+      when  x is not S, y is not S, cheapest_rank(S)<=13
+  cheapest(H) "To play: five or more hearts"    shows H>=5, S<=4 | x is S | y is S, hcp<=8
+      when  x is not H, y is not H, cheapest_rank(H)<=13
+  3N  "Game: 9+, {y} held"                      shows hcp>=9, stop(y)
+  P   "Not enough to advance"                   shows hcp>=0
+      priority -5
+
 # ── Over their 1NT, natural (2026-09-25, probes/vs-1N.toml) ───────────
 # No rules existed. BBA on Basic-Bridge (no conventional defence): a
 # five-card suit at the two level with 12+ total points (six cards from

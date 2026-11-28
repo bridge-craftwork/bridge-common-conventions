@@ -52,3 +52,11 @@ N 9832.Q7.K962.T84          | 1H P 2H P P 2N P | 3D | the longer minor
 N 9832.Q73.K92.T84          | 1H P 2H P P 2N P | 3C | equal minors: the cheaper
 S J853.Q732.K92.84          | 1D P 1S P 2S P P X P | 3H | four hearts and two clubs: the longer unbid suit
 N Q4.KQT75.K92.T84          | 1H P 2H P P X P | P   | five hearts behind the raise: defend 2H doubled
+
+# The reopening doubler after the jump advance (Brill gaps F4, 2026-11-27)
+card    21GF-GIB
+vul     None
+dealer  W
+S AJ3.AKQ542.J6.AQ         | 1D P P X P 3C P        | 3H   | six hearts and 21: forcing (2026-10-08 MP-strong b4)
+dealer  W
+S AJ3.K9542.J65.Q7         | 1D P P X P 3C P        | P    | five hearts and 11: pass

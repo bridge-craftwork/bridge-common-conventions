@@ -160,11 +160,13 @@ after (1x) 1y (1z) | (1x) P (P) 1y (1z)
 
 # The mixed raise holds over RHO's double or one-level bid too (BBA's
 # `Mixed raise` switch plays it there and only there: advances.notes.md,
-# "Mixed raise"). The direct seat only: a balancing
+# "Mixed raise"). Over RHO's 1NT too (Brill gaps F3, 2026-11-25 MP b2:
+# 1♣ 1♥ 1NT 3♣ from Brill, which we read as nothing, so the overcaller
+# passed it out; the field bid 3♥/4♥). The direct seat only: a balancing
 # overcall's ranges are two points higher. Not vulnerable only, in both
 # places: BBA's limit, and the jump to three vulnerable drew the
 # penalty doubles (contract errors -100 -> +4 in the self A/B).
-after (1x) 1y (X) | (1x) 1y (1z)
+after (1x) 1y (X) | (1x) 1y (1z) | (1x) 1y (1N)
   3{x} "Mixed raise: 4+ {y}, 7-9 support points"
       alert  artificial
       shows  y>=4, tp(y)=7..9
@@ -279,7 +281,7 @@ when asked cue_raise(t)
 # Over the mixed raise (7-9 support points, four trumps): game wants
 # about 25, so 16 or more bids it; else three of the suit, which the jump
 # cuebid always leaves room for over a one-level overcall.
-after (1x) 1y (P) 3x (P) | (1x) 1y (X) 3x (P) | (1x) 1y (1z) 3x (P)
+after (1x) 1y (P) 3x (P) | (1x) 1y (X) 3x (P) | (1x) 1y (1z) 3x (P) | (1x) 1y (1N) 3x (P)
   4{y} "Accepts: game in {y}"
       shows hcp+length_points>=16
       when  mixed, y is H | y is S
@@ -306,6 +308,14 @@ after (1x) 1y (P) 2z (P)
       when  y is not C
       priority -1
   P   "No further bid"                  priority -5
+# Over their 1NT response the six-card rebid only (Brill gaps F3,
+# 2026-10-22 MP-strong b6: 1♣ 1♥ 1NT 2♦ P with six hearts passed). The
+# raise of partner's suit with four lost there on random deals (-232
+# IMPs on 75 boards, 2026-11-27): left out.
+after (1x) 1y (1N) 2z (P)
+  2{y} "Six or more {y}"                     shows y>=6, z<=3
+      when  y is not C
+  P   "No further bid"                  priority -5
 
 # The overcaller again after (1x) 1y (2x) P (P): BBA rebids a six-card
 # suit with 12+ (2026-09-25). It also doubles for takeout with a
@@ -315,7 +325,50 @@ after (1x) 1y (P) 2z (P)
 # rebids 2{y} with six from 10 HCP (2026-10-02, 88 hands).
 after (1x) 1y (2x) P (P)
   2{y} "Competes: six or more {y}"           shows y>=6, hcp>=10
+  # A second suit at the two level (Brill gaps F2, 2026-11-27: 1♣ 1♠ 2♣
+  # P P with 5-5 and 1♦ 1♠ 2♦ P P with 5-4 and 14 passed; the field bid
+  # the second suit). Five-five from 10 HCP, five-four from 12. GIB's
+  # tree: 4+ in the suit, 5+ spades, 10-19 total points.
+  cheapest(H) "Competes: a second suit, hearts"
+      shows H>=4, y>=5, y<=5, (H>=5, hcp>=10) | hcp>=12
+      when  x is not H, y is not H, cheapest_rank(H)<=13
+  cheapest(D) "Competes: a second suit, diamonds"
+      shows D>=4, H<=3 | y is H, y>=5, y<=5, (D>=5, hcp>=10) | hcp>=12
+      when  x is not D, y is not D, cheapest_rank(D)<=13
+  cheapest(C) "Competes: a second suit, clubs"
+      shows C>=4, H<=3 | y is H, D<=3 | y is D, y>=5, y<=5, (C>=5, hcp>=10) | hcp>=12
+      when  x is not C, y is not C, cheapest_rank(C)<=13
   P   "No further bid"                          priority -5
+
+# The overcaller after their negative double, opener's rebid and
+# partner's pass (Brill gaps F2, 2026-11-27: 1♣ 1♠ X P 2♥ with six
+# spades and 15 passed, field 2♠ 18 of 20; 1♣ 1♦ X P 1♥ with eight
+# diamonds passed, field 2♦/3♦). Rebid a six-card suit; jump with six
+# and 18+ total points; a second suit with 15+.
+after (1x) 1y (X) P (1z) | (1x) 1y (X) P (2z) when z is not y
+  # From 14 HCP: from 10 it lost (-65 IMPs on 257 boards, random
+  # deals 2026-11-27), from 12 still -32 on 173; opener's free bid
+  # after the negative double leaves partner little.
+  cheapest(y) "Competes: six or more {y}"    shows y>=6, hcp>=14
+      when  cheapest_rank(y)<=13
+  3{y} "Six or more {y}, 18+ total points"   shows y>=6, hcp+length_points>=18
+      when  cheapest_rank(y)<=13
+      priority 1
+  cheapest(S) "A second suit: spades, 15+"   shows S>=4, y>=5, hcp>=15
+      when  x is not S, y is not S, z is not S, cheapest_rank(S)<=13
+  cheapest(H) "A second suit: hearts, 15+"   shows H>=4, y>=5, hcp>=15
+      when  x is not H, y is not H, z is not H, cheapest_rank(H)<=13
+  cheapest(D) "A second suit: diamonds, 15+" shows D>=4, y>=5, hcp>=15
+      when  x is not D, y is not D, z is not D, cheapest_rank(D)<=13
+  P   "No further bid"                          priority -5
+
+# The overcaller with a long suit and no fit after partner's new suit
+# and their competing (Brill gaps F3, 2026-11-04 IMP-strong b2: 1♣ 1♦
+# 3♣ 3♥ 4♣ with nine diamonds and a void in hearts passed; field 5♦).
+after (1x) 1y (*) 2z (*) | (1x) 1y (*) 3z (*) when z is not x, z is not y, !rho.last=P
+  cheapest(y) "Seven or more {y}, short in partner's suit"
+      shows y>=7, z<=1, hcp>=10
+      when  cheapest_rank(y)<=22
 
 # ── Advancing from the sandwich seat ─────────────────────────────────
 # Partner came in after (1x) P (1y) (overcalls.bid, 2026-10-07). I have

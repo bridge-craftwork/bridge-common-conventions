@@ -531,6 +531,31 @@ after (2x) 2y (P) | (2x) 3y (P) | (3x) 3y (P) | (3x) 4y (P) | (2x) P (P) 2y (P) 
   3N  "Game: 12+ with {x} stopped"                   shows hcp+length_points>=12, stop(x), y<=2
   P   "Nothing to add"                               priority -10
 
+# The overcaller after their raise and partner's pass: (2x) 2y (3x) P
+# (P). A six-card suit with 12+ competes (Brill gaps F2, 2026-11-08 MP
+# b2: 2♦ 2♠ 3♦ P P with AJ9732 and 13 passed; field 3♠ 8 of 16).
+after (2x) 2y (3x) P (P) when y is not x, x is not C, x is not N
+  3{y} "Competes: six or more {y}, 12+"            shows y>=6, hcp>=12
+  P   "No further bid"                               priority -5
+
+# The doubler of a weak two after they bid on (Brill gaps F4,
+# 2026-11-27): their raise, (2x) X (3x) P (P) or (2x) X (4x) P (P), or
+# a new suit, (2x) X (2y) P (3y) / (2x) X (3y) P (P). A six-card major
+# with 18+ total points is bid (2026-11-22 MP-strong b2: 2♦ X 2♥ P 3♥
+# with AQJT93 and 21 passed, field 3♠/4♠; 2026-10-17 IMP-strong b4:
+# 2♦ X 4♦ P P with AKT532 hearts and 17 passed, field 4♥).
+after (2x) X (3x) P (P) | (2x) X (4x) P (P) | (2x) X (2y) P (3y) | (2x) X (3y) P (P) | (2x) X (2y) P (P) when x is not C, x is not N
+  cheapest(S) "Six or more spades, 18+ total points"
+      converts X
+      shows S>=6, hcp+length_points>=18, x<=1 | cheapest_rank(S)<=18   # at the four level, short in theirs
+      when  x is not S
+      when  cheapest_rank(S)<=23
+  cheapest(H) "Six or more hearts, 18+ total points"
+      converts X
+      shows H>=6, S<=3, hcp+length_points>=18, x<=1 | cheapest_rank(H)<=17   # at the four level, short in theirs
+      when  x is not H
+      when  cheapest_rank(H)<=22
+
 # ── Advancer after our 2NT (15-17) ───────────────────────────────────
 after (2x) 2N (P) when x is not C
   3N  "Game: 9+"                                     shows hcp>=9, S<=5, H<=5

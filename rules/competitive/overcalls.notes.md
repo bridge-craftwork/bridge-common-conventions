@@ -490,6 +490,13 @@ six-card suit with 6 HCP now makes a weak jump overcall
 (KQJ954.32.432.32 over 1♦: 2♠). Our total-points floor stays a point
 under GIB's (Rick's 8, BBA's Basic-Bridge meaning).
 
+## Advancer over their new suit after our 1NT overcall (Brill gaps, 2026-11-27)
+
+`(1x) 1N (2y)`: no rule existed, so partner's natural 2♠ over 1♣ 1NT 2♥
+was read as nothing and the overcaller could not compete. As over their
+raise: a five-card suit at the two level to play (8 or less), 3NT with 9+
+and their suit held, else pass.
+
 ## Sources
 
 - Brill /explain, 2026-10-15 (Thorvald Aagaard's public Brill service, answers cached in `.rbb-cache/brill-service/explain/`): the rule text quoted in the `brill` section and in the `.bid` comments. Applies to the Brill card only (`general.system = brill`, cards/README.md "Brill").
@@ -499,3 +506,4 @@ under GIB's (Rick's 8, BBA's Basic-Bridge meaning).
 - GIB's bidding tree (BBO's `gibrest` service, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), compared on agreed paths (`probes/tools/gib_tree.py agreed`, 21GF-GIB, the top 5,000 positions of 100,000 random deals), and Rick 2026-11-25 (BIDDING-MODEL 4.3: settle the lower levels by the GIB comparison, not IMPs): the points tops on the passes in "Tops on the passes" above.
 - GIB's tree (as above) and Rick 2026-11-25: the HCP floor in "The one-level overcall's HCP floor".
 - The fourth seat after (1x) P (1N) (2026-11-26): standard practice, not yet cited, for the calls; their values from the random-deal measurement in that section (Random_Pavlicek_21GF, errors_diff.py); GIB's tree (`probes/tools/gib_tree.py show 1S-P-1N` and the others named there) for its ranges and differences.
+- Brill daily problem boards, 2026-10-08..11-26 (rusty-bidding-bot `docs/reviews/2026-11-27-brill-gaps.md`, patterns F2/F3/F4): the field's calls at each position, scored at double dummy; GIB's tree at the same positions as a check (`gib_tree.py show`).

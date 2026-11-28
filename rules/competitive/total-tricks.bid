@@ -50,7 +50,17 @@ define minor_preempt(x) = !opened_minor(x) | x >= 6
 define weak_jump_raise(y) = y >= 5 | favourable
 
 # Our trumps as the Law counts them, a trick fewer at unfavourable.
-define lott_trumps(x) = we.fit(x).min + doubler_four(x) - unfavourable
+# On the defending side, once partner has bid the suit himself, his
+# length is what that bid showed and the takeout-double bonus does not
+# apply (Brill gaps F3, 2026-11-27: after 1♦ 1♠ 2♦ 2♠ 3♦ the bonus
+# counted partner's three-card raise as a double, no level's count
+# matched, and the six-card overcall passed; field 3♠). The opening
+# side is left as it was: there the same miscount keeps opener's
+# minimum from competing to 3M over their overcall, which
+# maximal-doubles.test expects with maximal doubles off; an open
+# question (second-calls-defence notes).
+define defending_named(x) = partner.named(x), lho.opened | rho.opened
+define lott_trumps(x) = we.fit(x).min + (!defending_named(x), doubler_four(x)) - unfavourable
 
 # They are competing: the last bid or double at the table is theirs, made
 # over our side's last bid (RHO's call, or LHO's when partner and RHO have
@@ -66,7 +76,7 @@ define they_compete = !rho.last=P | (partner.last=P, !lho.last=P)
 when they.bid, they.still_bidding, !game_reached   # not once we have bid game (ticket b100)
   2x  "Competes: to play"
       shows lott_trumps(x) = 8
-      when  doubler_four(x) | !doubler_four(x)       # known either way: not while the double may be the strong one
+      when  defending_named(x) | doubler_four(x) | !doubler_four(x)   # known either way: not while the double may be the strong one; not counted once partner has bid the suit (defending)
       when  partner.x>=3
       shows hcp>=5, hcp+partner.hcp.min<=24          # not clearly our hand (we.hcp.min)
       when  they_compete                             # the weak raise to two only against a bid (2026-10-02)
@@ -74,14 +84,14 @@ when they.bid, they.still_bidding, !game_reached   # not once we have bid game (
       priority -4
   3x  "Competes: to play"
       shows lott_trumps(x) = 9
-      when  doubler_four(x) | !doubler_four(x)
+      when  defending_named(x) | doubler_four(x) | !doubler_four(x)
       when  partner.x>=3
       shows hcp>=5, hcp+partner.hcp.min<=24
       sets  ask=signoff
       priority -4
   4x  "Competes: to play"
       shows lott_trumps(x) >= 10
-      when  doubler_four(x) | !doubler_four(x)
+      when  defending_named(x) | doubler_four(x) | !doubler_four(x)
       when  partner.x>=3
       shows hcp>=5, hcp+partner.hcp.min<=24
       sets  ask=signoff

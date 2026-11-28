@@ -231,6 +231,13 @@ errors −24, distance from par −18: no calls outside the balancing seat
 moved beyond noise. `bid test`: 3,359 cases, 5 failures, the known five
 in serious-3nt.test.
 
+## The reopening doubler after the jump to three (Brill gaps, 2026-11-27)
+
+`(1x) P (P) X (P) 3y (P)`: the jump advance is 12-14 (a borrowed king), so
+a five-card major with 16+ total points is natural and forcing, 3NT with
+13+ and their suit held, else pass (1♦ P P X P 3♣ P with
+AJ3.AKQ542.J6.AQ: 3♥, field 7 of 11; we passed by the catch-all).
+
 ## Sources
 
 - **Rick's rulings:** follow BBA's meanings, which are the usual lighter
@@ -258,3 +265,4 @@ in serious-3nt.test.
 - **GIB's tree** for the new positions (archived 2026-11-26): the table
   in "Over their fit"; GIB is a check, not the target (Rick).
 - GIB's bidding tree (BBO's `gibrest`, archived in rusty-bidding-bot `.rbb-cache/gib-tree/xml/`), agreed-path comparison on 21GF-GIB (top 5,000 positions of 100,000 random deals), Rick 2026-11-25 (BIDDING-MODEL 3.6 and 4.3): the description rules and floors in the section of that date above.
+- Brill daily problem boards, 2026-10-08..11-26 (rusty-bidding-bot `docs/reviews/2026-11-27-brill-gaps.md`, patterns F2/F3/F4): the field's calls at each position, scored at double dummy; GIB's tree at the same positions as a check (`gib_tree.py show`).

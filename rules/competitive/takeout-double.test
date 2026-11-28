@@ -111,3 +111,17 @@ N 9643.85.T872.Q64          | 1C X 2H P P X P | 2S   | four-four: the major
 N 8643.5.KT872.Q64          | 1C X 2H P P X P | 3D   | five diamonds, four spades: the longer
 N K864.52.Q972.K64          | 1C X 2H P P X P | 3S   | 8 HCP and four spades: jump
 N 74.KJT98.T52.J43          | 1C X 2H P P X P | P    | five hearts: penalty
+
+# The doubler again (Brill gaps F4, 2026-11-27)
+card    21GF-GIB
+vul     None
+dealer  W
+S KJ3.QT.AKQ8432.Q         | P P 1H X 2H P P        | 3D   | seven diamonds and 17 after their raise (2026-11-07 MP-strong b8)
+dealer  N
+S AQ6.T84.AJ.AKJT6         | P 1H X 2H P P          | 3C   | five clubs and 19 (2026-11-05 IMP-strong b1)
+dealer  N
+S AQ6.T84.Q2.AKJT6         | P 1H X 2H P P          | P    | five clubs and 16: pass
+dealer  N
+S A.AKQ98765.K.J87         | P 1C X P 2D P          | 4H   | nine hearts opposite the jump advance: game (2026-11-20 MP-strong b5)
+dealer  N
+S A2.AKQ98.K4.J876         | P 1C X P 2D P          | 2H   | five hearts opposite the jump: the cheapest

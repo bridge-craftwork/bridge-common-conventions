@@ -208,6 +208,21 @@ changes before it.
 - **The two-level Law rule from 8 HCP** (was 5): +6 on vanilla,
   contract −278, side IMPs −1,373.
 
+## The doubler's bonus after partner's own bid (Brill gaps, 2026-11-27)
+
+`lott_trumps` adds one for partner's takeout double of a major
+(`doubler_four`). After partner had raised or bid the suit himself
+(1♦ 1♠ 2♦ 2♠ 3♦), that term still entered the count and no level's count
+matched: the six-card overcaller passed, where nine trumps say 3♠ (field
+3♠ 10, 4♠ 6). On the defending side the bonus is now left out once
+partner has named the suit (`defending_named`).
+
+**Open:** the opening side has the same miscount (1♠ P 2♠ 3♥: opener's
+six-card minimum passes instead of competing to 3♠). Fixing it there
+broke `maximal-doubles.test` ("maximal doubles off: a minimum passes",
+because 3♠ would then be a game try), so it is left for the opener-side
+pass and Rick.
+
 ## Sources
 
 - **The principle:** the Law of Total Tricks (LoTT), compete to the level
@@ -233,3 +248,4 @@ changes before it.
   vanilla SAYC compare JSON; par_blame (`probes/tools/par_blame.py`) on
   the same; the variants in "Tried and not kept", by
   `probes/tools/errors_diff.py`.
+- Brill daily problem boards, 2026-10-08..11-26 (rusty-bidding-bot `docs/reviews/2026-11-27-brill-gaps.md`, patterns F2/F3/F4): the field's calls at each position, scored at double dummy; GIB's tree at the same positions as a check (`gib_tree.py show`).

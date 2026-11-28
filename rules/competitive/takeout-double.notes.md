@@ -395,6 +395,15 @@ mentions stays. The doubler's call is X either way.
   convention (its own notes), only on our three-level weak jumps over
   a double, which want seven cards or a lower top: open question.
 
+## The doubler again: minors over their raise, game opposite the jump (Brill gaps, 2026-11-27)
+
+- `(1x) X (2x) P (P)`: the minors at the three level, five with 17+ or six
+  with 16+ (1♥ X 2♥ P P with KJ3.QT.AKQ8432.Q: 3♦; with AQ6.T84.AJ.AKJT6:
+  3♣). Only the majors were written (16+ and five).
+- `(1x) X (P) 2y (P)` after the jump advance (`partner.jumped`): game in a
+  six-card major with 18+ total points (1♣ X P 2♦ P with A.AKQ98765.K.J87:
+  4♥; we bid 2♥, field 4♥).
+
 ## Sources
 
 - **Rick's rulings:** the double (12 total points and three cards in
@@ -421,3 +430,4 @@ mentions stays. The doubler's call is X either way.
 - GIB's tree, the top 20,000 positions (2026-11-26; Rick 2026-11-25, BIDDING-MODEL 3.6): the double's description short in their suit.
 - Rick, 2026-11-25: the power double converts when the doubler shows his own suit or notrump; 18+ for a suit (GIB 17+), 19-21 for notrump.
 - Rick, 2026-11-27 (Brill daily 2026-11-26 board 1): the doubler doubles again in the pass-out seat to show the other two suits. GIB's tree, P-1C-D-2H-P-P (archived), for the ranges. Advancer's answers and the notrump stopper rule: standard practice, not yet cited.
+- Brill daily problem boards, 2026-10-08..11-26 (rusty-bidding-bot `docs/reviews/2026-11-27-brill-gaps.md`, patterns F2/F3/F4): the field's calls at each position, scored at double dummy; GIB's tree at the same positions as a check (`gib_tree.py show`).
