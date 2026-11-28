@@ -34,36 +34,37 @@ force game after 1M (P) 1N (P) 2N (P) when !call = P
 # A game force forbids the pass, but when no rule applies the engine
 # passes anyway (docs/CONTRACT.md, "No rule"). Brill dailies, round 3:
 # 2C P 2D P 3C P 4C P passed (2026-11-24 MP-strong b5), and the passes
-# after 1M-1NT-2NT. These are the last resort below every other rule:
+# after 1M-1NT-2NT. These are the last resort, below every other rule (priority -70 and
+# lower; the pack's own fallbacks go down to -60):
 # the cheapest sensible game, a known fit first, then notrump, then my
 # own long suit. Each is a game, so they end the force: two calls no
 # rule reads cannot carry the auction past game this way (Rick,
 # 2026-11-27: a "never pass an unknown call" rule could run to 7NT).
 when we.gf, !game_reached, rho.last=P
   4S  "Game in the spade fit"              shows we.fit(S).min >= 8
-      priority -30
+      priority -70
   4H  "Game in the heart fit"              shows we.fit(H).min >= 8, we.fit(S).min <= 7
-      priority -30
+      priority -70
   3N  "Game in notrump"                    shows we.fit(S).min <= 7, we.fit(H).min <= 7
-      priority -31
+      priority -71
   5C  "Game in the club fit"               shows we.fit(C).min >= 8, we.fit(S).min <= 7, we.fit(H).min <= 7
-      priority -31
+      priority -71
   5D  "Game in the diamond fit"            shows we.fit(D).min >= 8, we.fit(S).min <= 7, we.fit(H).min <= 7
-      priority -31
+      priority -71
   4S  "Game: five or more spades"          shows S>=5
-      priority -32
+      priority -72
   4H  "Game: five or more hearts"          shows H>=5
-      priority -32
+      priority -72
   5C  "Game: five or more clubs"           shows C>=5
-      priority -33
+      priority -73
   5D  "Game: five or more diamonds"        shows D>=5
-      priority -33
+      priority -73
   4S  "Game: four spades"                  shows S>=4
-      priority -34
+      priority -74
   4H  "Game: four hearts"                  shows H>=4
-      priority -34
-  3N  "Game"                               priority -35
-  4H  "Game"                               priority -36
-  4S  "Game"                               priority -36
-  5C  "Game"                               priority -37
-  5D  "Game"                               priority -37
+      priority -74
+  3N  "Game"                               priority -75
+  4H  "Game"                               priority -76
+  4S  "Game"                               priority -76
+  5C  "Game"                               priority -77
+  5D  "Game"                               priority -77

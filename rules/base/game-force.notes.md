@@ -46,7 +46,7 @@ Ruling: Rick, 2026-11-27 (after Thorvald's mail of 2026-11-25 on Brill daily 202
   artificial 3H shows `[GF]` in `explain-auction`), so the force does
   not depend on understanding the call.
 - The game catch-all (`when we.gf, !game_reached, rho.last=P`, priority
-  -30 to -37): with the force on and no rule left, the engine used to
+  -70 to -77, below every other rule): with the force on and no rule left, the engine used to
   pass anyway (docs/CONTRACT.md, "No rule"). Now: a known fit's game,
   else 3NT, else game in my own five-card suit, a four-card major, then
   any game. Each is game, so it ends the force: this is the bounded form
